@@ -1,10 +1,10 @@
 {
   "meta": {
-    "generatedAt": "2026-06-16T12:45:00.000Z",
+    "generatedAt": "2026-07-01T18:54:16.585Z",
     "dataAsOf": "FY25",
-    "model": "claude (sample synthesis — replaced by INSIGHTS_MODEL in CI)",
-    "signalsComputed": 59,
-    "signalHash": "sig_d8e0a284",
+    "model": "deterministic-keyless (no-AI synthesis; plain templated prose, live numbers)",
+    "signalsComputed": 92,
+    "signalHash": "sig_8b483ce",
     "coverage": [
       {
         "insurer": "niva-bupa",
@@ -13,23 +13,23 @@
       },
       {
         "insurer": "star-health",
-        "readyPct": 91,
-        "gapped": 1
+        "readyPct": 83,
+        "gapped": 3
       },
       {
         "insurer": "care-health",
-        "readyPct": 89,
-        "gapped": 1
+        "readyPct": 73,
+        "gapped": 4
       },
       {
         "insurer": "aditya-birla",
-        "readyPct": 88,
-        "gapped": 1
+        "readyPct": 73,
+        "gapped": 4
       },
       {
         "insurer": "manipalcigna",
-        "readyPct": 89,
-        "gapped": 1
+        "readyPct": 75,
+        "gapped": 4
       }
     ]
   },
@@ -38,10 +38,10 @@
       "id": "care-solvency-runway",
       "rank": 1,
       "category": "capital",
-      "headline": "Care Health has the sector's shortest solvency runway — a capital raise looks nearest here",
+      "headline": "Care Health has the panel's shortest solvency runway — a capital raise looks nearest here",
       "shortHeadline": "Care is closest to a capital raise",
-      "summary": "\"Above the floor\" looks safe — but it isn't the whole story. At 1.68x solvency, just 0.18x above the 1.5x regulatory floor and compounding premiums near 21% a year, Care's headroom erodes faster than anyone's. Its runway to a forced raise is under a year, versus roughly 3.8 for Niva and 4.1 for Star.",
-      "thesis": "Care runs solvency at 1.68x — only 12% above the 150% regulatory floor — while compounding GWP at roughly 21%. On that growth, the headroom drifts toward the floor far faster than Niva (~3.8 years) or Star (~4.1 years). Of the five, Care has the least room to grow before a capital action is forced.",
+      "summary": "At 1.68x solvency — only just above the 1.5x regulatory floor — Care's headroom erodes fastest as it keeps compounding premium. Its runway to a forced raise is about 0.6 years, versus roughly 2.9 for Niva and 3.8 for Star.",
+      "thesis": "Care runs solvency at 1.68x, just above the 150% control floor, while growing premium fast. On that growth the cushion reaches the floor in about 0.6 years — far sooner than Niva (~2.9) or Star (~3.8). Of the panel, Care has the least room before a capital action is forced.",
       "whatConsensusMisses": "\"Above the floor\" reads as safe, but growth-adjusted, Care's runway is the thinnest in the panel — the dilution / raise catalyst is near-term and concrete, not a tail risk.",
       "evidence": [
         {
@@ -70,7 +70,7 @@
         {
           "insurer": "niva-bupa",
           "metric": "Raise-pressure horizon (heuristic)",
-          "value": 3.8,
+          "value": 2.9,
           "unit": "periods",
           "context": "far longer runway for contrast",
           "layers": [
@@ -81,7 +81,7 @@
         {
           "insurer": "star-health",
           "metric": "Raise-pressure horizon (heuristic)",
-          "value": 4.1,
+          "value": 3.8,
           "unit": "periods",
           "context": "far longer runway for contrast",
           "layers": [
@@ -92,7 +92,7 @@
       ],
       "conviction": "medium",
       "horizon": "near",
-      "falsifier": "Care raises equity, or its GWP growth decelerates below ~10%, restoring a multi-year solvency runway.",
+      "falsifier": "Care raises equity, or its premium growth slows sharply, restoring a multi-year solvency runway.",
       "affectedInsurers": [
         "care-health"
       ],
@@ -200,7 +200,7 @@
               "value": 0.6,
               "unit": "periods"
             },
-            "robustness": "Headroom eroded at the trailing GWP growth rate, not a company forecast. Thinnest in the panel vs Niva Bupa ~3.8 yrs, Star Health ~4.1 yrs.",
+            "robustness": "Headroom eroded at the trailing GWP growth rate, not a company forecast. Thinnest in the panel vs Niva Bupa ~2.9 yrs, Star Health ~3.8 yrs.",
             "lens": "fundamental"
           }
         ],
@@ -228,58 +228,59 @@
             "stepKeys": []
           }
         },
-        "payloadHash": "sig_7ec9d053",
-        "computedAt": "2026-06-16T12:45:00.000Z",
+        "payloadHash": "sig_b25fc7a7",
+        "computedAt": "2026-07-01T18:54:16.585Z",
         "isQuantitative": true
       },
       "application": {
-        "framing": "A capital-event clock for Care — it clears the floor today, but has the least room in the panel to grow into it.",
+        "framing": "A capital / dilution-risk read on the focal name.",
         "uses": [
           {
             "angle": "Catalyst",
-            "detail": "Sets up around a near-term equity raise / dilution at Care: a ~0.6-year runway to the floor versus ~3.8 for Niva and ~4.1 for Star."
+            "detail": "Size the dilution risk from a near-term equity raise against the runway."
           },
           {
             "angle": "Relative value",
-            "detail": "Frames Care (1.68x solvency, just +0.18x over the 1.5x floor) against Niva and Star, which carry multi-year runways and no comparable raise pressure."
+            "detail": "Rank the panel by growth-adjusted solvency runway, not the headline ratio."
           },
           {
             "angle": "Risk flag",
-            "detail": "If long Care, size for issuance risk while solvency compounds down at ~21% GWP growth."
+            "detail": "Treat \"above the floor\" as necessary, not sufficient, once growth is fast."
           }
         ]
       },
       "watch": {
         "items": [
           {
-            "trigger": "Capital action / GWP growth",
-            "condition": "Care raises equity, or GWP growth decelerates below ~10% from ~21%, restoring a multi-year runway",
-            "cadence": "next annual print",
+            "trigger": "Equity raise",
+            "condition": "Care raises capital or growth slows below the pace that erodes the 1.68x cushion.",
             "direction": "invalidates"
           },
           {
             "trigger": "Solvency ratio",
-            "condition": "erodes toward the 1.5x floor from the current 1.68x",
-            "cadence": "next quarterly return",
+            "condition": "Solvency drifts further toward the 1.5x floor at the next statutory print.",
             "direction": "confirms"
           },
           {
-            "trigger": "Raise-pressure horizon",
-            "condition": "stays near ~0.6 yrs vs ~3.8 (Niva) and ~4.1 (Star)",
+            "trigger": "Premium growth",
+            "condition": "Premium keeps compounding at the pace that shortens the runway.",
             "direction": "confirms"
           }
         ]
-      }
+      },
+      "tier": "supporting",
+      "consensusView": "A solvency ratio above the 1.5x floor is read as comfortably capitalised.",
+      "variantBasis": "Level ignores growth: aged forward at the current premium-growth rate, Care hits the floor first."
     },
     {
       "id": "segment-underwriting-loss",
       "rank": 2,
       "category": "earnings_quality",
-      "headline": "Every standalone health insurer is underwriting at a loss — segment profits are investment-led",
-      "shortHeadline": "Every health insurer underwrites at a loss",
-      "summary": "The growth story hides a structural flaw: not one standalone health insurer makes money on insurance itself. All five run a combined ratio above the 100% break-even — from Star's 101.1% to ManipalCigna's 115%, a 105% average. The profits that do exist lean on investment income, not core underwriting.",
-      "thesis": "All five SAHIs print a combined ratio above 100% in FY25 — from Star's 101.1% to ManipalCigna's 115%, a peer mean of 105.1%. The segment earns no underwriting profit; reported PAT, where positive, rests on investment income rather than core insurance.",
-      "whatConsensusMisses": "The market rewards GWP growth and headline profit, but the underlying underwriting economics are negative across the entire group — a structural earnings-quality flag the growth narrative obscures.",
+      "headline": "Every SAHI in the panel runs a combined ratio above 100% — the core insurance book loses money sector-wide",
+      "shortHeadline": "The whole cohort loses money underwriting",
+      "summary": "All five names print a combined ratio over the 100% break-even, a peer mean near 105.06%. This is not one weak insurer — from Star at 101.1% to ManipalCigna at 115%, the entire cohort funds float at an underwriting loss. Where profit is reported, it is investment income carrying a loss-making book.",
+      "thesis": "Combined ratios run from ~101.1% to ~115% across the panel, mean ~105.06% — every name above the 100% line. For short-tail health, an above-100 combined ratio means the underwriting line itself loses money; reported profit, where positive, is investment-led. The franchise question is whether scale can pull underwriting back below 100.",
+      "whatConsensusMisses": "A positive bottom line masks that the insurance operation itself is loss-making cohort-wide — the quality of earnings is investment income, not underwriting.",
       "evidence": [
         {
           "insurer": "star-health",
@@ -356,7 +357,7 @@
       ],
       "conviction": "high",
       "horizon": "medium",
-      "falsifier": "Any standalone health insurer prints a combined ratio below 100% (a genuine underwriting profit) in its next annual accounts.",
+      "falsifier": "One or more names drives its combined ratio below 100%, proving underwriting profit is reachable at current scale.",
       "affectedInsurers": [
         "niva-bupa",
         "star-health",
@@ -386,7 +387,7 @@
           }
         ]
       },
-      "sourceNote": "Combined ratios from statutory / annual-report disclosures — a statutory fact, not a market view.",
+      "sourceNote": "Combined ratios are statutory disclosures; the peer mean is computed across the five panel names.",
       "methodology": {
         "steps": [
           {
@@ -538,52 +539,53 @@
           }
         },
         "payloadHash": "sig_32f11b60",
-        "computedAt": "2026-06-16T12:45:00.000Z",
+        "computedAt": "2026-07-01T18:54:16.585Z",
         "isQuantitative": true
       },
       "application": {
-        "framing": "A sector-quality read: the SAHI growth story rests on investment income, not core underwriting.",
+        "framing": "A cohort-wide earnings-quality read.",
         "uses": [
           {
-            "angle": "Thesis check",
-            "detail": "Tests any 'margin re-rating' case against a 105.06% panel-mean combined ratio — every name is still above the 100% break-even."
+            "angle": "Thesis test",
+            "detail": "Separate investment income from underwriting result before crediting reported profit."
           },
           {
             "angle": "Relative value",
-            "detail": "Ranks the group on the path back to break-even: Star (101.1%) and Niva (101.2%) sit closest, ManipalCigna (115%) the furthest."
+            "detail": "Rank names by distance from the 100% line, not by headline profit."
           },
           {
-            "angle": "Risk flag",
-            "detail": "Treat reported segment profit as investment-led until a combined ratio prints below 100%."
+            "angle": "Catalyst",
+            "detail": "Watch for the first name to cross below 100% as the scale-economics proof point."
           }
         ]
       },
       "watch": {
         "items": [
           {
-            "trigger": "Combined ratio (any SAHI)",
-            "condition": "prints below the 100% break-even — a genuine underwriting profit",
-            "cadence": "next annual accounts",
+            "trigger": "Combined ratio",
+            "condition": "Any panel name sustains a combined ratio below the 100% break-even.",
             "direction": "invalidates"
           },
           {
-            "trigger": "Panel-mean combined ratio",
-            "condition": "improves from 105.06% toward the 100% line",
-            "cadence": "FY26 results",
-            "direction": "either"
+            "trigger": "Peer mean",
+            "condition": "The panel mean holds above 100% at the next reporting season.",
+            "direction": "confirms"
           }
         ]
-      }
+      },
+      "tier": "goldmine",
+      "consensusView": "Reported profits imply the health-insurance model is working.",
+      "variantBasis": "At a combined ratio above 100, underwriting loses money; the profit is float invested well, not insurance earned."
     },
     {
       "id": "niva-pb-roe-dislocation",
       "rank": 3,
       "category": "valuation",
-      "headline": "Niva Bupa's 3.0x book on a 5.7% ROE prices a return ramp it hasn't yet delivered",
-      "shortHeadline": "Niva's 3x book bets on future ROE",
-      "summary": "A 3.0x book looks expensive — and the math says it's almost entirely a forward bet. On today's 5.7% ROE, a warranted multiple is about 0.5x, so the market pays roughly six times that for a return ramp not yet earned. Niva even costs more than Star — 1.65x versus 1.49x P/GWP — for a lower return.",
-      "thesis": "Niva trades at 3.0x P/B while earning a 5.7% ROE and still running a 101.2% combined ratio (underwriting loss). A simple warranted multiple (ROE ÷ a 12% cost of equity) is ~0.5x — the market pays roughly six times that, an explicit bet on the FY29 mid-to-high-teens ROE target. Against Star, the point is sharper: Niva pays a higher 1.65x P/GWP for a lower 5.7% ROE, where Star is 1.49x on an 11% ROE.",
-      "whatConsensusMisses": "The multiple is almost entirely a forward-ROE option. With underwriting still loss-making and only two analysts covering the name, there is little margin for any slip in the ROE path the price already assumes.",
+      "headline": "Niva trades at 3x book on a single-digit ROE — the multiple prices an ROE ramp not yet delivered",
+      "shortHeadline": "Niva prices a return it has yet to earn",
+      "summary": "Niva carries a 3x price-to-book while delivering a 5.7% ROE. At a 12% cost of equity, that multiple only makes sense on a much higher steady-state return than the book currently earns. On premium, Niva's 1.69x P/GWP sits above Star's 1.49x — a richer multiple, not obviously faster growth.",
+      "thesis": "A 3x book multiple against a 5.7% delivered ROE embeds a steep return-on-equity expansion. Underwriting is still loss-making and coverage is thin, so there is little margin for a slip in the ROE path the price already assumes. The premium multiple (1.69x vs Star's 1.49x) says the same thing from the top line.",
+      "whatConsensusMisses": "The multiple is a forward-ROE option: the price front-runs a return ramp the book has not yet delivered, on a still loss-making underwriting line.",
       "evidence": [
         {
           "insurer": "niva-bupa",
@@ -601,7 +603,7 @@
         {
           "insurer": "niva-bupa",
           "metric": "ROE",
-          "value": 5.66,
+          "value": 5.7,
           "unit": "%",
           "context": "current return base",
           "layers": [
@@ -613,7 +615,7 @@
         {
           "insurer": "niva-bupa",
           "metric": "P/GWP vs growth",
-          "value": 1.65,
+          "value": 1.69,
           "unit": "x",
           "context": "richer than Star on lower ROE",
           "layers": [
@@ -639,7 +641,7 @@
       ],
       "conviction": "medium",
       "horizon": "medium",
-      "falsifier": "Niva's ROE continues stepping toward the mid-teens (the FY29 target path) on improving underwriting — vindicating the multiple — rather than stalling near current levels.",
+      "falsifier": "Niva's ROE ramps toward the level the multiple implies, or the multiple de-rates toward the delivered return.",
       "affectedInsurers": [
         "niva-bupa",
         "star-health"
@@ -663,7 +665,7 @@
           }
         ]
       },
-      "sourceNote": "P/B and P/GWP are derived from the live market price ÷ filed financials (exchange + annual report); the warranted line assumes a 12% cost of equity. This is a market / valuation view, not a statutory claim.",
+      "sourceNote": "Market multiples are exchange-derived; ROE is a statutory disclosure; the warranted multiple assumes a 12% cost of equity.",
       "methodology": {
         "steps": [
           {
@@ -720,12 +722,12 @@
             "refTag": "PEG-style sanity check",
             "gloss": "Whether a richer premium multiple is actually buying faster growth.",
             "formulaTeX": "\\text{richness} = \\dfrac{P/GWP}{g_{\\text{GWP}}} \\quad (\\text{higher} \\Rightarrow \\text{paying more per point of growth})",
-            "instanceTeX": "1.65\\text{x} \\,@\\, 20\\% \\;\\;\\text{vs}\\;\\; 1.49\\text{x} \\,@\\, 10\\%",
+            "instanceTeX": "1.69\\text{x} \\,@\\, 27\\% \\;\\;\\text{vs}\\;\\; 1.49\\text{x} \\,@\\, 11\\%",
             "inputs": [
               {
                 "symbol": "P/GWP",
-                "label": "Niva Bupa · P/GWP @ ~20% GWP growth",
-                "value": 1.65,
+                "label": "Niva Bupa · P/GWP @ ~27% GWP growth",
+                "value": 1.69,
                 "unit": "x",
                 "insurer": "niva-bupa",
                 "period": "FY26",
@@ -733,7 +735,7 @@
               },
               {
                 "symbol": "P/GWP_{Star}",
-                "label": "Star Health · P/GWP @ ~10% GWP growth",
+                "label": "Star Health · P/GWP @ ~11% GWP growth",
                 "value": 1.49,
                 "unit": "x",
                 "insurer": "star-health",
@@ -743,10 +745,10 @@
             ],
             "statistic": {
               "symbol": "P/GWP",
-              "value": 1.65,
+              "value": 1.69,
               "unit": "x"
             },
-            "robustness": "Niva Bupa carries a higher 1.65x vs Star Health's 1.49x, on ~20% vs ~10% GWP growth — the richer multiple is buying faster growth, not pure re-rating.",
+            "robustness": "Niva Bupa carries a higher 1.69x vs Star Health's 1.49x, on ~27% vs ~11% GWP growth — the richer multiple is buying faster growth, not pure re-rating.",
             "lens": "fundamental"
           }
         ],
@@ -773,58 +775,59 @@
             "stepKeys": []
           }
         },
-        "payloadHash": "sig_3f75dda4",
-        "computedAt": "2026-06-16T12:45:00.000Z",
+        "payloadHash": "sig_affc6740",
+        "computedAt": "2026-07-01T18:54:16.585Z",
         "isQuantitative": true
       },
       "application": {
-        "framing": "A forward-ROE option read on Niva — the multiple already prices the ramp, not the current return.",
+        "framing": "A valuation / expectations read on the focal listed name.",
         "uses": [
           {
-            "angle": "Relative value",
-            "detail": "Frames Niva vs Star: a richer 1.65x P/GWP on a 5.66% ROE against Star's 1.49x on ~11% — paying more for less current return."
-          },
-          {
-            "angle": "Catalyst",
-            "detail": "Positions around the ROE path: a 3.0x P/B vs a ~0.47x warranted multiple (ROE ÷ 12% CoE) is the gap the target must close."
+            "angle": "Expectations",
+            "detail": "Compare the ROE the multiple implies against the delivered and guided path."
           },
           {
             "angle": "Risk flag",
-            "detail": "Underwriting is still loss-making (CR 101.2%) and coverage is thin — little cushion if the ROE step stalls."
+            "detail": "Underwriting loss + thin coverage = little margin for an ROE miss."
+          },
+          {
+            "angle": "Relative value",
+            "detail": "Cross-check the P/GWP multiple against Star before crediting the premium."
           }
         ]
       },
       "watch": {
         "items": [
           {
-            "trigger": "Niva ROE path",
-            "condition": "continues stepping from 5.66% toward the mid-teens target on improving underwriting (vindicating the multiple)",
-            "cadence": "next annual print",
+            "trigger": "ROE",
+            "condition": "Delivered ROE climbs toward the level the 3x multiple implies.",
             "direction": "invalidates"
           },
           {
-            "trigger": "Niva combined ratio",
-            "condition": "falls below 100% from 101.2%",
-            "cadence": "FY26 results",
+            "trigger": "Combined ratio",
+            "condition": "Underwriting stays loss-making, keeping the implied ramp unproven.",
             "direction": "confirms"
           },
           {
-            "trigger": "Analyst coverage",
-            "condition": "broadens beyond the current 2 analysts, stress-testing the forward ROE",
-            "direction": "either"
+            "trigger": "P/GWP vs peers",
+            "condition": "Niva's premium multiple stays richer than Star's without faster growth.",
+            "direction": "confirms"
           }
         ]
-      }
+      },
+      "tier": "goldmine",
+      "consensusView": "A premium multiple is read as a quality premium the franchise has earned.",
+      "variantBasis": "Reverse the price: 3x book implies a steady-state ROE well above the 5.7% delivered — the re-rating is priced, not proven."
     },
     {
       "id": "niva-retail-mix-drift",
       "rank": 4,
       "category": "quality",
-      "headline": "Niva's retail mix is drifting down on trend even as the headline holds — growth is quietly group-tilting",
-      "shortHeadline": "Niva's retail mix is quietly shrinking",
-      "summary": "A 67.8% retail mix looks healthy — until you watch the trend. Niva's retail share is sliding about 2.9pp a year, the steepest decline among the larger insurers, while Star, Care and ManipalCigna are all building retail. Growth is tilting toward thinner-margin group business that the Street's retail-led margin case under-weights.",
-      "thesis": "On the multi-year GI-Council data, Niva's retail share of health premium is trending DOWN about 2.9pp a year — the steepest negative retail-mix slope of the larger SAHIs — while Star (+1.4pp/yr), Care (+1.7pp/yr) and ManipalCigna (+1.2pp/yr) are building retail. The latest +1pp tick to a 67.8% mix masks the structural drift toward thinner-margin group business.",
-      "whatConsensusMisses": "A 67.8% retail mix looks healthy in a single-period snapshot, but the trajectory is the wrong way — Niva is sourcing more of its growth from group, which the Street's retail-led margin path under-weights.",
+      "headline": "Niva's retail mix is trending down ~2.89pp/yr — growth is leaning on lower-margin group business",
+      "shortHeadline": "Niva is drifting toward thinner group business",
+      "summary": "Niva's retail share of health premium is sliding about 2.89pp a year while group premium grows ~24.4%. Retail is the higher-margin, stickier book; a falling retail mix means the growth on show is coming from the thinner end.",
+      "thesis": "The least-squares trend on Niva's retail mix is about -2.89pp/yr — a drift, not one noisy print — even as group premium compounds ~24.4%. Peers hold flat-to-rising retail mixes. Growth only improves quality if retail outpaces group; here the mix is moving the wrong way.",
+      "whatConsensusMisses": "Headline premium growth looks healthy, but the mix underneath is shifting to lower-margin group business — quality of growth, not just its rate, is deteriorating.",
       "evidence": [
         {
           "insurer": "niva-bupa",
@@ -835,7 +838,7 @@
           "layers": [
             "statutory"
           ],
-          "period": "FY25"
+          "period": "FY26"
         },
         {
           "insurer": "star-health",
@@ -846,7 +849,7 @@
           "layers": [
             "statutory"
           ],
-          "period": "FY25"
+          "period": "FY26"
         },
         {
           "insurer": "care-health",
@@ -857,7 +860,7 @@
           "layers": [
             "statutory"
           ],
-          "period": "FY25"
+          "period": "FY26"
         },
         {
           "insurer": "niva-bupa",
@@ -868,12 +871,12 @@
           "layers": [
             "statutory"
           ],
-          "period": "FY25"
+          "period": "FY26"
         }
       ],
       "conviction": "medium",
       "horizon": "medium",
-      "falsifier": "Niva's retail-mix slope turns positive (retail premium re-accelerates clear of group) in the next GI-Council quarterly cut.",
+      "falsifier": "Niva's retail mix slope turns positive, or retail premium growth overtakes group.",
       "affectedInsurers": [
         "niva-bupa"
       ],
@@ -895,7 +898,7 @@
           }
         ]
       },
-      "sourceNote": "Retail/group health premium from the GI-Council health portfolio (a statutory aggregation); the trend slope is derived from that series.",
+      "sourceNote": "Retail-mix slope is fit over trailing GI-Council prints; growth rates are statutory disclosures.",
       "methodology": {
         "steps": [
           {
@@ -1019,23 +1022,23 @@
           }
         },
         "payloadHash": "sig_e30f2ed1",
-        "computedAt": "2026-06-16T12:45:00.000Z",
+        "computedAt": "2026-07-01T18:54:16.585Z",
         "isQuantitative": true
       },
       "application": {
-        "framing": "A mix-quality read: Niva's healthy headline retail share masks a downward trend.",
+        "framing": "A growth-quality read on the focal name.",
         "uses": [
           {
-            "angle": "Thesis check",
-            "detail": "Challenges the retail-led margin case — Niva’s retail mix is sliding ~2.89pp/yr even as group premium grew 24.4%."
+            "angle": "Thesis test",
+            "detail": "Discount headline growth by the direction of the retail/group mix."
           },
           {
             "angle": "Relative value",
-            "detail": "Contrasts Niva’s negative slope with Star (+1.35pp/yr) and Care (+1.72pp/yr) building retail."
+            "detail": "Compare the mix slope against peers building retail share."
           },
           {
             "angle": "Risk flag",
-            "detail": "Watch margin guidance if growth keeps tilting to thinner group business off the 67.8% mix."
+            "detail": "A falling retail mix pressures margins even as premium grows."
           }
         ]
       },
@@ -1043,27 +1046,29 @@
         "items": [
           {
             "trigger": "Retail-mix slope",
-            "condition": "turns positive from the current -2.89pp/yr (retail re-accelerates clear of group)",
-            "cadence": "next GI-Council quarterly cut",
+            "condition": "The retail-mix trend turns positive, or retail growth overtakes group.",
             "direction": "invalidates"
           },
           {
-            "trigger": "Retail vs group growth",
-            "condition": "retail premium pulls clear of the 24.4% group pace",
+            "trigger": "Group premium growth",
+            "condition": "Group premium keeps outpacing retail, extending the mix drift.",
             "direction": "confirms"
           }
         ]
-      }
+      },
+      "tier": "supporting",
+      "consensusView": "Strong headline premium growth is read as healthy franchise expansion.",
+      "variantBasis": "Decompose it: the retail mix is falling, so the growth leans on thinner group business."
     },
     {
       "id": "aditya-growth-quality",
       "rank": 5,
       "category": "growth",
-      "headline": "Aditya Birla is the fastest retail grower (+50%) but buys it with the weak underwriting and thin capital",
-      "shortHeadline": "Aditya's 50% growth is bought, not earned",
-      "summary": "The fastest grower isn't the safest. Aditya Birla's retail premium jumped 50% — but off the lowest retail base in the group (37%), with a loss-making 105% combined ratio and only 1.84x solvency. The top-line velocity is real; the margins and capital behind it are not yet there.",
-      "thesis": "Aditya's retail health premium grew 50.3% YoY — the fastest in the panel — lifting its retail mix +4.8pp to 37.1%. But it remains the most group-led SAHI, runs a 105% combined ratio (underwriting loss) and sits at just 1.84x solvency. The top-line velocity is real; the quality and capital backing it are not yet there.",
-      "whatConsensusMisses": "A 50% retail-growth headline screams winner, but it comes off the lowest retail base in the group, with loss-making underwriting and only modest capital — the growth is being bought, not yet earned.",
+      "headline": "Aditya Birla is compounding retail premium ~50.3% — but underwriting still loses money at a 105% combined ratio",
+      "shortHeadline": "Aditya Birla grows fast, still loses underwriting",
+      "summary": "Aditya Birla is growing retail health premium about 50.3%, lifting its retail mix to ~37.1% — the higher-quality kind of growth. But the combined ratio is still 105%, above the 100% break-even, and solvency sits at 1.84x. The growth is real; the underwriting economics have not turned yet.",
+      "thesis": "Retail premium up ~50.3% and a retail mix near 37.1% is genuinely higher-quality growth. Yet at a 105% combined ratio the book still loses money underwriting, funded by a 1.84x solvency position. The question is whether scale pulls the combined ratio under 100 before capital is stretched.",
+      "whatConsensusMisses": "Fast retail growth reads as a winning story, but the underwriting line is still loss-making — growth is outrunning profitability, not proving it.",
       "evidence": [
         {
           "insurer": "aditya-birla",
@@ -1074,7 +1079,7 @@
           "layers": [
             "statutory"
           ],
-          "period": "FY25"
+          "period": "FY26"
         },
         {
           "insurer": "aditya-birla",
@@ -1085,7 +1090,7 @@
           "layers": [
             "statutory"
           ],
-          "period": "FY25"
+          "period": "FY26"
         },
         {
           "insurer": "aditya-birla",
@@ -1114,7 +1119,7 @@
       ],
       "conviction": "medium",
       "horizon": "medium",
-      "falsifier": "Aditya's combined ratio improves below ~102% while retail growth stays above 30% — i.e. the growth proves margin-accretive.",
+      "falsifier": "Aditya Birla drives its combined ratio below 100% while holding retail growth, proving the model scales.",
       "affectedInsurers": [
         "aditya-birla"
       ],
@@ -1130,7 +1135,7 @@
         ],
         "period": "FY26"
       },
-      "sourceNote": "Retail/group split from the GI-Council health portfolio (statutory); combined ratio and solvency from statutory filings.",
+      "sourceNote": "Growth, mix, combined ratio and solvency are statutory disclosures for the focal name.",
       "methodology": {
         "steps": [
           {
@@ -1287,51 +1292,53 @@
           }
         },
         "payloadHash": "sig_a4beddb2",
-        "computedAt": "2026-06-16T12:45:00.000Z",
+        "computedAt": "2026-07-01T18:54:16.585Z",
         "isQuantitative": true
       },
       "application": {
-        "framing": "A growth-quality read: Aditya's top-line velocity is real; the margins and capital behind it are not yet.",
+        "framing": "A growth-quality read on the focal name.",
         "uses": [
           {
+            "angle": "Thesis test",
+            "detail": "Credit fast growth only alongside the path of the combined ratio."
+          },
+          {
             "angle": "Catalyst",
-            "detail": "Positions around proof-of-margin: 50.3% retail growth off the lowest 37.1% retail base in the panel."
+            "detail": "Watch for the combined ratio to cross below 100% at scale."
           },
           {
             "angle": "Risk flag",
-            "detail": "A loss-making 105% combined ratio and a thin 1.84x solvency cap the quality of that growth."
-          },
-          {
-            "angle": "Thesis check",
-            "detail": "Tests the 'fastest grower wins' read against whether the growth turns margin-accretive."
+            "detail": "Fast growth on a 1.84x solvency base can stretch capital."
           }
         ]
       },
       "watch": {
         "items": [
           {
-            "trigger": "Combined ratio vs growth",
-            "condition": "CR improves toward the 100% break-even while retail growth holds near 50.3% (growth proves margin-accretive)",
-            "cadence": "next annual print",
+            "trigger": "Combined ratio",
+            "condition": "The combined ratio falls below the 100% break-even while growth holds.",
             "direction": "invalidates"
           },
           {
-            "trigger": "Solvency ratio",
-            "condition": "strengthens from the current 1.84x to fund the growth",
+            "trigger": "Retail mix",
+            "condition": "Retail mix keeps climbing on continued retail-premium growth.",
             "direction": "confirms"
           }
         ]
-      }
+      },
+      "tier": "supporting",
+      "consensusView": "Rapid retail premium growth is read as a clear franchise win.",
+      "variantBasis": "Pair it with the combined ratio: the growth is real but underwriting still loses money at this scale."
     },
     {
       "id": "manipal-cr-outlier",
       "rank": 6,
       "category": "quality",
-      "headline": "ManipalCigna is the combined-ratio outlier (115%, +1.7σ) — its fix rides entirely on a mix shift it's only starting",
-      "shortHeadline": "ManipalCigna's losses are the sector outlier",
-      "summary": "ManipalCigna's 115% combined ratio isn't merely high — it's a statistical outlier, 1.7 standard deviations worse than the 105% peer average. Its rising retail mix is the right lever, but it must deliver the group's biggest underwriting repair off its smallest scale. The execution risk is concentrated here, more than the gradual mix gains suggest.",
-      "thesis": "Manipal's 115% combined ratio sits +1.72σ worse than the 105.1% peer mean — a clear negative outlier. Its retail mix is climbing (+4pp to 51.6%, a +1.2pp/yr trend), which is the lever to repair economics, but it starts from the worst underwriting position and the smallest scale of the five.",
-      "whatConsensusMisses": "The retail-mix improvement is encouraging, but Manipal needs the largest combined-ratio repair in the group off the smallest base — execution risk is concentrated here more than the gradual mix gains suggest.",
+      "headline": "ManipalCigna's 115% combined ratio is a statistical outlier well above the ~105.06% peer mean",
+      "shortHeadline": "ManipalCigna is the underwriting outlier",
+      "summary": "ManipalCigna underwrites at a 115% combined ratio against a peer mean near 105.06% — far enough from the pack to register as a genuine outlier, not ordinary spread. Its retail mix is drifting ~1.17pp/yr, so the fix has to come from pricing and claims, not mix alone.",
+      "thesis": "At 115% the combined ratio sits more than the empirical-rule threshold of peer standard deviations above the ~105.06% mean — a real outlier. With the retail mix moving only ~1.17pp/yr, closing the gap depends on underwriting discipline, not a mix tailwind. This is the panel's steepest climb back to break-even.",
+      "whatConsensusMisses": "A high combined ratio is easy to wave off as early-scale; the z-score says ManipalCigna is a true outlier, with the longest road back to underwriting break-even.",
       "evidence": [
         {
           "insurer": "manipalcigna",
@@ -1366,12 +1373,12 @@
           "layers": [
             "statutory"
           ],
-          "period": "FY25"
+          "period": "FY26"
         }
       ],
       "conviction": "medium",
       "horizon": "long",
-      "falsifier": "ManipalCigna's combined ratio improves toward the peer mean (~105%) within the next two annual prints.",
+      "falsifier": "ManipalCigna narrows its combined ratio toward the peer mean, collapsing the outlier gap.",
       "affectedInsurers": [
         "manipalcigna"
       ],
@@ -1397,7 +1404,7 @@
           }
         ]
       },
-      "sourceNote": "Combined ratios from statutory filings; the peer mean and z-score are derived across the panel.",
+      "sourceNote": "Combined ratio and peer mean are statutory; the retail-mix slope is fit over trailing GI-Council prints.",
       "methodology": {
         "steps": [
           {
@@ -1546,23 +1553,23 @@
           }
         },
         "payloadHash": "sig_882e7b5",
-        "computedAt": "2026-06-16T12:45:00.000Z",
+        "computedAt": "2026-07-01T18:54:16.585Z",
         "isQuantitative": true
       },
       "application": {
-        "framing": "An execution-risk read: ManipalCigna's fix is the right lever but the steepest climb in the panel.",
+        "framing": "A quality / underwriting-discipline read on the focal name.",
         "uses": [
           {
             "angle": "Risk flag",
-            "detail": "The 115% combined ratio is a +1.72σ outlier vs the 105.06% peer mean — the largest repair off the smallest scale."
+            "detail": "Treat the combined ratio as an outlier, not ordinary early-scale spread."
           },
           {
             "angle": "Catalyst",
-            "detail": "Positions around the mix lever: retail mix climbing to 51.6% at +1.17pp/yr is the path to repair."
+            "detail": "Watch the gap to the peer mean narrow as the proof of pricing action."
           },
           {
-            "angle": "Thesis check",
-            "detail": "Tests whether gradual mix gains can outrun the worst underwriting position in the group."
+            "angle": "Thesis test",
+            "detail": "A slow mix shift means the fix must come from claims and pricing."
           }
         ]
       },
@@ -1570,27 +1577,29 @@
         "items": [
           {
             "trigger": "Combined ratio",
-            "condition": "repairs toward the ~105.06% peer mean from 115% within the next two prints",
-            "cadence": "next two annual prints",
+            "condition": "The combined ratio narrows toward the ~105.06% peer mean.",
             "direction": "invalidates"
           },
           {
-            "trigger": "Retail-mix slope",
-            "condition": "accelerates beyond the current +1.17pp/yr toward a higher mix than 51.6%",
+            "trigger": "Peer gap",
+            "condition": "The outlier gap to the peer mean persists at the next print.",
             "direction": "confirms"
           }
         ]
-      }
+      },
+      "tier": "supporting",
+      "consensusView": "A weak combined ratio is dismissed as a young book still scaling.",
+      "variantBasis": "The z-score flags it as a genuine outlier — well beyond ordinary peer spread, not just early-stage noise."
     },
     {
       "id": "niva-credibility-thin-coverage",
       "rank": 7,
       "category": "management",
-      "headline": "Niva's guidance is largely on track (3/5 delivered, 0 missed) — yet only 2 analysts price a name betting on a steep ROE ramp",
+      "headline": "Niva has delivered 60% of tracked guidance with none missed — yet only a couple of analysts price it, in a tight 10.5% target band",
       "shortHeadline": "Niva delivers, yet few analysts watch",
-      "summary": "Management is keeping its word — 3 of 5 guidance items delivered, none missed — yet only two analysts cover the stock. That is thin scrutiny for a name whose price already embeds a steep ROE ramp. A small surprise either way could move it more than the narrow 7.5% target range implies.",
-      "thesis": "Niva has delivered 3 of 5 tracked guidance items with zero misses and one delay (the combined ratio, which ticked up to 101.2%). That is a decent credibility record. Yet only two analysts cover it, with a tight ±7.5% target dispersion and +12.2% consensus upside — thin scrutiny for a stock whose multiple embeds a steep ROE ramp.",
-      "whatConsensusMisses": "Management is executing on its promises, but the shallow coverage means the market's forward-ROE thesis is lightly stress-tested — a modest surprise either way can move the stock more than the narrow consensus band implies.",
+      "summary": "Management is keeping its word — a 60% guidance hit-rate with nothing missed. Yet coverage is thin and the target band is only 10.5% wide around a 11.3% consensus upside. That is light scrutiny for a name whose multiple already embeds a steep ROE ramp — a small surprise could move it more than the narrow band implies.",
+      "thesis": "A 60% delivered-guidance rate with zero misses is a decent credibility record. But with only a handful of analysts and a tight 10.5% dispersion around 11.3% upside, the forward-ROE thesis is lightly stress-tested. Thin coverage plus a demanding multiple is a volatility set-up, either way.",
+      "whatConsensusMisses": "Management is executing, but shallow coverage means the market's forward-ROE thesis is barely tested — a modest surprise can move the stock more than the narrow consensus band implies.",
       "evidence": [
         {
           "insurer": "niva-bupa",
@@ -1607,7 +1616,7 @@
         {
           "insurer": "niva-bupa",
           "metric": "Consensus upside to target",
-          "value": 12.2,
+          "value": 11.3,
           "unit": "%",
           "context": "2 buy / 0 hold / 0 sell, n=2",
           "layers": [
@@ -1619,7 +1628,7 @@
         {
           "insurer": "niva-bupa",
           "metric": "Target dispersion (high−low ÷ mean)",
-          "value": 7.5,
+          "value": 10.5,
           "unit": "%",
           "context": "tight ₹90–₹97 range",
           "layers": [
@@ -1631,7 +1640,7 @@
       ],
       "conviction": "medium",
       "horizon": "medium",
-      "falsifier": "Analyst coverage broadens (the count rises materially) or a tracked guidance item flips to \"missed\".",
+      "falsifier": "Analyst coverage broadens materially, or a tracked guidance item flips to \"missed\".",
       "affectedInsurers": [
         "niva-bupa"
       ],
@@ -1652,7 +1661,7 @@
           }
         ]
       },
-      "sourceNote": "Guidance delivery is scored against the audited FY25 outcomes (statutory); the consensus target and dispersion are a broker/aggregator view, clearly attributed as analyst opinion, not statutory fact.",
+      "sourceNote": "Guidance delivery is scored against audited statutory outcomes; consensus upside and dispersion are a broker/aggregator view, attributed as analyst opinion.",
       "methodology": {
         "steps": [
           {
@@ -1701,12 +1710,12 @@
             "refTag": "Street view",
             "gloss": "How much upside the Street prices and how tightly analysts agree.",
             "formulaTeX": "\\text{upside} = \\dfrac{\\overline{tgt} - P}{P}, \\quad \\text{dispersion} = \\dfrac{\\text{high} - \\text{low}}{\\overline{tgt}}",
-            "instanceTeX": "\\text{upside } +12.2\\%,\\ \\text{dispersion } 7.5\\%,\\ n = 2",
+            "instanceTeX": "\\text{upside } +11.3\\%,\\ \\text{dispersion } 10.5\\%,\\ n = 2",
             "inputs": [
               {
                 "symbol": "\\text{upside}",
                 "label": "Niva Bupa · upside to target",
-                "value": 12.2,
+                "value": 11.3,
                 "unit": "%",
                 "insurer": "niva-bupa",
                 "period": "FY25",
@@ -1715,7 +1724,7 @@
               {
                 "symbol": "\\text{dispersion}",
                 "label": "Niva Bupa · target dispersion",
-                "value": 7.5,
+                "value": 10.5,
                 "unit": "%",
                 "insurer": "niva-bupa",
                 "period": "FY25",
@@ -1724,7 +1733,7 @@
             ],
             "statistic": {
               "symbol": "\\text{upside}",
-              "value": 12.2,
+              "value": 11.3,
               "unit": "%"
             },
             "threshold": {
@@ -1757,41 +1766,44 @@
             "stepKeys": []
           }
         },
-        "payloadHash": "sig_47c5d93e",
-        "computedAt": "2026-06-16T12:45:00.000Z",
+        "payloadHash": "sig_83194f46",
+        "computedAt": "2026-07-01T18:54:16.585Z",
         "isQuantitative": true
       },
       "application": {
-        "framing": "A credibility-vs-coverage read: Niva is delivering, but few analysts are watching.",
+        "framing": "A management-credibility / coverage read on the focal name.",
         "uses": [
           {
-            "angle": "Thesis check",
-            "detail": "3 of 5 guidance items delivered with zero misses supports management credibility on the forward-ROE plan."
-          },
-          {
-            "angle": "Catalyst",
-            "detail": "Thin coverage (2 analysts, a tight 7.5% target band, +12.2% upside) means a modest surprise can move the stock outsized."
+            "angle": "Thesis test",
+            "detail": "Weight the guidance hit-rate against the thinness of coverage."
           },
           {
             "angle": "Risk flag",
-            "detail": "The one delayed item — the combined ratio at 101.2% — is the guidance line to watch."
+            "detail": "A tight band on few analysts magnifies surprise risk."
+          },
+          {
+            "angle": "Catalyst",
+            "detail": "Watch for coverage to broaden as the thesis gets stress-tested."
           }
         ]
       },
       "watch": {
         "items": [
           {
-            "trigger": "Coverage / guidance",
-            "condition": "analyst count rises materially from 2, or a tracked guidance item flips to 'missed' from the current 3 of 5 delivered",
+            "trigger": "Analyst coverage",
+            "condition": "Coverage broadens materially, or a guidance item flips to \"missed\".",
             "direction": "invalidates"
           },
           {
-            "trigger": "Consensus",
-            "condition": "the tight 7.5% target band or +12.2% upside shifts as the price re-rates",
-            "direction": "either"
+            "trigger": "Guidance delivery",
+            "condition": "The delivered-guidance rate holds with no missed items.",
+            "direction": "confirms"
           }
         ]
-      }
+      },
+      "tier": "supporting",
+      "consensusView": "A tight target band reads as analyst agreement and low risk.",
+      "variantBasis": "A tight band on very few analysts is thin scrutiny, not conviction — it magnifies surprise risk."
     }
   ]
 }

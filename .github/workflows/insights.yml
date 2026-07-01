@@ -72,24 +72,31 @@ jobs:
         env:
           PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: '1'
 
-      # Regenerate FIRST, then validate the fresh output. The generator is itself
-      # fail-closed (it writes nothing unless every number is grounded in the live
+      # Regenerate FIRST, then validate the fresh output. Both generators are
+      # fail-closed (they write nothing unless every number is grounded in the live
       # signals and the arithmetic/direction gate passes, and the methodology is
       # deterministic-only), so the firewall is fully preserved. Running the check
       # before regeneration used to deadlock: when the live data drifted, the
       # committed cards went stale, the check failed on those stale numbers, and the
       # job aborted *before* the regeneration step that would have fixed them — so
       # the feed could never self-heal. Generate-then-validate removes that deadlock.
-      - name: Generate insights (Anthropic)
+      #
+      # No API key? Fall back to the DETERMINISTIC keyless writer — it re-reads every
+      # number from the live signals and re-narrates the cards with plain templated
+      # prose (no AI, no secret). So the feed stays numerically fresh and honest
+      # whether or not ANTHROPIC_API_KEY is set; the key only upgrades the WORDING to
+      # the AI's variant-perception prose, never gates whether it refreshes.
+      - name: Generate insights
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           INSIGHTS_MODEL: ${{ vars.INSIGHTS_MODEL }}
         run: |
           if [ -z "$ANTHROPIC_API_KEY" ]; then
-            echo "ANTHROPIC_API_KEY not set — skipping regeneration; the committed, validated insights remain in place."
-            exit 0
+            echo "ANTHROPIC_API_KEY not set — using the deterministic keyless writer (live numbers, plain prose)."
+            npm run insights:generate:keyless
+          else
+            npm run insights:generate
           fi
-          npm run insights:generate
 
       # Belt-and-suspenders: validate whatever is now on disk (the freshly generated
       # feed, or the committed one if regeneration was skipped). Fail-closed.
