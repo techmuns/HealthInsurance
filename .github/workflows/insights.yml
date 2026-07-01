@@ -30,6 +30,16 @@ on:
       - "monthly ingestion"
       - "insurer quarterly premium fetch"
       - "industry segment history fetch"
+      # Fundamentals / valuation / consensus sources — these feed the solvency,
+      # valuation and analyst-consensus signals (e.g. the target-dispersion number).
+      # Without them here, a coverage/valuation refresh only reached the feed on the
+      # weekly cron, so those numbers could sit stale for up to a week.
+      - "analyst coverage fetch"
+      - "listed valuation fetch"
+      - "valuation fundamentals fetch"
+      - "sahi financials fetch"
+      - "sahi ppt metrics fetch"
+      - "niva fy25 financials fetch"
     types: [completed]
     branches: [main]
 
