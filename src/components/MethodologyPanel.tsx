@@ -382,7 +382,11 @@ function GoToSourcePanel({ source, onGoToSource, tone }: { source: SourceLocatio
   )
 }
 
-export function MethodologyPanel({ ins, tone, source, freshness, onGoToSource, onBack, backRef, labelId }: { ins: Insight; tone: Tone; source: SourceLocation; freshness: Freshness; onGoToSource: () => void; onBack: () => void; backRef: RefObject<HTMLButtonElement>; labelId: string }) {
+/** The one concrete number under the insight — shown as a compact band on the
+ *  flip side (it used to sit on the front; the front now stays clean). */
+export interface HeroStat { value: string; period: string; label: string; context: string; color: string }
+
+export function MethodologyPanel({ ins, tone, source, freshness, onGoToSource, onBack, backRef, labelId, heroStat, visual }: { ins: Insight; tone: Tone; source: SourceLocation; freshness: Freshness; onGoToSource: () => void; onBack: () => void; backRef: RefObject<HTMLButtonElement>; labelId: string; heroStat?: HeroStat | null; visual?: ReactNode }) {
   const m = ins.methodology
   const steps = m?.steps ?? []
   const [openKey, setOpenKey] = useState(steps[0]?.key ?? '')
@@ -415,13 +419,37 @@ export function MethodologyPanel({ ins, tone, source, freshness, onGoToSource, o
         </button>
       </div>
 
-      {/* Compact two-column study layout — LEFT: the calculation + the data it
-          used; RIGHT: the plain read, the source preview, the jump, and how to
-          use it. Independent columns so neither pads the other; only the lenses
-          that actually contributed are shown. */}
+      {/* The concrete number — moved off the front so the read stays clean, shown
+          here prominently as the proof under the claim (period + plain label). */}
+      {heroStat && (
+        <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 border-b border-soft-border px-5 py-2.5" style={{ background: `linear-gradient(100deg, ${tone.wash} 0%, transparent 65%)` }}>
+          <div className="flex items-baseline gap-2">
+            <span aria-hidden className="h-6 w-[3px] shrink-0 self-center rounded-full" style={{ background: heroStat.color }} />
+            <span className="font-display text-[28px] font-semibold leading-none tabular-nums" style={{ color: heroStat.color }}>{heroStat.value}</span>
+            <span className="rounded-md bg-white/70 px-1.5 py-0.5 text-[9.5px] font-semibold text-ink-secondary ring-1 ring-soft-border">{heroStat.period}</span>
+          </div>
+          <div className="min-w-0">
+            <p className="text-[10px] font-bold uppercase tracking-[0.07em] text-navy-deep">{heroStat.label}</p>
+            {heroStat.context && <p className="font-editorial text-[12px] leading-snug text-ink-secondary">{heroStat.context}</p>}
+          </div>
+        </div>
+      )}
+
+      {/* Compact two-column study layout — LEFT: the visual evidence, the
+          calculation + the data it used; RIGHT: the plain read, the source
+          preview, the jump, and how to use it. Independent columns so neither
+          pads the other; only the lenses that actually contributed are shown. */}
       <div className="flex-1 px-5 py-4 lg:grid lg:grid-cols-[52fr_48fr] lg:gap-4">
-        {/* LEFT — calculation & data */}
+        {/* LEFT — visual evidence, calculation & data */}
         <div className="space-y-3">
+          {visual && (
+            <div>
+              <p className="mb-2 flex items-center gap-1.5 text-[9px] font-bold uppercase tracking-[0.16em] text-ink-secondary">
+                <BarChart3 className="h-3.5 w-3.5" style={{ color: tone.fg }} strokeWidth={2.2} /> Visual evidence
+              </p>
+              {visual}
+            </div>
+          )}
           <p className="text-[9px] font-bold uppercase tracking-[0.16em] text-ink-secondary">Calculation · how we worked it out</p>
           {m?.isQuantitative ? (
             populatedLenses.length > 0 ? (

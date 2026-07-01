@@ -63,42 +63,40 @@ export function ConfidenceChip({ confidence }: { confidence: InsightLens['confid
   )
 }
 
-function MetricTile({ m }: { m: MetricRead }) {
+// A compact, source-backed key-metric chip — replaces the old large percentage
+// tiles. The full number, its workings and its source live on each insight
+// card's flip side; this ribbon is just a quiet, scannable reference strip.
+function MetricChip({ m }: { m: MetricRead }) {
   const tone = IMPACT_META[m.tone]
   // A known-disputed figure renders as an honest "verifying" state, never a clean number.
   if (m.disputed) {
     return (
-      <div className="rounded-xl border p-3" style={{ borderColor: 'rgba(156,116,48,0.3)', background: 'rgba(156,116,48,0.06)' }}>
-        <div className="flex items-center justify-between gap-1.5">
-          <p className="text-[9px] font-bold uppercase tracking-[0.1em] text-ink-secondary">{m.label}</p>
-          <span className="rounded-full px-1.5 py-0.5 text-[8px] font-bold uppercase tracking-[0.04em]" style={{ color: CONFIDENCE_META.Low.fg, background: CONFIDENCE_META.Low.bg }}>Low confidence</span>
-        </div>
-        <p className="mt-1 flex items-center gap-1 text-[13px] font-semibold leading-snug text-champagne-deep">
-          <AlertTriangle className="h-3.5 w-3.5 shrink-0" /> Figure disputed — verifying
-          <span className="rounded bg-white/70 px-1 py-0.5 text-[8.5px] font-semibold text-ink-secondary">{m.period}</span>
-        </p>
-        {m.note && <p className="mt-1 text-[10px] leading-snug text-ink-secondary">{m.note}</p>}
-        <p className="mt-1 text-[9.5px] italic text-ink-secondary">{m.sourceName}</p>
-      </div>
+      <span
+        className="inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-[11px]"
+        style={{ borderColor: 'rgba(156,116,48,0.3)', background: 'rgba(156,116,48,0.06)' }}
+        title={`${m.label} — figure disputed, verifying${m.note ? ` · ${m.note}` : ''} · ${m.sourceName}`}
+      >
+        <AlertTriangle className="h-3 w-3 shrink-0 text-champagne-deep" />
+        <span className="font-semibold text-ink-secondary">{m.label}</span>
+        <span className="font-semibold text-champagne-deep">verifying</span>
+        <span className="rounded bg-white/70 px-1 py-0.5 text-[8.5px] font-semibold text-ink-secondary">{m.period}</span>
+      </span>
     )
   }
-  return (
-    <div className="rounded-xl border border-soft-border bg-card p-3 shadow-soft">
-      <p className="text-[9px] font-bold uppercase tracking-[0.1em] text-ink-secondary">{m.label}</p>
-      <div className="mt-1 flex items-baseline gap-1.5">
-        <span className="font-display text-[22px] font-semibold leading-none" style={{ color: tone.fg }}>{m.value}</span>
-        <span className="rounded bg-ice px-1 py-0.5 text-[8.5px] font-semibold text-ink-secondary">{m.period}</span>
-      </div>
-      {m.note && <p className="mt-1 text-[10px] leading-snug text-ink-secondary">{m.note}</p>}
-      {m.sourceUrl ? (
-        <a href={m.sourceUrl} target="_blank" rel="noreferrer" className="mt-1 inline-flex items-center gap-1 text-[9.5px] font-medium text-navy-primary hover:underline">
-          {m.sourceName}
-          <ExternalLink className="h-2.5 w-2.5" />
-        </a>
-      ) : (
-        <p className="mt-1 text-[9.5px] italic text-ink-secondary">{m.sourceName}</p>
-      )}
-    </div>
+  const chip = (
+    <span
+      className="inline-flex items-center gap-1.5 rounded-full border border-soft-border bg-card px-2.5 py-1 text-[11px] shadow-soft transition-colors hover:border-muted-blue/50"
+      title={`${m.label} · ${m.value} (${m.period})${m.note ? ` — ${m.note}` : ''} · ${m.sourceName}`}
+    >
+      <span className="font-semibold text-ink-secondary">{m.label}</span>
+      <span className="font-display text-[13px] font-semibold leading-none tabular-nums" style={{ color: tone.fg }}>{m.value}</span>
+      <span className="rounded bg-ice px-1 py-0.5 text-[8.5px] font-semibold text-ink-secondary">{m.period}</span>
+    </span>
+  )
+  return m.sourceUrl ? (
+    <a href={m.sourceUrl} target="_blank" rel="noreferrer" className="inline-flex transition-transform hover:-translate-y-px">{chip}</a>
+  ) : (
+    chip
   )
 }
 
@@ -178,11 +176,14 @@ export function InsightLensView({
         </div>
       ) : (
         <>
-          {/* Metric strip — real, source-backed numbers (nulls omitted, never faked). */}
+          {/* Key-metrics ribbon — real, source-backed numbers (nulls omitted, never
+              faked), kept compact so they no longer dominate the insight area. The
+              full value, workings and source sit on each insight card's flip side. */}
           {lens.metrics.length > 0 && (
-            <div className="grid grid-cols-2 gap-2.5 sm:grid-cols-3 lg:grid-cols-4">
+            <div className="flex flex-wrap items-center gap-1.5">
+              <span className="text-[9px] font-bold uppercase tracking-[0.12em] text-ink-secondary">Key metrics</span>
               {lens.metrics.map((m, i) => (
-                <MetricTile key={`${m.label}-${i}`} m={m} />
+                <MetricChip key={`${m.label}-${i}`} m={m} />
               ))}
             </div>
           )}

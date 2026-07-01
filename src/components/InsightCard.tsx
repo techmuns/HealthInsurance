@@ -1,5 +1,5 @@
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
-import { Sparkles, Eye, ShieldAlert, AlertTriangle, Scale, TrendingUp, Gauge, Users, Landmark, Share2, BadgeCheck, Sigma, BarChart3, CalendarClock, type LucideIcon } from 'lucide-react'
+import { Sparkles, ShieldAlert, AlertTriangle, Scale, TrendingUp, Gauge, Users, Landmark, Share2, BadgeCheck, Sigma, CalendarClock, type LucideIcon } from 'lucide-react'
 import type { Insight, InsightCategory, ProvenanceLayer } from '@/insights/types'
 import { InsightChart } from '@/components/InsightChart'
 import { MethodologyPanel } from '@/components/MethodologyPanel'
@@ -162,6 +162,15 @@ export function InsightCard({ ins, hero = false, source, freshness, onGoToSource
   // The hero number leans gold when it spotlights one company, else its tone colour.
   const statColor = focal && stat && stat.insurer === focal ? GOLD : tone.fg
 
+  // The front stays clean — the concrete number and the live chart move to the
+  // flip side (the workings). We assemble both here and hand them to the back.
+  const heroStat = stat
+    ? { value: fmtVal(stat.value, stat.unit), period: stat.period, label: `${pretty(stat.insurer)} · ${stat.metric}`, context: stat.context, color: statColor }
+    : null
+  const visualEvidence = guidanceCo
+    ? <div className="rounded-xl border border-soft-border bg-card p-3.5 shadow-soft"><GuidanceBreakdown companyId={guidanceCo} /></div>
+    : <InsightChart spec={ins.chart} focal={focal} embedded />
+
   // ── flip state + variable-height 3D flip ──────────────────────────────────
   // `initialFlipped` is true only when the reader is returning from "Go to source
   // → Back to Insight", so the card reopens on its workings, where they left off.
@@ -240,93 +249,62 @@ export function InsightCard({ ins, hero = false, source, freshness, onGoToSource
           <div ref={frontFaceRef} onClick={() => hasMethodology && flipTo(true)} className={`flip-face relative ${hasMethodology ? 'cursor-pointer' : ''}`} style={frontFaceStyle}>
            <div ref={frontRef} className="relative">
             {/* Ultra-faint category wash — a tinted overlay, never a flat fill. */}
-            <span aria-hidden className="pointer-events-none absolute inset-0" style={{ background: `linear-gradient(100deg, ${tone.wash} 0%, transparent 40%)` }} />
+            <span aria-hidden className="pointer-events-none absolute inset-0" style={{ background: `linear-gradient(100deg, ${tone.wash} 0%, transparent 55%)` }} />
+            {/* faint category-icon watermark — quiet premium character, never a plain note box. */}
+            <Icon aria-hidden className="pointer-events-none absolute -right-2 -top-3 h-24 w-24 opacity-[0.05]" style={{ color: tone.fg }} strokeWidth={1.1} />
 
-            <div className="relative grid grid-cols-1 items-stretch gap-6 py-6 pl-7 pr-6 lg:grid-cols-[45fr_55fr] lg:gap-7 lg:py-7">
-              {/* ── LEFT · the advisor memo — 45%, footer anchored to the bottom ── */}
-              <div className="flex min-w-0 flex-col">
-                {/* category badge · insight number · featured flag — one compact row */}
-                <div className="flex flex-wrap items-center gap-2">
-                  <span className="inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.05em]" style={{ color: tone.fg, background: tone.bg, boxShadow: `inset 0 0 0 1px ${tone.ring}` }}>
-                    <Icon className="h-3.5 w-3.5" strokeWidth={2.4} /> {cat.label}
-                  </span>
-                  <span className="text-[10.5px] font-semibold tabular-nums text-ink-secondary">Insight #{ins.rank}</span>
-                  {hero && <span className="inline-flex items-center gap-1 rounded-full bg-champagne-soft px-2 py-0.5 text-[9px] font-bold uppercase tracking-[0.12em] text-champagne-deep ring-1 ring-[#E7D29B]"><Sparkles className="h-3 w-3" />Featured</span>}
-                  {/* Interactive cue — the whole card flips, this pill just signals it. */}
-                  {hasMethodology && (
-                    <button
-                      ref={showBtnRef}
-                      type="button"
-                      onClick={(e) => { e.stopPropagation(); setFlipped(true) }}
-                      aria-expanded={flipped}
-                      aria-controls={backId}
-                      title="View the working behind this insight"
-                      className="ml-auto inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-[9px] font-bold uppercase tracking-[0.08em] text-ink-secondary shadow-soft transition-all duration-200 group-hover:shadow-card"
-                      style={{ borderColor: tone.ring, background: tone.bg }}
-                    >
-                      <Sigma className="h-3 w-3" style={{ color: tone.fg }} strokeWidth={2.4} />
-                      <span style={{ color: tone.fg }}>View workings</span>
-                    </button>
-                  )}
-                </div>
-
-                {/* title — editorial navy display */}
-                <h3 className="mt-3 font-editorial text-[26px] font-bold leading-[1.12] tracking-[-0.01em] text-navy-deep lg:text-[30px]">{ins.shortHeadline}</h3>
-
-                {/* the overlooked angle → short thesis */}
-                <p className="mt-3 text-[9px] font-bold uppercase tracking-[0.15em]" style={{ color: tone.fg }}>The overlooked angle</p>
-                <p className="mt-1.5 font-editorial text-[15px] leading-relaxed text-ink-primary">{ins.summary}</p>
-
-                {/* hero metric tile — locked to the full paragraph width */}
-                {stat && (
-                  <div className="mt-4 flex w-full items-stretch gap-3.5 rounded-xl p-3.5" style={{ background: tone.soft, boxShadow: `inset 0 0 0 1px ${tone.ring}` }}>
-                    <span aria-hidden className="w-[2.5px] shrink-0 rounded-full" style={{ background: statColor }} />
-                    <div className="min-w-0">
-                      <div className="flex items-baseline gap-2">
-                        <span className="font-display text-[30px] font-semibold leading-none" style={{ color: statColor }}>{fmtVal(stat.value, stat.unit)}</span>
-                        <span className="rounded-md bg-white/70 px-1.5 py-0.5 text-[9.5px] font-semibold text-ink-secondary ring-1 ring-soft-border">{stat.period}</span>
-                      </div>
-                      <p className="mt-2 text-[10px] font-bold uppercase tracking-[0.07em] text-navy-deep">{pretty(stat.insurer)} · {stat.metric}</p>
-                      <p className="mt-0.5 font-editorial text-[12.5px] leading-snug text-ink-secondary">{stat.context}</p>
-                    </div>
-                  </div>
+            {/* ── The clean read — one compact column: headline + a short plain-English
+                take + small honest chips. Every number, the chart and the workings
+                live one tap away on the flip side, so the front stays scannable. ── */}
+            <div className="relative flex flex-col py-5 pl-7 pr-6 lg:py-6">
+              {/* category badge · insight number · featured flag · flip affordance */}
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.05em]" style={{ color: tone.fg, background: tone.bg, boxShadow: `inset 0 0 0 1px ${tone.ring}` }}>
+                  <Icon className="h-3.5 w-3.5" strokeWidth={2.4} /> {cat.label}
+                </span>
+                <span className="text-[10.5px] font-semibold tabular-nums text-ink-secondary">Insight #{ins.rank}</span>
+                {hero && <span className="inline-flex items-center gap-1 rounded-full bg-champagne-soft px-2 py-0.5 text-[9px] font-bold uppercase tracking-[0.12em] text-champagne-deep ring-1 ring-[#E7D29B]"><Sparkles className="h-3 w-3" />Featured</span>}
+                {/* Interactive cue — the whole card flips, this pill just signals it. */}
+                {hasMethodology && (
+                  <button
+                    ref={showBtnRef}
+                    type="button"
+                    onClick={(e) => { e.stopPropagation(); setFlipped(true) }}
+                    aria-expanded={flipped}
+                    aria-controls={backId}
+                    title="Flip to the numbers, chart, workings & source behind this insight"
+                    className="ml-auto inline-flex items-center gap-1 rounded-full border px-2.5 py-1 text-[9.5px] font-bold uppercase tracking-[0.08em] text-ink-secondary shadow-soft transition-all duration-200 group-hover:shadow-card"
+                    style={{ borderColor: tone.ring, background: tone.bg }}
+                  >
+                    <Sigma className="h-3 w-3" style={{ color: tone.fg }} strokeWidth={2.4} />
+                    <span style={{ color: tone.fg }}>View workings</span>
+                  </button>
                 )}
-
-                {/* conviction / timeframe + the falsifier */}
-                <div className="mt-4 flex flex-wrap items-center gap-x-3 gap-y-2 text-[10.5px]">
-                  <span className="inline-flex items-center gap-1.5 whitespace-nowrap rounded-full bg-ice px-2.5 py-1 font-semibold text-navy-deep ring-1 ring-soft-border">
-                    <span className="h-1.5 w-1.5 rounded-full" style={{ background: CONVICTION_DOT[ins.conviction] }} />
-                    {CONVICTION_LABEL[ins.conviction]} · {HORIZON[ins.horizon]}
-                  </span>
-                  <span className="inline-flex items-start gap-1.5 text-ink-secondary"><Eye className="mt-0.5 h-3 w-3 shrink-0 text-coral" /><span className="font-editorial text-[12.5px] italic leading-snug"><strong className="font-semibold not-italic text-navy-deep">Flips if:</strong> {ins.falsifier}</span></span>
-                </div>
-
-                {/* source-backed footer strip — anchored to the bottom. Carries an
-                    honest data-freshness pill (the period the insight actually uses). */}
-                <div className="mt-auto flex flex-wrap items-center gap-x-2.5 gap-y-2 border-t border-soft-border pt-4 text-[10px] text-ink-secondary">
-                  <span className="inline-flex items-center gap-1 rounded-full bg-teal-soft px-2 py-0.5 font-bold uppercase tracking-[0.08em] text-teal"><BadgeCheck className="h-3 w-3" />Source-backed</span>
-                  <FreshnessPill freshness={freshness} />
-                  <span>{sourceLine(ins)}</span>
-                </div>
               </div>
 
-              {/* ── RIGHT · visual evidence — 55%, the dominant analytical proof ── */}
-              <div className="flex h-full min-w-0 flex-col overflow-hidden rounded-2xl border border-soft-border bg-card shadow-soft">
-                {/* dark navy header strip */}
-                <div className="flex items-center gap-2 bg-gradient-to-r from-navy-deep to-navy-primary px-4 py-2.5">
-                  <BarChart3 className="h-3.5 w-3.5 text-[#E4CE93]" strokeWidth={2.2} />
-                  <span className="text-[10px] font-bold uppercase tracking-[0.18em] text-white/90">Visual Evidence</span>
-                </div>
-                {/* chart body — grows to fill, so the card bottom-aligns with the memo.
-                    Guidance insights show the per-target met/missed breakdown here. */}
-                <div className="min-h-0 flex-1 p-3.5">
-                  {guidanceCo ? <GuidanceBreakdown companyId={guidanceCo} /> : <InsightChart spec={ins.chart} focal={focal} bare fill />}
-                </div>
-                {/* key takeaway strip — the insight's own "what consensus misses", verbatim */}
-                <div className="border-t border-soft-border bg-ice/60 px-4 py-2.5">
-                  <p className="text-[9px] font-bold uppercase tracking-[0.14em]" style={{ color: tone.fg }}>Key takeaway</p>
-                  <p className="mt-1 font-editorial text-[13px] leading-snug text-ink-primary">{ins.whatConsensusMisses}</p>
-                </div>
+              {/* title — editorial navy display, the catchy headline */}
+              <h3 className="mt-3 font-editorial text-[23px] font-bold leading-[1.14] tracking-[-0.01em] text-navy-deep lg:text-[26px]">{ins.shortHeadline}</h3>
+
+              {/* the overlooked angle → a short, plain-English read */}
+              <p className="mt-2 text-[9px] font-bold uppercase tracking-[0.15em]" style={{ color: tone.fg }}>The overlooked angle</p>
+              <p className="mt-1 font-editorial text-[14px] leading-relaxed text-ink-primary">{ins.summary}</p>
+
+              {/* compact meta strip — conviction · period · source-backed, then a quiet
+                  cue to where the numbers went (the flip side). No big metric tiles. */}
+              <div className="mt-4 flex flex-wrap items-center gap-x-2.5 gap-y-2 border-t border-soft-border pt-3.5 text-[10px] text-ink-secondary">
+                <span className="inline-flex items-center gap-1.5 whitespace-nowrap rounded-full bg-ice px-2.5 py-1 font-semibold text-navy-deep ring-1 ring-soft-border">
+                  <span className="h-1.5 w-1.5 rounded-full" style={{ background: CONVICTION_DOT[ins.conviction] }} />
+                  {CONVICTION_LABEL[ins.conviction]} · {HORIZON[ins.horizon]}
+                </span>
+                <FreshnessPill freshness={freshness} />
+                <span className="inline-flex items-center gap-1 rounded-full bg-teal-soft px-2 py-0.5 font-bold uppercase tracking-[0.08em] text-teal"><BadgeCheck className="h-3 w-3" />Source-backed</span>
+                <span className="hidden sm:inline">{sourceLine(ins)}</span>
+                {hasMethodology && (
+                  <span className="ml-auto inline-flex items-center gap-1 font-semibold" style={{ color: tone.fg }}>
+                    Numbers &amp; workings on the back
+                    <Sigma className="h-3 w-3" strokeWidth={2.4} />
+                  </span>
+                )}
               </div>
             </div>
            </div>
@@ -337,7 +315,7 @@ export function InsightCard({ ins, hero = false, source, freshness, onGoToSource
           {hasMethodology && (
             <div ref={backFaceRef} onClick={() => flipTo(false)} className="flip-face cursor-pointer overflow-hidden rounded-2xl bg-card" style={backFaceStyle} id={backId}>
               <div ref={backRef}>
-                <MethodologyPanel ins={ins} tone={tone} source={source} freshness={freshness} onGoToSource={onGoToSource} onBack={() => setFlipped(false)} backRef={backBtnRef} labelId={labelId} />
+                <MethodologyPanel ins={ins} tone={tone} source={source} freshness={freshness} onGoToSource={onGoToSource} onBack={() => setFlipped(false)} backRef={backBtnRef} labelId={labelId} heroStat={heroStat} visual={visualEvidence} />
               </div>
             </div>
           )}
