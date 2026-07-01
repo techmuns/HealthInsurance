@@ -38,9 +38,8 @@ interface RingCard {
   subtitle: string
   segments: Seg[]
   insight: string
-  // Dominant tint per card (colour-psychology): GI Premium Mix = teal (Health
-  // leads) and SAHI vs Non-SAHI = teal read as one health story; PSU vs Private
-  // = gold stays distinct. ('blue' is retained for future market-structure cards.)
+  // Dominant tint per card (colour-psychology): GI Premium Mix = blue,
+  // SAHI vs Non-SAHI = teal, PSU vs Private = gold — each card its own colour.
   tone: 'blue' | 'teal' | 'gold'
   // Enhanced GI premium-mix donut (card 1 only): a centre total label + an
   // on-hover tooltip with ₹ Cr, share and YoY. Cards 2 & 3 leave these unset
@@ -76,11 +75,12 @@ const CARD_STYLE: Record<
   { title: (fy: string) => string; subtitle: string; tone: RingCard['tone']; palette: { color: string; labelColor: string }[] }
 > = {
   'segment-mix': {
-    // Teal-toned to sit as a cohesive "health story" pair with the SAHI card
-    // (Health leads this mix in teal); PSU vs Private keeps its distinct gold.
+    // Its own blue tone — distinct from the SAHI card's teal and the PSU card's
+    // gold, so each snapshot card reads as its own thing. (Health still leads the
+    // ring itself in teal, the dashboard's health accent.)
     title: (fy) => `1. General Insurance Premium Mix (${fy})`,
     subtitle: 'Total Premium (₹ Cr) and Market Share (%)',
-    tone: 'teal',
+    tone: 'blue',
     palette: GI_MIX_PALETTE,
   },
   'sahi-split': {
@@ -253,8 +253,7 @@ function RingChart({ segments, enhanced, centerValue, centerCaption }: { segment
 }
 
 // Dominant tint per card — a soft tonal wash + a slim top accent rib, by
-// colour-psychology: teal (GI premium mix — Health leads — and health/SAHI),
-// gold (PSU); blue is kept for any future market-structure card.
+// colour-psychology: blue (GI premium mix), teal (health/SAHI), gold (PSU).
 const TINT: Record<RingCard['tone'], { accent: string; wash: string; bloom: string; insight: string }> = {
   blue: { accent: '#3D5F9F', wash: 'rgba(61,95,159,0.05)', bloom: 'rgba(61,95,159,0.10)', insight: 'bg-soft-blue text-navy-primary' },
   teal: { accent: '#168E8E', wash: 'rgba(22,142,142,0.055)', bloom: 'rgba(22,142,142,0.11)', insight: 'bg-teal-soft text-teal' },
