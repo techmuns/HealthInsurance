@@ -714,13 +714,10 @@ function BroaderSignals({ pulse }: { pulse: InvestorPulseData }) {
           <span className="text-[10px] font-bold uppercase tracking-[0.18em] text-champagne">Broader Signals &amp; Correlations</span>
           <span className="gold-rule h-px w-8 rounded-full" />
         </div>
-        <div className="flex flex-wrap items-baseline gap-2">
-          <span className="flex items-center gap-2">
-            <Network className="h-4 w-4 text-navy-deep" strokeWidth={2} />
-            <h2 className="font-display text-[16px] leading-tight text-navy-deep">The longer-term picture behind today&apos;s read.</h2>
-          </span>
-          <span className="text-[11px] leading-snug text-ink-secondary">Longer-term Indian insurance, regulatory and profitability links behind today&apos;s signals.</span>
-        </div>
+        <span className="flex items-center gap-2">
+          <Network className="h-4 w-4 text-navy-deep" strokeWidth={2} />
+          <h2 className="font-display text-[16px] leading-tight text-navy-deep">The longer-term picture behind today&apos;s read.</h2>
+        </span>
       </div>
       <div className="grid grid-cols-1 gap-3 md:grid-cols-3">
         {cards.map((card) => (
