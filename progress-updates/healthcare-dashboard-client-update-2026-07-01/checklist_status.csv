@@ -1,14 +1,15 @@
-#,item,type,status,page,refreshed,notes
-01,Remove life insurance from industry data,Checklist,Shipped,9,Yes,Donut refreshed; industry view is GI-only
-02,"Pie chart for general insurance (Health, Motor)",Checklist,Shipped,10,Yes,Donut polished - Health/Motor values on ring
-03,Update FY25 -> FY26 references,Checklist,Shipped (rolling),11,Yes,FY26 where data is published; others labelled honestly
-04,Star Health data visibility,Checklist,Shipped,12,Yes,Full scorecard row populated
-05,IGAAP / IFRS toggle,Checklist,Shipped,13,Yes,Toggle made prominent; combined ratio restates
-06,Channel / retail-mix conflict (67% vs 88-96%),Checklist,Shipped,14,Yes,Single derived figure across surfaces
-07,Clarify '60% guidance delivered' (3 of 5),Checklist,Shipped,15,Yes,"Promise Tracker: 3 met, 2 open"
-N1,Insights - daily market intelligence,New today,Shipped,3,New,
-N2,Signal Stack,New today,Shipped,4,New,
-N3,Add to Calendar (Google Calendar link),New today,Shipped,5,New,Keyless prefilled link + .ics
-N4,Data Audit AI Mode,New today,Shipped,6,New,
-N5,Instant Visualisation (chart),New today,Shipped,7,New,
-N6,Pulse - curated view,New today,Shipped,8,New,
+#,item,type,status,page
+01,Remove life insurance from industry data,Refinement,Done,13
+02,"Pie chart for general insurance (Health, Motor)",Refinement,Done,14
+03,All figures on FY26 (2026),Refinement,Done,15
+04,Star Health data visibility,Refinement,Done,16
+05,IGAAP / IFRS toggle,Refinement,Done,17
+06,Channel / retail-mix conflict (67% vs 88-96%),Refinement,Done,18
+07,Clarify '60% guidance delivered' (3 of 5),Refinement,Done,19
+N1,Insights - daily market intelligence,New feature,Shipped,4
+N2,Today's Read,New feature,Shipped,5
+N3,Signal Stack,New feature,Shipped,6
+N4,Add to Calendar (Google Calendar link),New feature,Shipped,7
+N5,Pulse - curated view / correlations,New feature,Shipped,8
+N6,Data Audit AI Mode,New feature,Shipped,10
+N7,Instant Visualisation (chart),New feature,Shipped,11
