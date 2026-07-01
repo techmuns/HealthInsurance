@@ -1117,8 +1117,14 @@ export function buildInvestorPulse(companyId: string, companyName: string): Inve
 
   const byNewestAll = surfacedSignals.slice().sort(byNewest)
   const freshest = byNewestAll[0] ?? null
-  const latestRisk = byNewestAll.find((s) => s.impact === 'Risk') ?? byNewestAll.find((s) => s.impact === 'Watch') ?? null
-  const latestOpportunity = byNewestAll.find((s) => s.impact === 'Positive') ?? null
+  // The Signal Stack shows three DISTINCT rows (Fastest Signal / Risk Watch /
+  // Opportunity Watch). The freshest item is by definition also the newest of its
+  // own impact, so Risk / Opportunity must exclude whatever already fills the
+  // Fastest-Signal row — otherwise the same signal appears twice in the stack.
+  const notFreshest = (s: PulseSignal) => s.id !== freshest?.id
+  const rest = byNewestAll.filter(notFreshest)
+  const latestRisk = rest.find((s) => s.impact === 'Risk') ?? rest.find((s) => s.impact === 'Watch') ?? null
+  const latestOpportunity = rest.find((s) => s.impact === 'Positive') ?? null
   const movingFast = byNewestAll.filter((s) => (s.daysAgo ?? 999) <= 7)
 
   return {
