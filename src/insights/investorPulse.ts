@@ -59,6 +59,12 @@ export interface PulseSignal {
   confidence: Confidence
   /** Sector-wide item vs a company-specific one (drives a subtle "sector" tag). */
   scope: 'company' | 'sector'
+  /**
+   * 'upcoming' = a scheduled future event (AGM, next results date); 'recent' =
+   * already-surfaced news. Freshness and "latest" are measured over surfaced items
+   * only — a not-yet-happened event is a catalyst to watch, never the newest update.
+   */
+  horizon: 'upcoming' | 'recent'
 }
 
 export interface PulseManagementEvent {
@@ -274,6 +280,25 @@ function daysAgo(d?: string | null): number | null {
   return Math.max(0, Math.floor((Date.now() - t) / MS_DAY))
 }
 
+// A date strictly in the future — a scheduled/forecast item. Freshness can never
+// be later than "now", so a future date is never a measure of how recent the
+// INFORMATION is; it only says when the event is due.
+function isFutureDate(d?: string | null): boolean {
+  if (!d) return false
+  const t = Date.parse(d)
+  return !isNaN(t) && t > Date.now()
+}
+
+// A signal is "surfaced" when it is already-known information (real news), not a
+// scheduled/upcoming event. FRESHNESS AND "LATEST" ARE MEASURED OVER THESE ONLY:
+// an AGM or results date weeks out is a catalyst to watch, never the most recent
+// development. `horizon` is the primary discriminator — a scheduled item dated
+// *today* must still be excluded, so a bare date cap is not enough — and the
+// future-date guard is a backstop for records that carry no horizon (e.g. events).
+function isSurfaced(s: { horizon?: string | null; date?: string | null }): boolean {
+  return s.horizon !== 'upcoming' && !isFutureDate(s.date)
+}
+
 function freshness(d: number | null): { label: string; tone: 'fresh' | 'recent' | 'older' } {
   if (d == null) return { label: 'Date not on record', tone: 'older' }
   if (d <= 1) return { label: d === 0 ? 'Updated today' : 'Updated yesterday', tone: 'fresh' }
@@ -383,6 +408,9 @@ function toSignal(item: IntelItem, companyId: string): PulseSignal | null {
     sourceUrl: hasLink ? sourceHref(item.source_url)! : '',
     confidence: sourceConfidence(item.source_url),
     scope,
+    // Only an explicit 'upcoming' marks a scheduled event; anything else counts as
+    // already-surfaced news for freshness purposes.
+    horizon: item.horizon === 'upcoming' ? 'upcoming' : 'recent',
   }
 }
 
@@ -511,8 +539,10 @@ function buildTodayRead(
   if (!all.length && !mgmt.length) return null
 
   const stance = deriveStance(counts)
-  const freshestSignal = all.slice().sort(byNewest)[0] ?? null
-  const freshestMgmt = mgmt.length ? mgmt.slice().sort(byNewest)[0] : null
+  // Surfaced-only: a scheduled/upcoming event must never win the "freshest
+  // development" slot even when its date sorts newest (see isSurfaced).
+  const freshestSignal = all.filter(isSurfaced).sort(byNewest)[0] ?? null
+  const freshestMgmt = mgmt.filter(isSurfaced).sort(byNewest)[0] ?? null
   // The genuinely freshest source-backed development is the newer of the freshest
   // market signal vs the freshest governance event — so a recent board/leadership
   // change surfaces as "what changed" instead of being hidden behind sector news.
@@ -1072,15 +1102,20 @@ export function buildInvestorPulse(companyId: string, companyName: string): Inve
   const coverage = getAnalystCoverage(companyId)
   const todayRead = buildTodayRead(companySignals, sectorSignals, managementEvents, coverage, counts)
 
-  // Freshness from the newest dated item across signals + events.
-  const newestDays = [...signals, ...managementEvents]
+  // Freshness / "latest" are measured over SURFACED items only — a scheduled event
+  // (upcoming AGM, next results date) is a catalyst to watch, never the most recent
+  // development, so it must never win the freshest / fastest-signal slot or push the
+  // "as of" label into the future.
+  const surfacedSignals = signals.filter(isSurfaced)
+  const surfacedEvents = managementEvents.filter(isSurfaced)
+  const newestDays = [...surfacedSignals, ...surfacedEvents]
     .map((x) => x.daysAgo)
     .filter((d): d is number => d != null)
     .sort((a, b) => a - b)[0]
-  const newestDate = [...signals, ...managementEvents].map((x) => x.date).filter(Boolean).sort().slice(-1)[0] ?? null
+  const newestDate = [...surfacedSignals, ...surfacedEvents].map((x) => x.date).filter(Boolean).sort().slice(-1)[0] ?? null
   const fresh = freshness(newestDays ?? null)
 
-  const byNewestAll = signals.slice().sort(byNewest)
+  const byNewestAll = surfacedSignals.slice().sort(byNewest)
   const freshest = byNewestAll[0] ?? null
   const latestRisk = byNewestAll.find((s) => s.impact === 'Risk') ?? byNewestAll.find((s) => s.impact === 'Watch') ?? null
   const latestOpportunity = byNewestAll.find((s) => s.impact === 'Positive') ?? null
