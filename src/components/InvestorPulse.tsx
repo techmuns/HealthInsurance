@@ -623,6 +623,17 @@ type BroaderCard = {
   asOf?: string
 }
 
+// The FY tag on a correlation card is intentional: these cards read LIVE off
+// today's pulse but anchor their fundamentals to the latest audited full-year,
+// because newer full-year accounts aren't published yet. The hover spells that
+// out, and derives the "next" year from the period so it self-corrects when the
+// data rolls forward (FY25 → FY26) instead of going stale.
+function asOfHelp(period: string): string {
+  const m = /FY\s*(\d{2,4})/i.exec(period)
+  const next = m ? `FY${Number(m[1]) + 1}` : 'newer'
+  return `Live correlation over the latest audited full-year (${period}). ${next} accounts aren't published yet, so we anchor to ${period} — updates on its own when ${next} lands.`
+}
+
 function cardFromLens(eyebrow: string, icon: LucideIcon, lens: InsightLens): BroaderCard {
   const headline = lens.available && lens.oneLineRead ? lens.oneLineRead : lens.purpose
   const raw = lens.keyInsights.length ? lens.keyInsights : lens.missedSignals.length ? lens.missedSignals : lens.watchNext
@@ -673,7 +684,14 @@ function BroaderCardView({ card }: { card: BroaderCard }) {
         ) : (
           <span className="font-medium text-ink-secondary">{card.src?.name ?? 'Wired dashboard data'}</span>
         )}
-        {card.asOf && <span className="text-ink-secondary">· {card.asOf}</span>}
+        {card.asOf && (
+          <span
+            className="cursor-help text-ink-secondary underline decoration-dotted decoration-ink-secondary/40 underline-offset-2"
+            title={asOfHelp(card.asOf)}
+          >
+            · Live correlation · {card.asOf}
+          </span>
+        )}
         <span className="inline-flex items-center gap-1 font-semibold" style={{ color: c.fg }}>
           <span className="h-1.5 w-1.5 rounded-full" style={{ background: c.fg }} />{card.confidence} confidence
         </span>
