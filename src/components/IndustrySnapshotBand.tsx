@@ -38,8 +38,9 @@ interface RingCard {
   subtitle: string
   segments: Seg[]
   insight: string
-  // Dominant tint per card (colour-psychology): Market Size = blue,
-  // SAHI vs Non-SAHI = teal, PSU vs Private = gold.
+  // Dominant tint per card (colour-psychology): GI Premium Mix = teal (Health
+  // leads) and SAHI vs Non-SAHI = teal read as one health story; PSU vs Private
+  // = gold stays distinct. ('blue' is retained for future market-structure cards.)
   tone: 'blue' | 'teal' | 'gold'
   // Enhanced GI premium-mix donut (card 1 only): a centre total label + an
   // on-hover tooltip with ₹ Cr, share and YoY. Cards 2 & 3 leave these unset
@@ -75,9 +76,11 @@ const CARD_STYLE: Record<
   { title: (fy: string) => string; subtitle: string; tone: RingCard['tone']; palette: { color: string; labelColor: string }[] }
 > = {
   'segment-mix': {
+    // Teal-toned to sit as a cohesive "health story" pair with the SAHI card
+    // (Health leads this mix in teal); PSU vs Private keeps its distinct gold.
     title: (fy) => `1. General Insurance Premium Mix (${fy})`,
     subtitle: 'Total Premium (₹ Cr) and Market Share (%)',
-    tone: 'blue',
+    tone: 'teal',
     palette: GI_MIX_PALETTE,
   },
   'sahi-split': {
@@ -129,6 +132,10 @@ const C = BOX / 2
 const INNER = 46
 const OUTER = 58
 const LABEL_R = OUTER + 19
+// Enhanced GI-mix card: only the dominant lines earn a % callout on the ring, so
+// the donut tells the "Health + Motor dominate" story in a glance without the
+// small slivers crowding it with chips. Everything else reads from the legend.
+const LEAD_SHARE = 15
 
 /** On-hover tooltip for the GI premium-mix donut: segment name, ₹ Cr, % share
  *  and YoY (when a prior-year basis exists). */
@@ -170,6 +177,7 @@ function RingChart({ segments, enhanced, centerValue, centerCaption }: { segment
         y: C - LABEL_R * Math.sin(mid * RAD),
         share: s.share,
         color: s.labelColor,
+        lead: s.share >= LEAD_SHARE,
       }
     })
   }, [segments])
@@ -215,6 +223,23 @@ function RingChart({ segments, enhanced, centerValue, centerCaption }: { segment
           ))}
         </div>
       )}
+      {/* Enhanced card: clean % callouts for the dominant lines only (Health,
+          Motor) — soft-tint chips like the SAHI card, kept off the small slivers. */}
+      {enhanced && (
+        <div className="pointer-events-none absolute inset-0">
+          {labels
+            .filter((l) => l.lead)
+            .map((l) => (
+              <span
+                key={l.key}
+                className="absolute -translate-x-1/2 -translate-y-1/2 whitespace-nowrap rounded-full bg-white/95 px-1.5 py-px text-[11px] font-bold tabular-nums shadow-[0_1px_3px_rgba(23,43,77,0.12)] ring-1 ring-black/[0.04]"
+                style={{ left: l.x, top: l.y, color: l.color }}
+              >
+                {l.share}%
+              </span>
+            ))}
+        </div>
+      )}
       {enhanced && centerValue && (
         <div className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center text-center">
           <span className="text-[12px] font-semibold leading-none text-navy-deep">{centerValue}</span>
@@ -228,7 +253,8 @@ function RingChart({ segments, enhanced, centerValue, centerCaption }: { segment
 }
 
 // Dominant tint per card — a soft tonal wash + a slim top accent rib, by
-// colour-psychology: blue (market structure), teal (health/SAHI), gold (PSU).
+// colour-psychology: teal (GI premium mix — Health leads — and health/SAHI),
+// gold (PSU); blue is kept for any future market-structure card.
 const TINT: Record<RingCard['tone'], { accent: string; wash: string; bloom: string; insight: string }> = {
   blue: { accent: '#3D5F9F', wash: 'rgba(61,95,159,0.05)', bloom: 'rgba(61,95,159,0.10)', insight: 'bg-soft-blue text-navy-primary' },
   teal: { accent: '#168E8E', wash: 'rgba(22,142,142,0.055)', bloom: 'rgba(22,142,142,0.11)', insight: 'bg-teal-soft text-teal' },
@@ -251,17 +277,32 @@ function RingInsightCard({ title, subtitle, segments, insight, tone, enhanced, c
       <div className="relative mt-2 flex items-center gap-3">
         <RingChart segments={segments} enhanced={enhanced} centerValue={centerValue} centerCaption={centerCaption} />
         {enhanced ? (
-          // Minimal resting legend (label + colour cue only) — the same vertical
-          // list structure as cards 2 & 3, but detail-light to keep the many-
-          // segment card as compact and elegant as the old 3-segment one. The
-          // premium, share % and YoY live on the ring's hover tooltip, not here.
-          <div className="flex min-w-0 flex-1 flex-col justify-center gap-2.5">
-            {segments.map((s) => (
-              <div key={s.name} className="flex items-center gap-2">
-                <span className="h-2.5 w-2.5 shrink-0 rounded-full" style={{ background: s.color }} />
-                <span className="min-w-0 flex-1 truncate text-[11.5px] font-medium leading-snug text-navy-deep">{s.name}</span>
-              </div>
-            ))}
+          // Resting legend with the numbers surfaced (no hover needed): the two
+          // dominant lines (Health, Motor) carry name + share + ₹ Cr in full; the
+          // small lines stay muted and compact — colour, name and share only — so
+          // Health and Motor visibly own the mix. The ring's hover tooltip still
+          // adds YoY on demand.
+          <div className="flex min-w-0 flex-1 flex-col justify-center gap-1.5">
+            {segments.map((s) =>
+              s.share >= LEAD_SHARE ? (
+                <div key={s.name} className="flex items-start gap-2">
+                  <span className="mt-[3px] h-2.5 w-2.5 shrink-0 rounded-full" style={{ background: s.color }} />
+                  <div className="min-w-0 flex-1">
+                    <div className="flex items-baseline justify-between gap-1.5">
+                      <span className="truncate text-[12px] font-semibold leading-snug text-navy-deep">{s.name}</span>
+                      <span className="shrink-0 text-[12.5px] font-semibold tabular-nums text-navy-deep">{s.share}%</span>
+                    </div>
+                    <span className="text-[10.5px] tabular-nums text-ink-secondary">{inr(s.premium)}</span>
+                  </div>
+                </div>
+              ) : (
+                <div key={s.name} className="flex items-center gap-2">
+                  <span className="h-2 w-2 shrink-0 rounded-full opacity-60" style={{ background: s.color }} />
+                  <span className="min-w-0 flex-1 truncate text-[10.5px] font-medium leading-snug text-ink-secondary/90">{s.name}</span>
+                  <span className="shrink-0 text-[10.5px] tabular-nums text-ink-secondary/80">{s.share}%</span>
+                </div>
+              ),
+            )}
           </div>
         ) : (
           <div className="flex min-w-0 flex-1 flex-col justify-center gap-2.5">
