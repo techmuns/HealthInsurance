@@ -266,6 +266,7 @@ const INVESTMENT: Record<string, Partial<Record<BasisPeriod, InvestmentMetrics>>
     FY23: { aum: 3366, yield: 6.7 },
     FY24: { aum: 5458, yield: 7.1 },
     FY25: { aum: 8175, yield: 7.4 },
+    FY26: { aum: 9670, yield: 7.2 },
   },
   'star-health': {
     FY23: { aum: 13392, yield: 6.94 },
