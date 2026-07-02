@@ -251,7 +251,7 @@ export function InsightCard({
             className="flip-face relative cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-champagne/60"
             style={frontFaceStyle}
           >
-           <div ref={frontRef} className="relative flex min-h-[244px] flex-col px-6 py-5">
+           <div ref={frontRef} className="relative flex flex-col px-6 py-5">
             {/* Ultra-faint category wash — a tinted overlay, never a flat fill. */}
             <span aria-hidden className="pointer-events-none absolute inset-0" style={{ background: `linear-gradient(100deg, ${tone.wash} 0%, transparent 55%)` }} />
             {/* faint category-icon watermark — quiet premium character. */}
@@ -274,10 +274,8 @@ export function InsightCard({
             {/* 1–2 line plain-English read — no numbers, no jargon */}
             <p className="relative mt-2 line-clamp-3 font-editorial text-[14px] leading-relaxed text-ink-primary">{ins.whatConsensusMisses}</p>
 
-            {/* spacer pins the footer to the bottom so every card reads the same height */}
-            <div className="flex-1" />
-
-            {/* footer — company (left) · flip affordance (right) */}
+            {/* footer — company (left) · flip affordance (right). Sits right under
+                the read so a full-width card stays compact, never a tall void. */}
             <div className="relative mt-4 flex items-center gap-2 border-t border-soft-border pt-3">
               <span className="inline-flex items-center gap-1.5 text-[12px] font-semibold text-navy-deep">
                 <span className="h-1.5 w-1.5 rounded-full" style={{ background: tone.fg }} />

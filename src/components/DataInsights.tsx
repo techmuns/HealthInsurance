@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
-import { RotateCcw, SlidersHorizontal, Sparkles } from 'lucide-react'
+import { ChevronDown, RotateCcw, Sparkles } from 'lucide-react'
 import generated from '@/data/insights.generated.json'
 import type { Insight, InsightsFile } from '@/insights/types'
 import {
@@ -94,29 +94,11 @@ const ROWS: Row[] = FILE.insights
 const matchesPeriod = (r: Row, p: PeriodKey): boolean =>
   p === 'all' ? true : p === 'latest' ? r.isLatest : p === 'quarterly' ? r.isQuarter : !r.isQuarter
 
-// ── Filter chip ──────────────────────────────────────────────────────────────
-const ACTIVE_CHIP: React.CSSProperties = {
-  background: 'linear-gradient(135deg, #1E4079 0%, #14294C 100%)',
-  boxShadow: 'inset 0 0 0 1px rgba(228,198,124,0.45), 0 3px 9px rgba(20,48,88,0.20)',
-}
-
-function Chip({ on, onClick, children }: { on: boolean; onClick: () => void; children: React.ReactNode }) {
-  return (
-    <button
-      type="button"
-      onClick={onClick}
-      className={[
-        'inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-[11.5px] font-semibold transition-all duration-normal ease-premium',
-        on ? 'text-white' : 'border border-soft-border bg-white text-navy-deep hover:bg-ice',
-      ].join(' ')}
-      style={on ? ACTIVE_CHIP : undefined}
-    >
-      {children}
-    </button>
-  )
-}
-
-function FilterRow<T extends string>({ label, options, value, onChange }: {
+// ── Slim filter control ──────────────────────────────────────────────────────
+// A bordered pill wrapping a native <select>, so the whole filter set fits on one
+// compact horizontal line — no stacked chip rows, no panel, no vertical bulk. A
+// filter that only offers "All" is hidden entirely (never a dead control).
+function FilterSelect<T extends string>({ label, options, value, onChange }: {
   label: string
   options: { id: T; label: string }[]
   value: T
@@ -124,22 +106,28 @@ function FilterRow<T extends string>({ label, options, value, onChange }: {
 }) {
   if (options.length <= 1) return null
   return (
-    <div className="flex flex-wrap items-baseline gap-x-2 gap-y-1.5">
-      <span className="w-[64px] shrink-0 text-[9px] font-bold uppercase tracking-[0.14em] text-ink-secondary">{label}</span>
-      <div className="flex flex-wrap gap-1.5">
+    <label className="group inline-flex cursor-pointer items-center gap-1.5 rounded-lg border border-soft-border bg-white px-2.5 py-1.5 shadow-soft transition-colors hover:border-muted-blue">
+      <span className="text-[8.5px] font-bold uppercase tracking-[0.09em] text-ink-secondary">{label}</span>
+      <select
+        value={value}
+        onChange={(e) => onChange(e.target.value as T)}
+        className="appearance-none bg-transparent pr-1 text-[12px] font-semibold text-navy-deep outline-none"
+      >
         {options.map((o) => (
-          <Chip key={o.id} on={o.id === value} onClick={() => onChange(o.id)}>{o.label}</Chip>
+          <option key={o.id} value={o.id}>{o.label}</option>
         ))}
-      </div>
-    </div>
+      </select>
+      <ChevronDown className="h-3 w-3 shrink-0 text-ink-secondary transition-colors group-hover:text-muted-blue" />
+    </label>
   )
 }
 
 // Data Insights — a clean, source-backed flip-card view. The tab holds only two
-// things: a filter bar and a grid of insight cards. Each card's FRONT is one
-// sharp read (headline · plain-English take · company · section · period); a tap
-// flips it to the BACK — the full basis (derivation, formula, source data,
-// framework, interpretation, what to watch, and a jump to the exact source).
+// things: one compact horizontal filter row and a full-width stack of insight
+// cards. Each card's FRONT is one sharp read (headline · plain-English take ·
+// company · section · period); a tap flips it to the BACK — the full basis
+// (derivation, formula, source data, framework, interpretation, what to watch,
+// and a jump to the exact source).
 export function DataInsights({
   onGoToSource,
   reopenInsightId,
@@ -185,34 +173,30 @@ export function DataInsights({
 
   return (
     <div className="space-y-4">
-      {/* ── Filter bar — always visible; controls the cards shown ─────────────── */}
-      <div className="rounded-2xl border border-soft-border bg-surface-tint/70 p-3.5 shadow-soft backdrop-blur-sm">
-        <div className="mb-2.5 flex items-center justify-between gap-2">
-          <span className="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-[0.16em] text-champagne-deep">
-            <SlidersHorizontal className="h-3.5 w-3.5" strokeWidth={2.2} /> Filters
-          </span>
-          <div className="flex items-center gap-2">
-            <span className="text-[10.5px] font-medium text-ink-secondary">
-              {shown.length} insight{shown.length === 1 ? '' : 's'}
-            </span>
-            {anyFilter && (
-              <button type="button" onClick={reset} className="inline-flex items-center gap-1 rounded-full border border-soft-border bg-white px-2 py-0.5 text-[10.5px] font-semibold text-ink-secondary transition-colors hover:bg-ice hover:text-navy-deep">
-                <RotateCcw className="h-3 w-3" strokeWidth={2.2} /> Reset
-              </button>
-            )}
-          </div>
-        </div>
-        <div className="space-y-2">
-          <FilterRow label="Company" options={companyOptions} value={company} onChange={setCompany} />
-          <FilterRow label="Section" options={sectionOptions} value={section} onChange={setSection} />
-          <FilterRow label="Period" options={periodOptions} value={period} onChange={setPeriod} />
-          <FilterRow label="Priority" options={priorityOptions} value={priority} onChange={setPriority} />
-        </div>
+      {/* ── Compact filter row — Company · Section · Period · Priority · Reset.
+           Slim dropdowns on one horizontal line; no panel, no vertical bulk. ──── */}
+      <div className="flex flex-wrap items-center gap-2">
+        <FilterSelect label="Company" options={companyOptions} value={company} onChange={setCompany} />
+        <FilterSelect label="Section" options={sectionOptions} value={section} onChange={setSection} />
+        <FilterSelect label="Period" options={periodOptions} value={period} onChange={setPeriod} />
+        <FilterSelect label="Priority" options={priorityOptions} value={priority} onChange={setPriority} />
+        <button
+          type="button"
+          onClick={reset}
+          disabled={!anyFilter}
+          title="Clear all filters"
+          className="inline-flex items-center gap-1 rounded-lg border border-soft-border bg-white px-2.5 py-1.5 text-[11px] font-semibold text-ink-secondary shadow-soft transition-colors hover:border-muted-blue hover:text-navy-deep disabled:cursor-not-allowed disabled:opacity-40"
+        >
+          <RotateCcw className="h-3.5 w-3.5" strokeWidth={2.2} /> Reset
+        </button>
+        <span className="ml-auto text-[10.5px] font-medium tabular-nums text-ink-secondary">
+          {shown.length} insight{shown.length === 1 ? '' : 's'}
+        </span>
       </div>
 
-      {/* ── The insight grid — clean flip cards, nothing else ─────────────────── */}
+      {/* ── Full-width stack of flip cards — one wide card per insight ─────────── */}
       {shown.length > 0 ? (
-        <div className="grid items-start gap-4 lg:grid-cols-2">
+        <div className="flex flex-col gap-4">
           {shown.map((r) => (
             <InsightCard
               key={r.ins.id}
