@@ -279,7 +279,7 @@ function periodTokens(period: string): { year: string[]; hint: string[] } {
   const y2 = String(yy).padStart(2, '0')
   const p2 = String(prev % 100).padStart(2, '0')
   const year = [`fy${y2}`, `fy${fyFull}`, `fy ${y2}`, `${prev}-${y2}`, `${prev}-${fyFull}`, `${prev}_${y2}`, `${p2}-${y2}`, `${p2}_${y2}`]
-  const tag = (/(Q[1-4]|H1|9M|FY)/i.exec(period) || [, 'FY'])[1]!.toUpperCase()
+  const tag = (/(Q[1-4]|H1|9M|FY)/i.exec(period)?.[1] || 'FY').toUpperCase()
   const hints: Record<string, string[]> = {
     Q1: ['q1', 'jun'], H1: ['h1', 'sep'], Q2: ['h1', 'sep'],
     '9M': ['9m', 'dec'], Q3: ['9m', 'dec'], Q4: ['q4', 'mar', 'annual'], FY: ['annual', 'mar', 'q4'],

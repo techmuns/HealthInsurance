@@ -217,7 +217,7 @@ export async function main(): Promise<number> {
   const targetFys = [`FY${latest}`, `FY${latest - 1}`]
   const validFys = new Set(targetFys)
 
-  let prevSuccessRun: string | null = (snap._meta?.last_successful_run as string) ?? null
+  const prevSuccessRun: string | null = (snap._meta?.last_successful_run as string) ?? null
   let pullSucceeded = false
   let filled = 0
   const rejected: string[] = []
