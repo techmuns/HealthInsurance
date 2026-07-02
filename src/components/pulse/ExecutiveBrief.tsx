@@ -15,6 +15,7 @@ import {
   ArrowUp,
   ArrowDown,
   ArrowRight,
+  Minus,
   ChevronDown,
   Star,
   Zap,
@@ -22,6 +23,7 @@ import {
   Users,
   History,
   TrendingUp,
+  Eye,
   Globe,
   Radar,
   type LucideIcon,
@@ -129,11 +131,7 @@ function StatTile({ icon: Icon, label, children }: { icon: LucideIcon; label: st
 }
 
 function AiMorningBrief({ brief, isToday, dateLabel }: { brief: MorningBrief; isToday: boolean; dateLabel: string }) {
-  const attention = brief.attentionCount
-  const lead = isToday
-    ? `${brief.line} Today, ${attention} ${attention === 1 ? 'development deserves' : 'developments deserve'} your attention.`
-    : `Source-backed developments recorded for ${dateLabel}. ${attention} ${attention === 1 ? 'idea' : 'ideas'} on file.`
-  const { shown, done } = useTypewriter(lead)
+  const { shown, done } = useTypewriter(brief.narrative)
   return (
     <section className="relative isolate overflow-hidden rounded-2xl px-5 py-4 shadow-card" style={{ background: 'linear-gradient(150deg, #1C3A6E 0%, #15294C 58%, #102140 100%)' }}>
       <div className="pointer-events-none absolute inset-0 -z-10" style={{ background: 'radial-gradient(circle at 94% 100%, rgba(214,178,98,0.26) 0%, transparent 44%), radial-gradient(circle at 98% 4%, rgba(96,138,206,0.26) 0%, transparent 44%), radial-gradient(circle at 2% 96%, rgba(44,80,146,0.44) 0%, transparent 52%)' }} />
@@ -149,7 +147,7 @@ function AiMorningBrief({ brief, isToday, dateLabel }: { brief: MorningBrief; is
       </div>
 
       <h2 className="mt-2 font-display text-[22px] font-semibold leading-tight" style={{ color: '#E9C46C' }}>
-        {isToday ? `${brief.greeting}.` : brief.greeting}
+        {isToday ? `${brief.greeting}.` : `${brief.greeting} · ${dateLabel}`}
       </h2>
       <p className="mt-1 min-h-[2.4em] max-w-3xl text-[13px] leading-snug text-white/85">
         {shown}
@@ -186,14 +184,14 @@ function SinceYesterdayStrip({ deltas }: { deltas: SinceDelta[] }) {
   if (deltas.length === 0) return null
   return (
     <section className="rounded-2xl border border-soft-border bg-white/70 px-4 py-3 shadow-soft">
-      <SectionHead icon={RefreshCw} label="What Changed" note="latest refresh" />
+      <SectionHead icon={RefreshCw} label="Since Yesterday" note="vs previous brief" />
       <div className="flex flex-wrap gap-x-6 gap-y-2.5">
         {deltas.map((d) => {
           const tone = IMPACT_META[d.tone]
-          const Arrow = d.direction === 'down' ? ArrowDown : ArrowUp
+          const Icon = d.direction === 'down' ? ArrowDown : d.direction === 'flat' ? Minus : ArrowUp
           return (
             <span key={d.id} className="inline-flex items-baseline gap-1.5">
-              <Arrow className="h-3.5 w-3.5 shrink-0 self-center" strokeWidth={2.4} style={{ color: tone.fg }} />
+              <Icon className="h-3.5 w-3.5 shrink-0 self-center" strokeWidth={2.4} style={{ color: tone.fg }} />
               <span className="text-[14px] font-bold text-navy-deep">{d.value}</span>
               <span className="text-[11px] text-ink-secondary">{d.label}</span>
             </span>
@@ -227,6 +225,7 @@ function WhyCarePanel({ idea, onRun }: { idea: ConvictionIdea; onRun: (a: PulseA
       <WhyRow icon={Users} label="Who is affected" text={w.whoAffected} />
       {w.historicalContext && <WhyRow icon={History} label="Historical context" text={w.historicalContext} />}
       {w.potentialImpact && <WhyRow icon={TrendingUp} label="Potential impact" text={w.potentialImpact} />}
+      <WhyRow icon={Eye} label="What to watch next" text={w.whatToWatch} />
       {idea.sources.length > 0 && (
         <div className="flex flex-wrap items-center gap-1.5 border-t border-soft-border/70 pt-2">
           <span className="text-[8.5px] font-bold uppercase tracking-[0.1em] text-ink-secondary">Evidence · {idea.evidenceCount}</span>
@@ -276,7 +275,15 @@ function ConvictionIdeaCard({ idea, onRun }: { idea: ConvictionIdea; onRun: (a: 
             <span className="text-[9.5px] font-bold uppercase tracking-[0.08em] text-ink-secondary">Conviction</span>
             <span className="text-[10px] text-ink-secondary">· {idea.confidencePct}% confidence · {idea.evidenceCount} source{idea.evidenceCount === 1 ? '' : 's'}</span>
           </div>
-          <p className="mt-1.5 text-[11.5px] leading-snug text-ink-secondary">{idea.reasoning}</p>
+          <div className="mt-1.5 space-y-0.5">
+            {idea.reasoning.map((r, i) => (
+              <p key={i} className="text-[11.5px] leading-snug text-ink-secondary">{r}</p>
+            ))}
+          </div>
+          <p className="mt-1.5 text-[10.5px] leading-snug">
+            <span className="font-bold uppercase tracking-[0.06em] text-champagne-deep">Watch next · </span>
+            <span className="text-ink-secondary">{idea.whatToWatch}</span>
+          </p>
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}

@@ -43,15 +43,15 @@ export function PulseView({
   const days = useMemo(() => timelineDays(pulse), [pulse])
   const isToday = dateKey === 'today'
 
-  const scoped = useMemo(() => scopeSignals(pulse, effFilter, dateKey), [pulse, effFilter, dateKey])
-  const ideas = useMemo(() => convictionIdeas(scoped, pulse), [scoped, pulse])
-  const brief = useMemo(() => morningBrief(pulse, ideas, scoped, isToday), [pulse, ideas, scoped, isToday])
-  const one = useMemo(() => oneThing(ideas), [ideas])
-  const sinceDeltas = useMemo(() => sinceYesterday(pulse), [pulse])
-  const events = useMemo(() => (isToday ? upcomingEvents(pulse) : []), [pulse, isToday])
-
   const selectedDay = days.find((d) => d.key === dateKey) ?? days[0]
   const dateLabel = selectedDay ? `${selectedDay.dayNum} ${selectedDay.monthLabel} · ${selectedDay.weekday}` : ''
+
+  const scoped = useMemo(() => scopeSignals(pulse, effFilter, dateKey), [pulse, effFilter, dateKey])
+  const ideas = useMemo(() => convictionIdeas(scoped, pulse), [scoped, pulse])
+  const brief = useMemo(() => morningBrief(pulse, ideas, scoped, isToday, dateLabel), [pulse, ideas, scoped, isToday, dateLabel])
+  const one = useMemo(() => oneThing(scoped, ideas, pulse), [scoped, ideas, pulse])
+  const sinceDeltas = useMemo(() => sinceYesterday(pulse), [pulse])
+  const events = useMemo(() => (isToday ? upcomingEvents(pulse) : []), [pulse, isToday])
 
   const runAction = (a: PulseAction) => {
     if (a.href) {

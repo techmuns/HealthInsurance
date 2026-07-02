@@ -499,21 +499,32 @@ function todayIso(): string {
 }
 
 /** Today (pinned) + each past read-date, newest first — the left rail. */
+// The date the current brief was generated — the feed's own run date, not the
+// wall clock, so "Today" never invents a date the data doesn't support.
+function briefGenIso(): string {
+  const d = FEED_META.last_updated
+  return d && /^\d{4}-\d{2}-\d{2}/.test(d) ? d.slice(0, 10) : todayIso()
+}
+
+/** Timeline from ACTUAL brief dates only: the current brief (feed-generated date)
+ *  on top, then each earlier date that genuinely has source-backed developments,
+ *  newest first. No invented/placeholder dates; an empty prev list → the UI shows
+ *  "No previous reads yet". */
 export function timelineDays(pulse: InvestorPulse): TimelineDay[] {
-  const today = todayIso()
-  const prev = previousReads(pulse, 'relevant')
-  const todayCount = pulse.signals.filter(isFreshToday).length
+  const gen = briefGenIso()
+  const prev = previousReads(pulse, 'relevant') // real development dates, newest first
+  const todayCount = pulse.signals.filter(isRecent).length
   const days: TimelineDay[] = [
     {
       key: 'today',
-      isToday: true,
-      ...isoParts(today),
+      isToday: gen === todayIso(),
+      ...isoParts(gen),
       status: pulse.todayRead ? statusOf(pulse.todayRead.stance) : null,
       count: todayCount,
     },
   ]
   for (const r of prev) {
-    if (r.date === today) continue
+    if (r.date >= gen) continue // fold same/newer dates into the current brief
     days.push({ key: r.date, isToday: false, ...isoParts(r.date), status: r.status, count: r.items.length })
   }
   return days
@@ -752,12 +763,20 @@ function historicalContext(s: PulseSignal, pulse: InvestorPulse): string | null 
 // prefer the sharpest available sentence for "potential impact" and "one thing".
 const SPECIFIC_RE = /\d|%|IRDAI|PFRDA|SEBI|GWP|ratio|premium|solvency|combined|margin|pricing|circular|draft|rights issue/i
 
+// Consequence — what this could mean (investorImplication-led; else a clean
+// category consequence). Distinct from "what to watch" below.
 function potentialImpact(s: PulseSignal, pulse: InvestorPulse): string | null {
   const lens = pulse.lenses[CATEGORY_LENS[s.category]]
-  const cands = [lens?.watchNext?.[0], lens?.investorImplication, CATEGORY_WATCH_FALLBACK[s.category]].filter(Boolean) as string[]
-  // prefer a concrete, number/term-anchored line; else the first (topical) one.
-  const pick = cands.find((c) => SPECIFIC_RE.test(c)) ?? cands[0]
+  const cands = [lens?.investorImplication, lens?.watchNext?.[0], CATEGORY_WATCH_FALLBACK[s.category]].filter(Boolean) as string[]
+  const pick = cands.find((c) => SPECIFIC_RE.test(c)) ?? cands[cands.length - 1]
   return pick ? clamp(scrubCopy(firstSentence(pick)), 190) : null
+}
+
+// What to monitor next — the concrete watch item (lens watch-list first).
+function whatToWatchFor(s: PulseSignal, pulse: InvestorPulse): string {
+  const lens = pulse.lenses[CATEGORY_LENS[s.category]]
+  const w = lens?.watchNext?.[0] || CATEGORY_WATCH_FALLBACK[s.category]
+  return clamp(scrubCopy(firstSentence(w)), 150)
 }
 
 export interface WhyCare {
@@ -766,6 +785,7 @@ export interface WhyCare {
   whoAffected: string
   historicalContext: string | null
   potentialImpact: string | null
+  whatToWatch: string
 }
 
 function whyCareFor(s: PulseSignal, pulse: InvestorPulse): WhyCare {
@@ -776,7 +796,18 @@ function whyCareFor(s: PulseSignal, pulse: InvestorPulse): WhyCare {
     whoAffected: whoAffected(s, pulse),
     historicalContext: historicalContext(s, pulse),
     potentialImpact: potentialImpact(s, pulse),
+    whatToWatch: whatToWatchFor(s, pulse),
   }
+}
+
+// AI reasoning in up to two short, distinct lines — the "what" then the analytical
+// "so what", both source-derived.
+function reasoningLines(s: PulseSignal, pulse: InvestorPulse): string[] {
+  const lens = pulse.lenses[CATEGORY_LENS[s.category]]
+  const l1 = clamp(scrubCopy(firstSentence(s.whyItMatters || s.title)), 118)
+  const l2raw = lens?.oneLineRead || lens?.investorImplication || whatToWatchFor(s, pulse)
+  const l2 = clamp(scrubCopy(firstSentence(l2raw)), 118)
+  return [l1, l2].filter((x, i, a) => x.length > 0 && a.indexOf(x) === i)
 }
 
 // The single "what should I do next" for one idea — tied to its category.
@@ -800,7 +831,8 @@ export interface ConvictionIdea {
   id: string
   entity: string
   stars: number
-  reasoning: string
+  reasoning: string[]
+  whatToWatch: string
   confidencePct: number
   evidenceCount: number
   status: PulseStatus
@@ -813,38 +845,37 @@ export interface ConvictionIdea {
 }
 
 /** Highest-conviction ideas from a scoped signal set — ranked by conviction (not
- *  just freshness), each with AI reasoning, a confidence %, evidence and a why. */
+ *  just freshness), each with 2-line AI reasoning, a confidence %, evidence, a
+ *  what-to-watch and a full why. Market intelligence, not a stock call. */
 export function convictionIdeas(signals: PulseSignal[], pulse: InvestorPulse): ConvictionIdea[] {
   const freshestId = signals.slice().sort(byNewestSignal)[0]?.id
   return signals
     .map((s) => ({ s, c: convictionScore(s, pulse) }))
     .sort((a, b) => b.c.score - a.c.score)
     .slice(0, 4)
-    .map(({ s, c }) => {
-      const lens = pulse.lenses[CATEGORY_LENS[s.category]]
-      return {
-        id: s.id,
-        entity: s.scope === 'company' ? pulse.company : SECTOR_TOPIC[s.category],
-        stars: c.stars,
-        reasoning: clamp(scrubCopy(firstSentence(s.whyItMatters || lens?.oneLineRead || s.title)), 160),
-        confidencePct: c.pct,
-        evidenceCount: c.evidence.length,
-        status: statusOf(s.impact),
-        category: s.category,
-        why: whyCareFor(s, pulse),
-        action: actionForSignal(s, pulse),
-        isBreaking: s.id === freshestId && (s.daysAgo ?? 99) <= 2,
-        isNew: (s.daysAgo ?? 99) === 0,
-        sources: c.evidence,
-      }
-    })
+    .map(({ s, c }) => ({
+      id: s.id,
+      entity: s.scope === 'company' ? pulse.company : SECTOR_TOPIC[s.category],
+      stars: c.stars,
+      reasoning: reasoningLines(s, pulse),
+      whatToWatch: whatToWatchFor(s, pulse),
+      confidencePct: c.pct,
+      evidenceCount: c.evidence.length,
+      status: statusOf(s.impact),
+      category: s.category,
+      why: whyCareFor(s, pulse),
+      action: actionForSignal(s, pulse),
+      isBreaking: s.id === freshestId && (s.daysAgo ?? 99) <= 2,
+      isNew: (s.daysAgo ?? 99) === 0,
+      sources: c.evidence,
+    }))
 }
 
 // ── AI Morning Brief ─────────────────────────────────────────────────────────
 
 export interface MorningBrief {
   greeting: string
-  line: string
+  narrative: string
   attentionCount: number
   developmentsCount: number
   sourcesCount: number
@@ -865,18 +896,59 @@ function briefConfidence(signals: PulseSignal[]): { pct: number; tier: Confidenc
   return { pct, tier }
 }
 
-export function morningBrief(pulse: InvestorPulse, ideas: ConvictionIdea[], scoped: PulseSignal[], isToday: boolean): MorningBrief {
+// Clean forward phrase for the nearest scheduled catalyst.
+const EVENT_PHRASE: Record<string, string> = {
+  'Annual General Meeting': 'the AGM',
+  'Earnings / results': 'the next results',
+  'Board meeting': 'the next board meeting',
+  'Investor / analyst meet': 'upcoming disclosures',
+  Regulatory: 'regulatory deadlines',
+  'Scheduled event': 'upcoming events',
+}
+
+/** The Executive Brief narrative — a prepared-analyst note (not "AI scanned …"):
+ *  what changed, why it matters, who's affected and what to watch. Composed
+ *  deterministically from the real, scoped signal mix for the selected company. */
+function briefNarrative(pulse: InvestorPulse, scoped: PulseSignal[], ideas: ConvictionIdea[], isToday: boolean, dateLabel: string): string {
+  const recent = scoped.filter(isRecent)
+  if (!recent.length && !ideas.length) {
+    return isToday ? 'No source-backed developments are on the board for this view right now.' : `No source-backed developments were recorded for ${dateLabel}.`
+  }
+  const when = isToday ? 'today' : `on ${dateLabel}`
+  const reg = recent.filter((s) => s.category === 'Regulatory').length
+  const pos = recent.filter((s) => s.impact === 'Positive').length
+  const risk = recent.filter((s) => s.impact === 'Risk').length
+  const watch = recent.filter((s) => s.impact === 'Watch').length
+
+  let theme: string
+  if (reg > 0) theme = `Regulatory pressure is the main watch item for health insurers ${when}`
+  else if (risk > pos) theme = `Margin and claims-cost pressure is the dominant theme across health insurers ${when}`
+  else if (pos > 0) theme = `Premium momentum is keeping the tone constructive across health insurers ${when}`
+  else theme = `Signals are mixed across health insurers ${when}, with no single dominant driver`
+
+  const company = pulse.company
+  const supported = pos >= risk + watch ? 'remains supported by' : 'is under pressure on'
+  const strength = pos > 0 ? 'premium growth and demand' : 'its market position'
+  const watchLead = reg > 0 ? 'claims-cost and conduct scrutiny' : risk > pos ? 'margin and solvency pressure' : 'how margins hold as the book grows'
+  const evs = upcomingEvents(pulse)
+  const ev = evs.find((e) => /Earnings|Annual General|Board/i.test(e.kindLabel)) ?? evs[0]
+  const catalyst = ev ? ` and ${EVENT_PHRASE[ev.kindLabel] ?? 'upcoming disclosures'}` : ''
+  const s2 = `${company} ${supported} ${strength}, but ${watchLead}${catalyst} will decide whether the strength is sustainable.`
+  return `${theme}. ${s2}`
+}
+
+export function morningBrief(pulse: InvestorPulse, ideas: ConvictionIdea[], scoped: PulseSignal[], isToday: boolean, dateLabel: string): MorningBrief {
   const sourced = pulse.signals.filter((s) => s.sourceUrl)
   const domains = new Set(sourced.map((s) => domainOf(s.sourceUrl) || s.sourceName))
   const mgmtRecent = selectManagementEvents(pulse.companyId, { recentOnly: true })
   const { pct, tier } = briefConfidence(scoped.length ? scoped : pulse.signals)
   const words = ideas.reduce(
-    (n, i) => n + wordCount(i.reasoning) + wordCount(i.why.whyItMatters) + wordCount(i.why.historicalContext ?? '') + wordCount(i.why.potentialImpact ?? ''),
+    (n, i) => n + wordCount(i.reasoning.join(' ')) + wordCount(i.why.whyItMatters) + wordCount(i.why.historicalContext ?? '') + wordCount(i.why.potentialImpact ?? '') + wordCount(i.whatToWatch),
     0,
   )
   return {
     greeting: isToday ? greetingWord() : 'Executive Brief',
-    line: 'Overnight, AI scanned news, regulatory filings, earnings releases and management updates.',
+    narrative: briefNarrative(pulse, scoped, ideas, isToday, dateLabel),
     attentionCount: ideas.length,
     developmentsCount: pulse.signals.length + mgmtRecent.length,
     sourcesCount: sourced.length,
@@ -895,12 +967,24 @@ export interface OneThing {
   status: PulseStatus
 }
 
-export function oneThing(ideas: ConvictionIdea[]): OneThing | null {
+/** One strong sentence from today's HIGHEST-IMPACT development. A regulatory /
+ *  risk / watch item outranks a positive print, because it can change the
+ *  trajectory — that is the thing worth reading if you read only one. */
+export function oneThing(scoped: PulseSignal[], ideas: ConvictionIdea[], pulse: InvestorPulse): OneThing | null {
+  const pool = scoped.filter(isRecent)
+  const lead = pool.find((s) => s.category === 'Regulatory') ?? pool.find((s) => s.impact === 'Risk') ?? pool.find((s) => s.impact === 'Watch') ?? null
+  // Prefer a COMPLETE sentence (the development's own reasoning) over a terse
+  // lens fragment; then a number/term-anchored line; then the headline.
+  const pickFrom = (cands: string[], status: PulseStatus): OneThing | null => {
+    const c = cands.map((x) => firstSentence(x)).filter(Boolean)
+    if (!c.length) return null
+    const pick = c.find((x) => x.length >= 45) ?? c.find((x) => SPECIFIC_RE.test(x)) ?? c[0]
+    return { sentence: clamp(scrubCopy(pick), 180), status }
+  }
+  if (lead) return pickFrom([lead.whyItMatters, lead.title, potentialImpact(lead, pulse) ?? '', whatToWatchFor(lead, pulse)], statusOf(lead.impact))
   if (!ideas.length) return null
-  const lead = ideas.find((i) => i.category === 'Regulatory') ?? ideas.find((i) => i.status === 'Risk' || i.status === 'Watch') ?? ideas[0]
-  const cands = [lead.reasoning, lead.why.whyItMatters, lead.why.potentialImpact].filter(Boolean) as string[]
-  const pick = cands.find((c) => SPECIFIC_RE.test(c)) ?? cands[0]
-  return { sentence: clamp(scrubCopy(firstSentence(pick)), 175), status: lead.status }
+  const top = ideas[0]
+  return pickFrom([...top.reasoning, top.why.whyItMatters, top.why.potentialImpact ?? ''], top.status)
 }
 
 // ── "Since yesterday" — real, computable deltas only (no fabricated sentiment) ─
@@ -913,25 +997,29 @@ export interface SinceDelta {
   tone: SignalImpact
 }
 
+/** "Since Yesterday" — real, computable category counts vs the previous brief.
+ *  Each item is hidden when it can't be computed / is zero, EXCEPT "unusual market
+ *  moves", which shows a reassuring 0 when nothing significant moved. No raw
+ *  metrics, no fabricated sentiment. */
 export function sinceYesterday(pulse: InvestorPulse): SinceDelta[] {
   const out: SinceDelta[] = []
   const recent = pulse.signals.filter(isRecent)
-  const fresh = recent.filter((s) => (s.daysAgo ?? 99) <= 2)
-  if (fresh.length) {
-    const pos = fresh.filter((s) => s.impact === 'Positive').length
-    const neg = fresh.filter((s) => s.impact === 'Risk' || s.impact === 'Watch').length
-    out.push({ id: 'new', label: fresh.length === 1 ? 'New development' : 'New developments', value: String(fresh.length), direction: 'up', tone: pos >= neg ? 'Positive' : 'Watch' })
-  }
+
   const reg = recent.filter((s) => s.category === 'Regulatory').length
-  if (reg) out.push({ id: 'reg', label: reg === 1 ? 'Regulatory update' : 'Regulatory updates', value: String(reg), direction: 'up', tone: 'Watch' })
+  if (reg) out.push({ id: 'reg', label: reg === 1 ? 'new regulatory update' : 'new regulatory updates', value: String(reg), direction: 'up', tone: 'Watch' })
+
+  const disclosures = recent.filter((s) => s.scope === 'company').length
+  if (disclosures) out.push({ id: 'co', label: disclosures === 1 ? 'fresh company update' : 'fresh company updates', value: String(disclosures), direction: 'up', tone: 'Positive' })
+
   const mgmt = selectManagementEvents(pulse.companyId, { recentOnly: true }).length
-  if (mgmt) out.push({ id: 'mgmt', label: mgmt === 1 ? 'Leadership change' : 'Leadership changes', value: String(mgmt), direction: 'up', tone: 'Neutral' })
-  const g = pulse.lenses.growthLevers.metrics.find((m) => m.label === 'GWP growth (YoY)')
-  if (g) {
-    const n = parseFloat(g.value)
-    out.push({ id: 'gwp', label: 'GWP YoY', value: g.value, direction: !isNaN(n) && n < 0 ? 'down' : 'up', tone: g.tone })
-  }
+  if (mgmt) out.push({ id: 'mgmt', label: mgmt === 1 ? 'management change' : 'management changes', value: String(mgmt), direction: 'up', tone: 'Neutral' })
+
   const events = pulse.signals.filter((s) => s.horizon === 'upcoming').length
-  if (events) out.push({ id: 'events', label: events === 1 ? 'Event ahead' : 'Events ahead', value: String(events), direction: 'up', tone: 'Neutral' })
+  if (events) out.push({ id: 'events', label: events === 1 ? 'event ahead' : 'events ahead', value: String(events), direction: 'up', tone: 'Neutral' })
+
+  // Market reaction only when it is a genuine reported move; 0 shown as reassurance.
+  const moves = recent.filter((s) => s.category === 'Data Movement' && isMarketMove(s.title)).length
+  out.push({ id: 'moves', label: moves === 1 ? 'unusual market move' : 'unusual market moves', value: String(moves), direction: moves > 0 ? 'up' : 'flat', tone: moves > 0 ? 'Watch' : 'Positive' })
+
   return out
 }

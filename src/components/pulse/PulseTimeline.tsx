@@ -104,6 +104,10 @@ export function PulseTimeline({
         })}
       </div>
 
+      {days.length <= 1 && (
+        <p className="mt-2 px-1 text-[10px] italic leading-snug text-white/45">No previous reads yet.</p>
+      )}
+
       {hasEvents && (
         <button
           type="button"
