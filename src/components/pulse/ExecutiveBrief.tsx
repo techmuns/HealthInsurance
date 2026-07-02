@@ -35,7 +35,7 @@ import { IMPACT_META, type InvestorPulse } from '@/insights/investorPulse'
 import {
   STATUS_COLOR,
   type MorningBrief,
-  type OneThing,
+  type BriefMessage,
   type SinceDelta,
   type ConvictionIdea,
   type PulseEvent,
@@ -43,7 +43,7 @@ import {
   type ActionIcon,
 } from './derive'
 import { SourceChip, GOLD, GOLD_ON_NAVY } from './parts'
-import { useCountUp, useTypewriter } from './hooks'
+import { useCountUp } from './hooks'
 
 // Colour-psychology signal: regulatory = orange (caution); otherwise the status
 // colour (green constructive / gold watch / red risk / slate neutral).
@@ -104,8 +104,7 @@ function ConfidenceRing({ pct, tier, size = 54 }: { pct: number; tier: string; s
 
 // ── LEFT · compact Executive Brief (navy) ─────────────────────────────────────
 
-function CompactBrief({ brief, isToday, dateLabel }: { brief: MorningBrief; isToday: boolean; dateLabel: string }) {
-  const { shown, done } = useTypewriter(brief.narrative)
+function CompactBrief({ brief, message, isToday, dateLabel }: { brief: MorningBrief; message: BriefMessage; isToday: boolean; dateLabel: string }) {
   return (
     <div className="relative isolate flex min-w-0 flex-col overflow-hidden px-4 py-3.5" style={{ background: 'linear-gradient(160deg, #1C3A6E 0%, #15294C 60%, #102140 100%)' }}>
       <div className="pointer-events-none absolute inset-0 -z-10" style={{ background: 'radial-gradient(circle at 92% 100%, rgba(214,178,98,0.24) 0%, transparent 46%), radial-gradient(circle at 4% 4%, rgba(96,138,206,0.24) 0%, transparent 46%)' }} />
@@ -120,13 +119,31 @@ function CompactBrief({ brief, isToday, dateLabel }: { brief: MorningBrief; isTo
         </span>
       </div>
 
-      <h2 className="mt-2 font-display text-[17px] font-semibold leading-tight" style={{ color: '#E9C46C' }}>
+      <h2 className="mt-2 font-display text-[18px] font-semibold leading-tight" style={{ color: '#E9C46C' }}>
         {isToday ? `${brief.greeting}.` : `${brief.greeting} · ${dateLabel}`}
       </h2>
-      <p className="mt-1 min-h-[3.6em] text-[11.5px] leading-snug text-white/85">
-        {shown}
-        {!done && <span className="type-caret" style={{ color: GOLD_ON_NAVY }} />}
-      </p>
+
+      {/* the message — a sharp note, in the Insights editorial serif */}
+      <div className="mt-1.5 animate-fade-in space-y-2">
+        {message.nothing ? (
+          <p className="font-editorial text-[13px] leading-snug text-white/85">No major new insight dropped today. The existing thesis remains live.</p>
+        ) : (
+          <>
+            <p className="font-editorial text-[13px] leading-snug text-white/90">{message.since}</p>
+            {message.keyThing && (
+              <div className="rounded-lg px-2.5 py-1.5" style={{ background: 'rgba(228,198,124,0.08)', boxShadow: 'inset 0 0 0 1px rgba(228,198,124,0.18)' }}>
+                <p className="text-[8px] font-bold uppercase tracking-[0.14em]" style={{ color: GOLD_ON_NAVY }}>The one thing you can&rsquo;t miss</p>
+                <p className="mt-0.5 font-editorial text-[13px] leading-snug text-white">{message.keyThing}</p>
+              </div>
+            )}
+            <p className="font-editorial text-[12.5px] leading-snug text-white/75">{message.why}</p>
+            <p className="font-editorial text-[12.5px] leading-snug text-white/75">
+              <span className="align-[1px] text-[8px] font-sans font-bold uppercase not-italic tracking-[0.12em]" style={{ color: GOLD_ON_NAVY }}>Watch next&nbsp;·&nbsp;</span>
+              {message.watch}
+            </p>
+          </>
+        )}
+      </div>
 
       <div className="mt-auto space-y-3 border-t pt-3" style={{ borderColor: 'rgba(228,198,124,0.16)' }}>
         <div className="flex items-center gap-2.5">
@@ -162,22 +179,6 @@ function CompactBrief({ brief, isToday, dateLabel }: { brief: MorningBrief; isTo
 }
 
 // ── CENTER · one thing + conviction ───────────────────────────────────────────
-
-function OneThingRow({ one }: { one: OneThing | null }) {
-  if (!one) return null
-  const c = STATUS_COLOR[one.status]
-  return (
-    <div className="relative overflow-hidden px-4 py-3" style={{ background: 'linear-gradient(100deg, rgba(228,198,124,0.10), transparent 70%)' }}>
-      <span className="absolute inset-y-2.5 left-0 w-[3px] rounded-full" style={{ background: 'linear-gradient(180deg, #E4C67C, #B68B3A)' }} />
-      <div className="flex items-center gap-1.5 pl-1.5">
-        <Sparkles className="h-3 w-3 text-champagne-deep" strokeWidth={2} />
-        <span className="text-[9px] font-bold uppercase tracking-[0.16em] text-champagne-deep">If you read only one thing today</span>
-        <span className="h-1.5 w-1.5 rounded-full" style={{ background: c.dot }} />
-      </div>
-      <p className="mt-1 pl-1.5 font-editorial text-[14px] font-medium leading-snug text-navy-deep">&ldquo;{one.sentence}&rdquo;</p>
-    </div>
-  )
-}
 
 function ExpandRow({ icon: Icon, label, text }: { icon: LucideIcon; label: string; text: string }) {
   return (
@@ -369,7 +370,7 @@ function Footer({ brief, pulse }: { brief: MorningBrief; pulse: InvestorPulse })
 export function ExecutiveBrief({
   pulse,
   brief,
-  one,
+  message,
   sinceDeltas,
   ideas,
   events,
@@ -380,7 +381,7 @@ export function ExecutiveBrief({
 }: {
   pulse: InvestorPulse
   brief: MorningBrief
-  one: OneThing | null
+  message: BriefMessage
   sinceDeltas: SinceDelta[]
   ideas: ConvictionIdea[]
   events: PulseEvent[]
@@ -392,12 +393,11 @@ export function ExecutiveBrief({
   return (
     <section className="premium-panel overflow-hidden rounded-2xl">
       <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.34fr)_minmax(0,0.92fr)]">
-        {/* LEFT — compact brief */}
-        <CompactBrief brief={brief} isToday={isToday} dateLabel={dateLabel} />
+        {/* LEFT — the message brief */}
+        <CompactBrief brief={brief} message={message} isToday={isToday} dateLabel={dateLabel} />
 
-        {/* CENTER — one thing + conviction */}
-        <div className="min-w-0 divide-y divide-soft-border/70 border-t border-soft-border lg:border-l lg:border-t-0">
-          <OneThingRow one={one} />
+        {/* CENTER — Highest Conviction Ideas */}
+        <div className="min-w-0 border-t border-soft-border lg:border-l lg:border-t-0">
           <ConvictionList ideas={ideas} />
         </div>
 

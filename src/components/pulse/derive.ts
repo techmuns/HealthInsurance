@@ -1013,6 +1013,71 @@ export function oneThing(scoped: PulseSignal[], ideas: ConvictionIdea[], pulse: 
   return pickFrom([...top.reasoning, top.why.whyItMatters, top.why.potentialImpact ?? ''], top.status)
 }
 
+// ── Executive Brief message — a sharp note from an analyst colleague ──────────
+
+const NUM_WORD = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine']
+const numWord = (n: number) => (n >= 0 && n < NUM_WORD.length ? NUM_WORD[n] : String(n))
+function joinNatural(items: string[]): string {
+  if (items.length <= 1) return items[0] ?? ''
+  if (items.length === 2) return `${items[0]}, and ${items[1]}`
+  return `${items.slice(0, -1).join(', ')}, and ${items[items.length - 1]}`
+}
+
+export interface BriefMessage {
+  since: string
+  keyThing: string
+  why: string
+  watch: string
+  nothing: boolean
+}
+
+function whyLine(recent: PulseSignal[], reg: number, companyPos: number): string {
+  const risk = recent.filter((s) => s.impact === 'Risk').length
+  if (companyPos > 0 && reg > 0) return 'Demand still looks strong, but the real question is whether claims and expenses start eating into that strength.'
+  if (reg > 0) return 'The near-term read now turns on how the new rules land on pricing and cost.'
+  if (companyPos > 0) return 'The momentum is real; the test is whether it holds as the book scales.'
+  if (risk > 0) return 'The tone has softened a touch — worth watching before it hardens into a trend.'
+  return 'The picture is steady rather than directional for now.'
+}
+
+function watchLine(pulse: InvestorPulse, reg: number): string {
+  const items: string[] = []
+  const ev = upcomingEvents(pulse).find((e) => /Earnings|result|AGM|Annual/i.test(e.kindLabel))
+  if (ev) items.push(/AGM|Annual/i.test(ev.kindLabel) ? 'the AGM' : 'the next results and disclosures')
+  if (reg > 0) items.push('any fresh IRDAI clarification')
+  items.push('expense-ratio movement')
+  return joinNatural([...new Set(items)].slice(0, 3))
+}
+
+/** The blue card's message: what changed since yesterday, the one thing you can't
+ *  miss, why it matters, and what to watch — conversational, source-backed, and
+ *  honest ("nothing" when nothing material moved). */
+export function briefMessage(pulse: InvestorPulse, scoped: PulseSignal[], one: OneThing | null, isToday: boolean, dateLabel: string): BriefMessage {
+  const recent = scoped.filter(isRecent)
+  const reg = recent.filter((s) => s.category === 'Regulatory').length
+  const companyPos = recent.filter((s) => s.scope === 'company' && s.impact === 'Positive').length
+  const companyAny = recent.filter((s) => s.scope === 'company').length
+  const mgmt = selectManagementEvents(pulse.companyId, { recentOnly: true }).length
+  if (reg + companyAny + mgmt === 0 && !one) return { since: '', keyThing: '', why: '', watch: '', nothing: true }
+
+  const bits: string[] = []
+  if (reg > 0) bits.push(`${numWord(reg)} regulatory ${reg === 1 ? 'update' : 'updates'} moved into focus`)
+  if (companyPos > 0) bits.push(`${pulse.company} is back in the news for premium growth`)
+  else if (companyAny > 0) bits.push(`${pulse.company} picked up fresh coverage`)
+  if (mgmt > 0 && bits.length < 2) bits.push(mgmt === 1 ? 'there was a leadership change to note' : 'there were leadership changes to note')
+
+  const opener = isToday ? 'Since yesterday' : `On ${dateLabel}`
+  const since = bits.length ? `${opener}, ${joinNatural(bits.slice(0, 2))}.` : `${opener}, the board has stayed quiet — nothing fresh has forced a rethink.`
+
+  return {
+    since,
+    keyThing: one ? clamp(scrubCopy(one.sentence), 172) : '',
+    why: clamp(scrubCopy(whyLine(recent, reg, companyPos)), 150),
+    watch: clamp(scrubCopy(watchLine(pulse, reg)), 150),
+    nothing: false,
+  }
+}
+
 // ── "Since yesterday" — real, computable deltas only (no fabricated sentiment) ─
 
 export interface SinceDelta {

@@ -10,6 +10,7 @@ import type { NavTarget } from '@/insights/sourceMap'
 import {
   actionsForBrief,
   availableFilters,
+  briefMessage,
   convictionIdeas,
   morningBrief,
   oneThing,
@@ -51,6 +52,7 @@ export function PulseView({
   const ideas = useMemo(() => convictionIdeas(scoped, pulse), [scoped, pulse])
   const brief = useMemo(() => morningBrief(pulse, ideas, scoped, isToday, dateLabel), [pulse, ideas, scoped, isToday, dateLabel])
   const one = useMemo(() => oneThing(scoped, ideas, pulse), [scoped, ideas, pulse])
+  const message = useMemo(() => briefMessage(pulse, scoped, one, isToday, dateLabel), [pulse, scoped, one, isToday, dateLabel])
   const sinceDeltas = useMemo(() => sinceYesterday(pulse), [pulse])
   const events = useMemo(() => (isToday ? upcomingEvents(pulse) : []), [pulse, isToday])
   const actions = useMemo(() => (isToday ? actionsForBrief(pulse, scoped) : []), [pulse, scoped, isToday])
@@ -92,7 +94,7 @@ export function PulseView({
           <ExecutiveBrief
             pulse={pulse}
             brief={brief}
-            one={one}
+            message={message}
             sinceDeltas={sinceDeltas}
             ideas={ideas}
             events={events}
