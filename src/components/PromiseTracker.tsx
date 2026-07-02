@@ -45,7 +45,6 @@ export function PromiseTracker({ items, companyName }: { items: PromiseItem[]; c
     items.find((p) => p.status === 'Not Measurable')
 
   const filtered = category === 'All' ? items : items.filter((p) => p.category === category)
-  const actualFy = items.find((p) => p.actualFy)?.actualFy ?? null
 
   return (
     <div className="space-y-4">
@@ -89,7 +88,12 @@ export function PromiseTracker({ items, companyName }: { items: PromiseItem[]; c
                 <td className="px-3 py-2.5 whitespace-nowrap text-ink-secondary">{p.date}</td>
                 <td className="px-3 py-2.5 text-ink-secondary">{p.metric}</td>
                 <td className="px-3 py-2.5 tabular-nums text-ink-secondary">{p.target}</td>
-                <td className="px-3 py-2.5 font-semibold tabular-nums text-navy-deep">{p.current}</td>
+                <td className="px-3 py-2.5 tabular-nums">
+                  <span className="font-semibold text-navy-deep">{p.current}</span>
+                  {p.actualFy && (
+                    <span className="ml-1 text-[9.5px] font-medium uppercase tracking-wide text-ink-secondary">{p.actualFy}</span>
+                  )}
+                </td>
                 <td className="px-3 py-2.5">
                   <SignalBadge label={p.status} size="sm" />
                 </td>
@@ -107,8 +111,9 @@ export function PromiseTracker({ items, companyName }: { items: PromiseItem[]; c
       </div>
       {/* Source-backed: actuals read live from the audited annual snapshot. */}
       <p className="text-[10.5px] leading-snug text-ink-secondary">
-        <span className="font-semibold text-navy-deep">Current</span> = {companyName}&apos;s latest audited full-year figure{actualFy ? ` (${actualFy})` : ''}, read live from the
-        annual disclosures and advancing on its own. Promises, targets and dates are management&apos;s own stated guidance — each links its source.
+        <span className="font-semibold text-navy-deep">Current</span> = {companyName}&apos;s latest audited full-year figure for each metric — the fiscal year is
+        shown beside every value, since metrics disclose on different dates — read live from the annual disclosures and advancing on its own. Promises,
+        targets and dates are management&apos;s own stated guidance — each links its source.
       </p>
     </div>
   )

@@ -114,10 +114,12 @@ export function latestPeriodOf(ins: Insight): string {
 
 /** The most recent period present anywhere across the supplied insights. */
 export function latestPeriodAcross(insights: Insight[]): string {
-  return insights
-    .map(latestPeriodOf)
-    .filter(Boolean)
-    .reduce((best, p) => (periodRank(p) > periodRank(best) ? p : best), 'FY25')
+  const periods = insights.map(latestPeriodOf).filter((p): p is string => Boolean(p))
+  // Seed the reduce from the real periods only (not a hardcoded 'FY25'), so a
+  // period that doesn't exist can never be reported as the latest. Fall back to
+  // 'FY25' only when there are genuinely no dated insights at all.
+  if (!periods.length) return 'FY25'
+  return periods.reduce((best, p) => (periodRank(p) > periodRank(best) ? p : best))
 }
 
 export interface Freshness {

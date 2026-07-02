@@ -821,7 +821,12 @@ function metricsForLens(
     }
     if (peerRow?.growth != null) {
       const growths = peerAll.map((r) => r.growth).filter((g): g is number => typeof g === 'number').sort((a, b) => a - b)
-      const median = growths.length ? growths[Math.floor(growths.length / 2)] : null
+      const mid = Math.floor(growths.length / 2)
+      const median = growths.length
+        ? growths.length % 2
+          ? growths[mid]
+          : (growths[mid - 1] + growths[mid]) / 2
+        : null
       out.push(M('GWP growth (YoY)', fmtPct(peerRow.growth), peerRow.fiscal_year ?? 'FY25', growthTone(peerRow.growth), peerSrc, median != null ? `Peer median ${fmtPct(median)}` : undefined))
     }
     if (peerRow?.combined_ratio != null) out.push(M('Combined ratio', fmtPct(peerRow.combined_ratio), peerRow.fiscal_year ?? 'FY25', combinedTone(peerRow.combined_ratio), peerSrc))
@@ -917,7 +922,8 @@ function metricOneLine(key: Exclude<LensKey, 'overviewPulse'>, metrics: MetricRe
     const gwp = metrics.find((m) => m.label === 'Gross written premium')
     const retail = metricNum(metrics, 'Retail mix')
     if (g == null && !gwp) return null
-    const head = gwp ? `GWP ${gwp.value}${g != null ? `, +${g}% YoY` : ''}` : `GWP +${g}% YoY`
+    const sgn = (n: number) => `${n >= 0 ? '+' : ''}${n}`
+    const head = gwp ? `GWP ${gwp.value}${g != null ? `, ${sgn(g)}% YoY` : ''}` : `GWP ${sgn(g as number)}% YoY`
     const tail = retail != null ? ` Growth is still volume-led (retail mix ${retail}%); margin quality is unproven here.` : ' Growth is still volume-led; margin quality is unproven here.'
     return `${head}.${tail}`
   }

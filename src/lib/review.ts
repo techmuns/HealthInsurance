@@ -27,8 +27,8 @@ export const scorecardMetrics: MetricConfig[] = [
   { key: 'retailMix', label: 'Retail Mix', short: 'Retail Mix', naWhenZero: true, format: (v) => `${v.toFixed(0)}%` },
   { key: 'marketShareChange', label: 'Share Gain', short: 'Share Gain', format: (v) => `${v > 0 ? '+' : ''}${v.toFixed(1)} pp` },
   { key: 'combinedRatio', label: 'Combined Ratio', short: 'Combined', invert: true, naWhenZero: true, format: (v) => `${v.toFixed(1)}%` },
-  { key: 'roe', label: 'ROE', short: 'ROE', format: (v) => `${v.toFixed(1)}%` },
-  { key: 'solvency', label: 'Solvency', short: 'Solvency', format: (v) => `${v.toFixed(2)}x` },
+  { key: 'roe', label: 'ROE', short: 'ROE', naWhenZero: true, format: (v) => `${v.toFixed(1)}%` },
+  { key: 'solvency', label: 'Solvency', short: 'Solvency', naWhenZero: true, format: (v) => `${v.toFixed(2)}x` },
   { key: 'valuation', label: 'Valuation (P/GWP)', short: 'Valuation', invert: true, naWhenZero: true, format: (v) => `${v.toFixed(1)}x` },
 ]
 
