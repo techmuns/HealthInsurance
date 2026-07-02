@@ -293,6 +293,20 @@ function isFutureIso(date: string): boolean {
   const t = Date.parse(date)
   return !isNaN(t) && t >= Date.now() - DAY_MS // today or later
 }
+
+// A specific downloadable document (vs a stable landing page). A not-yet-happened
+// event that links to one of these is a stale-link trap: the file is historical
+// (e.g. an old "14th AGM Notice.pdf" mis-tagged as an upcoming AGM), so a click
+// would open an outdated document. We route such links to the IR / landing page.
+const DOC_URL_RE = /\.(pdf|docx?|xlsx?|pptx?|csv)(?:$|[?#])/i
+function hostRoot(url: string): string {
+  try {
+    const u = new URL(url)
+    return `${u.protocol}//${u.host}/`
+  } catch {
+    return url
+  }
+}
 function whenLabel(date: string): string {
   const t = Date.parse(date)
   if (isNaN(t)) return 'Date on record'
@@ -309,8 +323,22 @@ function whenLabel(date: string): string {
 /** Genuinely relevant dated events (AGM, board, results, investor meet, regulatory).
  *  Firm future dates lead; still-active flagged catalysts follow. */
 export function upcomingEvents(pulse: InvestorPulse): PulseEvent[] {
-  return pulse.signals
-    .filter((s) => s.horizon === 'upcoming')
+  const upcoming = pulse.signals.filter((s) => s.horizon === 'upcoming')
+  // The stable landing for a host — the cleanest non-document URL among these
+  // events (typically the IR page), else the host root. Used to rescue future
+  // events that point at a specific, possibly-stale document.
+  const landingFor = (url: string): string => {
+    if (!url) return ''
+    try {
+      const host = new URL(url).host
+      const page = upcoming.find((s) => s.sourceUrl && !DOC_URL_RE.test(s.sourceUrl) && new URL(s.sourceUrl).host === host)
+      if (page) return page.sourceUrl
+    } catch {
+      /* fall through to host root */
+    }
+    return hostRoot(url)
+  }
+  return upcoming
     .slice()
     .sort((a, b) => {
       const fa = isFutureIso(a.date) ? 0 : 1
@@ -320,6 +348,9 @@ export function upcomingEvents(pulse: InvestorPulse): PulseEvent[] {
     })
     .map((s) => {
       const [d, mon] = s.dateLabel.split(' ')
+      // Future event + specific document link → route to the IR / landing page so
+      // a click never opens a stale historical file (e.g. an old AGM-notice PDF).
+      const url = s.sourceUrl && isFutureIso(s.date) && DOC_URL_RE.test(s.sourceUrl) ? landingFor(s.sourceUrl) : s.sourceUrl
       return {
         id: s.id,
         day: d ?? '',
@@ -328,7 +359,7 @@ export function upcomingEvents(pulse: InvestorPulse): PulseEvent[] {
         kindLabel: eventKind(s.title),
         title: clamp(s.title, 96),
         context: clamp(scrubCopy(s.whyItMatters || s.sourceName), 84),
-        url: s.sourceUrl,
+        url,
         whenLabel: whenLabel(s.date),
         isFirm: isFutureIso(s.date),
         impact: s.impact,
