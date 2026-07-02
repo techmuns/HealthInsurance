@@ -8,14 +8,14 @@
 // Everything sits above the fold. Subtle motion only; all real, source-derived
 // data (see ./derive). Colour is used as signal, never decoration.
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import {
   Sparkles,
   RefreshCw,
   ArrowUp,
   ArrowDown,
   Minus,
-  ChevronDown,
+  BookOpen,
   Zap,
   ShieldCheck,
   Users,
@@ -41,7 +41,7 @@ import {
   type ActionIcon,
 } from './derive'
 import { GOLD, GOLD_ON_NAVY } from './parts'
-import { ConvictionPages } from './ConvictionPages'
+import { ConvictionOverlay } from './ConvictionPages'
 import { SS, readSS, writeSS, clearSS } from './pulseState'
 
 // Colour-psychology signal: regulatory = orange (caution); otherwise the status
@@ -116,76 +116,108 @@ const clampPage = (s: string | null): number => {
   return Number.isFinite(n) && n >= 0 && n <= 2 ? n : 0
 }
 
-function ConvictionRow({ idea, companyId, onNavigate }: { idea: ConvictionIdea; companyId: string; onNavigate?: (t: NavTarget, id: string) => void }) {
-  // Restore the expanded idea + page a reader left from, so a jump out to the
-  // dashboard and "Back to Pulse" returns to the exact same open note + page.
-  const restored = readSS(SS.openIdea, companyId) === idea.id
-  const [open, setOpen] = useState(restored)
-  const [page, setPage] = useState(() => (restored ? clampPage(readSS(SS.openPage, companyId)) : 0))
+const CAT_LABEL: Record<string, string> = {
+  'Analyst Action': 'Analyst view',
+  'Sector Catalyst': 'Sector',
+  Regulatory: 'Regulatory',
+  Management: 'Management',
+  Filing: 'Filing',
+  'Data Movement': 'Market move',
+}
+
+// Collapsed conviction card — compact, no stars/%: a category dot, the topic, a
+// one-line read, source count + category, and an "Open note" affordance. Clicking
+// opens the single insight-note overlay (never an inline expansion).
+function ConvictionCard({ idea, active, onOpen }: { idea: ConvictionIdea; active: boolean; onOpen: () => void }) {
   const accent = accentFor(idea)
-
-  const toggle = () => {
-    setOpen((v) => {
-      const next = !v
-      if (next) {
-        writeSS(SS.openIdea, companyId, idea.id)
-        writeSS(SS.openPage, companyId, String(page))
-      } else if (readSS(SS.openIdea, companyId) === idea.id) {
-        clearSS(SS.openIdea, companyId)
-      }
-      return next
-    })
-  }
-  const changePage = (p: number) => {
-    setPage(p)
-    writeSS(SS.openIdea, companyId, idea.id)
-    writeSS(SS.openPage, companyId, String(p))
-  }
-
   return (
-    <div className={`overflow-hidden rounded-lg border border-soft-border bg-white ${idea.isNew ? 'glow-new' : ''} ${open ? 'shadow-card' : ''}`}>
-      <button type="button" onClick={toggle} aria-expanded={open} className={`flex w-full items-start gap-2 px-2.5 py-2 text-left transition-colors ${open ? 'bg-ice/40' : 'hover:bg-ice/40'}`}>
-        <span className="mt-1 h-2 w-2 shrink-0 rounded-full" style={{ background: accent, boxShadow: `0 0 0 3px ${accent}1f` }} title={idea.category === 'Regulatory' ? 'Regulatory' : idea.status} />
-        <div className="min-w-0 flex-1">
-          <div className="flex items-center gap-1.5">
-            <span className="truncate text-[12px] font-bold text-navy-deep">{idea.entity}</span>
-            {idea.isBreaking && (
-              <span className="inline-flex items-center gap-1 rounded-full px-1 text-[7.5px] font-bold uppercase tracking-wide text-coral" style={{ background: 'rgba(192,88,79,0.10)' }}>
-                <span className="pulse-live h-1 w-1 rounded-full" style={{ background: '#C0584F' }} /> Live
-              </span>
-            )}
-          </div>
-          <p className="mt-0.5 line-clamp-1 text-[11px] leading-snug text-ink-secondary">{idea.reasoning[0]}</p>
-          <div className="mt-1 flex items-center gap-1.5 text-[9px] font-semibold text-ink-secondary">
-            <span>
-              <span className="tabular-nums text-navy-primary">{idea.confidencePct}%</span> confidence
+    <button
+      type="button"
+      onClick={onOpen}
+      aria-haspopup="dialog"
+      className={`group flex w-full items-start gap-2 rounded-lg border bg-white px-2.5 py-2 text-left shadow-soft transition-all ${active ? 'border-champagne shadow-card' : 'border-soft-border hover:border-champagne/60 hover:shadow-card'} ${idea.isNew ? 'glow-new' : ''}`}
+    >
+      <span className="mt-1 h-2 w-2 shrink-0 rounded-full" style={{ background: accent, boxShadow: `0 0 0 3px ${accent}1f` }} title={idea.category === 'Regulatory' ? 'Regulatory' : idea.status} />
+      <div className="min-w-0 flex-1">
+        <div className="flex items-center gap-1.5">
+          <span className="truncate text-[12px] font-bold text-navy-deep">{idea.entity}</span>
+          {idea.isBreaking && (
+            <span className="inline-flex items-center gap-1 rounded-full px-1 text-[7.5px] font-bold uppercase tracking-wide text-coral" style={{ background: 'rgba(192,88,79,0.10)' }}>
+              <span className="pulse-live h-1 w-1 rounded-full" style={{ background: '#C0584F' }} /> Live
             </span>
-            <span className="h-2.5 w-px bg-soft-border" />
-            <span>
-              {idea.evidenceCount} source{idea.evidenceCount === 1 ? '' : 's'}
-            </span>
-            {!open && <span className="ml-auto text-[8.5px] font-bold uppercase tracking-[0.08em] text-champagne-deep">Open note</span>}
-          </div>
+          )}
         </div>
-        <ChevronDown className={`mt-0.5 h-3.5 w-3.5 shrink-0 text-ink-secondary transition-transform ${open ? 'rotate-180' : ''}`} />
-      </button>
-      {open && <ConvictionPages idea={idea} companyId={companyId} page={page} onPage={changePage} onNavigate={onNavigate} />}
-    </div>
+        <p className="mt-0.5 line-clamp-1 text-[11px] leading-snug text-ink-secondary">{idea.reasoning[0]}</p>
+        <div className="mt-1 flex items-center gap-1.5 text-[9px] font-semibold text-ink-secondary">
+          <span>
+            {idea.evidenceCount} source{idea.evidenceCount === 1 ? '' : 's'}
+          </span>
+          <span className="h-2.5 w-px bg-soft-border" />
+          <span className="uppercase tracking-[0.06em]">{CAT_LABEL[idea.category] ?? 'Signal'}</span>
+          <span className="ml-auto inline-flex items-center gap-1 text-[8.5px] font-bold uppercase tracking-[0.08em] text-champagne-deep">
+            Open note <BookOpen className="h-3 w-3 transition-transform group-hover:translate-x-0.5" strokeWidth={2.2} />
+          </span>
+        </div>
+      </div>
+    </button>
   )
 }
 
 function ConvictionList({ ideas, companyId, onNavigate }: { ideas: ConvictionIdea[]; companyId: string; onNavigate?: (t: NavTarget, id: string) => void }) {
+  const top = ideas.slice(0, 3)
+
+  // Single open note (only one at a time), restored after a dashboard round-trip.
+  const restoredId = readSS(SS.openIdea, companyId)
+  const initId = top.some((i) => i.id === restoredId) ? restoredId : null
+  const [openId, setOpenId] = useState<string | null>(initId)
+  const [page, setPage] = useState(() => (initId ? clampPage(readSS(SS.openPage, companyId)) : 0))
+  const openIdea = top.find((i) => i.id === openId) ?? null
+
+  const open = (id: string) => {
+    setOpenId(id)
+    setPage(0)
+    writeSS(SS.openIdea, companyId, id)
+    writeSS(SS.openPage, companyId, '0')
+  }
+  const close = () => {
+    setOpenId(null)
+    clearSS(SS.openIdea, companyId)
+  }
+  const changePage = (p: number) => {
+    setPage(p)
+    if (openId) {
+      writeSS(SS.openIdea, companyId, openId)
+      writeSS(SS.openPage, companyId, String(p))
+    }
+  }
+
+  // Esc closes the note.
+  useEffect(() => {
+    if (!openId) return
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setOpenId(null)
+        clearSS(SS.openIdea, companyId)
+      }
+    }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [openId, companyId])
+
   return (
-    <div className="px-4 py-3">
+    <div className="relative flex h-full flex-col px-4 py-3">
       <SectionHead icon={Radar} label="Highest Conviction Ideas" note="tap to open the note" />
-      {ideas.length === 0 ? (
+      {top.length === 0 ? (
         <p className="rounded-lg border border-dashed border-soft-border bg-ice/40 px-3 py-4 text-center text-[11px] text-ink-secondary">Nothing meets the conviction bar under this filter.</p>
       ) : (
         <div className="space-y-1.5">
-          {ideas.slice(0, 3).map((idea) => (
-            <ConvictionRow key={idea.id} idea={idea} companyId={companyId} onNavigate={onNavigate} />
+          {top.map((idea) => (
+            <ConvictionCard key={idea.id} idea={idea} active={idea.id === openId} onOpen={() => open(idea.id)} />
           ))}
         </div>
+      )}
+      {openIdea && (
+        <ConvictionOverlay idea={openIdea} companyId={companyId} page={page} onPage={changePage} onClose={close} onNavigate={onNavigate} />
       )}
     </div>
   )

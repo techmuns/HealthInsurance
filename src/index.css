@@ -486,6 +486,13 @@ body {
   animation: caret-blink 1s step-end infinite;
 }
 
+/* Conviction "insight note" overlay — a soft page-lift entrance (one-shot). */
+@keyframes note-in {
+  from { opacity: 0; transform: translateY(6px) scale(0.985); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+.animate-note-in { animation: note-in 0.2s cubic-bezier(0.22, 1, 0.36, 1) both; }
+
 @media (prefers-reduced-motion: reduce) {
   .pulse-live,
   .glow-new,
