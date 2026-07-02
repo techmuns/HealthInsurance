@@ -1,28 +1,27 @@
-// Pulse — the daily intelligence briefing for one company, as ONE unified card on
-// a soft blue-tinted field. The left date timeline and the filter chips sit
-// OUTSIDE the card and drive it: the card shows a single date's read at a time,
-// and every filter re-composes the whole read (headline included) over its slice.
-// All data is real and source-backed (see ./derive); missing → honest empty state.
+// Pulse — the AI-first Market Pulse workspace. The left date timeline and the
+// filter chips sit OUTSIDE and drive an Executive Brief on a soft blue field: an
+// AI Morning Brief, the one thing to read, a since-yesterday delta strip, and
+// Highest-Conviction ideas (each with a "why should I care?" + a next action).
+// Every filter/date re-composes the brief over its slice. All real, source-backed.
 
 import { useEffect, useMemo, useState } from 'react'
 import type { InvestorPulse } from '@/insights/investorPulse'
 import type { NavTarget } from '@/insights/sourceMap'
 import {
-  actionsFor,
   availableFilters,
-  importantFrom,
-  marketReadLines,
-  readFor,
+  convictionIdeas,
+  morningBrief,
+  oneThing,
   scopeSignals,
+  sinceYesterday,
   timelineDays,
-  topPicksFrom,
   upcomingEvents,
   type PulseAction,
   type PulseFilter,
 } from './derive'
 import { PulseTimeline } from './PulseTimeline'
 import { PulseFilterChips } from './PulseFilterChips'
-import { TodaysIntelligenceCard } from './TodaysIntelligenceCard'
+import { ExecutiveBrief } from './ExecutiveBrief'
 
 export function PulseView({
   pulse,
@@ -34,7 +33,6 @@ export function PulseView({
   const [filter, setFilter] = useState<PulseFilter>('relevant')
   const [dateKey, setDateKey] = useState('today')
 
-  // Reset per-company view state when the selected company changes.
   useEffect(() => {
     setFilter('relevant')
     setDateKey('today')
@@ -46,19 +44,14 @@ export function PulseView({
   const isToday = dateKey === 'today'
 
   const scoped = useMemo(() => scopeSignals(pulse, effFilter, dateKey), [pulse, effFilter, dateKey])
-  const read = useMemo(() => readFor(pulse, effFilter, dateKey), [pulse, effFilter, dateKey])
-  const picks = useMemo(() => topPicksFrom(scoped, pulse), [scoped, pulse])
-  const important = useMemo(() => importantFrom(scoped, pulse, isToday), [scoped, pulse, isToday])
+  const ideas = useMemo(() => convictionIdeas(scoped, pulse), [scoped, pulse])
+  const brief = useMemo(() => morningBrief(pulse, ideas, scoped, isToday), [pulse, ideas, scoped, isToday])
+  const one = useMemo(() => oneThing(ideas), [ideas])
+  const sinceDeltas = useMemo(() => sinceYesterday(pulse), [pulse])
   const events = useMemo(() => (isToday ? upcomingEvents(pulse) : []), [pulse, isToday])
-  const actions = useMemo(() => (isToday ? actionsFor(pulse, picks) : []), [pulse, picks, isToday])
-  const marketRead = useMemo(() => (isToday ? marketReadLines(pulse) : []), [pulse, isToday])
 
   const selectedDay = days.find((d) => d.key === dateKey) ?? days[0]
-  const dateLabel = selectedDay
-    ? isToday
-      ? `Today · ${selectedDay.dayNum} ${selectedDay.monthLabel} · ${selectedDay.weekday}`
-      : `${selectedDay.dayNum} ${selectedDay.monthLabel} · ${selectedDay.weekday}`
-    : ''
+  const dateLabel = selectedDay ? `${selectedDay.dayNum} ${selectedDay.monthLabel} · ${selectedDay.weekday}` : ''
 
   const runAction = (a: PulseAction) => {
     if (a.href) {
@@ -87,21 +80,22 @@ export function PulseView({
           selectedKey={dateKey}
           onSelect={setDateKey}
           hasEvents={isToday && events.length > 0}
-          onViewCalendar={() => document.getElementById('tir-events')?.scrollIntoView({ behavior: 'smooth', block: 'center' })}
+          onViewCalendar={() => document.getElementById('brief-events')?.scrollIntoView({ behavior: 'smooth', block: 'center' })}
         />
 
-        <div className="min-w-0 space-y-3">
-          <PulseFilterChips active={effFilter} available={available} onSelect={setFilter} />
-          <TodaysIntelligenceCard
+        <div className="min-w-0">
+          <div className="mb-3">
+            <PulseFilterChips active={effFilter} available={available} onSelect={setFilter} />
+          </div>
+          <ExecutiveBrief
             pulse={pulse}
-            read={read}
-            picks={picks}
+            brief={brief}
+            one={one}
+            sinceDeltas={sinceDeltas}
+            ideas={ideas}
             events={events}
-            actions={actions}
-            marketRead={marketRead}
-            important={important}
-            dateLabel={dateLabel}
             isToday={isToday}
+            dateLabel={dateLabel}
             onRun={runAction}
           />
         </div>

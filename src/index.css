@@ -459,3 +459,37 @@ body {
     animation: none !important;
   }
 }
+
+/* ── AI briefing micro-motion — subtle only (breaking pulse, new-event glow,
+   typing caret). Looping effects are silenced under reduced-motion. ───────── */
+@keyframes pulse-live {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(192, 88, 79, 0.5); }
+  50% { box-shadow: 0 0 0 5px rgba(192, 88, 79, 0); }
+}
+.pulse-live { animation: pulse-live 1.8s ease-in-out infinite; }
+
+@keyframes soft-glow {
+  0%, 100% { box-shadow: inset 0 0 0 1px rgba(182, 139, 58, 0.12), 0 8px 22px rgba(23, 43, 77, 0.06); }
+  50% { box-shadow: inset 0 0 0 1px rgba(182, 139, 58, 0.36), 0 10px 28px rgba(23, 43, 77, 0.10); }
+}
+.glow-new { animation: soft-glow 3.4s ease-in-out infinite; }
+
+@keyframes caret-blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+.type-caret {
+  display: inline-block;
+  width: 2px;
+  height: 0.95em;
+  margin-left: 2px;
+  vertical-align: -1px;
+  border-radius: 1px;
+  background: currentColor;
+  animation: caret-blink 1s step-end infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pulse-live,
+  .glow-new,
+  .type-caret {
+    animation: none !important;
+  }
+}

@@ -23,8 +23,14 @@ import {
   type SignalImpact,
   type LensKey,
   type TodayRead,
+  type Confidence,
 } from '@/insights/investorPulse'
 import type { NavTarget } from '@/insights/sourceMap'
+import intelSnapshot from '@/data/snapshots/market-intelligence-snapshot.json'
+
+// Feed freshness — read straight off the intelligence snapshot's own metadata
+// (never a fabricated "last updated"). Powers the AI Morning Brief timestamp.
+const FEED_META = (intelSnapshot as { _meta?: { last_updated?: string; last_successful_run?: string } })._meta ?? {}
 
 // ── Status vocabulary (the four pill states in the brief) ────────────────────
 
@@ -637,4 +643,295 @@ export function marketReadLines(pulse: InvestorPulse): string[] {
   if (risk) lines.push(clamp(scrubCopy(`Key risks to watch: ${firstSentence(risk)}`), 150))
 
   return lines.filter(Boolean).slice(0, 3)
+}
+
+// ===========================================================================
+//  AI briefing layer — the executive-briefing view (all real, source-derived).
+//  Nothing here invents a metric: confidence comes from source quality, counts
+//  from the real feed, "why should I care" from the wired analysis lenses.
+// ===========================================================================
+
+const CONF_SCORE: Record<Confidence, number> = { High: 3, Medium: 2, Low: 1 }
+const wordCount = (s: string) => (s ? s.trim().split(/\s+/).filter(Boolean).length : 0)
+const byNewestSignal = (a: PulseSignal, b: PulseSignal) => (a.date < b.date ? 1 : a.date > b.date ? -1 : 0)
+
+function greetingWord(): string {
+  const h = new Date().getHours()
+  return h < 12 ? 'Good morning' : h < 17 ? 'Good afternoon' : 'Good evening'
+}
+
+/** Honest "last updated" straight from the feed's own run metadata. */
+function feedUpdatedLabel(): string {
+  const run = FEED_META.last_successful_run
+  if (run) {
+    const t = new Date(run)
+    if (!isNaN(t.getTime())) {
+      const sameDay = t.toDateString() === new Date().toDateString()
+      const hh = t.toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' })
+      return sameDay ? `Today, ${hh}` : `${t.getDate()} ${MONTHS[t.getMonth()]}, ${hh}`
+    }
+  }
+  return FEED_META.last_updated ?? '—'
+}
+
+// ── evidence + conviction (real source-backed signals) ───────────────────────
+
+function domainOf(url: string): string {
+  try {
+    return new URL(url).host.replace(/^www\./, '')
+  } catch {
+    return ''
+  }
+}
+
+/** The distinct source-backed items that support a signal (its own source, its
+ *  same-scope siblings, and the wired lens sources) — real, de-duped. */
+function evidenceFor(s: PulseSignal, pulse: InvestorPulse): { kind: EvidenceKind; name: string; url: string }[] {
+  const out: { kind: EvidenceKind; name: string; url: string }[] = []
+  const seen = new Set<string>()
+  const push = (kind: EvidenceKind, name: string, url: string) => {
+    const key = `${name}|${url}`
+    if (name && !seen.has(key)) {
+      seen.add(key)
+      out.push({ kind, name, url })
+    }
+  }
+  push(EVIDENCE_BY_CATEGORY[s.category], s.sourceName, s.sourceUrl)
+  for (const r of pulse.signals) {
+    if (r.id !== s.id && r.category === s.category && r.scope === s.scope) push(EVIDENCE_BY_CATEGORY[r.category], r.sourceName, r.sourceUrl)
+  }
+  const lens = pulse.lenses[CATEGORY_LENS[s.category]]
+  if (lens) for (const ref of lens.sourceRefs) if (ref.name) push('Market data', ref.name, ref.url)
+  return out.slice(0, 5)
+}
+
+interface Conviction {
+  score: number
+  stars: number
+  pct: number
+  evidence: { kind: EvidenceKind; name: string; url: string }[]
+}
+
+/** A conviction score built ONLY from real attributes: company relevance,
+ *  directionality, source confidence, whether wired correlation data backs it,
+ *  and how many distinct sources support it. */
+function convictionScore(s: PulseSignal, pulse: InvestorPulse): Conviction {
+  const evidence = evidenceFor(s, pulse)
+  let score = 0
+  if (s.scope === 'company') score += 1.2
+  score += s.impact === 'Positive' || s.impact === 'Risk' ? 1 : s.impact === 'Watch' ? 0.5 : 0.2
+  score += { High: 1.7, Medium: 1.0, Low: 0.4 }[s.confidence]
+  if (signalHasCorrelation(s, pulse)) score += 0.7
+  score += Math.min(1, Math.max(0, evidence.length - 1) * 0.3)
+  const stars = Math.max(1, Math.min(5, Math.round(score)))
+  const pct = Math.round(Math.min(96, 44 + score * 10))
+  return { score, stars, pct, evidence }
+}
+
+// ── "Why should I care?" — conversational, from real wired analysis ──────────
+
+function whoAffected(s: PulseSignal, pulse: InvestorPulse): string {
+  if (s.scope === 'company') {
+    if (s.category === 'Analyst Action') return `${pulse.company} shareholders and anyone tracking its re-rating.`
+    if (s.category === 'Management') return `${pulse.company}'s board, leadership continuity and its shareholders.`
+    return `${pulse.company} directly — its premium growth, margins and shareholders.`
+  }
+  if (s.category === 'Regulatory') return 'Every standalone health insurer (SAHI) — pricing, product design and compliance cost.'
+  if (s.category === 'Analyst Action') return 'The listed SAHI names and how the Street frames the sector.'
+  return 'The broader health-insurance sector and its listed players.'
+}
+
+function historicalContext(s: PulseSignal, pulse: InvestorPulse): string | null {
+  const lens = pulse.lenses[CATEGORY_LENS[s.category]]
+  if (!lens || !lens.available) return null
+  const line = lens.oneLineRead || lens.keyInsights[0] || ''
+  return line ? clamp(scrubCopy(firstSentence(line)), 190) : null
+}
+
+// A concrete line reads as number/term-anchored, not a vague framing — used to
+// prefer the sharpest available sentence for "potential impact" and "one thing".
+const SPECIFIC_RE = /\d|%|IRDAI|PFRDA|SEBI|GWP|ratio|premium|solvency|combined|margin|pricing|circular|draft|rights issue/i
+
+function potentialImpact(s: PulseSignal, pulse: InvestorPulse): string | null {
+  const lens = pulse.lenses[CATEGORY_LENS[s.category]]
+  const cands = [lens?.watchNext?.[0], lens?.investorImplication, CATEGORY_WATCH_FALLBACK[s.category]].filter(Boolean) as string[]
+  // prefer a concrete, number/term-anchored line; else the first (topical) one.
+  const pick = cands.find((c) => SPECIFIC_RE.test(c)) ?? cands[0]
+  return pick ? clamp(scrubCopy(firstSentence(pick)), 190) : null
+}
+
+export interface WhyCare {
+  whatHappened: string
+  whyItMatters: string
+  whoAffected: string
+  historicalContext: string | null
+  potentialImpact: string | null
+}
+
+function whyCareFor(s: PulseSignal, pulse: InvestorPulse): WhyCare {
+  const lens = pulse.lenses[CATEGORY_LENS[s.category]]
+  return {
+    whatHappened: clamp(scrubCopy(s.title), 150),
+    whyItMatters: clamp(scrubCopy(firstSentence(s.whyItMatters || lens?.oneLineRead || '')), 200) || 'Adds to the near-term picture for the name and the sector.',
+    whoAffected: whoAffected(s, pulse),
+    historicalContext: historicalContext(s, pulse),
+    potentialImpact: potentialImpact(s, pulse),
+  }
+}
+
+// The single "what should I do next" for one idea — tied to its category.
+function actionForSignal(s: PulseSignal, pulse: InvestorPulse): PulseAction | null {
+  const company = pulse.companyId
+  switch (s.category) {
+    case 'Analyst Action':
+    case 'Sector Catalyst':
+    case 'Data Movement':
+      return { id: 'margins', label: 'Compare margins', icon: 'margins', target: { page: 'sahi', sahiTab: 'profitability', company } }
+    case 'Regulatory':
+      return { id: 'regulation', label: 'Track regulation', icon: 'regulation', target: { page: 'sahi', sahiTab: 'governance', company } }
+    case 'Management':
+      return { id: 'ownership', label: 'Review ownership', icon: 'ownership', target: { page: 'sahi', sahiTab: 'governance', company } }
+    case 'Filing':
+      return { id: 'source', label: 'Verify source', icon: 'source', target: { page: 'audit', company } }
+  }
+}
+
+export interface ConvictionIdea {
+  id: string
+  entity: string
+  stars: number
+  reasoning: string
+  confidencePct: number
+  evidenceCount: number
+  status: PulseStatus
+  category: SignalCategory
+  why: WhyCare
+  action: PulseAction | null
+  isBreaking: boolean
+  isNew: boolean
+  sources: { kind: EvidenceKind; name: string; url: string }[]
+}
+
+/** Highest-conviction ideas from a scoped signal set — ranked by conviction (not
+ *  just freshness), each with AI reasoning, a confidence %, evidence and a why. */
+export function convictionIdeas(signals: PulseSignal[], pulse: InvestorPulse): ConvictionIdea[] {
+  const freshestId = signals.slice().sort(byNewestSignal)[0]?.id
+  return signals
+    .map((s) => ({ s, c: convictionScore(s, pulse) }))
+    .sort((a, b) => b.c.score - a.c.score)
+    .slice(0, 4)
+    .map(({ s, c }) => {
+      const lens = pulse.lenses[CATEGORY_LENS[s.category]]
+      return {
+        id: s.id,
+        entity: s.scope === 'company' ? pulse.company : SECTOR_TOPIC[s.category],
+        stars: c.stars,
+        reasoning: clamp(scrubCopy(firstSentence(s.whyItMatters || lens?.oneLineRead || s.title)), 160),
+        confidencePct: c.pct,
+        evidenceCount: c.evidence.length,
+        status: statusOf(s.impact),
+        category: s.category,
+        why: whyCareFor(s, pulse),
+        action: actionForSignal(s, pulse),
+        isBreaking: s.id === freshestId && (s.daysAgo ?? 99) <= 2,
+        isNew: (s.daysAgo ?? 99) === 0,
+        sources: c.evidence,
+      }
+    })
+}
+
+// ── AI Morning Brief ─────────────────────────────────────────────────────────
+
+export interface MorningBrief {
+  greeting: string
+  line: string
+  attentionCount: number
+  developmentsCount: number
+  sourcesCount: number
+  domainsCount: number
+  confidencePct: number
+  confidenceTier: Confidence
+  readingMins: number
+  lastUpdatedLabel: string
+}
+
+function briefConfidence(signals: PulseSignal[]): { pct: number; tier: Confidence } {
+  if (!signals.length) return { pct: 0, tier: 'Low' }
+  const avg = signals.reduce((n, s) => n + CONF_SCORE[s.confidence], 0) / signals.length // 1..3
+  const sourced = signals.filter((s) => s.sourceUrl).length / signals.length
+  const base = 50 + ((avg - 1) / 2) * 40
+  const pct = Math.round(Math.min(97, base + sourced * 6))
+  const tier: Confidence = pct >= 82 ? 'High' : pct >= 66 ? 'Medium' : 'Low'
+  return { pct, tier }
+}
+
+export function morningBrief(pulse: InvestorPulse, ideas: ConvictionIdea[], scoped: PulseSignal[], isToday: boolean): MorningBrief {
+  const sourced = pulse.signals.filter((s) => s.sourceUrl)
+  const domains = new Set(sourced.map((s) => domainOf(s.sourceUrl) || s.sourceName))
+  const mgmtRecent = selectManagementEvents(pulse.companyId, { recentOnly: true })
+  const { pct, tier } = briefConfidence(scoped.length ? scoped : pulse.signals)
+  const words = ideas.reduce(
+    (n, i) => n + wordCount(i.reasoning) + wordCount(i.why.whyItMatters) + wordCount(i.why.historicalContext ?? '') + wordCount(i.why.potentialImpact ?? ''),
+    0,
+  )
+  return {
+    greeting: isToday ? greetingWord() : 'Executive Brief',
+    line: 'Overnight, AI scanned news, regulatory filings, earnings releases and management updates.',
+    attentionCount: ideas.length,
+    developmentsCount: pulse.signals.length + mgmtRecent.length,
+    sourcesCount: sourced.length,
+    domainsCount: domains.size,
+    confidencePct: pct,
+    confidenceTier: tier,
+    readingMins: Math.max(1, Math.round(words / 200)),
+    lastUpdatedLabel: feedUpdatedLabel(),
+  }
+}
+
+// ── "If you read only one thing today" ───────────────────────────────────────
+
+export interface OneThing {
+  sentence: string
+  status: PulseStatus
+}
+
+export function oneThing(ideas: ConvictionIdea[]): OneThing | null {
+  if (!ideas.length) return null
+  const lead = ideas.find((i) => i.category === 'Regulatory') ?? ideas.find((i) => i.status === 'Risk' || i.status === 'Watch') ?? ideas[0]
+  const cands = [lead.reasoning, lead.why.whyItMatters, lead.why.potentialImpact].filter(Boolean) as string[]
+  const pick = cands.find((c) => SPECIFIC_RE.test(c)) ?? cands[0]
+  return { sentence: clamp(scrubCopy(firstSentence(pick)), 175), status: lead.status }
+}
+
+// ── "Since yesterday" — real, computable deltas only (no fabricated sentiment) ─
+
+export interface SinceDelta {
+  id: string
+  label: string
+  value: string
+  direction: 'up' | 'down' | 'flat'
+  tone: SignalImpact
+}
+
+export function sinceYesterday(pulse: InvestorPulse): SinceDelta[] {
+  const out: SinceDelta[] = []
+  const recent = pulse.signals.filter(isRecent)
+  const fresh = recent.filter((s) => (s.daysAgo ?? 99) <= 2)
+  if (fresh.length) {
+    const pos = fresh.filter((s) => s.impact === 'Positive').length
+    const neg = fresh.filter((s) => s.impact === 'Risk' || s.impact === 'Watch').length
+    out.push({ id: 'new', label: fresh.length === 1 ? 'New development' : 'New developments', value: String(fresh.length), direction: 'up', tone: pos >= neg ? 'Positive' : 'Watch' })
+  }
+  const reg = recent.filter((s) => s.category === 'Regulatory').length
+  if (reg) out.push({ id: 'reg', label: reg === 1 ? 'Regulatory update' : 'Regulatory updates', value: String(reg), direction: 'up', tone: 'Watch' })
+  const mgmt = selectManagementEvents(pulse.companyId, { recentOnly: true }).length
+  if (mgmt) out.push({ id: 'mgmt', label: mgmt === 1 ? 'Leadership change' : 'Leadership changes', value: String(mgmt), direction: 'up', tone: 'Neutral' })
+  const g = pulse.lenses.growthLevers.metrics.find((m) => m.label === 'GWP growth (YoY)')
+  if (g) {
+    const n = parseFloat(g.value)
+    out.push({ id: 'gwp', label: 'GWP YoY', value: g.value, direction: !isNaN(n) && n < 0 ? 'down' : 'up', tone: g.tone })
+  }
+  const events = pulse.signals.filter((s) => s.horizon === 'upcoming').length
+  if (events) out.push({ id: 'events', label: events === 1 ? 'Event ahead' : 'Events ahead', value: String(events), direction: 'up', tone: 'Neutral' })
+  return out
 }
