@@ -16,7 +16,6 @@ import {
   ArrowDown,
   Minus,
   ChevronDown,
-  Star,
   Zap,
   ShieldCheck,
   Users,
@@ -73,17 +72,6 @@ function SectionHead({ icon: Icon, label, note }: { icon: LucideIcon; label: str
     </div>
   )
 }
-
-function Stars({ n }: { n: number }) {
-  return (
-    <span className="inline-flex items-center gap-[1px]" title={`${n} / 5 conviction`}>
-      {[1, 2, 3, 4, 5].map((i) => (
-        <Star key={i} className="h-3 w-3" strokeWidth={1.6} style={{ color: i <= n ? GOLD : 'rgba(39,69,126,0.20)', fill: i <= n ? GOLD : 'transparent' }} />
-      ))}
-    </span>
-  )
-}
-
 function ConfidenceRing({ pct, tier, size = 54 }: { pct: number; tier: string; size?: number }) {
   const v = useCountUp(pct, 1000)
   const r = size / 2 - 4
@@ -224,9 +212,6 @@ function ConvictionRow({ idea, companyId, onNavigate }: { idea: ConvictionIdea; 
                 <span className="pulse-live h-1 w-1 rounded-full" style={{ background: '#C0584F' }} /> Live
               </span>
             )}
-            <span className="ml-auto shrink-0">
-              <Stars n={idea.stars} />
-            </span>
           </div>
           <p className="mt-0.5 line-clamp-1 text-[11px] leading-snug text-ink-secondary">{idea.reasoning[0]}</p>
           <div className="mt-1 flex items-center gap-1.5 text-[9px] font-semibold text-ink-secondary">
