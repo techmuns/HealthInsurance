@@ -26,26 +26,7 @@ import {
 import { PulseTimeline } from './PulseTimeline'
 import { PulseFilterChips } from './PulseFilterChips'
 import { ExecutiveBrief } from './ExecutiveBrief'
-
-// Pulse remembers the reader's filter + selected date per company, so a jump out
-// to the dashboard ("View in dashboard") and back lands on the same read. Kept in
-// sessionStorage (survives PulseView unmount without leaking across a page reload).
-const SS_FILTER = 'pulse:filter'
-const SS_DATE = 'pulse:date'
-function readSS(key: string, company: string): string | null {
-  try {
-    return sessionStorage.getItem(`${key}:${company}`)
-  } catch {
-    return null
-  }
-}
-function writeSS(key: string, company: string, val: string): void {
-  try {
-    sessionStorage.setItem(`${key}:${company}`, val)
-  } catch {
-    /* storage unavailable — restoration simply falls back to defaults */
-  }
-}
+import { SS, readSS, writeSS } from './pulseState'
 
 export function PulseView({
   pulse,
@@ -54,8 +35,8 @@ export function PulseView({
   pulse: InvestorPulse
   onGoToSource?: (target: NavTarget, insightId: string) => void
 }) {
-  const [filter, setFilter] = useState<PulseFilter>(() => (readSS(SS_FILTER, pulse.companyId) as PulseFilter) ?? 'relevant')
-  const [dateKey, setDateKey] = useState(() => readSS(SS_DATE, pulse.companyId) ?? 'today')
+  const [filter, setFilter] = useState<PulseFilter>(() => (readSS(SS.filter, pulse.companyId) as PulseFilter) ?? 'relevant')
+  const [dateKey, setDateKey] = useState(() => readSS(SS.date, pulse.companyId) ?? 'today')
 
   // Reset to defaults only on a genuine company change — NOT on first mount, so a
   // restored filter/date survives returning from a "View in dashboard" jump.
@@ -74,8 +55,8 @@ export function PulseView({
   const isToday = dateKey === 'today'
 
   // Persist the reader's current filter + date for the round-trip restore.
-  useEffect(() => writeSS(SS_FILTER, pulse.companyId, effFilter), [effFilter, pulse.companyId])
-  useEffect(() => writeSS(SS_DATE, pulse.companyId, dateKey), [dateKey, pulse.companyId])
+  useEffect(() => writeSS(SS.filter, pulse.companyId, effFilter), [effFilter, pulse.companyId])
+  useEffect(() => writeSS(SS.date, pulse.companyId, dateKey), [dateKey, pulse.companyId])
 
   const selectedDay = days.find((d) => d.key === dateKey) ?? days[0]
   const dateLabel = selectedDay ? `${selectedDay.dayNum} ${selectedDay.monthLabel} · ${selectedDay.weekday}` : ''

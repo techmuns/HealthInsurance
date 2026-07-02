@@ -892,6 +892,23 @@ export function convictionIdeas(signals: PulseSignal[], pulse: InvestorPulse): C
     }))
 }
 
+/** The exact dashboard section a conviction idea should open — resolved from the
+ *  idea's category AND its text, so a premium-growth idea lands on Premium &
+ *  Distribution, a margin idea on Profitability, an ownership/management/regulatory
+ *  idea on the right Governance/Sector surface, and a re-rating idea on Valuation.
+ *  Falls back to the idea's own action target, then the peer scoreboard. */
+export function dashboardTargetFor(idea: ConvictionIdea, companyId: string): NavTarget {
+  const text = `${idea.entity} ${idea.reasoning.join(' ')} ${idea.why.whatHappened} ${idea.whatToWatch}`.toLowerCase()
+  const to = (sahiTab: string): NavTarget => ({ page: 'sahi', sahiTab, company: companyId })
+  if (idea.category === 'Regulatory' || /irdai|regulat|policy|reform|composite licen/.test(text)) return to('sector-news')
+  if (idea.category === 'Management' || /\bceo\b|\bcfo\b|appoint|resign|steps? down|leadership|managing director|\bmd\b|board of/.test(text)) return to('governance')
+  if (/ownership|stake|shareholding|holding|promoter|pledge|block deal|bulk deal/.test(text)) return to('governance')
+  if (/valuation|\bp\/b\b|\bp\/e\b|\broe\b|target price|re-rat|multiple|price target|market cap/.test(text)) return to('valuation')
+  if (/claim|margin|combined ratio|expense ratio|loss ratio|underwrit|\bpat\b|profitab|solvency/.test(text)) return to('profitability')
+  if (/premium|\bgwp\b|\bnwp\b|\bnep\b|growth|retail|group health|channel|distribution|agency|bancass/.test(text)) return to('distribution')
+  return idea.action?.target ?? to('companies')
+}
+
 // ── AI Morning Brief ─────────────────────────────────────────────────────────
 
 export interface MorningBrief {

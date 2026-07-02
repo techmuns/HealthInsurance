@@ -27,7 +27,6 @@ import {
   CalendarClock,
   Landmark,
   ArrowUpRight,
-  ExternalLink,
   type LucideIcon,
 } from 'lucide-react'
 import { IMPACT_META, type InvestorPulse } from '@/insights/investorPulse'
@@ -42,8 +41,10 @@ import {
   type PulseAction,
   type ActionIcon,
 } from './derive'
-import { SourceChip, GOLD, GOLD_ON_NAVY } from './parts'
+import { GOLD, GOLD_ON_NAVY } from './parts'
 import { useCountUp } from './hooks'
+import { ConvictionPages } from './ConvictionPages'
+import { SS, readSS, writeSS, clearSS } from './pulseState'
 
 // Colour-psychology signal: regulatory = orange (caution); otherwise the status
 // colour (green constructive / gold watch / red risk / slate neutral).
@@ -180,27 +181,40 @@ function CompactBrief({ brief, message, isToday, dateLabel }: { brief: MorningBr
 
 // ── CENTER · one thing + conviction ───────────────────────────────────────────
 
-function ExpandRow({ icon: Icon, label, text }: { icon: LucideIcon; label: string; text: string }) {
-  return (
-    <div className="flex gap-1.5">
-      <Icon className="mt-0.5 h-3 w-3 shrink-0 text-navy-primary" strokeWidth={2} />
-      <div className="min-w-0">
-        <span className="text-[8px] font-bold uppercase tracking-[0.08em] text-ink-secondary">{label}: </span>
-        <span className="text-[10.5px] leading-snug text-ink-primary">{text}</span>
-      </div>
-    </div>
-  )
+const clampPage = (s: string | null): number => {
+  const n = Number(s)
+  return Number.isFinite(n) && n >= 0 && n <= 2 ? n : 0
 }
 
-function ConvictionRow({ idea, onNavigate }: { idea: ConvictionIdea; onNavigate?: (t: NavTarget, id: string) => void }) {
-  const [open, setOpen] = useState(false)
+function ConvictionRow({ idea, companyId, onNavigate }: { idea: ConvictionIdea; companyId: string; onNavigate?: (t: NavTarget, id: string) => void }) {
+  // Restore the expanded idea + page a reader left from, so a jump out to the
+  // dashboard and "Back to Pulse" returns to the exact same open note + page.
+  const restored = readSS(SS.openIdea, companyId) === idea.id
+  const [open, setOpen] = useState(restored)
+  const [page, setPage] = useState(() => (restored ? clampPage(readSS(SS.openPage, companyId)) : 0))
   const accent = accentFor(idea)
-  const w = idea.why
-  const dash = idea.action?.target
-  const src = idea.sources[0]?.url
+
+  const toggle = () => {
+    setOpen((v) => {
+      const next = !v
+      if (next) {
+        writeSS(SS.openIdea, companyId, idea.id)
+        writeSS(SS.openPage, companyId, String(page))
+      } else if (readSS(SS.openIdea, companyId) === idea.id) {
+        clearSS(SS.openIdea, companyId)
+      }
+      return next
+    })
+  }
+  const changePage = (p: number) => {
+    setPage(p)
+    writeSS(SS.openIdea, companyId, idea.id)
+    writeSS(SS.openPage, companyId, String(p))
+  }
+
   return (
-    <div className={`rounded-lg border border-soft-border bg-white ${idea.isNew ? 'glow-new' : ''}`}>
-      <button type="button" onClick={() => setOpen((v) => !v)} className={`flex w-full items-start gap-2 px-2.5 py-2 text-left transition-colors ${open ? 'bg-ice/50' : 'hover:bg-ice/40'}`}>
+    <div className={`overflow-hidden rounded-lg border border-soft-border bg-white ${idea.isNew ? 'glow-new' : ''} ${open ? 'shadow-card' : ''}`}>
+      <button type="button" onClick={toggle} aria-expanded={open} className={`flex w-full items-start gap-2 px-2.5 py-2 text-left transition-colors ${open ? 'bg-ice/40' : 'hover:bg-ice/40'}`}>
         <span className="mt-1 h-2 w-2 shrink-0 rounded-full" style={{ background: accent, boxShadow: `0 0 0 3px ${accent}1f` }} title={idea.category === 'Regulatory' ? 'Regulatory' : idea.status} />
         <div className="min-w-0 flex-1">
           <div className="flex items-center gap-1.5">
@@ -215,71 +229,34 @@ function ConvictionRow({ idea, onNavigate }: { idea: ConvictionIdea; onNavigate?
             </span>
           </div>
           <p className="mt-0.5 line-clamp-1 text-[11px] leading-snug text-ink-secondary">{idea.reasoning[0]}</p>
-          <p className="mt-0.5 line-clamp-1 text-[10px] leading-snug">
-            <span className="font-bold uppercase tracking-[0.05em] text-champagne-deep">Watch · </span>
-            <span className="text-ink-secondary">{idea.whatToWatch}</span>
-          </p>
+          <div className="mt-1 flex items-center gap-1.5 text-[9px] font-semibold text-ink-secondary">
+            <span>
+              <span className="tabular-nums text-navy-primary">{idea.confidencePct}%</span> confidence
+            </span>
+            <span className="h-2.5 w-px bg-soft-border" />
+            <span>
+              {idea.evidenceCount} source{idea.evidenceCount === 1 ? '' : 's'}
+            </span>
+            {!open && <span className="ml-auto text-[8.5px] font-bold uppercase tracking-[0.08em] text-champagne-deep">Open note</span>}
+          </div>
         </div>
         <ChevronDown className={`mt-0.5 h-3.5 w-3.5 shrink-0 text-ink-secondary transition-transform ${open ? 'rotate-180' : ''}`} />
       </button>
-      {open && (
-        <div className="space-y-1.5 border-t border-soft-border/70 bg-surface-tint/40 px-2.5 py-2 pl-[18px]">
-          <div className="flex items-center gap-1.5 text-[9px] font-semibold text-ink-secondary">
-            <span>{idea.confidencePct}% confidence</span>
-            <span>·</span>
-            <span>{idea.evidenceCount} source{idea.evidenceCount === 1 ? '' : 's'}</span>
-          </div>
-          <ExpandRow icon={Zap} label="What happened" text={w.whatHappened} />
-          <ExpandRow icon={ShieldCheck} label="Why it matters" text={w.whyItMatters} />
-          <ExpandRow icon={Users} label="Who is affected" text={w.whoAffected} />
-          <ExpandRow icon={Radar} label="What to watch next" text={idea.whatToWatch} />
-          {idea.sources.length > 0 && (
-            <div className="flex flex-wrap items-center gap-1 pt-0.5">
-              <span className="text-[8px] font-bold uppercase tracking-[0.08em] text-ink-secondary">Source basis:</span>
-              {idea.sources.slice(0, 3).map((s, i) => (
-                <SourceChip key={i} kind={s.kind} name={s.name} url={s.url} />
-              ))}
-            </div>
-          )}
-          {(dash || src) && (
-            <div className="flex flex-wrap items-center gap-1.5 pt-1">
-              {dash && onNavigate && (
-                <button
-                  type="button"
-                  onClick={() => onNavigate(dash, `pulse-idea-${idea.id}`)}
-                  className="inline-flex items-center gap-1 rounded-md border border-soft-border bg-white px-2 py-1 text-[9.5px] font-semibold text-navy-deep shadow-soft transition-colors hover:border-champagne hover:bg-champagne-soft/40"
-                >
-                  <ArrowUpRight className="h-3 w-3" strokeWidth={2.2} style={{ color: GOLD }} /> View in dashboard
-                </button>
-              )}
-              {src && (
-                <a
-                  href={src}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex items-center gap-1 rounded-md border border-soft-border bg-white px-2 py-1 text-[9.5px] font-semibold text-navy-deep shadow-soft transition-colors hover:border-champagne hover:bg-champagne-soft/40"
-                >
-                  <ExternalLink className="h-3 w-3" strokeWidth={2.2} style={{ color: GOLD }} /> Open source
-                </a>
-              )}
-            </div>
-          )}
-        </div>
-      )}
+      {open && <ConvictionPages idea={idea} companyId={companyId} page={page} onPage={changePage} onNavigate={onNavigate} />}
     </div>
   )
 }
 
-function ConvictionList({ ideas, onNavigate }: { ideas: ConvictionIdea[]; onNavigate?: (t: NavTarget, id: string) => void }) {
+function ConvictionList({ ideas, companyId, onNavigate }: { ideas: ConvictionIdea[]; companyId: string; onNavigate?: (t: NavTarget, id: string) => void }) {
   return (
     <div className="px-4 py-3">
-      <SectionHead icon={Radar} label="Highest Conviction Ideas" note="top 3" />
+      <SectionHead icon={Radar} label="Highest Conviction Ideas" note="tap to open the note" />
       {ideas.length === 0 ? (
         <p className="rounded-lg border border-dashed border-soft-border bg-ice/40 px-3 py-4 text-center text-[11px] text-ink-secondary">Nothing meets the conviction bar under this filter.</p>
       ) : (
         <div className="space-y-1.5">
           {ideas.slice(0, 3).map((idea) => (
-            <ConvictionRow key={idea.id} idea={idea} onNavigate={onNavigate} />
+            <ConvictionRow key={idea.id} idea={idea} companyId={companyId} onNavigate={onNavigate} />
           ))}
         </div>
       )}
@@ -438,7 +415,7 @@ export function ExecutiveBrief({
 
         {/* CENTER — Highest Conviction Ideas */}
         <div className="min-w-0 border-t border-soft-border lg:border-l lg:border-t-0">
-          <ConvictionList ideas={ideas} onNavigate={onNavigate} />
+          <ConvictionList ideas={ideas} companyId={pulse.companyId} onNavigate={onNavigate} />
         </div>
 
         {/* RIGHT — since yesterday · events · actions */}
