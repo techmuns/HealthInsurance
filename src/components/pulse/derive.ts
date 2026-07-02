@@ -336,6 +336,12 @@ function eventKind(title: string): string {
   return 'Scheduled event'
 }
 
+// A genuinely dated event (one of the recognized kinds above) — as opposed to a
+// news item or a "watch this page" placeholder that merely carries a future date.
+// Only these belong in Events Ahead; the catch-all "Scheduled event" is where news
+// leaks in, so an upcoming item must match a real kind to be shown.
+const REAL_EVENT_RE = /\bagm\b|annual general|earnings|results|financial result|board meeting|board of directors|investor|analyst meet|institutional|irdai|pfrda|sebi|regulat/i
+
 const DAY_MS = 86_400_000
 function isFutureIso(date: string): boolean {
   const t = Date.parse(date)
@@ -371,7 +377,16 @@ function whenLabel(date: string): string {
 /** Genuinely relevant dated events (AGM, board, results, investor meet, regulatory).
  *  Firm future dates lead; still-active flagged catalysts follow. */
 export function upcomingEvents(pulse: InvestorPulse): PulseEvent[] {
-  const upcoming = pulse.signals.filter((s) => s.horizon === 'upcoming')
+  const upcoming = pulse.signals
+    .filter((s) => s.horizon === 'upcoming')
+    // Relevant to THIS company: its own dated events, or a genuine sector-wide
+    // regulatory catalyst. An item tagged 'sector' but really about another
+    // insurer (a common mis-tag) is never surfaced under this company — that was
+    // the source of "clicking an event opens an unrelated company's page".
+    .filter((s) => s.scope === 'company' || s.category === 'Regulatory')
+    // A real scheduled event, not a news item / "watch this page" placeholder that
+    // merely carries a future date and links to an unrelated page.
+    .filter((s) => REAL_EVENT_RE.test(s.title))
   // The stable landing for a host — the cleanest non-document URL among these
   // events (typically the IR page), else the host root. Used to rescue future
   // events that point at a specific, possibly-stale document.
@@ -1190,7 +1205,7 @@ export function sinceYesterday(pulse: InvestorPulse): SinceDelta[] {
     out.push({ id: 'gwp', label: 'premium growth YoY', value: g.value, direction: !isNaN(n) && n < 0 ? 'down' : 'up', tone: g.tone, target: { ...to('distribution'), focus: gwpFocus } })
   }
 
-  const events = pulse.signals.filter((s) => s.horizon === 'upcoming').length
+  const events = upcomingEvents(pulse).length
   if (events) out.push({ id: 'events', label: events === 1 ? 'event ahead' : 'events ahead', value: String(events), direction: 'up', tone: 'Neutral', target: locTarget('governance', 'events', 'events', `${events} ${events === 1 ? 'event' : 'events'} ahead`) })
 
   // Market reaction only when it is a genuine reported move; 0 shown as reassurance.
