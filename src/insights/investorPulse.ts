@@ -479,15 +479,41 @@ function toManagementEvent(row: MgmtEventRow, idx: number): PulseManagementEvent
   }
 }
 
+// ── recency horizon for the LIVE Pulse surface ──────────────────────────────
+// Governance events (board / KMP / auditor changes) are infrequent, so "recent"
+// is a generous 18-month window: wide enough that the live panel isn't
+// perpetually empty, tight enough that anything older than ~1.5 years drops off
+// on its own as the clock advances — no hand-editing, and never a 2-year-old
+// change presented as current intelligence. This trims only the live Pulse view
+// (opt-in via `recentOnly`); the full record stays intact for history / audit
+// paths. When nothing recent is on file the panel shows an honest "no recent
+// events" state (missing ≠ zero), never a stale filler.
+export const RECENT_EVENT_WINDOW_MONTHS = 18
+
+/**
+ * True when `date` (YYYY-MM-DD) falls within `windowMonths` of today. A missing
+ * or unparseable date can't be shown to be recent, so it fails closed (dropped).
+ */
+function isWithinMonths(date: string, windowMonths: number): boolean {
+  if (!date) return false
+  const t = Date.parse(date)
+  if (isNaN(t)) return false
+  const cutoff = new Date()
+  cutoff.setMonth(cutoff.getMonth() - windowMonths)
+  return t >= cutoff.getTime()
+}
+
 /**
  * Normalized management / board / KMP events for a company, newest first. Shared
  * by both the full Insights view and the compact Governance callout so there is
  * exactly one data path. `governanceOnly` keeps just the board/KMP/auditor/
- * leadership events Governance should carry.
+ * leadership events Governance should carry. `recentOnly` keeps only events
+ * inside the live recency window (`withinMonths`, default RECENT_EVENT_WINDOW_MONTHS)
+ * so the live Pulse panel never shows stale, long-past changes.
  */
 export function selectManagementEvents(
   companyId: string,
-  opts: { governanceOnly?: boolean } = {},
+  opts: { governanceOnly?: boolean; recentOnly?: boolean; withinMonths?: number } = {},
 ): PulseManagementEvent[] {
   const { rows } = getManagementEvents(companyId) as { rows: MgmtEventRow[] }
   let events = (rows ?? [])
@@ -495,6 +521,10 @@ export function selectManagementEvents(
     .filter((e): e is PulseManagementEvent => e != null)
     .sort(byNewest)
   if (opts.governanceOnly) events = events.filter((e) => e.governanceRelevant)
+  if (opts.recentOnly) {
+    const windowMonths = opts.withinMonths ?? RECENT_EVENT_WINDOW_MONTHS
+    events = events.filter((e) => isWithinMonths(e.date, windowMonths))
+  }
   return events
 }
 

@@ -1,11 +1,8 @@
-import { useEffect, useLayoutEffect, useRef, useState } from 'react'
-import { createPortal } from 'react-dom'
+import { useState } from 'react'
 import {
   ShieldAlert,
   TrendingUp,
   CalendarClock,
-  CalendarPlus,
-  Download,
   ExternalLink,
   ChevronDown,
   Activity,
@@ -40,12 +37,6 @@ import {
   type InsightLens,
   type Confidence,
 } from '@/insights/investorPulse'
-import {
-  exactDateISO,
-  googleCalendarUrl,
-  downloadIcs,
-  signalCalendarEvent,
-} from '@/lib/calendarLinks'
 
 const GOLD = '#B68B3A'
 // A warmer, lighter gold that stays legible on the deep-navy hero.
@@ -228,155 +219,13 @@ function TodaysReadHero({ pulse }: { pulse: InvestorPulseData }) {
   )
 }
 
-// ── Add to Calendar — a keyless affordance shown ONLY when a Signal Stack item
-//    has an exact, parsed date. No Google API, no OAuth, no keys: clicking opens
-//    the user's own Google Calendar with the event pre-filled (they save it
-//    manually), with an .ics download fallback for Apple Calendar / Outlook.
-//    Items with approximate ("late September") or missing dates show nothing —
-//    no button, no disabled state, no tooltip. ─────────────────────────────────
-
-function SignalCalendarAction({ signal, companyName, signalType }: {
-  signal: PulseSignal
-  companyName: string
-  signalType: string
-}) {
-  const dateISO = exactDateISO(signal.date)
-  const [open, setOpen] = useState(false)
-  const btnRef = useRef<HTMLButtonElement>(null)
-  const [pos, setPos] = useState<{ top: number; left: number } | null>(null)
-
-  // Position the popover with fixed coordinates anchored to the trigger, so the
-  // Signal Stack panel's `overflow-hidden` never clips it. Re-anchors on scroll
-  // / resize; closes on Escape.
-  useLayoutEffect(() => {
-    if (!open) return
-    function place() {
-      const el = btnRef.current
-      if (!el) return
-      const r = el.getBoundingClientRect()
-      const W = 184
-      const H = 92
-      const GAP = 6
-      let top = r.bottom + GAP
-      if (top + H > window.innerHeight - 8) top = r.top - H - GAP
-      let left = r.right - W
-      if (left + W > window.innerWidth - 8) left = window.innerWidth - 8 - W
-      if (left < 8) left = 8
-      setPos({ top, left })
-    }
-    place()
-    window.addEventListener('resize', place)
-    window.addEventListener('scroll', place, true)
-    return () => {
-      window.removeEventListener('resize', place)
-      window.removeEventListener('scroll', place, true)
-    }
-  }, [open])
-
-  useEffect(() => {
-    if (!open) return
-    function onKey(e: KeyboardEvent) {
-      if (e.key === 'Escape') setOpen(false)
-    }
-    window.addEventListener('keydown', onKey)
-    return () => window.removeEventListener('keydown', onKey)
-  }, [open])
-
-  // No exact date → no calendar UI at all (requirement: never a disabled button).
-  if (!dateISO) return null
-
-  const event = signalCalendarEvent({
-    title: signal.title,
-    dateISO,
-    company: companyName,
-    signalType,
-    priority: signal.confidence,
-    sourceName: signal.sourceName,
-    sourceUrl: signal.sourceUrl || undefined,
-    uid: signal.id,
-  })
-
-  return (
-    <div className="relative shrink-0">
-      <button
-        ref={btnRef}
-        type="button"
-        aria-haspopup="menu"
-        aria-expanded={open}
-        aria-label="Add to calendar"
-        onClick={(e) => {
-          e.stopPropagation()
-          setOpen((v) => !v)
-        }}
-        className="inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[9.5px] font-semibold text-champagne-deep transition-colors hover:bg-champagne-soft"
-        style={{ boxShadow: 'inset 0 0 0 1px rgba(182,139,58,0.35)' }}
-      >
-        <CalendarPlus className="h-3 w-3" strokeWidth={2.3} />
-        Add to calendar
-      </button>
-
-      {open &&
-        createPortal(
-          <>
-            <button
-              type="button"
-              aria-hidden
-              tabIndex={-1}
-              className="fixed inset-0 z-40 cursor-default"
-              onClick={() => setOpen(false)}
-            />
-            <div
-              role="menu"
-              className="fixed z-50 animate-fade-in overflow-hidden rounded-xl border border-soft-border bg-white shadow-lift"
-              style={{ top: pos?.top ?? -9999, left: pos?.left ?? -9999, width: 184 }}
-              onClick={(e) => e.stopPropagation()}
-            >
-              <div className="border-b border-soft-border bg-ice/60 px-3 py-1.5 text-[8.5px] font-bold uppercase tracking-[0.14em] text-ink-secondary">
-                Add to calendar
-              </div>
-              <a
-                href={googleCalendarUrl(event)}
-                target="_blank"
-                rel="noreferrer"
-                role="menuitem"
-                onClick={() => setOpen(false)}
-                className="flex items-center gap-2 px-3 py-2 text-[11.5px] font-medium text-navy-deep transition-colors hover:bg-ice"
-              >
-                <CalendarPlus className="h-3.5 w-3.5 text-champagne-deep" strokeWidth={2.2} />
-                Google Calendar
-                <ExternalLink className="ml-auto h-3 w-3 text-ink-secondary" />
-              </a>
-              <button
-                type="button"
-                role="menuitem"
-                onClick={() => {
-                  downloadIcs(event)
-                  setOpen(false)
-                }}
-                className="flex w-full items-center gap-2 border-t border-soft-border px-3 py-2 text-[11.5px] font-medium text-navy-deep transition-colors hover:bg-ice"
-              >
-                <Download className="h-3.5 w-3.5 text-champagne-deep" strokeWidth={2.2} />
-                Download .ics
-                <span className="ml-auto text-[8.5px] font-semibold uppercase tracking-wide text-ink-secondary">
-                  Apple · Outlook
-                </span>
-              </button>
-            </div>
-          </>,
-          document.body,
-        )}
-    </div>
-  )
-}
-
 // ── Signal Stack — vertical panel (navy top bar + 3 alert rows) on the right of
 //    Today's Read. Fastest Signal · Risk Watch · Opportunity Watch. ────────────
 
-function SignalStackRow({ icon: Icon, label, signal, companyName, emptyText, accent, tint, ringClass }: {
+function SignalStackRow({ icon: Icon, label, signal, emptyText, accent, tint, ringClass }: {
   icon: LucideIcon
   label: string
   signal: PulseSignal | null
-  companyName: string
   emptyText: string
   accent: string
   tint: string
@@ -400,9 +249,8 @@ function SignalStackRow({ icon: Icon, label, signal, companyName, emptyText, acc
               <ImpactChip impact={signal.impact} />
               <ConfidenceDot confidence={signal.confidence} />
             </div>
-            <div className="mt-1.5 flex items-center justify-between gap-2">
+            <div className="mt-1.5">
               <SourceLink name={signal.sourceName} url={signal.sourceUrl} />
-              <SignalCalendarAction signal={signal} companyName={companyName} signalType={label} />
             </div>
           </>
         ) : (
@@ -425,9 +273,9 @@ function SignalStack({ pulse }: { pulse: InvestorPulseData }) {
         <span className="pointer-events-none absolute inset-x-0 bottom-0 h-px" style={{ background: 'linear-gradient(90deg, transparent, rgba(228,198,124,0.5), transparent)' }} />
       </div>
       <div className="flex flex-1 flex-col divide-y divide-soft-border">
-        <SignalStackRow icon={Zap} label="Fastest Signal" signal={pulse.freshest} companyName={pulse.company} emptyText="No fresh signal on file." accent={GOLD} tint="rgba(182,139,58,0.12)" ringClass="icon-ring-gold" />
-        <SignalStackRow icon={ShieldAlert} label="Risk Watch" signal={pulse.latestRisk} companyName={pulse.company} emptyText="No active risk flag." accent={IMPACT_META.Risk.fg} tint="rgba(192,88,79,0.10)" ringClass="icon-ring-soft" />
-        <SignalStackRow icon={TrendingUp} label="Opportunity Watch" signal={pulse.latestOpportunity} companyName={pulse.company} emptyText="No fresh upside catalyst." accent={IMPACT_META.Positive.fg} tint="rgba(22,142,142,0.10)" ringClass="icon-ring-soft" />
+        <SignalStackRow icon={Zap} label="Fastest Signal" signal={pulse.freshest} emptyText="No fresh signal on file." accent={GOLD} tint="rgba(182,139,58,0.12)" ringClass="icon-ring-gold" />
+        <SignalStackRow icon={ShieldAlert} label="Risk Watch" signal={pulse.latestRisk} emptyText="No active risk flag." accent={IMPACT_META.Risk.fg} tint="rgba(192,88,79,0.10)" ringClass="icon-ring-soft" />
+        <SignalStackRow icon={TrendingUp} label="Opportunity Watch" signal={pulse.latestOpportunity} emptyText="No fresh upside catalyst." accent={IMPACT_META.Positive.fg} tint="rgba(22,142,142,0.10)" ringClass="icon-ring-soft" />
       </div>
     </section>
   )
@@ -563,7 +411,9 @@ function EventTimelineRow({ e, last }: { e: PulseManagementEvent; last: boolean 
 
 function ManagementEvents({ pulse }: { pulse: InvestorPulseData }) {
   const [showAll, setShowAll] = useState(false)
-  const events = selectManagementEvents(pulse.companyId, {})
+  // Live surface: only recent, still-relevant changes — long-past events are
+  // hidden here (the full record stays in the snapshot / history views).
+  const events = selectManagementEvents(pulse.companyId, { recentOnly: true })
   const shown = showAll ? events : events.slice(0, 2)
   return (
     <section className="premium-panel flex flex-col rounded-2xl p-4">
@@ -575,11 +425,11 @@ function ManagementEvents({ pulse }: { pulse: InvestorPulseData }) {
           <h3 className="text-[11px] font-bold uppercase tracking-[0.14em] text-navy-deep">Management &amp; Event Intelligence</h3>
           <span className="gold-rule h-px w-6 rounded-full" />
         </div>
-        {events.length > 0 && <span className="shrink-0 text-[9.5px] font-semibold text-ink-secondary">{events.length} on record</span>}
+        {events.length > 0 && <span className="shrink-0 text-[9.5px] font-semibold text-ink-secondary">{events.length} recent</span>}
       </div>
       {events.length === 0 ? (
         <div className="mt-3 rounded-xl border border-dashed border-soft-border bg-ice/40 px-3 py-6 text-center text-[11px] text-ink-secondary">
-          No board, KMP or leadership changes on record for {pulse.company}. New events appear here automatically as filings are ingested.
+          No recent board, KMP or leadership changes for {pulse.company}. New events appear here automatically as filings are ingested.
         </div>
       ) : (
         <>
