@@ -1,20 +1,19 @@
-// Executive Brief — the AI-first Market Pulse. An analyst-prepared morning
-// briefing: the one thing to read, an AI Morning Brief with a confidence ring +
-// count-up stats, a "since yesterday" delta strip, and Highest-Conviction ideas
-// where every idea answers What happened / Why it matters / Who's affected /
-// History / Impact and a "what next" action. Subtle motion only. All real, source-
-// derived data (see ./derive) — no fabricated counts, no invented sentiment.
+// Executive Brief — a one-glance intelligence workspace in ONE unified card:
+//   • LEFT  (~30%) a compact navy brief — greeting, 2–3 line narrative, AI
+//     confidence, sources, last updated.
+//   • CENTER  the one thing to read + the top-3 Highest-Conviction ideas
+//     (compact rows; details expand on click).
+//   • RIGHT  Since Yesterday · Events Ahead · Action for Today (pills).
+//   • FOOTER  source confidence.
+// Everything sits above the fold. Subtle motion only; all real, source-derived
+// data (see ./derive). Colour is used as signal, never decoration.
 
 import { useState } from 'react'
 import {
   Sparkles,
-  Clock3,
-  BookOpen,
-  Layers,
   RefreshCw,
   ArrowUp,
   ArrowDown,
-  ArrowRight,
   Minus,
   ChevronDown,
   Star,
@@ -23,9 +22,13 @@ import {
   Users,
   History,
   TrendingUp,
-  Eye,
   Globe,
   Radar,
+  Clock3,
+  Scale,
+  CalendarClock,
+  Landmark,
+  ArrowUpRight,
   type LucideIcon,
 } from 'lucide-react'
 import { IMPACT_META, type InvestorPulse } from '@/insights/investorPulse'
@@ -37,14 +40,20 @@ import {
   type ConvictionIdea,
   type PulseEvent,
   type PulseAction,
+  type ActionIcon,
 } from './derive'
-import { StatusPill, SourceChip, CATEGORY_ICON, GOLD, GOLD_ON_NAVY } from './parts'
+import { SourceChip, GOLD, GOLD_ON_NAVY } from './parts'
 import { useCountUp, useTypewriter } from './hooks'
 
-// ── small shared bits ─────────────────────────────────────────────────────────
+// Colour-psychology signal: regulatory = orange (caution); otherwise the status
+// colour (green constructive / gold watch / red risk / slate neutral).
+const ORANGE = '#C2703D'
+function accentFor(idea: ConvictionIdea): string {
+  return idea.category === 'Regulatory' ? ORANGE : STATUS_COLOR[idea.status].dot
+}
 
 function CountVal({ value, suffix = '' }: { value: number; suffix?: string }) {
-  const v = useCountUp(value, 900)
+  const v = useCountUp(value, 850)
   return (
     <>
       {Math.round(v)}
@@ -55,316 +64,299 @@ function CountVal({ value, suffix = '' }: { value: number; suffix?: string }) {
 
 function SectionHead({ icon: Icon, label, note }: { icon: LucideIcon; label: string; note?: string }) {
   return (
-    <div className="mb-2.5 flex items-center gap-2">
-      <span className="icon-ring-gold grid h-5 w-5 place-items-center rounded-md" style={{ background: 'rgba(182,139,58,0.12)' }}>
-        <Icon className="h-3 w-3" strokeWidth={2.2} style={{ color: GOLD }} />
-      </span>
-      <span className="text-[10px] font-bold uppercase tracking-[0.16em] text-navy-deep">{label}</span>
-      <span className="gold-rule h-px w-7 rounded-full" />
-      {note && <span className="ml-auto text-[9.5px] font-semibold text-ink-secondary">{note}</span>}
+    <div className="mb-2 flex items-center gap-1.5">
+      <Icon className="h-3.5 w-3.5" strokeWidth={2.2} style={{ color: GOLD }} />
+      <span className="text-[9.5px] font-bold uppercase tracking-[0.14em] text-navy-deep">{label}</span>
+      <span className="gold-rule h-px flex-1 rounded-full opacity-70" />
+      {note && <span className="text-[9px] font-semibold text-ink-secondary">{note}</span>}
     </div>
   )
 }
 
 function Stars({ n }: { n: number }) {
   return (
-    <span className="inline-flex items-center gap-0.5" title={`${n} / 5 conviction`}>
+    <span className="inline-flex items-center gap-[1px]" title={`${n} / 5 conviction`}>
       {[1, 2, 3, 4, 5].map((i) => (
-        <Star key={i} className="h-3.5 w-3.5" strokeWidth={1.6} style={{ color: i <= n ? GOLD : 'rgba(39,69,126,0.20)', fill: i <= n ? GOLD : 'transparent' }} />
+        <Star key={i} className="h-3 w-3" strokeWidth={1.6} style={{ color: i <= n ? GOLD : 'rgba(39,69,126,0.20)', fill: i <= n ? GOLD : 'transparent' }} />
       ))}
     </span>
   )
 }
 
-function ConfidenceRing({ pct, tier }: { pct: number; tier: string }) {
+function ConfidenceRing({ pct, tier, size = 54 }: { pct: number; tier: string; size?: number }) {
   const v = useCountUp(pct, 1000)
-  const r = 25
+  const r = size / 2 - 4
   const C = 2 * Math.PI * r
   const color = tier === 'High' ? '#3BB6A6' : tier === 'Medium' ? GOLD_ON_NAVY : '#B9A16A'
   return (
-    <div className="relative grid h-[62px] w-[62px] shrink-0 place-items-center">
-      <svg width="62" height="62" style={{ transform: 'rotate(-90deg)' }}>
-        <circle cx="31" cy="31" r={r} fill="none" stroke="rgba(255,255,255,0.14)" strokeWidth="5" />
-        <circle cx="31" cy="31" r={r} fill="none" stroke={color} strokeWidth="5" strokeLinecap="round" strokeDasharray={C} strokeDashoffset={C * (1 - v / 100)} />
+    <div className="relative grid shrink-0 place-items-center" style={{ width: size, height: size }}>
+      <svg width={size} height={size} style={{ transform: 'rotate(-90deg)' }}>
+        <circle cx={size / 2} cy={size / 2} r={r} fill="none" stroke="rgba(255,255,255,0.14)" strokeWidth="4" />
+        <circle cx={size / 2} cy={size / 2} r={r} fill="none" stroke={color} strokeWidth="4" strokeLinecap="round" strokeDasharray={C} strokeDashoffset={C * (1 - v / 100)} />
       </svg>
-      <div className="absolute text-center leading-none">
-        <div className="text-[15px] font-bold text-white">
-          {Math.round(v)}
-          <span className="text-[9px]">%</span>
-        </div>
+      <div className="absolute text-[13px] font-bold leading-none text-white">
+        {Math.round(v)}
+        <span className="text-[8px]">%</span>
       </div>
     </div>
   )
 }
 
-// ── 1 · If you read only one thing today ──────────────────────────────────────
+// ── LEFT · compact Executive Brief (navy) ─────────────────────────────────────
 
-function OneThingCard({ one }: { one: OneThing }) {
-  const c = STATUS_COLOR[one.status]
-  return (
-    <section className="relative overflow-hidden rounded-2xl border px-5 py-3.5 shadow-soft" style={{ background: 'linear-gradient(100deg, #FFFDF7 0%, #F5ECD6 100%)', borderColor: 'rgba(182,139,58,0.32)' }}>
-      <span className="absolute inset-y-3 left-0 w-[3px] rounded-full" style={{ background: 'linear-gradient(180deg, #E4C67C, #B68B3A)' }} />
-      <div className="flex items-center gap-2 pl-2">
-        <Sparkles className="h-3.5 w-3.5 text-champagne-deep" strokeWidth={2} />
-        <span className="text-[9.5px] font-bold uppercase tracking-[0.18em] text-champagne-deep">If you read only one thing today</span>
-        <span className="ml-1 inline-flex h-1.5 w-1.5 rounded-full" style={{ background: c.dot }} />
-      </div>
-      <p className="mt-1 pl-2 font-editorial text-[16.5px] font-medium leading-snug text-navy-deep">&ldquo;{one.sentence}&rdquo;</p>
-    </section>
-  )
-}
-
-// ── 2 · AI Morning Brief ──────────────────────────────────────────────────────
-
-function StatTile({ icon: Icon, label, children }: { icon: LucideIcon; label: string; children: React.ReactNode }) {
-  return (
-    <div className="flex items-center gap-2">
-      <span className="grid h-8 w-8 shrink-0 place-items-center rounded-lg" style={{ background: 'rgba(228,198,124,0.10)', boxShadow: 'inset 0 0 0 1px rgba(228,198,124,0.28)' }}>
-        <Icon className="h-4 w-4" strokeWidth={2} style={{ color: GOLD_ON_NAVY }} />
-      </span>
-      <div className="min-w-0">
-        <div className="text-[13px] font-bold leading-none text-white">{children}</div>
-        <div className="mt-1 text-[8.5px] font-bold uppercase tracking-[0.12em] text-white/50">{label}</div>
-      </div>
-    </div>
-  )
-}
-
-function AiMorningBrief({ brief, isToday, dateLabel }: { brief: MorningBrief; isToday: boolean; dateLabel: string }) {
+function CompactBrief({ brief, isToday, dateLabel }: { brief: MorningBrief; isToday: boolean; dateLabel: string }) {
   const { shown, done } = useTypewriter(brief.narrative)
   return (
-    <section className="relative isolate overflow-hidden rounded-2xl px-5 py-4 shadow-card" style={{ background: 'linear-gradient(150deg, #1C3A6E 0%, #15294C 58%, #102140 100%)' }}>
-      <div className="pointer-events-none absolute inset-0 -z-10" style={{ background: 'radial-gradient(circle at 94% 100%, rgba(214,178,98,0.26) 0%, transparent 44%), radial-gradient(circle at 98% 4%, rgba(96,138,206,0.26) 0%, transparent 44%), radial-gradient(circle at 2% 96%, rgba(44,80,146,0.44) 0%, transparent 52%)' }} />
+    <div className="relative isolate flex min-w-0 flex-col overflow-hidden px-4 py-3.5" style={{ background: 'linear-gradient(160deg, #1C3A6E 0%, #15294C 60%, #102140 100%)' }}>
+      <div className="pointer-events-none absolute inset-0 -z-10" style={{ background: 'radial-gradient(circle at 92% 100%, rgba(214,178,98,0.24) 0%, transparent 46%), radial-gradient(circle at 4% 4%, rgba(96,138,206,0.24) 0%, transparent 46%)' }} />
       <div className="pointer-events-none absolute inset-x-0 top-0 h-px" style={{ background: 'linear-gradient(90deg, transparent, rgba(228,198,124,0.45) 30%, rgba(228,198,124,0.45) 70%, transparent)' }} />
 
-      <div className="flex items-center justify-between gap-3">
-        <span className="inline-flex items-center gap-1.5 rounded-full px-2 py-0.5 text-[9px] font-bold uppercase tracking-[0.16em]" style={{ color: GOLD_ON_NAVY, background: 'rgba(228,198,124,0.10)', boxShadow: 'inset 0 0 0 1px rgba(228,198,124,0.24)' }}>
-          <Sparkles className="h-3 w-3" strokeWidth={2.2} /> Executive Brief · AI
+      <div className="flex items-center justify-between gap-2">
+        <span className="inline-flex items-center gap-1 rounded-full px-1.5 py-0.5 text-[8.5px] font-bold uppercase tracking-[0.14em]" style={{ color: GOLD_ON_NAVY, background: 'rgba(228,198,124,0.10)', boxShadow: 'inset 0 0 0 1px rgba(228,198,124,0.24)' }}>
+          <Sparkles className="h-2.5 w-2.5" strokeWidth={2.2} /> Executive Brief
         </span>
-        <span className="inline-flex items-center gap-1.5 text-[9.5px] font-semibold text-white/55">
-          <RefreshCw className="h-3 w-3" strokeWidth={2} style={{ color: 'rgba(228,198,124,0.8)' }} /> {brief.lastUpdatedLabel}
+        <span className="inline-flex items-center gap-1 text-[8.5px] font-semibold text-white/50">
+          <RefreshCw className="h-2.5 w-2.5" strokeWidth={2} style={{ color: 'rgba(228,198,124,0.8)' }} /> {brief.lastUpdatedLabel}
         </span>
       </div>
 
-      <h2 className="mt-2 font-display text-[22px] font-semibold leading-tight" style={{ color: '#E9C46C' }}>
+      <h2 className="mt-2 font-display text-[17px] font-semibold leading-tight" style={{ color: '#E9C46C' }}>
         {isToday ? `${brief.greeting}.` : `${brief.greeting} · ${dateLabel}`}
       </h2>
-      <p className="mt-1 min-h-[2.4em] max-w-3xl text-[13px] leading-snug text-white/85">
+      <p className="mt-1 min-h-[3.6em] text-[11.5px] leading-snug text-white/85">
         {shown}
         {!done && <span className="type-caret" style={{ color: GOLD_ON_NAVY }} />}
       </p>
 
-      {/* stat row */}
-      <div className="mt-3.5 grid grid-cols-2 gap-3 border-t pt-3 sm:grid-cols-4" style={{ borderColor: 'rgba(228,198,124,0.16)' }}>
+      <div className="mt-auto space-y-3 border-t pt-3" style={{ borderColor: 'rgba(228,198,124,0.16)' }}>
         <div className="flex items-center gap-2.5">
           <ConfidenceRing pct={brief.confidencePct} tier={brief.confidenceTier} />
-          <div>
-            <div className="text-[8.5px] font-bold uppercase tracking-[0.12em] text-white/50">AI Confidence</div>
-            <div className="text-[12px] font-bold text-white">{brief.confidenceTier}</div>
+          <div className="min-w-0">
+            <div className="text-[8px] font-bold uppercase tracking-[0.1em] text-white/45">AI confidence</div>
+            <div className="text-[13px] font-bold text-white">{brief.confidenceTier}</div>
+            <div className="text-[9px] font-medium text-white/45">source quality · freshness</div>
           </div>
         </div>
-        <StatTile icon={BookOpen} label="Reading time">
-          <CountVal value={brief.readingMins} /> min
-        </StatTile>
-        <StatTile icon={Layers} label="Sources analysed">
-          <CountVal value={brief.sourcesCount} />
-          <span className="text-[9.5px] font-semibold text-white/50"> · {brief.domainsCount} distinct</span>
-        </StatTile>
-        <StatTile icon={Clock3} label="Developments">
-          <CountVal value={brief.developmentsCount} />
-        </StatTile>
+        <div className="grid grid-cols-2 gap-x-3 gap-y-2 border-t pt-2.5" style={{ borderColor: 'rgba(255,255,255,0.08)' }}>
+          <div>
+            <div className="text-[8px] font-bold uppercase tracking-[0.1em] text-white/45">Sources analysed</div>
+            <div className="text-[11.5px] font-bold text-white">
+              <CountVal value={brief.sourcesCount} />
+              <span className="text-[9px] font-semibold text-white/50"> · {brief.domainsCount} distinct</span>
+            </div>
+          </div>
+          <div>
+            <div className="text-[8px] font-bold uppercase tracking-[0.1em] text-white/45">Reading time</div>
+            <div className="text-[11.5px] font-bold text-white">
+              <CountVal value={brief.readingMins} /> min
+            </div>
+          </div>
+          <div className="col-span-2">
+            <div className="text-[8px] font-bold uppercase tracking-[0.1em] text-white/45">Last updated</div>
+            <div className="text-[11.5px] font-bold text-white">{brief.lastUpdatedLabel}</div>
+          </div>
+        </div>
       </div>
-    </section>
+    </div>
   )
 }
 
-// ── 3 · Since yesterday ───────────────────────────────────────────────────────
+// ── CENTER · one thing + conviction ───────────────────────────────────────────
 
-function SinceYesterdayStrip({ deltas }: { deltas: SinceDelta[] }) {
+function OneThingRow({ one }: { one: OneThing | null }) {
+  if (!one) return null
+  const c = STATUS_COLOR[one.status]
+  return (
+    <div className="relative overflow-hidden px-4 py-3" style={{ background: 'linear-gradient(100deg, rgba(228,198,124,0.10), transparent 70%)' }}>
+      <span className="absolute inset-y-2.5 left-0 w-[3px] rounded-full" style={{ background: 'linear-gradient(180deg, #E4C67C, #B68B3A)' }} />
+      <div className="flex items-center gap-1.5 pl-1.5">
+        <Sparkles className="h-3 w-3 text-champagne-deep" strokeWidth={2} />
+        <span className="text-[9px] font-bold uppercase tracking-[0.16em] text-champagne-deep">If you read only one thing today</span>
+        <span className="h-1.5 w-1.5 rounded-full" style={{ background: c.dot }} />
+      </div>
+      <p className="mt-1 pl-1.5 font-editorial text-[14px] font-medium leading-snug text-navy-deep">&ldquo;{one.sentence}&rdquo;</p>
+    </div>
+  )
+}
+
+function ExpandRow({ icon: Icon, label, text }: { icon: LucideIcon; label: string; text: string }) {
+  return (
+    <div className="flex gap-1.5">
+      <Icon className="mt-0.5 h-3 w-3 shrink-0 text-navy-primary" strokeWidth={2} />
+      <div className="min-w-0">
+        <span className="text-[8px] font-bold uppercase tracking-[0.08em] text-ink-secondary">{label}: </span>
+        <span className="text-[10.5px] leading-snug text-ink-primary">{text}</span>
+      </div>
+    </div>
+  )
+}
+
+function ConvictionRow({ idea }: { idea: ConvictionIdea }) {
+  const [open, setOpen] = useState(false)
+  const accent = accentFor(idea)
+  const w = idea.why
+  return (
+    <div className={`rounded-lg border border-soft-border bg-white ${idea.isNew ? 'glow-new' : ''}`}>
+      <button type="button" onClick={() => setOpen((v) => !v)} className={`flex w-full items-start gap-2 px-2.5 py-2 text-left transition-colors ${open ? 'bg-ice/50' : 'hover:bg-ice/40'}`}>
+        <span className="mt-1 h-2 w-2 shrink-0 rounded-full" style={{ background: accent, boxShadow: `0 0 0 3px ${accent}1f` }} title={idea.category === 'Regulatory' ? 'Regulatory' : idea.status} />
+        <div className="min-w-0 flex-1">
+          <div className="flex items-center gap-1.5">
+            <span className="truncate text-[12px] font-bold text-navy-deep">{idea.entity}</span>
+            {idea.isBreaking && (
+              <span className="inline-flex items-center gap-1 rounded-full px-1 text-[7.5px] font-bold uppercase tracking-wide text-coral" style={{ background: 'rgba(192,88,79,0.10)' }}>
+                <span className="pulse-live h-1 w-1 rounded-full" style={{ background: '#C0584F' }} /> Live
+              </span>
+            )}
+            <span className="ml-auto shrink-0">
+              <Stars n={idea.stars} />
+            </span>
+          </div>
+          <p className="mt-0.5 line-clamp-1 text-[11px] leading-snug text-ink-secondary">{idea.reasoning[0]}</p>
+          <p className="mt-0.5 line-clamp-1 text-[10px] leading-snug">
+            <span className="font-bold uppercase tracking-[0.05em] text-champagne-deep">Watch · </span>
+            <span className="text-ink-secondary">{idea.whatToWatch}</span>
+          </p>
+        </div>
+        <ChevronDown className={`mt-0.5 h-3.5 w-3.5 shrink-0 text-ink-secondary transition-transform ${open ? 'rotate-180' : ''}`} />
+      </button>
+      {open && (
+        <div className="space-y-1.5 border-t border-soft-border/70 bg-surface-tint/40 px-2.5 py-2 pl-[18px]">
+          <div className="flex items-center gap-1.5 text-[9px] font-semibold text-ink-secondary">
+            <span>{idea.confidencePct}% confidence</span>
+            <span>·</span>
+            <span>{idea.evidenceCount} source{idea.evidenceCount === 1 ? '' : 's'}</span>
+          </div>
+          <ExpandRow icon={ShieldCheck} label="Why should I care" text={w.whyItMatters} />
+          <ExpandRow icon={Users} label="Who is affected" text={w.whoAffected} />
+          {w.historicalContext && <ExpandRow icon={History} label="Historical context" text={w.historicalContext} />}
+          {w.potentialImpact && <ExpandRow icon={TrendingUp} label="Potential impact" text={w.potentialImpact} />}
+          {idea.sources.length > 0 && (
+            <div className="flex flex-wrap items-center gap-1 pt-0.5">
+              <Globe className="h-3 w-3 text-navy-primary" strokeWidth={2} />
+              {idea.sources.slice(0, 3).map((s, i) => (
+                <SourceChip key={i} kind={s.kind} name={s.name} url={s.url} />
+              ))}
+            </div>
+          )}
+        </div>
+      )}
+    </div>
+  )
+}
+
+function ConvictionList({ ideas }: { ideas: ConvictionIdea[] }) {
+  return (
+    <div className="px-4 py-3">
+      <SectionHead icon={Radar} label="Highest Conviction Ideas" note="top 3" />
+      {ideas.length === 0 ? (
+        <p className="rounded-lg border border-dashed border-soft-border bg-ice/40 px-3 py-4 text-center text-[11px] text-ink-secondary">Nothing meets the conviction bar under this filter.</p>
+      ) : (
+        <div className="space-y-1.5">
+          {ideas.slice(0, 3).map((idea) => (
+            <ConvictionRow key={idea.id} idea={idea} />
+          ))}
+        </div>
+      )}
+    </div>
+  )
+}
+
+// ── RIGHT · since yesterday + events + actions ────────────────────────────────
+
+function SinceYesterdayBlock({ deltas }: { deltas: SinceDelta[] }) {
   if (deltas.length === 0) return null
   return (
-    <section className="rounded-2xl border border-soft-border bg-white/70 px-4 py-3 shadow-soft">
-      <SectionHead icon={RefreshCw} label="Since Yesterday" note="vs previous brief" />
-      <div className="flex flex-wrap gap-x-6 gap-y-2.5">
+    <div className="px-4 py-3">
+      <SectionHead icon={RefreshCw} label="Since Yesterday" />
+      <div className="space-y-1.5">
         {deltas.map((d) => {
           const tone = IMPACT_META[d.tone]
           const Icon = d.direction === 'down' ? ArrowDown : d.direction === 'flat' ? Minus : ArrowUp
           return (
-            <span key={d.id} className="inline-flex items-baseline gap-1.5">
-              <Icon className="h-3.5 w-3.5 shrink-0 self-center" strokeWidth={2.4} style={{ color: tone.fg }} />
-              <span className="text-[14px] font-bold text-navy-deep">{d.value}</span>
-              <span className="text-[11px] text-ink-secondary">{d.label}</span>
-            </span>
+            <div key={d.id} className="flex items-baseline gap-1.5">
+              <Icon className="h-3 w-3 shrink-0 self-center" strokeWidth={2.4} style={{ color: tone.fg }} />
+              <span className="text-[12.5px] font-bold text-navy-deep">{d.value}</span>
+              <span className="text-[10.5px] text-ink-secondary">{d.label}</span>
+            </div>
           )
         })}
       </div>
-    </section>
-  )
-}
-
-// ── 4 · Highest Conviction Ideas ──────────────────────────────────────────────
-
-function WhyRow({ icon: Icon, label, text }: { icon: LucideIcon; label: string; text: string }) {
-  return (
-    <div className="flex gap-2">
-      <Icon className="mt-0.5 h-3.5 w-3.5 shrink-0 text-navy-primary" strokeWidth={2} />
-      <div className="min-w-0">
-        <p className="text-[8.5px] font-bold uppercase tracking-[0.1em] text-ink-secondary">{label}</p>
-        <p className="text-[11px] leading-snug text-ink-primary">{text}</p>
-      </div>
     </div>
   )
 }
 
-function WhyCarePanel({ idea, onRun }: { idea: ConvictionIdea; onRun: (a: PulseAction) => void }) {
-  const w = idea.why
+function EventsBlock({ events }: { events: PulseEvent[] }) {
   return (
-    <div className="mt-2 space-y-2.5 rounded-xl border border-soft-border bg-surface-tint/50 p-3">
-      <WhyRow icon={Zap} label="What happened" text={w.whatHappened} />
-      <WhyRow icon={ShieldCheck} label="Why it matters" text={w.whyItMatters} />
-      <WhyRow icon={Users} label="Who is affected" text={w.whoAffected} />
-      {w.historicalContext && <WhyRow icon={History} label="Historical context" text={w.historicalContext} />}
-      {w.potentialImpact && <WhyRow icon={TrendingUp} label="Potential impact" text={w.potentialImpact} />}
-      <WhyRow icon={Eye} label="What to watch next" text={w.whatToWatch} />
-      {idea.sources.length > 0 && (
-        <div className="flex flex-wrap items-center gap-1.5 border-t border-soft-border/70 pt-2">
-          <span className="text-[8.5px] font-bold uppercase tracking-[0.1em] text-ink-secondary">Evidence · {idea.evidenceCount}</span>
-          {idea.sources.map((s, i) => (
-            <SourceChip key={i} kind={s.kind} name={s.name} url={s.url} />
-          ))}
-        </div>
-      )}
-      {idea.action && (
-        <div className="border-t border-soft-border/70 pt-2">
-          <button
-            type="button"
-            onClick={() => idea.action && onRun(idea.action)}
-            className="group inline-flex items-center gap-1.5 rounded-lg border border-champagne/50 bg-champagne-soft/50 px-2.5 py-1.5 text-[11px] font-semibold text-champagne-deep transition-colors hover:bg-champagne-soft"
-          >
-            <span className="text-[8.5px] font-bold uppercase tracking-[0.1em] text-champagne-deep/70">Do next</span>
-            {idea.action.label}
-            <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
-          </button>
-        </div>
-      )}
-    </div>
-  )
-}
-
-function ConvictionIdeaCard({ idea, onRun }: { idea: ConvictionIdea; onRun: (a: PulseAction) => void }) {
-  const [open, setOpen] = useState(false)
-  const Icon = CATEGORY_ICON[idea.category]
-  return (
-    <div className={`rounded-xl border border-soft-border bg-white p-3 ${idea.isNew ? 'glow-new' : 'shadow-soft'}`}>
-      <div className="flex items-start gap-2.5">
-        <span className="grid h-8 w-8 shrink-0 place-items-center rounded-lg" style={{ background: 'rgba(39,69,126,0.06)', boxShadow: 'inset 0 0 0 1px rgba(39,69,126,0.12)' }}>
-          <Icon className="h-4 w-4" strokeWidth={2} style={{ color: '#27457E' }} />
-        </span>
-        <div className="min-w-0 flex-1">
-          <div className="flex flex-wrap items-center gap-1.5">
-            <span className="truncate text-[13px] font-bold text-navy-deep">{idea.entity}</span>
-            {idea.isBreaking && (
-              <span className="inline-flex items-center gap-1 rounded-full px-1.5 py-[1px] text-[8px] font-bold uppercase tracking-wide text-coral" style={{ background: 'rgba(192,88,79,0.10)' }}>
-                <span className="pulse-live h-1.5 w-1.5 rounded-full" style={{ background: '#C0584F' }} /> Live
-              </span>
-            )}
-            <StatusPill status={idea.status} />
-          </div>
-          <div className="mt-1 flex flex-wrap items-center gap-x-2 gap-y-1">
-            <Stars n={idea.stars} />
-            <span className="text-[9.5px] font-bold uppercase tracking-[0.08em] text-ink-secondary">Conviction</span>
-            <span className="text-[10px] text-ink-secondary">· {idea.confidencePct}% confidence · {idea.evidenceCount} source{idea.evidenceCount === 1 ? '' : 's'}</span>
-          </div>
-          <div className="mt-1.5 space-y-0.5">
-            {idea.reasoning.map((r, i) => (
-              <p key={i} className="text-[11.5px] leading-snug text-ink-secondary">{r}</p>
-            ))}
-          </div>
-          <p className="mt-1.5 text-[10.5px] leading-snug">
-            <span className="font-bold uppercase tracking-[0.06em] text-champagne-deep">Watch next · </span>
-            <span className="text-ink-secondary">{idea.whatToWatch}</span>
-          </p>
-          <button
-            type="button"
-            onClick={() => setOpen((v) => !v)}
-            className="mt-1.5 inline-flex items-center gap-1 text-[11px] font-semibold text-champagne-deep transition-colors hover:text-navy-deep"
-          >
-            Why should I care?
-            <ChevronDown className={`h-3.5 w-3.5 transition-transform ${open ? 'rotate-180' : ''}`} />
-          </button>
-          {open && <WhyCarePanel idea={idea} onRun={onRun} />}
-        </div>
-      </div>
-    </div>
-  )
-}
-
-function ConvictionIdeasSection({ ideas, onRun }: { ideas: ConvictionIdea[]; onRun: (a: PulseAction) => void }) {
-  return (
-    <section className="rounded-2xl border border-soft-border bg-white/70 p-4 shadow-soft">
-      <SectionHead icon={Radar} label="Highest Conviction Ideas" note="AI-ranked · source-backed" />
-      {ideas.length === 0 ? (
-        <p className="rounded-xl border border-dashed border-soft-border bg-ice/40 px-3 py-5 text-center text-[11.5px] text-ink-secondary">Nothing meets the conviction bar under this filter.</p>
-      ) : (
-        <div className="space-y-2.5">
-          {ideas.map((idea) => (
-            <ConvictionIdeaCard key={idea.id} idea={idea} onRun={onRun} />
-          ))}
-        </div>
-      )}
-    </section>
-  )
-}
-
-// ── 5 · Upcoming Events (compact) + footer ────────────────────────────────────
-
-function EventsSection({ events }: { events: PulseEvent[] }) {
-  return (
-    <section id="brief-events" className="scroll-mt-24 rounded-2xl border border-soft-border bg-white/70 p-4 shadow-soft">
-      <SectionHead icon={Clock3} label="On the Calendar" note={`${events.length} dated`} />
-      <div className="flex flex-col gap-0.5">
-        {events.map((e) => {
-          const body = (
+    <div className="px-4 py-3">
+      <SectionHead icon={Clock3} label="Events Ahead" note={`${events.length}`} />
+      <div className="space-y-1">
+        {events.slice(0, 3).map((e) => {
+          const inner = (
             <>
-              <div className="relative flex h-9 w-9 shrink-0 flex-col items-center justify-center overflow-hidden rounded-lg border border-soft-border bg-surface-tint">
-                <span className="absolute inset-x-0 top-0 h-[3px]" style={{ background: 'linear-gradient(90deg, rgba(182,139,58,0.85), rgba(182,139,58,0.35))' }} />
-                <span className="text-[7px] font-bold uppercase tracking-wide text-champagne-deep">{e.month}</span>
-                <span className="text-[13px] font-bold leading-none text-navy-deep">{e.day}</span>
+              <div className="flex h-7 w-8 shrink-0 flex-col items-center justify-center rounded-md border border-soft-border bg-surface-tint">
+                <span className="text-[6.5px] font-bold uppercase text-champagne-deep">{e.month}</span>
+                <span className="text-[11px] font-bold leading-none text-navy-deep">{e.day}</span>
               </div>
               <div className="min-w-0 flex-1">
-                <div className="flex items-center gap-1.5">
-                  <p className="truncate text-[12px] font-semibold text-navy-deep">{e.kindLabel}</p>
-                  <span className="shrink-0 rounded-full px-1.5 py-[1px] text-[8px] font-bold uppercase tracking-wide" style={{ color: e.isFirm ? '#2F855A' : '#9C7430', background: e.isFirm ? 'rgba(47,133,90,0.10)' : 'rgba(156,116,48,0.12)' }}>{e.whenLabel}</span>
-                </div>
-                <p className="mt-0.5 line-clamp-1 text-[10.5px] leading-snug text-ink-secondary">{e.context}</p>
+                <p className="truncate text-[10.5px] font-semibold text-navy-deep">{e.kindLabel}</p>
+                <p className="text-[9px] font-semibold" style={{ color: e.isFirm ? '#2F855A' : '#9C7430' }}>{e.whenLabel}</p>
               </div>
             </>
           )
-          const cls = 'flex items-center gap-2.5 rounded-xl px-2 py-1.5 transition-colors'
+          const cls = 'flex items-center gap-2 rounded-md px-1 py-0.5 transition-colors'
           return e.url ? (
-            <a key={e.id} href={e.url} target="_blank" rel="noreferrer" className={`${cls} hover:bg-ice/70`} title={`Open source — ${e.title}`}>{body}</a>
+            <a key={e.id} href={e.url} target="_blank" rel="noreferrer" className={`${cls} hover:bg-ice/70`} title={`Open source — ${e.title}`}>{inner}</a>
           ) : (
-            <div key={e.id} className={cls} title={e.title}>{body}</div>
+            <div key={e.id} className={cls} title={e.title}>{inner}</div>
           )
         })}
       </div>
-    </section>
+    </div>
   )
 }
+
+const ACTION_ICON: Record<ActionIcon, LucideIcon> = { ownership: Users, margins: Scale, source: ShieldCheck, agm: CalendarClock, regulation: Landmark }
+
+function ActionsBlock({ actions, onRun }: { actions: PulseAction[]; onRun: (a: PulseAction) => void }) {
+  return (
+    <div className="px-4 py-3">
+      <SectionHead icon={Zap} label="Action for Today" />
+      <div className="grid grid-cols-2 gap-1.5">
+        {actions.map((a) => {
+          const Icon = ACTION_ICON[a.icon]
+          return (
+            <button
+              key={a.id}
+              type="button"
+              onClick={() => onRun(a)}
+              className="group flex items-center gap-1.5 rounded-lg border border-soft-border bg-white px-2 py-1.5 text-left shadow-soft transition-colors hover:border-champagne hover:bg-champagne-soft/40"
+            >
+              <span className="grid h-6 w-6 shrink-0 place-items-center rounded-md" style={{ background: 'rgba(182,139,58,0.10)', boxShadow: 'inset 0 0 0 1px rgba(182,139,58,0.22)' }}>
+                <Icon className="h-3 w-3" strokeWidth={2} style={{ color: GOLD }} />
+              </span>
+              <span className="min-w-0 flex-1 truncate text-[10.5px] font-semibold text-navy-deep">{a.label}</span>
+              <ArrowUpRight className="h-3 w-3 shrink-0 text-ink-secondary transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" style={a.href ? { color: GOLD } : undefined} />
+            </button>
+          )
+        })}
+      </div>
+    </div>
+  )
+}
+
+// ── FOOTER · source confidence ────────────────────────────────────────────────
 
 const CONF_COLOR: Record<string, string> = { High: '#0E6F6D', Medium: '#9C7430', Low: '#8C7A55' }
 
 function Footer({ brief, pulse }: { brief: MorningBrief; pulse: InvestorPulse }) {
   const conf = pulse.confidence
   return (
-    <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5 rounded-2xl border border-soft-border bg-surface-tint/60 px-4 py-2.5">
-      <span className="inline-flex items-center gap-1.5 text-[10.5px] font-medium text-ink-secondary">
-        <span className="grid h-5 w-5 place-items-center rounded-full" style={{ background: 'rgba(182,139,58,0.10)', boxShadow: 'inset 0 0 0 1px rgba(182,139,58,0.28)' }}>
-          <Globe className="h-3 w-3" strokeWidth={2.1} style={{ color: GOLD }} />
-        </span>
-        {brief.developmentsCount} developments · {brief.sourcesCount} source-backed · {brief.domainsCount} distinct sources
+    <div className="flex flex-wrap items-center gap-x-3 gap-y-1 border-t border-soft-border bg-surface-tint/60 px-4 py-2">
+      <span className="inline-flex items-center gap-1.5 text-[10px] font-medium text-ink-secondary">
+        <Globe className="h-3 w-3" strokeWidth={2.1} style={{ color: GOLD }} />
+        {brief.developmentsCount} developments · {brief.sourcesCount} source-backed · {brief.domainsCount} distinct
       </span>
-      <span className="ml-auto inline-flex items-center gap-1.5 rounded-full px-2 py-0.5 text-[9.5px] font-bold uppercase tracking-[0.08em]" style={{ color: CONF_COLOR[conf], background: `${CONF_COLOR[conf]}14` }}>
+      <span className="ml-auto inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[9px] font-bold uppercase tracking-[0.08em]" style={{ color: CONF_COLOR[conf], background: `${CONF_COLOR[conf]}14` }}>
         <ShieldCheck className="h-3 w-3" strokeWidth={2.2} />
         {conf} source confidence
       </span>
@@ -372,7 +364,7 @@ function Footer({ brief, pulse }: { brief: MorningBrief; pulse: InvestorPulse })
   )
 }
 
-// ── composition ───────────────────────────────────────────────────────────────
+// ── composition — one unified card, three columns, one-glance ─────────────────
 
 export function ExecutiveBrief({
   pulse,
@@ -381,6 +373,7 @@ export function ExecutiveBrief({
   sinceDeltas,
   ideas,
   events,
+  actions,
   isToday,
   dateLabel,
   onRun,
@@ -391,18 +384,31 @@ export function ExecutiveBrief({
   sinceDeltas: SinceDelta[]
   ideas: ConvictionIdea[]
   events: PulseEvent[]
+  actions: PulseAction[]
   isToday: boolean
   dateLabel: string
   onRun: (a: PulseAction) => void
 }) {
   return (
-    <div className="space-y-3">
-      {one && <OneThingCard one={one} />}
-      <AiMorningBrief brief={brief} isToday={isToday} dateLabel={dateLabel} />
-      {isToday && <SinceYesterdayStrip deltas={sinceDeltas} />}
-      <ConvictionIdeasSection ideas={ideas} onRun={onRun} />
-      {isToday && events.length > 0 && <EventsSection events={events} />}
+    <section className="premium-panel overflow-hidden rounded-2xl">
+      <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.34fr)_minmax(0,0.92fr)]">
+        {/* LEFT — compact brief */}
+        <CompactBrief brief={brief} isToday={isToday} dateLabel={dateLabel} />
+
+        {/* CENTER — one thing + conviction */}
+        <div className="min-w-0 divide-y divide-soft-border/70 border-t border-soft-border lg:border-l lg:border-t-0">
+          <OneThingRow one={one} />
+          <ConvictionList ideas={ideas} />
+        </div>
+
+        {/* RIGHT — since yesterday · events · actions */}
+        <div className="min-w-0 divide-y divide-soft-border/70 border-t border-soft-border lg:border-l lg:border-t-0">
+          <SinceYesterdayBlock deltas={sinceDeltas} />
+          {isToday && events.length > 0 && <EventsBlock events={events} />}
+          {isToday && actions.length > 0 && <ActionsBlock actions={actions} onRun={onRun} />}
+        </div>
+      </div>
       <Footer brief={brief} pulse={pulse} />
-    </div>
+    </section>
   )
 }

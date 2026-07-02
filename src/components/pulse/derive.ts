@@ -638,6 +638,32 @@ export function actionsFor(pulse: InvestorPulse, picks: TopPick[]): PulseAction[
     .slice(0, 4)
 }
 
+/** Up to 4 "Action for Today" pills derived straight from the scoped signals —
+ *  each tied to what's actually on the board (never a generic checklist). */
+export function actionsForBrief(pulse: InvestorPulse, scoped: PulseSignal[]): PulseAction[] {
+  const cats = new Set(scoped.map((s) => s.category))
+  const companyId = pulse.companyId
+  const analyst = cats.has('Analyst Action') || scoped.some((s) => s.scope === 'company' && s.impact === 'Positive')
+  const regulatory = cats.has('Regulatory')
+  const agm = upcomingEvents(pulse).find((e) => /agm|annual general|investor/i.test(e.kindLabel + e.title))
+  const out: PulseAction[] = []
+
+  if (analyst || cats.has('Sector Catalyst'))
+    out.push({ id: 'margins', label: 'Compare margins', icon: 'margins', target: { page: 'sahi', sahiTab: 'profitability', company: companyId } })
+  if (analyst)
+    out.push({ id: 'ownership', label: 'Review ownership', icon: 'ownership', target: { page: 'sahi', sahiTab: 'governance', company: companyId } })
+  if (regulatory)
+    out.push({ id: 'regulation', label: 'Track regulation', icon: 'regulation', target: { page: 'sahi', sahiTab: 'governance', company: companyId } })
+  if (agm)
+    out.push({ id: 'agm', label: /agm|annual general/i.test(agm.kindLabel) ? 'Watch AGM' : 'Watch meet', icon: 'agm', href: agm.url || undefined, target: agm.url ? undefined : { page: 'insights' } })
+  if (scoped.some((s) => s.sourceUrl))
+    out.push({ id: 'source', label: 'Verify source', icon: 'source', target: { page: 'audit', company: companyId } })
+
+  return [...new Map(out.map((a) => [a.id, a])).values()]
+    .sort((a, b) => ACTION_ORDER.indexOf(a.id) - ACTION_ORDER.indexOf(b.id))
+    .slice(0, 4)
+}
+
 // ── Market Read ──────────────────────────────────────────────────────────────
 
 /** 2–3 short lines explaining the overall daily read (lens-anchored, plain). */
@@ -1013,6 +1039,13 @@ export function sinceYesterday(pulse: InvestorPulse): SinceDelta[] {
 
   const mgmt = selectManagementEvents(pulse.companyId, { recentOnly: true }).length
   if (mgmt) out.push({ id: 'mgmt', label: mgmt === 1 ? 'management change' : 'management changes', value: String(mgmt), direction: 'up', tone: 'Neutral' })
+
+  // Premium growth (YoY) — a real, source-backed change when the growth lens has it.
+  const g = pulse.lenses.growthLevers.metrics.find((m) => m.label === 'GWP growth (YoY)')
+  if (g) {
+    const n = parseFloat(g.value)
+    out.push({ id: 'gwp', label: 'premium growth YoY', value: g.value, direction: !isNaN(n) && n < 0 ? 'down' : 'up', tone: g.tone })
+  }
 
   const events = pulse.signals.filter((s) => s.horizon === 'upcoming').length
   if (events) out.push({ id: 'events', label: events === 1 ? 'event ahead' : 'events ahead', value: String(events), direction: 'up', tone: 'Neutral' })

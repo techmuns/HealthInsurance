@@ -8,6 +8,7 @@ import { useEffect, useMemo, useState } from 'react'
 import type { InvestorPulse } from '@/insights/investorPulse'
 import type { NavTarget } from '@/insights/sourceMap'
 import {
+  actionsForBrief,
   availableFilters,
   convictionIdeas,
   morningBrief,
@@ -52,6 +53,7 @@ export function PulseView({
   const one = useMemo(() => oneThing(scoped, ideas, pulse), [scoped, ideas, pulse])
   const sinceDeltas = useMemo(() => sinceYesterday(pulse), [pulse])
   const events = useMemo(() => (isToday ? upcomingEvents(pulse) : []), [pulse, isToday])
+  const actions = useMemo(() => (isToday ? actionsForBrief(pulse, scoped) : []), [pulse, scoped, isToday])
 
   const runAction = (a: PulseAction) => {
     if (a.href) {
@@ -94,6 +96,7 @@ export function PulseView({
             sinceDeltas={sinceDeltas}
             ideas={ideas}
             events={events}
+            actions={actions}
             isToday={isToday}
             dateLabel={dateLabel}
             onRun={runAction}
