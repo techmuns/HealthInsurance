@@ -211,20 +211,35 @@ const confidenceOf = (layers?: ProvenanceLayer[]): SourcePreview['confidence'] =
 
 const AUDIT_COMPANY_IDS = new Set(['niva-bupa', 'star-health', 'care-health', 'aditya-birla', 'manipalcigna'])
 const AUDIT_YEARS = new Set(['FY22', 'FY23', 'FY24', 'FY25', 'FY26'])
+// Order matters — the first matching rule wins, so the most specific phrases come
+// first. Each `key` is a REAL audit-grid metricId (see the extracted-data-audit
+// index), so a resolved metric lands on an actual, pulseable cell.
 const AUDIT_METRIC_RULES: { test: RegExp; key: string; label: string }[] = [
   { test: /combined ratio/i, key: 'combined_ratio_igaap', label: 'Combined ratio' },
-  { test: /solvency/i, key: 'solvency_ratio', label: 'Solvency ratio' },
-  { test: /claims ratio/i, key: 'claims_ratio_igaap', label: 'Claims ratio (IGAAP)' },
-  { test: /expense ratio/i, key: 'expense_ratio_igaap', label: 'Expense ratio' },
+  { test: /claims ratio/i, key: 'claims_ratio_igaap', label: 'Claims ratio' },
   { test: /commission ratio/i, key: 'commission_ratio_igaap', label: 'Commission ratio' },
-  { test: /retail health (share|market share)|retail.*market share/i, key: 'retail_health_market_share', label: 'Retail health share' },
-  { test: /overall health (share|market share)/i, key: 'overall_health_market_share', label: 'Overall health share' },
+  { test: /expense ratio|expense of management|\beom\b/i, key: 'expense_ratio_igaap', label: 'Expense ratio' },
+  { test: /solvency/i, key: 'solvency_ratio', label: 'Solvency ratio' },
+  { test: /\broe\b|return on equity/i, key: 'roe_igaap', label: 'Return on equity' },
+  { test: /net worth/i, key: 'net_worth', label: 'Net worth' },
+  { test: /\bpat\b|profit after tax|net profit/i, key: 'pat_igaap', label: 'PAT' },
+  { test: /investment (aum|book|assets)|\baum\b/i, key: 'investment_aum', label: 'Investment AUM' },
+  { test: /investment yield|\byield\b/i, key: 'investment_yield', label: 'Investment yield' },
+  { test: /retail health (share|market share)|retail.*market share|share gain|market[- ]?share change/i, key: 'retail_health_market_share', label: 'Retail health market share' },
+  { test: /overall health (share|market share)|overall market share/i, key: 'overall_health_market_share', label: 'Overall health market share' },
   { test: /segment share/i, key: 'sahi_segment_share', label: 'SAHI segment share' },
-  { test: /total gwp|gross written/i, key: 'total_gwp', label: 'Total GWP' },
+  { test: /retail health (gwp|premium)|retail premium|retail mix|retail[- ]?led|retail\s*\/\s*group|retail vs group|retail book/i, key: 'retail_health_gwp', label: 'Retail health GWP' },
+  { test: /group (other )?(gwp|premium|mix)|group book/i, key: 'group_other_gwp', label: 'Group premium' },
+  { test: /gi (council )?segment|premium pool|pool (shift|mix|share)|segment (premium|mix)|industry (premium|pool)|\bgdpi\b|non-life|general insurance/i, key: 'gi_segment_gross_premium', label: 'GI segment premium' },
+  { test: /p\s*\/\s*gwp|price.?to.?gwp/i, key: 'price_to_gwp', label: 'Price / GWP' },
+  { test: /p\s*\/\s*e\b|price.?to.?earnings|\bpe\b/i, key: 'pe_ifrs', label: 'Price / earnings' },
+  { test: /p\s*\/\s*b\b|price.?to.?book|\bpb\b/i, key: 'pb_ifrs', label: 'Price / book' },
+  { test: /market cap|market value|enterprise value|\bev\b/i, key: 'market_cap', label: 'Market cap' },
+  { test: /share price|stock price|\bprice\b|live quote|\bquote\b|consensus|price target|analyst|broker|coverage|rating/i, key: 'close_price', label: 'Share price' },
   { test: /\bnwp\b|net written/i, key: 'nwp', label: 'Net written premium (NWP)' },
   { test: /\bnep\b|net earned/i, key: 'nep', label: 'Net earned premium (NEP)' },
-  { test: /\bpat\b|profit after tax/i, key: 'pat_igaap', label: 'PAT (IGAAP)' },
-  { test: /net worth/i, key: 'net_worth_ifrs', label: 'Net worth' },
+  { test: /channel|agency|bancass|distribution|\bagents?\b|individual agent/i, key: 'individual_agents_gwp', label: 'Agency / channel GWP' },
+  { test: /total gwp|gross written|gross direct|gwp growth|premium growth|written premium|premium engine|\bgwp\b|premium/i, key: 'total_gwp', label: 'Gross written premium' },
   { test: /settlement/i, key: 'settlement_ratio', label: 'Claim settlement ratio' },
   { test: /renewal/i, key: 'renewal_rate', label: 'Renewal rate' },
   { test: /retention/i, key: 'customer_retention', label: 'Customer retention' },

@@ -355,7 +355,7 @@ export function StreetView() {
           {isFocal ? (
             <SourceTag {...srcTag('niva-consensus')} />
           ) : (
-            <SourceTag source="Broker research" period={ac.lastUpdated} confidence="medium" provenance={{ source_name: 'Dated broker reports (rating + target + price-at-reco) via the Trendlyne research aggregator.', source_url: reports.find((r) => r.sourceUrl)?.sourceUrl ?? '', fetched_at: '' }} />
+            <SourceTag source="Broker research" period={ac.lastUpdated} confidence="medium" audit={{ company: company.id, metric: 'Analyst consensus' }} provenance={{ source_name: 'Dated broker reports (rating + target + price-at-reco) via the Trendlyne research aggregator.', source_url: reports.find((r) => r.sourceUrl)?.sourceUrl ?? '', fetched_at: '' }} />
           )}
         </div>
 

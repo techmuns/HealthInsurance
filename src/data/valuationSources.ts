@@ -457,6 +457,7 @@ export function srcTag(id: string): {
   period: string
   confidence: 'high' | 'medium' | 'pending'
   provenance: { source_name: string; source_url: string; fetched_at: string }
+  audit?: { company?: string; metric?: string; year?: string }
 } {
   const s = byId.get(id)
   if (!s) {
@@ -472,5 +473,7 @@ export function srcTag(id: string): {
     period: s.period,
     confidence: CONF_TO_DOT[s.confidence],
     provenance: { source_name: s.report_title, source_url: s.source_url, fetched_at: s.last_checked },
+    // Audit-cell mapping so this tag lands on the exact cell in Data Audit.
+    audit: { company: s.company.toLowerCase().replace(/\s+/g, '-'), metric: s.metric, year: s.period.match(/FY\s?\d{2}/i)?.[0]?.replace(/\s/g, '') },
   }
 }

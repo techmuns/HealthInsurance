@@ -368,7 +368,7 @@ export function PoolShiftCard() {
       )}
 
       <div className="mt-3 flex justify-end">
-        <SourceTag source={POOL_SOURCE.source} confidence={POOL_SOURCE.confidence} provenance={POOL_SOURCE.provenance} period={span} />
+        <SourceTag source={POOL_SOURCE.source} confidence={POOL_SOURCE.confidence} provenance={POOL_SOURCE.provenance} period={span} audit={{ metric: 'GI segment premium' }} />
       </div>
     </section>
   )
@@ -818,7 +818,7 @@ function RetailGroupMixCard() {
       )}
 
       <div className="mt-auto flex justify-end pt-3">
-        <SourceTag source={RETAIL_MIX_SOURCE.source} confidence={RETAIL_MIX_SOURCE.confidence} provenance={RETAIL_MIX_SOURCE.provenance} period={spanLabel ?? fullSpan ?? undefined} frequency="Annual" />
+        <SourceTag source={RETAIL_MIX_SOURCE.source} confidence={RETAIL_MIX_SOURCE.confidence} provenance={RETAIL_MIX_SOURCE.provenance} period={spanLabel ?? fullSpan ?? undefined} frequency="Annual" audit={{ company: company.id, metric: 'Retail health GWP' }} />
       </div>
     </section>
   )
@@ -908,7 +908,7 @@ function ChannelMixCard() {
       )}
 
       <div className="mt-auto flex justify-end pt-3">
-        <SourceTag source={DIST_SOURCE.source} confidence={DIST_SOURCE.confidence} provenance={DIST_SOURCE.provenance} period={last?.period ?? span} />
+        <SourceTag source={DIST_SOURCE.source} confidence={DIST_SOURCE.confidence} provenance={DIST_SOURCE.provenance} period={last?.period ?? span} audit={{ company: company.id, metric: 'Agency channel GWP', year: last?.period }} />
       </div>
     </section>
   )

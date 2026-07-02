@@ -758,7 +758,7 @@ export function MarketTrendExplorer() {
 
       {/* Footer — the two joined sources (DRHP through FY24, GI Council after). */}
       <div className="mt-3 flex justify-end pt-1">
-        <SourceTag source="Company filing + GI Council" period={spanLabel} frequency="Annual" confidence="high" provenance={PANEL_SOURCE} />
+        <SourceTag source="Company filing + GI Council" period={spanLabel} frequency="Annual" confidence="high" audit={{ company: 'niva-bupa', metric: 'Overall health market share' }} provenance={PANEL_SOURCE} />
       </div>
     </div>
   )
