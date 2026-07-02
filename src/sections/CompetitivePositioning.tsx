@@ -12,6 +12,7 @@ import { getFilteredInsurers, getHighlightedInsurer } from '@/lib/insurers'
 import {
   getScorecard,
   resolveCellSource,
+  cellNaReason,
   fmtValue,
   fmtDiff,
   diffIsGood,
@@ -136,15 +137,18 @@ function SubScore({ icon, label, cell, theme }: { icon: 'growth' | 'profit' | 'c
 }
 
 // ── Heatmap ─────────────────────────────────────────────────────────────────
-function HeatCell({ cell, companyId, selected, onPickCell }: { cell: Cell; companyId: string; selected: boolean; onPickCell: (companyId: string, k: string) => void }) {
+function HeatCell({ cell, companyId, selected, onPickCell, naReason }: { cell: Cell; companyId: string; selected: boolean; onPickCell: (companyId: string, k: string) => void; naReason?: string }) {
   const t = TONE[cell.tone]
   const isNA = cell.value == null
   const diff = fmtDiff(cell)
   // Exactly one gold ring per metric column — the single best value (rank 1).
   // Everything else stays a calm, softly-bordered pastel tile, never a loud block.
   const highlight = !isNA && cell.best
+  // Blank cells carry an honest, lens-aware "why" on hover (and one click opens
+  // the source panel) — so a "—" never reads as broken or un-updated.
+  const naTitle = naReason ?? `${cell.metric.label}: not on record for this peer`
   const title = isNA
-    ? `${cell.metric.label}: not disclosed for this peer — click to see the source`
+    ? `${naTitle} — click to see the source`
     : `${cell.metric.label} · Rank ${cell.rank} of ${cell.count}${diff ? ` · ${diff} vs peer median` : ''} · click for the source`
   // Ring priority: a navy selection ring (the cell driving the side panel) wins;
   // otherwise the single gold best-in-column ring; otherwise a calm soft border.
@@ -174,7 +178,7 @@ function HeatCell({ cell, companyId, selected, onPickCell }: { cell: Cell; compa
           />
         )}
         {isNA ? (
-          <span className="font-display text-[16px] leading-none" style={{ color: hexA(SLATE, 0.85) }} title="Not disclosed for this peer">
+          <span className="font-display text-[16px] leading-none" style={{ color: hexA(SLATE, 0.85) }} title={naTitle}>
             —
           </span>
         ) : (
@@ -185,7 +189,7 @@ function HeatCell({ cell, companyId, selected, onPickCell }: { cell: Cell; compa
   )
 }
 
-function HeatmapScorecard({ rows, metrics, activeKey, selectedCompany, onPick, onPickCell, onPickCompany }: { rows: ScoreRow[]; metrics: MetricDef[]; activeKey: string; selectedCompany: string; onPick: (k: string) => void; onPickCell: (companyId: string, k: string) => void; onPickCompany: (id: string) => void }) {
+function HeatmapScorecard({ rows, metrics, activeKey, selectedCompany, basis, onPick, onPickCell, onPickCompany }: { rows: ScoreRow[]; metrics: MetricDef[]; activeKey: string; selectedCompany: string; basis: AccountingBasis; onPick: (k: string) => void; onPickCell: (companyId: string, k: string) => void; onPickCompany: (id: string) => void }) {
   const groups = groupsOf(metrics)
   return (
     <div className="overflow-x-auto">
@@ -243,6 +247,7 @@ function HeatmapScorecard({ rows, metrics, activeKey, selectedCompany, onPick, o
                       cell={r.cells[m.key]}
                       companyId={r.insurer.id}
                       selected={r.insurer.id === selectedCompany && m.key === activeKey}
+                      naReason={r.cells[m.key].value == null ? cellNaReason(m, r.insurer, basis) : undefined}
                       onPickCell={onPickCell}
                     />
                   ))}
@@ -304,10 +309,10 @@ function CompareBar({ label, value, max, color, unit, strong }: { label: string;
   )
 }
 
-function PeerSignalPanel({ cell, focalName, selectedName, source, onPick, pills, whyBullets, questions, audit }: { cell: Cell; focalName: string; selectedName: string; source: CellSource | null; onPick: (k: string) => void; pills: { key: string; label: string }[]; whyBullets: string[]; questions: string[]; audit?: SourceTagAuditRef }) {
+function PeerSignalPanel({ cell, focalName, selectedName, source, naReason, onPick, pills, whyBullets, questions, audit }: { cell: Cell; focalName: string; selectedName: string; source: CellSource | null; naReason?: string; onPick: (k: string) => void; pills: { key: string; label: string }[]; whyBullets: string[]; questions: string[]; audit?: SourceTagAuditRef }) {
   const m = cell.metric
   const insight = cell.value == null
-    ? `${m.label} isn't disclosed for ${selectedName} — see the source for what is on record.`
+    ? (naReason ?? `${m.label} isn't disclosed for ${selectedName} — see the source for what is on record.`)
     : m.polarity === 'rich'
       ? `${selectedName} trades at ${fmtValue(cell)}, ${cell.signal === 'Premium' ? 'above' : 'below'} the peer median.`
       : `${selectedName} ranks #${cell.rank} of ${cell.count} at ${fmtValue(cell)}, ${diffIsGood(cell) ? 'above' : 'below'} the peer median.`
@@ -568,14 +573,14 @@ export function CompetitivePositioning() {
               </div>
             </div>
             <div className="bg-card p-4">
-              <HeatmapScorecard rows={card.rows} metrics={card.metrics} activeKey={activeKey} selectedCompany={selectedRow.insurer.id} onPick={setActiveKey} onPickCell={pickCell} onPickCompany={filters.setHighlightedCompany} />
+              <HeatmapScorecard rows={card.rows} metrics={card.metrics} activeKey={activeKey} selectedCompany={selectedRow.insurer.id} basis={basis} onPick={setActiveKey} onPickCell={pickCell} onPickCompany={filters.setHighlightedCompany} />
               <div className="mt-3 border-t border-soft-border pt-2.5">
                 <Legend />
               </div>
             </div>
           </div>
           <div className="space-y-3">
-            <PeerSignalPanel cell={activeCell} focalName={focal.shortName} selectedName={selectedRow.insurer.shortName} source={cellSource} onPick={setActiveKey} pills={PILLS} whyBullets={whyBullets} questions={keyQuestions} audit={{ company: selectedRow.insurer.id, metric: activeCell.metric.label, year: cellSource?.period }} />
+            <PeerSignalPanel cell={activeCell} focalName={focal.shortName} selectedName={selectedRow.insurer.shortName} source={cellSource} naReason={activeCell.value == null ? cellNaReason(activeCell.metric, selectedRow.insurer, basis) : undefined} onPick={setActiveKey} pills={PILLS} whyBullets={whyBullets} questions={keyQuestions} audit={{ company: selectedRow.insurer.id, metric: activeCell.metric.label, year: cellSource?.period }} />
           </div>
         </div>
       )}

@@ -1,10 +1,13 @@
-import { CalendarOff } from 'lucide-react'
+import { CalendarOff, type LucideIcon } from 'lucide-react'
 
 export interface EmptyStateProps {
   title?: string
   body?: string
   /** Fixed pixel height — defaults to 240 so it slots into existing chart frames. */
   height?: number
+  /** Badge icon. Defaults to CalendarOff (a period/range mismatch); pass e.g.
+   *  Info for an honest "why this isn't on record yet" data gap. */
+  icon?: LucideIcon
 }
 
 /**
@@ -17,6 +20,7 @@ export function EmptyState({
   title = 'Data unavailable for this period',
   body = 'Switch the period toggle to Annual to see this chart.',
   height = 240,
+  icon: Icon = CalendarOff,
 }: EmptyStateProps) {
   return (
     <div
@@ -24,7 +28,7 @@ export function EmptyState({
       style={{ height }}
     >
       <span className="blob-c mb-3 inline-flex h-11 w-11 items-center justify-center bg-soft-blue text-navy-primary">
-        <CalendarOff className="h-5 w-5" />
+        <Icon className="h-5 w-5" />
       </span>
       <p className="text-[13px] font-semibold text-navy-deep">{title}</p>
       <p className="mt-1 max-w-sm text-[11.5px] leading-relaxed text-ink-secondary">{body}</p>

@@ -9,7 +9,7 @@ import {
   XAxis,
   YAxis,
 } from 'recharts'
-import { ArrowDownRight, ArrowRight, ArrowUpRight, BarChart3, Lightbulb, Minus, TrendingDown, TrendingUp } from 'lucide-react'
+import { ArrowDownRight, ArrowRight, ArrowUpRight, BarChart3, Info, Lightbulb, Minus, TrendingDown, TrendingUp } from 'lucide-react'
 import { giPremiumMix } from '@/data/mockData'
 import { GI_SEGMENT_SOURCE } from '@/lib/industryStructure'
 import { useActiveCompany, useFilters, useRangeClip } from '@/state/filters'
@@ -875,8 +875,9 @@ function ChannelMixCard() {
 
       {!data ? (
         <EmptyState
-          title={`Channel mix not wired for ${company.shortName}`}
-          body="Add source-backed channel-mix data for this insurer to activate the chart."
+          icon={Info}
+          title={`Channel mix not on record for ${company.shortName} yet`}
+          body={`We show a channel-wise premium split only once a source-backed one is available for the insurer. ${company.shortName}'s isn't in our sources yet — the chart fills in automatically the moment it lands. This is an honest data gap, not a broken or out-of-date chart.`}
           height={300}
         />
       ) : rows.length < 2 ? (

@@ -174,6 +174,19 @@ function valueOf(i: Insurer, m: MetricDef, basis: AccountingBasis): number | nul
   return typeof v === 'number' && isFinite(v) ? v : null
 }
 
+/** Honest, lens-aware reason a scorecard cell is blank — so a "—" never reads as
+ *  a broken or un-updated cell. The nuanced case is Combined Ratio under the IFRS
+ *  lens: for insurers that don't file IFRS/IND AS accounts the figure IS on
+ *  record, just on the statutory (IGAAP) basis — and basis discipline forbids
+ *  cross-filling a different accounting basis onto this lens. Every other blank is
+ *  a plain "not on record from the source yet". */
+export function cellNaReason(metric: MetricDef, insurer: Insurer, basis: AccountingBasis): string {
+  if (metric.key === 'combinedRatio' && basis === 'ifrs' && !hasBasisData(insurer.id)) {
+    return `${insurer.shortName} doesn’t publish IFRS / IND AS accounts, so there’s no combined ratio on the IFRS lens. It’s available on the Standard (IGAAP) lens — switch the lens above to see it. A figure on a different accounting basis is never cross-filled.`
+  }
+  return `${metric.label} isn’t on record for ${insurer.shortName} from the source yet.`
+}
+
 function toneFor(polarity: Polarity, value: number, med: number | null, best: boolean, rank: number, count: number): CellTone {
   if (polarity === 'rich') return 'neutral' // valuation is richness, not strength
   if (best) return 'leader'

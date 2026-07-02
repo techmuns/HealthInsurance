@@ -135,6 +135,12 @@ export interface StructureCard {
   insight: string
   /** Card total (₹ Cr) — drives the donut centre label (segment-mix only). */
   total?: number
+  /** Honest "why the newer year isn't shown yet" note — populated only when a
+   *  more recent year is partially seeded but not fully sourced, so the card is
+   *  correctly holding at the last complete year. Explains an ABSENT value (the
+   *  one lineage note allowed to reach the viewer), so a held year never reads
+   *  as stale. Empty/undefined when the card is already on the newest year. */
+  pendingNote?: string
 }
 
 const pctShares = (vals: number[]): number[] => {
@@ -239,6 +245,26 @@ function sahiSplitCard(): StructureCard | null {
   }
 }
 
+/** Honest "why FYxx isn't shown yet" note for the PSU-vs-private card. A newer
+ *  year often sits in the seed with only SOME components filled (e.g. LIC's
+ *  full-year premium is out in May, but the whole-industry life total lands with
+ *  the IRDAI annual report ~Dec and the four PSU general insurers' year-end
+ *  figure later still). Naming the pieces still pending keeps the held year from
+ *  reading as stale — and the note clears itself the instant they publish. */
+function psuPrivatePendingNote(shownFy: string): string | null {
+  const next = [...LIFE_ROWS].reverse().find((r) => fyNum(r.fiscal_year) > fyNum(shownFy))
+  if (!next) return null
+  const missing: string[] = []
+  if (next.life_total_premium == null) missing.push('the whole-industry life premium total (IRDAI annual report, ~Dec)')
+  if (next.lic_total_premium == null) missing.push('LIC’s full-year total premium')
+  if (next.public_gi_premium == null) missing.push('the four PSU general insurers’ full-year premium')
+  if (!SEG_ANNUAL.some((r) => r.fiscal_year === next.fiscal_year && r.total_gi_premium != null))
+    missing.push('the full-year general-insurance industry total (GI Council)')
+  if (!missing.length) return null
+  const list = missing.length === 1 ? missing[0] : `${missing.slice(0, -1).join(', ')} and ${missing[missing.length - 1]}`
+  return `${next.fiscal_year} isn’t shown yet — ${list} ${missing.length === 1 ? 'is' : 'are'} not published yet. This card holds at ${shownFy} until they land, so it’s current, not out of date.`
+}
+
 /** Card 3 — PSU vs private on TOTAL premium (life + GI), COMPOSED from published
  *  components: PSU = LIC total premium + the four PSU general insurers; Private =
  *  (industry life − LIC) + (industry GI − public GI). The GI total comes live from
@@ -271,6 +297,7 @@ function psuPrivateCard(): StructureCard | null {
           : privS > psuS
             ? 'On total premium, private insurers now write the larger share — even against LIC’s scale.'
             : 'On total premium, the public sector still writes the larger share — LIC’s scale outweighs private’s lead in general insurance.',
+      pendingNote: psuPrivatePendingNote(row.fiscal_year) ?? undefined,
     }
   }
   return null
