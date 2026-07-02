@@ -1,24 +1,23 @@
-// ConvictionPages — the in-place "insight booklet" that a Highest-Conviction idea
-// expands into. Three pages, all inside the same card (no modal, no floating
-// widget, never leaves Pulse):
-//   1 · The Story   — "What changed?"   a sharp, plain-language narrative.
-//   2 · Impact      — "Why should I care?"  short labelled rows.
-//   3 · Sources     — "Where to verify"  evidence, type chips + jump actions.
+// ConvictionPages — the "insight note" a Highest-Conviction idea opens into: a
+// fixed-size booklet page you TURN, not a set of tabs. Three pages inside one
+// block whose size never changes:
+//   1 · Story    — "What changed?"      a sharp narrative + why it's interesting.
+//   2 · Impact   — "Why should I care?"  short labelled bullets.
+//   3 · Sources  — "Where to verify"     confidence, types + jump actions.
 //
-// Pages slide horizontally (calm, click-based — no 3D flip) and the panel height
-// eases to the active page, so it reads like turning pages of an analyst note.
-// All content is source-derived (see ./derive); nothing is fabricated.
+// Navigation is a folded page-corner (bottom hint via dots + subtle side arrows),
+// never tab buttons. Pages slide over like turning a sheet; the block keeps a
+// fixed height and each page scrolls internally if it runs long. Calm motion,
+// reduced-motion respected. All content is source-derived (see ./derive).
 
-import { useLayoutEffect, useRef, useState } from 'react'
 import {
   ChevronLeft,
   ChevronRight,
   ShieldCheck,
   Users,
-  History,
-  TrendingUp,
   Radar,
   Zap,
+  TrendingUp,
   ArrowUpRight,
   ExternalLink,
   BookOpen,
@@ -37,15 +36,20 @@ import { GOLD, GOLD_ON_NAVY } from './parts'
 
 const PAGES = ['Story', 'Impact', 'Sources'] as const
 
+const tierOf = (pct: number): 'High' | 'Medium' | 'Low' => (pct >= 82 ? 'High' : pct >= 66 ? 'Medium' : 'Low')
+const TIER_COLOR: Record<string, string> = { High: '#0E6F6D', Medium: '#9C7430', Low: '#8C7A55' }
+// Same tiers, brightened to read on the navy header.
+const TIER_ON_NAVY: Record<string, string> = { High: '#4FD1C5', Medium: '#E9C46C', Low: '#C4B487' }
+
 // ── shared page pieces ────────────────────────────────────────────────────────
 
 function PageTitle({ icon: Icon, kicker, title }: { icon: LucideIcon; kicker: string; title: string }) {
   return (
-    <div className="mb-1.5">
+    <div className="mb-2">
       <span className="inline-flex items-center gap-1 text-[8px] font-bold uppercase tracking-[0.16em]" style={{ color: GOLD }}>
         <Icon className="h-2.5 w-2.5" strokeWidth={2.4} /> {kicker}
       </span>
-      <h4 className="font-display text-[15px] font-semibold leading-tight text-navy-deep">{title}</h4>
+      <h4 className="font-display text-[15.5px] font-semibold leading-tight text-navy-deep">{title}</h4>
     </div>
   )
 }
@@ -66,32 +70,38 @@ function LabelRow({ icon: Icon, label, text }: { icon: LucideIcon; label: string
 
 // ── page 1 · the story ────────────────────────────────────────────────────────
 
-/** A short, de-duplicated narrative built from the idea's own reasoning. */
-function storyOf(idea: ConvictionIdea): string[] {
+/** A short, de-duplicated narrative + a "why interesting" hook, from the idea's
+ *  own reasoning. Concise by design — the full detail lives on the Sources page. */
+function storyOf(idea: ConvictionIdea): { narrative: string[]; hook: string } {
   const seen = new Set<string>()
-  const out: string[] = []
+  const uniq: string[] = []
   for (const raw of [idea.why.whatHappened, ...idea.reasoning, idea.why.whyItMatters]) {
     const t = (raw || '').trim()
     const key = t.toLowerCase().replace(/[^a-z0-9]/g, '')
     if (t && key && !seen.has(key)) {
       seen.add(key)
-      out.push(t)
+      uniq.push(t)
     }
-    if (out.length >= 3) break
   }
-  return out
+  return { narrative: uniq.slice(0, 2), hook: uniq[2] ?? idea.whatToWatch }
 }
 
 function StoryPage({ idea }: { idea: ConvictionIdea }) {
-  const lines = storyOf(idea)
+  const { narrative, hook } = storyOf(idea)
   return (
     <div>
       <PageTitle icon={Zap} kicker="The story" title="What changed?" />
       <div className="space-y-1.5">
-        {lines.map((l, i) => (
-          <p key={i} className={`font-editorial leading-relaxed text-ink-primary ${i === 0 ? 'text-[13px] text-navy-deep' : 'text-[12.5px] text-ink-secondary'}`}>{l}</p>
+        {narrative.map((l, i) => (
+          <p key={i} className={`font-editorial leading-relaxed ${i === 0 ? 'text-[13.5px] text-navy-deep' : 'text-[12.5px] text-ink-secondary'}`}>{l}</p>
         ))}
       </div>
+      {hook && (
+        <div className="mt-2.5 rounded-lg px-3 py-2" style={{ background: 'rgba(228,198,124,0.10)', boxShadow: 'inset 0 0 0 1px rgba(228,198,124,0.22)' }}>
+          <p className="text-[8px] font-bold uppercase tracking-[0.12em]" style={{ color: '#9C7430' }}>Why it&rsquo;s interesting today</p>
+          <p className="mt-0.5 font-editorial text-[12.5px] leading-relaxed text-navy-deep">{hook}</p>
+        </div>
+      )}
     </div>
   )
 }
@@ -100,14 +110,14 @@ function StoryPage({ idea }: { idea: ConvictionIdea }) {
 
 function ImpactPage({ idea }: { idea: ConvictionIdea }) {
   const w = idea.why
+  const couldChange = w.potentialImpact ?? w.historicalContext
   return (
     <div>
       <PageTitle icon={ShieldCheck} kicker="Impact" title="Why should I care?" />
-      <div className="space-y-1.5">
+      <div className="space-y-2">
         <LabelRow icon={ShieldCheck} label="Why it matters" text={w.whyItMatters} />
         <LabelRow icon={Users} label="Who is affected" text={w.whoAffected} />
-        {w.historicalContext && <LabelRow icon={History} label="Historical context" text={w.historicalContext} />}
-        {w.potentialImpact && <LabelRow icon={TrendingUp} label="Potential impact" text={w.potentialImpact} />}
+        {couldChange && <LabelRow icon={TrendingUp} label="What could change" text={couldChange} />}
         <LabelRow icon={Radar} label="What to watch next" text={idea.whatToWatch} />
       </div>
     </div>
@@ -155,15 +165,6 @@ function TypeChip({ label }: { label: string }) {
   )
 }
 
-function Stat({ value, label }: { value: string; label: string }) {
-  return (
-    <div className="leading-none">
-      <div className="text-[16px] font-bold text-navy-deep">{value}</div>
-      <div className="mt-0.5 text-[8.5px] font-semibold uppercase tracking-[0.08em] text-ink-secondary">{label}</div>
-    </div>
-  )
-}
-
 function ActionBtn({ icon: Icon, label, onClick, href, primary }: { icon: LucideIcon; label: string; onClick?: () => void; href?: string; primary?: boolean }) {
   const cls = primary
     ? 'text-white'
@@ -184,9 +185,6 @@ function ActionBtn({ icon: Icon, label, onClick, href, primary }: { icon: Lucide
   )
 }
 
-const tierOf = (pct: number): 'High' | 'Medium' | 'Low' => (pct >= 82 ? 'High' : pct >= 66 ? 'Medium' : 'Low')
-const TIER_COLOR: Record<string, string> = { High: '#0E6F6D', Medium: '#9C7430', Low: '#8C7A55' }
-
 function SourcesPage({ idea, companyId, onNavigate }: { idea: ConvictionIdea; companyId: string; onNavigate?: (t: NavTarget, id: string) => void }) {
   const chips = chipTypes(idea)
   const dash = dashboardTargetFor(idea, companyId)
@@ -196,8 +194,11 @@ function SourcesPage({ idea, companyId, onNavigate }: { idea: ConvictionIdea; co
   return (
     <div>
       <PageTitle icon={Landmark} kicker="Sources" title="Where to verify" />
-      <div className="flex items-center gap-4 rounded-lg border border-soft-border bg-white/70 px-3 py-1.5">
-        <Stat value={String(idea.evidenceCount)} label={idea.evidenceCount === 1 ? 'source' : 'sources'} />
+      <div className="flex items-center gap-3 rounded-lg border border-soft-border bg-white/70 px-3 py-1.5">
+        <div className="leading-none">
+          <div className="text-[16px] font-bold text-navy-deep">{idea.evidenceCount}</div>
+          <div className="mt-0.5 text-[8.5px] font-semibold uppercase tracking-[0.08em] text-ink-secondary">{idea.evidenceCount === 1 ? 'source' : 'sources'}</div>
+        </div>
         <span className="h-6 w-px bg-soft-border" />
         <div className="leading-none">
           <div className="text-[14px] font-bold" style={{ color: TIER_COLOR[tier] }}>{tier}</div>
@@ -218,9 +219,44 @@ function SourcesPage({ idea, companyId, onNavigate }: { idea: ConvictionIdea; co
   )
 }
 
-// ── the booklet · slide track + navigation ────────────────────────────────────
+// ── the page-turn corner (folded page, not a tab) ─────────────────────────────
 
-function NavArrow({ dir, disabled, onClick }: { dir: 'prev' | 'next'; disabled: boolean; onClick: () => void }) {
+function PageCorner({ page, onTurn }: { page: number; onTurn: () => void }) {
+  const last = page === PAGES.length - 1
+  const nextName = last ? 'Story' : PAGES[page + 1]
+  const label = last ? 'Back to Story' : `${nextName} →`
+  return (
+    <button
+      type="button"
+      onClick={onTurn}
+      aria-label={`Turn to ${nextName}`}
+      title={last ? 'Back to Story' : `Turn to ${nextName}`}
+      className="group absolute right-0 top-0 z-20 h-14 w-28"
+    >
+      {/* the folded corner — a gold sheet peeled back, lifting a touch on hover */}
+      <span
+        aria-hidden
+        className="absolute right-0 top-0 transition-transform duration-300 ease-premium group-hover:scale-110 motion-reduce:transition-none"
+        style={{
+          width: 0,
+          height: 0,
+          borderStyle: 'solid',
+          borderWidth: '0 38px 38px 0',
+          borderColor: `transparent ${GOLD} transparent transparent`,
+          filter: 'drop-shadow(-2px 2px 2px rgba(23,43,77,0.20))',
+        }}
+      />
+      {/* curl highlight on the fold */}
+      <span aria-hidden className="absolute right-[3px] top-[3px] h-2.5 w-2.5 rounded-bl-[10px]" style={{ background: 'rgba(255,255,255,0.42)' }} />
+      {/* the next-page hint, under the fold */}
+      <span className="pointer-events-none absolute bottom-1 right-1.5 whitespace-nowrap text-[8px] font-bold uppercase tracking-[0.08em] text-champagne-deep transition-colors group-hover:text-navy-deep">
+        {label}
+      </span>
+    </button>
+  )
+}
+
+function FootArrow({ dir, disabled, onClick }: { dir: 'prev' | 'next'; disabled: boolean; onClick: () => void }) {
   const Icon = dir === 'prev' ? ChevronLeft : ChevronRight
   return (
     <button
@@ -228,12 +264,14 @@ function NavArrow({ dir, disabled, onClick }: { dir: 'prev' | 'next'; disabled: 
       onClick={onClick}
       disabled={disabled}
       aria-label={dir === 'prev' ? 'Previous page' : 'Next page'}
-      className="grid h-5 w-5 shrink-0 place-items-center rounded-full border border-soft-border bg-white text-navy-primary shadow-soft transition-colors enabled:hover:border-champagne enabled:hover:text-champagne-deep disabled:opacity-30"
+      className="grid h-4 w-4 shrink-0 place-items-center rounded-full text-ink-secondary/60 transition-colors enabled:hover:text-champagne-deep disabled:opacity-25"
     >
-      <Icon className="h-3 w-3" strokeWidth={2.4} />
+      <Icon className="h-3.5 w-3.5" strokeWidth={2.2} />
     </button>
   )
 }
+
+// ── the fixed-size note body: turning pages, orientation footer ───────────────
 
 export function ConvictionPages({
   idea,
@@ -248,15 +286,6 @@ export function ConvictionPages({
   onPage: (p: number) => void
   onNavigate?: (t: NavTarget, id: string) => void
 }) {
-  const refs = useRef<(HTMLDivElement | null)[]>([])
-  const [h, setH] = useState<number | undefined>(undefined)
-
-  // Ease the panel height to the active page (measured pre-paint, so no flash).
-  useLayoutEffect(() => {
-    const el = refs.current[page]
-    if (el) setH(el.offsetHeight)
-  }, [page, idea])
-
   const go = (d: number) => onPage(Math.max(0, Math.min(PAGES.length - 1, page + d)))
   const bodies = [
     <StoryPage idea={idea} />,
@@ -265,61 +294,45 @@ export function ConvictionPages({
   ]
 
   return (
-    <div className="relative bg-white">
-      {/* tab bar: prev · Story | Impact | Sources · next */}
-      <div className="flex items-center gap-2 px-3 pt-2.5">
-        <NavArrow dir="prev" disabled={page === 0} onClick={() => go(-1)} />
-        <div className="flex flex-1 items-center justify-center gap-1">
-          {PAGES.map((p, i) => {
-            const on = i === page
-            return (
-              <button
-                key={p}
-                type="button"
-                onClick={() => onPage(i)}
-                className={`rounded-full px-2 py-[3px] text-[9.5px] font-bold uppercase tracking-[0.06em] transition-colors ${on ? 'text-white' : 'text-ink-secondary hover:bg-white'}`}
-                style={on ? { background: 'linear-gradient(135deg, #1E4079 0%, #14294C 100%)', boxShadow: 'inset 0 0 0 1px rgba(228,198,124,0.4)' } : undefined}
-              >
-                {p}
-              </button>
-            )
-          })}
-        </div>
-        <NavArrow dir="next" disabled={page === PAGES.length - 1} onClick={() => go(1)} />
-      </div>
-
-      {/* sliding page track — a fixed-width viewport that clips the off-screen
-          pages EXACTLY (no padding here, or the next page peeks at the edge);
-          height eases to the active page. All page padding lives on the page. */}
-      <div className="overflow-hidden transition-[height] duration-300 ease-premium" style={{ height: h }}>
-        <div className="flex items-start transition-transform duration-300 ease-premium" style={{ transform: `translateX(-${page * 100}%)` }}>
+    <div className="flex min-h-0 flex-1 flex-col" style={{ background: '#FCFBF7' }}>
+      {/* page body — FIXED height (fills the note), pages slide across, each page
+          scrolls internally if it runs long so the block never resizes. */}
+      <div className="relative min-h-0 flex-1 overflow-hidden">
+        <div
+          className="flex h-full transition-transform duration-[320ms] ease-premium motion-reduce:transition-none"
+          style={{ transform: `translateX(-${page * 100}%)` }}
+        >
           {bodies.map((node, i) => (
-            <div
-              key={i}
-              ref={(el) => {
-                refs.current[i] = el
-              }}
-              className="w-full shrink-0 self-start px-3 pb-2 pt-1"
-              aria-hidden={i !== page}
-            >
+            <div key={i} className="scroll-thin h-full w-full shrink-0 overflow-y-auto px-4 py-3.5" aria-hidden={i !== page}>
               {node}
             </div>
           ))}
         </div>
+
+        {/* a soft "spine" shadow on the right edge for paper depth */}
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-5" style={{ background: 'linear-gradient(90deg, transparent, rgba(23,43,77,0.05))' }} />
+
+        {/* the folded page-corner control */}
+        <PageCorner page={page} onTurn={() => onPage((page + 1) % PAGES.length)} />
       </div>
 
-      {/* page dots */}
-      <div className="flex items-center justify-center gap-1 pb-2.5">
-        {PAGES.map((p, i) => (
-          <button
-            key={p}
-            type="button"
-            aria-label={`Go to ${p}`}
-            onClick={() => onPage(i)}
-            className="h-1.5 rounded-full transition-all duration-300"
-            style={{ width: i === page ? 14 : 6, background: i === page ? GOLD : 'rgba(39,69,126,0.22)' }}
-          />
-        ))}
+      {/* orientation footer — dots + current label + subtle arrows (NOT tabs) */}
+      <div className="flex items-center justify-center gap-2.5 border-t border-soft-border/70 px-3 py-1.5">
+        <FootArrow dir="prev" disabled={page === 0} onClick={() => go(-1)} />
+        <div className="flex items-center gap-1">
+          {PAGES.map((p, i) => (
+            <button
+              key={p}
+              type="button"
+              aria-label={`Go to ${p}`}
+              onClick={() => onPage(i)}
+              className="h-1.5 rounded-full transition-all duration-300"
+              style={{ width: i === page ? 14 : 6, background: i === page ? GOLD : 'rgba(39,69,126,0.22)' }}
+            />
+          ))}
+        </div>
+        <span className="min-w-[46px] text-[8.5px] font-bold uppercase tracking-[0.1em] text-champagne-deep">{PAGES[page]}</span>
+        <FootArrow dir="next" disabled={page === PAGES.length - 1} onClick={() => go(1)} />
       </div>
     </div>
   )
@@ -337,6 +350,7 @@ const CAT_LABEL: Record<SignalCategory, string> = {
 }
 
 function NoteHeader({ idea, onClose }: { idea: ConvictionIdea; onClose: () => void }) {
+  const tier = tierOf(idea.confidencePct)
   return (
     <div className="relative flex items-start gap-2.5 px-3.5 py-2.5" style={{ background: 'linear-gradient(135deg, #1E4079 0%, #14294C 100%)' }}>
       <div className="pointer-events-none absolute inset-x-0 top-0 h-px" style={{ background: 'linear-gradient(90deg, transparent, rgba(228,198,124,0.5) 30%, rgba(228,198,124,0.5) 70%, transparent)' }} />
@@ -352,8 +366,12 @@ function NoteHeader({ idea, onClose }: { idea: ConvictionIdea; onClose: () => vo
             {CAT_LABEL[idea.category]}
           </span>
         </div>
-        <div className="mt-0.5 text-[9.5px] font-semibold text-white/60">
-          {idea.evidenceCount} source{idea.evidenceCount === 1 ? '' : 's'} · source-backed
+        <div className="mt-0.5 flex items-center gap-1.5 text-[9.5px] font-semibold text-white/60">
+          <span style={{ color: TIER_ON_NAVY[tier] }}>{tier} confidence</span>
+          <span className="h-2 w-px bg-white/25" />
+          <span>
+            {idea.evidenceCount} source{idea.evidenceCount === 1 ? '' : 's'}
+          </span>
         </div>
       </div>
       <button
@@ -368,9 +386,9 @@ function NoteHeader({ idea, onClose }: { idea: ConvictionIdea; onClose: () => vo
   )
 }
 
-/** One conviction idea as a contained "insight note" overlay — a dimmed/blurred
- *  backdrop over the conviction list, with the paged note floating above it.
- *  Only ever one open at a time (the caller holds a single open id). */
+/** One conviction idea as a contained, FIXED-SIZE "insight note" overlay — a
+ *  dimmed/blurred backdrop over the conviction list, the paged note floating
+ *  above. Only ever one open at a time (the caller holds a single open id). */
 export function ConvictionOverlay({
   idea,
   companyId,
@@ -397,15 +415,15 @@ export function ConvictionOverlay({
         className="absolute inset-0 cursor-default animate-fade-in backdrop-blur-[2px]"
         style={{ background: 'rgba(16,31,61,0.14)' }}
       />
-      {/* the note */}
+      {/* the note — fixed width + height; never resizes between pages */}
       <div
-        className="relative z-[1] flex max-h-full w-full flex-col overflow-hidden rounded-xl border bg-white animate-note-in"
+        className="relative z-[1] flex h-[420px] max-h-full w-full max-w-[380px] flex-col overflow-hidden rounded-xl border bg-white animate-note-in"
         style={{ borderColor: 'rgba(228,206,147,0.75)', boxShadow: '0 24px 60px -18px rgba(16,33,64,0.55)' }}
+        role="dialog"
+        aria-label={`${idea.entity} — insight note`}
       >
         <NoteHeader idea={idea} onClose={onClose} />
-        <div className="min-h-0 flex-1 overflow-y-auto">
-          <ConvictionPages idea={idea} companyId={companyId} page={page} onPage={onPage} onNavigate={onNavigate} />
-        </div>
+        <ConvictionPages idea={idea} companyId={companyId} page={page} onPage={onPage} onNavigate={onNavigate} />
       </div>
     </div>
   )
