@@ -311,7 +311,10 @@ function SinceYesterdayBlock({ deltas, onNavigate }: { deltas: SinceDelta[]; onN
               <span className="text-[12.5px] font-bold text-navy-deep">{d.value}</span>
               <span className="text-[10.5px] text-ink-secondary">{d.label}</span>
               {onNavigate && (
-                <ArrowUpRight className="ml-auto h-3 w-3 shrink-0 self-center text-ink-secondary opacity-0 transition-opacity group-hover:opacity-100" strokeWidth={2.2} />
+                <span className="ml-auto flex shrink-0 items-center gap-0.5 self-center text-[8.5px] font-semibold uppercase tracking-[0.08em] text-ink-secondary/45 transition-colors group-hover:text-champagne-deep">
+                  <span className="max-w-0 overflow-hidden whitespace-nowrap opacity-0 transition-all duration-200 group-hover:max-w-[36px] group-hover:opacity-100">View</span>
+                  <ArrowUpRight className="h-3 w-3" strokeWidth={2.2} />
+                </span>
               )}
             </button>
           )
