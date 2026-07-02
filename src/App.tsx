@@ -4,6 +4,7 @@ import type { AuditFocus, NavTarget } from '@/insights/sourceMap'
 import type { InsightFocus } from '@/insights/insightFocus'
 import { FilterProvider, useFilters } from '@/state/filters'
 import { InsightFocusProvider, type InsightFocusValue } from '@/state/insightFocus'
+import { AuditSourceProvider, type AuditSourceValue } from '@/state/auditSource'
 import { VerifyProvider } from '@/state/verifyState'
 import { DEFAULT_RANGE } from '@/lib/dateRange'
 import { SectionErrorBoundary } from '@/components/SectionErrorBoundary'
@@ -222,8 +223,16 @@ function SahiContent({ tab }: { tab: string }) {
   )
 }
 
+/** Where a Data-Audit visit came from, so "Back to dashboard" restores it. */
+interface DashboardReturn {
+  page: TopPage
+  sahiTab?: string
+  scroll: number
+  label: string
+}
+
 function AppInner() {
-  const { setHighlightedCompany } = useFilters()
+  const { setHighlightedCompany, highlightedCompany } = useFilters()
   const [page, setPage] = useState<TopPage>('industry')
   const [sahiTab, setSahiTab] = useState('companies')
   const [navOpen, setNavOpen] = useState(false)
@@ -237,11 +246,15 @@ function AppInner() {
   // company, period vs comparison period, delta) that the destination section uses
   // to visually explain the exact insight the reader arrived from.
   const [insightFocus, setInsightFocus] = useState<InsightFocus | null>(null)
+  // Source-tag → Data Audit: where a dashboard source click came from, so the
+  // audit view can offer "Back to SAHI Analysis / Industry Data".
+  const [dashboardReturn, setDashboardReturn] = useState<DashboardReturn | null>(null)
 
   // The scrolling content column + the scroll offset to restore on "Back", so a
   // jump out from Pulse/an insight returns to the exact spot the reader left.
   const mainRef = useRef<HTMLElement>(null)
   const returnScrollRef = useRef<number | null>(null)
+  const dashScrollRef = useRef<number | null>(null)
 
   // Whether the current return breadcrumb was opened from Pulse (drives the chip
   // label + the fact that we land back on the Pulse read, not a Data Insights card).
@@ -257,7 +270,38 @@ function AppInner() {
     setInsightReturn(null)
     setAuditFocus(null)
     setInsightFocus(null)
+    setDashboardReturn(null)
     returnScrollRef.current = null
+  }
+
+  // Source tag on a SAHI Analysis / Industry Data visual → Data Audit at the exact
+  // mapped cell (the single source-verification layer). Remembers the origin so the
+  // reader can return, and never opens the raw PDF/PPT/URL from the dashboard.
+  const goToAuditSource = (focus: AuditFocus) => {
+    dashScrollRef.current = null
+    setDashboardReturn({
+      page,
+      sahiTab: page === 'sahi' ? sahiTab : undefined,
+      scroll: mainRef.current?.scrollTop ?? 0,
+      label: page === 'sahi' ? 'SAHI Analysis' : 'Industry Data',
+    })
+    // Not an insight jump — keep the Insights breadcrumb + highlight out of it.
+    setInsightReturn(null)
+    setInsightFocus(null)
+    setAuditFocus(focus)
+    setPage('audit')
+    setNavOpen(false)
+  }
+
+  // Return from Data Audit to the dashboard section the source click came from,
+  // restoring the page, SAHI tab and scroll position.
+  const backToDashboard = () => {
+    if (!dashboardReturn) return
+    dashScrollRef.current = dashboardReturn.scroll
+    setPage(dashboardReturn.page)
+    if (dashboardReturn.sahiTab) setSahiTab(dashboardReturn.sahiTab)
+    setAuditFocus(null)
+    setDashboardReturn(null)
   }
 
   // Jump from Pulse / an insight to its source — Data Audit first (the verification
@@ -309,6 +353,31 @@ function AppInner() {
       cancelAnimationFrame(raf2)
     }
   }, [page])
+
+  // After returning from Data Audit to the dashboard, restore the scroll offset.
+  useEffect(() => {
+    if (dashScrollRef.current == null) return
+    const y = dashScrollRef.current
+    dashScrollRef.current = null
+    let raf2 = 0
+    const raf1 = requestAnimationFrame(() => {
+      raf2 = requestAnimationFrame(() => mainRef.current?.scrollTo({ top: y }))
+    })
+    return () => {
+      cancelAnimationFrame(raf1)
+      cancelAnimationFrame(raf2)
+    }
+  }, [page, sahiTab])
+
+  // Source tags on the SAHI Analysis / Industry Data pages route to Data Audit
+  // (the single verification hub) instead of opening raw PDFs / PPTs / URLs.
+  const auditSourceValue: AuditSourceValue = {
+    active: page === 'sahi' || page === 'industry',
+    company: highlightedCompany,
+    fromLabel: page === 'sahi' ? 'SAHI Analysis' : 'Industry Data',
+    goToAudit: goToAuditSource,
+  }
+
   // Sidebar mirrors the top-level pages as app-level icon nav (ids match TopPage).
   const onSidebarNavigate = (id: string) =>
     selectPage(id === 'sahi' || id === 'audit' || id === 'insights' ? id : 'industry')
@@ -317,6 +386,7 @@ function AppInner() {
 
   return (
     <InsightFocusProvider value={focusValue}>
+      <AuditSourceProvider value={auditSourceValue}>
       <div className="flex h-screen overflow-hidden">
         {/* Lean collapsible left navigation — app-level (the two pages). */}
         <Sidebar
@@ -399,7 +469,21 @@ function AppInner() {
             <ArrowLeft className="h-4 w-4" /> {fromPulse ? 'Back to Pulse' : 'Back to Insight'}
           </button>
         )}
+
+        {/* Floating return — shown after routing into Data Audit from a SAHI
+            Analysis / Industry Data source tag. Brings the reader back to the
+            exact dashboard section (page, tab + scroll) they left. */}
+        {dashboardReturn && page === 'audit' && (
+          <button
+            type="button"
+            onClick={backToDashboard}
+            className="fixed bottom-6 right-6 z-40 inline-flex items-center gap-2 rounded-full border border-[#E4CE93] bg-gradient-to-br from-[#1E4079] to-[#143058] px-4 py-2.5 text-[12.5px] font-semibold text-white shadow-[0_10px_30px_rgba(23,43,77,0.28)] transition-transform hover:-translate-y-0.5"
+          >
+            <ArrowLeft className="h-4 w-4" /> Back to {dashboardReturn.label}
+          </button>
+        )}
       </div>
+      </AuditSourceProvider>
     </InsightFocusProvider>
   )
 }

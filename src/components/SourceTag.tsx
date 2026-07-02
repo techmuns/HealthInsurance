@@ -1,8 +1,10 @@
 import { useState } from 'react'
 import type { CSSProperties } from 'react'
-import { ExternalLink, AlertTriangle, ShieldCheck } from 'lucide-react'
+import { ExternalLink, AlertTriangle, ShieldCheck, ArrowUpRight } from 'lucide-react'
 import { DataStatusPill, type DataStatus } from './DataStatusPill'
 import { classifySource } from '@/lib/sourceHealth'
+import { useAuditSource } from '@/state/auditSource'
+import { resolveAuditCell } from '@/insights/sourceMap'
 
 // ---------------------------------------------------------------------------
 //  SourceTag — small, premium source indicator placed at the corner of every
@@ -54,6 +56,15 @@ export interface SourceProvenance {
   fetched_at?: string | null
 }
 
+/** Audit-cell mapping a source tag can supply so, on the SAHI Analysis / Industry
+ *  Data pages, it can land the reader on the exact Data Audit row/cell. All fields
+ *  optional — the resolver falls back to the active company + nearest section. */
+export interface SourceTagAuditRef {
+  company?: string
+  metric?: string
+  year?: string
+}
+
 export interface SourceTagProps {
   source: SourceLabel | string
   /** Optional period suffix, e.g. "FY26" or "Q4 FY25". */
@@ -67,6 +78,8 @@ export interface SourceTagProps {
   /** Popover anchor — defaults to right; switch to "left" for left-aligned tags. */
   align?: 'left' | 'right'
   className?: string
+  /** On SAHI Analysis / Industry Data, the exact audit cell this tag maps to. */
+  audit?: SourceTagAuditRef
 }
 
 const DOT_COLOUR: Record<SourceConfidence, string> = {
@@ -106,19 +119,31 @@ export function SourceTag({
   provenance,
   align = 'right',
   className = '',
+  audit,
 }: SourceTagProps) {
   const [hover, setHover] = useState(false)
+  const auditNav = useAuditSource()
   const conf = effectiveConfidence(source, confidence)
   // Source-link health — stabilises broken/session URLs (so the chip never opens
   // a dead page) and decides whether it is safely clickable at all.
   const health = classifySource(provenance?.source_url)
   const url = health.href
+  // On SAHI Analysis / Industry Data, source tags route to the Data Audit hub — the
+  // single place that carries the raw PDF/PPT/URL — rather than opening it here.
+  const routeToAudit = auditNav.active
   // Drop the dot to a warning tone when the *link* is the problem, not the data.
-  const dot = health.state === 'unavailable' ? '#C0533F' : health.state === 'unstable' ? '#B6892F' : DOT_COLOUR[conf]
+  // In audit-routing mode we never open the link, so the dot reflects data confidence only.
+  const dot = routeToAudit
+    ? DOT_COLOUR[conf]
+    : health.state === 'unavailable'
+      ? '#C0533F'
+      : health.state === 'unstable'
+        ? '#B6892F'
+        : DOT_COLOUR[conf]
   const hasPopover = !!(provenance && (provenance.source_name || provenance.source_url))
   const popoverPos: CSSProperties = align === 'right' ? { right: 0 } : { left: 0 }
 
-  // Shared inner content — dot + SOURCE · name · period (+ link glyph when clickable).
+  // Shared inner content — dot + SOURCE · name · period (+ trailing affordance).
   const inner = (
     <>
       <span className="h-1.5 w-1.5 shrink-0 rounded-full" style={{ background: dot }} aria-hidden />
@@ -139,10 +164,16 @@ export function SourceTag({
           <span className="font-medium text-muted-blue/90">{frequency}</span>
         </>
       )}
-      {url && health.state === 'fixed' && <ShieldCheck className="ml-0.5 h-3 w-3 shrink-0 text-teal" aria-label="stabilised source link" />}
-      {url && health.state === 'unstable' && <AlertTriangle className="ml-0.5 h-3 w-3 shrink-0 text-[#B6892F]" aria-label="source link may need a manual check" />}
-      {url && health.state !== 'fixed' && health.state !== 'unstable' && <ExternalLink className="ml-0.5 h-3 w-3 shrink-0 text-ink-secondary/55 transition-colors group-hover:text-muted-blue" aria-hidden />}
-      {!url && health.state === 'unavailable' && <AlertTriangle className="ml-0.5 h-3 w-3 shrink-0 text-[#C0533F]" aria-label="source unavailable" />}
+      {routeToAudit ? (
+        <ArrowUpRight className="ml-0.5 h-3 w-3 shrink-0 text-champagne-deep/70 transition-colors group-hover:text-champagne-deep" aria-label="View in Data Audit" />
+      ) : (
+        <>
+          {url && health.state === 'fixed' && <ShieldCheck className="ml-0.5 h-3 w-3 shrink-0 text-teal" aria-label="stabilised source link" />}
+          {url && health.state === 'unstable' && <AlertTriangle className="ml-0.5 h-3 w-3 shrink-0 text-[#B6892F]" aria-label="source link may need a manual check" />}
+          {url && health.state !== 'fixed' && health.state !== 'unstable' && <ExternalLink className="ml-0.5 h-3 w-3 shrink-0 text-ink-secondary/55 transition-colors group-hover:text-muted-blue" aria-hidden />}
+          {!url && health.state === 'unavailable' && <AlertTriangle className="ml-0.5 h-3 w-3 shrink-0 text-[#C0533F]" aria-label="source unavailable" />}
+        </>
+      )}
     </>
   )
 
@@ -204,6 +235,45 @@ export function SourceTag({
 
   const base =
     'group relative inline-flex items-center gap-1 rounded-full border px-2.5 py-1 text-[10px] leading-none text-ink-secondary transition-all duration-200'
+
+  // SAHI Analysis / Industry Data — route to the Data Audit verification layer (the
+  // single place the raw PDF / PPT / filing URL lives) instead of opening it here.
+  if (routeToAudit) {
+    const onAuditClick = () =>
+      auditNav.goToAudit(
+        resolveAuditCell({ company: audit?.company ?? auditNav.company, metric: audit?.metric, year: audit?.year, valueLabel: period }),
+      )
+    return (
+      <button
+        type="button"
+        onClick={onAuditClick}
+        title="View in Data Audit — the source-verification layer"
+        className={`${base} border-soft-border bg-white/70 shadow-[0_1px_2px_rgba(23,43,77,0.04)] hover:border-champagne hover:bg-champagne-soft/40 hover:text-navy-deep hover:shadow-soft ${className}`}
+        onMouseEnter={() => setHover(true)}
+        onMouseLeave={() => setHover(false)}
+        onFocus={() => setHover(true)}
+        onBlur={() => setHover(false)}
+      >
+        {inner}
+        {hover && (provenance?.source_name || source) && (
+          <span
+            className="absolute bottom-full z-30 mb-1.5 w-64 rounded-xl border border-soft-border bg-card p-3 text-left shadow-card"
+            style={popoverPos}
+          >
+            <span className="block text-[11px] font-semibold leading-snug text-navy-deep">{provenance?.source_name ?? source}</span>
+            <span className="mt-1.5 flex items-center gap-1.5 text-[10px] text-ink-secondary">
+              <span className="h-1.5 w-1.5 rounded-full" style={{ background: dot }} />
+              {confLabel(conf)}
+            </span>
+            <span className="mt-2 flex items-center gap-1 border-t border-soft-border pt-2 text-[9.5px] font-medium italic text-champagne-deep">
+              <ArrowUpRight className="h-2.5 w-2.5" aria-hidden />
+              Opens the mapped data in Data Audit
+            </span>
+          </span>
+        )}
+      </button>
+    )
+  }
 
   // Clickable variant — the entire chip opens the source document.
   if (url) {

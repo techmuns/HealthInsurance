@@ -456,6 +456,7 @@ export function PremiumFlowQuality({ focalId }: { focalId: string }) {
             source="Company filing"
             confidence="high"
             period={rangeLabel}
+            audit={{ company: focalId, metric: 'Gross written premium', year: [...rows].reverse().find((r) => r.gwp != null && /^FY\d{2}$/.test(r.period))?.period }}
             provenance={{
               source_name: quarterly
                 ? `${name} quarterly results + GI Council health filings (quarters not filed standalone are derived from the cumulative or monthly period figures) — written / earned premium per quarter`

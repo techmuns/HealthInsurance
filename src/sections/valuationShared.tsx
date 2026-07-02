@@ -1,7 +1,9 @@
 import type { ReactNode } from 'react'
-import { ExternalLink, Lock, Minus } from 'lucide-react'
+import { ArrowUpRight, ExternalLink, Lock, Minus } from 'lucide-react'
 import { valSrc } from '@/data/valuationSources'
 import type { Rating, ValConfidence } from '@/data/valuationData'
+import { useAuditSource } from '@/state/auditSource'
+import { resolveAuditCell } from '@/insights/sourceMap'
 
 // Shared valuation/street primitives — colours, formatters and the small pills
 // reused by both the Valuation page (Company Performance) and the Street View
@@ -57,7 +59,25 @@ export function ValPill({ c, className = '' }: { c: ValConfidence; className?: s
  *  `url` (dynamic Moneycontrol rows) takes precedence over the curated `id`. */
 export function OpenSource({ id, url, title: providedTitle }: { id: string; url?: string; title?: string }) {
   const s = valSrc(id)
+  const auditNav = useAuditSource()
   const href = url ?? s?.source_url
+
+  // SAHI Analysis / Industry Data — route to the Data Audit hub (where the raw
+  // filing/URL lives) instead of opening it here.
+  if (auditNav.active) {
+    return (
+      <button
+        type="button"
+        onClick={() => auditNav.goToAudit(resolveAuditCell({ company: auditNav.company, metric: s?.metric, year: s?.period }))}
+        title="View in Data Audit — the source-verification layer"
+        className="inline-flex items-center gap-1 rounded-full border border-soft-border bg-white/70 px-2 py-0.5 text-[10px] font-semibold text-navy-primary transition-all hover:border-champagne hover:bg-champagne-soft/40 hover:text-navy-deep hover:shadow-soft"
+      >
+        View in Data Audit
+        <ArrowUpRight className="h-2.5 w-2.5" />
+      </button>
+    )
+  }
+
   if (!href) {
     return (
       <span className="inline-flex items-center gap-1 rounded-full bg-ice px-2 py-0.5 text-[10px] font-semibold text-ink-secondary ring-1 ring-soft-border" title="Source pending — locked until a citable note is ingested">

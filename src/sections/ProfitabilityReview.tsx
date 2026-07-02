@@ -513,6 +513,7 @@ export function ProfitabilityReview() {
           source="Annual reports & filings"
           period={periodSpan}
           confidence="high"
+          audit={{ company: company.id, metric: 'Combined ratio' }}
           provenance={{ source_name: 'Company Annual Reports / Statutory Filings — IGAAP statutory accounts & IFRS / Ind AS accounts.' }}
         />
       </div>

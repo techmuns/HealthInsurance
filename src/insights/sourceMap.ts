@@ -36,6 +36,8 @@ export interface AuditFocus {
   year?: string // FY label (audit column)
   valueLabel?: string // formatted value used by the insight
   status: AuditMappingStatus
+  /** Non-intrusive note shown on arrival — e.g. the "nearest section" fallback. */
+  note?: string
 }
 
 /** Where the "Go to source" button should land the reader. Data-Audit first
@@ -249,6 +251,32 @@ export function resolveAuditTarget(ins: Insight): AuditFocus {
   if (!rule) return { status: 'chart_fallback', company, companyLabel: pretty(stat.insurer), valueLabel }
   const status: AuditMappingStatus = company && year ? 'exact_cell' : 'audit_row'
   return { status, company, companyLabel: pretty(stat.insurer), metricKey: rule.key, metricLabel: rule.label, year, valueLabel }
+}
+
+/**
+ * Resolve a Data-Audit landing target from a dashboard SOURCE tag's own context
+ * (company + metric + period) — used when a chart / table / KPI source tag routes
+ * the reader into the audit layer. The richest precision wins: an exact cell when
+ * company + metric + year all resolve; the metric row when only the metric maps;
+ * a company-filtered section (with a note) when the metric isn't in the audit set.
+ */
+export function resolveAuditCell(args: { company?: string; metric?: string; year?: string; valueLabel?: string }): AuditFocus {
+  const company = args.company && AUDIT_COMPANY_IDS.has(args.company) ? args.company : undefined
+  const companyLabel = company ? pretty(company) : undefined
+  const year = args.year && AUDIT_YEARS.has(args.year) ? args.year : undefined
+  const rule = args.metric ? AUDIT_METRIC_RULES.find((r) => r.test.test(args.metric!)) : undefined
+  if (!rule) {
+    // No metric mapping — land on the nearest section (company-filtered when known).
+    return {
+      status: 'pending',
+      company,
+      companyLabel,
+      valueLabel: args.valueLabel,
+      note: 'Exact source mapping not found — showing the nearest Data Audit section.',
+    }
+  }
+  const status: AuditMappingStatus = company && year ? 'exact_cell' : 'audit_row'
+  return { status, company, companyLabel, metricKey: rule.key, metricLabel: rule.label, year, valueLabel: args.valueLabel }
 }
 
 /** The compact data read shown on the back BEFORE the user navigates. */

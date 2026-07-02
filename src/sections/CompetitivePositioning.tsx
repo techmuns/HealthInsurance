@@ -5,7 +5,7 @@ import { useSectionInsight } from '@/components/insight/useSectionInsight'
 import { getLatestAnnualFyLabel } from '@/lib/dataLayer'
 import { AnalysisBuilder } from '@/components/AnalysisBuilder'
 import { SectionTabs } from '@/components/SectionTabs'
-import { SourceTag } from '@/components/SourceTag'
+import { SourceTag, type SourceTagAuditRef } from '@/components/SourceTag'
 import { AccountingBasisToggle } from '@/components/AccountingBasisControls'
 import { BASIS_TRACKED_COMPANIES, type AccountingBasis } from '@/data/accountingBasis'
 import { getFilteredInsurers, getHighlightedInsurer } from '@/lib/insurers'
@@ -304,7 +304,7 @@ function CompareBar({ label, value, max, color, unit, strong }: { label: string;
   )
 }
 
-function PeerSignalPanel({ cell, focalName, selectedName, source, onPick, pills, whyBullets, questions }: { cell: Cell; focalName: string; selectedName: string; source: CellSource | null; onPick: (k: string) => void; pills: { key: string; label: string }[]; whyBullets: string[]; questions: string[] }) {
+function PeerSignalPanel({ cell, focalName, selectedName, source, onPick, pills, whyBullets, questions, audit }: { cell: Cell; focalName: string; selectedName: string; source: CellSource | null; onPick: (k: string) => void; pills: { key: string; label: string }[]; whyBullets: string[]; questions: string[]; audit?: SourceTagAuditRef }) {
   const m = cell.metric
   const insight = cell.value == null
     ? `${m.label} isn't disclosed for ${selectedName} — see the source for what is on record.`
@@ -379,6 +379,7 @@ function PeerSignalPanel({ cell, focalName, selectedName, source, onPick, pills,
               confidence={source.confidence}
               provenance={source.provenance}
               align="right"
+              audit={audit}
             />
           ) : (
             <span className="text-[10.5px] italic text-ink-secondary">Not on record</span>
@@ -559,7 +560,7 @@ export function CompetitivePositioning() {
             </div>
           </div>
           <div className="space-y-3">
-            <PeerSignalPanel cell={activeCell} focalName={focal.shortName} selectedName={selectedRow.insurer.shortName} source={cellSource} onPick={setActiveKey} pills={PILLS} whyBullets={whyBullets} questions={keyQuestions} />
+            <PeerSignalPanel cell={activeCell} focalName={focal.shortName} selectedName={selectedRow.insurer.shortName} source={cellSource} onPick={setActiveKey} pills={PILLS} whyBullets={whyBullets} questions={keyQuestions} audit={{ company: selectedRow.insurer.id, metric: activeCell.metric.label, year: cellSource?.period }} />
           </div>
         </div>
       )}

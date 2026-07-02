@@ -776,6 +776,7 @@ function SheetGrid({ grid, raw, selected, onSelect, view, verify, aiMode = false
                           className={`relative flex h-full min-h-[34px] w-full items-center ${fetched ? 'justify-end text-right' : 'justify-center'} px-2 py-1 tabular-nums transition-all ${q.cell} hover:brightness-95`}
                           style={inSel(ri, ci) ? { boxShadow: 'inset 0 0 0 2px #4F7BCF' } : isPulsing ? { boxShadow: 'inset 0 0 0 2px #1E4079' } : isSel ? { boxShadow: `inset 0 0 0 2px ${q.dot}` } : undefined}
                         >
+                          {isPulsing && <span className="pointer-events-none absolute inset-0 animate-ping rounded-sm bg-navy-primary/10" />}
                           {inSel(ri, ci) && <span className="pointer-events-none absolute inset-0 bg-[#4F7BCF]/12" />}
                           {isFormula && <FunctionSquare className="absolute left-1 top-1 h-2.5 w-2.5 opacity-40" />}
                           {fetched ? (
@@ -1024,6 +1025,29 @@ function GridView({ group, fullColumns, companyLabel, isFiltered, raw, onRawChan
   )
 }
 
+// A stable empty verify-map so a focus-only pulse can render through the grid's
+// `verify.pulseId` channel without a live Excel verification result.
+const EMPTY_VERIFY_MAP = new Map<string, VerifyRow>()
+
+/** Resolve a Data-Audit focus (company + metricKey + year) to a real, pulseable
+ *  cell: an exact company+metric+year cell first, then that company's metric row,
+ *  then any cell for the metric. Returns null when the metric isn't in the grid. */
+function findAuditCell(sheets: AuditGroup[], company?: string, metricKey?: string, year?: string): AuditCell | null {
+  if (!metricKey) return null
+  const all: AuditCell[] = []
+  for (const g of sheets) for (const c of g.cells) if (c.metricId === metricKey) all.push(c)
+  if (!all.length) return null
+  if (company && year) {
+    const exact = all.find((c) => c.entityId === company && c.period === year)
+    if (exact) return exact
+  }
+  if (company) {
+    const byCompany = all.find((c) => c.entityId === company)
+    if (byCompany) return byCompany
+  }
+  return all[0]
+}
+
 // ── Page ─────────────────────────────────────────────────────────────────────
 export function AuditSpreadsheet({ model, focus }: { model: AuditModel; focus?: AuditFocus | null }) {
   const sheets = model.groups
@@ -1054,10 +1078,27 @@ export function AuditSpreadsheet({ model, focus }: { model: AuditModel; focus?: 
     return m
   }, [verifyResult])
 
-  // Arriving from an insight's "Go to Data Audit": pre-select that company so its
-  // rows are isolated for verification (an invalid id falls back to "all" below).
+  // Arriving from an insight / a SAHI Analysis / Industry Data source tag → land on
+  // the exact mapped cell: switch to its sheet, clear the company filter so it can't
+  // be hidden, scroll it into view and blip it (~1.9s). No panel/drawer opens — the
+  // blip alone marks it; the reader clicks the cell to open its original source.
+  // Falls back to a company-filtered section (with a note in the banner) when the
+  // metric isn't an addressable audit cell.
   useEffect(() => {
-    if (focus?.company) setCompany(focus.company)
+    if (!focus) return
+    const cell = findAuditCell(sheets, focus.company, focus.metricKey, focus.year)
+    if (cell) {
+      setActive(cell.sheet)
+      setCompany('all')
+      setPulseId(cell.id)
+      const scrollT = setTimeout(() => {
+        const el = document.querySelector<HTMLElement>(`[data-cell-id="${cell.id.replace(/(["\\])/g, '\\$1')}"]`)
+        el?.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center' })
+      }, 90)
+      const pulseT = setTimeout(() => setPulseId(null), 1900)
+      return () => { clearTimeout(scrollT); clearTimeout(pulseT) }
+    }
+    if (focus.company) setCompany(focus.company)
   }, [focus])
 
   // Verifier row → exact cell: switch to that tab, clear the company filter so the
@@ -1153,15 +1194,22 @@ export function AuditSpreadsheet({ model, focus }: { model: AuditModel; focus?: 
   // Only show the selection (panel + blue ring) when it belongs to the active sheet.
   const selectedOnActive = selected && selected.sheet === active ? selected : null
 
+  // The one-shot navigation pulse renders through the grid's `verify.pulseId`. It
+  // fires during Excel verification AND when a source-tag / insight focus lands the
+  // reader on a cell — in the latter case a lightweight view:false config just
+  // carries the pulse (no verification overlay).
+  const activePulse = pulseId && group?.cells.some((c) => c.id === pulseId) ? pulseId : null
   const verifyGrid: VerifyGridProps | undefined = verifyResult
     ? {
         view: verifyView,
         map: verifyMap,
         filter: vctx?.gridFilter ?? 'all',
-        pulseId: pulseId && verifyTarget?.sheet === active ? pulseId : null,
+        pulseId: activePulse,
         onBackToVerifier: () => vctx?.openVerifier(),
       }
-    : undefined
+    : activePulse
+      ? { view: false, map: EMPTY_VERIFY_MAP, filter: 'all', pulseId: activePulse, onBackToVerifier: () => {} }
+      : undefined
 
   // The custom sheets (Historical Stock Movement, Analyst Coverage) aren't a cell
   // grid, so a clicked verifier row can't pulse an exact cell there. Instead we
@@ -1224,13 +1272,14 @@ export function AuditSpreadsheet({ model, focus }: { model: AuditModel; focus?: 
         </div>
       )}
 
-      {/* Verifying-from-insight banner — names the exact company / metric / period /
-          value to check; the company is already filtered in. Honest about whether
-          this is an exact cell or the closest row. */}
+      {/* Source-verification banner — names the exact company / metric / period /
+          value the reader came to verify; the mapped cell is blipped below and its
+          original source opens on click. Honest about exact cell vs closest row vs
+          nearest-section fallback. Reached from an insight OR a dashboard source tag. */}
       {focus && (
         <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5 rounded-xl border border-[#E4CE93] bg-gradient-to-r from-[#FBF6EA] to-card px-4 py-2.5 shadow-soft">
           <span className="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-[0.12em] text-champagne-deep">
-            <CheckCircle2 className="h-3.5 w-3.5" /> Verifying from insight
+            <CheckCircle2 className="h-3.5 w-3.5" /> Verify this source
           </span>
           <span className="text-[12.5px] text-navy-deep">
             <strong className="font-semibold">{focus.companyLabel ?? 'This company'}</strong>
@@ -1239,9 +1288,11 @@ export function AuditSpreadsheet({ model, focus }: { model: AuditModel; focus?: 
             {focus.valueLabel && <> = <strong className="font-semibold">{focus.valueLabel}</strong></>}
           </span>
           <span className="text-[11px] leading-snug text-ink-secondary">
-            {focus.status === 'exact_cell'
-              ? `${focus.companyLabel ?? 'The company'} is pre-selected — find ${focus.metricLabel ?? 'the metric'} for ${focus.year ?? 'the year'} below.`
-              : `Closest match — locate the ${focus.metricLabel ?? 'metric'} row${focus.year ? ` for ${focus.year}` : ''} below (exact cell mapping pending).`}
+            {focus.note
+              ? focus.note
+              : focus.status === 'exact_cell'
+                ? `Highlighted below — ${focus.metricLabel ?? 'the metric'} for ${focus.year ?? 'the year'}. Click the cell to open its original source.`
+                : `Locate the ${focus.metricLabel ?? 'metric'} row${focus.year ? ` for ${focus.year}` : ''} below — click a cell to open its source.`}
           </span>
         </div>
       )}
