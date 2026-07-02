@@ -26,6 +26,7 @@ import {
   type Confidence,
 } from '@/insights/investorPulse'
 import type { NavTarget } from '@/insights/sourceMap'
+import { buildFocus, type InsightFocus } from '@/insights/insightFocus'
 import intelSnapshot from '@/data/snapshots/market-intelligence-snapshot.json'
 
 // Feed freshness — read straight off the intelligence snapshot's own metadata
@@ -608,6 +609,39 @@ export interface PulseAction {
 
 const ACTION_ORDER = ['ownership', 'margins', 'source', 'agm', 'regulation']
 
+// Insight-linked focus for the two metric-anchored action pills, so "Compare
+// margins" / "Review ownership" land on the right chart with the real comparison
+// spotlighted. The destination chart resolves the actual current/prior values
+// from its own source data — these only name the metric, company and period.
+function marginFocus(pulse: InvestorPulse): InsightFocus | undefined {
+  // Periods unpinned → the profitability chart spotlights its latest reported
+  // combined ratio vs the prior year.
+  return (
+    buildFocus({
+      id: 'pulse-margins',
+      metricKey: 'combined_ratio',
+      company: pulse.companyId,
+      companyLabel: pulse.company,
+      comparisonType: 'YoY',
+      insightLabel: 'Underwriting margin — combined ratio',
+      origin: 'pulse',
+    }) ?? undefined
+  )
+}
+function ownershipFocus(pulse: InvestorPulse): InsightFocus | undefined {
+  return (
+    buildFocus({
+      id: 'pulse-ownership',
+      metricKey: 'promoter_holding',
+      company: pulse.companyId,
+      companyLabel: pulse.company,
+      comparisonType: 'sequential',
+      insightLabel: 'Ownership — promoter holding trend',
+      origin: 'pulse',
+    }) ?? undefined
+  )
+}
+
 /** Up to 4 action pills, each tied to a real top pick / event (never generic). */
 export function actionsFor(pulse: InvestorPulse, picks: TopPick[]): PulseAction[] {
   const cats = new Set(picks.map((p) => p.category))
@@ -618,9 +652,9 @@ export function actionsFor(pulse: InvestorPulse, picks: TopPick[]): PulseAction[
   const out: PulseAction[] = []
 
   if (analyst || cats.has('Sector Catalyst'))
-    out.push({ id: 'margins', label: 'Compare margins', icon: 'margins', target: { page: 'sahi', sahiTab: 'profitability', company: companyId } })
+    out.push({ id: 'margins', label: 'Compare margins', icon: 'margins', target: { page: 'sahi', sahiTab: 'profitability', company: companyId, focus: marginFocus(pulse) } })
   if (analyst)
-    out.push({ id: 'ownership', label: 'Review ownership', icon: 'ownership', target: { page: 'sahi', sahiTab: 'governance', company: companyId } })
+    out.push({ id: 'ownership', label: 'Review ownership', icon: 'ownership', target: { page: 'sahi', sahiTab: 'governance', company: companyId, focus: ownershipFocus(pulse) } })
   if (regulatory)
     out.push({ id: 'regulation', label: 'Track regulation', icon: 'regulation', target: { page: 'sahi', sahiTab: 'governance', company: companyId } })
   if (agm)
@@ -644,9 +678,9 @@ export function actionsForBrief(pulse: InvestorPulse, scoped: PulseSignal[]): Pu
   const out: PulseAction[] = []
 
   if (analyst || cats.has('Sector Catalyst'))
-    out.push({ id: 'margins', label: 'Compare margins', icon: 'margins', target: { page: 'sahi', sahiTab: 'profitability', company: companyId } })
+    out.push({ id: 'margins', label: 'Compare margins', icon: 'margins', target: { page: 'sahi', sahiTab: 'profitability', company: companyId, focus: marginFocus(pulse) } })
   if (analyst)
-    out.push({ id: 'ownership', label: 'Review ownership', icon: 'ownership', target: { page: 'sahi', sahiTab: 'governance', company: companyId } })
+    out.push({ id: 'ownership', label: 'Review ownership', icon: 'ownership', target: { page: 'sahi', sahiTab: 'governance', company: companyId, focus: ownershipFocus(pulse) } })
   if (regulatory)
     out.push({ id: 'regulation', label: 'Track regulation', icon: 'regulation', target: { page: 'sahi', sahiTab: 'governance', company: companyId } })
   if (agm)
@@ -838,11 +872,11 @@ function actionForSignal(s: PulseSignal, pulse: InvestorPulse): PulseAction | nu
     case 'Analyst Action':
     case 'Sector Catalyst':
     case 'Data Movement':
-      return { id: 'margins', label: 'Compare margins', icon: 'margins', target: { page: 'sahi', sahiTab: 'profitability', company } }
+      return { id: 'margins', label: 'Compare margins', icon: 'margins', target: { page: 'sahi', sahiTab: 'profitability', company, focus: marginFocus(pulse) } }
     case 'Regulatory':
       return { id: 'regulation', label: 'Track regulation', icon: 'regulation', target: { page: 'sahi', sahiTab: 'governance', company } }
     case 'Management':
-      return { id: 'ownership', label: 'Review ownership', icon: 'ownership', target: { page: 'sahi', sahiTab: 'governance', company } }
+      return { id: 'ownership', label: 'Review ownership', icon: 'ownership', target: { page: 'sahi', sahiTab: 'governance', company, focus: ownershipFocus(pulse) } }
     case 'Filing':
       return { id: 'source', label: 'Verify source', icon: 'source', target: { page: 'audit', company } }
   }
@@ -1123,10 +1157,30 @@ export function sinceYesterday(pulse: InvestorPulse): SinceDelta[] {
   if (mgmt) out.push({ id: 'mgmt', label: mgmt === 1 ? 'management change' : 'management changes', value: String(mgmt), direction: 'up', tone: 'Neutral', target: to('governance') })
 
   // Premium growth (YoY) — a real, source-backed change when the growth lens has it.
+  // Carries an InsightFocus so "View in dashboard" lands on the premium chart with
+  // the FY-over-FY comparison spotlighted, connected and explained.
   const g = pulse.lenses.growthLevers.metrics.find((m) => m.label === 'GWP growth (YoY)')
   if (g) {
     const n = parseFloat(g.value)
-    out.push({ id: 'gwp', label: 'premium growth YoY', value: g.value, direction: !isNaN(n) && n < 0 ? 'down' : 'up', tone: g.tone, target: to('distribution') })
+    // Leave the periods unpinned so the premium chart spotlights its LATEST
+    // reported year vs the prior one (e.g. FY26 vs FY25 — the jump the growth
+    // headline is about), rather than the growth lens's older peer-comparison year.
+    const gwpFocus =
+      buildFocus({
+        id: 'pulse-since-gwp',
+        metricKey: 'gwp',
+        company,
+        companyLabel: pulse.company,
+        comparisonType: 'YoY',
+        deltaLabel: g.value,
+        deltaValue: isNaN(n) ? null : n,
+        // The chip describes the insight; the exact %, resolved on the chart's own
+        // basis, lives in the pinned callout + pill (avoids two YoY figures that
+        // differ only by premium basis reading as a contradiction).
+        insightLabel: 'Premium growth · year on year',
+        origin: 'pulse',
+      }) ?? undefined
+    out.push({ id: 'gwp', label: 'premium growth YoY', value: g.value, direction: !isNaN(n) && n < 0 ? 'down' : 'up', tone: g.tone, target: { ...to('distribution'), focus: gwpFocus } })
   }
 
   const events = pulse.signals.filter((s) => s.horizon === 'upcoming').length

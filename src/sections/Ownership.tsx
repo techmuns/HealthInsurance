@@ -17,6 +17,11 @@ import {
 } from '@/lib/ownershipTrend'
 import type { OwnershipHolderGroup } from '@/data/snapshots/_schemas'
 import { sourceHref } from '@/lib/sourceHealth'
+import { useSectionFocus } from '@/state/insightFocus'
+import { focusWithResolvedTone, resolveComparison, type InsightFocus, type ResolvedComparison } from '@/insights/insightFocus'
+import { InsightFocusBanner } from '@/components/insight/InsightFocusBanner'
+import { insightAnnotationLayer } from '@/components/insight/focusChart'
+import { useScrollIntoFocus } from '@/components/insight/useScrollIntoFocus'
 
 // ── Bulk / block deal formatting + signal chart ─────────────────────────────
 const dealQty = (q: number): string =>
@@ -769,9 +774,11 @@ function HeroSource({ label, sourceUrl, scrapedAt, lastUpdated }: { label: strin
 }
 
 // ── PART 5 — Hero: split Ownership Trend (line) + Ownership Position (donut) ───
-function OwnershipTrendHero({ view }: { view: OwnershipTrendView }) {
+function OwnershipTrendHero({ view, focus, resolved }: { view: OwnershipTrendView; focus?: InsightFocus | null; resolved?: ResolvedComparison | null }) {
   const lastIdx = view.periods.length - 1
   const [selectedIdx, setSelectedIdx] = useState(lastIdx)
+  // Insight-linked: which holder series the insight points at (muting the rest).
+  const focusGroup = focus?.metricKey === 'promoter_holding' ? 'Promoters' : null
   // Reset the selection to the latest period whenever the period set changes
   // (Annual ↔ Quarterly, or a range change).
   useEffect(() => {
@@ -848,6 +855,7 @@ function OwnershipTrendHero({ view }: { view: OwnershipTrendView }) {
                     dataKey={g}
                     stroke={TREND_COLOR[g]}
                     strokeWidth={g === 'Promoters' ? 2.6 : 2}
+                    strokeOpacity={focusGroup && g !== focusGroup ? 0.28 : 1}
                     dot={(p) => {
                       const sel = p.index === selectedIdx
                       return (
@@ -867,6 +875,7 @@ function OwnershipTrendHero({ view }: { view: OwnershipTrendView }) {
                     isAnimationActive={false}
                   />
                 ))}
+                {focus && resolved && insightAnnotationLayer({ focus, resolved })}
               </LineChart>
             </ResponsiveContainer>
           </div>
@@ -1075,6 +1084,22 @@ export function Ownership() {
   const { row } = getOwnershipData(company.id) as { row: OwnershipRow | null }
   const view = useMemo(() => getOwnershipTrendView(company.id, period, range), [company.id, period, range])
 
+  // Insight-linked mode: when opened from an ownership insight for THIS company,
+  // spotlight the promoter-holding trend and pin the change between periods.
+  const rawFocus = useSectionFocus('governance')
+  const focusActive = !!rawFocus && (rawFocus.company == null || rawFocus.company === company.id) && rawFocus.metricKey === 'promoter_holding'
+  const focus = focusActive ? rawFocus : null
+  const { ref: focusRef, arrived } = useScrollIntoFocus<HTMLDivElement>(focusActive && view.available)
+  const promoterSeries = useMemo(
+    () => (view.available ? view.periods.map((p, i) => ({ label: p.fiscal, v: view.seriesByGroup.Promoters[i] ?? null })) : []),
+    [view],
+  )
+  const resolved = focus
+    ? resolveComparison(promoterSeries, { valueKey: 'v', labelKey: 'label', currentPeriod: focus.currentPeriod, comparisonPeriod: focus.comparisonPeriod })
+    : null
+  // Recolour from the real promoter-holding change (up = green, down = amber).
+  const dispFocus = focus && resolved ? focusWithResolvedTone(focus, resolved) : focus
+
   // Unlisted insurers do not publish a shareholding pattern.
   if (!listed) {
     return (
@@ -1134,9 +1159,13 @@ export function Ownership() {
 
   return (
     <div className="space-y-5">
+      {dispFocus && <InsightFocusBanner focus={dispFocus} resolved={resolved} />}
+
       {/* 1 — Hero: split Ownership Trend (line) + Ownership Position (donut) */}
       {view.available ? (
-        <OwnershipTrendHero view={view} />
+        <div ref={focusRef} className={arrived ? 'insight-arrival rounded-2xl' : ''}>
+          <OwnershipTrendHero view={view} focus={dispFocus} resolved={resolved} />
+        </div>
       ) : (
         <div className="card-surface card-tint-navy p-4">
           <h3 className="font-display text-[18px] text-navy-deep">Ownership Trend</h3>

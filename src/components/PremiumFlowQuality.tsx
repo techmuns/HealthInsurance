@@ -1,6 +1,13 @@
+import type { CSSProperties } from 'react'
 import { Bar, BarChart, CartesianGrid, Legend, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts'
 import { insurers } from '@/data/mockData'
 import { useFilters } from '@/state/filters'
+import { useSectionFocus } from '@/state/insightFocus'
+import { focusPalette, focusWithResolvedTone, resolveComparison } from '@/insights/insightFocus'
+import { InsightCallout } from '@/components/insight/InsightCallout'
+import { InsightContextChip } from '@/components/insight/InsightContextChip'
+import { insightAnnotationLayer } from '@/components/insight/focusChart'
+import { useScrollIntoFocus } from '@/components/insight/useScrollIntoFocus'
 import { EmptyState } from './EmptyState'
 import { SourceTag } from './SourceTag'
 import annualSnapshot from '@/data/snapshots/insurer-annual-snapshot.json'
@@ -143,20 +150,38 @@ function annualGwpFromMonthly(companyId: string): Map<string, number> {
   return out
 }
 
-/** Multi-series tooltip — period, each reported measure, and the retention ratio.
- *  Null (not disclosed) measures are dropped so a missing value never reads as 0. */
+/** The GWP change versus the prior period that carries a value, for the hovered
+ *  period — a small, honest read of "how much did it move, vs when?" No prior
+ *  value → null (never a fabricated 0% or a comparison against a gap). */
+function gwpYoY(rows: Row[], period: string | undefined): { pct: number; prev: number; prevPeriod: string } | null {
+  if (!period) return null
+  const idx = rows.findIndex((r) => r.period === period)
+  const cur = idx >= 0 ? rows[idx].gwp : null
+  if (idx <= 0 || cur == null) return null
+  for (let i = idx - 1; i >= 0; i--) {
+    const prev = rows[i].gwp
+    if (typeof prev === 'number' && prev !== 0) return { pct: (cur / prev - 1) * 100, prev, prevPeriod: rows[i].period }
+  }
+  return null
+}
+
+/** Multi-series tooltip — period, each reported measure, the retention ratio, and
+ *  a compact GWP change-vs-prior-period read. Null (not disclosed) measures are
+ *  dropped so a missing value never reads as 0. */
 function PremiumTooltip({
   active,
   payload,
   label,
+  rows = [],
 }: {
   active?: boolean
   payload?: { name: string; value: number | null; color: string; dataKey: string }[]
   label?: string
+  rows?: Row[]
 }) {
   if (!active || !payload || payload.length === 0) return null
-  const rows = payload.filter((p) => typeof p.value === 'number')
-  if (rows.length === 0) return null
+  const shown = payload.filter((p) => typeof p.value === 'number')
+  if (shown.length === 0) return null
   const get = (k: string) => {
     const v = payload.find((p) => p.dataKey === k)?.value
     return typeof v === 'number' ? v : null
@@ -164,11 +189,13 @@ function PremiumTooltip({
   const gwp = get('gwp')
   const nwp = get('nwp')
   const retention = gwp != null && nwp != null && gwp > 0 ? (nwp / gwp) * 100 : null
+  const yoy = gwpYoY(rows, label)
+  const fyLabel = label?.match(/FY\d{2}/)?.[0]
   return (
     <div className="rounded-xl border border-[#E5E8EF] bg-white/96 px-3 py-2 shadow-[0_8px_22px_rgba(23,43,77,0.1)] backdrop-blur">
       <p className="mb-1.5 text-[11px] font-semibold text-navy-deep">{label}</p>
       <div className="space-y-0.5">
-        {rows.map((p) => (
+        {shown.map((p) => (
           <div key={p.dataKey} className="flex items-center justify-between gap-4 text-[11.5px]">
             <span className="flex items-center gap-1.5 text-ink-secondary">
               <span className="h-2 w-2 rounded-sm" style={{ background: p.color }} />
@@ -178,6 +205,20 @@ function PremiumTooltip({
           </div>
         ))}
       </div>
+      {yoy != null && (
+        <div className="mt-1.5 flex items-center justify-between gap-3 border-t border-soft-border pt-1.5 text-[10.5px]">
+          <span className="text-ink-secondary">
+            GWP {fyLabel && yoy.prevPeriod.match(/FY\d{2}/) ? 'YoY' : 'vs prior'} · from {fmtCr(yoy.prev)} ({yoy.prevPeriod})
+          </span>
+          <span
+            className="font-bold tabular-nums"
+            style={{ color: yoy.pct >= 0 ? '#2F855A' : '#C0584F' }}
+          >
+            {yoy.pct >= 0 ? '+' : '−'}
+            {Math.abs(Math.round(yoy.pct * 10) / 10)}%
+          </span>
+        </div>
+      )}
       {retention != null && (
         <p className="mt-1.5 border-t border-soft-border pt-1.5 text-[10.5px] text-ink-secondary">
           Retention <span className="font-semibold tabular-nums text-navy-deep">{retention.toFixed(0)}%</span> · net ÷ gross
@@ -196,6 +237,15 @@ export function PremiumFlowQuality({ focalId }: { focalId: string }) {
   const name = company?.shortName ?? 'Company'
   const quarterly = globalPeriod === 'Quarterly'
   const unit = quarterly ? 'quarter' : 'year'
+
+  // Insight-linked mode: when the reader arrived here from a premium-growth
+  // insight for THIS company, the chart adds a spotlight + connector + delta pill
+  // and a pinned callout that explains the comparison. Normal use is unchanged.
+  const rawFocus = useSectionFocus('distribution')
+  const focusActive =
+    !!rawFocus && (rawFocus.company == null || rawFocus.company === focalId) && ['gwp', 'nwp', 'nep'].includes(rawFocus.metricKey)
+  const focus = focusActive ? rawFocus : null
+  const { ref: cardRef, arrived } = useScrollIntoFocus<HTMLDivElement>(focusActive)
 
   // Build the per-period rows for the active Period. Periods with no sourced row
   // stay null-valued (a labelled gap) rather than dropped, so the axis never
@@ -310,16 +360,45 @@ export function PremiumFlowQuality({ focalId }: { focalId: string }) {
     )
   }
 
+  // Resolve the current vs comparison values from the chart's OWN rows, so the
+  // pill and the pinned callout always match the bars the reader is looking at.
+  const resolvedRaw = focus
+    ? resolveComparison(rows as unknown as Record<string, unknown>[], {
+        valueKey: focus.metricKey,
+        labelKey: 'period',
+        currentPeriod: focus.currentPeriod,
+        comparisonPeriod: focus.comparisonPeriod,
+      })
+    : null
+  // Recolour from the change the chart actually resolved (GWP up = green).
+  const dispFocus = focus && resolvedRaw ? focusWithResolvedTone(focus, resolvedRaw) : focus
+  const resolved = resolvedRaw
+  const pal = dispFocus ? focusPalette(dispFocus.tone) : null
+
   return (
-    <div className="card-surface p-4 sm:p-5">
-      {/* Clean chart title — no toggles. */}
-      <div className="flex items-center gap-2.5">
-        <span className="h-5 w-1.5 rounded-full" style={{ background: GWP_COLOR }} />
-        <h3 className="font-display text-[18px] leading-tight text-navy-deep">Gross → Net → Earned premium by {unit}</h3>
+    <div
+      ref={cardRef}
+      className={`card-surface p-4 sm:p-5 ${arrived ? 'insight-arrival' : ''}`}
+      style={pal ? ({ '--insight-glow': pal.ring } as CSSProperties) : undefined}
+    >
+      {dispFocus && <InsightContextChip focus={dispFocus} className="mb-3" />}
+
+      {/* Clean chart title — no toggles. In insight mode a pinned callout sits at
+          the right so the comparison is spelt out beside the chart. */}
+      <div className="flex flex-wrap items-start justify-between gap-3">
+        <div className="min-w-0">
+          <div className="flex items-center gap-2.5">
+            <span className="h-5 w-1.5 rounded-full" style={{ background: GWP_COLOR }} />
+            <h3 className="font-display text-[18px] leading-tight text-navy-deep">Gross → Net → Earned premium by {unit}</h3>
+          </div>
+          <p className="mt-1 pl-4 text-[12px] text-ink-secondary">
+            <span className="font-semibold text-navy-deep">{name}</span> · {rangeLabel} · ₹ Cr
+          </p>
+        </div>
+        {dispFocus && resolved && resolved.currentValue != null && (
+          <InsightCallout focus={dispFocus} resolved={resolved} className="w-full sm:w-[17.5rem]" />
+        )}
       </div>
-      <p className="mt-1 pl-4 text-[12px] text-ink-secondary">
-        <span className="font-semibold text-navy-deep">{name}</span> · {rangeLabel} · ₹ Cr
-      </p>
 
       <div className="mt-4 w-full" style={{ height: 320 }}>
         <ResponsiveContainer width="100%" height="100%">
@@ -333,7 +412,7 @@ export function PremiumFlowQuality({ focalId }: { focalId: string }) {
               tick={{ fontSize: 11, fill: AXIS_TEXT }}
               width={44}
             />
-            <Tooltip cursor={{ fill: 'rgba(39,69,126,0.05)' }} content={<PremiumTooltip />} />
+            <Tooltip cursor={{ fill: 'rgba(39,69,126,0.05)' }} content={(p) => <PremiumTooltip {...(p as object)} rows={rows} />} />
             <Legend
               verticalAlign="top"
               align="right"
@@ -352,6 +431,7 @@ export function PremiumFlowQuality({ focalId }: { focalId: string }) {
             {SERIES.map((s) => (
               <Bar key={s.key} dataKey={s.key} name={s.name} fill={s.color} maxBarSize={34} radius={[3, 3, 0, 0]} isAnimationActive={false} />
             ))}
+            {dispFocus && resolved && insightAnnotationLayer({ focus: dispFocus, resolved })}
           </BarChart>
         </ResponsiveContainer>
       </div>

@@ -18,6 +18,7 @@
 // ---------------------------------------------------------------------------
 
 import type { Insight, InsightCategory, ProvenanceLayer } from './types'
+import { buildFocus, priorFyLabel, type InsightFocus } from './insightFocus'
 
 /** The dashboard's top-level pages (mirrors HeaderSwitcher's TopPage, kept local
  *  so this display map doesn't import a component). */
@@ -47,6 +48,10 @@ export interface NavTarget {
   company?: string
   /** Data-Audit focus when page === 'audit'. */
   audit?: AuditFocus
+  /** Insight-linked chart context — when present, the destination section shows a
+   *  premium highlight (spotlight + connector + delta pill + pinned callout) that
+   *  visually explains the exact comparison the insight referenced. */
+  focus?: InsightFocus
 }
 
 /** A compact, pre-navigation read of the data behind an insight. */
@@ -298,6 +303,40 @@ const CATEGORY_DEST: Record<InsightCategory, Dest> = {
   market_structure: { tab: 'companies', area: 'Companies', table: 'Peer scoreboard' },
 }
 
+// Map an insight's primary metric to a canonical focus metric key, so a "Go to
+// Chart" jump from an insight card also lands with the comparison spotlighted.
+const FOCUS_METRIC_RULES: { test: RegExp; key: string }[] = [
+  { test: /combined ratio/i, key: 'combined_ratio' },
+  { test: /claims ratio/i, key: 'claims_ratio' },
+  { test: /expense ratio/i, key: 'expense_ratio' },
+  { test: /solvency/i, key: 'solvency_ratio' },
+  { test: /\bpat\b|profit after tax/i, key: 'pat' },
+  { test: /promoter|shareholding|ownership|\bholding\b/i, key: 'promoter_holding' },
+  { test: /market share/i, key: 'market_share' },
+  { test: /total gwp|gross written|\bgwp\b|premium growth|\bnwp\b|\bnep\b|premium/i, key: 'gwp' },
+]
+
+/** Build an InsightFocus for a chart-fallback jump — only when the insight's
+ *  primary metric maps to a known chart metric AND that metric lives on the tab
+ *  we're navigating to (so the highlight lands on the right chart). */
+function focusForInsight(ins: Insight, destTab: string): InsightFocus | undefined {
+  const stat = primaryStat(ins)
+  if (!stat) return undefined
+  const rule = FOCUS_METRIC_RULES.find((r) => r.test.test(stat.metric))
+  if (!rule) return undefined
+  const focus = buildFocus({
+    id: `insight-${ins.id}`,
+    metricKey: rule.key,
+    company: AUDIT_COMPANY_IDS.has(stat.insurer) ? stat.insurer : undefined,
+    companyLabel: pretty(stat.insurer),
+    currentPeriod: /^FY\s?\d{2}$/i.test(stat.period) ? stat.period : undefined,
+    comparisonPeriod: priorFyLabel(stat.period),
+    insightLabel: ins.shortHeadline || ins.headline,
+    origin: 'insight',
+  })
+  return focus && focus.sahiTab === destTab ? focus : undefined
+}
+
 /** Resolve where "Go to source" lands — Data Audit first (the verification
  *  layer), the dashboard chart only when the metric isn't audited. Deterministic;
  *  honest about exact-cell vs row vs fallback. */
@@ -332,7 +371,7 @@ export function resolveSource(ins: Insight): SourceLocation {
     breadcrumb: ['SAHI Analysis', TAB_LABEL[dest.tab] ?? dest.area, dest.table],
     area: dest.area,
     table: dest.table,
-    target: { page: 'sahi', sahiTab: dest.tab, company: named[0] },
+    target: { page: 'sahi', sahiTab: dest.tab, company: named[0], focus: focusForInsight(ins, dest.tab) },
     precision: 'table',
     cellStatus: 'Not in the Data Audit metric set — opens the dashboard chart for this metric.',
     provenance: provenancePhrase(ins),

@@ -1,7 +1,12 @@
-import { useId, useMemo, useState } from 'react'
+import { useId, useMemo, useState, type CSSProperties, type ReactElement } from 'react'
 import { CartesianGrid, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts'
-import { Landmark, ShieldCheck } from 'lucide-react'
+import { Landmark, ShieldCheck, Sparkles } from 'lucide-react'
 import { useActiveCompany, useFilters } from '@/state/filters'
+import { useSectionFocus } from '@/state/insightFocus'
+import { focusWithResolvedTone, resolveComparison, type InsightFocus } from '@/insights/insightFocus'
+import { InsightFocusBanner } from '@/components/insight/InsightFocusBanner'
+import { insightAnnotationLayer } from '@/components/insight/focusChart'
+import { useScrollIntoFocus } from '@/components/insight/useScrollIntoFocus'
 import { fyLabelsInRange } from '@/lib/dateRange'
 import { SourceTag } from '@/components/SourceTag'
 import { DataEmptyState } from '@/components/DataEmptyState'
@@ -198,7 +203,7 @@ function FrameworkHeader({ theme }: { theme: FrameworkTheme }) {
   )
 }
 
-function FrameworkTable({ theme, metrics, years }: { theme: FrameworkTheme; metrics: MetricDef[]; years: BasisPeriod[] }) {
+function FrameworkTable({ theme, metrics, years, highlightLabel }: { theme: FrameworkTheme; metrics: MetricDef[]; years: BasisPeriod[]; highlightLabel?: string }) {
   const rows = metrics.map((m) => ({ ...m, values: years.map((p) => m.get(p)) }))
   return (
     <div
@@ -230,9 +235,16 @@ function FrameworkTable({ theme, metrics, years }: { theme: FrameworkTheme; metr
               const lifted = ri % 2 === 1
               const rowBg = lifted ? theme.rowLift : theme.rowFlat
               const shadowClass = lifted ? theme.shadowLiftClass : theme.shadowFlatClass
+              // Insight-linked highlight: the exact metric row the insight points to.
+              const highlighted = !!highlightLabel && r.label === highlightLabel
               return (
-                <tr key={r.label} className={`${shadowClass} transition-shadow duration-normal ease-premium`}>
+                <tr
+                  key={r.label}
+                  className={`${shadowClass} transition-shadow duration-normal ease-premium ${highlighted ? 'insight-arrival' : ''}`}
+                  style={highlighted ? ({ '--insight-glow': 'rgba(182,139,58,0.30)', outline: '1.5px solid rgba(182,139,58,0.55)', outlineOffset: '-1px', borderRadius: '11px' } as CSSProperties) : undefined}
+                >
                   <td className="rounded-l-[11px] px-4 py-3 text-left font-semibold text-navy-deep" style={{ background: rowBg }}>
+                    {highlighted && <Sparkles className="mr-1 inline h-3 w-3 align-middle" strokeWidth={2.2} style={{ color: '#B68B3A' }} />}
                     {r.label}
                     {r.basisNeutral && (
                       <span
@@ -273,7 +285,19 @@ function FrameworkTable({ theme, metrics, years }: { theme: FrameworkTheme; metr
 }
 
 // ── Compact chart view (optional toggle) ─────────────────────────────────────
-function MiniSeriesChart({ title, data, unit, color }: { title: string; data: { fy: string; v: number | null }[]; unit: string; color: string }) {
+function MiniSeriesChart({
+  title,
+  data,
+  unit,
+  color,
+  annotation,
+}: {
+  title: string
+  data: { fy: string; v: number | null }[]
+  unit: string
+  color: string
+  annotation?: ReactElement | null
+}) {
   return (
     <div className="rounded-xl border border-soft-border bg-white/70 p-3">
       <p className="mb-1 text-[10.5px] font-semibold uppercase tracking-wide text-ink-secondary">{title}</p>
@@ -289,6 +313,7 @@ function MiniSeriesChart({ title, data, unit, color }: { title: string; data: { 
               formatter={(val: number) => [`${val}${unit}`, title]}
             />
             <Line type="monotone" dataKey="v" stroke={color} strokeWidth={2} dot={{ r: 2.5, fill: color }} connectNulls={false} isAnimationActive={false} />
+            {annotation}
           </LineChart>
         </ResponsiveContainer>
       </div>
@@ -296,10 +321,22 @@ function MiniSeriesChart({ title, data, unit, color }: { title: string; data: { 
   )
 }
 
-function FrameworkCharts({ theme, basis, companyId, years }: { theme: FrameworkTheme; basis: AccountingBasis; companyId: string; years: BasisPeriod[] }) {
+function FrameworkCharts({ theme, basis, companyId, years, focus }: { theme: FrameworkTheme; basis: AccountingBasis; companyId: string; years: BasisPeriod[]; focus?: InsightFocus | null }) {
   const cr = years.map((p) => ({ fy: p, v: getBasisProfit(companyId, basis, p)?.combinedRatio ?? null }))
   const pat = years.map((p) => ({ fy: p, v: getBasisProfit(companyId, basis, p)?.pat ?? null }))
   const lineColor = basis === 'ifrs' ? '#27457E' : '#9C7430'
+  const annotationFor = (rows: { fy: string; v: number | null }[]) =>
+    focus
+      ? insightAnnotationLayer({
+          focus,
+          resolved: resolveComparison(rows as unknown as Record<string, unknown>[], {
+            valueKey: 'v',
+            labelKey: 'fy',
+            currentPeriod: focus.currentPeriod,
+            comparisonPeriod: focus.comparisonPeriod,
+          }),
+        })
+      : null
   return (
     <div
       className="overflow-hidden rounded-[18px] border bg-white shadow-[0_1px_2px_rgba(23,43,77,0.04),0_10px_26px_rgba(23,43,77,0.06)]"
@@ -307,11 +344,47 @@ function FrameworkCharts({ theme, basis, companyId, years }: { theme: FrameworkT
     >
       <FrameworkHeader theme={theme} />
       <div className="grid grid-cols-1 gap-3 p-4 sm:grid-cols-2">
-        <MiniSeriesChart title="Combined Ratio (%)" data={cr} unit="%" color={lineColor} />
-        <MiniSeriesChart title="PAT (₹ Cr)" data={pat} unit="" color={lineColor} />
+        <MiniSeriesChart title="Combined Ratio (%)" data={cr} unit="%" color={lineColor} annotation={focus?.metricKey === 'combined_ratio' ? annotationFor(cr) : null} />
+        <MiniSeriesChart title="PAT (₹ Cr)" data={pat} unit="" color={lineColor} annotation={focus?.metricKey === 'pat' ? annotationFor(pat) : null} />
       </div>
     </div>
   )
+}
+
+// Insight-linked mapping: which profitability metrics an insight can point at,
+// the annual series used to resolve the comparison, and the table row to flag.
+const PROFIT_ROW_LABEL: Record<string, string> = {
+  combined_ratio: 'Combined Ratio (%)',
+  claims_ratio: 'Claims Ratio (%)',
+  expense_ratio: 'Expense Ratio (%)',
+  pat: 'PAT (₹ Cr)',
+  solvency_ratio: 'Solvency Ratio (x)',
+}
+const PROFIT_METRIC_KEYS = new Set(Object.keys(PROFIT_ROW_LABEL))
+function profitSeries(id: string, metricKey: string): { label: string; v: number | null }[] {
+  return ANNUAL_PERIODS.map((fy) => {
+    let v: number | null = null
+    switch (metricKey) {
+      case 'combined_ratio':
+        // IFRS basis — the row the highlight flags ('Combined Ratio (%)') lives on
+        // the IFRS table and carries the latest (FY26) reading.
+        v = getBasisProfit(id, 'ifrs', fy)?.combinedRatio ?? null
+        break
+      case 'claims_ratio':
+        v = getBasisProfit(id, 'igaap', fy)?.claimsRatio ?? null
+        break
+      case 'expense_ratio':
+        v = getBasisProfit(id, 'igaap', fy)?.expenseRatio ?? null
+        break
+      case 'pat':
+        v = getBasisProfit(id, 'igaap', fy)?.pat ?? null
+        break
+      case 'solvency_ratio':
+        v = getBasisSolvency(id, fy)
+        break
+    }
+    return { label: fy, v }
+  })
 }
 
 export function ProfitabilityReview() {
@@ -321,6 +394,24 @@ export function ProfitabilityReview() {
   const id = company.id
   // Periods follow the header's Annual/Quarterly toggle + Data Range.
   const periods = useVisiblePeriods()
+
+  // Insight-linked mode: when opened from a margin/profitability insight for THIS
+  // company, spotlight the metric's row (and its chart) with a pinned comparison.
+  const rawFocus = useSectionFocus('profitability')
+  const focusActive = !!rawFocus && (rawFocus.company == null || rawFocus.company === id) && PROFIT_METRIC_KEYS.has(rawFocus.metricKey)
+  const focus = focusActive ? rawFocus : null
+  const { ref: focusRef, arrived } = useScrollIntoFocus<HTMLDivElement>(focusActive)
+  const resolved = focus
+    ? resolveComparison(profitSeries(id, focus.metricKey), {
+        valueKey: 'v',
+        labelKey: 'label',
+        currentPeriod: focus.currentPeriod,
+        comparisonPeriod: focus.comparisonPeriod,
+      })
+    : null
+  // Recolour from the real resolved change (combined ratio up = amber, down = green).
+  const dispFocus = focus && resolved ? focusWithResolvedTone(focus, resolved) : focus
+  const highlightLabel = focus ? PROFIT_ROW_LABEL[focus.metricKey] : undefined
   const periodSpan = periods.length
     ? periods.length === 1
       ? periods[0]
@@ -385,6 +476,8 @@ export function ProfitabilityReview() {
     <div className="space-y-5">
       <ReviewToolbar name={company.shortName} span={periodSpan} view={view} onView={setView} />
 
+      {dispFocus && <InsightFocusBanner focus={dispFocus} resolved={resolved} />}
+
       {periods.length === 0 ? (
         <DataEmptyState
           kind="pending"
@@ -393,16 +486,16 @@ export function ProfitabilityReview() {
           height={240}
         />
       ) : view === 'table' ? (
-        <div className="space-y-5 animate-fade-in">
+        <div ref={focusRef} className={`space-y-5 animate-fade-in ${arrived ? 'insight-arrival rounded-2xl' : ''}`}>
           <div className="grid grid-cols-1 gap-5 lg:grid-cols-2 lg:items-start">
-            <FrameworkTable theme={IFRS_THEME} metrics={ifrsMetrics} years={periods} />
-            <FrameworkTable theme={IGAAP_THEME} metrics={igaapMetrics} years={periods} />
+            <FrameworkTable theme={IFRS_THEME} metrics={ifrsMetrics} years={periods} highlightLabel={highlightLabel} />
+            <FrameworkTable theme={IGAAP_THEME} metrics={igaapMetrics} years={periods} highlightLabel={highlightLabel} />
           </div>
         </div>
       ) : (
-        <div className="grid grid-cols-1 gap-5 lg:grid-cols-2 lg:items-start animate-fade-in">
-          <FrameworkCharts theme={IFRS_THEME} basis="ifrs" companyId={id} years={periods} />
-          <FrameworkCharts theme={IGAAP_THEME} basis="igaap" companyId={id} years={periods} />
+        <div ref={focusRef} className={`grid grid-cols-1 gap-5 lg:grid-cols-2 lg:items-start animate-fade-in ${arrived ? 'insight-arrival rounded-2xl' : ''}`}>
+          <FrameworkCharts theme={IFRS_THEME} basis="ifrs" companyId={id} years={periods} focus={dispFocus} />
+          <FrameworkCharts theme={IGAAP_THEME} basis="igaap" companyId={id} years={periods} focus={dispFocus} />
         </div>
       )}
 

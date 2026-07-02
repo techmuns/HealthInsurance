@@ -500,3 +500,42 @@ body {
     animation: none !important;
   }
 }
+
+/* ── Insight-linked chart highlighting — a calm, one-time entrance when a chart
+   opens from an insight: the spotlight fades in, the connector draws from the
+   comparison bar to the current bar, and the % pill pops. Everything settles into
+   a static highlighted state (no looping), and reduced-motion jumps to the end. */
+@keyframes insight-fade-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes insight-draw { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+@keyframes insight-pop {
+  0% { opacity: 0; transform: translateY(5px) scale(0.9); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes insight-arrival {
+  0% { box-shadow: 0 0 0 0 rgba(39, 69, 126, 0); }
+  22% { box-shadow: 0 0 0 4px var(--insight-glow, rgba(39, 69, 126, 0.18)), 0 14px 34px rgba(23, 43, 77, 0.12); }
+  100% { box-shadow: 0 0 0 0 rgba(39, 69, 126, 0); }
+}
+
+.insight-spotlight { animation: insight-fade-in 0.55s ease both; }
+.insight-connector {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: insight-draw 0.72s cubic-bezier(0.22, 1, 0.36, 1) 0.14s forwards;
+}
+.insight-anchor { animation: insight-fade-in 0.4s ease 0.28s both; }
+.insight-pill {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: insight-pop 0.42s cubic-bezier(0.34, 1.56, 0.64, 1) 0.56s both;
+}
+/* One-time soft ring on the chart card the reader is scrolled to. */
+.insight-arrival { animation: insight-arrival 2.4s cubic-bezier(0.22, 1, 0.36, 1) 1; }
+
+@media (prefers-reduced-motion: reduce) {
+  .insight-spotlight,
+  .insight-anchor,
+  .insight-pill { animation: insight-fade-in 0.12s ease both !important; }
+  .insight-connector { animation: none !important; stroke-dashoffset: 0 !important; }
+  .insight-arrival { animation: none !important; }
+}

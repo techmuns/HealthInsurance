@@ -1,7 +1,9 @@
 import { useEffect, useRef, useState, type ComponentType } from 'react'
 import { Users, Share2, Gauge, Scale, Activity, Landmark, Newspaper, ArrowLeft, type LucideIcon } from 'lucide-react'
 import type { AuditFocus, NavTarget } from '@/insights/sourceMap'
+import type { InsightFocus } from '@/insights/insightFocus'
 import { FilterProvider, useFilters } from '@/state/filters'
+import { InsightFocusProvider, type InsightFocusValue } from '@/state/insightFocus'
 import { VerifyProvider } from '@/state/verifyState'
 import { DEFAULT_RANGE } from '@/lib/dateRange'
 import { SectionErrorBoundary } from '@/components/SectionErrorBoundary'
@@ -220,7 +222,8 @@ function SahiContent({ tab }: { tab: string }) {
   )
 }
 
-export default function App() {
+function AppInner() {
+  const { setHighlightedCompany } = useFilters()
   const [page, setPage] = useState<TopPage>('industry')
   const [sahiTab, setSahiTab] = useState('companies')
   const [navOpen, setNavOpen] = useState(false)
@@ -230,6 +233,10 @@ export default function App() {
   const [auditFocus, setAuditFocus] = useState<AuditFocus | null>(null)
   const [insightReturn, setInsightReturn] = useState<string | null>(null)
   const [reopenInsightId, setReopenInsightId] = useState<string | null>(null)
+  // Insight-linked chart highlighting: the structured comparison context (metric,
+  // company, period vs comparison period, delta) that the destination section uses
+  // to visually explain the exact insight the reader arrived from.
+  const [insightFocus, setInsightFocus] = useState<InsightFocus | null>(null)
 
   // The scrolling content column + the scroll offset to restore on "Back", so a
   // jump out from Pulse/an insight returns to the exact spot the reader left.
@@ -249,6 +256,7 @@ export default function App() {
     // A manual page switch cancels the "return" breadcrumb + any pending scroll restore.
     setInsightReturn(null)
     setAuditFocus(null)
+    setInsightFocus(null)
     returnScrollRef.current = null
   }
 
@@ -258,6 +266,11 @@ export default function App() {
     returnScrollRef.current = mainRef.current?.scrollTop ?? null
     setInsightReturn(insightId)
     setAuditFocus(target.page === 'audit' ? target.audit ?? null : null)
+    // Carry the insight-linked highlight context into the destination section, and
+    // pre-select the company it names so the chart lands on the right series.
+    setInsightFocus(target.focus ?? null)
+    const company = target.focus?.company ?? target.company
+    if (company) setHighlightedCompany(company)
     setPage(target.page)
     if (target.sahiTab) setSahiTab(target.sahiTab)
     setNavOpen(false)
@@ -269,7 +282,16 @@ export default function App() {
     if (insightReturn) setReopenInsightId(insightReturn)
     setInsightReturn(null)
     setAuditFocus(null)
+    setInsightFocus(null)
     setPage('insights')
+  }
+
+  // The insight-linked highlight context shared with every section via context.
+  const focusValue: InsightFocusValue = {
+    focus: insightFocus,
+    clearFocus: () => setInsightFocus(null),
+    returnToOrigin: backToInsight,
+    fromPulse,
   }
 
   // After landing back on Insights, restore the scroll offset the reader left from.
@@ -294,10 +316,7 @@ export default function App() {
   const viewKey = page === 'industry' ? 'industry' : page === 'insights' ? 'insights' : page === 'audit' ? 'audit' : `sahi-${sahiTab}`
 
   return (
-    <FilterProvider>
-      {/* Verification state lives at the app level so an uploaded Excel survives
-          moving between sections — leaving Data Audit no longer discards it. */}
-      <VerifyProvider>
+    <InsightFocusProvider value={focusValue}>
       <div className="flex h-screen overflow-hidden">
         {/* Lean collapsible left navigation — app-level (the two pages). */}
         <Sidebar
@@ -381,6 +400,17 @@ export default function App() {
           </button>
         )}
       </div>
+    </InsightFocusProvider>
+  )
+}
+
+export default function App() {
+  return (
+    <FilterProvider>
+      {/* Verification state lives at the app level so an uploaded Excel survives
+          moving between sections — leaving Data Audit no longer discards it. */}
+      <VerifyProvider>
+        <AppInner />
       </VerifyProvider>
     </FilterProvider>
   )
