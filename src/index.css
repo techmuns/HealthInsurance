@@ -493,29 +493,37 @@ body {
 }
 .animate-note-in { animation: note-in 0.2s cubic-bezier(0.22, 1, 0.36, 1) both; }
 
-/* Insight-note page turn — a calm sheet sliding in (with a soft edge shadow that
-   fades as it settles). Two directions so forward/back read correctly. Keyed per
-   page so the animation replays on every turn. */
-@keyframes page-turn-fwd {
-  0%   { opacity: 0.1; transform: translateX(34%); box-shadow: -16px 0 26px -12px rgba(23, 43, 77, 0.3); }
-  60%  { opacity: 1; }
-  100% { opacity: 1; transform: translateX(0);     box-shadow: 0 0 0 0 rgba(23, 43, 77, 0); }
+/* Insight-note page TURN — a two-layer "paper sweep". The next page sits ready
+   underneath; the top sheet (a copy of the page you're leaving) folds from its
+   top-right corner and sweeps left, casting a soft shadow mid-turn and fading out
+   at the end — revealing the page beneath. Back mirrors it from the top-left. The
+   viewport carries `perspective` so rotateY reads as a genuine fold. */
+@keyframes page-peel-fwd {
+  0%   { transform: rotateY(0deg) rotateZ(0deg) translateX(0); opacity: 1; }
+  50%  { box-shadow: -20px 12px 40px -12px rgba(23, 43, 77, 0.4); }
+  100% { transform: rotateY(-84deg) rotateZ(-6deg) translateX(-64%); opacity: 0; box-shadow: -6px 4px 14px -8px rgba(23, 43, 77, 0.06); }
 }
-@keyframes page-turn-back {
-  0%   { opacity: 0.1; transform: translateX(-34%); box-shadow: 16px 0 26px -12px rgba(23, 43, 77, 0.3); }
-  60%  { opacity: 1; }
-  100% { opacity: 1; transform: translateX(0);      box-shadow: 0 0 0 0 rgba(23, 43, 77, 0); }
+@keyframes page-peel-back {
+  0%   { transform: rotateY(0deg) rotateZ(0deg) translateX(0); opacity: 1; }
+  50%  { box-shadow: 20px 12px 40px -12px rgba(23, 43, 77, 0.4); }
+  100% { transform: rotateY(84deg) rotateZ(6deg) translateX(64%); opacity: 0; box-shadow: 6px 4px 14px -8px rgba(23, 43, 77, 0.06); }
 }
-.animate-page-fwd  { animation: page-turn-fwd  0.4s cubic-bezier(0.4, 0, 0.2, 1) both; }
-.animate-page-back { animation: page-turn-back 0.4s cubic-bezier(0.4, 0, 0.2, 1) both; }
+.page-peel-fwd  { transform-origin: top right; animation: page-peel-fwd  0.42s cubic-bezier(0.42, 0, 0.25, 1) both; }
+.page-peel-back { transform-origin: top left;  animation: page-peel-back 0.42s cubic-bezier(0.42, 0, 0.25, 1) both; }
 
+/* Reduced motion: no fold — the top sheet just blinks away so the switch is
+   instant (onAnimationEnd still fires to clear the turning layer). */
+@keyframes page-peel-reduced { to { opacity: 0; } }
 @media (prefers-reduced-motion: reduce) {
   .pulse-live,
   .glow-new,
-  .type-caret,
-  .animate-page-fwd,
-  .animate-page-back {
+  .type-caret {
     animation: none !important;
+  }
+  .page-peel-fwd,
+  .page-peel-back {
+    animation: page-peel-reduced 0.01s both;
+    transform: none;
   }
 }
 

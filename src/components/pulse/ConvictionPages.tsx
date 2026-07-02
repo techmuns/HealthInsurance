@@ -10,7 +10,7 @@
 // fixed height and each page scrolls internally if it runs long. Calm motion,
 // reduced-motion respected. All content is source-derived (see ./derive).
 
-import { useEffect, useRef } from 'react'
+import { useLayoutEffect, useRef, useState } from 'react'
 import {
   ChevronLeft,
   ChevronRight,
@@ -225,14 +225,14 @@ function SourcesPage({ idea, companyId, onNavigate }: { idea: ConvictionIdea; co
 function PageCorner({ page, onTurn }: { page: number; onTurn: () => void }) {
   const last = page === PAGES.length - 1
   const nextName = last ? 'Story' : PAGES[page + 1]
-  const label = last ? 'Back to Story' : `${nextName} →`
+  const label = `${nextName} →`
   return (
     <button
       type="button"
       onClick={onTurn}
       aria-label={`Turn to ${nextName}`}
-      title={last ? 'Back to Story' : `Turn to ${nextName}`}
-      className="group absolute right-0 top-0 z-20 h-14 w-28"
+      title={`Turn to ${nextName}`}
+      className="group absolute right-0 top-0 z-30 h-14 w-28"
     >
       {/* the folded corner — a gold sheet peeled back, lifting a touch on hover */}
       <span
@@ -294,31 +294,48 @@ export function ConvictionPages({
     <SourcesPage idea={idea} companyId={companyId} onNavigate={onNavigate} />,
   ]
 
-  // Direction of the turn (forward = next page incl. the wrap 3→1) so the sheet
-  // slides in from the correct side. Keyed by page, the animation replays each turn.
+  // A "paper sweep": when `page` changes, the destination page is already mounted
+  // underneath; we lay a copy of the page we're LEAVING on top and let it peel
+  // from the top-right corner and sweep away — then drop it. Set pre-paint (layout
+  // effect) so the top sheet is there from the first frame (no flash), and skipped
+  // entirely under reduced motion (instant switch).
   const prevRef = useRef(page)
-  const dir = page === (prevRef.current + 1) % PAGES.length ? 'fwd' : 'back'
-  useEffect(() => {
+  const [turn, setTurn] = useState<{ from: number; dir: 'fwd' | 'back' } | null>(null)
+  useLayoutEffect(() => {
+    if (prevRef.current === page) return
+    const from = prevRef.current
     prevRef.current = page
+    const reduce = typeof window !== 'undefined' && window.matchMedia?.('(prefers-reduced-motion: reduce)').matches
+    if (reduce) return
+    setTurn({ from, dir: page === (from + 1) % PAGES.length ? 'fwd' : 'back' })
   }, [page])
 
   return (
     <div className="flex min-h-0 flex-1 flex-col" style={{ background: '#FCFBF7' }}>
-      {/* page body — FIXED height (fills the note). Only the active page is
-          mounted; on a turn it slides in like a sheet (the corner + spine stay
-          put). Long pages scroll internally so the block never resizes. */}
-      <div className="relative min-h-0 flex-1 overflow-hidden">
-        <div
-          key={page}
-          className={`scroll-thin absolute inset-0 overflow-y-auto px-4 py-3.5 ${dir === 'fwd' ? 'animate-page-fwd' : 'animate-page-back'}`}
-        >
-          {bodies[page]}
-        </div>
+      {/* page viewport — FIXED height (fills the note). The perspective makes the
+          top sheet's fold read as 3D. Long pages scroll internally so the block
+          never resizes. */}
+      <div className="relative min-h-0 flex-1 overflow-hidden" style={{ perspective: '1200px' }}>
+        {/* the destination page, sitting ready underneath */}
+        <div className="scroll-thin absolute inset-0 overflow-y-auto px-4 py-3.5">{bodies[page]}</div>
+
+        {/* the page you're leaving — peels from the top-right and sweeps away */}
+        {turn && (
+          <div
+            key={`peel-${turn.from}-${page}`}
+            aria-hidden
+            onAnimationEnd={() => setTurn(null)}
+            className={`absolute inset-0 overflow-hidden px-4 py-3.5 ${turn.dir === 'fwd' ? 'page-peel-fwd' : 'page-peel-back'}`}
+            style={{ zIndex: 20, background: '#FCFBF7', willChange: 'transform, opacity' }}
+          >
+            {bodies[turn.from]}
+          </div>
+        )}
 
         {/* a soft "spine" shadow on the right edge for paper depth */}
-        <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-5" style={{ background: 'linear-gradient(90deg, transparent, rgba(23,43,77,0.05))' }} />
+        <div className="pointer-events-none absolute inset-y-0 right-0 z-[25] w-5" style={{ background: 'linear-gradient(90deg, transparent, rgba(23,43,77,0.05))' }} />
 
-        {/* the folded page-corner control */}
+        {/* the folded page-corner control — always on top, drives the turn */}
         <PageCorner page={page} onTurn={() => onPage((page + 1) % PAGES.length)} />
       </div>
 
