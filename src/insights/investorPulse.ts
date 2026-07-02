@@ -798,7 +798,13 @@ function metricsForLens(
   if (key === 'growthLevers') {
     const gwp = annualPick(annualRows, 'gwp')
     if (gwp) out.push(M('Gross written premium', fmtCr(gwp.value), gwp.period, 'Neutral', gwp.src))
-    const growth = peerRow?.growth != null ? { value: peerRow.growth, period: peerRow.fiscal_year ?? 'FY25', src: peerSrc } : annualPick(annualRows, 'growth_yoy')
+    // Use the LATEST reported year's growth (annual snapshot, e.g. FY26) so the
+    // growth lens — and the Pulse "premium growth YoY" chip that reads it — agree
+    // with the premium chart's latest-year spotlight AND this lens's own FY26 GWP
+    // above (never FY26 GWP paired with FY25 growth). Peer-comparison (FY25) growth
+    // stays in Competitive Positioning, paired with its peer median, where the
+    // peer-year basis is the right one.
+    const growth = annualPick(annualRows, 'growth_yoy') ?? (peerRow?.growth != null ? { value: peerRow.growth, period: peerRow.fiscal_year ?? 'FY25', src: peerSrc } : null)
     if (growth) out.push(M('GWP growth (YoY)', fmtPct(growth.value), growth.period, growthTone(growth.value), growth.src))
     const retail = annualPick(annualRows, 'retail_mix')
     const group = annualPick(annualRows, 'group_mix')
