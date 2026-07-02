@@ -204,6 +204,16 @@ function MainChartBlock() {
     ? [...channelsWithData].sort((a, b) => Number(latest[b] ?? 0) - Number(latest[a] ?? 0))
     : channelsWithData
 
+  // Honest, data-driven chip: the channel that gained the most share across the
+  // in-range span IS the growth lever (Brokers for Niva Bupa, not Banca) — never
+  // a hardcoded claim. Mirrors the ChannelMixCard logic in MarketDistribution.
+  const first = mixRows[0]
+  const lever = latest
+    ? channelsWithData
+        .map((ch) => ({ ch, gain: Number(latest[ch] ?? 0) - Number(first?.[ch] ?? 0) }))
+        .sort((a, b) => b.gain - a.gain)[0]
+    : undefined
+
   // Multi-select: lines start all-on; clicking a chip hides/shows its line. The
   // selector never lets every line be hidden (always keep one on screen).
   const [hidden, setHidden] = useState<Set<DistChannel>>(new Set())
@@ -229,9 +239,11 @@ function MainChartBlock() {
           </h2>
           <div className="mt-1 flex flex-wrap items-center gap-2 text-[12px] text-ink-secondary">
             <span>Share of GWP by channel · {span}</span>
-            <span className="inline-flex items-center rounded-full bg-champagne-soft px-2 py-0.5 text-[10px] font-semibold text-champagne-deep ring-1 ring-[#EAD9B6]">
-              Bancassurance: structural growth lever
-            </span>
+            {lever && (
+              <span className="inline-flex items-center rounded-full bg-champagne-soft px-2 py-0.5 text-[10px] font-semibold text-champagne-deep ring-1 ring-[#EAD9B6]">
+                {lever.ch}: growth lever
+              </span>
+            )}
           </div>
         </div>
       </header>
@@ -251,7 +263,7 @@ function MainChartBlock() {
       ) : mixRows.length === 0 ? (
         <EmptyState
           title="Data not available from source"
-          body={`No channel-mix years for ${company.shortName} fall inside the selected Data Range — widen it in the top bar (mix is reported FY22–FY25).`}
+          body={`No channel-mix years for ${company.shortName} fall inside the selected Data Range — widen it in the top bar${data.mix.length ? ` (mix is reported ${data.mix[0].period}–${data.mix[data.mix.length - 1].period})` : ''}.`}
           height={300}
         />
       ) : (

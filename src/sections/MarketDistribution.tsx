@@ -292,9 +292,15 @@ export function PoolShiftCard() {
           <h2 className="font-display text-[20px] leading-tight text-navy-deep">
             Where is the GI premium pool shifting?
           </h2>
-          <span className="inline-flex items-center rounded-full bg-teal-soft px-2 py-0.5 text-[10px] font-semibold text-teal ring-1 ring-[#BFE3E1]">
-            Health gaining share
-          </span>
+          {healthPp != null && healthPp !== 0 && (
+            <span
+              className={`inline-flex items-center rounded-full px-2 py-0.5 text-[10px] font-semibold ring-1 ${
+                healthPp > 0 ? 'bg-teal-soft text-teal ring-[#BFE3E1]' : 'bg-soft-blue text-navy-primary ring-[#D6E2FA]'
+              }`}
+            >
+              {healthPp > 0 ? 'Health gaining share' : 'Health ceding share'}
+            </span>
+          )}
         </div>
         <p className="mt-1 text-[12px] text-ink-secondary">Health · Motor · Others · {span}</p>
       </header>
@@ -361,9 +367,13 @@ export function PoolShiftCard() {
         </div>
       )}
 
-      {rows.length > 0 && healthPp != null && (
+      {rows.length > 0 && healthPp != null && healthPp !== 0 && (
         <InsightLine>
-          Health premium share increased by <strong className="font-semibold text-teal">{healthPp.toFixed(1)} pp</strong>, mainly at the cost of {cederName}.
+          {healthPp > 0 ? (
+            <>Health premium share increased by <strong className="font-semibold text-teal">{healthPp.toFixed(1)} pp</strong>, mainly at the cost of {cederName}.</>
+          ) : (
+            <>Health premium share decreased by <strong className="font-semibold text-navy-deep">{Math.abs(healthPp).toFixed(1)} pp</strong> over {span}.</>
+          )}
         </InsightLine>
       )}
 

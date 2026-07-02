@@ -45,7 +45,10 @@ export function MarketShareDonut({
   })
 
   const focal = colored.find((d) => d.focal)
-  const leader = colored.find((d) => d.name !== 'Others')
+  // The at-rest center preview falls back to the true top-share leader (already
+  // resolved as `leaderName` from the sorted ranking), not merely the first
+  // non-Others slice in input order — correct even if `data` arrives unsorted.
+  const leader = colored.find((d) => d.name === leaderName)
   // Center previews the hovered slice; falls back to the selected company.
   const centerSlice = hover !== null ? colored[hover] : focal ?? leader
   const centerRank = centerSlice ? ranked.findIndex((d) => d.name === centerSlice.name) + 1 : null

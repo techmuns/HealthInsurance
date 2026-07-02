@@ -464,11 +464,26 @@ export function CompetitivePositioning() {
   // footer states the span honestly rather than claiming one single year.
   const rangeLabel = `latest available per metric · FY26 GWP growth (provisional) · ${getLatestAnnualFyLabel()} profitability · live multiples`
 
-  const explainGrowth = focalRow.cells.growth.tone === 'leader' || focalRow.cells.growth.tone === 'strong'
+  // Each "why this score" bullet checks for a not-disclosed metric FIRST (value
+  // null → tone 'na') and says so honestly, rather than letting a missing value
+  // fall through to a fabricated "below peers" underperformance claim.
+  const explainGrowth = focalRow.cells.growth.value == null
+    ? 'GWP growth not disclosed'
+    : focalRow.cells.growth.tone === 'leader' || focalRow.cells.growth.tone === 'strong'
     ? `Strong GWP growth${focalRow.cells.retailMix.tone === 'leader' || focalRow.cells.retailMix.tone === 'strong' ? ' + retail-mix lead' : ''}`
     : 'GWP growth below peers'
-  const explainProfit = focalRow.cells.roe.tone === 'leader' || focalRow.cells.roe.tone === 'strong' ? 'ROE ahead of peers' : 'ROE below peers — key gap'
-  const explainCapital = focalRow.cells.solvency.best ? 'Best solvency in the group' : focalRow.cells.solvency.tone === 'strong' ? 'Strong solvency cushion' : 'Solvency near peer median'
+  const explainProfit = focalRow.cells.roe.value == null
+    ? 'ROE not disclosed'
+    : focalRow.cells.roe.tone === 'leader' || focalRow.cells.roe.tone === 'strong'
+    ? 'ROE ahead of peers'
+    : 'ROE below peers — key gap'
+  const explainCapital = focalRow.cells.solvency.value == null
+    ? 'Solvency not disclosed'
+    : focalRow.cells.solvency.best
+    ? 'Best solvency in the group'
+    : focalRow.cells.solvency.tone === 'strong'
+    ? 'Strong solvency cushion'
+    : 'Solvency near peer median'
   const explainVal = focalRow.cells.valuation.value == null ? 'Not listed — no market price' : focalRow.cells.valuation.signal === 'Premium' ? 'Priced above peers' : 'Priced below peers'
 
   // Display-only summary of the already-computed tones (no new calculation):
