@@ -1,4 +1,4 @@
-import { useEffect, useState, type ComponentType } from 'react'
+import { useEffect, useRef, useState, type ComponentType } from 'react'
 import { Users, Share2, Gauge, Scale, Activity, Landmark, Newspaper, ArrowLeft, type LucideIcon } from 'lucide-react'
 import type { AuditFocus, NavTarget } from '@/insights/sourceMap'
 import { FilterProvider, useFilters } from '@/state/filters'
@@ -231,20 +231,31 @@ export default function App() {
   const [insightReturn, setInsightReturn] = useState<string | null>(null)
   const [reopenInsightId, setReopenInsightId] = useState<string | null>(null)
 
+  // The scrolling content column + the scroll offset to restore on "Back", so a
+  // jump out from Pulse/an insight returns to the exact spot the reader left.
+  const mainRef = useRef<HTMLElement>(null)
+  const returnScrollRef = useRef<number | null>(null)
+
+  // Whether the current return breadcrumb was opened from Pulse (drives the chip
+  // label + the fact that we land back on the Pulse read, not a Data Insights card).
+  const fromPulse = insightReturn?.startsWith('pulse') ?? false
+
   const auraKey = page === 'industry' ? 'overview' : page === 'insights' ? 'insights' : page === 'audit' ? 'audit' : AURA_KEY[sahiTab] ?? 'peers'
   const aura = SECTION_AURA[auraKey] ?? SECTION_AURA.overview
 
   const selectPage = (p: TopPage) => {
     setPage(p)
     setNavOpen(false)
-    // A manual page switch cancels the "return to the insight" breadcrumb.
+    // A manual page switch cancels the "return" breadcrumb + any pending scroll restore.
     setInsightReturn(null)
     setAuditFocus(null)
+    returnScrollRef.current = null
   }
 
-  // Jump from an insight to its source — Data Audit first (the verification
-  // layer), the dashboard chart only on fallback. Remembers the insight to return.
+  // Jump from Pulse / an insight to its source — Data Audit first (the verification
+  // layer), the dashboard chart only on fallback. Remembers where to return to.
   const goToInsightSource = (target: NavTarget, insightId: string) => {
+    returnScrollRef.current = mainRef.current?.scrollTop ?? null
     setInsightReturn(insightId)
     setAuditFocus(target.page === 'audit' ? target.audit ?? null : null)
     setPage(target.page)
@@ -252,13 +263,30 @@ export default function App() {
     setNavOpen(false)
   }
 
-  // Return to the same insight card the user jumped from, re-flipped to its workings.
+  // Return to where the reader jumped from — the same Pulse read (restored filter,
+  // date + scroll) or the same insight card, re-flipped to its workings.
   const backToInsight = () => {
     if (insightReturn) setReopenInsightId(insightReturn)
     setInsightReturn(null)
     setAuditFocus(null)
     setPage('insights')
   }
+
+  // After landing back on Insights, restore the scroll offset the reader left from.
+  useEffect(() => {
+    if (page !== 'insights' || returnScrollRef.current == null) return
+    const y = returnScrollRef.current
+    returnScrollRef.current = null
+    // Two frames: let Insights (and the Pulse read) paint before we scroll.
+    let raf2 = 0
+    const raf1 = requestAnimationFrame(() => {
+      raf2 = requestAnimationFrame(() => mainRef.current?.scrollTo({ top: y }))
+    })
+    return () => {
+      cancelAnimationFrame(raf1)
+      cancelAnimationFrame(raf2)
+    }
+  }, [page])
   // Sidebar mirrors the top-level pages as app-level icon nav (ids match TopPage).
   const onSidebarNavigate = (id: string) =>
     selectPage(id === 'sahi' || id === 'audit' || id === 'insights' ? id : 'industry')
@@ -300,7 +328,7 @@ export default function App() {
           </header>
 
           {/* Only this content area scrolls — the shell stays fixed like an app. */}
-          <main className="relative min-h-0 flex-1 overflow-y-auto scroll-thin">
+          <main ref={mainRef} className="relative min-h-0 flex-1 overflow-y-auto scroll-thin">
             {/* Ambient colour-psychology field — retoned per view. */}
             <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
               <div className="absolute -left-28 top-6 h-72 w-72 rounded-full opacity-[0.06] blur-3xl transition-colors duration-700 ease-out" style={{ backgroundColor: aura.a }} />
@@ -340,16 +368,16 @@ export default function App() {
           </main>
         </div>
 
-        {/* Floating return — shown after jumping from an insight to its source
-            (Data Audit or a chart). Brings the reader back to the same insight,
-            re-flipped, so studying context is never lost. */}
+        {/* Floating return — shown after jumping from Pulse or an insight to its
+            source (Data Audit or a chart). Brings the reader back to exactly where
+            they left: the same Pulse read, or the same insight card re-flipped. */}
         {insightReturn && page !== 'insights' && (
           <button
             type="button"
             onClick={backToInsight}
             className="fixed bottom-6 right-6 z-40 inline-flex items-center gap-2 rounded-full border border-[#E4CE93] bg-gradient-to-br from-[#1E4079] to-[#143058] px-4 py-2.5 text-[12.5px] font-semibold text-white shadow-[0_10px_30px_rgba(23,43,77,0.28)] transition-transform hover:-translate-y-0.5"
           >
-            <ArrowLeft className="h-4 w-4" /> Back to Insight
+            <ArrowLeft className="h-4 w-4" /> {fromPulse ? 'Back to Pulse' : 'Back to Insight'}
           </button>
         )}
       </div>

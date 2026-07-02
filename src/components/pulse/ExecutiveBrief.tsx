@@ -20,8 +20,6 @@ import {
   Zap,
   ShieldCheck,
   Users,
-  History,
-  TrendingUp,
   Globe,
   Radar,
   Clock3,
@@ -29,9 +27,11 @@ import {
   CalendarClock,
   Landmark,
   ArrowUpRight,
+  ExternalLink,
   type LucideIcon,
 } from 'lucide-react'
 import { IMPACT_META, type InvestorPulse } from '@/insights/investorPulse'
+import type { NavTarget } from '@/insights/sourceMap'
 import {
   STATUS_COLOR,
   type MorningBrief,
@@ -192,10 +192,12 @@ function ExpandRow({ icon: Icon, label, text }: { icon: LucideIcon; label: strin
   )
 }
 
-function ConvictionRow({ idea }: { idea: ConvictionIdea }) {
+function ConvictionRow({ idea, onNavigate }: { idea: ConvictionIdea; onNavigate?: (t: NavTarget, id: string) => void }) {
   const [open, setOpen] = useState(false)
   const accent = accentFor(idea)
   const w = idea.why
+  const dash = idea.action?.target
+  const src = idea.sources[0]?.url
   return (
     <div className={`rounded-lg border border-soft-border bg-white ${idea.isNew ? 'glow-new' : ''}`}>
       <button type="button" onClick={() => setOpen((v) => !v)} className={`flex w-full items-start gap-2 px-2.5 py-2 text-left transition-colors ${open ? 'bg-ice/50' : 'hover:bg-ice/40'}`}>
@@ -227,16 +229,39 @@ function ConvictionRow({ idea }: { idea: ConvictionIdea }) {
             <span>·</span>
             <span>{idea.evidenceCount} source{idea.evidenceCount === 1 ? '' : 's'}</span>
           </div>
-          <ExpandRow icon={ShieldCheck} label="Why should I care" text={w.whyItMatters} />
+          <ExpandRow icon={Zap} label="What happened" text={w.whatHappened} />
+          <ExpandRow icon={ShieldCheck} label="Why it matters" text={w.whyItMatters} />
           <ExpandRow icon={Users} label="Who is affected" text={w.whoAffected} />
-          {w.historicalContext && <ExpandRow icon={History} label="Historical context" text={w.historicalContext} />}
-          {w.potentialImpact && <ExpandRow icon={TrendingUp} label="Potential impact" text={w.potentialImpact} />}
+          <ExpandRow icon={Radar} label="What to watch next" text={idea.whatToWatch} />
           {idea.sources.length > 0 && (
             <div className="flex flex-wrap items-center gap-1 pt-0.5">
-              <Globe className="h-3 w-3 text-navy-primary" strokeWidth={2} />
+              <span className="text-[8px] font-bold uppercase tracking-[0.08em] text-ink-secondary">Source basis:</span>
               {idea.sources.slice(0, 3).map((s, i) => (
                 <SourceChip key={i} kind={s.kind} name={s.name} url={s.url} />
               ))}
+            </div>
+          )}
+          {(dash || src) && (
+            <div className="flex flex-wrap items-center gap-1.5 pt-1">
+              {dash && onNavigate && (
+                <button
+                  type="button"
+                  onClick={() => onNavigate(dash, `pulse-idea-${idea.id}`)}
+                  className="inline-flex items-center gap-1 rounded-md border border-soft-border bg-white px-2 py-1 text-[9.5px] font-semibold text-navy-deep shadow-soft transition-colors hover:border-champagne hover:bg-champagne-soft/40"
+                >
+                  <ArrowUpRight className="h-3 w-3" strokeWidth={2.2} style={{ color: GOLD }} /> View in dashboard
+                </button>
+              )}
+              {src && (
+                <a
+                  href={src}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-1 rounded-md border border-soft-border bg-white px-2 py-1 text-[9.5px] font-semibold text-navy-deep shadow-soft transition-colors hover:border-champagne hover:bg-champagne-soft/40"
+                >
+                  <ExternalLink className="h-3 w-3" strokeWidth={2.2} style={{ color: GOLD }} /> Open source
+                </a>
+              )}
             </div>
           )}
         </div>
@@ -245,7 +270,7 @@ function ConvictionRow({ idea }: { idea: ConvictionIdea }) {
   )
 }
 
-function ConvictionList({ ideas }: { ideas: ConvictionIdea[] }) {
+function ConvictionList({ ideas, onNavigate }: { ideas: ConvictionIdea[]; onNavigate?: (t: NavTarget, id: string) => void }) {
   return (
     <div className="px-4 py-3">
       <SectionHead icon={Radar} label="Highest Conviction Ideas" note="top 3" />
@@ -254,7 +279,7 @@ function ConvictionList({ ideas }: { ideas: ConvictionIdea[] }) {
       ) : (
         <div className="space-y-1.5">
           {ideas.slice(0, 3).map((idea) => (
-            <ConvictionRow key={idea.id} idea={idea} />
+            <ConvictionRow key={idea.id} idea={idea} onNavigate={onNavigate} />
           ))}
         </div>
       )}
@@ -264,21 +289,31 @@ function ConvictionList({ ideas }: { ideas: ConvictionIdea[] }) {
 
 // ── RIGHT · since yesterday + events + actions ────────────────────────────────
 
-function SinceYesterdayBlock({ deltas }: { deltas: SinceDelta[] }) {
+function SinceYesterdayBlock({ deltas, onNavigate }: { deltas: SinceDelta[]; onNavigate?: (t: NavTarget, id: string) => void }) {
   if (deltas.length === 0) return null
   return (
     <div className="px-4 py-3">
-      <SectionHead icon={RefreshCw} label="Since Yesterday" />
-      <div className="space-y-1.5">
+      <SectionHead icon={RefreshCw} label="Since Yesterday" note="view in dashboard" />
+      <div className="space-y-0.5">
         {deltas.map((d) => {
           const tone = IMPACT_META[d.tone]
           const Icon = d.direction === 'down' ? ArrowDown : d.direction === 'flat' ? Minus : ArrowUp
           return (
-            <div key={d.id} className="flex items-baseline gap-1.5">
+            <button
+              key={d.id}
+              type="button"
+              disabled={!onNavigate}
+              onClick={() => onNavigate?.(d.target, `pulse-since-${d.id}`)}
+              title={onNavigate ? 'View in dashboard' : undefined}
+              className={`group flex w-full items-baseline gap-1.5 rounded-md px-1 py-0.5 text-left transition-colors ${onNavigate ? 'cursor-pointer hover:bg-ice/70' : 'cursor-default'}`}
+            >
               <Icon className="h-3 w-3 shrink-0 self-center" strokeWidth={2.4} style={{ color: tone.fg }} />
               <span className="text-[12.5px] font-bold text-navy-deep">{d.value}</span>
               <span className="text-[10.5px] text-ink-secondary">{d.label}</span>
-            </div>
+              {onNavigate && (
+                <ArrowUpRight className="ml-auto h-3 w-3 shrink-0 self-center text-ink-secondary opacity-0 transition-opacity group-hover:opacity-100" strokeWidth={2.2} />
+              )}
+            </button>
           )
         })}
       </div>
@@ -378,6 +413,7 @@ export function ExecutiveBrief({
   isToday,
   dateLabel,
   onRun,
+  onNavigate,
 }: {
   pulse: InvestorPulse
   brief: MorningBrief
@@ -389,6 +425,7 @@ export function ExecutiveBrief({
   isToday: boolean
   dateLabel: string
   onRun: (a: PulseAction) => void
+  onNavigate?: (t: NavTarget, id: string) => void
 }) {
   return (
     <section className="premium-panel overflow-hidden rounded-2xl">
@@ -398,12 +435,12 @@ export function ExecutiveBrief({
 
         {/* CENTER — Highest Conviction Ideas */}
         <div className="min-w-0 border-t border-soft-border lg:border-l lg:border-t-0">
-          <ConvictionList ideas={ideas} />
+          <ConvictionList ideas={ideas} onNavigate={onNavigate} />
         </div>
 
         {/* RIGHT — since yesterday · events · actions */}
         <div className="min-w-0 divide-y divide-soft-border/70 border-t border-soft-border lg:border-l lg:border-t-0">
-          <SinceYesterdayBlock deltas={sinceDeltas} />
+          <SinceYesterdayBlock deltas={sinceDeltas} onNavigate={onNavigate} />
           {isToday && events.length > 0 && <EventsBlock events={events} />}
           {isToday && actions.length > 0 && <ActionsBlock actions={actions} onRun={onRun} />}
         </div>

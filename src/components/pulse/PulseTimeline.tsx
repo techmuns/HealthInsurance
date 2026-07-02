@@ -1,9 +1,8 @@
 // Pulse Timeline — the left navy date rail. Today is pinned + highlighted (gold);
-// each past read-date sits below. Clicking a date scrolls to that day's read.
-// A small "View calendar" button shows only when real dated events exist.
+// earlier entries appear ONLY for real saved brief dates (never news-item dates).
+// When there is no saved history, it shows "No previous reads yet".
 // Vertical rail on laptop+, a compact horizontal date strip on narrow screens.
 
-import { CalendarRange } from 'lucide-react'
 import { STATUS_COLOR, type TimelineDay } from './derive'
 import { GOLD_ON_NAVY } from './parts'
 
@@ -18,14 +17,10 @@ export function PulseTimeline({
   days,
   selectedKey,
   onSelect,
-  hasEvents,
-  onViewCalendar,
 }: {
   days: TimelineDay[]
   selectedKey: string
   onSelect: (key: string) => void
-  hasEvents: boolean
-  onViewCalendar: () => void
 }) {
   return (
     <aside
@@ -105,19 +100,7 @@ export function PulseTimeline({
       </div>
 
       {days.length <= 1 && (
-        <p className="mt-2 px-1 text-[10px] italic leading-snug text-white/45">No previous reads yet.</p>
-      )}
-
-      {hasEvents && (
-        <button
-          type="button"
-          onClick={onViewCalendar}
-          className="mt-3 inline-flex w-full items-center justify-center gap-1.5 rounded-lg border py-1.5 text-[10px] font-bold uppercase tracking-[0.1em] text-white/85 transition-colors hover:bg-white/5"
-          style={{ borderColor: 'rgba(228,198,124,0.3)' }}
-        >
-          <CalendarRange className="h-3.5 w-3.5" style={{ color: GOLD_ON_NAVY }} strokeWidth={2} />
-          View calendar
-        </button>
+        <p className="mt-2 px-1 text-[10px] italic leading-snug text-white/45">No previous reads yet — earlier days appear here as each daily brief is saved.</p>
       )}
     </aside>
   )

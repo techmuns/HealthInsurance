@@ -506,28 +506,23 @@ function briefGenIso(): string {
   return d && /^\d{4}-\d{2}-\d{2}/.test(d) ? d.slice(0, 10) : todayIso()
 }
 
-/** Timeline from ACTUAL brief dates only: the current brief (feed-generated date)
- *  on top, then each earlier date that genuinely has source-backed developments,
- *  newest first. No invented/placeholder dates; an empty prev list → the UI shows
- *  "No previous reads yet". */
+/** Timeline from ACTUAL saved brief dates only. We do not persist a brief per day
+ *  yet, so the only real brief is the current one (the feed-generated date). News-
+ *  item dates are NOT briefs and are never shown as timeline entries — inventing
+ *  "22 Jun / 18 Jun" reads would be dishonest. When there is no saved history the
+ *  UI shows "No previous reads yet"; once daily briefs are persisted, earlier real
+ *  dates append here. */
 export function timelineDays(pulse: InvestorPulse): TimelineDay[] {
   const gen = briefGenIso()
-  const prev = previousReads(pulse, 'relevant') // real development dates, newest first
-  const todayCount = pulse.signals.filter(isRecent).length
-  const days: TimelineDay[] = [
+  return [
     {
       key: 'today',
       isToday: gen === todayIso(),
       ...isoParts(gen),
       status: pulse.todayRead ? statusOf(pulse.todayRead.stance) : null,
-      count: todayCount,
+      count: pulse.signals.filter(isRecent).length,
     },
   ]
-  for (const r of prev) {
-    if (r.date >= gen) continue // fold same/newer dates into the current brief
-    days.push({ key: r.date, isToday: false, ...isoParts(r.date), status: r.status, count: r.items.length })
-  }
-  return days
 }
 
 // ── Important Today strip ────────────────────────────────────────────────────
@@ -1086,38 +1081,43 @@ export interface SinceDelta {
   value: string
   direction: 'up' | 'down' | 'flat'
   tone: SignalImpact
+  /** Where "View in dashboard" lands — the nearest real section for this change. */
+  target: NavTarget
 }
 
 /** "Since Yesterday" — real, computable category counts vs the previous brief.
  *  Each item is hidden when it can't be computed / is zero, EXCEPT "unusual market
  *  moves", which shows a reassuring 0 when nothing significant moved. No raw
- *  metrics, no fabricated sentiment. */
+ *  metrics, no fabricated sentiment. Each item carries a NavTarget so the reader
+ *  can jump straight to where that change lives on the dashboard. */
 export function sinceYesterday(pulse: InvestorPulse): SinceDelta[] {
   const out: SinceDelta[] = []
   const recent = pulse.signals.filter(isRecent)
+  const company = pulse.companyId
+  const to = (sahiTab: string): NavTarget => ({ page: 'sahi', sahiTab, company })
 
   const reg = recent.filter((s) => s.category === 'Regulatory').length
-  if (reg) out.push({ id: 'reg', label: reg === 1 ? 'new regulatory update' : 'new regulatory updates', value: String(reg), direction: 'up', tone: 'Watch' })
+  if (reg) out.push({ id: 'reg', label: reg === 1 ? 'new regulatory update' : 'new regulatory updates', value: String(reg), direction: 'up', tone: 'Watch', target: to('sector-news') })
 
   const disclosures = recent.filter((s) => s.scope === 'company').length
-  if (disclosures) out.push({ id: 'co', label: disclosures === 1 ? 'fresh company update' : 'fresh company updates', value: String(disclosures), direction: 'up', tone: 'Positive' })
+  if (disclosures) out.push({ id: 'co', label: disclosures === 1 ? 'fresh company update' : 'fresh company updates', value: String(disclosures), direction: 'up', tone: 'Positive', target: to('companies') })
 
   const mgmt = selectManagementEvents(pulse.companyId, { recentOnly: true }).length
-  if (mgmt) out.push({ id: 'mgmt', label: mgmt === 1 ? 'management change' : 'management changes', value: String(mgmt), direction: 'up', tone: 'Neutral' })
+  if (mgmt) out.push({ id: 'mgmt', label: mgmt === 1 ? 'management change' : 'management changes', value: String(mgmt), direction: 'up', tone: 'Neutral', target: to('governance') })
 
   // Premium growth (YoY) — a real, source-backed change when the growth lens has it.
   const g = pulse.lenses.growthLevers.metrics.find((m) => m.label === 'GWP growth (YoY)')
   if (g) {
     const n = parseFloat(g.value)
-    out.push({ id: 'gwp', label: 'premium growth YoY', value: g.value, direction: !isNaN(n) && n < 0 ? 'down' : 'up', tone: g.tone })
+    out.push({ id: 'gwp', label: 'premium growth YoY', value: g.value, direction: !isNaN(n) && n < 0 ? 'down' : 'up', tone: g.tone, target: to('distribution') })
   }
 
   const events = pulse.signals.filter((s) => s.horizon === 'upcoming').length
-  if (events) out.push({ id: 'events', label: events === 1 ? 'event ahead' : 'events ahead', value: String(events), direction: 'up', tone: 'Neutral' })
+  if (events) out.push({ id: 'events', label: events === 1 ? 'event ahead' : 'events ahead', value: String(events), direction: 'up', tone: 'Neutral', target: to('governance') })
 
   // Market reaction only when it is a genuine reported move; 0 shown as reassurance.
   const moves = recent.filter((s) => s.category === 'Data Movement' && isMarketMove(s.title)).length
-  out.push({ id: 'moves', label: moves === 1 ? 'unusual market move' : 'unusual market moves', value: String(moves), direction: moves > 0 ? 'up' : 'flat', tone: moves > 0 ? 'Watch' : 'Positive' })
+  out.push({ id: 'moves', label: moves === 1 ? 'unusual market move' : 'unusual market moves', value: String(moves), direction: moves > 0 ? 'up' : 'flat', tone: moves > 0 ? 'Watch' : 'Positive', target: to('valuation') })
 
   return out
 }
