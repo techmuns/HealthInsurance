@@ -627,6 +627,30 @@ function buildTodayRead(
   return { headline, stance, changed, matters, watchNext, sourceLine }
 }
 
+/**
+ * Recompute a Today's Read over an ARBITRARY slice of signals (a filter subset, a
+ * single date, …) using the exact same deterministic logic as the canonical read,
+ * so a filtered/dated read never diverges in wording or stance. Returns null when
+ * the slice is empty.
+ */
+export function readForSignals(
+  companyId: string,
+  signals: PulseSignal[],
+  mgmt: PulseManagementEvent[] = [],
+): TodayRead | null {
+  const companySignals = signals.filter((s) => s.scope === 'company')
+  const sectorSignals = signals.filter((s) => s.scope === 'sector')
+  const counts = {
+    positive: signals.filter((s) => s.impact === 'Positive').length,
+    risk: signals.filter((s) => s.impact === 'Risk').length,
+    watch: signals.filter((s) => s.impact === 'Watch').length,
+    neutral: signals.filter((s) => s.impact === 'Neutral').length,
+    sourced: signals.filter((s) => !!s.sourceUrl).length,
+    total: signals.length,
+  }
+  return buildTodayRead(companySignals, sectorSignals, mgmt, getAnalystCoverage(companyId), counts)
+}
+
 function impactRank(i: SignalImpact): number {
   return { Risk: 0, Positive: 1, Watch: 2, Neutral: 3 }[i]
 }

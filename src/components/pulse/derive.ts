@@ -15,12 +15,14 @@
 import { insurers } from '@/data/mockData'
 import {
   selectManagementEvents,
+  readForSignals,
   IMPACT_META,
   type InvestorPulse,
   type PulseSignal,
   type SignalCategory,
   type SignalImpact,
   type LensKey,
+  type TodayRead,
 } from '@/insights/investorPulse'
 import type { NavTarget } from '@/insights/sourceMap'
 
@@ -150,6 +152,48 @@ export function availableFilters(pulse: InvestorPulse): Set<PulseFilter> {
   return set
 }
 
+// ── Scope (filter × date) ────────────────────────────────────────────────────
+
+/** The signal slice for the active filter and selected timeline date. 'today' is
+ *  the live view; a past date narrows to that day's items only. */
+export function scopeSignals(pulse: InvestorPulse, filter: PulseFilter, dateKey: string): PulseSignal[] {
+  let base =
+    filter === 'relevant'
+      ? pulse.signals.filter(isRecent)
+      : pulse.signals.filter((s) => matchesFilter(s, filter, pulse))
+  if (dateKey !== 'today') base = base.filter((s) => s.date === dateKey)
+  return base
+}
+
+// A focus word for the headline so a filtered read is visibly its own read — even
+// when two slices share the same net tone. Honest: it IS that slice's read.
+const FOCUS_LABEL: Record<PulseFilter, string> = {
+  relevant: '',
+  fresh: 'Fresh-today',
+  correlation: 'Correlation',
+  management: 'Management',
+  events: 'Events',
+  sector: 'Sector',
+  regulatory: 'Regulatory',
+}
+
+/** The Read for the active filter + date. EVERY filter (and every date) yields a
+ *  freshly-composed read; 'relevant' + 'today' returns the canonical read. A
+ *  non-default filter re-labels the headline to its focus so the update is
+ *  unmistakable, and the Changed/Matters/Watch/source lines recompute over the
+ *  slice. */
+export function readFor(pulse: InvestorPulse, filter: PulseFilter, dateKey: string): TodayRead | null {
+  if (filter === 'relevant' && dateKey === 'today') return pulse.todayRead
+  const scoped = scopeSignals(pulse, filter, dateKey)
+  const mgmt = dateKey === 'today' && (filter === 'relevant' || filter === 'management') ? pulse.managementEvents : []
+  const read = readForSignals(pulse.companyId, scoped, mgmt)
+  if (read && filter !== 'relevant') {
+    const focus = FOCUS_LABEL[filter]
+    return { ...read, headline: read.headline.replace(/^Net read\b/, `${focus} read`) }
+  }
+  return read
+}
+
 // ── Top Picks ────────────────────────────────────────────────────────────────
 
 export type EvidenceKind = 'Filing' | 'News' | 'Interview' | 'Market data' | 'Regulatory' | 'Analyst report'
@@ -251,14 +295,11 @@ function isHighRelevanceFourth(s: PulseSignal): boolean {
   return s.scope === 'company' && !!s.sourceUrl && s.impact !== 'Neutral'
 }
 
-/** Top 3 picks by default (a 4th only when it is genuinely high-relevance). */
-export function topPicks(pulse: InvestorPulse, filter: PulseFilter): TopPick[] {
-  const pool =
-    filter === 'relevant'
-      ? pulse.signals.filter(isRecent)
-      : pulse.signals.filter((s) => matchesFilter(s, filter, pulse))
-  const fourth = pool[3]
-  const chosen = fourth && isHighRelevanceFourth(fourth) ? pool.slice(0, 4) : pool.slice(0, 3)
+/** Ranked picks from an already-scoped signal list — top 3 (a 4th only when it is
+ *  genuinely high-relevance). */
+export function topPicksFrom(signals: PulseSignal[], pulse: InvestorPulse): TopPick[] {
+  const fourth = signals[3]
+  const chosen = fourth && isHighRelevanceFourth(fourth) ? signals.slice(0, 4) : signals.slice(0, 3)
   return chosen.map((s, i) => toPick(s, i + 1, pulse))
 }
 
@@ -503,11 +544,10 @@ function isMarketMove(title: string): boolean {
   return MARKET_MOVE_RE.test(title)
 }
 
-/** Only the categories genuinely detected in today's active data (hide the rest).
- *  Management appears ONLY when there is a real, recent board/KMP change. */
-export function importantToday(pulse: InvestorPulse, filter: PulseFilter): ImportantCategory[] {
-  const recent = pulse.signals.filter(isRecent)
-  const pool = filter === 'relevant' ? recent : recent.filter((s) => matchesFilter(s, filter, pulse))
+/** Only the categories genuinely detected in the scoped data (hide the rest).
+ *  Management appears ONLY when `includeMgmt` and there is a real, recent change. */
+export function importantFrom(signals: PulseSignal[], pulse: InvestorPulse, includeMgmt: boolean): ImportantCategory[] {
+  const pool = signals.filter(isRecent)
   const groups = new Map<string, { label: string; items: PulseSignal[] }>()
   for (const s of pool) {
     // Only a real reported price/volume move earns "Unusual Move"; a growth /
@@ -526,7 +566,7 @@ export function importantToday(pulse: InvestorPulse, filter: PulseFilter): Impor
     out.push({ id, label: g.label, count: g.items.length, detail: clamp(scrubCopy(top.title), 66), tone: top.impact })
   }
   // Real, recent management change (only) — never a stale one.
-  if ((filter === 'relevant' || filter === 'management') && !groups.has('management')) {
+  if (includeMgmt && !groups.has('management')) {
     const mgmt = selectManagementEvents(pulse.companyId, { recentOnly: true })
     if (mgmt.length) {
       const top = mgmt[0]

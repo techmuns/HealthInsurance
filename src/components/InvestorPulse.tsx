@@ -1,10 +1,10 @@
 // InvestorPulse — the Insights header's company control + the Pulse view export.
 //
-// The Pulse daily-briefing UI now lives in ./pulse (small, named components:
-// PulseTimeline, TodaysReadCard, UpcomingEventsCard, TopPicksTable,
-// ActionMarketReadCard, ImportantTodayStrip, PreviousReadsList, PulseFilterChips).
-// This module keeps the single company selector used in the Insights header and
-// re-exports PulseView so existing imports stay stable.
+// The Pulse daily-briefing UI lives in ./pulse — one unified card
+// (TodaysIntelligenceCard) driven by PulseTimeline (dates) + PulseFilterChips,
+// composed in PulseView over the ./derive selectors. This module keeps the single
+// company selector used in the Insights header and re-exports PulseView so
+// existing imports stay stable.
 
 import { ChevronDown } from 'lucide-react'
 import { insurers } from '@/data/mockData'

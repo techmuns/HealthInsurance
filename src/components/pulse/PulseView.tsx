@@ -1,8 +1,8 @@
-// Pulse — the daily intelligence briefing for one company. A left date timeline,
-// then: Today's Read + Upcoming Events, Top Picks + Action/Market Read, an
-// Important Today strip and a Previous Reads log. Every card reads real,
-// source-backed data (see ./derive); missing data hides a section or shows a
-// clean empty state — never filler. Click-only, navy/gold theme.
+// Pulse — the daily intelligence briefing for one company, as ONE unified card on
+// a soft blue-tinted field. The left date timeline and the filter chips sit
+// OUTSIDE the card and drive it: the card shows a single date's read at a time,
+// and every filter re-composes the whole read (headline included) over its slice.
+// All data is real and source-backed (see ./derive); missing → honest empty state.
 
 import { useEffect, useMemo, useState } from 'react'
 import type { InvestorPulse } from '@/insights/investorPulse'
@@ -10,29 +10,19 @@ import type { NavTarget } from '@/insights/sourceMap'
 import {
   actionsFor,
   availableFilters,
-  importantToday,
+  importantFrom,
   marketReadLines,
-  previousReads,
+  readFor,
+  scopeSignals,
   timelineDays,
-  topPicks,
+  topPicksFrom,
   upcomingEvents,
   type PulseAction,
   type PulseFilter,
 } from './derive'
 import { PulseTimeline } from './PulseTimeline'
-import { TodaysReadCard } from './TodaysReadCard'
-import { UpcomingEventsCard } from './UpcomingEventsCard'
-import { TopPicksTable } from './TopPicksTable'
-import { ActionMarketReadCard } from './ActionMarketReadCard'
-import { ImportantTodayStrip } from './ImportantTodayStrip'
-import { PreviousReadsList } from './PreviousReadsList'
 import { PulseFilterChips } from './PulseFilterChips'
-
-const TWO_COL = 'grid grid-cols-1 items-start gap-4 lg:grid-cols-[minmax(0,1.85fr)_minmax(0,1fr)]'
-
-function scrollToId(id: string, block: ScrollLogicalPosition = 'start') {
-  requestAnimationFrame(() => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block }))
-}
+import { TodaysIntelligenceCard } from './TodaysIntelligenceCard'
 
 export function PulseView({
   pulse,
@@ -42,37 +32,33 @@ export function PulseView({
   onGoToSource?: (target: NavTarget, insightId: string) => void
 }) {
   const [filter, setFilter] = useState<PulseFilter>('relevant')
-  const [selectedDay, setSelectedDay] = useState('today')
-  const [openPrevDate, setOpenPrevDate] = useState<string | null>(null)
+  const [dateKey, setDateKey] = useState('today')
 
   // Reset per-company view state when the selected company changes.
   useEffect(() => {
     setFilter('relevant')
-    setSelectedDay('today')
-    setOpenPrevDate(null)
+    setDateKey('today')
   }, [pulse.companyId])
 
   const available = useMemo(() => availableFilters(pulse), [pulse])
-  const effectiveFilter = available.has(filter) ? filter : 'relevant'
-
+  const effFilter = available.has(filter) ? filter : 'relevant'
   const days = useMemo(() => timelineDays(pulse), [pulse])
-  const events = useMemo(() => upcomingEvents(pulse), [pulse])
-  const picks = useMemo(() => topPicks(pulse, effectiveFilter), [pulse, effectiveFilter])
-  const important = useMemo(() => importantToday(pulse, effectiveFilter), [pulse, effectiveFilter])
-  const reads = useMemo(() => previousReads(pulse, effectiveFilter), [pulse, effectiveFilter])
-  const marketRead = useMemo(() => marketReadLines(pulse), [pulse])
-  const actions = useMemo(() => actionsFor(pulse, picks), [pulse, picks])
+  const isToday = dateKey === 'today'
 
-  const selectDay = (key: string) => {
-    setSelectedDay(key)
-    if (key === 'today') {
-      setOpenPrevDate(null)
-      scrollToId('pulse-today')
-    } else {
-      setOpenPrevDate(key)
-      scrollToId(`pulse-prev-${key}`, 'center')
-    }
-  }
+  const scoped = useMemo(() => scopeSignals(pulse, effFilter, dateKey), [pulse, effFilter, dateKey])
+  const read = useMemo(() => readFor(pulse, effFilter, dateKey), [pulse, effFilter, dateKey])
+  const picks = useMemo(() => topPicksFrom(scoped, pulse), [scoped, pulse])
+  const important = useMemo(() => importantFrom(scoped, pulse, isToday), [scoped, pulse, isToday])
+  const events = useMemo(() => (isToday ? upcomingEvents(pulse) : []), [pulse, isToday])
+  const actions = useMemo(() => (isToday ? actionsFor(pulse, picks) : []), [pulse, picks, isToday])
+  const marketRead = useMemo(() => (isToday ? marketReadLines(pulse) : []), [pulse, isToday])
+
+  const selectedDay = days.find((d) => d.key === dateKey) ?? days[0]
+  const dateLabel = selectedDay
+    ? isToday
+      ? `Today · ${selectedDay.dayNum} ${selectedDay.monthLabel} · ${selectedDay.weekday}`
+      : `${selectedDay.dayNum} ${selectedDay.monthLabel} · ${selectedDay.weekday}`
+    : ''
 
   const runAction = (a: PulseAction) => {
     if (a.href) {
@@ -91,33 +77,34 @@ export function PulseView({
   }
 
   return (
-    <div className="grid grid-cols-1 gap-4 lg:grid-cols-[152px_minmax(0,1fr)]">
-      <PulseTimeline
-        days={days}
-        selectedKey={selectedDay}
-        onSelect={selectDay}
-        hasEvents={events.length > 0}
-        onViewCalendar={() => scrollToId('pulse-events')}
-      />
+    <div
+      className="rounded-3xl p-3 sm:p-4"
+      style={{ background: 'linear-gradient(162deg, #E8F0FB 0%, #DAE6F7 55%, #E4EDF9 100%)', boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.6), 0 1px 2px rgba(23,43,77,0.05)' }}
+    >
+      <div className="grid grid-cols-1 gap-4 lg:grid-cols-[152px_minmax(0,1fr)]">
+        <PulseTimeline
+          days={days}
+          selectedKey={dateKey}
+          onSelect={setDateKey}
+          hasEvents={isToday && events.length > 0}
+          onViewCalendar={() => document.getElementById('tir-events')?.scrollIntoView({ behavior: 'smooth', block: 'center' })}
+        />
 
-      <div className="min-w-0 space-y-4">
-        <PulseFilterChips active={effectiveFilter} available={available} onSelect={setFilter} />
-
-        {/* Row 1 — Today's Read + Upcoming Events */}
-        <div className={TWO_COL}>
-          <TodaysReadCard pulse={pulse} />
-          <UpcomingEventsCard pulse={pulse} />
+        <div className="min-w-0 space-y-3">
+          <PulseFilterChips active={effFilter} available={available} onSelect={setFilter} />
+          <TodaysIntelligenceCard
+            pulse={pulse}
+            read={read}
+            picks={picks}
+            events={events}
+            actions={actions}
+            marketRead={marketRead}
+            important={important}
+            dateLabel={dateLabel}
+            isToday={isToday}
+            onRun={runAction}
+          />
         </div>
-
-        {/* Row 2 — Top Picks + Action / Market Read */}
-        <div className={TWO_COL}>
-          <TopPicksTable picks={picks} />
-          <ActionMarketReadCard actions={actions} marketRead={marketRead} onRun={runAction} />
-        </div>
-
-        <ImportantTodayStrip items={important} />
-
-        <PreviousReadsList reads={reads} openDate={openPrevDate} />
       </div>
     </div>
   )
