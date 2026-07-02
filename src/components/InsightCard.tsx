@@ -51,6 +51,14 @@ export const CATCH: Record<InsightCategory, { label: string; Icon: LucideIcon; t
 
 export type Priority = 'high' | 'watch' | 'normal'
 
+// Front-of-card priority/relevance tag — tone-coded, compact. High = act on it
+// (champagne), Watch = monitor (navy), Context = supporting read (slate).
+const PRIORITY_TAG: Record<Priority, { label: string; fg: string; bg: string; ring: string }> = {
+  high: { label: 'High priority', fg: '#9C7430', bg: 'rgba(156,116,48,0.12)', ring: 'rgba(156,116,48,0.26)' },
+  watch: { label: 'Watch', fg: '#27457E', bg: 'rgba(39,69,126,0.09)', ring: 'rgba(39,69,126,0.20)' },
+  normal: { label: 'Context', fg: '#64748B', bg: 'rgba(100,116,139,0.10)', ring: 'rgba(100,116,139,0.22)' },
+}
+
 const fmtVal = (v: number | null, unit: string) => (v == null ? 'n/a' : unit === 'x' ? `${v}x` : unit === '%' || unit === 'pp' ? `${v}${unit}` : `${v} ${unit}`)
 
 // The concrete company subject of the insight, in plain English. A single name
@@ -257,10 +265,13 @@ export function InsightCard({
             {/* faint category-icon watermark — quiet premium character. */}
             <Icon aria-hidden className="pointer-events-none absolute -right-2 -top-3 h-24 w-24 opacity-[0.05]" style={{ color: tone.fg }} strokeWidth={1.1} />
 
-            {/* top row — section tag (left) · period tag (right) */}
-            <div className="relative flex items-center gap-2">
+            {/* top row — section + priority tags (left) · period tag (right) */}
+            <div className="relative flex flex-wrap items-center gap-2">
               <span className="inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.05em]" style={{ color: tone.fg, background: tone.bg, boxShadow: `inset 0 0 0 1px ${tone.ring}` }}>
                 <Icon className="h-3.5 w-3.5" strokeWidth={2.4} /> {section}
+              </span>
+              <span className="inline-flex items-center rounded-full px-2 py-0.5 text-[9px] font-bold uppercase tracking-[0.07em]" style={{ color: PRIORITY_TAG[priority].fg, background: PRIORITY_TAG[priority].bg, boxShadow: `inset 0 0 0 1px ${PRIORITY_TAG[priority].ring}` }}>
+                {PRIORITY_TAG[priority].label}
               </span>
               <span className="ml-auto inline-flex items-center gap-1 rounded-full bg-ice px-2 py-0.5 text-[10px] font-semibold text-ink-secondary ring-1 ring-soft-border" title={freshness.detail}>
                 <CalendarClock className="h-3 w-3" strokeWidth={2.2} />

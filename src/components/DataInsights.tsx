@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
-import { ChevronDown, RotateCcw, Sparkles } from 'lucide-react'
+import { Sparkles } from 'lucide-react'
 import generated from '@/data/insights.generated.json'
 import type { Insight, InsightsFile } from '@/insights/types'
 import {
@@ -13,17 +13,17 @@ import {
   type NavTarget,
 } from '@/insights/sourceMap'
 import { InsightCard, pretty, type Priority } from '@/components/InsightCard'
+import { companyColor } from '@/lib/companyColors'
 
 const FILE = generated as unknown as InsightsFile
 const PANEL_LATEST = latestPeriodAcross(FILE.insights)
 
+const NAVY = 'linear-gradient(168deg, #1C3A6E 0%, #15294C 60%, #102140 100%)'
+const GOLD_ON_NAVY = '#E4C67C'
+
 // ── Section taxonomy ─────────────────────────────────────────────────────────
-// Each insight lands in one plain-English section. Category is the primary
-// signal; a couple of metric-aware overrides route mix/channel reads to
-// Distribution and holding reads to Ownership so those sections light up when —
-// and only when — real data supports them.
+// Each insight lands in one plain-English section (shown as the card's tag).
 type Section = 'Market' | 'Growth' | 'Profitability' | 'Valuation' | 'Governance' | 'Ownership' | 'Distribution'
-const SECTION_ORDER: Section[] = ['Market', 'Growth', 'Profitability', 'Valuation', 'Governance', 'Ownership', 'Distribution']
 
 const primaryMetricOf = (ins: Insight): string =>
   (ins.evidence.find((e) => e.value != null) ?? ins.evidence[0])?.metric ?? ''
@@ -46,25 +46,18 @@ function sectionOf(ins: Insight): Section {
 
 // ── Priority triage ──────────────────────────────────────────────────────────
 // High = act on it (high conviction or a goldmine-grade edge). Normal = context
-// only (low conviction / context tier). Watch = everything to keep an eye on.
+// only (low conviction / context tier). Watch = everything else to keep an eye on.
 function priorityOf(ins: Insight): Priority {
   if (ins.conviction === 'high' || ins.tier === 'goldmine') return 'high'
   if (ins.conviction === 'low' || ins.tier === 'context') return 'normal'
   return 'watch'
 }
-const PRIORITY_ORDER: Priority[] = ['high', 'watch', 'normal']
-const PRIORITY_LABEL: Record<Priority, string> = { high: 'High', watch: 'Watch', normal: 'Normal' }
+// Auto-sort order: highest priority first, watch next, context last (no manual control).
+const PRIORITY_RANK: Record<Priority, number> = { high: 0, watch: 1, normal: 2 }
 
-// Company ordering — Niva Bupa & Star Health lead, then the rest of the panel.
+// Company chips — Niva Bupa & Star Health lead, then the rest of the panel.
 const COMPANY_ORDER = ['niva-bupa', 'star-health', 'care-health', 'aditya-birla', 'manipalcigna']
-
-type PeriodKey = 'all' | 'latest' | 'annual' | 'quarterly'
-const PERIOD_OPTIONS: { id: PeriodKey; label: string }[] = [
-  { id: 'all', label: 'All' },
-  { id: 'latest', label: 'Latest' },
-  { id: 'annual', label: 'Annual' },
-  { id: 'quarterly', label: 'Quarterly' },
-]
+const companyRank = (id: string) => { const i = COMPANY_ORDER.indexOf(id); return i < 0 ? 99 : i }
 
 interface Row {
   ins: Insight
@@ -72,62 +65,154 @@ interface Row {
   priority: Priority
   freshness: Freshness
   source: SourceLocation
-  isQuarter: boolean
-  isLatest: boolean
+  period: string // the reporting period the insight actually leans on (never invented)
 }
 
 const ROWS: Row[] = FILE.insights
-  .map((ins): Row => {
-    const period = latestPeriodOf(ins)
-    return {
-      ins,
-      section: sectionOf(ins),
-      priority: priorityOf(ins),
-      freshness: freshnessOf(ins, PANEL_LATEST),
-      source: resolveSource(ins),
-      isQuarter: /Q\s?[1-4]/i.test(period),
-      isLatest: periodRank(period) >= periodRank(PANEL_LATEST),
-    }
-  })
-  .sort((a, b) => a.ins.rank - b.ins.rank)
+  .map((ins): Row => ({
+    ins,
+    section: sectionOf(ins),
+    priority: priorityOf(ins),
+    freshness: freshnessOf(ins, PANEL_LATEST),
+    source: resolveSource(ins),
+    period: latestPeriodOf(ins),
+  }))
+  .sort((a, b) => (PRIORITY_RANK[a.priority] - PRIORITY_RANK[b.priority]) || (a.ins.rank - b.ins.rank))
 
-const matchesPeriod = (r: Row, p: PeriodKey): boolean =>
-  p === 'all' ? true : p === 'latest' ? r.isLatest : p === 'quarterly' ? r.isQuarter : !r.isQuarter
-
-// ── Slim filter control ──────────────────────────────────────────────────────
-// A bordered pill wrapping a native <select>, so the whole filter set fits on one
-// compact horizontal line — no stacked chip rows, no panel, no vertical bulk. A
-// filter that only offers "All" is hidden entirely (never a dead control).
-function FilterSelect<T extends string>({ label, options, value, onChange }: {
-  label: string
-  options: { id: T; label: string }[]
-  value: T
-  onChange: (v: T) => void
+// ── Left reporting-period rail ────────────────────────────────────────────────
+// Mirrors the Pulse timeline (navy rail, gold accents) but steps through fiscal
+// PERIODS instead of dates. Newest sits at the top, badged "Latest". Only real
+// periods that carry insight data appear — quarters are never invented. Each row
+// shows how many insights exist in that period for the current company.
+function PeriodRail({ periods, counts, selected, onSelect }: {
+  periods: string[]
+  counts: Record<string, number>
+  selected: string
+  onSelect: (p: string) => void
 }) {
-  if (options.length <= 1) return null
   return (
-    <label className="group inline-flex cursor-pointer items-center gap-1.5 rounded-lg border border-soft-border bg-white px-2.5 py-1.5 shadow-soft transition-colors hover:border-muted-blue">
-      <span className="text-[8.5px] font-bold uppercase tracking-[0.09em] text-ink-secondary">{label}</span>
-      <select
-        value={value}
-        onChange={(e) => onChange(e.target.value as T)}
-        className="appearance-none bg-transparent pr-1 text-[12px] font-semibold text-navy-deep outline-none"
-      >
-        {options.map((o) => (
-          <option key={o.id} value={o.id}>{o.label}</option>
-        ))}
-      </select>
-      <ChevronDown className="h-3 w-3 shrink-0 text-ink-secondary transition-colors group-hover:text-muted-blue" />
-    </label>
+    <aside
+      className="relative isolate overflow-hidden rounded-2xl px-3 py-3.5 shadow-card lg:sticky lg:top-2 lg:h-fit lg:w-[172px] lg:shrink-0"
+      style={{ background: NAVY }}
+    >
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-px" style={{ background: 'linear-gradient(90deg, transparent, rgba(228,198,124,0.4) 30%, rgba(228,198,124,0.4) 70%, transparent)' }} />
+      <p className="mb-3 px-1 text-[9px] font-bold uppercase tracking-[0.2em]" style={{ color: GOLD_ON_NAVY }}>
+        Reporting periods
+      </p>
+
+      {/* vertical rail (lg+) */}
+      <ol className="relative hidden lg:block">
+        <span className="absolute bottom-2 left-[10px] top-2 w-px" style={{ background: 'linear-gradient(180deg, rgba(228,198,124,0.4), rgba(228,198,124,0.08))' }} />
+        {periods.map((p, i) => {
+          const on = p === selected
+          const isLatest = i === 0
+          return (
+            <li key={p} className="relative">
+              <button
+                type="button"
+                onClick={() => onSelect(p)}
+                className="group flex w-full items-center gap-2.5 rounded-lg py-1.5 pr-1 text-left transition-colors hover:bg-white/5"
+              >
+                <span
+                  className="relative z-[1] grid h-[21px] w-[21px] shrink-0 place-items-center rounded-full"
+                  style={{ background: '#15294C', boxShadow: on ? `inset 0 0 0 1px ${GOLD_ON_NAVY}` : 'inset 0 0 0 1px rgba(255,255,255,0.14)' }}
+                >
+                  <span
+                    className="h-2.5 w-2.5 rounded-full transition-transform"
+                    style={{ background: isLatest ? GOLD_ON_NAVY : 'rgba(255,255,255,0.42)', boxShadow: isLatest ? '0 0 0 3px rgba(228,198,124,0.18)' : undefined, transform: on ? 'scale(1.05)' : 'scale(0.86)' }}
+                  />
+                </span>
+                <span className="min-w-0 flex-1">
+                  <span className="flex items-baseline gap-1.5">
+                    <span className="text-[12px] font-bold uppercase tracking-[0.06em]" style={{ color: isLatest ? GOLD_ON_NAVY : on ? '#EAF1FB' : 'rgba(233,241,251,0.74)' }}>
+                      {p}
+                    </span>
+                    {counts[p] > 0 && (
+                      <span className="rounded-full px-1 text-[8px] font-bold text-white/70" style={{ background: 'rgba(255,255,255,0.10)' }}>{counts[p]}</span>
+                    )}
+                  </span>
+                  <span className="block text-[8.5px] font-semibold uppercase tracking-[0.12em] text-white/40">
+                    {isLatest ? 'Latest reported' : 'Prior period'}
+                  </span>
+                </span>
+              </button>
+            </li>
+          )
+        })}
+      </ol>
+
+      {/* horizontal strip (< lg) */}
+      <div className="flex gap-1.5 overflow-x-auto hide-scrollbar lg:hidden">
+        {periods.map((p, i) => {
+          const on = p === selected
+          const isLatest = i === 0
+          return (
+            <button
+              key={p}
+              type="button"
+              onClick={() => onSelect(p)}
+              className="flex min-w-[62px] shrink-0 flex-col items-center gap-1 rounded-lg px-2 py-1.5 transition-colors"
+              style={{ background: on ? 'rgba(255,255,255,0.08)' : 'transparent', boxShadow: on ? `inset 0 0 0 1px ${GOLD_ON_NAVY}55` : undefined }}
+            >
+              <span className="h-2 w-2 rounded-full" style={{ background: isLatest ? GOLD_ON_NAVY : 'rgba(255,255,255,0.42)' }} />
+              <span className="text-[11px] font-bold uppercase" style={{ color: isLatest ? GOLD_ON_NAVY : 'rgba(233,241,251,0.82)' }}>{p}</span>
+              <span className="text-[8px] font-semibold uppercase tracking-wide text-white/45">{isLatest ? 'Latest' : 'Prior'}</span>
+            </button>
+          )
+        })}
+      </div>
+
+      {periods.length <= 1 && (
+        <p className="mt-2 px-1 text-[10px] italic leading-snug text-white/45">No earlier periods on record yet.</p>
+      )}
+    </aside>
   )
 }
 
-// Data Insights — a clean, source-backed flip-card view. The tab holds only two
-// things: one compact horizontal filter row and a full-width stack of insight
-// cards. Each card's FRONT is one sharp read (headline · plain-English take ·
-// company · section · period); a tap flips it to the BACK — the full basis
-// (derivation, formula, source data, framework, interpretation, what to watch,
-// and a jump to the exact source).
+// ── Company chips ─────────────────────────────────────────────────────────────
+// Simple buttons (not a dropdown). Active = navy-gold; each carries the company's
+// identity dot. Clicking a chip filters the cards.
+const ACTIVE_CHIP: React.CSSProperties = {
+  background: 'linear-gradient(135deg, #1E4079 0%, #14294C 100%)',
+  boxShadow: 'inset 0 0 0 1px rgba(228,198,124,0.45), 0 3px 9px rgba(20,48,88,0.20)',
+}
+function CompanyChips({ options, value, onChange }: {
+  options: { id: string; label: string }[]
+  value: string
+  onChange: (id: string) => void
+}) {
+  return (
+    <div className="flex flex-wrap items-center gap-1.5">
+      {options.map((o) => {
+        const on = o.id === value
+        const dot = o.id === 'all' ? null : companyColor(o.id).key
+        return (
+          <button
+            key={o.id}
+            type="button"
+            onClick={() => onChange(o.id)}
+            aria-pressed={on}
+            className={[
+              'inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-[12px] font-semibold transition-all duration-normal ease-premium',
+              on ? 'text-white' : 'border border-soft-border bg-white text-navy-deep shadow-soft hover:border-muted-blue hover:bg-ice',
+            ].join(' ')}
+            style={on ? ACTIVE_CHIP : undefined}
+          >
+            {dot && <span className="h-2 w-2 rounded-full" style={{ background: on ? '#FFFFFF' : dot }} />}
+            {o.label}
+          </button>
+        )
+      })}
+    </div>
+  )
+}
+
+// Data Insights — a clean quarterly/yearly insight reading page (not a dashboard).
+// Left: a reporting-period rail (real periods only). Top: company chips. Main: a
+// full-width stack of flip cards, auto-sorted highest-priority first. Each card's
+// FRONT is one sharp read (section · priority · headline · take · company); a tap
+// flips it to the BACK — the full basis (derivation, formula, framework, source,
+// what to watch, and a jump to the exact source).
 export function DataInsights({
   onGoToSource,
   reopenInsightId,
@@ -135,91 +220,79 @@ export function DataInsights({
   onGoToSource: (target: NavTarget, insightId: string) => void
   reopenInsightId?: string | null
 }) {
+  // Returning from "Go to source → Back to Insight" opens on that insight's period.
+  const reopenRow = reopenInsightId ? ROWS.find((r) => r.ins.id === reopenInsightId) : undefined
   const [company, setCompany] = useState<string>('all')
-  const [section, setSection] = useState<Section | 'all'>('all')
-  const [period, setPeriod] = useState<PeriodKey>('all')
-  const [priority, setPriority] = useState<Priority | 'all'>('all')
+  const [period, setPeriod] = useState<string>(reopenRow?.period ?? PANEL_LATEST)
 
-  // Reopen (returning from "Go to source → Back to Insight") should flip its card
-  // exactly once — never re-flip when the reader later changes a filter.
+  // Flip the reopened card exactly once — never re-flip when the reader later
+  // changes company/period.
   const reopenConsumed = useRef(false)
   useEffect(() => { reopenConsumed.current = true }, [])
 
-  // Filter options — derived from the real data so empty sections/companies/
-  // periods never show as dead chips (honest availability, never a fake NA).
-  const { companyOptions, sectionOptions, periodOptions, priorityOptions } = useMemo(() => {
-    const companyIds = [...new Set(ROWS.flatMap((r) => r.ins.affectedInsurers).filter((id) => id !== 'panel'))]
-      .sort((a, b) => {
-        const ia = COMPANY_ORDER.indexOf(a), ib = COMPANY_ORDER.indexOf(b)
-        return (ia < 0 ? 99 : ia) - (ib < 0 ? 99 : ib)
-      })
-    return {
-      companyOptions: [{ id: 'all', label: 'All' }, ...companyIds.map((id) => ({ id, label: pretty(id) }))],
-      sectionOptions: [{ id: 'all' as const, label: 'All' }, ...SECTION_ORDER.filter((s) => ROWS.some((r) => r.section === s)).map((s) => ({ id: s, label: s }))],
-      periodOptions: PERIOD_OPTIONS.filter((p) => p.id === 'all' || ROWS.some((r) => matchesPeriod(r, p.id))),
-      priorityOptions: [{ id: 'all' as const, label: 'All' }, ...PRIORITY_ORDER.filter((p) => ROWS.some((r) => r.priority === p)).map((p) => ({ id: p, label: PRIORITY_LABEL[p] }))],
-    }
+  // Company chips: "All" + every insurer that actually has an insight (ordered).
+  const companyOptions = useMemo(() => {
+    const ids = [...new Set(ROWS.flatMap((r) => r.ins.affectedInsurers).filter((id) => id !== 'panel'))]
+      .sort((a, b) => companyRank(a) - companyRank(b))
+    return [{ id: 'all', label: 'All' }, ...ids.map((id) => ({ id, label: pretty(id) }))]
   }, [])
 
-  const shown = ROWS.filter((r) =>
-    (company === 'all' || r.ins.affectedInsurers.includes(company)) &&
-    (section === 'all' || r.section === section) &&
-    matchesPeriod(r, period) &&
-    (priority === 'all' || r.priority === priority),
+  const companyRows = useMemo(
+    () => (company === 'all' ? ROWS : ROWS.filter((r) => r.ins.affectedInsurers.includes(company))),
+    [company],
   )
 
-  const anyFilter = company !== 'all' || section !== 'all' || period !== 'all' || priority !== 'all'
-  const reset = () => { setCompany('all'); setSection('all'); setPeriod('all'); setPriority('all') }
+  // Only real periods that carry data for this company, newest first.
+  const availablePeriods = useMemo(
+    () => [...new Set(companyRows.map((r) => r.period))].sort((a, b) => periodRank(b) - periodRank(a)),
+    [companyRows],
+  )
+  const periodCounts = useMemo(() => {
+    const c: Record<string, number> = {}
+    for (const r of companyRows) c[r.period] = (c[r.period] ?? 0) + 1
+    return c
+  }, [companyRows])
+
+  // Keep the selection if it still holds data for this company, else snap to newest.
+  const effPeriod = availablePeriods.includes(period) ? period : (availablePeriods[0] ?? '')
+
+  // Cards for the current company + period, highest priority first.
+  const shown = companyRows
+    .filter((r) => r.period === effPeriod)
+    .sort((a, b) => (PRIORITY_RANK[a.priority] - PRIORITY_RANK[b.priority]) || (a.ins.rank - b.ins.rank))
 
   return (
-    <div className="space-y-4">
-      {/* ── Compact filter row — Company · Section · Period · Priority · Reset.
-           Slim dropdowns on one horizontal line; no panel, no vertical bulk. ──── */}
-      <div className="flex flex-wrap items-center gap-2">
-        <FilterSelect label="Company" options={companyOptions} value={company} onChange={setCompany} />
-        <FilterSelect label="Section" options={sectionOptions} value={section} onChange={setSection} />
-        <FilterSelect label="Period" options={periodOptions} value={period} onChange={setPeriod} />
-        <FilterSelect label="Priority" options={priorityOptions} value={priority} onChange={setPriority} />
-        <button
-          type="button"
-          onClick={reset}
-          disabled={!anyFilter}
-          title="Clear all filters"
-          className="inline-flex items-center gap-1 rounded-lg border border-soft-border bg-white px-2.5 py-1.5 text-[11px] font-semibold text-ink-secondary shadow-soft transition-colors hover:border-muted-blue hover:text-navy-deep disabled:cursor-not-allowed disabled:opacity-40"
-        >
-          <RotateCcw className="h-3.5 w-3.5" strokeWidth={2.2} /> Reset
-        </button>
-        <span className="ml-auto text-[10.5px] font-medium tabular-nums text-ink-secondary">
-          {shown.length} insight{shown.length === 1 ? '' : 's'}
-        </span>
-      </div>
+    <div className="flex flex-col gap-4 lg:flex-row lg:gap-5">
+      {/* Left: reporting-period timeline */}
+      <PeriodRail periods={availablePeriods} counts={periodCounts} selected={effPeriod} onSelect={setPeriod} />
 
-      {/* ── Full-width stack of flip cards — one wide card per insight ─────────── */}
-      {shown.length > 0 ? (
-        <div className="flex flex-col gap-4">
-          {shown.map((r) => (
-            <InsightCard
-              key={r.ins.id}
-              ins={r.ins}
-              section={r.section}
-              priority={r.priority}
-              source={r.source}
-              freshness={r.freshness}
-              onGoToSource={() => onGoToSource(r.source.target, r.ins.id)}
-              initialFlipped={!reopenConsumed.current && r.ins.id === reopenInsightId}
-            />
-          ))}
-        </div>
-      ) : (
-        <div className="rounded-2xl border border-dashed border-soft-border bg-ice/40 px-4 py-12 text-center">
-          <Sparkles className="mx-auto h-5 w-5 text-champagne-deep" strokeWidth={1.8} />
-          <p className="mt-2 font-editorial text-[15px] font-semibold text-navy-deep">No insights match these filters.</p>
-          <p className="mt-1 text-[12px] text-ink-secondary">Try a broader company, section or period — every card is real, source-backed data, so empty just means none qualify yet.</p>
-          <button type="button" onClick={reset} className="mt-3 inline-flex items-center gap-1.5 rounded-lg border border-soft-border bg-white px-3 py-1.5 text-[11.5px] font-semibold text-navy-deep shadow-soft transition-colors hover:bg-ice">
-            <RotateCcw className="h-3.5 w-3.5" strokeWidth={2.2} /> Show all insights
-          </button>
-        </div>
-      )}
+      {/* Main: company chips + the full-width flip-card stack */}
+      <div className="min-w-0 flex-1 space-y-4">
+        <CompanyChips options={companyOptions} value={company} onChange={setCompany} />
+
+        {shown.length > 0 ? (
+          <div className="flex flex-col gap-4">
+            {shown.map((r) => (
+              <InsightCard
+                key={r.ins.id}
+                ins={r.ins}
+                section={r.section}
+                priority={r.priority}
+                source={r.source}
+                freshness={r.freshness}
+                onGoToSource={() => onGoToSource(r.source.target, r.ins.id)}
+                initialFlipped={!reopenConsumed.current && r.ins.id === reopenInsightId}
+              />
+            ))}
+          </div>
+        ) : (
+          <div className="rounded-2xl border border-dashed border-soft-border bg-ice/40 px-4 py-12 text-center">
+            <Sparkles className="mx-auto h-5 w-5 text-champagne-deep" strokeWidth={1.8} />
+            <p className="mt-2 font-editorial text-[15px] font-semibold text-navy-deep">No insights for {company === 'all' ? 'this period' : `${pretty(company)} in ${effPeriod || 'this period'}`} yet.</p>
+            <p className="mt-1 text-[12px] text-ink-secondary">Every card is real, source-backed data — pick another company or period.</p>
+          </div>
+        )}
+      </div>
     </div>
   )
 }
