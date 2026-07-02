@@ -65,6 +65,10 @@ function SectionHead({ icon: Icon, label, note }: { icon: LucideIcon; label: str
 
 // ── LEFT · compact Executive Brief (navy) ─────────────────────────────────────
 
+// Qualitative source-confidence, tuned to read on the navy field (no % — the
+// number was dropped from the brief on purpose).
+const CONF_ON_NAVY: Record<string, string> = { High: '#4FD1C5', Medium: '#E9C46C', Low: '#C4B487' }
+
 function CompactBrief({ brief, message, isToday, dateLabel }: { brief: MorningBrief; message: BriefMessage; isToday: boolean; dateLabel: string }) {
   return (
     <div className="relative isolate flex min-w-0 flex-col overflow-hidden px-4 py-3.5" style={{ background: 'linear-gradient(160deg, #1C3A6E 0%, #15294C 60%, #102140 100%)' }}>
@@ -84,26 +88,43 @@ function CompactBrief({ brief, message, isToday, dateLabel }: { brief: MorningBr
         {isToday ? `${brief.greeting}.` : `${brief.greeting} · ${dateLabel}`}
       </h2>
 
-      {/* the message — a sharp note, in the Insights editorial serif */}
-      <div className="mt-1.5 animate-fade-in space-y-2">
+      {/* the message — a sharp note, in the Insights editorial serif. Given a
+          little more room to breathe now that the stats block has gone. */}
+      <div className="mt-2.5 animate-fade-in space-y-2.5">
         {message.nothing ? (
-          <p className="font-editorial text-[13px] leading-snug text-white/85">No major new insight dropped today. The existing thesis remains live.</p>
+          <p className="font-editorial text-[13.5px] leading-relaxed text-white/85">No major new insight dropped today. The existing thesis remains live.</p>
         ) : (
           <>
-            <p className="font-editorial text-[13px] leading-snug text-white/90">{message.since}</p>
+            <p className="font-editorial text-[13.5px] leading-relaxed text-white/90">{message.since}</p>
             {message.keyThing && (
-              <div className="rounded-lg px-2.5 py-1.5" style={{ background: 'rgba(228,198,124,0.08)', boxShadow: 'inset 0 0 0 1px rgba(228,198,124,0.18)' }}>
+              <div className="rounded-lg px-3 py-2" style={{ background: 'rgba(228,198,124,0.08)', boxShadow: 'inset 0 0 0 1px rgba(228,198,124,0.18)' }}>
                 <p className="text-[8px] font-bold uppercase tracking-[0.14em]" style={{ color: GOLD_ON_NAVY }}>The one thing you can&rsquo;t miss</p>
-                <p className="mt-0.5 font-editorial text-[13px] leading-snug text-white">{message.keyThing}</p>
+                <p className="mt-1 font-editorial text-[13.5px] leading-relaxed text-white">{message.keyThing}</p>
               </div>
             )}
-            <p className="font-editorial text-[12.5px] leading-snug text-white/75">{message.why}</p>
-            <p className="font-editorial text-[12.5px] leading-snug text-white/75">
+            <p className="font-editorial text-[13px] leading-relaxed text-white/75">{message.why}</p>
+            <p className="font-editorial text-[13px] leading-relaxed text-white/75">
               <span className="align-[1px] text-[8px] font-sans font-bold uppercase not-italic tracking-[0.12em]" style={{ color: GOLD_ON_NAVY }}>Watch next&nbsp;·&nbsp;</span>
               {message.watch}
             </p>
           </>
         )}
+      </div>
+
+      {/* signature line — anchors the bottom of the note: qualitative source
+          confidence (no %) + how long it reads. */}
+      <div className="mt-auto flex items-center justify-between gap-2 border-t pt-3" style={{ borderColor: 'rgba(228,198,124,0.16)' }}>
+        <span
+          className="inline-flex items-center gap-1.5 rounded-full px-2 py-0.5 text-[9px] font-bold uppercase tracking-[0.08em]"
+          style={{ color: CONF_ON_NAVY[brief.confidenceTier], background: `${CONF_ON_NAVY[brief.confidenceTier]}22` }}
+        >
+          <span className="h-1.5 w-1.5 rounded-full" style={{ background: CONF_ON_NAVY[brief.confidenceTier] }} />
+          {brief.confidenceTier} source confidence
+        </span>
+        <span className="inline-flex items-center gap-1 text-[9.5px] font-semibold text-white/55">
+          <Clock3 className="h-3 w-3" strokeWidth={2} style={{ color: 'rgba(228,198,124,0.75)' }} />
+          {brief.readingMins} min read
+        </span>
       </div>
     </div>
   )
@@ -319,21 +340,18 @@ function ActionsBlock({ actions, onRun }: { actions: PulseAction[]; onRun: (a: P
   )
 }
 
-// ── FOOTER · source confidence ────────────────────────────────────────────────
+// ── FOOTER · evidence base (source confidence now lives in the brief signature) ──
 
-const CONF_COLOR: Record<string, string> = { High: '#0E6F6D', Medium: '#9C7430', Low: '#8C7A55' }
-
-function Footer({ brief, pulse }: { brief: MorningBrief; pulse: InvestorPulse }) {
-  const conf = pulse.confidence
+function Footer({ brief }: { brief: MorningBrief }) {
   return (
     <div className="flex flex-wrap items-center gap-x-3 gap-y-1 border-t border-soft-border bg-surface-tint/60 px-4 py-2">
       <span className="inline-flex items-center gap-1.5 text-[10px] font-medium text-ink-secondary">
         <Globe className="h-3 w-3" strokeWidth={2.1} style={{ color: GOLD }} />
         {brief.developmentsCount} developments · {brief.sourcesCount} source-backed · {brief.domainsCount} distinct
       </span>
-      <span className="ml-auto inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[9px] font-bold uppercase tracking-[0.08em]" style={{ color: CONF_COLOR[conf], background: `${CONF_COLOR[conf]}14` }}>
-        <ShieldCheck className="h-3 w-3" strokeWidth={2.2} />
-        {conf} source confidence
+      <span className="ml-auto inline-flex items-center gap-1 text-[10px] font-medium text-ink-secondary">
+        <RefreshCw className="h-3 w-3" strokeWidth={2.1} style={{ color: GOLD }} />
+        Updated {brief.lastUpdatedLabel}
       </span>
     </div>
   )
@@ -384,7 +402,7 @@ export function ExecutiveBrief({
           {isToday && actions.length > 0 && <ActionsBlock actions={actions} onRun={onRun} />}
         </div>
       </div>
-      <Footer brief={brief} pulse={pulse} />
+      <Footer brief={brief} />
     </section>
   )
 }
