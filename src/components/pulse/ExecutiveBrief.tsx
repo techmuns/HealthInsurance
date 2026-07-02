@@ -41,7 +41,6 @@ import {
   type ActionIcon,
 } from './derive'
 import { GOLD, GOLD_ON_NAVY } from './parts'
-import { useCountUp } from './hooks'
 import { ConvictionPages } from './ConvictionPages'
 import { SS, readSS, writeSS, clearSS } from './pulseState'
 
@@ -52,15 +51,6 @@ function accentFor(idea: ConvictionIdea): string {
   return idea.category === 'Regulatory' ? ORANGE : STATUS_COLOR[idea.status].dot
 }
 
-function CountVal({ value, suffix = '' }: { value: number; suffix?: string }) {
-  const v = useCountUp(value, 850)
-  return (
-    <>
-      {Math.round(v)}
-      {suffix}
-    </>
-  )
-}
 
 function SectionHead({ icon: Icon, label, note }: { icon: LucideIcon; label: string; note?: string }) {
   return (
@@ -69,24 +59,6 @@ function SectionHead({ icon: Icon, label, note }: { icon: LucideIcon; label: str
       <span className="text-[9.5px] font-bold uppercase tracking-[0.14em] text-navy-deep">{label}</span>
       <span className="gold-rule h-px flex-1 rounded-full opacity-70" />
       {note && <span className="text-[9px] font-semibold text-ink-secondary">{note}</span>}
-    </div>
-  )
-}
-function ConfidenceRing({ pct, tier, size = 54 }: { pct: number; tier: string; size?: number }) {
-  const v = useCountUp(pct, 1000)
-  const r = size / 2 - 4
-  const C = 2 * Math.PI * r
-  const color = tier === 'High' ? '#3BB6A6' : tier === 'Medium' ? GOLD_ON_NAVY : '#B9A16A'
-  return (
-    <div className="relative grid shrink-0 place-items-center" style={{ width: size, height: size }}>
-      <svg width={size} height={size} style={{ transform: 'rotate(-90deg)' }}>
-        <circle cx={size / 2} cy={size / 2} r={r} fill="none" stroke="rgba(255,255,255,0.14)" strokeWidth="4" />
-        <circle cx={size / 2} cy={size / 2} r={r} fill="none" stroke={color} strokeWidth="4" strokeLinecap="round" strokeDasharray={C} strokeDashoffset={C * (1 - v / 100)} />
-      </svg>
-      <div className="absolute text-[13px] font-bold leading-none text-white">
-        {Math.round(v)}
-        <span className="text-[8px]">%</span>
-      </div>
     </div>
   )
 }
@@ -132,36 +104,6 @@ function CompactBrief({ brief, message, isToday, dateLabel }: { brief: MorningBr
             </p>
           </>
         )}
-      </div>
-
-      <div className="mt-auto space-y-3 border-t pt-3" style={{ borderColor: 'rgba(228,198,124,0.16)' }}>
-        <div className="flex items-center gap-2.5">
-          <ConfidenceRing pct={brief.confidencePct} tier={brief.confidenceTier} />
-          <div className="min-w-0">
-            <div className="text-[8px] font-bold uppercase tracking-[0.1em] text-white/45">AI confidence</div>
-            <div className="text-[13px] font-bold text-white">{brief.confidenceTier}</div>
-            <div className="text-[9px] font-medium text-white/45">source quality · freshness</div>
-          </div>
-        </div>
-        <div className="grid grid-cols-2 gap-x-3 gap-y-2 border-t pt-2.5" style={{ borderColor: 'rgba(255,255,255,0.08)' }}>
-          <div>
-            <div className="text-[8px] font-bold uppercase tracking-[0.1em] text-white/45">Sources analysed</div>
-            <div className="text-[11.5px] font-bold text-white">
-              <CountVal value={brief.sourcesCount} />
-              <span className="text-[9px] font-semibold text-white/50"> · {brief.domainsCount} distinct</span>
-            </div>
-          </div>
-          <div>
-            <div className="text-[8px] font-bold uppercase tracking-[0.1em] text-white/45">Reading time</div>
-            <div className="text-[11.5px] font-bold text-white">
-              <CountVal value={brief.readingMins} /> min
-            </div>
-          </div>
-          <div className="col-span-2">
-            <div className="text-[8px] font-bold uppercase tracking-[0.1em] text-white/45">Last updated</div>
-            <div className="text-[11.5px] font-bold text-white">{brief.lastUpdatedLabel}</div>
-          </div>
-        </div>
       </div>
     </div>
   )
