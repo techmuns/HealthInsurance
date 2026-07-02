@@ -10,6 +10,7 @@
 // fixed height and each page scrolls internally if it runs long. Calm motion,
 // reduced-motion respected. All content is source-derived (see ./derive).
 
+import { useEffect, useRef } from 'react'
 import {
   ChevronLeft,
   ChevronRight,
@@ -293,24 +294,29 @@ export function ConvictionPages({
     <SourcesPage idea={idea} companyId={companyId} onNavigate={onNavigate} />,
   ]
 
+  // Direction of the turn (forward = next page incl. the wrap 3→1) so the sheet
+  // slides in from the correct side. Keyed by page, the animation replays each turn.
+  const prevRef = useRef(page)
+  const dir = page === (prevRef.current + 1) % PAGES.length ? 'fwd' : 'back'
+  useEffect(() => {
+    prevRef.current = page
+  }, [page])
+
   return (
     <div className="flex min-h-0 flex-1 flex-col" style={{ background: '#FCFBF7' }}>
-      {/* page body — FIXED height (fills the note), pages slide across, each page
-          scrolls internally if it runs long so the block never resizes. */}
+      {/* page body — FIXED height (fills the note). Only the active page is
+          mounted; on a turn it slides in like a sheet (the corner + spine stay
+          put). Long pages scroll internally so the block never resizes. */}
       <div className="relative min-h-0 flex-1 overflow-hidden">
         <div
-          className="flex h-full transition-transform duration-[320ms] ease-premium motion-reduce:transition-none"
-          style={{ transform: `translateX(-${page * 100}%)` }}
+          key={page}
+          className={`scroll-thin absolute inset-0 overflow-y-auto px-4 py-3.5 ${dir === 'fwd' ? 'animate-page-fwd' : 'animate-page-back'}`}
         >
-          {bodies.map((node, i) => (
-            <div key={i} className="scroll-thin h-full w-full shrink-0 overflow-y-auto px-4 py-3.5" aria-hidden={i !== page}>
-              {node}
-            </div>
-          ))}
+          {bodies[page]}
         </div>
 
         {/* a soft "spine" shadow on the right edge for paper depth */}
-        <div className="pointer-events-none absolute inset-y-0 right-0 w-5" style={{ background: 'linear-gradient(90deg, transparent, rgba(23,43,77,0.05))' }} />
+        <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-5" style={{ background: 'linear-gradient(90deg, transparent, rgba(23,43,77,0.05))' }} />
 
         {/* the folded page-corner control */}
         <PageCorner page={page} onTurn={() => onPage((page + 1) % PAGES.length)} />

@@ -493,10 +493,28 @@ body {
 }
 .animate-note-in { animation: note-in 0.2s cubic-bezier(0.22, 1, 0.36, 1) both; }
 
+/* Insight-note page turn — a calm sheet sliding in (with a soft edge shadow that
+   fades as it settles). Two directions so forward/back read correctly. Keyed per
+   page so the animation replays on every turn. */
+@keyframes page-turn-fwd {
+  0%   { opacity: 0.1; transform: translateX(34%); box-shadow: -16px 0 26px -12px rgba(23, 43, 77, 0.3); }
+  60%  { opacity: 1; }
+  100% { opacity: 1; transform: translateX(0);     box-shadow: 0 0 0 0 rgba(23, 43, 77, 0); }
+}
+@keyframes page-turn-back {
+  0%   { opacity: 0.1; transform: translateX(-34%); box-shadow: 16px 0 26px -12px rgba(23, 43, 77, 0.3); }
+  60%  { opacity: 1; }
+  100% { opacity: 1; transform: translateX(0);      box-shadow: 0 0 0 0 rgba(23, 43, 77, 0); }
+}
+.animate-page-fwd  { animation: page-turn-fwd  0.4s cubic-bezier(0.4, 0, 0.2, 1) both; }
+.animate-page-back { animation: page-turn-back 0.4s cubic-bezier(0.4, 0, 0.2, 1) both; }
+
 @media (prefers-reduced-motion: reduce) {
   .pulse-live,
   .glow-new,
-  .type-caret {
+  .type-caret,
+  .animate-page-fwd,
+  .animate-page-back {
     animation: none !important;
   }
 }
