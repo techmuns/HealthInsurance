@@ -5,7 +5,7 @@ import type { InsightsFile } from '@/insights/types'
 import { useFilters, useActiveCompany } from '@/state/filters'
 import { type NavTarget } from '@/insights/sourceMap'
 import { exportInsightsPptx } from '@/lib/pptExport'
-import { buildInvestorPulse, lensForInsight, type LensKey } from '@/insights/investorPulse'
+import { buildInvestorPulse } from '@/insights/investorPulse'
 import { CompanyFilter, PulseView } from '@/components/InvestorPulse'
 import { DataInsights } from '@/components/DataInsights'
 
@@ -29,7 +29,6 @@ export function Insights({ onNavigate, reopenInsightId, onReopened }: { onNaviga
   // a Data Insights section, so open that view + section.
   const reopenRef = useRef(reopenInsightId ?? null)
   const reopenInsight = reopenRef.current ? FILE.insights.find((i) => i.id === reopenRef.current) : undefined
-  const reopenLens = reopenInsight ? (lensForInsight(reopenInsight) as Exclude<LensKey, 'overviewPulse'>) : null
   const [view, setView] = useState<View>(reopenInsight ? 'dataInsights' : 'pulse')
 
   useEffect(() => {
@@ -61,7 +60,10 @@ export function Insights({ onNavigate, reopenInsightId, onReopened }: { onNaviga
           </h1>
         </div>
         <div className="flex flex-wrap items-center gap-2">
-          <CompanyFilter />
+          {/* Pulse reads one company at a time; Data Insights carries its own
+              Company filter in its filter bar, so the header selector would be a
+              redundant second control there. */}
+          {view === 'pulse' && <CompanyFilter />}
           <div className="inline-flex rounded-lg border border-soft-border bg-white p-0.5 shadow-soft">
             {TABS.map(({ id, label, Icon }) => {
               const on = id === view
@@ -103,7 +105,7 @@ export function Insights({ onNavigate, reopenInsightId, onReopened }: { onNaviga
         {view === 'pulse' ? (
           <PulseView pulse={pulse} onGoToSource={goToSource} />
         ) : (
-          <DataInsights pulse={pulse} onGoToSource={goToSource} reopenInsightId={reopenRef.current} initialOpenKey={reopenLens} />
+          <DataInsights onGoToSource={goToSource} reopenInsightId={reopenRef.current} />
         )}
       </div>
     </div>

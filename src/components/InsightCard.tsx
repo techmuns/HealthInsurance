@@ -1,6 +1,6 @@
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
-import { Sparkles, ShieldAlert, AlertTriangle, Scale, TrendingUp, Gauge, Users, Landmark, Share2, BadgeCheck, Sigma, CalendarClock, type LucideIcon } from 'lucide-react'
-import type { Insight, InsightCategory, ProvenanceLayer } from '@/insights/types'
+import { ShieldAlert, AlertTriangle, Scale, TrendingUp, Gauge, Users, Landmark, Share2, CalendarClock, RotateCw, type LucideIcon } from 'lucide-react'
+import type { Insight, InsightCategory } from '@/insights/types'
 import { InsightChart } from '@/components/InsightChart'
 import { MethodologyPanel } from '@/components/MethodologyPanel'
 import { getPromises, type PromiseStatus } from '@/lib/promiseTracker'
@@ -8,11 +8,14 @@ import { classifySource, sourceHref, isLinkable } from '@/lib/sourceHealth'
 import type { Freshness, SourceLocation } from '@/insights/sourceMap'
 
 // ───────────────────────────────────────────────────────────────────────────
-//  InsightCard — the buy-side advisor flip card. Extracted verbatim from the
-//  Insights section so the SAME card (front read → flip to deterministic
-//  workings) can be reused across every internal insight lens. The styling,
-//  spacing, shadow, typography, flip animation and click-to-flip interaction are
-//  unchanged — only the file location moved.
+//  InsightCard — the Data-Insights flip card. The FRONT is deliberately minimal
+//  and catchy: one sharp headline, a 1–2 line plain-English read, the company,
+//  a section tag and a period tag — no numbers, ratios, charts or tables. The
+//  whole card is clickable; a tap flips it to the detailed BACK (the
+//  MethodologyPanel: how it was derived, the formula, the source data points,
+//  the framework, the interpretation, what to watch and a go-to-source link).
+//  The 3D flip, variable-height sizing and reduced-motion cross-fade are the
+//  proven mechanics reused across the dashboard's insight cards.
 // ───────────────────────────────────────────────────────────────────────────
 
 // Readable insurer names (the data uses lowercase ids).
@@ -46,38 +49,18 @@ export const CATCH: Record<InsightCategory, { label: string; Icon: LucideIcon; t
   market_structure: { label: 'Market shift', Icon: Share2, tone: 'flag' },
 }
 
-const CONVICTION_LABEL: Record<Insight['conviction'], string> = { high: 'High conviction', medium: 'Medium conviction', low: 'Low conviction' }
-const CONVICTION_DOT: Record<Insight['conviction'], string> = { high: '#168E8E', medium: '#27457E', low: '#8C97A8' }
-const HORIZON: Record<Insight['horizon'], string> = { near: 'Near-term', medium: 'Medium-term', long: 'Long-term' }
+export type Priority = 'high' | 'watch' | 'normal'
 
 const fmtVal = (v: number | null, unit: string) => (v == null ? 'n/a' : unit === 'x' ? `${v}x` : unit === '%' || unit === 'pp' ? `${v}${unit}` : `${v} ${unit}`)
 
-// One-line, human provenance — no audit badges, just where it comes from.
-const LAYER_WORD: Record<ProvenanceLayer, string> = {
-  statutory: 'statutory filings', annual_report: 'annual reports', ifrs: 'IFRS accounts',
-  broker: 'broker notes', aggregator: 'market aggregators', exchange: 'exchange data',
-  derived: 'derived metrics', manual: 'curated filings',
-}
-function sourceLine(ins: Insight): string {
-  const words = [...new Set(ins.evidence.flatMap((e) => e.layers).map((l) => LAYER_WORD[l]))].slice(0, 3)
-  return words.length ? `Backed by ${words.join(', ')}` : 'Backed by the dashboard data'
-}
-
-// Data-freshness pill — states the period the insight actually uses. Teal when it
-// is the newest period in the run; warm champagne when it trails (honest "older
-// basis" cue, never hidden). Wording comes from the deterministic freshness read.
-function FreshnessPill({ freshness }: { freshness: Freshness }) {
-  const fresh = freshness.tone === 'fresh'
-  return (
-    <span
-      className="inline-flex items-center gap-1 rounded-full px-2 py-0.5 font-bold uppercase tracking-[0.06em]"
-      style={fresh ? { background: 'rgba(14,111,109,0.09)', color: '#0E6F6D' } : { background: 'rgba(156,116,48,0.12)', color: '#9C7430' }}
-      title={freshness.detail}
-    >
-      <CalendarClock className="h-3 w-3" strokeWidth={2.4} />
-      {freshness.shortLabel}
-    </span>
-  )
+// The concrete company subject of the insight, in plain English. A single name
+// spotlights that insurer; two names read as a pair; a broader set (or an
+// explicit `panel` tag) reads as "Across the panel".
+function companyLabelOf(ins: Insight): string {
+  const cos = ins.affectedInsurers.filter((id) => id !== 'panel')
+  if (ins.affectedInsurers.includes('panel') || cos.length >= 3 || cos.length === 0) return 'Across the panel'
+  if (cos.length === 2) return `${pretty(cos[0])} & ${pretty(cos[1])}`
+  return pretty(cos[0])
 }
 
 function usePrefersReducedMotion(): boolean {
@@ -92,16 +75,9 @@ function usePrefersReducedMotion(): boolean {
   return reduced
 }
 
-// The insight card template — a buyside advisor memo. The FRONT is the written
-// read (unchanged); clicking ANYWHERE on the card flips it to the deterministic
-// methodology panel on the BACK (a "View workings" pill signals the affordance;
-// a drag-to-select never flips). LEFT is the written read: category badge, the
-// editorial title, the overlooked angle + short thesis, a hero metric tile, then
-// Per-target guidance breakdown — the end-to-end "which specific targets were
-// met and which were missed" behind a "X of Y delivered" insight. Real and
-// source-backed: reads the same getPromises() the Promise Tracker uses, so the
-// aggregate never disagrees with the line items. Delivered first, then the ones
-// still open, each with its target, current actual and a link to the guidance.
+// The BACK's "visual evidence" for a "X of Y guidance delivered" insight — the
+// per-target met/missed breakdown (this card carries no chart otherwise). Real
+// and source-backed: reads the same getPromises() the Promise Tracker uses.
 const GUIDE_STATUS: Record<PromiseStatus, { label: string; mark: string; fg: string; bg: string; ring: string }> = {
   Delivered:        { label: 'Met',            mark: '✓', fg: '#0E6F6D', bg: 'rgba(14,111,109,0.10)',  ring: 'rgba(14,111,109,0.22)' },
   'On Track':       { label: 'On track',       mark: '→', fg: '#3D5F9F', bg: 'rgba(61,95,159,0.10)',   ring: 'rgba(61,95,159,0.22)' },
@@ -147,23 +123,39 @@ function GuidanceBreakdown({ companyId }: { companyId: string }) {
   )
 }
 
-// conviction / falsifier / source. RIGHT is the visual evidence: one live chart.
-export function InsightCard({ ins, hero = false, source, freshness, onGoToSource, initialFlipped = false }: { ins: Insight; hero?: boolean; source: SourceLocation; freshness: Freshness; onGoToSource: () => void; initialFlipped?: boolean }) {
+export function InsightCard({
+  ins,
+  section,
+  priority = 'normal',
+  source,
+  freshness,
+  onGoToSource,
+  initialFlipped = false,
+}: {
+  ins: Insight
+  /** The section tag shown on the front (e.g. 'Profitability'). */
+  section: string
+  /** Triage priority — high gets a subtle gold-featured ring. */
+  priority?: Priority
+  source: SourceLocation
+  freshness: Freshness
+  onGoToSource: () => void
+  initialFlipped?: boolean
+}) {
   const cat = CATCH[ins.category]
   const tone = TONE[cat.tone]
   const Icon = cat.Icon
+  const high = priority === 'high'
+  const companyLabel = companyLabelOf(ins)
+
   // Single-subject insight → spotlight that company in gold; comparisons stay multi-tone.
   const focal = ins.affectedInsurers.length === 1 ? ins.affectedInsurers[0] : undefined
-  // The one number that makes the insight concrete — the proof under the claim.
+  // The one number that makes the insight concrete — the proof under the claim
+  // (lives on the BACK, never on the clean front).
   const stat = ins.evidence.find((e) => e.value != null) ?? ins.evidence[0]
-  // A "X of Y guidance delivered" insight → show the per-target met/missed
-  // breakdown as its visual evidence (this card carries no chart otherwise).
   const guidanceCo = ins.evidence.find((e) => /guidance delivered/i.test(e.metric))?.insurer ?? null
-  // The hero number leans gold when it spotlights one company, else its tone colour.
   const statColor = focal && stat && stat.insurer === focal ? GOLD : tone.fg
 
-  // The front stays clean — the concrete number and the live chart move to the
-  // flip side (the workings). We assemble both here and hand them to the back.
   const heroStat = stat
     ? { value: fmtVal(stat.value, stat.unit), period: stat.period, label: `${pretty(stat.insurer)} · ${stat.metric}`, context: stat.context, color: statColor }
     : null
@@ -173,7 +165,7 @@ export function InsightCard({ ins, hero = false, source, freshness, onGoToSource
 
   // ── flip state + variable-height 3D flip ──────────────────────────────────
   // `initialFlipped` is true only when the reader is returning from "Go to source
-  // → Back to Insight", so the card reopens on its workings, where they left off.
+  // → Back to Insight", so the card reopens on its basis, where they left off.
   const reduced = usePrefersReducedMotion()
   const [flipped, setFlipped] = useState(initialFlipped)
   const articleRef = useRef<HTMLElement>(null)
@@ -181,13 +173,11 @@ export function InsightCard({ ins, hero = false, source, freshness, onGoToSource
   const backRef = useRef<HTMLDivElement>(null)
   const frontFaceRef = useRef<HTMLDivElement>(null)
   const backFaceRef = useRef<HTMLDivElement>(null)
-  const showBtnRef = useRef<HTMLButtonElement>(null)
   const backBtnRef = useRef<HTMLButtonElement>(null)
   const [h, setH] = useState<number | undefined>(undefined)
   const didMount = useRef(false)
-  const backId = `methodology-${ins.id}`
-  const labelId = `methodology-label-${ins.id}`
-  const hasMethodology = !!ins.methodology
+  const backId = `basis-${ins.id}`
+  const labelId = `basis-label-${ins.id}`
 
   // Measure both faces and size the card to whichever is showing (auto-grow, never clip).
   useLayoutEffect(() => {
@@ -205,7 +195,7 @@ export function InsightCard({ ins, hero = false, source, freshness, onGoToSource
     if (backFaceRef.current) backFaceRef.current.inert = !flipped
     if (!didMount.current) { didMount.current = true; return }
     if (flipped) backBtnRef.current?.focus()
-    else showBtnRef.current?.focus()
+    else frontFaceRef.current?.focus()
   }, [flipped])
 
   // On return from "Go to source", scroll this (re-flipped) card back into view.
@@ -234,91 +224,80 @@ export function InsightCard({ ins, hero = false, source, freshness, onGoToSource
     <article
       ref={articleRef}
       className={[
-        'group relative overflow-hidden rounded-2xl border bg-card transition-all duration-300 hover:-translate-y-px',
-        hero
-          ? 'border-[#E4CE93] shadow-[0_2px_8px_rgba(23,43,77,0.05),0_22px_52px_rgba(23,43,77,0.12)] hover:shadow-[0_4px_12px_rgba(23,43,77,0.06),0_26px_58px_rgba(23,43,77,0.14),0_0_0_1px_rgba(228,206,147,0.75)]'
-          : 'border-soft-border shadow-card hover:shadow-[0_18px_44px_rgba(23,43,77,0.13),0_0_0_1px_rgba(228,206,147,0.5)]',
+        'group relative animate-fade-in overflow-hidden rounded-2xl border bg-card transition-shadow duration-300',
+        // A flipped card opens to the full grid width, so the detailed back reads
+        // in its intended two-column study layout instead of a cramped half-column.
+        flipped ? 'lg:col-span-2' : 'hover:-translate-y-px',
+        high
+          ? 'border-[#E4CE93] shadow-[0_2px_8px_rgba(23,43,77,0.05),0_18px_44px_rgba(23,43,77,0.11)] hover:shadow-[0_4px_12px_rgba(23,43,77,0.06),0_22px_52px_rgba(23,43,77,0.13),0_0_0_1px_rgba(228,206,147,0.7)]'
+          : 'border-soft-border shadow-card hover:shadow-[0_16px_40px_rgba(23,43,77,0.12),0_0_0_1px_rgba(228,206,147,0.45)]',
       ].join(' ')}
     >
-      {/* Category accent strip on the left edge — instant, colour-coded character (shared chrome). */}
-      <span aria-hidden className="absolute inset-y-0 left-0 z-[2] w-[3.5px]" style={{ background: hero ? `linear-gradient(180deg, ${tone.fg}, ${GOLD})` : tone.fg }} />
+      {/* Category accent strip on the left edge — instant, colour-coded character. */}
+      <span aria-hidden className="absolute inset-y-0 left-0 z-[2] w-[3.5px]" style={{ background: high ? `linear-gradient(180deg, ${tone.fg}, ${GOLD})` : tone.fg }} />
 
       <div className="flip-3d" style={{ height: h }}>
         <div className="flip-inner" style={innerStyle}>
-          {/* ───────────────────── FRONT ───── whole face flips to the working ── */}
-          <div ref={frontFaceRef} onClick={() => hasMethodology && flipTo(true)} className={`flip-face relative ${hasMethodology ? 'cursor-pointer' : ''}`} style={frontFaceStyle}>
-           <div ref={frontRef} className="relative">
+          {/* ───────────────────── FRONT — the clean, catchy read ───────────── */}
+          <div
+            ref={frontFaceRef}
+            role="button"
+            tabIndex={flipped ? -1 : 0}
+            aria-expanded={flipped}
+            aria-controls={backId}
+            onClick={() => flipTo(true)}
+            onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); flipTo(true) } }}
+            title="Click to view the basis — how it was worked out, the formula & the source"
+            className="flip-face relative cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-champagne/60"
+            style={frontFaceStyle}
+          >
+           <div ref={frontRef} className="relative flex min-h-[244px] flex-col px-6 py-5">
             {/* Ultra-faint category wash — a tinted overlay, never a flat fill. */}
             <span aria-hidden className="pointer-events-none absolute inset-0" style={{ background: `linear-gradient(100deg, ${tone.wash} 0%, transparent 55%)` }} />
-            {/* faint category-icon watermark — quiet premium character, never a plain note box. */}
+            {/* faint category-icon watermark — quiet premium character. */}
             <Icon aria-hidden className="pointer-events-none absolute -right-2 -top-3 h-24 w-24 opacity-[0.05]" style={{ color: tone.fg }} strokeWidth={1.1} />
 
-            {/* ── The clean read — one compact column: headline + a short plain-English
-                take + small honest chips. Every number, the chart and the workings
-                live one tap away on the flip side, so the front stays scannable. ── */}
-            <div className="relative flex flex-col py-5 pl-7 pr-6 lg:py-6">
-              {/* category badge · insight number · featured flag · flip affordance */}
-              <div className="flex flex-wrap items-center gap-2">
-                <span className="inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.05em]" style={{ color: tone.fg, background: tone.bg, boxShadow: `inset 0 0 0 1px ${tone.ring}` }}>
-                  <Icon className="h-3.5 w-3.5" strokeWidth={2.4} /> {cat.label}
-                </span>
-                <span className="text-[10.5px] font-semibold tabular-nums text-ink-secondary">Insight #{ins.rank}</span>
-                {hero && <span className="inline-flex items-center gap-1 rounded-full bg-champagne-soft px-2 py-0.5 text-[9px] font-bold uppercase tracking-[0.12em] text-champagne-deep ring-1 ring-[#E7D29B]"><Sparkles className="h-3 w-3" />Featured</span>}
-                {/* Interactive cue — the whole card flips, this pill just signals it. */}
-                {hasMethodology && (
-                  <button
-                    ref={showBtnRef}
-                    type="button"
-                    onClick={(e) => { e.stopPropagation(); setFlipped(true) }}
-                    aria-expanded={flipped}
-                    aria-controls={backId}
-                    title="Flip to the numbers, chart, workings & source behind this insight"
-                    className="ml-auto inline-flex items-center gap-1 rounded-full border px-2.5 py-1 text-[9.5px] font-bold uppercase tracking-[0.08em] text-ink-secondary shadow-soft transition-all duration-200 group-hover:shadow-card"
-                    style={{ borderColor: tone.ring, background: tone.bg }}
-                  >
-                    <Sigma className="h-3 w-3" style={{ color: tone.fg }} strokeWidth={2.4} />
-                    <span style={{ color: tone.fg }}>View workings</span>
-                  </button>
-                )}
-              </div>
+            {/* top row — section tag (left) · period tag (right) */}
+            <div className="relative flex items-center gap-2">
+              <span className="inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.05em]" style={{ color: tone.fg, background: tone.bg, boxShadow: `inset 0 0 0 1px ${tone.ring}` }}>
+                <Icon className="h-3.5 w-3.5" strokeWidth={2.4} /> {section}
+              </span>
+              <span className="ml-auto inline-flex items-center gap-1 rounded-full bg-ice px-2 py-0.5 text-[10px] font-semibold text-ink-secondary ring-1 ring-soft-border" title={freshness.detail}>
+                <CalendarClock className="h-3 w-3" strokeWidth={2.2} />
+                {freshness.period}
+              </span>
+            </div>
 
-              {/* title — editorial navy display, the catchy headline */}
-              <h3 className="mt-3 font-editorial text-[23px] font-bold leading-[1.14] tracking-[-0.01em] text-navy-deep lg:text-[26px]">{ins.shortHeadline}</h3>
+            {/* headline — the one sharp, catchy line */}
+            <h3 className="relative mt-3 font-editorial text-[22px] font-bold leading-[1.16] tracking-[-0.01em] text-navy-deep lg:text-[23px]">{ins.shortHeadline}</h3>
 
-              {/* the overlooked angle → a short, plain-English read */}
-              <p className="mt-2 text-[9px] font-bold uppercase tracking-[0.15em]" style={{ color: tone.fg }}>The overlooked angle</p>
-              <p className="mt-1 font-editorial text-[14px] leading-relaxed text-ink-primary">{ins.summary}</p>
+            {/* 1–2 line plain-English read — no numbers, no jargon */}
+            <p className="relative mt-2 line-clamp-3 font-editorial text-[14px] leading-relaxed text-ink-primary">{ins.whatConsensusMisses}</p>
 
-              {/* compact meta strip — conviction · period · source-backed, then a quiet
-                  cue to where the numbers went (the flip side). No big metric tiles. */}
-              <div className="mt-4 flex flex-wrap items-center gap-x-2.5 gap-y-2 border-t border-soft-border pt-3.5 text-[10px] text-ink-secondary">
-                <span className="inline-flex items-center gap-1.5 whitespace-nowrap rounded-full bg-ice px-2.5 py-1 font-semibold text-navy-deep ring-1 ring-soft-border">
-                  <span className="h-1.5 w-1.5 rounded-full" style={{ background: CONVICTION_DOT[ins.conviction] }} />
-                  {CONVICTION_LABEL[ins.conviction]} · {HORIZON[ins.horizon]}
-                </span>
-                <FreshnessPill freshness={freshness} />
-                <span className="inline-flex items-center gap-1 rounded-full bg-teal-soft px-2 py-0.5 font-bold uppercase tracking-[0.08em] text-teal"><BadgeCheck className="h-3 w-3" />Source-backed</span>
-                <span className="hidden sm:inline">{sourceLine(ins)}</span>
-                {hasMethodology && (
-                  <span className="ml-auto inline-flex items-center gap-1 font-semibold" style={{ color: tone.fg }}>
-                    Numbers &amp; workings on the back
-                    <Sigma className="h-3 w-3" strokeWidth={2.4} />
-                  </span>
-                )}
-              </div>
+            {/* spacer pins the footer to the bottom so every card reads the same height */}
+            <div className="flex-1" />
+
+            {/* footer — company (left) · flip affordance (right) */}
+            <div className="relative mt-4 flex items-center gap-2 border-t border-soft-border pt-3">
+              <span className="inline-flex items-center gap-1.5 text-[12px] font-semibold text-navy-deep">
+                <span className="h-1.5 w-1.5 rounded-full" style={{ background: tone.fg }} />
+                {companyLabel}
+              </span>
+              <span className="ml-auto inline-flex items-center gap-1 text-[10.5px] font-semibold text-ink-secondary transition-colors group-hover:text-navy-primary">
+                <RotateCw className="h-3 w-3 transition-transform group-hover:rotate-90" strokeWidth={2.4} style={{ color: tone.fg }} />
+                Click to view basis
+              </span>
             </div>
            </div>
           </div>
 
-          {/* ─────────────── BACK ───── click anywhere to flip back (interactive
-               controls inside stop propagation, so accordions/links still work) ── */}
-          {hasMethodology && (
-            <div ref={backFaceRef} onClick={() => flipTo(false)} className="flip-face cursor-pointer overflow-hidden rounded-2xl bg-card" style={backFaceStyle} id={backId}>
-              <div ref={backRef}>
-                <MethodologyPanel ins={ins} tone={tone} source={source} freshness={freshness} onGoToSource={onGoToSource} onBack={() => setFlipped(false)} backRef={backBtnRef} labelId={labelId} heroStat={heroStat} visual={visualEvidence} />
-              </div>
+          {/* ─────────────── BACK — click anywhere to flip back; interactive
+               controls inside stop propagation, so accordions/links still work ── */}
+          <div ref={backFaceRef} onClick={() => flipTo(false)} className="flip-face cursor-pointer overflow-hidden rounded-2xl bg-card" style={backFaceStyle} id={backId}>
+            <div ref={backRef}>
+              <MethodologyPanel ins={ins} tone={tone} source={source} freshness={freshness} onGoToSource={onGoToSource} onBack={() => setFlipped(false)} backRef={backBtnRef} labelId={labelId} heroStat={heroStat} visual={visualEvidence} />
             </div>
-          )}
+          </div>
         </div>
       </div>
     </article>

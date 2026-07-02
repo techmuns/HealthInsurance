@@ -1,162 +1,241 @@
-import { useState } from 'react'
-import { CalendarClock } from 'lucide-react'
-import type { NavTarget } from '@/insights/sourceMap'
-import { ANALYTICAL_LENSES, selectManagementEvents, type InsightLens, type InvestorPulse as InvestorPulseData, type LensKey } from '@/insights/investorPulse'
-import { InsightLensView, LENS_ICON, StanceChip, ConfidenceChip } from '@/components/InsightLensView'
-import { ManagementEventIntelligence } from '@/components/ManagementEventIntelligence'
+import { useEffect, useMemo, useRef, useState } from 'react'
+import { RotateCcw, SlidersHorizontal, Sparkles } from 'lucide-react'
+import generated from '@/data/insights.generated.json'
+import type { Insight, InsightsFile } from '@/insights/types'
+import {
+  resolveSource,
+  freshnessOf,
+  latestPeriodOf,
+  latestPeriodAcross,
+  periodRank,
+  type Freshness,
+  type SourceLocation,
+  type NavTarget,
+} from '@/insights/sourceMap'
+import { InsightCard, pretty, type Priority } from '@/components/InsightCard'
 
-type AnalyticalKey = Exclude<LensKey, 'overviewPulse'>
+const FILE = generated as unknown as InsightsFile
+const PANEL_LATEST = latestPeriodAcross(FILE.insights)
 
-// Sections that carry a compact REFERENCE to the shared management-events feed
-// (the full version lives in Pulse). Forward-Looking → leadership/execution read;
-// Risk & Regulatory → governance-risk read. Same shared component + data path.
-const MGMT_EVENT_LENSES = new Set<AnalyticalKey>(['forwardLookingStrategy', 'riskRegulatoryChanges'])
-const MGMT_EVENT_LABEL: Partial<Record<AnalyticalKey, string>> = {
-  forwardLookingStrategy: 'Leadership & board references',
-  riskRegulatoryChanges: 'Governance-risk references',
+// ── Section taxonomy ─────────────────────────────────────────────────────────
+// Each insight lands in one plain-English section. Category is the primary
+// signal; a couple of metric-aware overrides route mix/channel reads to
+// Distribution and holding reads to Ownership so those sections light up when —
+// and only when — real data supports them.
+type Section = 'Market' | 'Growth' | 'Profitability' | 'Valuation' | 'Governance' | 'Ownership' | 'Distribution'
+const SECTION_ORDER: Section[] = ['Market', 'Growth', 'Profitability', 'Valuation', 'Governance', 'Ownership', 'Distribution']
+
+const primaryMetricOf = (ins: Insight): string =>
+  (ins.evidence.find((e) => e.value != null) ?? ins.evidence[0])?.metric ?? ''
+
+function sectionOf(ins: Insight): Section {
+  const metric = primaryMetricOf(ins).toLowerCase()
+  if (ins.category !== 'growth' && /retail|group|channel|agency|bancass|distribution|\bmix\b/.test(metric)) return 'Distribution'
+  if (/ownership|stake|holding|promoter|pledge|sharehold/.test(metric)) return 'Ownership'
+  switch (ins.category) {
+    case 'growth': return 'Growth'
+    case 'valuation': return 'Valuation'
+    case 'capital':
+    case 'earnings_quality':
+    case 'quality': return 'Profitability'
+    case 'management': return 'Governance'
+    case 'regulatory':
+    case 'market_structure': return 'Market'
+  }
 }
 
-// Compact tab labels — the full title still leads the category story below.
-const TAB_LABEL: Record<AnalyticalKey, string> = {
-  underwritingProfitability: 'Underwriting',
-  growthLevers: 'Growth Levers',
-  competitivePositioning: 'Positioning',
-  expenseManagement: 'Expenses',
-  investmentPerformance: 'Investments',
-  forwardLookingStrategy: 'Forward View',
-  riskRegulatoryChanges: 'Risk & Regulatory',
+// ── Priority triage ──────────────────────────────────────────────────────────
+// High = act on it (high conviction or a goldmine-grade edge). Normal = context
+// only (low conviction / context tier). Watch = everything to keep an eye on.
+function priorityOf(ins: Insight): Priority {
+  if (ins.conviction === 'high' || ins.tier === 'goldmine') return 'high'
+  if (ins.conviction === 'low' || ins.tier === 'context') return 'normal'
+  return 'watch'
+}
+const PRIORITY_ORDER: Priority[] = ['high', 'watch', 'normal']
+const PRIORITY_LABEL: Record<Priority, string> = { high: 'High', watch: 'Watch', normal: 'Normal' }
+
+// Company ordering — Niva Bupa & Star Health lead, then the rest of the panel.
+const COMPANY_ORDER = ['niva-bupa', 'star-health', 'care-health', 'aditya-birla', 'manipalcigna']
+
+type PeriodKey = 'all' | 'latest' | 'annual' | 'quarterly'
+const PERIOD_OPTIONS: { id: PeriodKey; label: string }[] = [
+  { id: 'all', label: 'All' },
+  { id: 'latest', label: 'Latest' },
+  { id: 'annual', label: 'Annual' },
+  { id: 'quarterly', label: 'Quarterly' },
+]
+
+interface Row {
+  ins: Insight
+  section: Section
+  priority: Priority
+  freshness: Freshness
+  source: SourceLocation
+  isQuarter: boolean
+  isLatest: boolean
 }
 
-// Data Insights — an analyst workbook. The seven analytical lenses are presented
-// as horizontal file-folder TABS; selecting one opens a single focused category
-// story: a category header (title · one-line read · stance · confidence · as-of),
-// then the unchanged deep-dive content (metric strip + flip cards + missed-signal
-// / implication / watch-next / source trail) supplied by InsightLensView. Only
-// the navigation changed — every insight, flip card and source link is preserved.
+const ROWS: Row[] = FILE.insights
+  .map((ins): Row => {
+    const period = latestPeriodOf(ins)
+    return {
+      ins,
+      section: sectionOf(ins),
+      priority: priorityOf(ins),
+      freshness: freshnessOf(ins, PANEL_LATEST),
+      source: resolveSource(ins),
+      isQuarter: /Q\s?[1-4]/i.test(period),
+      isLatest: periodRank(period) >= periodRank(PANEL_LATEST),
+    }
+  })
+  .sort((a, b) => a.ins.rank - b.ins.rank)
 
-// ── File-folder tab strip ─────────────────────────────────────────────────────
+const matchesPeriod = (r: Row, p: PeriodKey): boolean =>
+  p === 'all' ? true : p === 'latest' ? r.isLatest : p === 'quarterly' ? r.isQuarter : !r.isQuarter
 
-function FolderTabs({ keys, selected, onSelect, lenses }: {
-  keys: AnalyticalKey[]
-  selected: AnalyticalKey
-  onSelect: (k: AnalyticalKey) => void
-  lenses: InvestorPulseData['lenses']
+// ── Filter chip ──────────────────────────────────────────────────────────────
+const ACTIVE_CHIP: React.CSSProperties = {
+  background: 'linear-gradient(135deg, #1E4079 0%, #14294C 100%)',
+  boxShadow: 'inset 0 0 0 1px rgba(228,198,124,0.45), 0 3px 9px rgba(20,48,88,0.20)',
+}
+
+function Chip({ on, onClick, children }: { on: boolean; onClick: () => void; children: React.ReactNode }) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      className={[
+        'inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-[11.5px] font-semibold transition-all duration-normal ease-premium',
+        on ? 'text-white' : 'border border-soft-border bg-white text-navy-deep hover:bg-ice',
+      ].join(' ')}
+      style={on ? ACTIVE_CHIP : undefined}
+    >
+      {children}
+    </button>
+  )
+}
+
+function FilterRow<T extends string>({ label, options, value, onChange }: {
+  label: string
+  options: { id: T; label: string }[]
+  value: T
+  onChange: (v: T) => void
 }) {
+  if (options.length <= 1) return null
   return (
-    <div role="tablist" aria-label="Data Insights categories" className="flex gap-1 overflow-x-auto hide-scrollbar border-b border-soft-border">
-      {keys.map((k) => {
-        const on = k === selected
-        const lens = lenses[k]
-        const Icon = LENS_ICON[k]
-        return (
-          <button
-            key={k}
-            type="button"
-            role="tab"
-            aria-selected={on}
-            onClick={() => onSelect(k)}
-            title={lens.title}
-            className={[
-              'group relative inline-flex shrink-0 items-center gap-1.5 rounded-t-lg px-3 py-2 text-[11.5px] font-semibold transition-colors',
-              on ? 'text-white' : 'border border-b-0 border-soft-border bg-surface-tint/70 text-navy-deep hover:bg-ice',
-            ].join(' ')}
-            style={on ? { background: 'linear-gradient(135deg, #1E4079 0%, #14294C 100%)', boxShadow: 'inset 0 2px 0 0 #E4C67C' } : undefined}
-          >
-            <Icon className="h-3.5 w-3.5" strokeWidth={2} style={{ color: on ? '#E4C67C' : '#27457E' }} />
-            <span className="whitespace-nowrap">{TAB_LABEL[k]}</span>
-            {!lens.available && <span className="h-1.5 w-1.5 rounded-full" style={{ background: on ? 'rgba(255,255,255,0.4)' : 'rgba(107,114,128,0.45)' }} title="Limited data" />}
-            {/* gold underline that connects the active folder to the story below */}
-            {on && <span className="pointer-events-none absolute inset-x-2 -bottom-px h-[2px] rounded-full bg-champagne" />}
-          </button>
-        )
-      })}
-    </div>
-  )
-}
-
-// ── Category header — title · one-line analyst read · stance · confidence · as-of
-
-function CategoryHeader({ lens }: { lens: InsightLens }) {
-  const Icon = LENS_ICON[lens.key as AnalyticalKey]
-  return (
-    <div className="premium-panel rounded-2xl p-4">
-      <div className="flex items-start gap-3">
-        <span className="icon-ring-gold grid h-9 w-9 shrink-0 place-items-center rounded-lg" style={{ background: 'rgba(182,139,58,0.12)' }}>
-          <Icon className="h-[18px] w-[18px] text-champagne-deep" strokeWidth={2} />
-        </span>
-        <div className="min-w-0 flex-1">
-          <div className="flex flex-wrap items-center gap-2">
-            <h2 className="font-display text-[19px] leading-tight text-navy-deep">{lens.title}</h2>
-            <StanceChip stance={lens.stance} />
-            <ConfidenceChip confidence={lens.confidence} />
-            {!lens.available && <span className="rounded-full bg-ice px-1.5 py-0.5 text-[8.5px] font-bold uppercase tracking-wide text-ink-secondary">Limited data</span>}
-          </div>
-          <p className="mt-0.5 text-[11.5px] leading-snug text-ink-secondary">{lens.purpose}</p>
-        </div>
+    <div className="flex flex-wrap items-baseline gap-x-2 gap-y-1.5">
+      <span className="w-[64px] shrink-0 text-[9px] font-bold uppercase tracking-[0.14em] text-ink-secondary">{label}</span>
+      <div className="flex flex-wrap gap-1.5">
+        {options.map((o) => (
+          <Chip key={o.id} on={o.id === value} onClick={() => onChange(o.id)}>{o.label}</Chip>
+        ))}
       </div>
-      {lens.available && lens.oneLineRead && (
-        <p className="mt-3 border-t border-soft-border/70 pt-2.5 font-editorial text-[14px] leading-snug text-ink-primary">{lens.oneLineRead}</p>
-      )}
-      {lens.asOf && (
-        <p className="mt-2 inline-flex items-center gap-1.5 text-[10px] font-medium text-ink-secondary">
-          <CalendarClock className="h-3 w-3 text-champagne-deep" strokeWidth={2.1} />
-          Fundamentals as of <span className="font-semibold text-navy-deep">{lens.asOf}</span> · these update quarterly/annually, not daily.
-        </p>
-      )}
     </div>
   )
 }
 
+// Data Insights — a clean, source-backed flip-card view. The tab holds only two
+// things: a filter bar and a grid of insight cards. Each card's FRONT is one
+// sharp read (headline · plain-English take · company · section · period); a tap
+// flips it to the BACK — the full basis (derivation, formula, source data,
+// framework, interpretation, what to watch, and a jump to the exact source).
 export function DataInsights({
-  pulse,
   onGoToSource,
   reopenInsightId,
-  initialOpenKey,
 }: {
-  pulse: InvestorPulseData
   onGoToSource: (target: NavTarget, insightId: string) => void
   reopenInsightId?: string | null
-  initialOpenKey?: AnalyticalKey | null
 }) {
-  const keys = ANALYTICAL_LENSES as AnalyticalKey[]
-  const firstAvailable = keys.find((k) => pulse.lenses[k].available) ?? keys[0]
-  const [selected, setSelected] = useState<AnalyticalKey>(initialOpenKey ?? firstAvailable)
+  const [company, setCompany] = useState<string>('all')
+  const [section, setSection] = useState<Section | 'all'>('all')
+  const [period, setPeriod] = useState<PeriodKey>('all')
+  const [priority, setPriority] = useState<Priority | 'all'>('all')
 
-  const lens = pulse.lenses[selected]
-  const showMgmtRef = MGMT_EVENT_LENSES.has(selected)
-  const govEvents = showMgmtRef ? selectManagementEvents(pulse.companyId, { governanceOnly: true }) : []
+  // Reopen (returning from "Go to source → Back to Insight") should flip its card
+  // exactly once — never re-flip when the reader later changes a filter.
+  const reopenConsumed = useRef(false)
+  useEffect(() => { reopenConsumed.current = true }, [])
+
+  // Filter options — derived from the real data so empty sections/companies/
+  // periods never show as dead chips (honest availability, never a fake NA).
+  const { companyOptions, sectionOptions, periodOptions, priorityOptions } = useMemo(() => {
+    const companyIds = [...new Set(ROWS.flatMap((r) => r.ins.affectedInsurers).filter((id) => id !== 'panel'))]
+      .sort((a, b) => {
+        const ia = COMPANY_ORDER.indexOf(a), ib = COMPANY_ORDER.indexOf(b)
+        return (ia < 0 ? 99 : ia) - (ib < 0 ? 99 : ib)
+      })
+    return {
+      companyOptions: [{ id: 'all', label: 'All' }, ...companyIds.map((id) => ({ id, label: pretty(id) }))],
+      sectionOptions: [{ id: 'all' as const, label: 'All' }, ...SECTION_ORDER.filter((s) => ROWS.some((r) => r.section === s)).map((s) => ({ id: s, label: s }))],
+      periodOptions: PERIOD_OPTIONS.filter((p) => p.id === 'all' || ROWS.some((r) => matchesPeriod(r, p.id))),
+      priorityOptions: [{ id: 'all' as const, label: 'All' }, ...PRIORITY_ORDER.filter((p) => ROWS.some((r) => r.priority === p)).map((p) => ({ id: p, label: PRIORITY_LABEL[p] }))],
+    }
+  }, [])
+
+  const shown = ROWS.filter((r) =>
+    (company === 'all' || r.ins.affectedInsurers.includes(company)) &&
+    (section === 'all' || r.section === section) &&
+    matchesPeriod(r, period) &&
+    (priority === 'all' || r.priority === priority),
+  )
+
+  const anyFilter = company !== 'all' || section !== 'all' || period !== 'all' || priority !== 'all'
+  const reset = () => { setCompany('all'); setSection('all'); setPeriod('all'); setPriority('all') }
 
   return (
     <div className="space-y-4">
-      {/* Intro eyebrow */}
-      <div className="px-0.5">
-        <div className="mb-1 flex items-center gap-2">
-          <span className="h-3 w-[3px] rounded-full bg-champagne" />
-          <span className="text-[10px] font-bold uppercase tracking-[0.18em] text-champagne">Data Insights</span>
-          <span className="gold-rule h-px w-8 rounded-full" />
-        </div>
-        <p className="text-[11.5px] leading-snug text-ink-secondary">
-          A source-backed analyst workbook — pick a category folder to open its focused story. Each card flips to its in-depth thesis, workings and sources.
-        </p>
-      </div>
-
-      {/* File-folder category tabs */}
-      <FolderTabs keys={keys} selected={selected} onSelect={setSelected} lenses={pulse.lenses} />
-
-      {/* Selected category story (key forces a calm fade between categories) */}
-      <div key={selected} className="animate-fade-in space-y-4">
-        <CategoryHeader lens={lens} />
-        <InsightLensView lens={lens} onGoToSource={onGoToSource} reopenInsightId={reopenInsightId} hideHeader />
-        {showMgmtRef && govEvents.length > 0 && (
-          <div className="premium-panel rounded-2xl p-4">
-            <div className="mb-2 flex items-center gap-2">
-              <span className="h-3 w-[3px] rounded-full bg-champagne" />
-              <p className="text-[9px] font-bold uppercase tracking-[0.14em] text-champagne-deep">{MGMT_EVENT_LABEL[selected]}</p>
-            </div>
-            <ManagementEventIntelligence variant="compact" governanceOnly companyId={pulse.companyId} companyName={pulse.company} />
+      {/* ── Filter bar — always visible; controls the cards shown ─────────────── */}
+      <div className="rounded-2xl border border-soft-border bg-surface-tint/70 p-3.5 shadow-soft backdrop-blur-sm">
+        <div className="mb-2.5 flex items-center justify-between gap-2">
+          <span className="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-[0.16em] text-champagne-deep">
+            <SlidersHorizontal className="h-3.5 w-3.5" strokeWidth={2.2} /> Filters
+          </span>
+          <div className="flex items-center gap-2">
+            <span className="text-[10.5px] font-medium text-ink-secondary">
+              {shown.length} insight{shown.length === 1 ? '' : 's'}
+            </span>
+            {anyFilter && (
+              <button type="button" onClick={reset} className="inline-flex items-center gap-1 rounded-full border border-soft-border bg-white px-2 py-0.5 text-[10.5px] font-semibold text-ink-secondary transition-colors hover:bg-ice hover:text-navy-deep">
+                <RotateCcw className="h-3 w-3" strokeWidth={2.2} /> Reset
+              </button>
+            )}
           </div>
-        )}
+        </div>
+        <div className="space-y-2">
+          <FilterRow label="Company" options={companyOptions} value={company} onChange={setCompany} />
+          <FilterRow label="Section" options={sectionOptions} value={section} onChange={setSection} />
+          <FilterRow label="Period" options={periodOptions} value={period} onChange={setPeriod} />
+          <FilterRow label="Priority" options={priorityOptions} value={priority} onChange={setPriority} />
+        </div>
       </div>
+
+      {/* ── The insight grid — clean flip cards, nothing else ─────────────────── */}
+      {shown.length > 0 ? (
+        <div className="grid items-start gap-4 lg:grid-cols-2">
+          {shown.map((r) => (
+            <InsightCard
+              key={r.ins.id}
+              ins={r.ins}
+              section={r.section}
+              priority={r.priority}
+              source={r.source}
+              freshness={r.freshness}
+              onGoToSource={() => onGoToSource(r.source.target, r.ins.id)}
+              initialFlipped={!reopenConsumed.current && r.ins.id === reopenInsightId}
+            />
+          ))}
+        </div>
+      ) : (
+        <div className="rounded-2xl border border-dashed border-soft-border bg-ice/40 px-4 py-12 text-center">
+          <Sparkles className="mx-auto h-5 w-5 text-champagne-deep" strokeWidth={1.8} />
+          <p className="mt-2 font-editorial text-[15px] font-semibold text-navy-deep">No insights match these filters.</p>
+          <p className="mt-1 text-[12px] text-ink-secondary">Try a broader company, section or period — every card is real, source-backed data, so empty just means none qualify yet.</p>
+          <button type="button" onClick={reset} className="mt-3 inline-flex items-center gap-1.5 rounded-lg border border-soft-border bg-white px-3 py-1.5 text-[11.5px] font-semibold text-navy-deep shadow-soft transition-colors hover:bg-ice">
+            <RotateCcw className="h-3.5 w-3.5" strokeWidth={2.2} /> Show all insights
+          </button>
+        </div>
+      )}
     </div>
   )
 }
