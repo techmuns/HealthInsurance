@@ -1043,7 +1043,11 @@ function buildLens(
   // Insight-led watch list, else a concrete metric-driven "what to monitor next".
   const watchNext = watchRaw.length ? [...new Set(watchRaw)].slice(0, 4) : metricWatchNext(key, metrics)
 
-  const investorImplication = lensInsights[0]?.application?.framing || lensInsights[0]?.thesis || metricImplication(key, metrics)
+  // The curated `application.framing` is a generic label ("A … read on the focal
+  // name") — boilerplate reused across companies, never a real implication. Use the
+  // specific, metric-anchored "so what?" instead; fall back to the insight thesis
+  // only when no metric implication applies, and never show filler.
+  const investorImplication = metricImplication(key, metrics) || lensInsights[0]?.thesis || ''
   const stance = lensInsights[0] ? CATEGORY_STANCE[lensInsights[0].category] : metricStance(metrics)
   // Source-linked metrics → High confidence in the numbers; unsourced metrics →
   // Medium; nothing → Low. Curated insights always lead at High.

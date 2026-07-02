@@ -205,11 +205,14 @@ export function InsightLensView({
             </div>
           )}
 
-          {/* Usually missed signal + Investor implication */}
+          {/* Usually missed signal + Investor implication — solid, contained cards
+              (not faint tinted washes) so they read as part of the tab, never as
+              text floating on the backdrop. A slim tone-coded left rule keeps the
+              gold/navy meaning without sacrificing the card surface. */}
           {(lens.missedSignals.length > 0 || lens.investorImplication) && (
             <div className="grid gap-3 lg:grid-cols-2">
               {lens.missedSignals.length > 0 && (
-                <div className="rounded-xl border p-3.5" style={{ borderColor: 'rgba(156,116,48,0.24)', background: 'rgba(156,116,48,0.05)' }}>
+                <div className="rounded-xl border border-soft-border bg-card p-3.5 shadow-soft" style={{ borderLeft: '3px solid rgba(182,139,58,0.55)' }}>
                   <p className="flex items-center gap-1.5 text-[9px] font-bold uppercase tracking-[0.12em] text-champagne-deep"><Eye className="h-3.5 w-3.5" />Usually missed signal</p>
                   <ul className="mt-2 space-y-1.5">
                     {lens.missedSignals.map((s, i) => (
@@ -219,7 +222,7 @@ export function InsightLensView({
                 </div>
               )}
               {lens.investorImplication && (
-                <div className="rounded-xl border p-3.5" style={{ borderColor: 'rgba(39,69,126,0.18)', background: 'rgba(39,69,126,0.04)' }}>
+                <div className="rounded-xl border border-soft-border bg-card p-3.5 shadow-soft" style={{ borderLeft: '3px solid rgba(39,69,126,0.5)' }}>
                   <p className="flex items-center gap-1.5 text-[9px] font-bold uppercase tracking-[0.12em] text-navy-primary"><Lightbulb className="h-3.5 w-3.5" />Investor implication</p>
                   <p className="mt-2 font-editorial text-[12.5px] leading-relaxed text-ink-primary">{lens.investorImplication}</p>
                 </div>
@@ -229,8 +232,8 @@ export function InsightLensView({
 
           {/* Watch next — a checklist the investor monitors. */}
           {lens.watchNext.length > 0 && (
-            <div className="rounded-xl border border-soft-border bg-card p-3.5 shadow-soft">
-              <p className="flex items-center gap-1.5 text-[9px] font-bold uppercase tracking-[0.12em] text-navy-primary"><ListChecks className="h-3.5 w-3.5" />Watch next</p>
+            <div className="rounded-xl border border-soft-border bg-card p-3.5 shadow-soft" style={{ borderLeft: '3px solid rgba(56,168,162,0.5)' }}>
+              <p className="flex items-center gap-1.5 text-[9px] font-bold uppercase tracking-[0.12em] text-teal"><ListChecks className="h-3.5 w-3.5" />Watch next</p>
               <ul className="mt-2 space-y-1.5">
                 {lens.watchNext.map((w, i) => (
                   <li key={i} className="flex items-start gap-2 text-[12px] leading-snug text-ink-secondary">
