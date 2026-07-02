@@ -880,7 +880,8 @@ export function getFocalCompanyId(): string {
 // (retail health premium ÷ total health premium). This is the correct basis for
 // "share of health GWP" and is reported across many fiscal years (FY18→FY26), so
 // the product-mix view is genuinely multi-year — not frozen on one year.
-interface GicHealthPortfolioRow { fiscal_year: string; entity: string; health_retail: number | null; health_total: number | null }
+interface GicHealthPortfolioProvenance { source_name?: string; source_url?: string; source_period?: string; fetched_at?: string; confidence?: 'high' | 'medium' | 'low' | 'pending' }
+interface GicHealthPortfolioRow { fiscal_year: string; entity: string; health_retail: number | null; health_total: number | null; provenance?: GicHealthPortfolioProvenance }
 const GIC_HEALTH_ROWS = (gicHealthPortfolio.data as GicHealthPortfolioRow[]) ?? []
 const hasHealthMix = (r: GicHealthPortfolioRow): boolean =>
   typeof r.health_retail === 'number' && typeof r.health_total === 'number' && r.health_total > 0
@@ -895,6 +896,10 @@ export interface RetailMixPoint {
   retailPrem: number
   groupPrem: number
   totalPrem: number
+  /** Provenance of the exact GI Council edition (the XLSX file) this FY's split
+   *  was read from — so a source link points at the specific file that carries
+   *  the two premium numbers, not the GI Council report-listing page. */
+  provenance?: GicHealthPortfolioProvenance
 }
 
 /** Retail-vs-group HEALTH split for ONE insurer across every fiscal year it
@@ -916,6 +921,7 @@ export function retailMixSeriesForCompany(companyId: string): RetailMixPoint[] {
       retailPrem,
       groupPrem: Math.max(0, totalPrem - retailPrem),
       totalPrem,
+      provenance: r.provenance,
     })
   }
   return [...byFy.values()].sort((a, b) => fyNum(a.fy) - fyNum(b.fy))
