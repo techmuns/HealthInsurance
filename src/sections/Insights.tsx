@@ -56,7 +56,9 @@ export function Insights({ onNavigate, reopenInsightId, onReopened }: { onNaviga
       {/* ── One compact header row: title · company filter · Pulse | Data Insights. */}
       <div className="sticky top-0 z-10 -mx-1 flex flex-wrap items-center justify-between gap-x-4 gap-y-2 rounded-xl border border-soft-border bg-surface-tint/80 px-3.5 py-2.5 backdrop-blur-md">
         <div className="min-w-0">
-          <h1 className="font-display text-[26px] leading-none text-navy-deep">Insights</h1>
+          <h1 className="font-display text-[26px] leading-none text-navy-deep">
+            Insights <span className="text-[19px] font-normal text-ink-secondary/70">/ {view === 'pulse' ? 'Pulse' : 'Data Insights'}</span>
+          </h1>
         </div>
         <div className="flex flex-wrap items-center gap-2">
           <CompanyFilter />
@@ -99,7 +101,7 @@ export function Insights({ onNavigate, reopenInsightId, onReopened }: { onNaviga
       {/* ── Active view ──────────────────────────────────────────────────── */}
       <div key={view} className="animate-fade-in">
         {view === 'pulse' ? (
-          <PulseView pulse={pulse} />
+          <PulseView pulse={pulse} onGoToSource={goToSource} />
         ) : (
           <DataInsights pulse={pulse} onGoToSource={goToSource} reopenInsightId={reopenRef.current} initialOpenKey={reopenLens} />
         )}
