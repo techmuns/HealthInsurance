@@ -22,9 +22,20 @@ export type FocusTone = 'positive' | 'negative' | 'neutral'
 /** Formatting hint for the resolved values shown in the callout / tooltip. */
 export type FocusUnit = 'cr' | '%' | 'x' | 'pp' | ''
 
+/** Two ways an insight points into the dashboard:
+ *  • 'comparison' — a metric with a current vs comparison period (spotlight +
+ *    connector + pinned callout on the chart).
+ *  • 'locator' — a count / event / development with no period maths (scroll to
+ *    the exact section/element, blip it, and pop a small "here it is" note). */
+export type FocusKind = 'comparison' | 'locator'
+
 export interface InsightFocus {
   /** Stable id of the insight / idea / delta that opened this (dedupe + return). */
   id: string
+  /** Comparison (metric spotlight) vs locator (point-at-this blip). Default comparison. */
+  kind?: FocusKind
+  /** For locator focuses — the semantic of what to point at ('events', 'regulatory', …). */
+  locatorKind?: string
   /** Canonical metric key the destination chart matches on ('gwp', 'combined_ratio', …). */
   metricKey: string
   /** Human metric label ('Gross Written Premium'). */
@@ -343,6 +354,51 @@ export function buildFocus(args: {
     higherIsBetter: meta.higherIsBetter,
     sahiTab: meta.sahiTab,
     origin: args.origin ?? 'pulse',
+  }
+}
+
+// ── locator focuses (point-at-this, no period maths) ─────────────────────────
+
+export interface LocatorMeta {
+  sahiTab: string
+  label: string
+}
+
+/** Where each non-metric "since yesterday" change lives, and its plain label. */
+export const LOCATOR_META: Record<string, LocatorMeta> = {
+  regulatory: { sahiTab: 'sector-news', label: 'Regulatory updates' },
+  company: { sahiTab: 'companies', label: 'Company update' },
+  management: { sahiTab: 'governance', label: 'Management change' },
+  events: { sahiTab: 'governance', label: 'Events ahead' },
+  market_move: { sahiTab: 'valuation', label: 'Market moves' },
+}
+
+/** Build a locator focus — a "point at the exact place this lives" context that
+ *  scrolls to and blips the destination, with the insight label as its popup. */
+export function buildLocator(args: {
+  id: string
+  locatorKind: string
+  company?: string
+  companyLabel?: string
+  insightLabel: string
+  tone?: FocusTone
+  sahiTab?: string
+}): InsightFocus {
+  const meta = LOCATOR_META[args.locatorKind]
+  return {
+    id: args.id,
+    kind: 'locator',
+    locatorKind: args.locatorKind,
+    metricKey: args.locatorKind,
+    metricLabel: meta?.label ?? args.insightLabel,
+    company: args.company,
+    companyLabel: args.companyLabel,
+    comparisonType: 'trend',
+    tone: args.tone ?? 'neutral',
+    insightLabel: args.insightLabel,
+    unit: '',
+    sahiTab: args.sahiTab ?? meta?.sahiTab,
+    origin: 'pulse',
   }
 }
 

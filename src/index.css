@@ -532,10 +532,24 @@ body {
 /* One-time soft ring on the chart card the reader is scrolled to. */
 .insight-arrival { animation: insight-arrival 2.4s cubic-bezier(0.22, 1, 0.36, 1) 1; }
 
+/* Locator blip — a small gold dot with a slow, soft halo that marks the exact
+   row / card / event an insight points at (used where there's no metric to
+   compare, only a place to find). Calm loop; silenced under reduced motion. */
+@keyframes locator-blip {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(182, 139, 58, 0.5); }
+  50% { box-shadow: 0 0 0 6px rgba(182, 139, 58, 0); }
+}
+.locator-blip {
+  border-radius: 9999px;
+  background: #B68B3A;
+  animation: locator-blip 1.9s ease-in-out infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .insight-spotlight,
   .insight-anchor,
   .insight-pill { animation: insight-fade-in 0.12s ease both !important; }
   .insight-connector { animation: none !important; stroke-dashoffset: 0 !important; }
   .insight-arrival { animation: none !important; }
+  .locator-blip { animation: none !important; box-shadow: 0 0 0 3px rgba(182, 139, 58, 0.25) !important; }
 }

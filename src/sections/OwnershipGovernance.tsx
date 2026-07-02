@@ -1,6 +1,7 @@
 import { SectionTabs, type SectionTab } from '@/components/SectionTabs'
 import { Ownership } from '@/sections/Ownership'
 import { ManagementEvents } from '@/sections/ManagementEvents'
+import { useSectionFocus } from '@/state/insightFocus'
 
 const TABS: SectionTab[] = [
   { id: 'ownership', label: 'Ownership' },
@@ -14,7 +15,12 @@ const TABS: SectionTab[] = [
  * event-feed structure (each clearly flagged where live data is still pending).
  */
 export function OwnershipGovernance({ onNavigate, sub }: { onNavigate?: (id: string) => void; sub?: string }) {
-  const tab = TABS.find((t) => t.id === sub?.split('/')[0])?.id ?? TABS[0].id
+  // When arriving from a management / events insight, open the Management tab so
+  // the reader lands on the exact thing the insight pointed at.
+  const focus = useSectionFocus('governance')
+  const wantsMgmt = focus?.kind === 'locator' && (focus.locatorKind === 'management' || focus.locatorKind === 'events')
+  const explicit = TABS.find((t) => t.id === sub?.split('/')[0])?.id
+  const tab = explicit ?? (wantsMgmt ? 'management' : TABS[0].id)
   const go = (id: string) => onNavigate?.(`ownership-governance/${id}`)
   return (
     <div className="space-y-5">

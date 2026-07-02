@@ -3,6 +3,8 @@ import { CalendarDays, ExternalLink, Newspaper, RefreshCw, Search, Sparkles } fr
 import { VerdictStrip } from '@/components/VerdictStrip'
 import { SectionHeading } from '@/components/SectionHeading'
 import { SourceTag } from '@/components/SourceTag'
+import { InsightContextChip } from '@/components/insight/InsightContextChip'
+import { useSectionInsight } from '@/components/insight/useSectionInsight'
 import {
   sectoralNews,
   makeSectoralId,
@@ -103,6 +105,7 @@ function isNew(it: SectoralNewsItem): boolean {
 export function SectoralNews() {
   const [lens, setLens] = useState<Lens>('all')
   const [query, setQuery] = useState('')
+  const { focus, ref: focusRef, arrived } = useSectionInsight('sector-news')
 
   const total = ALL_ITEMS.length
   const newCount = useMemo(() => ALL_ITEMS.filter(isNew).length, [])
@@ -170,7 +173,8 @@ export function SectoralNews() {
   }, [filtered])
 
   return (
-    <div className="space-y-6">
+    <div ref={focusRef} className={`space-y-6 ${arrived ? 'insight-arrival rounded-2xl' : ''}`}>
+      {focus && <InsightContextChip focus={focus} />}
       {/* ── Answer-first verdict ─────────────────────────────────────────── */}
       <VerdictStrip
         eyebrow={`Sector Pulse · ${windowLabel}`}

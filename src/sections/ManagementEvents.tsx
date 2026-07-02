@@ -6,6 +6,10 @@ import { ManagementEventIntelligence } from '@/components/ManagementEventIntelli
 import { getPromises } from '@/lib/promiseTracker'
 import { selectManagementEvents } from '@/insights/investorPulse'
 import { useActiveCompany } from '@/state/filters'
+import { InsightContextChip } from '@/components/insight/InsightContextChip'
+import { LocatorBadge } from '@/components/insight/LocatorBadge'
+import { useSectionInsight } from '@/components/insight/useSectionInsight'
+import type { InsightFocus } from '@/insights/insightFocus'
 
 /**
  * Governance — Management Events tab. Focused strictly on governance now:
@@ -18,8 +22,11 @@ import { useActiveCompany } from '@/state/filters'
  * has MOVED to the Insights tab ("Curated Market Intelligence"). Governance no
  * longer carries the full intelligence feed — it stays clean and governance-only.
  */
+const isMgmtLocator = (f: InsightFocus) => f.kind === 'locator' && (f.locatorKind === 'management' || f.locatorKind === 'events')
+
 export function ManagementEvents() {
   const company = useActiveCompany()
+  const { focus, ref: focusRef, arrived } = useSectionInsight('governance', isMgmtLocator)
   const promises = getPromises(company.id)
   const delivered = promises.filter((p) => p.status === 'Delivered').length
   const missed = promises.filter((p) => p.status === 'Missed').length
@@ -44,6 +51,7 @@ export function ManagementEvents() {
 
   return (
     <div className="space-y-6">
+      {focus && <InsightContextChip focus={focus} />}
       <VerdictStrip
         eyebrow="Governance Signal"
         verdict={verdict}
@@ -78,7 +86,10 @@ export function ManagementEvents() {
       {/* Board / KMP / leadership changes — compact, governance-relevant view of
           the SHARED component. The full "Management & Event Intelligence" block
           lives in Insights; this stays lean and governance-only. */}
-      <ManagementEventIntelligence variant="compact" governanceOnly companyId={company.id} companyName={company.shortName} />
+      <div ref={focusRef} className={`relative ${arrived ? 'insight-arrival rounded-2xl' : ''}`}>
+        {focus && <LocatorBadge label={focus.insightLabel} className="absolute -top-2.5 right-4 z-10" />}
+        <ManagementEventIntelligence variant="compact" governanceOnly companyId={company.id} companyName={company.shortName} />
+      </div>
     </div>
   )
 }

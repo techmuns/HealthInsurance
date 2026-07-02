@@ -5,6 +5,8 @@ import { insurers } from '@/data/mockData'
 import { FOCAL_VALUATION_ID, peerValuation, type PeerValuationRow } from '@/data/valuationData'
 import { getAnalystCoverage, getMarketQuote } from '@/lib/analystCoverage'
 import { useActiveCompany } from '@/state/filters'
+import { InsightContextChip } from '@/components/insight/InsightContextChip'
+import { useSectionInsight } from '@/components/insight/useSectionInsight'
 import { NavValuationCard } from '@/components/NavValuationCard'
 import type { Insurer } from '@/data/types'
 import { CORAL, Eyebrow, GOLD, GREEN, NAVY, PEER, TEAL, ValPill, clamp, fmtCr, px, ratingTone, upPct, xMult } from './valuationShared'
@@ -14,6 +16,7 @@ import { PeerValuationMatrix } from './PeerValuationMatrix'
 export function ValuationMarketView() {
   const company = useActiveCompany()
   const isFocal = company.id === FOCAL_VALUATION_ID
+  const { focus, ref: focusRef, arrived } = useSectionInsight('valuation')
 
   // ── Operating-quality compass (relative, from insurers[] headline metrics) ──
   const peerGroup = insurers.filter((i) => i.peerGroup === company.peerGroup && i.id !== company.id)
@@ -34,7 +37,8 @@ export function ValuationMarketView() {
         : { tone: 'navy', text: <>Operating quality is <b className="text-navy-deep">broadly in line</b> with peers.</> }
 
   return (
-    <div className="space-y-5">
+    <div ref={focusRef} className={`space-y-5 ${arrived ? 'insight-arrival rounded-2xl' : ''}`}>
+      {focus && <InsightContextChip focus={focus} />}
       {isFocal ? (
         <>
           {/* ═══ 1. VALUATION HERO — gauge / journey infographic + lenses ════════ */}

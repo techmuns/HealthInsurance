@@ -26,7 +26,7 @@ import {
   type Confidence,
 } from '@/insights/investorPulse'
 import type { NavTarget } from '@/insights/sourceMap'
-import { buildFocus, type InsightFocus } from '@/insights/insightFocus'
+import { buildFocus, buildLocator, type InsightFocus } from '@/insights/insightFocus'
 import intelSnapshot from '@/data/snapshots/market-intelligence-snapshot.json'
 
 // Feed freshness — read straight off the intelligence snapshot's own metadata
@@ -1147,14 +1147,21 @@ export function sinceYesterday(pulse: InvestorPulse): SinceDelta[] {
   const company = pulse.companyId
   const to = (sahiTab: string): NavTarget => ({ page: 'sahi', sahiTab, company })
 
+  // Each non-metric change carries a LOCATOR focus, so "View in dashboard" scrolls
+  // to the exact section it lives in, blips it and pops a small "here it is" note.
+  const locTarget = (sahiTab: string, id: string, locatorKind: string, label: string): NavTarget => ({
+    ...to(sahiTab),
+    focus: buildLocator({ id: `pulse-since-${id}`, locatorKind, company, companyLabel: pulse.company, insightLabel: label, sahiTab }),
+  })
+
   const reg = recent.filter((s) => s.category === 'Regulatory').length
-  if (reg) out.push({ id: 'reg', label: reg === 1 ? 'new regulatory update' : 'new regulatory updates', value: String(reg), direction: 'up', tone: 'Watch', target: to('sector-news') })
+  if (reg) out.push({ id: 'reg', label: reg === 1 ? 'new regulatory update' : 'new regulatory updates', value: String(reg), direction: 'up', tone: 'Watch', target: locTarget('sector-news', 'reg', 'regulatory', `${reg} new regulatory ${reg === 1 ? 'update' : 'updates'}`) })
 
   const disclosures = recent.filter((s) => s.scope === 'company').length
-  if (disclosures) out.push({ id: 'co', label: disclosures === 1 ? 'fresh company update' : 'fresh company updates', value: String(disclosures), direction: 'up', tone: 'Positive', target: to('companies') })
+  if (disclosures) out.push({ id: 'co', label: disclosures === 1 ? 'fresh company update' : 'fresh company updates', value: String(disclosures), direction: 'up', tone: 'Positive', target: locTarget('companies', 'co', 'company', `${disclosures} fresh ${pulse.company} ${disclosures === 1 ? 'update' : 'updates'}`) })
 
   const mgmt = selectManagementEvents(pulse.companyId, { recentOnly: true }).length
-  if (mgmt) out.push({ id: 'mgmt', label: mgmt === 1 ? 'management change' : 'management changes', value: String(mgmt), direction: 'up', tone: 'Neutral', target: to('governance') })
+  if (mgmt) out.push({ id: 'mgmt', label: mgmt === 1 ? 'management change' : 'management changes', value: String(mgmt), direction: 'up', tone: 'Neutral', target: locTarget('governance', 'mgmt', 'management', `${mgmt} management ${mgmt === 1 ? 'change' : 'changes'}`) })
 
   // Premium growth (YoY) — a real, source-backed change when the growth lens has it.
   // Carries an InsightFocus so "View in dashboard" lands on the premium chart with
@@ -1184,11 +1191,11 @@ export function sinceYesterday(pulse: InvestorPulse): SinceDelta[] {
   }
 
   const events = pulse.signals.filter((s) => s.horizon === 'upcoming').length
-  if (events) out.push({ id: 'events', label: events === 1 ? 'event ahead' : 'events ahead', value: String(events), direction: 'up', tone: 'Neutral', target: to('governance') })
+  if (events) out.push({ id: 'events', label: events === 1 ? 'event ahead' : 'events ahead', value: String(events), direction: 'up', tone: 'Neutral', target: locTarget('governance', 'events', 'events', `${events} ${events === 1 ? 'event' : 'events'} ahead`) })
 
   // Market reaction only when it is a genuine reported move; 0 shown as reassurance.
   const moves = recent.filter((s) => s.category === 'Data Movement' && isMarketMove(s.title)).length
-  out.push({ id: 'moves', label: moves === 1 ? 'unusual market move' : 'unusual market moves', value: String(moves), direction: moves > 0 ? 'up' : 'flat', tone: moves > 0 ? 'Watch' : 'Positive', target: to('valuation') })
+  out.push({ id: 'moves', label: moves === 1 ? 'unusual market move' : 'unusual market moves', value: String(moves), direction: moves > 0 ? 'up' : 'flat', tone: moves > 0 ? 'Watch' : 'Positive', target: locTarget('valuation', 'moves', 'market_move', moves > 0 ? `${moves} unusual market ${moves === 1 ? 'move' : 'moves'}` : 'No unusual market moves') })
 
   return out
 }

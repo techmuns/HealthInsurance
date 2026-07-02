@@ -1,5 +1,7 @@
 import { Fragment, useEffect, useMemo, useState } from 'react'
 import { useFilters } from '@/state/filters'
+import { InsightContextChip } from '@/components/insight/InsightContextChip'
+import { useSectionInsight } from '@/components/insight/useSectionInsight'
 import { getLatestAnnualFyLabel } from '@/lib/dataLayer'
 import { AnalysisBuilder } from '@/components/AnalysisBuilder'
 import { SectionTabs } from '@/components/SectionTabs'
@@ -432,6 +434,7 @@ const PILLS = [
 
 export function CompetitivePositioning() {
   const filters = useFilters()
+  const { focus, ref: focusRef, arrived } = useSectionInsight('companies')
   const [tab, setTab] = useState<Tab>('Scorecard')
   const [activeKey, setActiveKey] = useState('growth')
   // Accounting lens for the profit-basis column (Combined Ratio). Default
@@ -486,7 +489,8 @@ export function CompetitivePositioning() {
   ]
 
   return (
-    <div className="space-y-5">
+    <div ref={focusRef} className={`space-y-5 ${arrived ? 'insight-arrival rounded-2xl' : ''}`}>
+      {focus && <InsightContextChip focus={focus} />}
       {/* Header */}
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div>
