@@ -354,11 +354,22 @@ export function resolveCellSource(companyId: string, metricKey: string, basis: A
   if (metricKey === 'retailMix') {
     const pt = latestRetailMixPoint(companyId)
     if (!pt) return null
+    // Link straight to the EXACT GI Council edition (the XLSX file) this FY's
+    // split was read from — the file that carries the two premium numbers the
+    // % divides from — not the report-listing page. Every other cell links to
+    // its precise source file; Retail Mix must too. Keep the clean, plain source
+    // name (the FY tag already carries the period). Fall back to the generic
+    // listing only if a row somehow lacks its own provenance URL.
+    const exactUrl = pt.provenance?.source_url
     return {
       label: RETAIL_MIX_SOURCE.source,
       period: pt.fy,
       confidence: RETAIL_MIX_SOURCE.confidence,
-      provenance: RETAIL_MIX_SOURCE.provenance,
+      provenance: {
+        source_name: RETAIL_MIX_SOURCE.provenance.source_name,
+        source_url: exactUrl || RETAIL_MIX_SOURCE.provenance.source_url,
+        fetched_at: pt.provenance?.fetched_at ?? RETAIL_MIX_SOURCE.provenance.fetched_at,
+      },
     }
   }
 
