@@ -1,10 +1,10 @@
 {
   "meta": {
-    "generatedAt": "2026-07-02T19:20:16.393Z",
+    "generatedAt": "2026-07-03T04:19:16.487Z",
     "dataAsOf": "FY25",
     "model": "deterministic-keyless (no-AI synthesis; plain templated prose, live numbers)",
     "signalsComputed": 92,
-    "signalHash": "sig_8480c4da",
+    "signalHash": "sig_73a89e58",
     "coverage": [
       {
         "insurer": "niva-bupa",
@@ -229,7 +229,7 @@
           }
         },
         "payloadHash": "sig_b25fc7a7",
-        "computedAt": "2026-07-02T19:20:16.393Z",
+        "computedAt": "2026-07-03T04:19:16.487Z",
         "isQuantitative": true
       },
       "application": {
@@ -539,7 +539,7 @@
           }
         },
         "payloadHash": "sig_32f11b60",
-        "computedAt": "2026-07-02T19:20:16.393Z",
+        "computedAt": "2026-07-03T04:19:16.487Z",
         "isQuantitative": true
       },
       "application": {
@@ -583,8 +583,8 @@
       "category": "valuation",
       "headline": "Niva trades at 3x book on a single-digit ROE — the multiple prices an ROE ramp not yet delivered",
       "shortHeadline": "Niva prices a return it has yet to earn",
-      "summary": "Niva carries a 3x price-to-book while delivering a 5.7% ROE. At a 12% cost of equity, that multiple only makes sense on a much higher steady-state return than the book currently earns. On premium, Niva's 1.71x P/GWP sits above Star's 1.49x — a richer multiple, not obviously faster growth.",
-      "thesis": "A 3x book multiple against a 5.7% delivered ROE embeds a steep return-on-equity expansion. Underwriting is still loss-making and coverage is thin, so there is little margin for a slip in the ROE path the price already assumes. The premium multiple (1.71x vs Star's 1.49x) says the same thing from the top line.",
+      "summary": "Niva carries a 3x price-to-book while delivering a 5.7% ROE. At a 12% cost of equity, that multiple only makes sense on a much higher steady-state return than the book currently earns. On premium, Niva's 1.71x P/GWP sits above Star's 1.7x — a richer multiple, not obviously faster growth.",
+      "thesis": "A 3x book multiple against a 5.7% delivered ROE embeds a steep return-on-equity expansion. Underwriting is still loss-making and coverage is thin, so there is little margin for a slip in the ROE path the price already assumes. The premium multiple (1.71x vs Star's 1.7x) says the same thing from the top line.",
       "whatConsensusMisses": "The multiple is a forward-ROE option: the price front-runs a return ramp the book has not yet delivered, on a still loss-making underwriting line.",
       "evidence": [
         {
@@ -628,7 +628,7 @@
         {
           "insurer": "star-health",
           "metric": "P/GWP vs growth",
-          "value": 1.49,
+          "value": 1.7,
           "unit": "x",
           "context": "cheaper on an 11% ROE",
           "layers": [
@@ -722,7 +722,7 @@
             "refTag": "PEG-style sanity check",
             "gloss": "Whether a richer premium multiple is actually buying faster growth.",
             "formulaTeX": "\\text{richness} = \\dfrac{P/GWP}{g_{\\text{GWP}}} \\quad (\\text{higher} \\Rightarrow \\text{paying more per point of growth})",
-            "instanceTeX": "1.71\\text{x} \\,@\\, 27\\% \\;\\;\\text{vs}\\;\\; 1.49\\text{x} \\,@\\, 11\\%",
+            "instanceTeX": "1.71\\text{x} \\,@\\, 27\\% \\;\\;\\text{vs}\\;\\; 1.7\\text{x} \\,@\\, 11\\%",
             "inputs": [
               {
                 "symbol": "P/GWP",
@@ -736,7 +736,7 @@
               {
                 "symbol": "P/GWP_{Star}",
                 "label": "Star Health · P/GWP @ ~11% GWP growth",
-                "value": 1.49,
+                "value": 1.7,
                 "unit": "x",
                 "insurer": "star-health",
                 "period": "FY26",
@@ -748,7 +748,7 @@
               "value": 1.71,
               "unit": "x"
             },
-            "robustness": "Niva Bupa carries a higher 1.71x vs Star Health's 1.49x, on ~27% vs ~11% GWP growth — the richer multiple is buying faster growth, not pure re-rating.",
+            "robustness": "Niva Bupa carries a higher 1.71x vs Star Health's 1.7x, on ~27% vs ~11% GWP growth — the richer multiple is buying faster growth, not pure re-rating.",
             "lens": "fundamental"
           }
         ],
@@ -775,8 +775,8 @@
             "stepKeys": []
           }
         },
-        "payloadHash": "sig_3d4025ab",
-        "computedAt": "2026-07-02T19:20:16.393Z",
+        "payloadHash": "sig_54f1b289",
+        "computedAt": "2026-07-03T04:19:16.487Z",
         "isQuantitative": true
       },
       "application": {
@@ -1022,7 +1022,7 @@
           }
         },
         "payloadHash": "sig_e30f2ed1",
-        "computedAt": "2026-07-02T19:20:16.393Z",
+        "computedAt": "2026-07-03T04:19:16.487Z",
         "isQuantitative": true
       },
       "application": {
@@ -1292,7 +1292,7 @@
           }
         },
         "payloadHash": "sig_a4beddb2",
-        "computedAt": "2026-07-02T19:20:16.393Z",
+        "computedAt": "2026-07-03T04:19:16.487Z",
         "isQuantitative": true
       },
       "application": {
@@ -1553,7 +1553,7 @@
           }
         },
         "payloadHash": "sig_882e7b5",
-        "computedAt": "2026-07-02T19:20:16.393Z",
+        "computedAt": "2026-07-03T04:19:16.487Z",
         "isQuantitative": true
       },
       "application": {
@@ -1767,7 +1767,7 @@
           }
         },
         "payloadHash": "sig_52226047",
-        "computedAt": "2026-07-02T19:20:16.393Z",
+        "computedAt": "2026-07-03T04:19:16.487Z",
         "isQuantitative": true
       },
       "application": {
