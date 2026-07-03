@@ -1,10 +1,9 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
-import { Radar, Layers, Presentation } from 'lucide-react'
+import { Radar, Layers } from 'lucide-react'
 import generated from '@/data/insights.generated.json'
 import type { InsightsFile } from '@/insights/types'
 import { useFilters, useActiveCompany } from '@/state/filters'
 import { type NavTarget } from '@/insights/sourceMap'
-import { exportInsightsPptx } from '@/lib/pptExport'
 import { buildInvestorPulse } from '@/insights/investorPulse'
 import { CompanyFilter, PulseView } from '@/components/InvestorPulse'
 import { DataInsights } from '@/components/DataInsights'
@@ -89,14 +88,6 @@ export function Insights({ onNavigate, reopenInsightId, onReopened }: { onNaviga
               )
             })}
           </div>
-          <button
-            type="button"
-            onClick={() => exportInsightsPptx(FILE)}
-            title="Download all insights as a PowerPoint deck"
-            className="inline-flex items-center gap-1.5 rounded-lg border border-[#E2CF9B] bg-champagne-soft px-2.5 py-1.5 text-[11px] font-semibold text-champagne-deep shadow-soft transition-colors hover:bg-white"
-          >
-            <Presentation className="h-3.5 w-3.5" /> Export
-          </button>
         </div>
       </div>
 
