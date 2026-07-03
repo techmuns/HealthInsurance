@@ -1345,11 +1345,11 @@ export interface SinceDelta {
   tone: SignalImpact
   /** Where "View in dashboard" lands — the nearest real section for this change. */
   target: NavTarget
-  /** The exact source article for this change, when it is a SINGLE item. The Pulse
-   *  market-intelligence items don't live on the dashboard sections (those are built
-   *  from other snapshots), so an in-app jump can only land on the right area, never
-   *  on the item itself. When a delta is one item we open its real source instead —
-   *  that always points at the actual update. */
+  /** The source article to OPEN for this change, instead of jumping to a dashboard
+   *  section. The Pulse market-intelligence items don't live on the dashboard sections
+   *  (those are built from other snapshots), so an in-app jump can only land on the
+   *  right area, never on the item itself — so when we have a real source we open it,
+   *  which always points at the actual update. */
   href?: string
 }
 
@@ -1390,9 +1390,14 @@ export function sinceYesterday(pulse: InvestorPulse): SinceDelta[] {
   const reg = regItems.length
   if (reg) out.push({ id: 'reg', label: reg === 1 ? 'new regulatory update' : 'new regulatory updates', value: String(reg), direction: 'up', tone: 'Watch', target: locTarget('sector-news', 'reg', 'regulatory', `${reg} new regulatory ${reg === 1 ? 'update' : 'updates'}`), href: soleHref(regItems) })
 
+  // A fresh company update is company-specific news — it lives in the feed, not on any
+  // dashboard section (the Companies tab is a financial scorecard, not a news feed). So
+  // the row OPENS the actual update: the freshest one carrying a source. Unlike the other
+  // rows (which fall back to a section for a multi-item delta), a multi-item company delta
+  // still opens its freshest source, because no section would show the company news.
   const coItems = fresh.filter((s) => s.scope === 'company')
   const disclosures = coItems.length
-  if (disclosures) out.push({ id: 'co', label: disclosures === 1 ? 'fresh company update' : 'fresh company updates', value: String(disclosures), direction: 'up', tone: 'Positive', target: locTarget('companies', 'co', 'company', `${disclosures} fresh ${pulse.company} ${disclosures === 1 ? 'update' : 'updates'}`), href: soleHref(coItems) })
+  if (disclosures) out.push({ id: 'co', label: disclosures === 1 ? 'fresh company update' : 'fresh company updates', value: String(disclosures), direction: 'up', tone: 'Positive', target: locTarget('companies', 'co', 'company', `${disclosures} fresh ${pulse.company} ${disclosures === 1 ? 'update' : 'updates'}`), href: coItems.filter((s) => s.sourceUrl).sort(byNewestSignal)[0]?.sourceUrl || undefined })
 
   // Management changes only when genuinely recent (last day) — not the full 18-month
   // governance window, which would read stale changes as "since yesterday".

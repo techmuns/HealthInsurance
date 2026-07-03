@@ -264,9 +264,9 @@ function SinceYesterdayBlock({ deltas, onNavigate }: { deltas: SinceDelta[]; onN
         {deltas.map((d) => {
           const tone = IMPACT_META[d.tone]
           const Icon = d.direction === 'down' ? ArrowDown : d.direction === 'flat' ? Minus : ArrowUp
-          // A single-item delta opens its REAL source (the actual update); a multi-item
-          // delta falls back to the nearest in-app section. A zero/flat row (e.g. "0
-          // unusual market moves") is informational and not interactive.
+          // A delta with a source OPENS the real update (the actual article); otherwise
+          // it jumps to the nearest in-app section. A zero/flat row (e.g. "0 unusual
+          // market moves") is informational and not interactive.
           const isLink = !!d.href
           const canNav = !isLink && !!onNavigate && d.direction !== 'flat'
           const affordance = (label: string) => (
@@ -285,7 +285,7 @@ function SinceYesterdayBlock({ deltas, onNavigate }: { deltas: SinceDelta[]; onN
           const base = 'group flex w-full items-baseline gap-1.5 rounded-md px-1 py-0.5 text-left transition-colors'
           if (isLink) {
             return (
-              <a key={d.id} href={d.href} target="_blank" rel="noreferrer" title="Open source" className={`${base} cursor-pointer hover:bg-ice/70`}>
+              <a key={d.id} href={d.href} target="_blank" rel="noreferrer" title="Open the update" className={`${base} cursor-pointer hover:bg-ice/70`}>
                 {inner}
                 {affordance('Open')}
               </a>
