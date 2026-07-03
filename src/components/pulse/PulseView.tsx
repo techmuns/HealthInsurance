@@ -14,16 +14,9 @@ import type { InvestorPulse } from '@/insights/investorPulse'
 import type { NavTarget } from '@/insights/sourceMap'
 import { downloadDailyBrief } from '@/lib/pulseBriefPdf'
 import {
-  actionsForBrief,
   availableFilters,
-  briefMessage,
-  convictionIdeas,
-  morningBrief,
-  oneThing,
-  scopeSignals,
-  sinceYesterday,
+  resolveDailyBrief,
   timelineDays,
-  upcomingEvents,
   type PulseAction,
   type PulseFilter,
 } from './derive'
@@ -76,14 +69,14 @@ export function PulseView({
   const selectedDay = days.find((d) => d.key === effDateKey) ?? days[0]
   const dateLabel = selectedDay ? `${selectedDay.dayNum} ${selectedDay.monthLabel} · ${selectedDay.weekday}` : ''
 
-  const scoped = useMemo(() => scopeSignals(pulse, effFilter, effDateKey), [pulse, effFilter, effDateKey])
-  const ideas = useMemo(() => convictionIdeas(scoped, pulse), [scoped, pulse])
-  const brief = useMemo(() => morningBrief(pulse, ideas, scoped, isToday, dateLabel), [pulse, ideas, scoped, isToday, dateLabel])
-  const one = useMemo(() => oneThing(scoped, ideas, pulse), [scoped, ideas, pulse])
-  const message = useMemo(() => briefMessage(pulse, scoped, one, isToday, dateLabel), [pulse, scoped, one, isToday, dateLabel])
-  const sinceDeltas = useMemo(() => sinceYesterday(pulse), [pulse])
-  const events = useMemo(() => (isToday ? upcomingEvents(pulse) : []), [pulse, isToday])
-  const actions = useMemo(() => (isToday ? actionsForBrief(pulse, scoped) : []), [pulse, scoped, isToday])
+  // One resolver returns the whole bundle: live for today (and filtered views), the
+  // FROZEN archived record for a past date, or a live past-date fallback. Since-
+  // Yesterday / Events / Actions come back empty for a live past date and populated
+  // (as-of that day) for a frozen record.
+  const { brief, message, one, ideas, sinceDeltas, events, actions } = useMemo(
+    () => resolveDailyBrief(pulse, effFilter, effDateKey, dateLabel),
+    [pulse, effFilter, effDateKey, dateLabel],
+  )
 
   const runAction = (a: PulseAction) => {
     if (a.href) {
@@ -101,8 +94,9 @@ export function PulseView({
       brief,
       message,
       one,
-      // "Since Yesterday" is a today construct — omit it from a past-date export.
-      sinceDeltas: isToday ? sinceDeltas : [],
+      // Already date-scoped by the resolver (empty for a live past date, frozen
+      // as-of-that-day for an archived one).
+      sinceDeltas,
       ideas,
       events,
       actions,

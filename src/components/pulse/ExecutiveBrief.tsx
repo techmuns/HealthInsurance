@@ -404,13 +404,13 @@ export function ExecutiveBrief({
           <ConvictionList ideas={ideas} companyId={pulse.companyId} onNavigate={onNavigate} />
         </div>
 
-        {/* RIGHT — since yesterday · events · actions. All three are "today"
-            constructs (a since-yesterday delta / an upcoming event / a next action),
-            so a past-date archive view shows only its brief + conviction, not these. */}
+        {/* RIGHT — since yesterday · events · actions. Presence-driven: today's live
+            view populates them; a live past-date fallback passes them empty (hidden);
+            a FROZEN archived record carries the real as-of-that-day values (shown). */}
         <div className="min-w-0 divide-y divide-soft-border/70 border-t border-soft-border lg:border-l lg:border-t-0">
-          {isToday && <SinceYesterdayBlock deltas={sinceDeltas} onNavigate={onNavigate} />}
-          {isToday && events.length > 0 && <EventsBlock events={events} />}
-          {isToday && actions.length > 0 && <ActionsBlock actions={actions} onRun={onRun} />}
+          <SinceYesterdayBlock deltas={sinceDeltas} onNavigate={onNavigate} />
+          {events.length > 0 && <EventsBlock events={events} />}
+          {actions.length > 0 && <ActionsBlock actions={actions} onRun={onRun} />}
         </div>
       </div>
       <Footer brief={brief} />

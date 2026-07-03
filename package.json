@@ -24,6 +24,7 @@
     "ingest:distribution": "tsx scripts/ingest/run-distribution.ts",
     "ingest:audit": "tsx scripts/ingest/audit-fill.ts fill",
     "ingest:sectoral-news": "tsx scripts/ingest/sahi-sectoral-news-agent.ts",
+    "ingest:pulse-archive": "tsx --tsconfig tsconfig.app.json scripts/ingest/build-pulse-archive.ts",
     "ingest:life-industry": "tsx scripts/ingest/life-industry-agent.ts",
     "ingest:valuation-fundamentals": "tsx scripts/ingest/valuation-fundamentals-agent.ts",
     "ingest:bulk-block-deals": "tsx scripts/ingest/bulk-block-deals-agent.ts",

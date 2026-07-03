@@ -28,6 +28,7 @@ import {
 import type { NavTarget } from '@/insights/sourceMap'
 import { buildFocus, buildLocator, type InsightFocus } from '@/insights/insightFocus'
 import intelSnapshot from '@/data/snapshots/market-intelligence-snapshot.json'
+import pulseArchive from '@/data/snapshots/pulse-brief-archive.json'
 
 // Feed freshness — read straight off the intelligence snapshot's own metadata
 // (never a fabricated "last updated"). Powers the AI Morning Brief timestamp.
@@ -545,7 +546,10 @@ export function timelineDays(pulse: InvestorPulse): TimelineDay[] {
     },
   ]
 
-  // Past dates with real items — grouped by the item's own date, newest first.
+  // Past dates: the union of (a) dates that still have real items in the live feed
+  // and (b) FROZEN archived dates for this company — so a day stays on the rail even
+  // after it ages out of the live window. Newest first. A frozen record supplies the
+  // day's status + item count; otherwise the live items do.
   const byDate = new Map<string, PulseSignal[]>()
   for (const s of recent) {
     if (!s.date || s.date >= today) continue // today's / future items belong to the Today entry
@@ -553,15 +557,17 @@ export function timelineDays(pulse: InvestorPulse): TimelineDay[] {
     arr.push(s)
     byDate.set(s.date, arr)
   }
-  for (const date of [...byDate.keys()].sort((a, b) => (a < b ? 1 : -1))) {
-    const items = byDate.get(date)!
+  const pastDates = new Set<string>([...byDate.keys(), ...archivedDatesFor(pulse.companyId).filter((d) => d < today)])
+  for (const date of [...pastDates].sort((a, b) => (a < b ? 1 : -1))) {
+    const frozen = frozenBriefFor(pulse.companyId, date)
+    const items = byDate.get(date)
     days.push({
       key: date,
       isToday: false,
       label: date === yday ? 'Yesterday' : '',
       ...isoParts(date),
-      status: dayStatus(items),
-      count: items.length,
+      status: frozen ? frozen.status : items ? dayStatus(items) : null,
+      count: frozen ? frozen.ideas.length : items ? items.length : 0,
     })
   }
   return days
@@ -1302,5 +1308,72 @@ export function sinceYesterday(pulse: InvestorPulse): SinceDelta[] {
   out.push({ id: 'moves', label: moves === 1 ? 'unusual market move' : 'unusual market moves', value: String(moves), direction: moves > 0 ? 'up' : 'flat', tone: moves > 0 ? 'Watch' : 'Positive', target: locTarget('valuation', 'moves', 'market_move', moves > 0 ? `${moves} unusual market ${moves === 1 ? 'move' : 'moves'}` : 'No unusual market moves') })
 
   return out
+}
+
+// ===========================================================================
+//  Frozen daily-brief archive — read side.
+//
+//  The ingestion writes an immutable brief record per calendar day per company
+//  (scripts/ingest/build-pulse-archive.ts). Here we read it: the timeline lists
+//  archived past dates (even after they age out of the live feed), and a selected
+//  past date renders its FROZEN bundle — exactly what was shown that day, immune to
+//  later recompute. Today always recomposes live.
+// ===========================================================================
+
+interface FrozenBrief {
+  date: string
+  status: PulseStatus
+  brief: MorningBrief
+  message: BriefMessage
+  one: OneThing | null
+  ideas: ConvictionIdea[]
+  sinceDeltas: SinceDelta[]
+  events: PulseEvent[]
+  actions: PulseAction[]
+}
+
+const PULSE_ARCHIVE = (pulseArchive as { briefs?: Record<string, Record<string, FrozenBrief>> }).briefs ?? {}
+
+function frozenBriefFor(companyId: string, date: string): FrozenBrief | null {
+  return PULSE_ARCHIVE[companyId]?.[date] ?? null
+}
+function archivedDatesFor(companyId: string): string[] {
+  return Object.keys(PULSE_ARCHIVE[companyId] ?? {})
+}
+
+export interface ResolvedDailyBrief {
+  brief: MorningBrief
+  message: BriefMessage
+  one: OneThing | null
+  ideas: ConvictionIdea[]
+  sinceDeltas: SinceDelta[]
+  events: PulseEvent[]
+  actions: PulseAction[]
+  frozen: boolean
+}
+
+/** The brief bundle for the selected date. Today (and any filtered view) recomputes
+ *  live; a PAST date on the default view renders its FROZEN archived record — exactly
+ *  what was shown that day. A past date with no frozen record falls back to a live
+ *  recompute of that date's items (Since-Yesterday / Events / Actions are today-only,
+ *  so they are empty in that fallback). */
+export function resolveDailyBrief(pulse: InvestorPulse, filter: PulseFilter, dateKey: string, dateLabel: string): ResolvedDailyBrief {
+  const isToday = dateKey === 'today'
+  if (!isToday && filter === 'relevant') {
+    const rec = frozenBriefFor(pulse.companyId, dateKey)
+    if (rec) return { brief: rec.brief, message: rec.message, one: rec.one, ideas: rec.ideas, sinceDeltas: rec.sinceDeltas, events: rec.events, actions: rec.actions, frozen: true }
+  }
+  const scoped = scopeSignals(pulse, filter, dateKey)
+  const ideas = convictionIdeas(scoped, pulse)
+  const brief = morningBrief(pulse, ideas, scoped, isToday, dateLabel)
+  const one = oneThing(scoped, ideas, pulse)
+  const message = briefMessage(pulse, scoped, one, isToday, dateLabel)
+  // Since-Yesterday / Events / Actions are "today" constructs — a live past-date
+  // fallback shows only its brief + conviction. (A frozen record carries the real
+  // as-of-that-day values above.)
+  const sinceDeltas = isToday ? sinceYesterday(pulse) : []
+  const events = isToday ? upcomingEvents(pulse) : []
+  const actions = isToday ? actionsForBrief(pulse, scoped) : []
+  return { brief, message, one, ideas, sinceDeltas, events, actions, frozen: false }
 }
 
