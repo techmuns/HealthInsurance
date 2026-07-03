@@ -117,6 +117,79 @@ def latest_iso(*candidates) -> str | None:
 #  detail is simply omitted then).
 # ---------------------------------------------------------------------------
 
+# Human labels for the metric ids that surface as ratio / subtraction operands,
+# so a derived cell reads "Market cap / Net worth (IFRS)" instead of collapsing
+# both sides to the shared row label. Unmapped ids use the generic humaniser.
+_METRIC_LABELS = {
+    "market_cap": "Market cap",
+    "enterprise_value": "Enterprise value",
+    "gwp": "GWP",
+    "nwp": "NWP",
+    "nep": "NEP",
+    "net_worth_ifrs": "Net worth (IFRS)",
+    "net_worth_igaap": "Net worth (IGAAP)",
+    "pat_ifrs": "PAT (IFRS)",
+    "pat_igaap": "PAT (IGAAP)",
+}
+_METRIC_ACRONYMS = {"gwp", "nwp", "nep", "pat", "roe", "ev", "ifrs", "igaap",
+                    "aum", "gi", "ttm", "opex", "gst", "tev", "nbp"}
+
+
+def humanize_metric(mid):
+    """market_cap -> 'Market cap'; retail_health_gwp -> 'Retail health GWP'."""
+    if not mid:
+        return None
+    if mid in _METRIC_LABELS:
+        return _METRIC_LABELS[mid]
+    parts = mid.replace("::", " ").replace("_", " ").split()
+    words = []
+    for i, p in enumerate(parts):
+        if p.lower() in _METRIC_ACRONYMS:
+            words.append(p.upper())
+        elif i == 0:
+            words.append(p[:1].upper() + p[1:])
+        else:
+            words.append(p.lower())
+    return " ".join(words) or mid
+
+
+def humanize_period(pid):
+    """9MFY26 -> '9M FY26'; Q4FY25 -> 'Q4 FY25'; FY26 stays as-is."""
+    if not pid:
+        return None
+    import re as _re
+    return _re.sub(r"(?<=[^\s])(FY\d)", r" \1", pid).replace("_", " ")
+
+
+def disambiguate_operands(operands):
+    """Map {(sheet, ref): label} for operands whose shared ROW label needs a
+    distinguishing tag. Two cells on the same company row — a P/B's market-cap
+    over net-worth, or a standalone quarter's full-year minus nine-month —
+    otherwise both render with the row label, so the calc reads "[X] / [X]".
+    Re-label each colliding operand by the axis that actually differs: metric
+    first (the Comps multiples), then period (the premium subtractions), then
+    the raw ref as a last resort."""
+    groups = {}
+    for d in operands:
+        groups.setdefault(d.get("label"), []).append(d)
+    relabel = {}
+    for base, group in groups.items():
+        keys = {(g.get("sheet"), g["ref"]) for g in group}
+        if len(keys) <= 1:
+            continue  # one distinct cell under this label — nothing to resolve
+        metrics = {g.get("metric") for g in group if g.get("metric")}
+        periods = {g.get("period") for g in group if g.get("period")}
+        for g in group:
+            key = (g.get("sheet"), g["ref"])
+            if len(metrics) > 1 and g.get("metric"):
+                relabel[key] = humanize_metric(g["metric"])
+            elif len(periods) > 1 and g.get("period"):
+                relabel[key] = f"{base} · {humanize_period(g['period'])}"
+            else:
+                relabel[key] = f"{base} · {g['ref']}"
+    return relabel
+
+
 def build_formula_resolver(schema, store):
     try:
         import ast
@@ -313,6 +386,29 @@ def build_formula_resolver(schema, store):
         except Exception:
             return {"formula": raw, "value": compute(cur_sheet, coord)}
         inputs, seen, words = [], set(), []
+        # Resolve every operand once, up front, so two cells sharing a row label
+        # (both sides of a ratio, or a quarter derived by subtraction) can be
+        # re-labelled by the metric/period that actually distinguishes them —
+        # without this the readable calc collapses to "[X] / [X]".
+        desc_cache = {}
+
+        def describe_cached(sheet, c):
+            key = (sheet, c)
+            if key not in desc_cache:
+                desc_cache[key] = describe(sheet, c, cur_sheet)
+            return desc_cache[key]
+
+        operands = []
+        for t in toks:
+            if t.type == "OPERAND" and t.subtype == "RANGE":
+                sheet, ref, external = split_ref(t.value)
+                if not external:
+                    operands.extend(describe_cached(sheet, c) for c in expand(ref))
+        relabel = disambiguate_operands(operands)
+
+        def labelof(d):
+            return relabel.get((d.get("sheet"), d["ref"]), d.get("label"))
+
         for t in toks:
             if t.type == "OPERAND" and t.subtype == "RANGE":
                 sheet, ref, external = split_ref(t.value)
@@ -320,14 +416,16 @@ def build_formula_resolver(schema, store):
                     words.append("[external workbook]")
                     continue
                 coords = expand(ref)
-                labs = [describe(sheet, c, cur_sheet) for c in coords]
+                labs = [describe_cached(sheet, c) for c in coords]
                 for lab in labs:
                     key = (lab.get("sheet"), lab["ref"])
                     if key not in seen and len(inputs) < MAX_FORMULA_INPUTS:
                         seen.add(key)
-                        inputs.append(lab)
-                words.append(f"[{labs[0]['label']}]" if len(labs) == 1
-                             else f"[{labs[0]['label']} … {labs[-1]['label']}]")
+                        rec = dict(lab)
+                        rec["label"] = labelof(lab)
+                        inputs.append(rec)
+                words.append(f"[{labelof(labs[0])}]" if len(labs) == 1
+                             else f"[{labelof(labs[0])} … {labelof(labs[-1])}]")
             elif t.type == "FUNC":
                 words.append(t.value)            # e.g. "SUM(" or ")"
             elif t.type == "PAREN":

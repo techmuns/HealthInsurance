@@ -2,7 +2,7 @@
  "_meta": {
   "artifact": "extracted-data-audit",
   "schema_version": "1.0.0",
-  "generated_at": "2026-07-03T06:50:17.106653+00:00",
+  "generated_at": "2026-07-03T07:05:23.964766+00:00",
   "description": "QA index for the Extracted Data Audit tab. A compact projection of schema-map.json (cell contract) + excel-values.json (normalized value store) + held-back + blocked-filings. The binding x value join (Fetched / Missing / Parser issue / Source unavailable / Manual override) is computed at read time in src/lib/extractedDataAudit.ts so no data logic is duplicated.",
   "template_file": "niva-bupa-portfolio-review.xlsx",
   "template_sha256": "21c81ae8b5e531fa4937cac84fc879b213d8a2e18272584c5d9c3a77eed0346d",
@@ -7653,18 +7653,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=E5-C5",
-     "calc": "[Star Health] - [Star Health]",
+     "calc": "[Star Health · H1 FY25] - [Star Health · Q1 FY25]",
      "inputs": [
       {
        "ref": "E5",
-       "label": "Star Health",
+       "label": "Star Health · H1 FY25",
        "period": "H1FY25",
        "entity": "star-health",
        "metric": "total_health_gwp"
       },
       {
        "ref": "C5",
-       "label": "Star Health",
+       "label": "Star Health · Q1 FY25",
        "period": "Q1FY25",
        "entity": "star-health",
        "metric": "total_health_gwp"
@@ -7711,18 +7711,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=H5-F5",
-     "calc": "[Star Health] - [Star Health]",
+     "calc": "[Star Health · FY25] - [Star Health · 9M FY25]",
      "inputs": [
       {
        "ref": "H5",
-       "label": "Star Health",
+       "label": "Star Health · FY25",
        "period": "FY25",
        "entity": "star-health",
        "metric": "total_health_gwp"
       },
       {
        "ref": "F5",
-       "label": "Star Health",
+       "label": "Star Health · 9M FY25",
        "period": "9MFY25",
        "entity": "star-health",
        "metric": "total_health_gwp"
@@ -7778,18 +7778,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=K5-I5",
-     "calc": "[Star Health] - [Star Health]",
+     "calc": "[Star Health · H1 FY26] - [Star Health · Q1 FY26]",
      "inputs": [
       {
        "ref": "K5",
-       "label": "Star Health",
+       "label": "Star Health · H1 FY26",
        "period": "H1FY26",
        "entity": "star-health",
        "metric": "total_health_gwp"
       },
       {
        "ref": "I5",
-       "label": "Star Health",
+       "label": "Star Health · Q1 FY26",
        "period": "Q1FY26",
        "entity": "star-health",
        "metric": "total_health_gwp"
@@ -7836,18 +7836,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=N5-L5",
-     "calc": "[Star Health] - [Star Health]",
+     "calc": "[Star Health · FY26] - [Star Health · 9M FY26]",
      "inputs": [
       {
        "ref": "N5",
-       "label": "Star Health",
+       "label": "Star Health · FY26",
        "period": "FY26",
        "entity": "star-health",
        "metric": "total_health_gwp"
       },
       {
        "ref": "L5",
-       "label": "Star Health",
+       "label": "Star Health · 9M FY26",
        "period": "9MFY26",
        "entity": "star-health",
        "metric": "total_health_gwp"
@@ -7903,18 +7903,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=E6-C6",
-     "calc": "[Care] - [Care]",
+     "calc": "[Care · H1 FY25] - [Care · Q1 FY25]",
      "inputs": [
       {
        "ref": "E6",
-       "label": "Care",
+       "label": "Care · H1 FY25",
        "period": "H1FY25",
        "entity": "care-health",
        "metric": "total_health_gwp"
       },
       {
        "ref": "C6",
-       "label": "Care",
+       "label": "Care · Q1 FY25",
        "period": "Q1FY25",
        "entity": "care-health",
        "metric": "total_health_gwp"
@@ -7961,18 +7961,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=H6-F6",
-     "calc": "[Care] - [Care]",
+     "calc": "[Care · FY25] - [Care · 9M FY25]",
      "inputs": [
       {
        "ref": "H6",
-       "label": "Care",
+       "label": "Care · FY25",
        "period": "FY25",
        "entity": "care-health",
        "metric": "total_health_gwp"
       },
       {
        "ref": "F6",
-       "label": "Care",
+       "label": "Care · 9M FY25",
        "period": "9MFY25",
        "entity": "care-health",
        "metric": "total_health_gwp"
@@ -8028,18 +8028,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=K6-I6",
-     "calc": "[Care] - [Care]",
+     "calc": "[Care · H1 FY26] - [Care · Q1 FY26]",
      "inputs": [
       {
        "ref": "K6",
-       "label": "Care",
+       "label": "Care · H1 FY26",
        "period": "H1FY26",
        "entity": "care-health",
        "metric": "total_health_gwp"
       },
       {
        "ref": "I6",
-       "label": "Care",
+       "label": "Care · Q1 FY26",
        "period": "Q1FY26",
        "entity": "care-health",
        "metric": "total_health_gwp"
@@ -8086,18 +8086,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=N6-L6",
-     "calc": "[Care] - [Care]",
+     "calc": "[Care · FY26] - [Care · 9M FY26]",
      "inputs": [
       {
        "ref": "N6",
-       "label": "Care",
+       "label": "Care · FY26",
        "period": "FY26",
        "entity": "care-health",
        "metric": "total_health_gwp"
       },
       {
        "ref": "L6",
-       "label": "Care",
+       "label": "Care · 9M FY26",
        "period": "9MFY26",
        "entity": "care-health",
        "metric": "total_health_gwp"
@@ -8153,18 +8153,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=E7-C7",
-     "calc": "[Niva Bupa] - [Niva Bupa]",
+     "calc": "[Niva Bupa · H1 FY25] - [Niva Bupa · Q1 FY25]",
      "inputs": [
       {
        "ref": "E7",
-       "label": "Niva Bupa",
+       "label": "Niva Bupa · H1 FY25",
        "period": "H1FY25",
        "entity": "niva-bupa",
        "metric": "total_health_gwp"
       },
       {
        "ref": "C7",
-       "label": "Niva Bupa",
+       "label": "Niva Bupa · Q1 FY25",
        "period": "Q1FY25",
        "entity": "niva-bupa",
        "metric": "total_health_gwp"
@@ -8211,18 +8211,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=H7-F7",
-     "calc": "[Niva Bupa] - [Niva Bupa]",
+     "calc": "[Niva Bupa · FY25] - [Niva Bupa · 9M FY25]",
      "inputs": [
       {
        "ref": "H7",
-       "label": "Niva Bupa",
+       "label": "Niva Bupa · FY25",
        "period": "FY25",
        "entity": "niva-bupa",
        "metric": "total_health_gwp"
       },
       {
        "ref": "F7",
-       "label": "Niva Bupa",
+       "label": "Niva Bupa · 9M FY25",
        "period": "9MFY25",
        "entity": "niva-bupa",
        "metric": "total_health_gwp"
@@ -8278,18 +8278,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=K7-I7",
-     "calc": "[Niva Bupa] - [Niva Bupa]",
+     "calc": "[Niva Bupa · H1 FY26] - [Niva Bupa · Q1 FY26]",
      "inputs": [
       {
        "ref": "K7",
-       "label": "Niva Bupa",
+       "label": "Niva Bupa · H1 FY26",
        "period": "H1FY26",
        "entity": "niva-bupa",
        "metric": "total_health_gwp"
       },
       {
        "ref": "I7",
-       "label": "Niva Bupa",
+       "label": "Niva Bupa · Q1 FY26",
        "period": "Q1FY26",
        "entity": "niva-bupa",
        "metric": "total_health_gwp"
@@ -8336,18 +8336,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=N7-L7",
-     "calc": "[Niva Bupa] - [Niva Bupa]",
+     "calc": "[Niva Bupa · FY26] - [Niva Bupa · 9M FY26]",
      "inputs": [
       {
        "ref": "N7",
-       "label": "Niva Bupa",
+       "label": "Niva Bupa · FY26",
        "period": "FY26",
        "entity": "niva-bupa",
        "metric": "total_health_gwp"
       },
       {
        "ref": "L7",
-       "label": "Niva Bupa",
+       "label": "Niva Bupa · 9M FY26",
        "period": "9MFY26",
        "entity": "niva-bupa",
        "metric": "total_health_gwp"
@@ -8403,18 +8403,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=E8-C8",
-     "calc": "[Aditya Birla] - [Aditya Birla]",
+     "calc": "[Aditya Birla · H1 FY25] - [Aditya Birla · Q1 FY25]",
      "inputs": [
       {
        "ref": "E8",
-       "label": "Aditya Birla",
+       "label": "Aditya Birla · H1 FY25",
        "period": "H1FY25",
        "entity": "aditya-birla",
        "metric": "total_health_gwp"
       },
       {
        "ref": "C8",
-       "label": "Aditya Birla",
+       "label": "Aditya Birla · Q1 FY25",
        "period": "Q1FY25",
        "entity": "aditya-birla",
        "metric": "total_health_gwp"
@@ -8461,18 +8461,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=H8-F8",
-     "calc": "[Aditya Birla] - [Aditya Birla]",
+     "calc": "[Aditya Birla · FY25] - [Aditya Birla · 9M FY25]",
      "inputs": [
       {
        "ref": "H8",
-       "label": "Aditya Birla",
+       "label": "Aditya Birla · FY25",
        "period": "FY25",
        "entity": "aditya-birla",
        "metric": "total_health_gwp"
       },
       {
        "ref": "F8",
-       "label": "Aditya Birla",
+       "label": "Aditya Birla · 9M FY25",
        "period": "9MFY25",
        "entity": "aditya-birla",
        "metric": "total_health_gwp"
@@ -8528,18 +8528,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=K8-I8",
-     "calc": "[Aditya Birla] - [Aditya Birla]",
+     "calc": "[Aditya Birla · H1 FY26] - [Aditya Birla · Q1 FY26]",
      "inputs": [
       {
        "ref": "K8",
-       "label": "Aditya Birla",
+       "label": "Aditya Birla · H1 FY26",
        "period": "H1FY26",
        "entity": "aditya-birla",
        "metric": "total_health_gwp"
       },
       {
        "ref": "I8",
-       "label": "Aditya Birla",
+       "label": "Aditya Birla · Q1 FY26",
        "period": "Q1FY26",
        "entity": "aditya-birla",
        "metric": "total_health_gwp"
@@ -8586,18 +8586,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=N8-L8",
-     "calc": "[Aditya Birla] - [Aditya Birla]",
+     "calc": "[Aditya Birla · FY26] - [Aditya Birla · 9M FY26]",
      "inputs": [
       {
        "ref": "N8",
-       "label": "Aditya Birla",
+       "label": "Aditya Birla · FY26",
        "period": "FY26",
        "entity": "aditya-birla",
        "metric": "total_health_gwp"
       },
       {
        "ref": "L8",
-       "label": "Aditya Birla",
+       "label": "Aditya Birla · 9M FY26",
        "period": "9MFY26",
        "entity": "aditya-birla",
        "metric": "total_health_gwp"
@@ -8653,18 +8653,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=E9-C9",
-     "calc": "[Manipal Cigna] - [Manipal Cigna]",
+     "calc": "[Manipal Cigna · H1 FY25] - [Manipal Cigna · Q1 FY25]",
      "inputs": [
       {
        "ref": "E9",
-       "label": "Manipal Cigna",
+       "label": "Manipal Cigna · H1 FY25",
        "period": "H1FY25",
        "entity": "manipalcigna",
        "metric": "total_health_gwp"
       },
       {
        "ref": "C9",
-       "label": "Manipal Cigna",
+       "label": "Manipal Cigna · Q1 FY25",
        "period": "Q1FY25",
        "entity": "manipalcigna",
        "metric": "total_health_gwp"
@@ -8711,18 +8711,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=H9-F9",
-     "calc": "[Manipal Cigna] - [Manipal Cigna]",
+     "calc": "[Manipal Cigna · FY25] - [Manipal Cigna · 9M FY25]",
      "inputs": [
       {
        "ref": "H9",
-       "label": "Manipal Cigna",
+       "label": "Manipal Cigna · FY25",
        "period": "FY25",
        "entity": "manipalcigna",
        "metric": "total_health_gwp"
       },
       {
        "ref": "F9",
-       "label": "Manipal Cigna",
+       "label": "Manipal Cigna · 9M FY25",
        "period": "9MFY25",
        "entity": "manipalcigna",
        "metric": "total_health_gwp"
@@ -8778,18 +8778,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=K9-I9",
-     "calc": "[Manipal Cigna] - [Manipal Cigna]",
+     "calc": "[Manipal Cigna · H1 FY26] - [Manipal Cigna · Q1 FY26]",
      "inputs": [
       {
        "ref": "K9",
-       "label": "Manipal Cigna",
+       "label": "Manipal Cigna · H1 FY26",
        "period": "H1FY26",
        "entity": "manipalcigna",
        "metric": "total_health_gwp"
       },
       {
        "ref": "I9",
-       "label": "Manipal Cigna",
+       "label": "Manipal Cigna · Q1 FY26",
        "period": "Q1FY26",
        "entity": "manipalcigna",
        "metric": "total_health_gwp"
@@ -8836,18 +8836,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=N9-L9",
-     "calc": "[Manipal Cigna] - [Manipal Cigna]",
+     "calc": "[Manipal Cigna · FY26] - [Manipal Cigna · 9M FY26]",
      "inputs": [
       {
        "ref": "N9",
-       "label": "Manipal Cigna",
+       "label": "Manipal Cigna · FY26",
        "period": "FY26",
        "entity": "manipalcigna",
        "metric": "total_health_gwp"
       },
       {
        "ref": "L9",
-       "label": "Manipal Cigna",
+       "label": "Manipal Cigna · 9M FY26",
        "period": "9MFY26",
        "entity": "manipalcigna",
        "metric": "total_health_gwp"
@@ -8903,15 +8903,15 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=E10-C10",
-     "calc": "[Galaxy Health] - [Galaxy Health]",
+     "calc": "[Galaxy Health · E10] - [Galaxy Health · C10]",
      "inputs": [
       {
        "ref": "E10",
-       "label": "Galaxy Health"
+       "label": "Galaxy Health · E10"
       },
       {
        "ref": "C10",
-       "label": "Galaxy Health",
+       "label": "Galaxy Health · C10",
        "period": "Q1FY25",
        "entity": "galaxy-health",
        "metric": "total_health_gwp"
@@ -8944,18 +8944,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=H10-F10",
-     "calc": "[Galaxy Health] - [Galaxy Health]",
+     "calc": "[Galaxy Health · FY25] - [Galaxy Health · 9M FY25]",
      "inputs": [
       {
        "ref": "H10",
-       "label": "Galaxy Health",
+       "label": "Galaxy Health · FY25",
        "period": "FY25",
        "entity": "galaxy-health",
        "metric": "total_health_gwp"
       },
       {
        "ref": "F10",
-       "label": "Galaxy Health",
+       "label": "Galaxy Health · 9M FY25",
        "period": "9MFY25",
        "entity": "galaxy-health",
        "metric": "total_health_gwp"
@@ -9011,18 +9011,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=K10-I10",
-     "calc": "[Galaxy Health] - [Galaxy Health]",
+     "calc": "[Galaxy Health · H1 FY26] - [Galaxy Health · Q1 FY26]",
      "inputs": [
       {
        "ref": "K10",
-       "label": "Galaxy Health",
+       "label": "Galaxy Health · H1 FY26",
        "period": "H1FY26",
        "entity": "galaxy-health",
        "metric": "total_health_gwp"
       },
       {
        "ref": "I10",
-       "label": "Galaxy Health",
+       "label": "Galaxy Health · Q1 FY26",
        "period": "Q1FY26",
        "entity": "galaxy-health",
        "metric": "total_health_gwp"
@@ -9069,18 +9069,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=N10-L10",
-     "calc": "[Galaxy Health] - [Galaxy Health]",
+     "calc": "[Galaxy Health · FY26] - [Galaxy Health · 9M FY26]",
      "inputs": [
       {
        "ref": "N10",
-       "label": "Galaxy Health",
+       "label": "Galaxy Health · FY26",
        "period": "FY26",
        "entity": "galaxy-health",
        "metric": "total_health_gwp"
       },
       {
        "ref": "L10",
-       "label": "Galaxy Health",
+       "label": "Galaxy Health · 9M FY26",
        "period": "9MFY26",
        "entity": "galaxy-health",
        "metric": "total_health_gwp"
@@ -9136,15 +9136,15 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=E11-C11",
-     "calc": "[Narayana Health] - [Narayana Health]",
+     "calc": "[Narayana Health · E11] - [Narayana Health · C11]",
      "inputs": [
       {
        "ref": "E11",
-       "label": "Narayana Health"
+       "label": "Narayana Health · E11"
       },
       {
        "ref": "C11",
-       "label": "Narayana Health",
+       "label": "Narayana Health · C11",
        "period": "Q1FY25",
        "entity": "narayana-health",
        "metric": "total_health_gwp"
@@ -9177,18 +9177,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=H11-F11",
-     "calc": "[Narayana Health] - [Narayana Health]",
+     "calc": "[Narayana Health · FY25] - [Narayana Health · 9M FY25]",
      "inputs": [
       {
        "ref": "H11",
-       "label": "Narayana Health",
+       "label": "Narayana Health · FY25",
        "period": "FY25",
        "entity": "narayana-health",
        "metric": "total_health_gwp"
       },
       {
        "ref": "F11",
-       "label": "Narayana Health",
+       "label": "Narayana Health · 9M FY25",
        "period": "9MFY25",
        "entity": "narayana-health",
        "metric": "total_health_gwp"
@@ -9244,18 +9244,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=K11-I11",
-     "calc": "[Narayana Health] - [Narayana Health]",
+     "calc": "[Narayana Health · H1 FY26] - [Narayana Health · Q1 FY26]",
      "inputs": [
       {
        "ref": "K11",
-       "label": "Narayana Health",
+       "label": "Narayana Health · H1 FY26",
        "period": "H1FY26",
        "entity": "narayana-health",
        "metric": "total_health_gwp"
       },
       {
        "ref": "I11",
-       "label": "Narayana Health",
+       "label": "Narayana Health · Q1 FY26",
        "period": "Q1FY26",
        "entity": "narayana-health",
        "metric": "total_health_gwp"
@@ -9302,18 +9302,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=N11-L11",
-     "calc": "[Narayana Health] - [Narayana Health]",
+     "calc": "[Narayana Health · FY26] - [Narayana Health · 9M FY26]",
      "inputs": [
       {
        "ref": "N11",
-       "label": "Narayana Health",
+       "label": "Narayana Health · FY26",
        "period": "FY26",
        "entity": "narayana-health",
        "metric": "total_health_gwp"
       },
       {
        "ref": "L11",
-       "label": "Narayana Health",
+       "label": "Narayana Health · 9M FY26",
        "period": "9MFY26",
        "entity": "narayana-health",
        "metric": "total_health_gwp"
@@ -9369,18 +9369,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=E13-C13",
-     "calc": "[HDFC Ergo] - [HDFC Ergo]",
+     "calc": "[HDFC Ergo · H1 FY25] - [HDFC Ergo · Q1 FY25]",
      "inputs": [
       {
        "ref": "E13",
-       "label": "HDFC Ergo",
+       "label": "HDFC Ergo · H1 FY25",
        "period": "H1FY25",
        "entity": "hdfc-ergo",
        "metric": "total_health_gwp"
       },
       {
        "ref": "C13",
-       "label": "HDFC Ergo",
+       "label": "HDFC Ergo · Q1 FY25",
        "period": "Q1FY25",
        "entity": "hdfc-ergo",
        "metric": "total_health_gwp"
@@ -9427,18 +9427,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=H13-F13",
-     "calc": "[HDFC Ergo] - [HDFC Ergo]",
+     "calc": "[HDFC Ergo · FY25] - [HDFC Ergo · 9M FY25]",
      "inputs": [
       {
        "ref": "H13",
-       "label": "HDFC Ergo",
+       "label": "HDFC Ergo · FY25",
        "period": "FY25",
        "entity": "hdfc-ergo",
        "metric": "total_health_gwp"
       },
       {
        "ref": "F13",
-       "label": "HDFC Ergo",
+       "label": "HDFC Ergo · 9M FY25",
        "period": "9MFY25",
        "entity": "hdfc-ergo",
        "metric": "total_health_gwp"
@@ -9494,18 +9494,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=K13-I13",
-     "calc": "[HDFC Ergo] - [HDFC Ergo]",
+     "calc": "[HDFC Ergo · H1 FY26] - [HDFC Ergo · Q1 FY26]",
      "inputs": [
       {
        "ref": "K13",
-       "label": "HDFC Ergo",
+       "label": "HDFC Ergo · H1 FY26",
        "period": "H1FY26",
        "entity": "hdfc-ergo",
        "metric": "total_health_gwp"
       },
       {
        "ref": "I13",
-       "label": "HDFC Ergo",
+       "label": "HDFC Ergo · Q1 FY26",
        "period": "Q1FY26",
        "entity": "hdfc-ergo",
        "metric": "total_health_gwp"
@@ -9552,18 +9552,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=N13-L13",
-     "calc": "[HDFC Ergo] - [HDFC Ergo]",
+     "calc": "[HDFC Ergo · FY26] - [HDFC Ergo · 9M FY26]",
      "inputs": [
       {
        "ref": "N13",
-       "label": "HDFC Ergo",
+       "label": "HDFC Ergo · FY26",
        "period": "FY26",
        "entity": "hdfc-ergo",
        "metric": "total_health_gwp"
       },
       {
        "ref": "L13",
-       "label": "HDFC Ergo",
+       "label": "HDFC Ergo · 9M FY26",
        "period": "9MFY26",
        "entity": "hdfc-ergo",
        "metric": "total_health_gwp"
@@ -9619,18 +9619,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=E14-C14",
-     "calc": "[ICICI Lombard] - [ICICI Lombard]",
+     "calc": "[ICICI Lombard · H1 FY25] - [ICICI Lombard · Q1 FY25]",
      "inputs": [
       {
        "ref": "E14",
-       "label": "ICICI Lombard",
+       "label": "ICICI Lombard · H1 FY25",
        "period": "H1FY25",
        "entity": "icici-lombard",
        "metric": "total_health_gwp"
       },
       {
        "ref": "C14",
-       "label": "ICICI Lombard",
+       "label": "ICICI Lombard · Q1 FY25",
        "period": "Q1FY25",
        "entity": "icici-lombard",
        "metric": "total_health_gwp"
@@ -9677,18 +9677,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=H14-F14",
-     "calc": "[ICICI Lombard] - [ICICI Lombard]",
+     "calc": "[ICICI Lombard · FY25] - [ICICI Lombard · 9M FY25]",
      "inputs": [
       {
        "ref": "H14",
-       "label": "ICICI Lombard",
+       "label": "ICICI Lombard · FY25",
        "period": "FY25",
        "entity": "icici-lombard",
        "metric": "total_health_gwp"
       },
       {
        "ref": "F14",
-       "label": "ICICI Lombard",
+       "label": "ICICI Lombard · 9M FY25",
        "period": "9MFY25",
        "entity": "icici-lombard",
        "metric": "total_health_gwp"
@@ -9744,18 +9744,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=K14-I14",
-     "calc": "[ICICI Lombard] - [ICICI Lombard]",
+     "calc": "[ICICI Lombard · H1 FY26] - [ICICI Lombard · Q1 FY26]",
      "inputs": [
       {
        "ref": "K14",
-       "label": "ICICI Lombard",
+       "label": "ICICI Lombard · H1 FY26",
        "period": "H1FY26",
        "entity": "icici-lombard",
        "metric": "total_health_gwp"
       },
       {
        "ref": "I14",
-       "label": "ICICI Lombard",
+       "label": "ICICI Lombard · Q1 FY26",
        "period": "Q1FY26",
        "entity": "icici-lombard",
        "metric": "total_health_gwp"
@@ -9802,18 +9802,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=N14-L14",
-     "calc": "[ICICI Lombard] - [ICICI Lombard]",
+     "calc": "[ICICI Lombard · FY26] - [ICICI Lombard · 9M FY26]",
      "inputs": [
       {
        "ref": "N14",
-       "label": "ICICI Lombard",
+       "label": "ICICI Lombard · FY26",
        "period": "FY26",
        "entity": "icici-lombard",
        "metric": "total_health_gwp"
       },
       {
        "ref": "L14",
-       "label": "ICICI Lombard",
+       "label": "ICICI Lombard · 9M FY26",
        "period": "9MFY26",
        "entity": "icici-lombard",
        "metric": "total_health_gwp"
@@ -9869,18 +9869,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=E15-C15",
-     "calc": "[Bajaj Allianz] - [Bajaj Allianz]",
+     "calc": "[Bajaj Allianz · H1 FY25] - [Bajaj Allianz · Q1 FY25]",
      "inputs": [
       {
        "ref": "E15",
-       "label": "Bajaj Allianz",
+       "label": "Bajaj Allianz · H1 FY25",
        "period": "H1FY25",
        "entity": "bajaj-general",
        "metric": "total_health_gwp"
       },
       {
        "ref": "C15",
-       "label": "Bajaj Allianz",
+       "label": "Bajaj Allianz · Q1 FY25",
        "period": "Q1FY25",
        "entity": "bajaj-general",
        "metric": "total_health_gwp"
@@ -9927,18 +9927,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=H15-F15",
-     "calc": "[Bajaj Allianz] - [Bajaj Allianz]",
+     "calc": "[Bajaj Allianz · FY25] - [Bajaj Allianz · 9M FY25]",
      "inputs": [
       {
        "ref": "H15",
-       "label": "Bajaj Allianz",
+       "label": "Bajaj Allianz · FY25",
        "period": "FY25",
        "entity": "bajaj-general",
        "metric": "total_health_gwp"
       },
       {
        "ref": "F15",
-       "label": "Bajaj Allianz",
+       "label": "Bajaj Allianz · 9M FY25",
        "period": "9MFY25",
        "entity": "bajaj-general",
        "metric": "total_health_gwp"
@@ -9994,18 +9994,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=K15-I15",
-     "calc": "[Bajaj Allianz] - [Bajaj Allianz]",
+     "calc": "[Bajaj Allianz · H1 FY26] - [Bajaj Allianz · Q1 FY26]",
      "inputs": [
       {
        "ref": "K15",
-       "label": "Bajaj Allianz",
+       "label": "Bajaj Allianz · H1 FY26",
        "period": "H1FY26",
        "entity": "bajaj-general",
        "metric": "total_health_gwp"
       },
       {
        "ref": "I15",
-       "label": "Bajaj Allianz",
+       "label": "Bajaj Allianz · Q1 FY26",
        "period": "Q1FY26",
        "entity": "bajaj-general",
        "metric": "total_health_gwp"
@@ -10052,18 +10052,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=N15-L15",
-     "calc": "[Bajaj Allianz] - [Bajaj Allianz]",
+     "calc": "[Bajaj Allianz · FY26] - [Bajaj Allianz · 9M FY26]",
      "inputs": [
       {
        "ref": "N15",
-       "label": "Bajaj Allianz",
+       "label": "Bajaj Allianz · FY26",
        "period": "FY26",
        "entity": "bajaj-general",
        "metric": "total_health_gwp"
       },
       {
        "ref": "L15",
-       "label": "Bajaj Allianz",
+       "label": "Bajaj Allianz · 9M FY26",
        "period": "9MFY26",
        "entity": "bajaj-general",
        "metric": "total_health_gwp"
@@ -10119,18 +10119,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=E16-C16",
-     "calc": "[Reliance] - [Reliance]",
+     "calc": "[Reliance · H1 FY25] - [Reliance · Q1 FY25]",
      "inputs": [
       {
        "ref": "E16",
-       "label": "Reliance",
+       "label": "Reliance · H1 FY25",
        "period": "H1FY25",
        "entity": "reliance-general",
        "metric": "total_health_gwp"
       },
       {
        "ref": "C16",
-       "label": "Reliance",
+       "label": "Reliance · Q1 FY25",
        "period": "Q1FY25",
        "entity": "reliance-general",
        "metric": "total_health_gwp"
@@ -10177,18 +10177,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=H16-F16",
-     "calc": "[Reliance] - [Reliance]",
+     "calc": "[Reliance · FY25] - [Reliance · 9M FY25]",
      "inputs": [
       {
        "ref": "H16",
-       "label": "Reliance",
+       "label": "Reliance · FY25",
        "period": "FY25",
        "entity": "reliance-general",
        "metric": "total_health_gwp"
       },
       {
        "ref": "F16",
-       "label": "Reliance",
+       "label": "Reliance · 9M FY25",
        "period": "9MFY25",
        "entity": "reliance-general",
        "metric": "total_health_gwp"
@@ -10244,18 +10244,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=K16-I16",
-     "calc": "[Reliance] - [Reliance]",
+     "calc": "[Reliance · H1 FY26] - [Reliance · Q1 FY26]",
      "inputs": [
       {
        "ref": "K16",
-       "label": "Reliance",
+       "label": "Reliance · H1 FY26",
        "period": "H1FY26",
        "entity": "reliance-general",
        "metric": "total_health_gwp"
       },
       {
        "ref": "I16",
-       "label": "Reliance",
+       "label": "Reliance · Q1 FY26",
        "period": "Q1FY26",
        "entity": "reliance-general",
        "metric": "total_health_gwp"
@@ -10302,18 +10302,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=N16-L16",
-     "calc": "[Reliance] - [Reliance]",
+     "calc": "[Reliance · FY26] - [Reliance · 9M FY26]",
      "inputs": [
       {
        "ref": "N16",
-       "label": "Reliance",
+       "label": "Reliance · FY26",
        "period": "FY26",
        "entity": "reliance-general",
        "metric": "total_health_gwp"
       },
       {
        "ref": "L16",
-       "label": "Reliance",
+       "label": "Reliance · 9M FY26",
        "period": "9MFY26",
        "entity": "reliance-general",
        "metric": "total_health_gwp"
@@ -10369,18 +10369,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=E17-C17",
-     "calc": "[SBI GI] - [SBI GI]",
+     "calc": "[SBI GI · H1 FY25] - [SBI GI · Q1 FY25]",
      "inputs": [
       {
        "ref": "E17",
-       "label": "SBI GI",
+       "label": "SBI GI · H1 FY25",
        "period": "H1FY25",
        "entity": "sbi-general",
        "metric": "total_health_gwp"
       },
       {
        "ref": "C17",
-       "label": "SBI GI",
+       "label": "SBI GI · Q1 FY25",
        "period": "Q1FY25",
        "entity": "sbi-general",
        "metric": "total_health_gwp"
@@ -10427,18 +10427,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=H17-F17",
-     "calc": "[SBI GI] - [SBI GI]",
+     "calc": "[SBI GI · FY25] - [SBI GI · 9M FY25]",
      "inputs": [
       {
        "ref": "H17",
-       "label": "SBI GI",
+       "label": "SBI GI · FY25",
        "period": "FY25",
        "entity": "sbi-general",
        "metric": "total_health_gwp"
       },
       {
        "ref": "F17",
-       "label": "SBI GI",
+       "label": "SBI GI · 9M FY25",
        "period": "9MFY25",
        "entity": "sbi-general",
        "metric": "total_health_gwp"
@@ -10494,18 +10494,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=K17-I17",
-     "calc": "[SBI GI] - [SBI GI]",
+     "calc": "[SBI GI · H1 FY26] - [SBI GI · Q1 FY26]",
      "inputs": [
       {
        "ref": "K17",
-       "label": "SBI GI",
+       "label": "SBI GI · H1 FY26",
        "period": "H1FY26",
        "entity": "sbi-general",
        "metric": "total_health_gwp"
       },
       {
        "ref": "I17",
-       "label": "SBI GI",
+       "label": "SBI GI · Q1 FY26",
        "period": "Q1FY26",
        "entity": "sbi-general",
        "metric": "total_health_gwp"
@@ -10552,18 +10552,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=N17-L17",
-     "calc": "[SBI GI] - [SBI GI]",
+     "calc": "[SBI GI · FY26] - [SBI GI · 9M FY26]",
      "inputs": [
       {
        "ref": "N17",
-       "label": "SBI GI",
+       "label": "SBI GI · FY26",
        "period": "FY26",
        "entity": "sbi-general",
        "metric": "total_health_gwp"
       },
       {
        "ref": "L17",
-       "label": "SBI GI",
+       "label": "SBI GI · 9M FY26",
        "period": "9MFY26",
        "entity": "sbi-general",
        "metric": "total_health_gwp"
@@ -10619,18 +10619,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=E19-C19",
-     "calc": "[New India] - [New India]",
+     "calc": "[New India · H1 FY25] - [New India · Q1 FY25]",
      "inputs": [
       {
        "ref": "E19",
-       "label": "New India",
+       "label": "New India · H1 FY25",
        "period": "H1FY25",
        "entity": "new-india",
        "metric": "total_health_gwp"
       },
       {
        "ref": "C19",
-       "label": "New India",
+       "label": "New India · Q1 FY25",
        "period": "Q1FY25",
        "entity": "new-india",
        "metric": "total_health_gwp"
@@ -10677,18 +10677,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=H19-F19",
-     "calc": "[New India] - [New India]",
+     "calc": "[New India · FY25] - [New India · 9M FY25]",
      "inputs": [
       {
        "ref": "H19",
-       "label": "New India",
+       "label": "New India · FY25",
        "period": "FY25",
        "entity": "new-india",
        "metric": "total_health_gwp"
       },
       {
        "ref": "F19",
-       "label": "New India",
+       "label": "New India · 9M FY25",
        "period": "9MFY25",
        "entity": "new-india",
        "metric": "total_health_gwp"
@@ -10744,18 +10744,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=K19-I19",
-     "calc": "[New India] - [New India]",
+     "calc": "[New India · H1 FY26] - [New India · Q1 FY26]",
      "inputs": [
       {
        "ref": "K19",
-       "label": "New India",
+       "label": "New India · H1 FY26",
        "period": "H1FY26",
        "entity": "new-india",
        "metric": "total_health_gwp"
       },
       {
        "ref": "I19",
-       "label": "New India",
+       "label": "New India · Q1 FY26",
        "period": "Q1FY26",
        "entity": "new-india",
        "metric": "total_health_gwp"
@@ -10802,18 +10802,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=N19-L19",
-     "calc": "[New India] - [New India]",
+     "calc": "[New India · FY26] - [New India · 9M FY26]",
      "inputs": [
       {
        "ref": "N19",
-       "label": "New India",
+       "label": "New India · FY26",
        "period": "FY26",
        "entity": "new-india",
        "metric": "total_health_gwp"
       },
       {
        "ref": "L19",
-       "label": "New India",
+       "label": "New India · 9M FY26",
        "period": "9MFY26",
        "entity": "new-india",
        "metric": "total_health_gwp"
@@ -10869,18 +10869,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=E20-C20",
-     "calc": "[National Insurance] - [National Insurance]",
+     "calc": "[National Insurance · H1 FY25] - [National Insurance · Q1 FY25]",
      "inputs": [
       {
        "ref": "E20",
-       "label": "National Insurance",
+       "label": "National Insurance · H1 FY25",
        "period": "H1FY25",
        "entity": "national-insurance",
        "metric": "total_health_gwp"
       },
       {
        "ref": "C20",
-       "label": "National Insurance",
+       "label": "National Insurance · Q1 FY25",
        "period": "Q1FY25",
        "entity": "national-insurance",
        "metric": "total_health_gwp"
@@ -10927,18 +10927,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=H20-F20",
-     "calc": "[National Insurance] - [National Insurance]",
+     "calc": "[National Insurance · FY25] - [National Insurance · 9M FY25]",
      "inputs": [
       {
        "ref": "H20",
-       "label": "National Insurance",
+       "label": "National Insurance · FY25",
        "period": "FY25",
        "entity": "national-insurance",
        "metric": "total_health_gwp"
       },
       {
        "ref": "F20",
-       "label": "National Insurance",
+       "label": "National Insurance · 9M FY25",
        "period": "9MFY25",
        "entity": "national-insurance",
        "metric": "total_health_gwp"
@@ -10994,18 +10994,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=K20-I20",
-     "calc": "[National Insurance] - [National Insurance]",
+     "calc": "[National Insurance · H1 FY26] - [National Insurance · Q1 FY26]",
      "inputs": [
       {
        "ref": "K20",
-       "label": "National Insurance",
+       "label": "National Insurance · H1 FY26",
        "period": "H1FY26",
        "entity": "national-insurance",
        "metric": "total_health_gwp"
       },
       {
        "ref": "I20",
-       "label": "National Insurance",
+       "label": "National Insurance · Q1 FY26",
        "period": "Q1FY26",
        "entity": "national-insurance",
        "metric": "total_health_gwp"
@@ -11052,18 +11052,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=N20-L20",
-     "calc": "[National Insurance] - [National Insurance]",
+     "calc": "[National Insurance · FY26] - [National Insurance · 9M FY26]",
      "inputs": [
       {
        "ref": "N20",
-       "label": "National Insurance",
+       "label": "National Insurance · FY26",
        "period": "FY26",
        "entity": "national-insurance",
        "metric": "total_health_gwp"
       },
       {
        "ref": "L20",
-       "label": "National Insurance",
+       "label": "National Insurance · 9M FY26",
        "period": "9MFY26",
        "entity": "national-insurance",
        "metric": "total_health_gwp"
@@ -11119,18 +11119,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=E21-C21",
-     "calc": "[Oriental Insurance] - [Oriental Insurance]",
+     "calc": "[Oriental Insurance · H1 FY25] - [Oriental Insurance · Q1 FY25]",
      "inputs": [
       {
        "ref": "E21",
-       "label": "Oriental Insurance",
+       "label": "Oriental Insurance · H1 FY25",
        "period": "H1FY25",
        "entity": "oriental-insurance",
        "metric": "total_health_gwp"
       },
       {
        "ref": "C21",
-       "label": "Oriental Insurance",
+       "label": "Oriental Insurance · Q1 FY25",
        "period": "Q1FY25",
        "entity": "oriental-insurance",
        "metric": "total_health_gwp"
@@ -11177,18 +11177,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=H21-F21",
-     "calc": "[Oriental Insurance] - [Oriental Insurance]",
+     "calc": "[Oriental Insurance · FY25] - [Oriental Insurance · 9M FY25]",
      "inputs": [
       {
        "ref": "H21",
-       "label": "Oriental Insurance",
+       "label": "Oriental Insurance · FY25",
        "period": "FY25",
        "entity": "oriental-insurance",
        "metric": "total_health_gwp"
       },
       {
        "ref": "F21",
-       "label": "Oriental Insurance",
+       "label": "Oriental Insurance · 9M FY25",
        "period": "9MFY25",
        "entity": "oriental-insurance",
        "metric": "total_health_gwp"
@@ -11244,18 +11244,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=K21-I21",
-     "calc": "[Oriental Insurance] - [Oriental Insurance]",
+     "calc": "[Oriental Insurance · H1 FY26] - [Oriental Insurance · Q1 FY26]",
      "inputs": [
       {
        "ref": "K21",
-       "label": "Oriental Insurance",
+       "label": "Oriental Insurance · H1 FY26",
        "period": "H1FY26",
        "entity": "oriental-insurance",
        "metric": "total_health_gwp"
       },
       {
        "ref": "I21",
-       "label": "Oriental Insurance",
+       "label": "Oriental Insurance · Q1 FY26",
        "period": "Q1FY26",
        "entity": "oriental-insurance",
        "metric": "total_health_gwp"
@@ -11302,18 +11302,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=N21-L21",
-     "calc": "[Oriental Insurance] - [Oriental Insurance]",
+     "calc": "[Oriental Insurance · FY26] - [Oriental Insurance · 9M FY26]",
      "inputs": [
       {
        "ref": "N21",
-       "label": "Oriental Insurance",
+       "label": "Oriental Insurance · FY26",
        "period": "FY26",
        "entity": "oriental-insurance",
        "metric": "total_health_gwp"
       },
       {
        "ref": "L21",
-       "label": "Oriental Insurance",
+       "label": "Oriental Insurance · 9M FY26",
        "period": "9MFY26",
        "entity": "oriental-insurance",
        "metric": "total_health_gwp"
@@ -11369,18 +11369,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=E22-C22",
-     "calc": "[United India] - [United India]",
+     "calc": "[United India · H1 FY25] - [United India · Q1 FY25]",
      "inputs": [
       {
        "ref": "E22",
-       "label": "United India",
+       "label": "United India · H1 FY25",
        "period": "H1FY25",
        "entity": "united-india",
        "metric": "total_health_gwp"
       },
       {
        "ref": "C22",
-       "label": "United India",
+       "label": "United India · Q1 FY25",
        "period": "Q1FY25",
        "entity": "united-india",
        "metric": "total_health_gwp"
@@ -11427,18 +11427,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=H22-F22",
-     "calc": "[United India] - [United India]",
+     "calc": "[United India · FY25] - [United India · 9M FY25]",
      "inputs": [
       {
        "ref": "H22",
-       "label": "United India",
+       "label": "United India · FY25",
        "period": "FY25",
        "entity": "united-india",
        "metric": "total_health_gwp"
       },
       {
        "ref": "F22",
-       "label": "United India",
+       "label": "United India · 9M FY25",
        "period": "9MFY25",
        "entity": "united-india",
        "metric": "total_health_gwp"
@@ -11494,18 +11494,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=K22-I22",
-     "calc": "[United India] - [United India]",
+     "calc": "[United India · H1 FY26] - [United India · Q1 FY26]",
      "inputs": [
       {
        "ref": "K22",
-       "label": "United India",
+       "label": "United India · H1 FY26",
        "period": "H1FY26",
        "entity": "united-india",
        "metric": "total_health_gwp"
       },
       {
        "ref": "I22",
-       "label": "United India",
+       "label": "United India · Q1 FY26",
        "period": "Q1FY26",
        "entity": "united-india",
        "metric": "total_health_gwp"
@@ -11552,18 +11552,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=N22-L22",
-     "calc": "[United India] - [United India]",
+     "calc": "[United India · FY26] - [United India · 9M FY26]",
      "inputs": [
       {
        "ref": "N22",
-       "label": "United India",
+       "label": "United India · FY26",
        "period": "FY26",
        "entity": "united-india",
        "metric": "total_health_gwp"
       },
       {
        "ref": "L22",
-       "label": "United India",
+       "label": "United India · 9M FY26",
        "period": "9MFY26",
        "entity": "united-india",
        "metric": "total_health_gwp"
@@ -11619,18 +11619,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=E23-C23",
-     "calc": "[Others] - [Others]",
+     "calc": "[Others · H1 FY25] - [Others · Q1 FY25]",
      "inputs": [
       {
        "ref": "E23",
-       "label": "Others",
+       "label": "Others · H1 FY25",
        "period": "H1FY25",
        "entity": "Others",
        "metric": "total_health_gwp"
       },
       {
        "ref": "C23",
-       "label": "Others",
+       "label": "Others · Q1 FY25",
        "period": "Q1FY25",
        "entity": "Others",
        "metric": "total_health_gwp"
@@ -11933,18 +11933,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=H23-F23",
-     "calc": "[Others] - [Others]",
+     "calc": "[Others · FY25] - [Others · 9M FY25]",
      "inputs": [
       {
        "ref": "H23",
-       "label": "Others",
+       "label": "Others · FY25",
        "period": "FY25",
        "entity": "Others",
        "metric": "total_health_gwp"
       },
       {
        "ref": "F23",
-       "label": "Others",
+       "label": "Others · 9M FY25",
        "period": "9MFY25",
        "entity": "Others",
        "metric": "total_health_gwp"
@@ -12131,18 +12131,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=K23-I23",
-     "calc": "[Others] - [Others]",
+     "calc": "[Others · H1 FY26] - [Others · Q1 FY26]",
      "inputs": [
       {
        "ref": "K23",
-       "label": "Others",
+       "label": "Others · H1 FY26",
        "period": "H1FY26",
        "entity": "Others",
        "metric": "total_health_gwp"
       },
       {
        "ref": "I23",
-       "label": "Others",
+       "label": "Others · Q1 FY26",
        "period": "Q1FY26",
        "entity": "Others",
        "metric": "total_health_gwp"
@@ -12761,18 +12761,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=E24-C24",
-     "calc": "[Total Health GWP (INR cr)] - [Total Health GWP (INR cr)]",
+     "calc": "[Total Health GWP (INR cr) · H1 FY25] - [Total Health GWP (INR cr) · Q1 FY25]",
      "inputs": [
       {
        "ref": "E24",
-       "label": "Total Health GWP (INR cr)",
+       "label": "Total Health GWP (INR cr) · H1 FY25",
        "period": "H1FY25",
        "entity": "Total Health GWP (INR cr)",
        "metric": "total_health_gwp"
       },
       {
        "ref": "C24",
-       "label": "Total Health GWP (INR cr)",
+       "label": "Total Health GWP (INR cr) · Q1 FY25",
        "period": "Q1FY25",
        "entity": "Total Health GWP (INR cr)",
        "metric": "total_health_gwp"
@@ -12819,18 +12819,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=H24-F24",
-     "calc": "[Total Health GWP (INR cr)] - [Total Health GWP (INR cr)]",
+     "calc": "[Total Health GWP (INR cr) · FY25] - [Total Health GWP (INR cr) · 9M FY25]",
      "inputs": [
       {
        "ref": "H24",
-       "label": "Total Health GWP (INR cr)",
+       "label": "Total Health GWP (INR cr) · FY25",
        "period": "FY25",
        "entity": "Total Health GWP (INR cr)",
        "metric": "total_health_gwp"
       },
       {
        "ref": "F24",
-       "label": "Total Health GWP (INR cr)",
+       "label": "Total Health GWP (INR cr) · 9M FY25",
        "period": "9MFY25",
        "entity": "Total Health GWP (INR cr)",
        "metric": "total_health_gwp"
@@ -12886,18 +12886,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=K24-I24",
-     "calc": "[Total Health GWP (INR cr)] - [Total Health GWP (INR cr)]",
+     "calc": "[Total Health GWP (INR cr) · H1 FY26] - [Total Health GWP (INR cr) · Q1 FY26]",
      "inputs": [
       {
        "ref": "K24",
-       "label": "Total Health GWP (INR cr)",
+       "label": "Total Health GWP (INR cr) · H1 FY26",
        "period": "H1FY26",
        "entity": "Total Health GWP (INR cr)",
        "metric": "total_health_gwp"
       },
       {
        "ref": "I24",
-       "label": "Total Health GWP (INR cr)",
+       "label": "Total Health GWP (INR cr) · Q1 FY26",
        "period": "Q1FY26",
        "entity": "Total Health GWP (INR cr)",
        "metric": "total_health_gwp"
@@ -12944,18 +12944,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=N24-L24",
-     "calc": "[Total Health GWP (INR cr)] - [Total Health GWP (INR cr)]",
+     "calc": "[Total Health GWP (INR cr) · FY26] - [Total Health GWP (INR cr) · 9M FY26]",
      "inputs": [
       {
        "ref": "N24",
-       "label": "Total Health GWP (INR cr)",
+       "label": "Total Health GWP (INR cr) · FY26",
        "period": "FY26",
        "entity": "Total Health GWP (INR cr)",
        "metric": "total_health_gwp"
       },
       {
        "ref": "L24",
-       "label": "Total Health GWP (INR cr)",
+       "label": "Total Health GWP (INR cr) · 9M FY26",
        "period": "9MFY26",
        "entity": "Total Health GWP (INR cr)",
        "metric": "total_health_gwp"
@@ -13011,18 +13011,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=E29-C29",
-     "calc": "[Star Health] - [Star Health]",
+     "calc": "[Star Health · H1 FY25] - [Star Health · Q1 FY25]",
      "inputs": [
       {
        "ref": "E29",
-       "label": "Star Health",
+       "label": "Star Health · H1 FY25",
        "period": "H1FY25",
        "entity": "star-health",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "C29",
-       "label": "Star Health",
+       "label": "Star Health · Q1 FY25",
        "period": "Q1FY25",
        "entity": "star-health",
        "metric": "retail_health_gwp"
@@ -13069,18 +13069,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=H29-F29",
-     "calc": "[Star Health] - [Star Health]",
+     "calc": "[Star Health · FY25] - [Star Health · 9M FY25]",
      "inputs": [
       {
        "ref": "H29",
-       "label": "Star Health",
+       "label": "Star Health · FY25",
        "period": "FY25",
        "entity": "star-health",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "F29",
-       "label": "Star Health",
+       "label": "Star Health · 9M FY25",
        "period": "9MFY25",
        "entity": "star-health",
        "metric": "retail_health_gwp"
@@ -13136,18 +13136,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=K29-I29",
-     "calc": "[Star Health] - [Star Health]",
+     "calc": "[Star Health · H1 FY26] - [Star Health · Q1 FY26]",
      "inputs": [
       {
        "ref": "K29",
-       "label": "Star Health",
+       "label": "Star Health · H1 FY26",
        "period": "H1FY26",
        "entity": "star-health",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "I29",
-       "label": "Star Health",
+       "label": "Star Health · Q1 FY26",
        "period": "Q1FY26",
        "entity": "star-health",
        "metric": "retail_health_gwp"
@@ -13194,18 +13194,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=N29-L29",
-     "calc": "[Star Health] - [Star Health]",
+     "calc": "[Star Health · FY26] - [Star Health · 9M FY26]",
      "inputs": [
       {
        "ref": "N29",
-       "label": "Star Health",
+       "label": "Star Health · FY26",
        "period": "FY26",
        "entity": "star-health",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "L29",
-       "label": "Star Health",
+       "label": "Star Health · 9M FY26",
        "period": "9MFY26",
        "entity": "star-health",
        "metric": "retail_health_gwp"
@@ -13261,18 +13261,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=E30-C30",
-     "calc": "[Care] - [Care]",
+     "calc": "[Care · H1 FY25] - [Care · Q1 FY25]",
      "inputs": [
       {
        "ref": "E30",
-       "label": "Care",
+       "label": "Care · H1 FY25",
        "period": "H1FY25",
        "entity": "care-health",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "C30",
-       "label": "Care",
+       "label": "Care · Q1 FY25",
        "period": "Q1FY25",
        "entity": "care-health",
        "metric": "retail_health_gwp"
@@ -13319,18 +13319,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=H30-F30",
-     "calc": "[Care] - [Care]",
+     "calc": "[Care · FY25] - [Care · 9M FY25]",
      "inputs": [
       {
        "ref": "H30",
-       "label": "Care",
+       "label": "Care · FY25",
        "period": "FY25",
        "entity": "care-health",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "F30",
-       "label": "Care",
+       "label": "Care · 9M FY25",
        "period": "9MFY25",
        "entity": "care-health",
        "metric": "retail_health_gwp"
@@ -13386,18 +13386,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=K30-I30",
-     "calc": "[Care] - [Care]",
+     "calc": "[Care · H1 FY26] - [Care · Q1 FY26]",
      "inputs": [
       {
        "ref": "K30",
-       "label": "Care",
+       "label": "Care · H1 FY26",
        "period": "H1FY26",
        "entity": "care-health",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "I30",
-       "label": "Care",
+       "label": "Care · Q1 FY26",
        "period": "Q1FY26",
        "entity": "care-health",
        "metric": "retail_health_gwp"
@@ -13444,18 +13444,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=N30-L30",
-     "calc": "[Care] - [Care]",
+     "calc": "[Care · FY26] - [Care · 9M FY26]",
      "inputs": [
       {
        "ref": "N30",
-       "label": "Care",
+       "label": "Care · FY26",
        "period": "FY26",
        "entity": "care-health",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "L30",
-       "label": "Care",
+       "label": "Care · 9M FY26",
        "period": "9MFY26",
        "entity": "care-health",
        "metric": "retail_health_gwp"
@@ -13511,18 +13511,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=E31-C31",
-     "calc": "[Niva Bupa] - [Niva Bupa]",
+     "calc": "[Niva Bupa · H1 FY25] - [Niva Bupa · Q1 FY25]",
      "inputs": [
       {
        "ref": "E31",
-       "label": "Niva Bupa",
+       "label": "Niva Bupa · H1 FY25",
        "period": "H1FY25",
        "entity": "niva-bupa",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "C31",
-       "label": "Niva Bupa",
+       "label": "Niva Bupa · Q1 FY25",
        "period": "Q1FY25",
        "entity": "niva-bupa",
        "metric": "retail_health_gwp"
@@ -13569,18 +13569,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=H31-F31",
-     "calc": "[Niva Bupa] - [Niva Bupa]",
+     "calc": "[Niva Bupa · FY25] - [Niva Bupa · 9M FY25]",
      "inputs": [
       {
        "ref": "H31",
-       "label": "Niva Bupa",
+       "label": "Niva Bupa · FY25",
        "period": "FY25",
        "entity": "niva-bupa",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "F31",
-       "label": "Niva Bupa",
+       "label": "Niva Bupa · 9M FY25",
        "period": "9MFY25",
        "entity": "niva-bupa",
        "metric": "retail_health_gwp"
@@ -13636,18 +13636,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=K31-I31",
-     "calc": "[Niva Bupa] - [Niva Bupa]",
+     "calc": "[Niva Bupa · H1 FY26] - [Niva Bupa · Q1 FY26]",
      "inputs": [
       {
        "ref": "K31",
-       "label": "Niva Bupa",
+       "label": "Niva Bupa · H1 FY26",
        "period": "H1FY26",
        "entity": "niva-bupa",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "I31",
-       "label": "Niva Bupa",
+       "label": "Niva Bupa · Q1 FY26",
        "period": "Q1FY26",
        "entity": "niva-bupa",
        "metric": "retail_health_gwp"
@@ -13694,18 +13694,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=N31-L31",
-     "calc": "[Niva Bupa] - [Niva Bupa]",
+     "calc": "[Niva Bupa · FY26] - [Niva Bupa · 9M FY26]",
      "inputs": [
       {
        "ref": "N31",
-       "label": "Niva Bupa",
+       "label": "Niva Bupa · FY26",
        "period": "FY26",
        "entity": "niva-bupa",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "L31",
-       "label": "Niva Bupa",
+       "label": "Niva Bupa · 9M FY26",
        "period": "9MFY26",
        "entity": "niva-bupa",
        "metric": "retail_health_gwp"
@@ -13761,18 +13761,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=E32-C32",
-     "calc": "[Aditya Birla] - [Aditya Birla]",
+     "calc": "[Aditya Birla · H1 FY25] - [Aditya Birla · Q1 FY25]",
      "inputs": [
       {
        "ref": "E32",
-       "label": "Aditya Birla",
+       "label": "Aditya Birla · H1 FY25",
        "period": "H1FY25",
        "entity": "aditya-birla",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "C32",
-       "label": "Aditya Birla",
+       "label": "Aditya Birla · Q1 FY25",
        "period": "Q1FY25",
        "entity": "aditya-birla",
        "metric": "retail_health_gwp"
@@ -13819,18 +13819,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=H32-F32",
-     "calc": "[Aditya Birla] - [Aditya Birla]",
+     "calc": "[Aditya Birla · FY25] - [Aditya Birla · 9M FY25]",
      "inputs": [
       {
        "ref": "H32",
-       "label": "Aditya Birla",
+       "label": "Aditya Birla · FY25",
        "period": "FY25",
        "entity": "aditya-birla",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "F32",
-       "label": "Aditya Birla",
+       "label": "Aditya Birla · 9M FY25",
        "period": "9MFY25",
        "entity": "aditya-birla",
        "metric": "retail_health_gwp"
@@ -13886,18 +13886,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=K32-I32",
-     "calc": "[Aditya Birla] - [Aditya Birla]",
+     "calc": "[Aditya Birla · H1 FY26] - [Aditya Birla · Q1 FY26]",
      "inputs": [
       {
        "ref": "K32",
-       "label": "Aditya Birla",
+       "label": "Aditya Birla · H1 FY26",
        "period": "H1FY26",
        "entity": "aditya-birla",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "I32",
-       "label": "Aditya Birla",
+       "label": "Aditya Birla · Q1 FY26",
        "period": "Q1FY26",
        "entity": "aditya-birla",
        "metric": "retail_health_gwp"
@@ -13944,18 +13944,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=N32-L32",
-     "calc": "[Aditya Birla] - [Aditya Birla]",
+     "calc": "[Aditya Birla · FY26] - [Aditya Birla · 9M FY26]",
      "inputs": [
       {
        "ref": "N32",
-       "label": "Aditya Birla",
+       "label": "Aditya Birla · FY26",
        "period": "FY26",
        "entity": "aditya-birla",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "L32",
-       "label": "Aditya Birla",
+       "label": "Aditya Birla · 9M FY26",
        "period": "9MFY26",
        "entity": "aditya-birla",
        "metric": "retail_health_gwp"
@@ -14011,18 +14011,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=E33-C33",
-     "calc": "[Manipal Cigna] - [Manipal Cigna]",
+     "calc": "[Manipal Cigna · H1 FY25] - [Manipal Cigna · Q1 FY25]",
      "inputs": [
       {
        "ref": "E33",
-       "label": "Manipal Cigna",
+       "label": "Manipal Cigna · H1 FY25",
        "period": "H1FY25",
        "entity": "manipalcigna",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "C33",
-       "label": "Manipal Cigna",
+       "label": "Manipal Cigna · Q1 FY25",
        "period": "Q1FY25",
        "entity": "manipalcigna",
        "metric": "retail_health_gwp"
@@ -14069,18 +14069,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=H33-F33",
-     "calc": "[Manipal Cigna] - [Manipal Cigna]",
+     "calc": "[Manipal Cigna · FY25] - [Manipal Cigna · 9M FY25]",
      "inputs": [
       {
        "ref": "H33",
-       "label": "Manipal Cigna",
+       "label": "Manipal Cigna · FY25",
        "period": "FY25",
        "entity": "manipalcigna",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "F33",
-       "label": "Manipal Cigna",
+       "label": "Manipal Cigna · 9M FY25",
        "period": "9MFY25",
        "entity": "manipalcigna",
        "metric": "retail_health_gwp"
@@ -14136,18 +14136,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=K33-I33",
-     "calc": "[Manipal Cigna] - [Manipal Cigna]",
+     "calc": "[Manipal Cigna · H1 FY26] - [Manipal Cigna · Q1 FY26]",
      "inputs": [
       {
        "ref": "K33",
-       "label": "Manipal Cigna",
+       "label": "Manipal Cigna · H1 FY26",
        "period": "H1FY26",
        "entity": "manipalcigna",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "I33",
-       "label": "Manipal Cigna",
+       "label": "Manipal Cigna · Q1 FY26",
        "period": "Q1FY26",
        "entity": "manipalcigna",
        "metric": "retail_health_gwp"
@@ -14194,18 +14194,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=N33-L33",
-     "calc": "[Manipal Cigna] - [Manipal Cigna]",
+     "calc": "[Manipal Cigna · FY26] - [Manipal Cigna · 9M FY26]",
      "inputs": [
       {
        "ref": "N33",
-       "label": "Manipal Cigna",
+       "label": "Manipal Cigna · FY26",
        "period": "FY26",
        "entity": "manipalcigna",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "L33",
-       "label": "Manipal Cigna",
+       "label": "Manipal Cigna · 9M FY26",
        "period": "9MFY26",
        "entity": "manipalcigna",
        "metric": "retail_health_gwp"
@@ -14261,15 +14261,15 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=E34-C34",
-     "calc": "[Galaxy Health] - [Galaxy Health]",
+     "calc": "[Galaxy Health · E34] - [Galaxy Health · C34]",
      "inputs": [
       {
        "ref": "E34",
-       "label": "Galaxy Health"
+       "label": "Galaxy Health · E34"
       },
       {
        "ref": "C34",
-       "label": "Galaxy Health",
+       "label": "Galaxy Health · C34",
        "period": "Q1FY25",
        "entity": "galaxy-health",
        "metric": "retail_health_gwp"
@@ -14302,18 +14302,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=H34-F34",
-     "calc": "[Galaxy Health] - [Galaxy Health]",
+     "calc": "[Galaxy Health · FY25] - [Galaxy Health · 9M FY25]",
      "inputs": [
       {
        "ref": "H34",
-       "label": "Galaxy Health",
+       "label": "Galaxy Health · FY25",
        "period": "FY25",
        "entity": "galaxy-health",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "F34",
-       "label": "Galaxy Health",
+       "label": "Galaxy Health · 9M FY25",
        "period": "9MFY25",
        "entity": "galaxy-health",
        "metric": "retail_health_gwp"
@@ -14369,18 +14369,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=K34-I34",
-     "calc": "[Galaxy Health] - [Galaxy Health]",
+     "calc": "[Galaxy Health · H1 FY26] - [Galaxy Health · Q1 FY26]",
      "inputs": [
       {
        "ref": "K34",
-       "label": "Galaxy Health",
+       "label": "Galaxy Health · H1 FY26",
        "period": "H1FY26",
        "entity": "galaxy-health",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "I34",
-       "label": "Galaxy Health",
+       "label": "Galaxy Health · Q1 FY26",
        "period": "Q1FY26",
        "entity": "galaxy-health",
        "metric": "retail_health_gwp"
@@ -14427,18 +14427,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=N34-L34",
-     "calc": "[Galaxy Health] - [Galaxy Health]",
+     "calc": "[Galaxy Health · FY26] - [Galaxy Health · 9M FY26]",
      "inputs": [
       {
        "ref": "N34",
-       "label": "Galaxy Health",
+       "label": "Galaxy Health · FY26",
        "period": "FY26",
        "entity": "galaxy-health",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "L34",
-       "label": "Galaxy Health",
+       "label": "Galaxy Health · 9M FY26",
        "period": "9MFY26",
        "entity": "galaxy-health",
        "metric": "retail_health_gwp"
@@ -14494,15 +14494,15 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=E35-C35",
-     "calc": "[Narayana Health] - [Narayana Health]",
+     "calc": "[Narayana Health · E35] - [Narayana Health · C35]",
      "inputs": [
       {
        "ref": "E35",
-       "label": "Narayana Health"
+       "label": "Narayana Health · E35"
       },
       {
        "ref": "C35",
-       "label": "Narayana Health",
+       "label": "Narayana Health · C35",
        "period": "Q1FY25",
        "entity": "narayana-health",
        "metric": "retail_health_gwp"
@@ -14535,18 +14535,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=H35-F35",
-     "calc": "[Narayana Health] - [Narayana Health]",
+     "calc": "[Narayana Health · FY25] - [Narayana Health · 9M FY25]",
      "inputs": [
       {
        "ref": "H35",
-       "label": "Narayana Health",
+       "label": "Narayana Health · FY25",
        "period": "FY25",
        "entity": "narayana-health",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "F35",
-       "label": "Narayana Health",
+       "label": "Narayana Health · 9M FY25",
        "period": "9MFY25",
        "entity": "narayana-health",
        "metric": "retail_health_gwp"
@@ -14602,18 +14602,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=K35-I35",
-     "calc": "[Narayana Health] - [Narayana Health]",
+     "calc": "[Narayana Health · H1 FY26] - [Narayana Health · Q1 FY26]",
      "inputs": [
       {
        "ref": "K35",
-       "label": "Narayana Health",
+       "label": "Narayana Health · H1 FY26",
        "period": "H1FY26",
        "entity": "narayana-health",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "I35",
-       "label": "Narayana Health",
+       "label": "Narayana Health · Q1 FY26",
        "period": "Q1FY26",
        "entity": "narayana-health",
        "metric": "retail_health_gwp"
@@ -14660,18 +14660,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=N35-L35",
-     "calc": "[Narayana Health] - [Narayana Health]",
+     "calc": "[Narayana Health · FY26] - [Narayana Health · 9M FY26]",
      "inputs": [
       {
        "ref": "N35",
-       "label": "Narayana Health",
+       "label": "Narayana Health · FY26",
        "period": "FY26",
        "entity": "narayana-health",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "L35",
-       "label": "Narayana Health",
+       "label": "Narayana Health · 9M FY26",
        "period": "9MFY26",
        "entity": "narayana-health",
        "metric": "retail_health_gwp"
@@ -14727,18 +14727,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=E37-C37",
-     "calc": "[HDFC Ergo] - [HDFC Ergo]",
+     "calc": "[HDFC Ergo · H1 FY25] - [HDFC Ergo · Q1 FY25]",
      "inputs": [
       {
        "ref": "E37",
-       "label": "HDFC Ergo",
+       "label": "HDFC Ergo · H1 FY25",
        "period": "H1FY25",
        "entity": "hdfc-ergo",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "C37",
-       "label": "HDFC Ergo",
+       "label": "HDFC Ergo · Q1 FY25",
        "period": "Q1FY25",
        "entity": "hdfc-ergo",
        "metric": "retail_health_gwp"
@@ -14785,18 +14785,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=H37-F37",
-     "calc": "[HDFC Ergo] - [HDFC Ergo]",
+     "calc": "[HDFC Ergo · FY25] - [HDFC Ergo · 9M FY25]",
      "inputs": [
       {
        "ref": "H37",
-       "label": "HDFC Ergo",
+       "label": "HDFC Ergo · FY25",
        "period": "FY25",
        "entity": "hdfc-ergo",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "F37",
-       "label": "HDFC Ergo",
+       "label": "HDFC Ergo · 9M FY25",
        "period": "9MFY25",
        "entity": "hdfc-ergo",
        "metric": "retail_health_gwp"
@@ -14852,18 +14852,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=K37-I37",
-     "calc": "[HDFC Ergo] - [HDFC Ergo]",
+     "calc": "[HDFC Ergo · H1 FY26] - [HDFC Ergo · Q1 FY26]",
      "inputs": [
       {
        "ref": "K37",
-       "label": "HDFC Ergo",
+       "label": "HDFC Ergo · H1 FY26",
        "period": "H1FY26",
        "entity": "hdfc-ergo",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "I37",
-       "label": "HDFC Ergo",
+       "label": "HDFC Ergo · Q1 FY26",
        "period": "Q1FY26",
        "entity": "hdfc-ergo",
        "metric": "retail_health_gwp"
@@ -14910,18 +14910,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=N37-L37",
-     "calc": "[HDFC Ergo] - [HDFC Ergo]",
+     "calc": "[HDFC Ergo · FY26] - [HDFC Ergo · 9M FY26]",
      "inputs": [
       {
        "ref": "N37",
-       "label": "HDFC Ergo",
+       "label": "HDFC Ergo · FY26",
        "period": "FY26",
        "entity": "hdfc-ergo",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "L37",
-       "label": "HDFC Ergo",
+       "label": "HDFC Ergo · 9M FY26",
        "period": "9MFY26",
        "entity": "hdfc-ergo",
        "metric": "retail_health_gwp"
@@ -14977,18 +14977,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=E38-C38",
-     "calc": "[ICICI Lombard] - [ICICI Lombard]",
+     "calc": "[ICICI Lombard · H1 FY25] - [ICICI Lombard · Q1 FY25]",
      "inputs": [
       {
        "ref": "E38",
-       "label": "ICICI Lombard",
+       "label": "ICICI Lombard · H1 FY25",
        "period": "H1FY25",
        "entity": "icici-lombard",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "C38",
-       "label": "ICICI Lombard",
+       "label": "ICICI Lombard · Q1 FY25",
        "period": "Q1FY25",
        "entity": "icici-lombard",
        "metric": "retail_health_gwp"
@@ -15035,18 +15035,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=H38-F38",
-     "calc": "[ICICI Lombard] - [ICICI Lombard]",
+     "calc": "[ICICI Lombard · FY25] - [ICICI Lombard · 9M FY25]",
      "inputs": [
       {
        "ref": "H38",
-       "label": "ICICI Lombard",
+       "label": "ICICI Lombard · FY25",
        "period": "FY25",
        "entity": "icici-lombard",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "F38",
-       "label": "ICICI Lombard",
+       "label": "ICICI Lombard · 9M FY25",
        "period": "9MFY25",
        "entity": "icici-lombard",
        "metric": "retail_health_gwp"
@@ -15102,18 +15102,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=K38-I38",
-     "calc": "[ICICI Lombard] - [ICICI Lombard]",
+     "calc": "[ICICI Lombard · H1 FY26] - [ICICI Lombard · Q1 FY26]",
      "inputs": [
       {
        "ref": "K38",
-       "label": "ICICI Lombard",
+       "label": "ICICI Lombard · H1 FY26",
        "period": "H1FY26",
        "entity": "icici-lombard",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "I38",
-       "label": "ICICI Lombard",
+       "label": "ICICI Lombard · Q1 FY26",
        "period": "Q1FY26",
        "entity": "icici-lombard",
        "metric": "retail_health_gwp"
@@ -15160,18 +15160,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=N38-L38",
-     "calc": "[ICICI Lombard] - [ICICI Lombard]",
+     "calc": "[ICICI Lombard · FY26] - [ICICI Lombard · 9M FY26]",
      "inputs": [
       {
        "ref": "N38",
-       "label": "ICICI Lombard",
+       "label": "ICICI Lombard · FY26",
        "period": "FY26",
        "entity": "icici-lombard",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "L38",
-       "label": "ICICI Lombard",
+       "label": "ICICI Lombard · 9M FY26",
        "period": "9MFY26",
        "entity": "icici-lombard",
        "metric": "retail_health_gwp"
@@ -15227,18 +15227,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=E39-C39",
-     "calc": "[Bajaj Allianz] - [Bajaj Allianz]",
+     "calc": "[Bajaj Allianz · H1 FY25] - [Bajaj Allianz · Q1 FY25]",
      "inputs": [
       {
        "ref": "E39",
-       "label": "Bajaj Allianz",
+       "label": "Bajaj Allianz · H1 FY25",
        "period": "H1FY25",
        "entity": "bajaj-general",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "C39",
-       "label": "Bajaj Allianz",
+       "label": "Bajaj Allianz · Q1 FY25",
        "period": "Q1FY25",
        "entity": "bajaj-general",
        "metric": "retail_health_gwp"
@@ -15285,18 +15285,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=H39-F39",
-     "calc": "[Bajaj Allianz] - [Bajaj Allianz]",
+     "calc": "[Bajaj Allianz · FY25] - [Bajaj Allianz · 9M FY25]",
      "inputs": [
       {
        "ref": "H39",
-       "label": "Bajaj Allianz",
+       "label": "Bajaj Allianz · FY25",
        "period": "FY25",
        "entity": "bajaj-general",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "F39",
-       "label": "Bajaj Allianz",
+       "label": "Bajaj Allianz · 9M FY25",
        "period": "9MFY25",
        "entity": "bajaj-general",
        "metric": "retail_health_gwp"
@@ -15352,18 +15352,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=K39-I39",
-     "calc": "[Bajaj Allianz] - [Bajaj Allianz]",
+     "calc": "[Bajaj Allianz · H1 FY26] - [Bajaj Allianz · Q1 FY26]",
      "inputs": [
       {
        "ref": "K39",
-       "label": "Bajaj Allianz",
+       "label": "Bajaj Allianz · H1 FY26",
        "period": "H1FY26",
        "entity": "bajaj-general",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "I39",
-       "label": "Bajaj Allianz",
+       "label": "Bajaj Allianz · Q1 FY26",
        "period": "Q1FY26",
        "entity": "bajaj-general",
        "metric": "retail_health_gwp"
@@ -15410,18 +15410,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=N39-L39",
-     "calc": "[Bajaj Allianz] - [Bajaj Allianz]",
+     "calc": "[Bajaj Allianz · FY26] - [Bajaj Allianz · 9M FY26]",
      "inputs": [
       {
        "ref": "N39",
-       "label": "Bajaj Allianz",
+       "label": "Bajaj Allianz · FY26",
        "period": "FY26",
        "entity": "bajaj-general",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "L39",
-       "label": "Bajaj Allianz",
+       "label": "Bajaj Allianz · 9M FY26",
        "period": "9MFY26",
        "entity": "bajaj-general",
        "metric": "retail_health_gwp"
@@ -15477,18 +15477,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=E40-C40",
-     "calc": "[Reliance] - [Reliance]",
+     "calc": "[Reliance · H1 FY25] - [Reliance · Q1 FY25]",
      "inputs": [
       {
        "ref": "E40",
-       "label": "Reliance",
+       "label": "Reliance · H1 FY25",
        "period": "H1FY25",
        "entity": "reliance-general",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "C40",
-       "label": "Reliance",
+       "label": "Reliance · Q1 FY25",
        "period": "Q1FY25",
        "entity": "reliance-general",
        "metric": "retail_health_gwp"
@@ -15535,18 +15535,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=H40-F40",
-     "calc": "[Reliance] - [Reliance]",
+     "calc": "[Reliance · FY25] - [Reliance · 9M FY25]",
      "inputs": [
       {
        "ref": "H40",
-       "label": "Reliance",
+       "label": "Reliance · FY25",
        "period": "FY25",
        "entity": "reliance-general",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "F40",
-       "label": "Reliance",
+       "label": "Reliance · 9M FY25",
        "period": "9MFY25",
        "entity": "reliance-general",
        "metric": "retail_health_gwp"
@@ -15602,18 +15602,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=K40-I40",
-     "calc": "[Reliance] - [Reliance]",
+     "calc": "[Reliance · H1 FY26] - [Reliance · Q1 FY26]",
      "inputs": [
       {
        "ref": "K40",
-       "label": "Reliance",
+       "label": "Reliance · H1 FY26",
        "period": "H1FY26",
        "entity": "reliance-general",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "I40",
-       "label": "Reliance",
+       "label": "Reliance · Q1 FY26",
        "period": "Q1FY26",
        "entity": "reliance-general",
        "metric": "retail_health_gwp"
@@ -15660,18 +15660,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=N40-L40",
-     "calc": "[Reliance] - [Reliance]",
+     "calc": "[Reliance · FY26] - [Reliance · 9M FY26]",
      "inputs": [
       {
        "ref": "N40",
-       "label": "Reliance",
+       "label": "Reliance · FY26",
        "period": "FY26",
        "entity": "reliance-general",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "L40",
-       "label": "Reliance",
+       "label": "Reliance · 9M FY26",
        "period": "9MFY26",
        "entity": "reliance-general",
        "metric": "retail_health_gwp"
@@ -15727,18 +15727,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=E41-C41",
-     "calc": "[SBI GI] - [SBI GI]",
+     "calc": "[SBI GI · H1 FY25] - [SBI GI · Q1 FY25]",
      "inputs": [
       {
        "ref": "E41",
-       "label": "SBI GI",
+       "label": "SBI GI · H1 FY25",
        "period": "H1FY25",
        "entity": "sbi-general",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "C41",
-       "label": "SBI GI",
+       "label": "SBI GI · Q1 FY25",
        "period": "Q1FY25",
        "entity": "sbi-general",
        "metric": "retail_health_gwp"
@@ -15785,18 +15785,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=H41-F41",
-     "calc": "[SBI GI] - [SBI GI]",
+     "calc": "[SBI GI · FY25] - [SBI GI · 9M FY25]",
      "inputs": [
       {
        "ref": "H41",
-       "label": "SBI GI",
+       "label": "SBI GI · FY25",
        "period": "FY25",
        "entity": "sbi-general",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "F41",
-       "label": "SBI GI",
+       "label": "SBI GI · 9M FY25",
        "period": "9MFY25",
        "entity": "sbi-general",
        "metric": "retail_health_gwp"
@@ -15852,18 +15852,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=K41-I41",
-     "calc": "[SBI GI] - [SBI GI]",
+     "calc": "[SBI GI · H1 FY26] - [SBI GI · Q1 FY26]",
      "inputs": [
       {
        "ref": "K41",
-       "label": "SBI GI",
+       "label": "SBI GI · H1 FY26",
        "period": "H1FY26",
        "entity": "sbi-general",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "I41",
-       "label": "SBI GI",
+       "label": "SBI GI · Q1 FY26",
        "period": "Q1FY26",
        "entity": "sbi-general",
        "metric": "retail_health_gwp"
@@ -15910,18 +15910,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=N41-L41",
-     "calc": "[SBI GI] - [SBI GI]",
+     "calc": "[SBI GI · FY26] - [SBI GI · 9M FY26]",
      "inputs": [
       {
        "ref": "N41",
-       "label": "SBI GI",
+       "label": "SBI GI · FY26",
        "period": "FY26",
        "entity": "sbi-general",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "L41",
-       "label": "SBI GI",
+       "label": "SBI GI · 9M FY26",
        "period": "9MFY26",
        "entity": "sbi-general",
        "metric": "retail_health_gwp"
@@ -15977,18 +15977,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=E43-C43",
-     "calc": "[New India] - [New India]",
+     "calc": "[New India · H1 FY25] - [New India · Q1 FY25]",
      "inputs": [
       {
        "ref": "E43",
-       "label": "New India",
+       "label": "New India · H1 FY25",
        "period": "H1FY25",
        "entity": "new-india",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "C43",
-       "label": "New India",
+       "label": "New India · Q1 FY25",
        "period": "Q1FY25",
        "entity": "new-india",
        "metric": "retail_health_gwp"
@@ -16035,18 +16035,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=H43-F43",
-     "calc": "[New India] - [New India]",
+     "calc": "[New India · FY25] - [New India · 9M FY25]",
      "inputs": [
       {
        "ref": "H43",
-       "label": "New India",
+       "label": "New India · FY25",
        "period": "FY25",
        "entity": "new-india",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "F43",
-       "label": "New India",
+       "label": "New India · 9M FY25",
        "period": "9MFY25",
        "entity": "new-india",
        "metric": "retail_health_gwp"
@@ -16102,18 +16102,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=K43-I43",
-     "calc": "[New India] - [New India]",
+     "calc": "[New India · H1 FY26] - [New India · Q1 FY26]",
      "inputs": [
       {
        "ref": "K43",
-       "label": "New India",
+       "label": "New India · H1 FY26",
        "period": "H1FY26",
        "entity": "new-india",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "I43",
-       "label": "New India",
+       "label": "New India · Q1 FY26",
        "period": "Q1FY26",
        "entity": "new-india",
        "metric": "retail_health_gwp"
@@ -16160,18 +16160,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=N43-L43",
-     "calc": "[New India] - [New India]",
+     "calc": "[New India · FY26] - [New India · 9M FY26]",
      "inputs": [
       {
        "ref": "N43",
-       "label": "New India",
+       "label": "New India · FY26",
        "period": "FY26",
        "entity": "new-india",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "L43",
-       "label": "New India",
+       "label": "New India · 9M FY26",
        "period": "9MFY26",
        "entity": "new-india",
        "metric": "retail_health_gwp"
@@ -16227,18 +16227,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=E44-C44",
-     "calc": "[National Insurance] - [National Insurance]",
+     "calc": "[National Insurance · H1 FY25] - [National Insurance · Q1 FY25]",
      "inputs": [
       {
        "ref": "E44",
-       "label": "National Insurance",
+       "label": "National Insurance · H1 FY25",
        "period": "H1FY25",
        "entity": "national-insurance",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "C44",
-       "label": "National Insurance",
+       "label": "National Insurance · Q1 FY25",
        "period": "Q1FY25",
        "entity": "national-insurance",
        "metric": "retail_health_gwp"
@@ -16285,18 +16285,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=H44-F44",
-     "calc": "[National Insurance] - [National Insurance]",
+     "calc": "[National Insurance · FY25] - [National Insurance · 9M FY25]",
      "inputs": [
       {
        "ref": "H44",
-       "label": "National Insurance",
+       "label": "National Insurance · FY25",
        "period": "FY25",
        "entity": "national-insurance",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "F44",
-       "label": "National Insurance",
+       "label": "National Insurance · 9M FY25",
        "period": "9MFY25",
        "entity": "national-insurance",
        "metric": "retail_health_gwp"
@@ -16352,18 +16352,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=K44-I44",
-     "calc": "[National Insurance] - [National Insurance]",
+     "calc": "[National Insurance · H1 FY26] - [National Insurance · Q1 FY26]",
      "inputs": [
       {
        "ref": "K44",
-       "label": "National Insurance",
+       "label": "National Insurance · H1 FY26",
        "period": "H1FY26",
        "entity": "national-insurance",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "I44",
-       "label": "National Insurance",
+       "label": "National Insurance · Q1 FY26",
        "period": "Q1FY26",
        "entity": "national-insurance",
        "metric": "retail_health_gwp"
@@ -16410,18 +16410,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=N44-L44",
-     "calc": "[National Insurance] - [National Insurance]",
+     "calc": "[National Insurance · FY26] - [National Insurance · 9M FY26]",
      "inputs": [
       {
        "ref": "N44",
-       "label": "National Insurance",
+       "label": "National Insurance · FY26",
        "period": "FY26",
        "entity": "national-insurance",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "L44",
-       "label": "National Insurance",
+       "label": "National Insurance · 9M FY26",
        "period": "9MFY26",
        "entity": "national-insurance",
        "metric": "retail_health_gwp"
@@ -16477,18 +16477,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=E45-C45",
-     "calc": "[Oriental Insurance] - [Oriental Insurance]",
+     "calc": "[Oriental Insurance · H1 FY25] - [Oriental Insurance · Q1 FY25]",
      "inputs": [
       {
        "ref": "E45",
-       "label": "Oriental Insurance",
+       "label": "Oriental Insurance · H1 FY25",
        "period": "H1FY25",
        "entity": "oriental-insurance",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "C45",
-       "label": "Oriental Insurance",
+       "label": "Oriental Insurance · Q1 FY25",
        "period": "Q1FY25",
        "entity": "oriental-insurance",
        "metric": "retail_health_gwp"
@@ -16535,18 +16535,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=H45-F45",
-     "calc": "[Oriental Insurance] - [Oriental Insurance]",
+     "calc": "[Oriental Insurance · FY25] - [Oriental Insurance · 9M FY25]",
      "inputs": [
       {
        "ref": "H45",
-       "label": "Oriental Insurance",
+       "label": "Oriental Insurance · FY25",
        "period": "FY25",
        "entity": "oriental-insurance",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "F45",
-       "label": "Oriental Insurance",
+       "label": "Oriental Insurance · 9M FY25",
        "period": "9MFY25",
        "entity": "oriental-insurance",
        "metric": "retail_health_gwp"
@@ -16602,18 +16602,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=K45-I45",
-     "calc": "[Oriental Insurance] - [Oriental Insurance]",
+     "calc": "[Oriental Insurance · H1 FY26] - [Oriental Insurance · Q1 FY26]",
      "inputs": [
       {
        "ref": "K45",
-       "label": "Oriental Insurance",
+       "label": "Oriental Insurance · H1 FY26",
        "period": "H1FY26",
        "entity": "oriental-insurance",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "I45",
-       "label": "Oriental Insurance",
+       "label": "Oriental Insurance · Q1 FY26",
        "period": "Q1FY26",
        "entity": "oriental-insurance",
        "metric": "retail_health_gwp"
@@ -16660,18 +16660,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=N45-L45",
-     "calc": "[Oriental Insurance] - [Oriental Insurance]",
+     "calc": "[Oriental Insurance · FY26] - [Oriental Insurance · 9M FY26]",
      "inputs": [
       {
        "ref": "N45",
-       "label": "Oriental Insurance",
+       "label": "Oriental Insurance · FY26",
        "period": "FY26",
        "entity": "oriental-insurance",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "L45",
-       "label": "Oriental Insurance",
+       "label": "Oriental Insurance · 9M FY26",
        "period": "9MFY26",
        "entity": "oriental-insurance",
        "metric": "retail_health_gwp"
@@ -16727,18 +16727,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=E46-C46",
-     "calc": "[United India] - [United India]",
+     "calc": "[United India · H1 FY25] - [United India · Q1 FY25]",
      "inputs": [
       {
        "ref": "E46",
-       "label": "United India",
+       "label": "United India · H1 FY25",
        "period": "H1FY25",
        "entity": "united-india",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "C46",
-       "label": "United India",
+       "label": "United India · Q1 FY25",
        "period": "Q1FY25",
        "entity": "united-india",
        "metric": "retail_health_gwp"
@@ -16785,18 +16785,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=H46-F46",
-     "calc": "[United India] - [United India]",
+     "calc": "[United India · FY25] - [United India · 9M FY25]",
      "inputs": [
       {
        "ref": "H46",
-       "label": "United India",
+       "label": "United India · FY25",
        "period": "FY25",
        "entity": "united-india",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "F46",
-       "label": "United India",
+       "label": "United India · 9M FY25",
        "period": "9MFY25",
        "entity": "united-india",
        "metric": "retail_health_gwp"
@@ -16852,18 +16852,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=K46-I46",
-     "calc": "[United India] - [United India]",
+     "calc": "[United India · H1 FY26] - [United India · Q1 FY26]",
      "inputs": [
       {
        "ref": "K46",
-       "label": "United India",
+       "label": "United India · H1 FY26",
        "period": "H1FY26",
        "entity": "united-india",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "I46",
-       "label": "United India",
+       "label": "United India · Q1 FY26",
        "period": "Q1FY26",
        "entity": "united-india",
        "metric": "retail_health_gwp"
@@ -16910,18 +16910,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=N46-L46",
-     "calc": "[United India] - [United India]",
+     "calc": "[United India · FY26] - [United India · 9M FY26]",
      "inputs": [
       {
        "ref": "N46",
-       "label": "United India",
+       "label": "United India · FY26",
        "period": "FY26",
        "entity": "united-india",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "L46",
-       "label": "United India",
+       "label": "United India · 9M FY26",
        "period": "9MFY26",
        "entity": "united-india",
        "metric": "retail_health_gwp"
@@ -16977,18 +16977,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=E47-C47",
-     "calc": "[Others] - [Others]",
+     "calc": "[Others · H1 FY25] - [Others · Q1 FY25]",
      "inputs": [
       {
        "ref": "E47",
-       "label": "Others",
+       "label": "Others · H1 FY25",
        "period": "H1FY25",
        "entity": "Others",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "C47",
-       "label": "Others",
+       "label": "Others · Q1 FY25",
        "period": "Q1FY25",
        "entity": "Others",
        "metric": "retail_health_gwp"
@@ -18465,18 +18465,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=E48-C48",
-     "calc": "[Total Health GWP (INR cr)] - [Total Health GWP (INR cr)]",
+     "calc": "[Total Health GWP (INR cr) · H1 FY25] - [Total Health GWP (INR cr) · Q1 FY25]",
      "inputs": [
       {
        "ref": "E48",
-       "label": "Total Health GWP (INR cr)",
+       "label": "Total Health GWP (INR cr) · H1 FY25",
        "period": "H1FY25",
        "entity": "Total Health GWP (INR cr)",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "C48",
-       "label": "Total Health GWP (INR cr)",
+       "label": "Total Health GWP (INR cr) · Q1 FY25",
        "period": "Q1FY25",
        "entity": "Total Health GWP (INR cr)",
        "metric": "retail_health_gwp"
@@ -18523,18 +18523,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=H48-F48",
-     "calc": "[Total Health GWP (INR cr)] - [Total Health GWP (INR cr)]",
+     "calc": "[Total Health GWP (INR cr) · FY25] - [Total Health GWP (INR cr) · 9M FY25]",
      "inputs": [
       {
        "ref": "H48",
-       "label": "Total Health GWP (INR cr)",
+       "label": "Total Health GWP (INR cr) · FY25",
        "period": "FY25",
        "entity": "Total Health GWP (INR cr)",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "F48",
-       "label": "Total Health GWP (INR cr)",
+       "label": "Total Health GWP (INR cr) · 9M FY25",
        "period": "9MFY25",
        "entity": "Total Health GWP (INR cr)",
        "metric": "retail_health_gwp"
@@ -18590,18 +18590,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=K48-I48",
-     "calc": "[Total Health GWP (INR cr)] - [Total Health GWP (INR cr)]",
+     "calc": "[Total Health GWP (INR cr) · H1 FY26] - [Total Health GWP (INR cr) · Q1 FY26]",
      "inputs": [
       {
        "ref": "K48",
-       "label": "Total Health GWP (INR cr)",
+       "label": "Total Health GWP (INR cr) · H1 FY26",
        "period": "H1FY26",
        "entity": "Total Health GWP (INR cr)",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "I48",
-       "label": "Total Health GWP (INR cr)",
+       "label": "Total Health GWP (INR cr) · Q1 FY26",
        "period": "Q1FY26",
        "entity": "Total Health GWP (INR cr)",
        "metric": "retail_health_gwp"
@@ -18648,18 +18648,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=N48-L48",
-     "calc": "[Total Health GWP (INR cr)] - [Total Health GWP (INR cr)]",
+     "calc": "[Total Health GWP (INR cr) · FY26] - [Total Health GWP (INR cr) · 9M FY26]",
      "inputs": [
       {
        "ref": "N48",
-       "label": "Total Health GWP (INR cr)",
+       "label": "Total Health GWP (INR cr) · FY26",
        "period": "FY26",
        "entity": "Total Health GWP (INR cr)",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "L48",
-       "label": "Total Health GWP (INR cr)",
+       "label": "Total Health GWP (INR cr) · 9M FY26",
        "period": "9MFY26",
        "entity": "Total Health GWP (INR cr)",
        "metric": "retail_health_gwp"
@@ -18736,25 +18736,25 @@
      "source_key": "company_premium_monthly",
      "source_status": "available",
      "formula": "=F5-SUM(C5:D5)",
-     "calc": "[Star Health] - SUM( [Star Health … Star Health] )",
+     "calc": "[Star Health · Q1 FY25] - SUM( [Star Health · Apr- FY25 … Star Health · May- FY25] )",
      "inputs": [
       {
        "ref": "F5",
-       "label": "Star Health",
+       "label": "Star Health · Q1 FY25",
        "period": "Q1FY25",
        "entity": "star-health",
        "metric": "total_health_gwp"
       },
       {
        "ref": "C5",
-       "label": "Star Health",
+       "label": "Star Health · Apr- FY25",
        "period": "Apr-FY25",
        "entity": "star-health",
        "metric": "total_health_gwp"
       },
       {
        "ref": "D5",
-       "label": "Star Health",
+       "label": "Star Health · May- FY25",
        "period": "May-FY25",
        "entity": "star-health",
        "metric": "total_health_gwp"
@@ -18823,25 +18823,25 @@
      "source_key": "company_premium_monthly",
      "source_status": "available",
      "formula": "=J5-SUM(G5:H5)",
-     "calc": "[Star Health] - SUM( [Star Health … Star Health] )",
+     "calc": "[Star Health · Q1 FY26] - SUM( [Star Health · Apr- FY26 … Star Health · May- FY26] )",
      "inputs": [
       {
        "ref": "J5",
-       "label": "Star Health",
+       "label": "Star Health · Q1 FY26",
        "period": "Q1FY26",
        "entity": "star-health",
        "metric": "total_health_gwp"
       },
       {
        "ref": "G5",
-       "label": "Star Health",
+       "label": "Star Health · Apr- FY26",
        "period": "Apr-FY26",
        "entity": "star-health",
        "metric": "total_health_gwp"
       },
       {
        "ref": "H5",
-       "label": "Star Health",
+       "label": "Star Health · May- FY26",
        "period": "May-FY26",
        "entity": "star-health",
        "metric": "total_health_gwp"
@@ -18962,25 +18962,25 @@
      "source_key": "company_premium_monthly",
      "source_status": "available",
      "formula": "=F6-SUM(C6:D6)",
-     "calc": "[Care] - SUM( [Care … Care] )",
+     "calc": "[Care · Q1 FY25] - SUM( [Care · Apr- FY25 … Care · May- FY25] )",
      "inputs": [
       {
        "ref": "F6",
-       "label": "Care",
+       "label": "Care · Q1 FY25",
        "period": "Q1FY25",
        "entity": "care-health",
        "metric": "total_health_gwp"
       },
       {
        "ref": "C6",
-       "label": "Care",
+       "label": "Care · Apr- FY25",
        "period": "Apr-FY25",
        "entity": "care-health",
        "metric": "total_health_gwp"
       },
       {
        "ref": "D6",
-       "label": "Care",
+       "label": "Care · May- FY25",
        "period": "May-FY25",
        "entity": "care-health",
        "metric": "total_health_gwp"
@@ -19049,25 +19049,25 @@
      "source_key": "company_premium_monthly",
      "source_status": "available",
      "formula": "=J6-SUM(G6:H6)",
-     "calc": "[Care] - SUM( [Care … Care] )",
+     "calc": "[Care · Q1 FY26] - SUM( [Care · Apr- FY26 … Care · May- FY26] )",
      "inputs": [
       {
        "ref": "J6",
-       "label": "Care",
+       "label": "Care · Q1 FY26",
        "period": "Q1FY26",
        "entity": "care-health",
        "metric": "total_health_gwp"
       },
       {
        "ref": "G6",
-       "label": "Care",
+       "label": "Care · Apr- FY26",
        "period": "Apr-FY26",
        "entity": "care-health",
        "metric": "total_health_gwp"
       },
       {
        "ref": "H6",
-       "label": "Care",
+       "label": "Care · May- FY26",
        "period": "May-FY26",
        "entity": "care-health",
        "metric": "total_health_gwp"
@@ -19188,25 +19188,25 @@
      "source_key": "company_premium_monthly",
      "source_status": "available",
      "formula": "=F7-SUM(C7:D7)",
-     "calc": "[Niva Bupa] - SUM( [Niva Bupa … Niva Bupa] )",
+     "calc": "[Niva Bupa · Q1 FY25] - SUM( [Niva Bupa · Apr- FY25 … Niva Bupa · May- FY25] )",
      "inputs": [
       {
        "ref": "F7",
-       "label": "Niva Bupa",
+       "label": "Niva Bupa · Q1 FY25",
        "period": "Q1FY25",
        "entity": "niva-bupa",
        "metric": "total_health_gwp"
       },
       {
        "ref": "C7",
-       "label": "Niva Bupa",
+       "label": "Niva Bupa · Apr- FY25",
        "period": "Apr-FY25",
        "entity": "niva-bupa",
        "metric": "total_health_gwp"
       },
       {
        "ref": "D7",
-       "label": "Niva Bupa",
+       "label": "Niva Bupa · May- FY25",
        "period": "May-FY25",
        "entity": "niva-bupa",
        "metric": "total_health_gwp"
@@ -19275,25 +19275,25 @@
      "source_key": "company_premium_monthly",
      "source_status": "available",
      "formula": "=J7-SUM(G7:H7)",
-     "calc": "[Niva Bupa] - SUM( [Niva Bupa … Niva Bupa] )",
+     "calc": "[Niva Bupa · Q1 FY26] - SUM( [Niva Bupa · Apr- FY26 … Niva Bupa · May- FY26] )",
      "inputs": [
       {
        "ref": "J7",
-       "label": "Niva Bupa",
+       "label": "Niva Bupa · Q1 FY26",
        "period": "Q1FY26",
        "entity": "niva-bupa",
        "metric": "total_health_gwp"
       },
       {
        "ref": "G7",
-       "label": "Niva Bupa",
+       "label": "Niva Bupa · Apr- FY26",
        "period": "Apr-FY26",
        "entity": "niva-bupa",
        "metric": "total_health_gwp"
       },
       {
        "ref": "H7",
-       "label": "Niva Bupa",
+       "label": "Niva Bupa · May- FY26",
        "period": "May-FY26",
        "entity": "niva-bupa",
        "metric": "total_health_gwp"
@@ -19414,25 +19414,25 @@
      "source_key": "company_premium_monthly",
      "source_status": "available",
      "formula": "=F8-SUM(C8:D8)",
-     "calc": "[Aditya Birla] - SUM( [Aditya Birla … Aditya Birla] )",
+     "calc": "[Aditya Birla · Q1 FY25] - SUM( [Aditya Birla · Apr- FY25 … Aditya Birla · May- FY25] )",
      "inputs": [
       {
        "ref": "F8",
-       "label": "Aditya Birla",
+       "label": "Aditya Birla · Q1 FY25",
        "period": "Q1FY25",
        "entity": "aditya-birla",
        "metric": "total_health_gwp"
       },
       {
        "ref": "C8",
-       "label": "Aditya Birla",
+       "label": "Aditya Birla · Apr- FY25",
        "period": "Apr-FY25",
        "entity": "aditya-birla",
        "metric": "total_health_gwp"
       },
       {
        "ref": "D8",
-       "label": "Aditya Birla",
+       "label": "Aditya Birla · May- FY25",
        "period": "May-FY25",
        "entity": "aditya-birla",
        "metric": "total_health_gwp"
@@ -19501,25 +19501,25 @@
      "source_key": "company_premium_monthly",
      "source_status": "available",
      "formula": "=J8-SUM(G8:H8)",
-     "calc": "[Aditya Birla] - SUM( [Aditya Birla … Aditya Birla] )",
+     "calc": "[Aditya Birla · Q1 FY26] - SUM( [Aditya Birla · Apr- FY26 … Aditya Birla · May- FY26] )",
      "inputs": [
       {
        "ref": "J8",
-       "label": "Aditya Birla",
+       "label": "Aditya Birla · Q1 FY26",
        "period": "Q1FY26",
        "entity": "aditya-birla",
        "metric": "total_health_gwp"
       },
       {
        "ref": "G8",
-       "label": "Aditya Birla",
+       "label": "Aditya Birla · Apr- FY26",
        "period": "Apr-FY26",
        "entity": "aditya-birla",
        "metric": "total_health_gwp"
       },
       {
        "ref": "H8",
-       "label": "Aditya Birla",
+       "label": "Aditya Birla · May- FY26",
        "period": "May-FY26",
        "entity": "aditya-birla",
        "metric": "total_health_gwp"
@@ -19640,25 +19640,25 @@
      "source_key": "company_premium_monthly",
      "source_status": "available",
      "formula": "=F9-SUM(C9:D9)",
-     "calc": "[Manipal Cigna] - SUM( [Manipal Cigna … Manipal Cigna] )",
+     "calc": "[Manipal Cigna · Q1 FY25] - SUM( [Manipal Cigna · Apr- FY25 … Manipal Cigna · May- FY25] )",
      "inputs": [
       {
        "ref": "F9",
-       "label": "Manipal Cigna",
+       "label": "Manipal Cigna · Q1 FY25",
        "period": "Q1FY25",
        "entity": "manipalcigna",
        "metric": "total_health_gwp"
       },
       {
        "ref": "C9",
-       "label": "Manipal Cigna",
+       "label": "Manipal Cigna · Apr- FY25",
        "period": "Apr-FY25",
        "entity": "manipalcigna",
        "metric": "total_health_gwp"
       },
       {
        "ref": "D9",
-       "label": "Manipal Cigna",
+       "label": "Manipal Cigna · May- FY25",
        "period": "May-FY25",
        "entity": "manipalcigna",
        "metric": "total_health_gwp"
@@ -19727,25 +19727,25 @@
      "source_key": "company_premium_monthly",
      "source_status": "available",
      "formula": "=J9-SUM(G9:H9)",
-     "calc": "[Manipal Cigna] - SUM( [Manipal Cigna … Manipal Cigna] )",
+     "calc": "[Manipal Cigna · Q1 FY26] - SUM( [Manipal Cigna · Apr- FY26 … Manipal Cigna · May- FY26] )",
      "inputs": [
       {
        "ref": "J9",
-       "label": "Manipal Cigna",
+       "label": "Manipal Cigna · Q1 FY26",
        "period": "Q1FY26",
        "entity": "manipalcigna",
        "metric": "total_health_gwp"
       },
       {
        "ref": "G9",
-       "label": "Manipal Cigna",
+       "label": "Manipal Cigna · Apr- FY26",
        "period": "Apr-FY26",
        "entity": "manipalcigna",
        "metric": "total_health_gwp"
       },
       {
        "ref": "H9",
-       "label": "Manipal Cigna",
+       "label": "Manipal Cigna · May- FY26",
        "period": "May-FY26",
        "entity": "manipalcigna",
        "metric": "total_health_gwp"
@@ -19866,25 +19866,25 @@
      "source_key": "company_premium_monthly",
      "source_status": "available",
      "formula": "=F10-SUM(C10:D10)",
-     "calc": "[Galaxy Health] - SUM( [Galaxy Health … Galaxy Health] )",
+     "calc": "[Galaxy Health · Q1 FY25] - SUM( [Galaxy Health · Apr- FY25 … Galaxy Health · May- FY25] )",
      "inputs": [
       {
        "ref": "F10",
-       "label": "Galaxy Health",
+       "label": "Galaxy Health · Q1 FY25",
        "period": "Q1FY25",
        "entity": "galaxy-health",
        "metric": "total_health_gwp"
       },
       {
        "ref": "C10",
-       "label": "Galaxy Health",
+       "label": "Galaxy Health · Apr- FY25",
        "period": "Apr-FY25",
        "entity": "galaxy-health",
        "metric": "total_health_gwp"
       },
       {
        "ref": "D10",
-       "label": "Galaxy Health",
+       "label": "Galaxy Health · May- FY25",
        "period": "May-FY25",
        "entity": "galaxy-health",
        "metric": "total_health_gwp"
@@ -19953,25 +19953,25 @@
      "source_key": "company_premium_monthly",
      "source_status": "available",
      "formula": "=J10-SUM(G10:H10)",
-     "calc": "[Galaxy Health] - SUM( [Galaxy Health … Galaxy Health] )",
+     "calc": "[Galaxy Health · Q1 FY26] - SUM( [Galaxy Health · Apr- FY26 … Galaxy Health · May- FY26] )",
      "inputs": [
       {
        "ref": "J10",
-       "label": "Galaxy Health",
+       "label": "Galaxy Health · Q1 FY26",
        "period": "Q1FY26",
        "entity": "galaxy-health",
        "metric": "total_health_gwp"
       },
       {
        "ref": "G10",
-       "label": "Galaxy Health",
+       "label": "Galaxy Health · Apr- FY26",
        "period": "Apr-FY26",
        "entity": "galaxy-health",
        "metric": "total_health_gwp"
       },
       {
        "ref": "H10",
-       "label": "Galaxy Health",
+       "label": "Galaxy Health · May- FY26",
        "period": "May-FY26",
        "entity": "galaxy-health",
        "metric": "total_health_gwp"
@@ -20092,25 +20092,25 @@
      "source_key": "company_premium_monthly",
      "source_status": "available",
      "formula": "=F11-SUM(C11:D11)",
-     "calc": "[Narayana Health] - SUM( [Narayana Health … Narayana Health] )",
+     "calc": "[Narayana Health · Q1 FY25] - SUM( [Narayana Health · Apr- FY25 … Narayana Health · May- FY25] )",
      "inputs": [
       {
        "ref": "F11",
-       "label": "Narayana Health",
+       "label": "Narayana Health · Q1 FY25",
        "period": "Q1FY25",
        "entity": "narayana-health",
        "metric": "total_health_gwp"
       },
       {
        "ref": "C11",
-       "label": "Narayana Health",
+       "label": "Narayana Health · Apr- FY25",
        "period": "Apr-FY25",
        "entity": "narayana-health",
        "metric": "total_health_gwp"
       },
       {
        "ref": "D11",
-       "label": "Narayana Health",
+       "label": "Narayana Health · May- FY25",
        "period": "May-FY25",
        "entity": "narayana-health",
        "metric": "total_health_gwp"
@@ -20179,25 +20179,25 @@
      "source_key": "company_premium_monthly",
      "source_status": "available",
      "formula": "=J11-SUM(G11:H11)",
-     "calc": "[Narayana Health] - SUM( [Narayana Health … Narayana Health] )",
+     "calc": "[Narayana Health · Q1 FY26] - SUM( [Narayana Health · Apr- FY26 … Narayana Health · May- FY26] )",
      "inputs": [
       {
        "ref": "J11",
-       "label": "Narayana Health",
+       "label": "Narayana Health · Q1 FY26",
        "period": "Q1FY26",
        "entity": "narayana-health",
        "metric": "total_health_gwp"
       },
       {
        "ref": "G11",
-       "label": "Narayana Health",
+       "label": "Narayana Health · Apr- FY26",
        "period": "Apr-FY26",
        "entity": "narayana-health",
        "metric": "total_health_gwp"
       },
       {
        "ref": "H11",
-       "label": "Narayana Health",
+       "label": "Narayana Health · May- FY26",
        "period": "May-FY26",
        "entity": "narayana-health",
        "metric": "total_health_gwp"
@@ -20318,25 +20318,25 @@
      "source_key": "company_premium_monthly",
      "source_status": "available",
      "formula": "=F13-SUM(C13:D13)",
-     "calc": "[HDFC Ergo] - SUM( [HDFC Ergo … HDFC Ergo] )",
+     "calc": "[HDFC Ergo · Q1 FY25] - SUM( [HDFC Ergo · Apr- FY25 … HDFC Ergo · May- FY25] )",
      "inputs": [
       {
        "ref": "F13",
-       "label": "HDFC Ergo",
+       "label": "HDFC Ergo · Q1 FY25",
        "period": "Q1FY25",
        "entity": "hdfc-ergo",
        "metric": "total_health_gwp"
       },
       {
        "ref": "C13",
-       "label": "HDFC Ergo",
+       "label": "HDFC Ergo · Apr- FY25",
        "period": "Apr-FY25",
        "entity": "hdfc-ergo",
        "metric": "total_health_gwp"
       },
       {
        "ref": "D13",
-       "label": "HDFC Ergo",
+       "label": "HDFC Ergo · May- FY25",
        "period": "May-FY25",
        "entity": "hdfc-ergo",
        "metric": "total_health_gwp"
@@ -20405,25 +20405,25 @@
      "source_key": "company_premium_monthly",
      "source_status": "available",
      "formula": "=J13-SUM(G13:H13)",
-     "calc": "[HDFC Ergo] - SUM( [HDFC Ergo … HDFC Ergo] )",
+     "calc": "[HDFC Ergo · Q1 FY26] - SUM( [HDFC Ergo · Apr- FY26 … HDFC Ergo · May- FY26] )",
      "inputs": [
       {
        "ref": "J13",
-       "label": "HDFC Ergo",
+       "label": "HDFC Ergo · Q1 FY26",
        "period": "Q1FY26",
        "entity": "hdfc-ergo",
        "metric": "total_health_gwp"
       },
       {
        "ref": "G13",
-       "label": "HDFC Ergo",
+       "label": "HDFC Ergo · Apr- FY26",
        "period": "Apr-FY26",
        "entity": "hdfc-ergo",
        "metric": "total_health_gwp"
       },
       {
        "ref": "H13",
-       "label": "HDFC Ergo",
+       "label": "HDFC Ergo · May- FY26",
        "period": "May-FY26",
        "entity": "hdfc-ergo",
        "metric": "total_health_gwp"
@@ -20544,25 +20544,25 @@
      "source_key": "company_premium_monthly",
      "source_status": "available",
      "formula": "=F14-SUM(C14:D14)",
-     "calc": "[ICICI Lombard] - SUM( [ICICI Lombard … ICICI Lombard] )",
+     "calc": "[ICICI Lombard · Q1 FY25] - SUM( [ICICI Lombard · Apr- FY25 … ICICI Lombard · May- FY25] )",
      "inputs": [
       {
        "ref": "F14",
-       "label": "ICICI Lombard",
+       "label": "ICICI Lombard · Q1 FY25",
        "period": "Q1FY25",
        "entity": "icici-lombard",
        "metric": "total_health_gwp"
       },
       {
        "ref": "C14",
-       "label": "ICICI Lombard",
+       "label": "ICICI Lombard · Apr- FY25",
        "period": "Apr-FY25",
        "entity": "icici-lombard",
        "metric": "total_health_gwp"
       },
       {
        "ref": "D14",
-       "label": "ICICI Lombard",
+       "label": "ICICI Lombard · May- FY25",
        "period": "May-FY25",
        "entity": "icici-lombard",
        "metric": "total_health_gwp"
@@ -20631,25 +20631,25 @@
      "source_key": "company_premium_monthly",
      "source_status": "available",
      "formula": "=J14-SUM(G14:H14)",
-     "calc": "[ICICI Lombard] - SUM( [ICICI Lombard … ICICI Lombard] )",
+     "calc": "[ICICI Lombard · Q1 FY26] - SUM( [ICICI Lombard · Apr- FY26 … ICICI Lombard · May- FY26] )",
      "inputs": [
       {
        "ref": "J14",
-       "label": "ICICI Lombard",
+       "label": "ICICI Lombard · Q1 FY26",
        "period": "Q1FY26",
        "entity": "icici-lombard",
        "metric": "total_health_gwp"
       },
       {
        "ref": "G14",
-       "label": "ICICI Lombard",
+       "label": "ICICI Lombard · Apr- FY26",
        "period": "Apr-FY26",
        "entity": "icici-lombard",
        "metric": "total_health_gwp"
       },
       {
        "ref": "H14",
-       "label": "ICICI Lombard",
+       "label": "ICICI Lombard · May- FY26",
        "period": "May-FY26",
        "entity": "icici-lombard",
        "metric": "total_health_gwp"
@@ -20770,25 +20770,25 @@
      "source_key": "company_premium_monthly",
      "source_status": "available",
      "formula": "=F15-SUM(C15:D15)",
-     "calc": "[Bajaj Allianz] - SUM( [Bajaj Allianz … Bajaj Allianz] )",
+     "calc": "[Bajaj Allianz · Q1 FY25] - SUM( [Bajaj Allianz · Apr- FY25 … Bajaj Allianz · May- FY25] )",
      "inputs": [
       {
        "ref": "F15",
-       "label": "Bajaj Allianz",
+       "label": "Bajaj Allianz · Q1 FY25",
        "period": "Q1FY25",
        "entity": "bajaj-general",
        "metric": "total_health_gwp"
       },
       {
        "ref": "C15",
-       "label": "Bajaj Allianz",
+       "label": "Bajaj Allianz · Apr- FY25",
        "period": "Apr-FY25",
        "entity": "bajaj-general",
        "metric": "total_health_gwp"
       },
       {
        "ref": "D15",
-       "label": "Bajaj Allianz",
+       "label": "Bajaj Allianz · May- FY25",
        "period": "May-FY25",
        "entity": "bajaj-general",
        "metric": "total_health_gwp"
@@ -20857,25 +20857,25 @@
      "source_key": "company_premium_monthly",
      "source_status": "available",
      "formula": "=J15-SUM(G15:H15)",
-     "calc": "[Bajaj Allianz] - SUM( [Bajaj Allianz … Bajaj Allianz] )",
+     "calc": "[Bajaj Allianz · Q1 FY26] - SUM( [Bajaj Allianz · Apr- FY26 … Bajaj Allianz · May- FY26] )",
      "inputs": [
       {
        "ref": "J15",
-       "label": "Bajaj Allianz",
+       "label": "Bajaj Allianz · Q1 FY26",
        "period": "Q1FY26",
        "entity": "bajaj-general",
        "metric": "total_health_gwp"
       },
       {
        "ref": "G15",
-       "label": "Bajaj Allianz",
+       "label": "Bajaj Allianz · Apr- FY26",
        "period": "Apr-FY26",
        "entity": "bajaj-general",
        "metric": "total_health_gwp"
       },
       {
        "ref": "H15",
-       "label": "Bajaj Allianz",
+       "label": "Bajaj Allianz · May- FY26",
        "period": "May-FY26",
        "entity": "bajaj-general",
        "metric": "total_health_gwp"
@@ -20996,25 +20996,25 @@
      "source_key": "company_premium_monthly",
      "source_status": "available",
      "formula": "=F16-SUM(C16:D16)",
-     "calc": "[Reliance] - SUM( [Reliance … Reliance] )",
+     "calc": "[Reliance · Q1 FY25] - SUM( [Reliance · Apr- FY25 … Reliance · May- FY25] )",
      "inputs": [
       {
        "ref": "F16",
-       "label": "Reliance",
+       "label": "Reliance · Q1 FY25",
        "period": "Q1FY25",
        "entity": "reliance-general",
        "metric": "total_health_gwp"
       },
       {
        "ref": "C16",
-       "label": "Reliance",
+       "label": "Reliance · Apr- FY25",
        "period": "Apr-FY25",
        "entity": "reliance-general",
        "metric": "total_health_gwp"
       },
       {
        "ref": "D16",
-       "label": "Reliance",
+       "label": "Reliance · May- FY25",
        "period": "May-FY25",
        "entity": "reliance-general",
        "metric": "total_health_gwp"
@@ -21083,25 +21083,25 @@
      "source_key": "company_premium_monthly",
      "source_status": "available",
      "formula": "=J16-SUM(G16:H16)",
-     "calc": "[Reliance] - SUM( [Reliance … Reliance] )",
+     "calc": "[Reliance · Q1 FY26] - SUM( [Reliance · Apr- FY26 … Reliance · May- FY26] )",
      "inputs": [
       {
        "ref": "J16",
-       "label": "Reliance",
+       "label": "Reliance · Q1 FY26",
        "period": "Q1FY26",
        "entity": "reliance-general",
        "metric": "total_health_gwp"
       },
       {
        "ref": "G16",
-       "label": "Reliance",
+       "label": "Reliance · Apr- FY26",
        "period": "Apr-FY26",
        "entity": "reliance-general",
        "metric": "total_health_gwp"
       },
       {
        "ref": "H16",
-       "label": "Reliance",
+       "label": "Reliance · May- FY26",
        "period": "May-FY26",
        "entity": "reliance-general",
        "metric": "total_health_gwp"
@@ -21222,25 +21222,25 @@
      "source_key": "company_premium_monthly",
      "source_status": "available",
      "formula": "=F17-SUM(C17:D17)",
-     "calc": "[SBI GI] - SUM( [SBI GI … SBI GI] )",
+     "calc": "[SBI GI · Q1 FY25] - SUM( [SBI GI · Apr- FY25 … SBI GI · May- FY25] )",
      "inputs": [
       {
        "ref": "F17",
-       "label": "SBI GI",
+       "label": "SBI GI · Q1 FY25",
        "period": "Q1FY25",
        "entity": "sbi-general",
        "metric": "total_health_gwp"
       },
       {
        "ref": "C17",
-       "label": "SBI GI",
+       "label": "SBI GI · Apr- FY25",
        "period": "Apr-FY25",
        "entity": "sbi-general",
        "metric": "total_health_gwp"
       },
       {
        "ref": "D17",
-       "label": "SBI GI",
+       "label": "SBI GI · May- FY25",
        "period": "May-FY25",
        "entity": "sbi-general",
        "metric": "total_health_gwp"
@@ -21309,25 +21309,25 @@
      "source_key": "company_premium_monthly",
      "source_status": "available",
      "formula": "=J17-SUM(G17:H17)",
-     "calc": "[SBI GI] - SUM( [SBI GI … SBI GI] )",
+     "calc": "[SBI GI · Q1 FY26] - SUM( [SBI GI · Apr- FY26 … SBI GI · May- FY26] )",
      "inputs": [
       {
        "ref": "J17",
-       "label": "SBI GI",
+       "label": "SBI GI · Q1 FY26",
        "period": "Q1FY26",
        "entity": "sbi-general",
        "metric": "total_health_gwp"
       },
       {
        "ref": "G17",
-       "label": "SBI GI",
+       "label": "SBI GI · Apr- FY26",
        "period": "Apr-FY26",
        "entity": "sbi-general",
        "metric": "total_health_gwp"
       },
       {
        "ref": "H17",
-       "label": "SBI GI",
+       "label": "SBI GI · May- FY26",
        "period": "May-FY26",
        "entity": "sbi-general",
        "metric": "total_health_gwp"
@@ -21448,25 +21448,25 @@
      "source_key": "company_premium_monthly",
      "source_status": "available",
      "formula": "=F19-SUM(C19:D19)",
-     "calc": "[New India] - SUM( [New India … New India] )",
+     "calc": "[New India · Q1 FY25] - SUM( [New India · Apr- FY25 … New India · May- FY25] )",
      "inputs": [
       {
        "ref": "F19",
-       "label": "New India",
+       "label": "New India · Q1 FY25",
        "period": "Q1FY25",
        "entity": "new-india",
        "metric": "total_health_gwp"
       },
       {
        "ref": "C19",
-       "label": "New India",
+       "label": "New India · Apr- FY25",
        "period": "Apr-FY25",
        "entity": "new-india",
        "metric": "total_health_gwp"
       },
       {
        "ref": "D19",
-       "label": "New India",
+       "label": "New India · May- FY25",
        "period": "May-FY25",
        "entity": "new-india",
        "metric": "total_health_gwp"
@@ -21535,25 +21535,25 @@
      "source_key": "company_premium_monthly",
      "source_status": "available",
      "formula": "=J19-SUM(G19:H19)",
-     "calc": "[New India] - SUM( [New India … New India] )",
+     "calc": "[New India · Q1 FY26] - SUM( [New India · Apr- FY26 … New India · May- FY26] )",
      "inputs": [
       {
        "ref": "J19",
-       "label": "New India",
+       "label": "New India · Q1 FY26",
        "period": "Q1FY26",
        "entity": "new-india",
        "metric": "total_health_gwp"
       },
       {
        "ref": "G19",
-       "label": "New India",
+       "label": "New India · Apr- FY26",
        "period": "Apr-FY26",
        "entity": "new-india",
        "metric": "total_health_gwp"
       },
       {
        "ref": "H19",
-       "label": "New India",
+       "label": "New India · May- FY26",
        "period": "May-FY26",
        "entity": "new-india",
        "metric": "total_health_gwp"
@@ -21674,25 +21674,25 @@
      "source_key": "company_premium_monthly",
      "source_status": "available",
      "formula": "=F20-SUM(C20:D20)",
-     "calc": "[National Insurance] - SUM( [National Insurance … National Insurance] )",
+     "calc": "[National Insurance · Q1 FY25] - SUM( [National Insurance · Apr- FY25 … National Insurance · May- FY25] )",
      "inputs": [
       {
        "ref": "F20",
-       "label": "National Insurance",
+       "label": "National Insurance · Q1 FY25",
        "period": "Q1FY25",
        "entity": "national-insurance",
        "metric": "total_health_gwp"
       },
       {
        "ref": "C20",
-       "label": "National Insurance",
+       "label": "National Insurance · Apr- FY25",
        "period": "Apr-FY25",
        "entity": "national-insurance",
        "metric": "total_health_gwp"
       },
       {
        "ref": "D20",
-       "label": "National Insurance",
+       "label": "National Insurance · May- FY25",
        "period": "May-FY25",
        "entity": "national-insurance",
        "metric": "total_health_gwp"
@@ -21761,25 +21761,25 @@
      "source_key": "company_premium_monthly",
      "source_status": "available",
      "formula": "=J20-SUM(G20:H20)",
-     "calc": "[National Insurance] - SUM( [National Insurance … National Insurance] )",
+     "calc": "[National Insurance · Q1 FY26] - SUM( [National Insurance · Apr- FY26 … National Insurance · May- FY26] )",
      "inputs": [
       {
        "ref": "J20",
-       "label": "National Insurance",
+       "label": "National Insurance · Q1 FY26",
        "period": "Q1FY26",
        "entity": "national-insurance",
        "metric": "total_health_gwp"
       },
       {
        "ref": "G20",
-       "label": "National Insurance",
+       "label": "National Insurance · Apr- FY26",
        "period": "Apr-FY26",
        "entity": "national-insurance",
        "metric": "total_health_gwp"
       },
       {
        "ref": "H20",
-       "label": "National Insurance",
+       "label": "National Insurance · May- FY26",
        "period": "May-FY26",
        "entity": "national-insurance",
        "metric": "total_health_gwp"
@@ -21900,25 +21900,25 @@
      "source_key": "company_premium_monthly",
      "source_status": "available",
      "formula": "=F21-SUM(C21:D21)",
-     "calc": "[Oriental Insurance] - SUM( [Oriental Insurance … Oriental Insurance] )",
+     "calc": "[Oriental Insurance · Q1 FY25] - SUM( [Oriental Insurance · Apr- FY25 … Oriental Insurance · May- FY25] )",
      "inputs": [
       {
        "ref": "F21",
-       "label": "Oriental Insurance",
+       "label": "Oriental Insurance · Q1 FY25",
        "period": "Q1FY25",
        "entity": "oriental-insurance",
        "metric": "total_health_gwp"
       },
       {
        "ref": "C21",
-       "label": "Oriental Insurance",
+       "label": "Oriental Insurance · Apr- FY25",
        "period": "Apr-FY25",
        "entity": "oriental-insurance",
        "metric": "total_health_gwp"
       },
       {
        "ref": "D21",
-       "label": "Oriental Insurance",
+       "label": "Oriental Insurance · May- FY25",
        "period": "May-FY25",
        "entity": "oriental-insurance",
        "metric": "total_health_gwp"
@@ -21987,25 +21987,25 @@
      "source_key": "company_premium_monthly",
      "source_status": "available",
      "formula": "=J21-SUM(G21:H21)",
-     "calc": "[Oriental Insurance] - SUM( [Oriental Insurance … Oriental Insurance] )",
+     "calc": "[Oriental Insurance · Q1 FY26] - SUM( [Oriental Insurance · Apr- FY26 … Oriental Insurance · May- FY26] )",
      "inputs": [
       {
        "ref": "J21",
-       "label": "Oriental Insurance",
+       "label": "Oriental Insurance · Q1 FY26",
        "period": "Q1FY26",
        "entity": "oriental-insurance",
        "metric": "total_health_gwp"
       },
       {
        "ref": "G21",
-       "label": "Oriental Insurance",
+       "label": "Oriental Insurance · Apr- FY26",
        "period": "Apr-FY26",
        "entity": "oriental-insurance",
        "metric": "total_health_gwp"
       },
       {
        "ref": "H21",
-       "label": "Oriental Insurance",
+       "label": "Oriental Insurance · May- FY26",
        "period": "May-FY26",
        "entity": "oriental-insurance",
        "metric": "total_health_gwp"
@@ -22126,25 +22126,25 @@
      "source_key": "company_premium_monthly",
      "source_status": "available",
      "formula": "=F22-SUM(C22:D22)",
-     "calc": "[United India] - SUM( [United India … United India] )",
+     "calc": "[United India · Q1 FY25] - SUM( [United India · Apr- FY25 … United India · May- FY25] )",
      "inputs": [
       {
        "ref": "F22",
-       "label": "United India",
+       "label": "United India · Q1 FY25",
        "period": "Q1FY25",
        "entity": "united-india",
        "metric": "total_health_gwp"
       },
       {
        "ref": "C22",
-       "label": "United India",
+       "label": "United India · Apr- FY25",
        "period": "Apr-FY25",
        "entity": "united-india",
        "metric": "total_health_gwp"
       },
       {
        "ref": "D22",
-       "label": "United India",
+       "label": "United India · May- FY25",
        "period": "May-FY25",
        "entity": "united-india",
        "metric": "total_health_gwp"
@@ -22213,25 +22213,25 @@
      "source_key": "company_premium_monthly",
      "source_status": "available",
      "formula": "=J22-SUM(G22:H22)",
-     "calc": "[United India] - SUM( [United India … United India] )",
+     "calc": "[United India · Q1 FY26] - SUM( [United India · Apr- FY26 … United India · May- FY26] )",
      "inputs": [
       {
        "ref": "J22",
-       "label": "United India",
+       "label": "United India · Q1 FY26",
        "period": "Q1FY26",
        "entity": "united-india",
        "metric": "total_health_gwp"
       },
       {
        "ref": "G22",
-       "label": "United India",
+       "label": "United India · Apr- FY26",
        "period": "Apr-FY26",
        "entity": "united-india",
        "metric": "total_health_gwp"
       },
       {
        "ref": "H22",
-       "label": "United India",
+       "label": "United India · May- FY26",
        "period": "May-FY26",
        "entity": "united-india",
        "metric": "total_health_gwp"
@@ -22591,25 +22591,25 @@
      "source_key": "company_premium_monthly",
      "source_status": "available",
      "formula": "=F23-SUM(C23:D23)",
-     "calc": "[Others] - SUM( [Others … Others] )",
+     "calc": "[Others · Q1 FY25] - SUM( [Others · Apr- FY25 … Others · May- FY25] )",
      "inputs": [
       {
        "ref": "F23",
-       "label": "Others",
+       "label": "Others · Q1 FY25",
        "period": "Q1FY25",
        "entity": "Others",
        "metric": "total_health_gwp"
       },
       {
        "ref": "C23",
-       "label": "Others",
+       "label": "Others · Apr- FY25",
        "period": "Apr-FY25",
        "entity": "Others",
        "metric": "total_health_gwp"
       },
       {
        "ref": "D23",
-       "label": "Others",
+       "label": "Others · May- FY25",
        "period": "May-FY25",
        "entity": "Others",
        "metric": "total_health_gwp"
@@ -23041,25 +23041,25 @@
      "source_key": "company_premium_monthly",
      "source_status": "available",
      "formula": "=J23-SUM(G23:H23)",
-     "calc": "[Others] - SUM( [Others … Others] )",
+     "calc": "[Others · Q1 FY26] - SUM( [Others · Apr- FY26 … Others · May- FY26] )",
      "inputs": [
       {
        "ref": "J23",
-       "label": "Others",
+       "label": "Others · Q1 FY26",
        "period": "Q1FY26",
        "entity": "Others",
        "metric": "total_health_gwp"
       },
       {
        "ref": "G23",
-       "label": "Others",
+       "label": "Others · Apr- FY26",
        "period": "Apr-FY26",
        "entity": "Others",
        "metric": "total_health_gwp"
       },
       {
        "ref": "H23",
-       "label": "Others",
+       "label": "Others · May- FY26",
        "period": "May-FY26",
        "entity": "Others",
        "metric": "total_health_gwp"
@@ -23304,25 +23304,25 @@
      "source_key": "company_premium_monthly",
      "source_status": "available",
      "formula": "=F24-SUM(C24:D24)",
-     "calc": "[Total Health GWP (INR cr)] - SUM( [Total Health GWP (INR cr) … Total Health GWP (INR cr)] )",
+     "calc": "[Total Health GWP (INR cr) · Q1 FY25] - SUM( [Total Health GWP (INR cr) · Apr- FY25 … Total Health GWP (INR cr) · May- FY25] )",
      "inputs": [
       {
        "ref": "F24",
-       "label": "Total Health GWP (INR cr)",
+       "label": "Total Health GWP (INR cr) · Q1 FY25",
        "period": "Q1FY25",
        "entity": "Total Health GWP (INR cr)",
        "metric": "total_health_gwp"
       },
       {
        "ref": "C24",
-       "label": "Total Health GWP (INR cr)",
+       "label": "Total Health GWP (INR cr) · Apr- FY25",
        "period": "Apr-FY25",
        "entity": "Total Health GWP (INR cr)",
        "metric": "total_health_gwp"
       },
       {
        "ref": "D24",
-       "label": "Total Health GWP (INR cr)",
+       "label": "Total Health GWP (INR cr) · May- FY25",
        "period": "May-FY25",
        "entity": "Total Health GWP (INR cr)",
        "metric": "total_health_gwp"
@@ -23391,25 +23391,25 @@
      "source_key": "company_premium_monthly",
      "source_status": "available",
      "formula": "=J24-SUM(G24:H24)",
-     "calc": "[Total Health GWP (INR cr)] - SUM( [Total Health GWP (INR cr) … Total Health GWP (INR cr)] )",
+     "calc": "[Total Health GWP (INR cr) · Q1 FY26] - SUM( [Total Health GWP (INR cr) · Apr- FY26 … Total Health GWP (INR cr) · May- FY26] )",
      "inputs": [
       {
        "ref": "J24",
-       "label": "Total Health GWP (INR cr)",
+       "label": "Total Health GWP (INR cr) · Q1 FY26",
        "period": "Q1FY26",
        "entity": "Total Health GWP (INR cr)",
        "metric": "total_health_gwp"
       },
       {
        "ref": "G24",
-       "label": "Total Health GWP (INR cr)",
+       "label": "Total Health GWP (INR cr) · Apr- FY26",
        "period": "Apr-FY26",
        "entity": "Total Health GWP (INR cr)",
        "metric": "total_health_gwp"
       },
       {
        "ref": "H24",
-       "label": "Total Health GWP (INR cr)",
+       "label": "Total Health GWP (INR cr) · May- FY26",
        "period": "May-FY26",
        "entity": "Total Health GWP (INR cr)",
        "metric": "total_health_gwp"
@@ -23530,25 +23530,25 @@
      "source_key": "company_premium_monthly",
      "source_status": "available",
      "formula": "=F29-SUM(C29:D29)",
-     "calc": "[Star Health] - SUM( [Star Health … Star Health] )",
+     "calc": "[Star Health · Q1 FY25] - SUM( [Star Health · Apr- FY25 … Star Health · May- FY25] )",
      "inputs": [
       {
        "ref": "F29",
-       "label": "Star Health",
+       "label": "Star Health · Q1 FY25",
        "period": "Q1FY25",
        "entity": "star-health",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "C29",
-       "label": "Star Health",
+       "label": "Star Health · Apr- FY25",
        "period": "Apr-FY25",
        "entity": "star-health",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "D29",
-       "label": "Star Health",
+       "label": "Star Health · May- FY25",
        "period": "May-FY25",
        "entity": "star-health",
        "metric": "retail_health_gwp"
@@ -23617,25 +23617,25 @@
      "source_key": "company_premium_monthly",
      "source_status": "available",
      "formula": "=J29-SUM(G29:H29)",
-     "calc": "[Star Health] - SUM( [Star Health … Star Health] )",
+     "calc": "[Star Health · Q1 FY26] - SUM( [Star Health · Apr- FY26 … Star Health · May- FY26] )",
      "inputs": [
       {
        "ref": "J29",
-       "label": "Star Health",
+       "label": "Star Health · Q1 FY26",
        "period": "Q1FY26",
        "entity": "star-health",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "G29",
-       "label": "Star Health",
+       "label": "Star Health · Apr- FY26",
        "period": "Apr-FY26",
        "entity": "star-health",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "H29",
-       "label": "Star Health",
+       "label": "Star Health · May- FY26",
        "period": "May-FY26",
        "entity": "star-health",
        "metric": "retail_health_gwp"
@@ -23756,25 +23756,25 @@
      "source_key": "company_premium_monthly",
      "source_status": "available",
      "formula": "=F30-SUM(C30:D30)",
-     "calc": "[Care] - SUM( [Care … Care] )",
+     "calc": "[Care · Q1 FY25] - SUM( [Care · Apr- FY25 … Care · May- FY25] )",
      "inputs": [
       {
        "ref": "F30",
-       "label": "Care",
+       "label": "Care · Q1 FY25",
        "period": "Q1FY25",
        "entity": "care-health",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "C30",
-       "label": "Care",
+       "label": "Care · Apr- FY25",
        "period": "Apr-FY25",
        "entity": "care-health",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "D30",
-       "label": "Care",
+       "label": "Care · May- FY25",
        "period": "May-FY25",
        "entity": "care-health",
        "metric": "retail_health_gwp"
@@ -23843,25 +23843,25 @@
      "source_key": "company_premium_monthly",
      "source_status": "available",
      "formula": "=J30-SUM(G30:H30)",
-     "calc": "[Care] - SUM( [Care … Care] )",
+     "calc": "[Care · Q1 FY26] - SUM( [Care · Apr- FY26 … Care · May- FY26] )",
      "inputs": [
       {
        "ref": "J30",
-       "label": "Care",
+       "label": "Care · Q1 FY26",
        "period": "Q1FY26",
        "entity": "care-health",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "G30",
-       "label": "Care",
+       "label": "Care · Apr- FY26",
        "period": "Apr-FY26",
        "entity": "care-health",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "H30",
-       "label": "Care",
+       "label": "Care · May- FY26",
        "period": "May-FY26",
        "entity": "care-health",
        "metric": "retail_health_gwp"
@@ -23982,25 +23982,25 @@
      "source_key": "company_premium_monthly",
      "source_status": "available",
      "formula": "=F31-SUM(C31:D31)",
-     "calc": "[Niva Bupa] - SUM( [Niva Bupa … Niva Bupa] )",
+     "calc": "[Niva Bupa · Q1 FY25] - SUM( [Niva Bupa · Apr- FY25 … Niva Bupa · May- FY25] )",
      "inputs": [
       {
        "ref": "F31",
-       "label": "Niva Bupa",
+       "label": "Niva Bupa · Q1 FY25",
        "period": "Q1FY25",
        "entity": "niva-bupa",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "C31",
-       "label": "Niva Bupa",
+       "label": "Niva Bupa · Apr- FY25",
        "period": "Apr-FY25",
        "entity": "niva-bupa",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "D31",
-       "label": "Niva Bupa",
+       "label": "Niva Bupa · May- FY25",
        "period": "May-FY25",
        "entity": "niva-bupa",
        "metric": "retail_health_gwp"
@@ -24069,25 +24069,25 @@
      "source_key": "company_premium_monthly",
      "source_status": "available",
      "formula": "=J31-SUM(G31:H31)",
-     "calc": "[Niva Bupa] - SUM( [Niva Bupa … Niva Bupa] )",
+     "calc": "[Niva Bupa · Q1 FY26] - SUM( [Niva Bupa · Apr- FY26 … Niva Bupa · May- FY26] )",
      "inputs": [
       {
        "ref": "J31",
-       "label": "Niva Bupa",
+       "label": "Niva Bupa · Q1 FY26",
        "period": "Q1FY26",
        "entity": "niva-bupa",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "G31",
-       "label": "Niva Bupa",
+       "label": "Niva Bupa · Apr- FY26",
        "period": "Apr-FY26",
        "entity": "niva-bupa",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "H31",
-       "label": "Niva Bupa",
+       "label": "Niva Bupa · May- FY26",
        "period": "May-FY26",
        "entity": "niva-bupa",
        "metric": "retail_health_gwp"
@@ -24208,25 +24208,25 @@
      "source_key": "company_premium_monthly",
      "source_status": "available",
      "formula": "=F32-SUM(C32:D32)",
-     "calc": "[Aditya Birla] - SUM( [Aditya Birla … Aditya Birla] )",
+     "calc": "[Aditya Birla · Q1 FY25] - SUM( [Aditya Birla · Apr- FY25 … Aditya Birla · May- FY25] )",
      "inputs": [
       {
        "ref": "F32",
-       "label": "Aditya Birla",
+       "label": "Aditya Birla · Q1 FY25",
        "period": "Q1FY25",
        "entity": "aditya-birla",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "C32",
-       "label": "Aditya Birla",
+       "label": "Aditya Birla · Apr- FY25",
        "period": "Apr-FY25",
        "entity": "aditya-birla",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "D32",
-       "label": "Aditya Birla",
+       "label": "Aditya Birla · May- FY25",
        "period": "May-FY25",
        "entity": "aditya-birla",
        "metric": "retail_health_gwp"
@@ -24295,25 +24295,25 @@
      "source_key": "company_premium_monthly",
      "source_status": "available",
      "formula": "=J32-SUM(G32:H32)",
-     "calc": "[Aditya Birla] - SUM( [Aditya Birla … Aditya Birla] )",
+     "calc": "[Aditya Birla · Q1 FY26] - SUM( [Aditya Birla · Apr- FY26 … Aditya Birla · May- FY26] )",
      "inputs": [
       {
        "ref": "J32",
-       "label": "Aditya Birla",
+       "label": "Aditya Birla · Q1 FY26",
        "period": "Q1FY26",
        "entity": "aditya-birla",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "G32",
-       "label": "Aditya Birla",
+       "label": "Aditya Birla · Apr- FY26",
        "period": "Apr-FY26",
        "entity": "aditya-birla",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "H32",
-       "label": "Aditya Birla",
+       "label": "Aditya Birla · May- FY26",
        "period": "May-FY26",
        "entity": "aditya-birla",
        "metric": "retail_health_gwp"
@@ -24434,25 +24434,25 @@
      "source_key": "company_premium_monthly",
      "source_status": "available",
      "formula": "=F33-SUM(C33:D33)",
-     "calc": "[Manipal Cigna] - SUM( [Manipal Cigna … Manipal Cigna] )",
+     "calc": "[Manipal Cigna · Q1 FY25] - SUM( [Manipal Cigna · Apr- FY25 … Manipal Cigna · May- FY25] )",
      "inputs": [
       {
        "ref": "F33",
-       "label": "Manipal Cigna",
+       "label": "Manipal Cigna · Q1 FY25",
        "period": "Q1FY25",
        "entity": "manipalcigna",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "C33",
-       "label": "Manipal Cigna",
+       "label": "Manipal Cigna · Apr- FY25",
        "period": "Apr-FY25",
        "entity": "manipalcigna",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "D33",
-       "label": "Manipal Cigna",
+       "label": "Manipal Cigna · May- FY25",
        "period": "May-FY25",
        "entity": "manipalcigna",
        "metric": "retail_health_gwp"
@@ -24521,25 +24521,25 @@
      "source_key": "company_premium_monthly",
      "source_status": "available",
      "formula": "=J33-SUM(G33:H33)",
-     "calc": "[Manipal Cigna] - SUM( [Manipal Cigna … Manipal Cigna] )",
+     "calc": "[Manipal Cigna · Q1 FY26] - SUM( [Manipal Cigna · Apr- FY26 … Manipal Cigna · May- FY26] )",
      "inputs": [
       {
        "ref": "J33",
-       "label": "Manipal Cigna",
+       "label": "Manipal Cigna · Q1 FY26",
        "period": "Q1FY26",
        "entity": "manipalcigna",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "G33",
-       "label": "Manipal Cigna",
+       "label": "Manipal Cigna · Apr- FY26",
        "period": "Apr-FY26",
        "entity": "manipalcigna",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "H33",
-       "label": "Manipal Cigna",
+       "label": "Manipal Cigna · May- FY26",
        "period": "May-FY26",
        "entity": "manipalcigna",
        "metric": "retail_health_gwp"
@@ -24660,25 +24660,25 @@
      "source_key": "company_premium_monthly",
      "source_status": "available",
      "formula": "=F34-SUM(C34:D34)",
-     "calc": "[Galaxy Health] - SUM( [Galaxy Health … Galaxy Health] )",
+     "calc": "[Galaxy Health · Q1 FY25] - SUM( [Galaxy Health · Apr- FY25 … Galaxy Health · May- FY25] )",
      "inputs": [
       {
        "ref": "F34",
-       "label": "Galaxy Health",
+       "label": "Galaxy Health · Q1 FY25",
        "period": "Q1FY25",
        "entity": "galaxy-health",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "C34",
-       "label": "Galaxy Health",
+       "label": "Galaxy Health · Apr- FY25",
        "period": "Apr-FY25",
        "entity": "galaxy-health",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "D34",
-       "label": "Galaxy Health",
+       "label": "Galaxy Health · May- FY25",
        "period": "May-FY25",
        "entity": "galaxy-health",
        "metric": "retail_health_gwp"
@@ -24747,25 +24747,25 @@
      "source_key": "company_premium_monthly",
      "source_status": "available",
      "formula": "=J34-SUM(G34:H34)",
-     "calc": "[Galaxy Health] - SUM( [Galaxy Health … Galaxy Health] )",
+     "calc": "[Galaxy Health · Q1 FY26] - SUM( [Galaxy Health · Apr- FY26 … Galaxy Health · May- FY26] )",
      "inputs": [
       {
        "ref": "J34",
-       "label": "Galaxy Health",
+       "label": "Galaxy Health · Q1 FY26",
        "period": "Q1FY26",
        "entity": "galaxy-health",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "G34",
-       "label": "Galaxy Health",
+       "label": "Galaxy Health · Apr- FY26",
        "period": "Apr-FY26",
        "entity": "galaxy-health",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "H34",
-       "label": "Galaxy Health",
+       "label": "Galaxy Health · May- FY26",
        "period": "May-FY26",
        "entity": "galaxy-health",
        "metric": "retail_health_gwp"
@@ -24886,25 +24886,25 @@
      "source_key": "company_premium_monthly",
      "source_status": "available",
      "formula": "=F35-SUM(C35:D35)",
-     "calc": "[Narayana Health] - SUM( [Narayana Health … Narayana Health] )",
+     "calc": "[Narayana Health · Q1 FY25] - SUM( [Narayana Health · Apr- FY25 … Narayana Health · May- FY25] )",
      "inputs": [
       {
        "ref": "F35",
-       "label": "Narayana Health",
+       "label": "Narayana Health · Q1 FY25",
        "period": "Q1FY25",
        "entity": "narayana-health",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "C35",
-       "label": "Narayana Health",
+       "label": "Narayana Health · Apr- FY25",
        "period": "Apr-FY25",
        "entity": "narayana-health",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "D35",
-       "label": "Narayana Health",
+       "label": "Narayana Health · May- FY25",
        "period": "May-FY25",
        "entity": "narayana-health",
        "metric": "retail_health_gwp"
@@ -24973,25 +24973,25 @@
      "source_key": "company_premium_monthly",
      "source_status": "available",
      "formula": "=J35-SUM(G35:H35)",
-     "calc": "[Narayana Health] - SUM( [Narayana Health … Narayana Health] )",
+     "calc": "[Narayana Health · Q1 FY26] - SUM( [Narayana Health · Apr- FY26 … Narayana Health · May- FY26] )",
      "inputs": [
       {
        "ref": "J35",
-       "label": "Narayana Health",
+       "label": "Narayana Health · Q1 FY26",
        "period": "Q1FY26",
        "entity": "narayana-health",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "G35",
-       "label": "Narayana Health",
+       "label": "Narayana Health · Apr- FY26",
        "period": "Apr-FY26",
        "entity": "narayana-health",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "H35",
-       "label": "Narayana Health",
+       "label": "Narayana Health · May- FY26",
        "period": "May-FY26",
        "entity": "narayana-health",
        "metric": "retail_health_gwp"
@@ -25112,25 +25112,25 @@
      "source_key": "company_premium_monthly",
      "source_status": "available",
      "formula": "=F37-SUM(C37:D37)",
-     "calc": "[HDFC Ergo] - SUM( [HDFC Ergo … HDFC Ergo] )",
+     "calc": "[HDFC Ergo · Q1 FY25] - SUM( [HDFC Ergo · Apr- FY25 … HDFC Ergo · May- FY25] )",
      "inputs": [
       {
        "ref": "F37",
-       "label": "HDFC Ergo",
+       "label": "HDFC Ergo · Q1 FY25",
        "period": "Q1FY25",
        "entity": "hdfc-ergo",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "C37",
-       "label": "HDFC Ergo",
+       "label": "HDFC Ergo · Apr- FY25",
        "period": "Apr-FY25",
        "entity": "hdfc-ergo",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "D37",
-       "label": "HDFC Ergo",
+       "label": "HDFC Ergo · May- FY25",
        "period": "May-FY25",
        "entity": "hdfc-ergo",
        "metric": "retail_health_gwp"
@@ -25199,25 +25199,25 @@
      "source_key": "company_premium_monthly",
      "source_status": "available",
      "formula": "=J37-SUM(G37:H37)",
-     "calc": "[HDFC Ergo] - SUM( [HDFC Ergo … HDFC Ergo] )",
+     "calc": "[HDFC Ergo · Q1 FY26] - SUM( [HDFC Ergo · Apr- FY26 … HDFC Ergo · May- FY26] )",
      "inputs": [
       {
        "ref": "J37",
-       "label": "HDFC Ergo",
+       "label": "HDFC Ergo · Q1 FY26",
        "period": "Q1FY26",
        "entity": "hdfc-ergo",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "G37",
-       "label": "HDFC Ergo",
+       "label": "HDFC Ergo · Apr- FY26",
        "period": "Apr-FY26",
        "entity": "hdfc-ergo",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "H37",
-       "label": "HDFC Ergo",
+       "label": "HDFC Ergo · May- FY26",
        "period": "May-FY26",
        "entity": "hdfc-ergo",
        "metric": "retail_health_gwp"
@@ -25338,25 +25338,25 @@
      "source_key": "company_premium_monthly",
      "source_status": "available",
      "formula": "=F38-SUM(C38:D38)",
-     "calc": "[ICICI Lombard] - SUM( [ICICI Lombard … ICICI Lombard] )",
+     "calc": "[ICICI Lombard · Q1 FY25] - SUM( [ICICI Lombard · Apr- FY25 … ICICI Lombard · May- FY25] )",
      "inputs": [
       {
        "ref": "F38",
-       "label": "ICICI Lombard",
+       "label": "ICICI Lombard · Q1 FY25",
        "period": "Q1FY25",
        "entity": "icici-lombard",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "C38",
-       "label": "ICICI Lombard",
+       "label": "ICICI Lombard · Apr- FY25",
        "period": "Apr-FY25",
        "entity": "icici-lombard",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "D38",
-       "label": "ICICI Lombard",
+       "label": "ICICI Lombard · May- FY25",
        "period": "May-FY25",
        "entity": "icici-lombard",
        "metric": "retail_health_gwp"
@@ -25425,25 +25425,25 @@
      "source_key": "company_premium_monthly",
      "source_status": "available",
      "formula": "=J38-SUM(G38:H38)",
-     "calc": "[ICICI Lombard] - SUM( [ICICI Lombard … ICICI Lombard] )",
+     "calc": "[ICICI Lombard · Q1 FY26] - SUM( [ICICI Lombard · Apr- FY26 … ICICI Lombard · May- FY26] )",
      "inputs": [
       {
        "ref": "J38",
-       "label": "ICICI Lombard",
+       "label": "ICICI Lombard · Q1 FY26",
        "period": "Q1FY26",
        "entity": "icici-lombard",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "G38",
-       "label": "ICICI Lombard",
+       "label": "ICICI Lombard · Apr- FY26",
        "period": "Apr-FY26",
        "entity": "icici-lombard",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "H38",
-       "label": "ICICI Lombard",
+       "label": "ICICI Lombard · May- FY26",
        "period": "May-FY26",
        "entity": "icici-lombard",
        "metric": "retail_health_gwp"
@@ -25564,25 +25564,25 @@
      "source_key": "company_premium_monthly",
      "source_status": "available",
      "formula": "=F39-SUM(C39:D39)",
-     "calc": "[Bajaj Allianz] - SUM( [Bajaj Allianz … Bajaj Allianz] )",
+     "calc": "[Bajaj Allianz · Q1 FY25] - SUM( [Bajaj Allianz · Apr- FY25 … Bajaj Allianz · May- FY25] )",
      "inputs": [
       {
        "ref": "F39",
-       "label": "Bajaj Allianz",
+       "label": "Bajaj Allianz · Q1 FY25",
        "period": "Q1FY25",
        "entity": "bajaj-general",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "C39",
-       "label": "Bajaj Allianz",
+       "label": "Bajaj Allianz · Apr- FY25",
        "period": "Apr-FY25",
        "entity": "bajaj-general",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "D39",
-       "label": "Bajaj Allianz",
+       "label": "Bajaj Allianz · May- FY25",
        "period": "May-FY25",
        "entity": "bajaj-general",
        "metric": "retail_health_gwp"
@@ -25651,25 +25651,25 @@
      "source_key": "company_premium_monthly",
      "source_status": "available",
      "formula": "=J39-SUM(G39:H39)",
-     "calc": "[Bajaj Allianz] - SUM( [Bajaj Allianz … Bajaj Allianz] )",
+     "calc": "[Bajaj Allianz · Q1 FY26] - SUM( [Bajaj Allianz · Apr- FY26 … Bajaj Allianz · May- FY26] )",
      "inputs": [
       {
        "ref": "J39",
-       "label": "Bajaj Allianz",
+       "label": "Bajaj Allianz · Q1 FY26",
        "period": "Q1FY26",
        "entity": "bajaj-general",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "G39",
-       "label": "Bajaj Allianz",
+       "label": "Bajaj Allianz · Apr- FY26",
        "period": "Apr-FY26",
        "entity": "bajaj-general",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "H39",
-       "label": "Bajaj Allianz",
+       "label": "Bajaj Allianz · May- FY26",
        "period": "May-FY26",
        "entity": "bajaj-general",
        "metric": "retail_health_gwp"
@@ -25790,25 +25790,25 @@
      "source_key": "company_premium_monthly",
      "source_status": "available",
      "formula": "=F40-SUM(C40:D40)",
-     "calc": "[Reliance] - SUM( [Reliance … Reliance] )",
+     "calc": "[Reliance · Q1 FY25] - SUM( [Reliance · Apr- FY25 … Reliance · May- FY25] )",
      "inputs": [
       {
        "ref": "F40",
-       "label": "Reliance",
+       "label": "Reliance · Q1 FY25",
        "period": "Q1FY25",
        "entity": "reliance-general",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "C40",
-       "label": "Reliance",
+       "label": "Reliance · Apr- FY25",
        "period": "Apr-FY25",
        "entity": "reliance-general",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "D40",
-       "label": "Reliance",
+       "label": "Reliance · May- FY25",
        "period": "May-FY25",
        "entity": "reliance-general",
        "metric": "retail_health_gwp"
@@ -25877,25 +25877,25 @@
      "source_key": "company_premium_monthly",
      "source_status": "available",
      "formula": "=J40-SUM(G40:H40)",
-     "calc": "[Reliance] - SUM( [Reliance … Reliance] )",
+     "calc": "[Reliance · Q1 FY26] - SUM( [Reliance · Apr- FY26 … Reliance · May- FY26] )",
      "inputs": [
       {
        "ref": "J40",
-       "label": "Reliance",
+       "label": "Reliance · Q1 FY26",
        "period": "Q1FY26",
        "entity": "reliance-general",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "G40",
-       "label": "Reliance",
+       "label": "Reliance · Apr- FY26",
        "period": "Apr-FY26",
        "entity": "reliance-general",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "H40",
-       "label": "Reliance",
+       "label": "Reliance · May- FY26",
        "period": "May-FY26",
        "entity": "reliance-general",
        "metric": "retail_health_gwp"
@@ -26016,25 +26016,25 @@
      "source_key": "company_premium_monthly",
      "source_status": "available",
      "formula": "=F41-SUM(C41:D41)",
-     "calc": "[SBI GI] - SUM( [SBI GI … SBI GI] )",
+     "calc": "[SBI GI · Q1 FY25] - SUM( [SBI GI · Apr- FY25 … SBI GI · May- FY25] )",
      "inputs": [
       {
        "ref": "F41",
-       "label": "SBI GI",
+       "label": "SBI GI · Q1 FY25",
        "period": "Q1FY25",
        "entity": "sbi-general",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "C41",
-       "label": "SBI GI",
+       "label": "SBI GI · Apr- FY25",
        "period": "Apr-FY25",
        "entity": "sbi-general",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "D41",
-       "label": "SBI GI",
+       "label": "SBI GI · May- FY25",
        "period": "May-FY25",
        "entity": "sbi-general",
        "metric": "retail_health_gwp"
@@ -26103,25 +26103,25 @@
      "source_key": "company_premium_monthly",
      "source_status": "available",
      "formula": "=J41-SUM(G41:H41)",
-     "calc": "[SBI GI] - SUM( [SBI GI … SBI GI] )",
+     "calc": "[SBI GI · Q1 FY26] - SUM( [SBI GI · Apr- FY26 … SBI GI · May- FY26] )",
      "inputs": [
       {
        "ref": "J41",
-       "label": "SBI GI",
+       "label": "SBI GI · Q1 FY26",
        "period": "Q1FY26",
        "entity": "sbi-general",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "G41",
-       "label": "SBI GI",
+       "label": "SBI GI · Apr- FY26",
        "period": "Apr-FY26",
        "entity": "sbi-general",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "H41",
-       "label": "SBI GI",
+       "label": "SBI GI · May- FY26",
        "period": "May-FY26",
        "entity": "sbi-general",
        "metric": "retail_health_gwp"
@@ -26242,25 +26242,25 @@
      "source_key": "company_premium_monthly",
      "source_status": "available",
      "formula": "=F43-SUM(C43:D43)",
-     "calc": "[New India] - SUM( [New India … New India] )",
+     "calc": "[New India · Q1 FY25] - SUM( [New India · Apr- FY25 … New India · May- FY25] )",
      "inputs": [
       {
        "ref": "F43",
-       "label": "New India",
+       "label": "New India · Q1 FY25",
        "period": "Q1FY25",
        "entity": "new-india",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "C43",
-       "label": "New India",
+       "label": "New India · Apr- FY25",
        "period": "Apr-FY25",
        "entity": "new-india",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "D43",
-       "label": "New India",
+       "label": "New India · May- FY25",
        "period": "May-FY25",
        "entity": "new-india",
        "metric": "retail_health_gwp"
@@ -26329,25 +26329,25 @@
      "source_key": "company_premium_monthly",
      "source_status": "available",
      "formula": "=J43-SUM(G43:H43)",
-     "calc": "[New India] - SUM( [New India … New India] )",
+     "calc": "[New India · Q1 FY26] - SUM( [New India · Apr- FY26 … New India · May- FY26] )",
      "inputs": [
       {
        "ref": "J43",
-       "label": "New India",
+       "label": "New India · Q1 FY26",
        "period": "Q1FY26",
        "entity": "new-india",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "G43",
-       "label": "New India",
+       "label": "New India · Apr- FY26",
        "period": "Apr-FY26",
        "entity": "new-india",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "H43",
-       "label": "New India",
+       "label": "New India · May- FY26",
        "period": "May-FY26",
        "entity": "new-india",
        "metric": "retail_health_gwp"
@@ -26468,25 +26468,25 @@
      "source_key": "company_premium_monthly",
      "source_status": "available",
      "formula": "=F44-SUM(C44:D44)",
-     "calc": "[National Insurance] - SUM( [National Insurance … National Insurance] )",
+     "calc": "[National Insurance · Q1 FY25] - SUM( [National Insurance · Apr- FY25 … National Insurance · May- FY25] )",
      "inputs": [
       {
        "ref": "F44",
-       "label": "National Insurance",
+       "label": "National Insurance · Q1 FY25",
        "period": "Q1FY25",
        "entity": "national-insurance",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "C44",
-       "label": "National Insurance",
+       "label": "National Insurance · Apr- FY25",
        "period": "Apr-FY25",
        "entity": "national-insurance",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "D44",
-       "label": "National Insurance",
+       "label": "National Insurance · May- FY25",
        "period": "May-FY25",
        "entity": "national-insurance",
        "metric": "retail_health_gwp"
@@ -26555,25 +26555,25 @@
      "source_key": "company_premium_monthly",
      "source_status": "available",
      "formula": "=J44-SUM(G44:H44)",
-     "calc": "[National Insurance] - SUM( [National Insurance … National Insurance] )",
+     "calc": "[National Insurance · Q1 FY26] - SUM( [National Insurance · Apr- FY26 … National Insurance · May- FY26] )",
      "inputs": [
       {
        "ref": "J44",
-       "label": "National Insurance",
+       "label": "National Insurance · Q1 FY26",
        "period": "Q1FY26",
        "entity": "national-insurance",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "G44",
-       "label": "National Insurance",
+       "label": "National Insurance · Apr- FY26",
        "period": "Apr-FY26",
        "entity": "national-insurance",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "H44",
-       "label": "National Insurance",
+       "label": "National Insurance · May- FY26",
        "period": "May-FY26",
        "entity": "national-insurance",
        "metric": "retail_health_gwp"
@@ -26694,25 +26694,25 @@
      "source_key": "company_premium_monthly",
      "source_status": "available",
      "formula": "=F45-SUM(C45:D45)",
-     "calc": "[Oriental Insurance] - SUM( [Oriental Insurance … Oriental Insurance] )",
+     "calc": "[Oriental Insurance · Q1 FY25] - SUM( [Oriental Insurance · Apr- FY25 … Oriental Insurance · May- FY25] )",
      "inputs": [
       {
        "ref": "F45",
-       "label": "Oriental Insurance",
+       "label": "Oriental Insurance · Q1 FY25",
        "period": "Q1FY25",
        "entity": "oriental-insurance",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "C45",
-       "label": "Oriental Insurance",
+       "label": "Oriental Insurance · Apr- FY25",
        "period": "Apr-FY25",
        "entity": "oriental-insurance",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "D45",
-       "label": "Oriental Insurance",
+       "label": "Oriental Insurance · May- FY25",
        "period": "May-FY25",
        "entity": "oriental-insurance",
        "metric": "retail_health_gwp"
@@ -26781,25 +26781,25 @@
      "source_key": "company_premium_monthly",
      "source_status": "available",
      "formula": "=J45-SUM(G45:H45)",
-     "calc": "[Oriental Insurance] - SUM( [Oriental Insurance … Oriental Insurance] )",
+     "calc": "[Oriental Insurance · Q1 FY26] - SUM( [Oriental Insurance · Apr- FY26 … Oriental Insurance · May- FY26] )",
      "inputs": [
       {
        "ref": "J45",
-       "label": "Oriental Insurance",
+       "label": "Oriental Insurance · Q1 FY26",
        "period": "Q1FY26",
        "entity": "oriental-insurance",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "G45",
-       "label": "Oriental Insurance",
+       "label": "Oriental Insurance · Apr- FY26",
        "period": "Apr-FY26",
        "entity": "oriental-insurance",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "H45",
-       "label": "Oriental Insurance",
+       "label": "Oriental Insurance · May- FY26",
        "period": "May-FY26",
        "entity": "oriental-insurance",
        "metric": "retail_health_gwp"
@@ -26920,25 +26920,25 @@
      "source_key": "company_premium_monthly",
      "source_status": "available",
      "formula": "=F46-SUM(C46:D46)",
-     "calc": "[United India] - SUM( [United India … United India] )",
+     "calc": "[United India · Q1 FY25] - SUM( [United India · Apr- FY25 … United India · May- FY25] )",
      "inputs": [
       {
        "ref": "F46",
-       "label": "United India",
+       "label": "United India · Q1 FY25",
        "period": "Q1FY25",
        "entity": "united-india",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "C46",
-       "label": "United India",
+       "label": "United India · Apr- FY25",
        "period": "Apr-FY25",
        "entity": "united-india",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "D46",
-       "label": "United India",
+       "label": "United India · May- FY25",
        "period": "May-FY25",
        "entity": "united-india",
        "metric": "retail_health_gwp"
@@ -27007,25 +27007,25 @@
      "source_key": "company_premium_monthly",
      "source_status": "available",
      "formula": "=J46-SUM(G46:H46)",
-     "calc": "[United India] - SUM( [United India … United India] )",
+     "calc": "[United India · Q1 FY26] - SUM( [United India · Apr- FY26 … United India · May- FY26] )",
      "inputs": [
       {
        "ref": "J46",
-       "label": "United India",
+       "label": "United India · Q1 FY26",
        "period": "Q1FY26",
        "entity": "united-india",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "G46",
-       "label": "United India",
+       "label": "United India · Apr- FY26",
        "period": "Apr-FY26",
        "entity": "united-india",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "H46",
-       "label": "United India",
+       "label": "United India · May- FY26",
        "period": "May-FY26",
        "entity": "united-india",
        "metric": "retail_health_gwp"
@@ -27261,25 +27261,25 @@
      "source_key": "company_premium_monthly",
      "source_status": "available",
      "formula": "=F47-SUM(C47:D47)",
-     "calc": "[Others] - SUM( [Others … Others] )",
+     "calc": "[Others · Q1 FY25] - SUM( [Others · Apr- FY25 … Others · May- FY25] )",
      "inputs": [
       {
        "ref": "F47",
-       "label": "Others",
+       "label": "Others · Q1 FY25",
        "period": "Q1FY25",
        "entity": "Others",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "C47",
-       "label": "Others",
+       "label": "Others · Apr- FY25",
        "period": "Apr-FY25",
        "entity": "Others",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "D47",
-       "label": "Others",
+       "label": "Others · May- FY25",
        "period": "May-FY25",
        "entity": "Others",
        "metric": "retail_health_gwp"
@@ -27587,25 +27587,25 @@
      "source_key": "company_premium_monthly",
      "source_status": "available",
      "formula": "=J47-SUM(G47:H47)",
-     "calc": "[Others] - SUM( [Others … Others] )",
+     "calc": "[Others · Q1 FY26] - SUM( [Others · Apr- FY26 … Others · May- FY26] )",
      "inputs": [
       {
        "ref": "J47",
-       "label": "Others",
+       "label": "Others · Q1 FY26",
        "period": "Q1FY26",
        "entity": "Others",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "G47",
-       "label": "Others",
+       "label": "Others · Apr- FY26",
        "period": "Apr-FY26",
        "entity": "Others",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "H47",
-       "label": "Others",
+       "label": "Others · May- FY26",
        "period": "May-FY26",
        "entity": "Others",
        "metric": "retail_health_gwp"
@@ -27850,25 +27850,25 @@
      "source_key": "company_premium_monthly",
      "source_status": "available",
      "formula": "=F48-SUM(C48:D48)",
-     "calc": "[Total Health GWP (INR cr)] - SUM( [Total Health GWP (INR cr) … Total Health GWP (INR cr)] )",
+     "calc": "[Total Health GWP (INR cr) · Q1 FY25] - SUM( [Total Health GWP (INR cr) · Apr- FY25 … Total Health GWP (INR cr) · May- FY25] )",
      "inputs": [
       {
        "ref": "F48",
-       "label": "Total Health GWP (INR cr)",
+       "label": "Total Health GWP (INR cr) · Q1 FY25",
        "period": "Q1FY25",
        "entity": "Total Health GWP (INR cr)",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "C48",
-       "label": "Total Health GWP (INR cr)",
+       "label": "Total Health GWP (INR cr) · Apr- FY25",
        "period": "Apr-FY25",
        "entity": "Total Health GWP (INR cr)",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "D48",
-       "label": "Total Health GWP (INR cr)",
+       "label": "Total Health GWP (INR cr) · May- FY25",
        "period": "May-FY25",
        "entity": "Total Health GWP (INR cr)",
        "metric": "retail_health_gwp"
@@ -27937,25 +27937,25 @@
      "source_key": "company_premium_monthly",
      "source_status": "available",
      "formula": "=J48-SUM(G48:H48)",
-     "calc": "[Total Health GWP (INR cr)] - SUM( [Total Health GWP (INR cr) … Total Health GWP (INR cr)] )",
+     "calc": "[Total Health GWP (INR cr) · Q1 FY26] - SUM( [Total Health GWP (INR cr) · Apr- FY26 … Total Health GWP (INR cr) · May- FY26] )",
      "inputs": [
       {
        "ref": "J48",
-       "label": "Total Health GWP (INR cr)",
+       "label": "Total Health GWP (INR cr) · Q1 FY26",
        "period": "Q1FY26",
        "entity": "Total Health GWP (INR cr)",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "G48",
-       "label": "Total Health GWP (INR cr)",
+       "label": "Total Health GWP (INR cr) · Apr- FY26",
        "period": "Apr-FY26",
        "entity": "Total Health GWP (INR cr)",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "H48",
-       "label": "Total Health GWP (INR cr)",
+       "label": "Total Health GWP (INR cr) · May- FY26",
        "period": "May-FY26",
        "entity": "Total Health GWP (INR cr)",
        "metric": "retail_health_gwp"
@@ -28127,18 +28127,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=E5-I5",
-     "calc": "[Retail GWP] - [Retail GWP]",
+     "calc": "[Retail GWP · FY25] - [Retail GWP · 9M FY25]",
      "inputs": [
       {
        "ref": "E5",
-       "label": "Retail GWP",
+       "label": "Retail GWP · FY25",
        "period": "FY25",
        "entity": "niva-bupa",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "I5",
-       "label": "Retail GWP",
+       "label": "Retail GWP · 9M FY25",
        "period": "9MFY25",
        "entity": "niva-bupa",
        "metric": "retail_health_gwp"
@@ -28185,18 +28185,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=F5-L5",
-     "calc": "[Retail GWP] - [Retail GWP]",
+     "calc": "[Retail GWP · FY26] - [Retail GWP · 9M FY26]",
      "inputs": [
       {
        "ref": "F5",
-       "label": "Retail GWP",
+       "label": "Retail GWP · FY26",
        "period": "FY26",
        "entity": "niva-bupa",
        "metric": "retail_health_gwp"
       },
       {
        "ref": "L5",
-       "label": "Retail GWP",
+       "label": "Retail GWP · 9M FY26",
        "period": "9MFY26",
        "entity": "niva-bupa",
        "metric": "retail_health_gwp"
@@ -28615,18 +28615,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=E7-I7",
-     "calc": "[Total GWP] - [Total GWP]",
+     "calc": "[Total GWP · FY25] - [Total GWP · 9M FY25]",
      "inputs": [
       {
        "ref": "E7",
-       "label": "Total GWP",
+       "label": "Total GWP · FY25",
        "period": "FY25",
        "entity": "niva-bupa",
        "metric": "total_gwp"
       },
       {
        "ref": "I7",
-       "label": "Total GWP",
+       "label": "Total GWP · 9M FY25",
        "period": "9MFY25",
        "entity": "niva-bupa",
        "metric": "total_gwp"
@@ -28673,18 +28673,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=F7-L7",
-     "calc": "[Total GWP] - [Total GWP]",
+     "calc": "[Total GWP · FY26] - [Total GWP · 9M FY26]",
      "inputs": [
       {
        "ref": "F7",
-       "label": "Total GWP",
+       "label": "Total GWP · FY26",
        "period": "FY26",
        "entity": "niva-bupa",
        "metric": "total_gwp"
       },
       {
        "ref": "L7",
-       "label": "Total GWP",
+       "label": "Total GWP · 9M FY26",
        "period": "9MFY26",
        "entity": "niva-bupa",
        "metric": "total_gwp"
@@ -31305,18 +31305,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=R7-V7",
-     "calc": "[Total GWP] - [Total GWP]",
+     "calc": "[Total GWP · FY25] - [Total GWP · 9M FY25]",
      "inputs": [
       {
        "ref": "R7",
-       "label": "Total GWP",
+       "label": "Total GWP · FY25",
        "period": "FY25",
        "entity": "star-health",
        "metric": "total_gwp"
       },
       {
        "ref": "V7",
-       "label": "Total GWP",
+       "label": "Total GWP · 9M FY25",
        "period": "9MFY25",
        "entity": "star-health",
        "metric": "total_gwp"
@@ -31376,18 +31376,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=S7-Y7",
-     "calc": "[Total GWP] - [Total GWP]",
+     "calc": "[Total GWP · FY26] - [Total GWP · 9M FY26]",
      "inputs": [
       {
        "ref": "S7",
-       "label": "Total GWP",
+       "label": "Total GWP · FY26",
        "period": "FY26",
        "entity": "star-health",
        "metric": "total_gwp"
       },
       {
        "ref": "Y7",
-       "label": "Total GWP",
+       "label": "Total GWP · 9M FY26",
        "period": "9MFY26",
        "entity": "star-health",
        "metric": "total_gwp"
@@ -33617,18 +33617,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=AE7-AI7",
-     "calc": "[Total GWP] - [Total GWP]",
+     "calc": "[Total GWP · FY25] - [Total GWP · 9M FY25]",
      "inputs": [
       {
        "ref": "AE7",
-       "label": "Total GWP",
+       "label": "Total GWP · FY25",
        "period": "FY25",
        "entity": "care-health",
        "metric": "total_gwp"
       },
       {
        "ref": "AI7",
-       "label": "Total GWP",
+       "label": "Total GWP · 9M FY25",
        "period": "9MFY25",
        "entity": "care-health",
        "metric": "total_gwp"
@@ -33675,18 +33675,18 @@
      "source_key": "company_premium_quarterly",
      "source_status": "available",
      "formula": "=AF7-AL7",
-     "calc": "[Total GWP] - [Total GWP]",
+     "calc": "[Total GWP · FY26] - [Total GWP · 9M FY26]",
      "inputs": [
       {
        "ref": "AF7",
-       "label": "Total GWP",
+       "label": "Total GWP · FY26",
        "period": "FY26",
        "entity": "care-health",
        "metric": "total_gwp"
       },
       {
        "ref": "AL7",
-       "label": "Total GWP",
+       "label": "Total GWP · 9M FY26",
        "period": "9MFY26",
        "entity": "care-health",
        "metric": "total_gwp"
@@ -41826,18 +41826,18 @@
      "source_key": "market_cap",
      "source_status": "available",
      "formula": "=C4/E4",
-     "calc": "[NSEI:NIVABUPA] / [NSEI:NIVABUPA]",
+     "calc": "[Market cap] / [GWP]",
      "inputs": [
       {
        "ref": "C4",
-       "label": "NSEI:NIVABUPA",
+       "label": "Market cap",
        "period": "as_on_run_date",
        "entity": "niva-bupa",
        "metric": "market_cap"
       },
       {
        "ref": "E4",
-       "label": "NSEI:NIVABUPA",
+       "label": "GWP",
        "period": "as_on_run_date",
        "entity": "niva-bupa",
        "metric": "gwp"
@@ -41858,18 +41858,18 @@
      "source_key": "market_cap",
      "source_status": "available",
      "formula": "=C4/I4",
-     "calc": "[NSEI:NIVABUPA] / [NSEI:NIVABUPA]",
+     "calc": "[Market cap] / [PAT (IGAAP)]",
      "inputs": [
       {
        "ref": "C4",
-       "label": "NSEI:NIVABUPA",
+       "label": "Market cap",
        "period": "as_on_run_date",
        "entity": "niva-bupa",
        "metric": "market_cap"
       },
       {
        "ref": "I4",
-       "label": "NSEI:NIVABUPA",
+       "label": "PAT (IGAAP)",
        "period": "as_on_run_date",
        "entity": "niva-bupa",
        "metric": "pat_igaap"
@@ -41890,18 +41890,18 @@
      "source_key": "market_cap",
      "source_status": "available",
      "formula": "=C4/H4",
-     "calc": "[NSEI:NIVABUPA] / [NSEI:NIVABUPA]",
+     "calc": "[Market cap] / [Net worth (IGAAP)]",
      "inputs": [
       {
        "ref": "C4",
-       "label": "NSEI:NIVABUPA",
+       "label": "Market cap",
        "period": "as_on_run_date",
        "entity": "niva-bupa",
        "metric": "market_cap"
       },
       {
        "ref": "H4",
-       "label": "NSEI:NIVABUPA",
+       "label": "Net worth (IGAAP)",
        "period": "as_on_run_date",
        "entity": "niva-bupa",
        "metric": "net_worth_igaap"
@@ -41922,18 +41922,18 @@
      "source_key": "company_financials",
      "source_status": "available",
      "formula": "=I4/H4",
-     "calc": "[NSEI:NIVABUPA] / [NSEI:NIVABUPA]",
+     "calc": "[PAT (IGAAP)] / [Net worth (IGAAP)]",
      "inputs": [
       {
        "ref": "I4",
-       "label": "NSEI:NIVABUPA",
+       "label": "PAT (IGAAP)",
        "period": "as_on_run_date",
        "entity": "niva-bupa",
        "metric": "pat_igaap"
       },
       {
        "ref": "H4",
-       "label": "NSEI:NIVABUPA",
+       "label": "Net worth (IGAAP)",
        "period": "as_on_run_date",
        "entity": "niva-bupa",
        "metric": "net_worth_igaap"
@@ -41954,18 +41954,18 @@
      "source_key": "market_cap",
      "source_status": "available",
      "formula": "=C4/G4",
-     "calc": "[NSEI:NIVABUPA] / [NSEI:NIVABUPA]",
+     "calc": "[Market cap] / [PAT (IFRS)]",
      "inputs": [
       {
        "ref": "C4",
-       "label": "NSEI:NIVABUPA",
+       "label": "Market cap",
        "period": "as_on_run_date",
        "entity": "niva-bupa",
        "metric": "market_cap"
       },
       {
        "ref": "G4",
-       "label": "NSEI:NIVABUPA",
+       "label": "PAT (IFRS)",
        "period": "as_on_run_date",
        "entity": "niva-bupa",
        "metric": "pat_ifrs"
@@ -41986,18 +41986,18 @@
      "source_key": "market_cap",
      "source_status": "available",
      "formula": "=C4/F4",
-     "calc": "[NSEI:NIVABUPA] / [NSEI:NIVABUPA]",
+     "calc": "[Market cap] / [Net worth (IFRS)]",
      "inputs": [
       {
        "ref": "C4",
-       "label": "NSEI:NIVABUPA",
+       "label": "Market cap",
        "period": "as_on_run_date",
        "entity": "niva-bupa",
        "metric": "market_cap"
       },
       {
        "ref": "F4",
-       "label": "NSEI:NIVABUPA",
+       "label": "Net worth (IFRS)",
        "period": "as_on_run_date",
        "entity": "niva-bupa",
        "metric": "net_worth_ifrs"
@@ -42018,18 +42018,18 @@
      "source_key": "company_financials",
      "source_status": "available",
      "formula": "=G4/F4",
-     "calc": "[NSEI:NIVABUPA] / [NSEI:NIVABUPA]",
+     "calc": "[PAT (IFRS)] / [Net worth (IFRS)]",
      "inputs": [
       {
        "ref": "G4",
-       "label": "NSEI:NIVABUPA",
+       "label": "PAT (IFRS)",
        "period": "as_on_run_date",
        "entity": "niva-bupa",
        "metric": "pat_ifrs"
       },
       {
        "ref": "F4",
-       "label": "NSEI:NIVABUPA",
+       "label": "Net worth (IFRS)",
        "period": "as_on_run_date",
        "entity": "niva-bupa",
        "metric": "net_worth_ifrs"
@@ -42050,7 +42050,7 @@
      "source_key": "valuation_history",
      "source_status": "backup",
      "formula": "=_xll.ciqfunctions.udf.CIQAVG(A4, \"IQ_PE_EXCL\", IQ_LTM, $M$1, $N$1)",
-     "calc": "_xll.ciqfunctions.udf.CIQAVG( [NSEI:NIVABUPA] , \"\"IQ_PE_EXCL\"\" , [IQ_LTM] , [INR Cr.] , [INR Cr.] )",
+     "calc": "_xll.ciqfunctions.udf.CIQAVG( [NSEI:NIVABUPA] , \"\"IQ_PE_EXCL\"\" , [IQ_LTM] , [INR Cr. · M1] , [INR Cr. · N1] )",
      "inputs": [
       {
        "ref": "A4",
@@ -42062,11 +42062,11 @@
       },
       {
        "ref": "M1",
-       "label": "INR Cr."
+       "label": "INR Cr. · M1"
       },
       {
        "ref": "N1",
-       "label": "INR Cr."
+       "label": "INR Cr. · N1"
       }
      ]
     },
@@ -42262,18 +42262,18 @@
      "source_key": "market_cap",
      "source_status": "available",
      "formula": "=C5/E5",
-     "calc": "[NSEI:STARHEALTH] / [NSEI:STARHEALTH]",
+     "calc": "[Market cap] / [GWP]",
      "inputs": [
       {
        "ref": "C5",
-       "label": "NSEI:STARHEALTH",
+       "label": "Market cap",
        "period": "as_on_run_date",
        "entity": "star-health",
        "metric": "market_cap"
       },
       {
        "ref": "E5",
-       "label": "NSEI:STARHEALTH",
+       "label": "GWP",
        "period": "as_on_run_date",
        "entity": "star-health",
        "metric": "gwp"
@@ -42294,18 +42294,18 @@
      "source_key": "market_cap",
      "source_status": "available",
      "formula": "=C5/I5",
-     "calc": "[NSEI:STARHEALTH] / [NSEI:STARHEALTH]",
+     "calc": "[Market cap] / [PAT (IGAAP)]",
      "inputs": [
       {
        "ref": "C5",
-       "label": "NSEI:STARHEALTH",
+       "label": "Market cap",
        "period": "as_on_run_date",
        "entity": "star-health",
        "metric": "market_cap"
       },
       {
        "ref": "I5",
-       "label": "NSEI:STARHEALTH",
+       "label": "PAT (IGAAP)",
        "period": "as_on_run_date",
        "entity": "star-health",
        "metric": "pat_igaap"
@@ -42326,18 +42326,18 @@
      "source_key": "market_cap",
      "source_status": "available",
      "formula": "=C5/H5",
-     "calc": "[NSEI:STARHEALTH] / [NSEI:STARHEALTH]",
+     "calc": "[Market cap] / [Net worth (IGAAP)]",
      "inputs": [
       {
        "ref": "C5",
-       "label": "NSEI:STARHEALTH",
+       "label": "Market cap",
        "period": "as_on_run_date",
        "entity": "star-health",
        "metric": "market_cap"
       },
       {
        "ref": "H5",
-       "label": "NSEI:STARHEALTH",
+       "label": "Net worth (IGAAP)",
        "period": "as_on_run_date",
        "entity": "star-health",
        "metric": "net_worth_igaap"
@@ -42358,18 +42358,18 @@
      "source_key": "company_financials",
      "source_status": "available",
      "formula": "=I5/H5",
-     "calc": "[NSEI:STARHEALTH] / [NSEI:STARHEALTH]",
+     "calc": "[PAT (IGAAP)] / [Net worth (IGAAP)]",
      "inputs": [
       {
        "ref": "I5",
-       "label": "NSEI:STARHEALTH",
+       "label": "PAT (IGAAP)",
        "period": "as_on_run_date",
        "entity": "star-health",
        "metric": "pat_igaap"
       },
       {
        "ref": "H5",
-       "label": "NSEI:STARHEALTH",
+       "label": "Net worth (IGAAP)",
        "period": "as_on_run_date",
        "entity": "star-health",
        "metric": "net_worth_igaap"
@@ -42390,18 +42390,18 @@
      "source_key": "market_cap",
      "source_status": "available",
      "formula": "=C5/G5",
-     "calc": "[NSEI:STARHEALTH] / [NSEI:STARHEALTH]",
+     "calc": "[Market cap] / [PAT (IFRS)]",
      "inputs": [
       {
        "ref": "C5",
-       "label": "NSEI:STARHEALTH",
+       "label": "Market cap",
        "period": "as_on_run_date",
        "entity": "star-health",
        "metric": "market_cap"
       },
       {
        "ref": "G5",
-       "label": "NSEI:STARHEALTH",
+       "label": "PAT (IFRS)",
        "period": "as_on_run_date",
        "entity": "star-health",
        "metric": "pat_ifrs"
@@ -42422,18 +42422,18 @@
      "source_key": "market_cap",
      "source_status": "available",
      "formula": "=C5/F5",
-     "calc": "[NSEI:STARHEALTH] / [NSEI:STARHEALTH]",
+     "calc": "[Market cap] / [Net worth (IFRS)]",
      "inputs": [
       {
        "ref": "C5",
-       "label": "NSEI:STARHEALTH",
+       "label": "Market cap",
        "period": "as_on_run_date",
        "entity": "star-health",
        "metric": "market_cap"
       },
       {
        "ref": "F5",
-       "label": "NSEI:STARHEALTH",
+       "label": "Net worth (IFRS)",
        "period": "as_on_run_date",
        "entity": "star-health",
        "metric": "net_worth_ifrs"
@@ -42454,18 +42454,18 @@
      "source_key": "company_financials",
      "source_status": "available",
      "formula": "=G5/F5",
-     "calc": "[NSEI:STARHEALTH] / [NSEI:STARHEALTH]",
+     "calc": "[PAT (IFRS)] / [Net worth (IFRS)]",
      "inputs": [
       {
        "ref": "G5",
-       "label": "NSEI:STARHEALTH",
+       "label": "PAT (IFRS)",
        "period": "as_on_run_date",
        "entity": "star-health",
        "metric": "pat_ifrs"
       },
       {
        "ref": "F5",
-       "label": "NSEI:STARHEALTH",
+       "label": "Net worth (IFRS)",
        "period": "as_on_run_date",
        "entity": "star-health",
        "metric": "net_worth_ifrs"
@@ -42486,7 +42486,7 @@
      "source_key": "valuation_history",
      "source_status": "backup",
      "formula": "=_xll.ciqfunctions.udf.CIQAVG(A5, \"IQ_PE_EXCL\", IQ_LTM, $M$1, $N$1)",
-     "calc": "_xll.ciqfunctions.udf.CIQAVG( [NSEI:STARHEALTH] , \"\"IQ_PE_EXCL\"\" , [IQ_LTM] , [INR Cr.] , [INR Cr.] )",
+     "calc": "_xll.ciqfunctions.udf.CIQAVG( [NSEI:STARHEALTH] , \"\"IQ_PE_EXCL\"\" , [IQ_LTM] , [INR Cr. · M1] , [INR Cr. · N1] )",
      "inputs": [
       {
        "ref": "A5",
@@ -42498,11 +42498,11 @@
       },
       {
        "ref": "M1",
-       "label": "INR Cr."
+       "label": "INR Cr. · M1"
       },
       {
        "ref": "N1",
-       "label": "INR Cr."
+       "label": "INR Cr. · N1"
       }
      ]
     },
@@ -42638,18 +42638,18 @@
      "source_key": "market_cap",
      "source_status": "available",
      "formula": "=C6/E6",
-     "calc": "[NSEI:ICICIGI] / [NSEI:ICICIGI]",
+     "calc": "[Market cap] / [GWP]",
      "inputs": [
       {
        "ref": "C6",
-       "label": "NSEI:ICICIGI",
+       "label": "Market cap",
        "period": "as_on_run_date",
        "entity": "icici-lombard",
        "metric": "market_cap"
       },
       {
        "ref": "E6",
-       "label": "NSEI:ICICIGI",
+       "label": "GWP",
        "period": "as_on_run_date",
        "entity": "icici-lombard",
        "metric": "gwp"
@@ -42670,18 +42670,18 @@
      "source_key": "market_cap",
      "source_status": "available",
      "formula": "=C6/I6",
-     "calc": "[NSEI:ICICIGI] / [NSEI:ICICIGI]",
+     "calc": "[Market cap] / [PAT (IGAAP)]",
      "inputs": [
       {
        "ref": "C6",
-       "label": "NSEI:ICICIGI",
+       "label": "Market cap",
        "period": "as_on_run_date",
        "entity": "icici-lombard",
        "metric": "market_cap"
       },
       {
        "ref": "I6",
-       "label": "NSEI:ICICIGI",
+       "label": "PAT (IGAAP)",
        "period": "as_on_run_date",
        "entity": "icici-lombard",
        "metric": "pat_igaap"
@@ -42702,18 +42702,18 @@
      "source_key": "market_cap",
      "source_status": "available",
      "formula": "=C6/H6",
-     "calc": "[NSEI:ICICIGI] / [NSEI:ICICIGI]",
+     "calc": "[Market cap] / [Net worth (IGAAP)]",
      "inputs": [
       {
        "ref": "C6",
-       "label": "NSEI:ICICIGI",
+       "label": "Market cap",
        "period": "as_on_run_date",
        "entity": "icici-lombard",
        "metric": "market_cap"
       },
       {
        "ref": "H6",
-       "label": "NSEI:ICICIGI",
+       "label": "Net worth (IGAAP)",
        "period": "as_on_run_date",
        "entity": "icici-lombard",
        "metric": "net_worth_igaap"
@@ -42734,18 +42734,18 @@
      "source_key": "company_financials",
      "source_status": "available",
      "formula": "=I6/H6",
-     "calc": "[NSEI:ICICIGI] / [NSEI:ICICIGI]",
+     "calc": "[PAT (IGAAP)] / [Net worth (IGAAP)]",
      "inputs": [
       {
        "ref": "I6",
-       "label": "NSEI:ICICIGI",
+       "label": "PAT (IGAAP)",
        "period": "as_on_run_date",
        "entity": "icici-lombard",
        "metric": "pat_igaap"
       },
       {
        "ref": "H6",
-       "label": "NSEI:ICICIGI",
+       "label": "Net worth (IGAAP)",
        "period": "as_on_run_date",
        "entity": "icici-lombard",
        "metric": "net_worth_igaap"
@@ -42766,18 +42766,18 @@
      "source_key": "market_cap",
      "source_status": "available",
      "formula": "=C6/G6",
-     "calc": "[NSEI:ICICIGI] / [NSEI:ICICIGI]",
+     "calc": "[Market cap] / [PAT (IFRS)]",
      "inputs": [
       {
        "ref": "C6",
-       "label": "NSEI:ICICIGI",
+       "label": "Market cap",
        "period": "as_on_run_date",
        "entity": "icici-lombard",
        "metric": "market_cap"
       },
       {
        "ref": "G6",
-       "label": "NSEI:ICICIGI",
+       "label": "PAT (IFRS)",
        "period": "as_on_run_date",
        "entity": "icici-lombard",
        "metric": "pat_ifrs"
@@ -42797,18 +42797,18 @@
      "source_key": "market_cap",
      "source_status": "available",
      "formula": "=C6/F6",
-     "calc": "[NSEI:ICICIGI] / [NSEI:ICICIGI]",
+     "calc": "[Market cap] / [Net worth (IFRS)]",
      "inputs": [
       {
        "ref": "C6",
-       "label": "NSEI:ICICIGI",
+       "label": "Market cap",
        "period": "as_on_run_date",
        "entity": "icici-lombard",
        "metric": "market_cap"
       },
       {
        "ref": "F6",
-       "label": "NSEI:ICICIGI",
+       "label": "Net worth (IFRS)",
        "period": "as_on_run_date",
        "entity": "icici-lombard",
        "metric": "net_worth_ifrs"
@@ -42828,18 +42828,18 @@
      "source_key": "company_financials",
      "source_status": "available",
      "formula": "=G6/F6",
-     "calc": "[NSEI:ICICIGI] / [NSEI:ICICIGI]",
+     "calc": "[PAT (IFRS)] / [Net worth (IFRS)]",
      "inputs": [
       {
        "ref": "G6",
-       "label": "NSEI:ICICIGI",
+       "label": "PAT (IFRS)",
        "period": "as_on_run_date",
        "entity": "icici-lombard",
        "metric": "pat_ifrs"
       },
       {
        "ref": "F6",
-       "label": "NSEI:ICICIGI",
+       "label": "Net worth (IFRS)",
        "period": "as_on_run_date",
        "entity": "icici-lombard",
        "metric": "net_worth_ifrs"
@@ -42859,7 +42859,7 @@
      "source_key": "valuation_history",
      "source_status": "backup",
      "formula": "=_xll.ciqfunctions.udf.CIQAVG(A6, \"IQ_PE_EXCL\", IQ_LTM, $M$1, $N$1)",
-     "calc": "_xll.ciqfunctions.udf.CIQAVG( [NSEI:ICICIGI] , \"\"IQ_PE_EXCL\"\" , [IQ_LTM] , [INR Cr.] , [INR Cr.] )",
+     "calc": "_xll.ciqfunctions.udf.CIQAVG( [NSEI:ICICIGI] , \"\"IQ_PE_EXCL\"\" , [IQ_LTM] , [INR Cr. · M1] , [INR Cr. · N1] )",
      "inputs": [
       {
        "ref": "A6",
@@ -42871,11 +42871,11 @@
       },
       {
        "ref": "M1",
-       "label": "INR Cr."
+       "label": "INR Cr. · M1"
       },
       {
        "ref": "N1",
-       "label": "INR Cr."
+       "label": "INR Cr. · N1"
       }
      ]
     },
@@ -43011,18 +43011,18 @@
      "source_key": "market_cap",
      "source_status": "available",
      "formula": "=C7/E7",
-     "calc": "[NSEI:GODIGIT] / [NSEI:GODIGIT]",
+     "calc": "[Market cap] / [GWP]",
      "inputs": [
       {
        "ref": "C7",
-       "label": "NSEI:GODIGIT",
+       "label": "Market cap",
        "period": "as_on_run_date",
        "entity": "godigit",
        "metric": "market_cap"
       },
       {
        "ref": "E7",
-       "label": "NSEI:GODIGIT",
+       "label": "GWP",
        "period": "as_on_run_date",
        "entity": "godigit",
        "metric": "gwp"
@@ -43043,18 +43043,18 @@
      "source_key": "market_cap",
      "source_status": "available",
      "formula": "=C7/I7",
-     "calc": "[NSEI:GODIGIT] / [NSEI:GODIGIT]",
+     "calc": "[Market cap] / [PAT (IGAAP)]",
      "inputs": [
       {
        "ref": "C7",
-       "label": "NSEI:GODIGIT",
+       "label": "Market cap",
        "period": "as_on_run_date",
        "entity": "godigit",
        "metric": "market_cap"
       },
       {
        "ref": "I7",
-       "label": "NSEI:GODIGIT",
+       "label": "PAT (IGAAP)",
        "period": "as_on_run_date",
        "entity": "godigit",
        "metric": "pat_igaap"
@@ -43075,18 +43075,18 @@
      "source_key": "market_cap",
      "source_status": "available",
      "formula": "=C7/H7",
-     "calc": "[NSEI:GODIGIT] / [NSEI:GODIGIT]",
+     "calc": "[Market cap] / [Net worth (IGAAP)]",
      "inputs": [
       {
        "ref": "C7",
-       "label": "NSEI:GODIGIT",
+       "label": "Market cap",
        "period": "as_on_run_date",
        "entity": "godigit",
        "metric": "market_cap"
       },
       {
        "ref": "H7",
-       "label": "NSEI:GODIGIT",
+       "label": "Net worth (IGAAP)",
        "period": "as_on_run_date",
        "entity": "godigit",
        "metric": "net_worth_igaap"
@@ -43107,18 +43107,18 @@
      "source_key": "company_financials",
      "source_status": "available",
      "formula": "=I7/H7",
-     "calc": "[NSEI:GODIGIT] / [NSEI:GODIGIT]",
+     "calc": "[PAT (IGAAP)] / [Net worth (IGAAP)]",
      "inputs": [
       {
        "ref": "I7",
-       "label": "NSEI:GODIGIT",
+       "label": "PAT (IGAAP)",
        "period": "as_on_run_date",
        "entity": "godigit",
        "metric": "pat_igaap"
       },
       {
        "ref": "H7",
-       "label": "NSEI:GODIGIT",
+       "label": "Net worth (IGAAP)",
        "period": "as_on_run_date",
        "entity": "godigit",
        "metric": "net_worth_igaap"
@@ -43139,18 +43139,18 @@
      "source_key": "market_cap",
      "source_status": "available",
      "formula": "=C7/G7",
-     "calc": "[NSEI:GODIGIT] / [NSEI:GODIGIT]",
+     "calc": "[Market cap] / [PAT (IFRS)]",
      "inputs": [
       {
        "ref": "C7",
-       "label": "NSEI:GODIGIT",
+       "label": "Market cap",
        "period": "as_on_run_date",
        "entity": "godigit",
        "metric": "market_cap"
       },
       {
        "ref": "G7",
-       "label": "NSEI:GODIGIT",
+       "label": "PAT (IFRS)",
        "period": "as_on_run_date",
        "entity": "godigit",
        "metric": "pat_ifrs"
@@ -43170,18 +43170,18 @@
      "source_key": "market_cap",
      "source_status": "available",
      "formula": "=C7/F7",
-     "calc": "[NSEI:GODIGIT] / [NSEI:GODIGIT]",
+     "calc": "[Market cap] / [Net worth (IFRS)]",
      "inputs": [
       {
        "ref": "C7",
-       "label": "NSEI:GODIGIT",
+       "label": "Market cap",
        "period": "as_on_run_date",
        "entity": "godigit",
        "metric": "market_cap"
       },
       {
        "ref": "F7",
-       "label": "NSEI:GODIGIT",
+       "label": "Net worth (IFRS)",
        "period": "as_on_run_date",
        "entity": "godigit",
        "metric": "net_worth_ifrs"
@@ -43201,18 +43201,18 @@
      "source_key": "company_financials",
      "source_status": "available",
      "formula": "=G7/F7",
-     "calc": "[NSEI:GODIGIT] / [NSEI:GODIGIT]",
+     "calc": "[PAT (IFRS)] / [Net worth (IFRS)]",
      "inputs": [
       {
        "ref": "G7",
-       "label": "NSEI:GODIGIT",
+       "label": "PAT (IFRS)",
        "period": "as_on_run_date",
        "entity": "godigit",
        "metric": "pat_ifrs"
       },
       {
        "ref": "F7",
-       "label": "NSEI:GODIGIT",
+       "label": "Net worth (IFRS)",
        "period": "as_on_run_date",
        "entity": "godigit",
        "metric": "net_worth_ifrs"
@@ -43232,7 +43232,7 @@
      "source_key": "valuation_history",
      "source_status": "backup",
      "formula": "=_xll.ciqfunctions.udf.CIQAVG(A7, \"IQ_PE_EXCL\", IQ_LTM, $M$1, $N$1)",
-     "calc": "_xll.ciqfunctions.udf.CIQAVG( [NSEI:GODIGIT] , \"\"IQ_PE_EXCL\"\" , [IQ_LTM] , [INR Cr.] , [INR Cr.] )",
+     "calc": "_xll.ciqfunctions.udf.CIQAVG( [NSEI:GODIGIT] , \"\"IQ_PE_EXCL\"\" , [IQ_LTM] , [INR Cr. · M1] , [INR Cr. · N1] )",
      "inputs": [
       {
        "ref": "A7",
@@ -43244,11 +43244,11 @@
       },
       {
        "ref": "M1",
-       "label": "INR Cr."
+       "label": "INR Cr. · M1"
       },
       {
        "ref": "N1",
-       "label": "INR Cr."
+       "label": "INR Cr. · N1"
       }
      ]
     }
