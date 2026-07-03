@@ -11,14 +11,17 @@ name: sahi intelligence fetch
 
 on:
   schedule:
-    # Daily (Neha, 2026-06-29): the Curated Market Intelligence feed in the
-    # Insights tab is the daily-moving layer (analyst actions, regulatory and
-    # sector news, catalysts), so it refreshes every morning. Was weekly (Wed) —
-    # bumped to daily so "Today's Investor Pulse" reads truly daily.
-    # Runs 02:00 UTC = 07:30 AM IST (Neha, 2026-07-03): kicks off earlier so the
-    # fresh brief is ready earlier in the morning, with more buffer for GitHub's
-    # scheduler lag. Was 04:00 UTC (09:30 IST).
-    - cron: '0 2 * * *'
+    # Curated Market Intelligence feed — the daily-moving layer in the Insights
+    # tab (analyst actions, regulatory & sector news, catalysts). The Pulse page
+    # stamps this job's last-run time, so more runs through the day = a fresher
+    # "today" brief. Was weekly (Wed) → daily (2026-06-29) → every 4 hours across
+    # the working day (Neha, 2026-07-03), 07:30–19:30 IST:
+    #   02:00 UTC = 07:30 IST   (first run of the day)
+    #   06:00 UTC = 11:30 IST
+    #   10:00 UTC = 15:30 IST
+    #   14:00 UTC = 19:30 IST   (last run — nothing after 22:00 IST)
+    # then the cycle restarts at 07:30 IST next morning.
+    - cron: '0 2,6,10,14 * * *'
   workflow_dispatch:
 
 permissions:
