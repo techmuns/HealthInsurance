@@ -5,7 +5,7 @@
     "schema_version": "1.0.0",
     "dataset": "ai_generated",
     "last_updated": "2026-07-03",
-    "last_successful_run": "2026-07-03T05:30:20.868Z",
+    "last_successful_run": "2026-07-03T12:01:05.311Z",
     "upstream_sources": [
       "muns_agent_web"
     ],
@@ -162,6 +162,32 @@
       "source_name": "irdai.gov.in",
       "source_url": "https://irdai.gov.in/warnings-and-penalties",
       "first_seen": "2026-07-03T05:30:20.868Z"
+    },
+    {
+      "id": "a9a581005e",
+      "company_id": "sector",
+      "date": null,
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "impact",
+      "detail": "headline",
+      "source_name": null,
+      "source_url": null,
+      "first_seen": "2026-07-03T12:01:05.311Z"
+    },
+    {
+      "id": "c4c6c57253",
+      "company_id": "sector",
+      "date": null,
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "positive",
+      "detail": "FY26 PAT surges 80% to ₹366",
+      "source_name": null,
+      "source_url": null,
+      "first_seen": "2026-07-03T12:01:05.311Z"
     }
   ]
 }
