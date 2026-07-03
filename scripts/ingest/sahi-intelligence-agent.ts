@@ -26,7 +26,7 @@ function buildPayload() {
         '- Companies (standalone health insurers / SAHI): Niva Bupa, Star Health, Care Health (Care / Religare), Aditya Birla Health Insurance, ManipalCigna Health Insurance — and any other health-insurance company material to the Indian market.\n' +
         '- Sector terms: "health insurance India", "health insurers", "standalone health insurance" (SAHI), and the broader "non-life / general insurance" segment these names sit in.\n' +
         '- Regulator: IRDAI — rules, circulars, drafts, master guidelines, licences, penalties.\n' +
-        "- Leadership: each insurer's CEO / MD, founders and promoter-owners — resolve the CURRENT name-holders from a source (do not guess) and track their interviews, guidance, appointments and exits.\n\n" +
+        "- Leadership: management news for these insurers and their CEOs / MDs, founders and promoter-owners — appointments, exits, interviews and guidance (name people only from a source, never guessed).\n\n" +
         'Include, where available:\n' +
         '- Upcoming investor / analyst meets, AGMs, board meetings and earnings-call / results dates.\n' +
         '- Recent or upcoming SECTOR & REGULATORY news (IRDAI rules, pricing/claims regulation, health-cover changes, M&A, capital raises, big partnerships).\n' +
@@ -74,7 +74,7 @@ function buildPayload() {
   }
 }
 
-async function callAgent(token: string): Promise<string> {
+async function callAgentOnce(token: string): Promise<string> {
   const ctrl = new AbortController()
   const timer = setTimeout(() => ctrl.abort(), API_TIMEOUT_MS)
   try {
@@ -89,6 +89,28 @@ async function callAgent(token: string): Promise<string> {
   } finally {
     clearTimeout(timer)
   }
+}
+
+// The agent's deep web search is a long-running request that can be dropped
+// mid-flight ("terminated") or hit a transient auth/5xx blip — leaving the feed
+// stale for the whole interval. A few spaced retries let a run heal itself. Kept
+// within the workflow's timeout budget (short backoffs, 3 attempts total).
+async function callAgent(token: string): Promise<string> {
+  const backoffs = [12_000, 30_000]
+  let lastErr: unknown
+  for (let attempt = 0; attempt <= backoffs.length; attempt++) {
+    try {
+      return await callAgentOnce(token)
+    } catch (err) {
+      lastErr = err
+      if (attempt < backoffs.length) {
+        const msg = err instanceof Error ? err.message : String(err)
+        console.warn(`agent call attempt ${attempt + 1} failed (${msg}); retrying in ${backoffs[attempt] / 1000}s ...`)
+        await new Promise((r) => setTimeout(r, backoffs[attempt]))
+      }
+    }
+  }
+  throw lastErr instanceof Error ? lastErr : new Error(String(lastErr))
 }
 
 function extractAnswer(text: string): string {
