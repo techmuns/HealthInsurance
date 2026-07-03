@@ -22,6 +22,11 @@ function buildPayload() {
     user_index: 124,
     tasks: [
       "I'm an investor tracking NIVA BUPA HEALTH INSURANCE (NSE: NIVABUPA) and the Indian standalone health-insurance sector (Star Health, Care, Aditya Birla, ManipalCigna). Give me a concise market-intelligence feed of anything that could MOVE the Niva Bupa share or matters for the health-insurance sector right now.\n\n" +
+        'PRIORITY ENTITIES & TOPICS — these are the most important searches; run each by name every time, before broader news:\n' +
+        '- Companies (standalone health insurers / SAHI): Niva Bupa, Star Health, Care Health (Care / Religare), Aditya Birla Health Insurance, ManipalCigna Health Insurance — and any other health-insurance company material to the Indian market.\n' +
+        '- Sector terms: "health insurance India", "health insurers", "standalone health insurance" (SAHI), and the broader "non-life / general insurance" segment these names sit in.\n' +
+        '- Regulator: IRDAI — rules, circulars, drafts, master guidelines, licences, penalties.\n' +
+        "- Leadership: each insurer's CEO / MD, founders and promoter-owners — resolve the CURRENT name-holders from a source (do not guess) and track their interviews, guidance, appointments and exits.\n\n" +
         'Include, where available:\n' +
         '- Upcoming investor / analyst meets, AGMs, board meetings and earnings-call / results dates.\n' +
         '- Recent or upcoming SECTOR & REGULATORY news (IRDAI rules, pricing/claims regulation, health-cover changes, M&A, capital raises, big partnerships).\n' +
