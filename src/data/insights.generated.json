@@ -1,10 +1,10 @@
 {
   "meta": {
-    "generatedAt": "2026-07-03T07:12:47.892Z",
+    "generatedAt": "2026-07-03T07:16:41.163Z",
     "dataAsOf": "FY25",
     "model": "deterministic-keyless (no-AI synthesis; plain templated prose, live numbers)",
     "signalsComputed": 92,
-    "signalHash": "sig_8a2a2534",
+    "signalHash": "sig_185d7133",
     "coverage": [
       {
         "insurer": "niva-bupa",
@@ -229,7 +229,7 @@
           }
         },
         "payloadHash": "sig_b25fc7a7",
-        "computedAt": "2026-07-03T07:12:47.892Z",
+        "computedAt": "2026-07-03T07:16:41.163Z",
         "isQuantitative": true
       },
       "application": {
@@ -539,7 +539,7 @@
           }
         },
         "payloadHash": "sig_32f11b60",
-        "computedAt": "2026-07-03T07:12:47.892Z",
+        "computedAt": "2026-07-03T07:16:41.163Z",
         "isQuantitative": true
       },
       "application": {
@@ -776,7 +776,7 @@
           }
         },
         "payloadHash": "sig_54f1b289",
-        "computedAt": "2026-07-03T07:12:47.892Z",
+        "computedAt": "2026-07-03T07:16:41.163Z",
         "isQuantitative": true
       },
       "application": {
@@ -1022,7 +1022,7 @@
           }
         },
         "payloadHash": "sig_e30f2ed1",
-        "computedAt": "2026-07-03T07:12:47.892Z",
+        "computedAt": "2026-07-03T07:16:41.163Z",
         "isQuantitative": true
       },
       "application": {
@@ -1292,7 +1292,7 @@
           }
         },
         "payloadHash": "sig_a4beddb2",
-        "computedAt": "2026-07-03T07:12:47.892Z",
+        "computedAt": "2026-07-03T07:16:41.163Z",
         "isQuantitative": true
       },
       "application": {
@@ -1553,7 +1553,7 @@
           }
         },
         "payloadHash": "sig_882e7b5",
-        "computedAt": "2026-07-03T07:12:47.892Z",
+        "computedAt": "2026-07-03T07:16:41.163Z",
         "isQuantitative": true
       },
       "application": {
@@ -1597,8 +1597,8 @@
       "category": "management",
       "headline": "Niva has delivered 60% of tracked guidance with none missed — yet only a couple of analysts price it, in a tight 10.5% target band",
       "shortHeadline": "Niva delivers, yet few analysts watch",
-      "summary": "Management is keeping its word — a 60% guidance hit-rate with nothing missed. Yet coverage is thin and the target band is only 10.5% wide around a 9.6% consensus upside. That is light scrutiny for a name whose multiple already embeds a steep ROE ramp — a small surprise could move it more than the narrow band implies.",
-      "thesis": "A 60% delivered-guidance rate with zero misses is a decent credibility record. But with only a handful of analysts and a tight 10.5% dispersion around 9.6% upside, the forward-ROE thesis is lightly stress-tested. Thin coverage plus a demanding multiple is a volatility set-up, either way.",
+      "summary": "Management is keeping its word — a 60% guidance hit-rate with nothing missed. Yet coverage is thin and the target band is only 10.5% wide around a 9.8% consensus upside. That is light scrutiny for a name whose multiple already embeds a steep ROE ramp — a small surprise could move it more than the narrow band implies.",
+      "thesis": "A 60% delivered-guidance rate with zero misses is a decent credibility record. But with only a handful of analysts and a tight 10.5% dispersion around 9.8% upside, the forward-ROE thesis is lightly stress-tested. Thin coverage plus a demanding multiple is a volatility set-up, either way.",
       "whatConsensusMisses": "Management is executing, but shallow coverage means the market's forward-ROE thesis is barely tested — a modest surprise can move the stock more than the narrow consensus band implies.",
       "evidence": [
         {
@@ -1616,7 +1616,7 @@
         {
           "insurer": "niva-bupa",
           "metric": "Consensus upside to target",
-          "value": 9.6,
+          "value": 9.8,
           "unit": "%",
           "context": "2 buy / 0 hold / 0 sell, n=2",
           "layers": [
@@ -1710,12 +1710,12 @@
             "refTag": "Street view",
             "gloss": "How much upside the Street prices and how tightly analysts agree.",
             "formulaTeX": "\\text{upside} = \\dfrac{\\overline{tgt} - P}{P}, \\quad \\text{dispersion} = \\dfrac{\\text{high} - \\text{low}}{\\overline{tgt}}",
-            "instanceTeX": "\\text{upside } +9.6\\%,\\ \\text{dispersion } 10.5\\%,\\ n = 2",
+            "instanceTeX": "\\text{upside } +9.8\\%,\\ \\text{dispersion } 10.5\\%,\\ n = 2",
             "inputs": [
               {
                 "symbol": "\\text{upside}",
                 "label": "Niva Bupa · upside to target",
-                "value": 9.6,
+                "value": 9.8,
                 "unit": "%",
                 "insurer": "niva-bupa",
                 "period": "FY25",
@@ -1733,7 +1733,7 @@
             ],
             "statistic": {
               "symbol": "\\text{upside}",
-              "value": 9.6,
+              "value": 9.8,
               "unit": "%"
             },
             "threshold": {
@@ -1766,8 +1766,8 @@
             "stepKeys": []
           }
         },
-        "payloadHash": "sig_4a0372a3",
-        "computedAt": "2026-07-03T07:12:47.892Z",
+        "payloadHash": "sig_c118dee2",
+        "computedAt": "2026-07-03T07:16:41.163Z",
         "isQuantitative": true
       },
       "application": {
