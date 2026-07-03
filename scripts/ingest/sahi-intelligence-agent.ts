@@ -17,22 +17,39 @@ import { createHash } from 'node:crypto'
 const API_URL = process.env.MUNS_AGENT_URL || 'https://devde.muns.io/chat/chat-muns'
 const API_TIMEOUT_MS = 600_000
 
-function buildPayload() {
+interface Focus {
+  key: string
+  scope: string
+  maxItems: number
+}
+
+// The agent's deep multi-topic search runs too long in one shot and the request
+// gets terminated (~5-min server limit) — retries just hit the same wall. Splitting
+// it into a couple of FOCUSED pulls keeps each call small enough to finish; their
+// results are de-duped and merged. Each pull still prefers the trusted outlets and
+// links the original article.
+const FOCUSES: Focus[] = [
+  {
+    key: 'company',
+    scope:
+      'FOCUS OF THIS PULL — company & analyst: developments for the LISTED standalone health insurers, Niva Bupa (NSE: NIVABUPA) first, then Star Health, Care Health (Care / Religare), Aditya Birla Health, ManipalCigna. Cover results / earnings and board / investor-meet dates, analyst rating & target-price actions, capital raises, big partnerships, and management / leadership changes (CEO / MD / founders / owners — named only from a source). Skip general regulatory news in this pull.',
+    maxItems: 8,
+  },
+  {
+    key: 'regulatory',
+    scope:
+      'FOCUS OF THIS PULL — regulatory & sector: developments for Indian health / non-life (general) insurance that affect every standalone health insurer. Cover IRDAI rules, circulars, drafts, master guidelines, licences and penalties; pricing / claims / cashless regulation; health-cover changes; sector M&A and capital; and genuinely market-moving sector news. Skip individual company earnings in this pull.',
+    maxItems: 6,
+  },
+]
+
+function buildPayload(focus: Focus) {
   return {
     user_index: 124,
     tasks: [
-      "I'm an investor tracking NIVA BUPA HEALTH INSURANCE (NSE: NIVABUPA) and the Indian standalone health-insurance sector (Star Health, Care, Aditya Birla, ManipalCigna). Give me a concise market-intelligence feed of anything that could MOVE the Niva Bupa share or matters for the health-insurance sector right now.\n\n" +
-        'PRIORITY ENTITIES & TOPICS — these are the most important searches; run each by name every time, before broader news:\n' +
-        '- Companies (standalone health insurers / SAHI): Niva Bupa, Star Health, Care Health (Care / Religare), Aditya Birla Health Insurance, ManipalCigna Health Insurance — and any other health-insurance company material to the Indian market.\n' +
-        '- Sector terms: "health insurance India", "health insurers", "standalone health insurance" (SAHI), and the broader "non-life / general insurance" segment these names sit in.\n' +
-        '- Regulator: IRDAI — rules, circulars, drafts, master guidelines, licences, penalties.\n' +
-        "- Leadership: management news for these insurers and their CEOs / MDs, founders and promoter-owners — appointments, exits, interviews and guidance (name people only from a source, never guessed).\n\n" +
-        'Include, where available:\n' +
-        '- Upcoming investor / analyst meets, AGMs, board meetings and earnings-call / results dates.\n' +
-        '- Recent or upcoming SECTOR & REGULATORY news (IRDAI rules, pricing/claims regulation, health-cover changes, M&A, capital raises, big partnerships).\n' +
-        '- Analyst rating / target-price actions on the listed names.\n' +
-        '- Any catalyst that could move the Niva Bupa share specifically.\n\n' +
-        'Return a table with exactly these columns, in this order, pipe-delimited:\n\n' +
+      "I'm an investor tracking NIVA BUPA HEALTH INSURANCE (NSE: NIVABUPA) and the Indian standalone health-insurance sector (Star Health, Care, Aditya Birla, ManipalCigna). Give me a concise, source-linked market-intelligence feed of what could MOVE these shares or matters for the health-insurance sector right now.\n\n" +
+        focus.scope +
+        '\n\nReturn a table with exactly these columns, in this order, pipe-delimited:\n\n' +
         'company | date | kind | horizon | impact | headline | detail | source_url\n\n' +
         'Rules:\n' +
         'company = "Niva Bupa" for company-specific items, or "Sector" for sector/regulatory items.\n' +
@@ -43,14 +60,8 @@ function buildPayload() {
         'headline = one short line.\n' +
         'detail = one sentence on why it matters to the share / sector.\n' +
         'source_url = the link backing the item.\n\n' +
-        'PREFERRED SOURCES — search these trusted outlets deeply and prefer them for headlines and links:\n' +
-        '- The Economic Times (economictimes.indiatimes.com, including bfsi.economictimes.indiatimes.com)\n' +
-        '- The Hindu BusinessLine (thehindubusinessline.com)\n' +
-        '- Moneycontrol (moneycontrol.com)\n' +
-        '- Livemint / Mint (livemint.com)\n' +
-        '- Pulse by Zerodha (pulse.zerodha.com) — a live aggregator of Indian market news. Use it to DISCOVER the latest headlines, but link the ORIGINAL source article it points to (the Economic Times / BusinessLine / Moneycontrol / Livemint / other outlet page), never the aggregator URL.\n' +
-        'Dig into these for the latest IRDAI / regulatory, sector and company developments. When several outlets carry the same story, cite one of the trusted outlets above. Still include other credible sources for anything these have not covered — do not omit a real development just because it is elsewhere.\n\n' +
-        'Give 6–12 of the most relevant, current items, most market-moving first. Use real, sourced items only — do not invent events. Leave a cell blank rather than guess.\n\n' +
+        'PREFERRED SOURCES — prefer these trusted outlets for headlines and links: The Economic Times (economictimes.indiatimes.com / bfsi.economictimes.indiatimes.com), The Hindu BusinessLine (thehindubusinessline.com), Moneycontrol (moneycontrol.com), Livemint (livemint.com). You may DISCOVER headlines via Pulse by Zerodha (pulse.zerodha.com) but link the ORIGINAL outlet article, never the aggregator URL. Include other credible sources for anything these have not covered.\n\n' +
+        `Give up to ${focus.maxItems} of the most relevant, current items, most market-moving first. Use real, sourced items only — do not invent events. Leave a cell blank rather than guess.\n\n` +
         'Example (format only):\n' +
         'company | date | kind | horizon | impact | headline | detail | source_url\n' +
         'Niva Bupa | 2026-05-20 | earnings | upcoming | watch | Q4 FY26 results on 20 May | Combined ratio and growth guidance are the swing factors for the stock. | https://…',
@@ -74,14 +85,14 @@ function buildPayload() {
   }
 }
 
-async function callAgentOnce(token: string): Promise<string> {
+async function callAgentOnce(token: string, focus: Focus): Promise<string> {
   const ctrl = new AbortController()
   const timer = setTimeout(() => ctrl.abort(), API_TIMEOUT_MS)
   try {
     const res = await fetch(API_URL, {
       method: 'POST',
       headers: { accept: '*/*', Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
-      body: JSON.stringify(buildPayload()),
+      body: JSON.stringify(buildPayload(focus)),
       signal: ctrl.signal,
     })
     if (!res.ok) throw new Error(`agent call failed: HTTP ${res.status} ${res.statusText}`)
@@ -91,21 +102,20 @@ async function callAgentOnce(token: string): Promise<string> {
   }
 }
 
-// The agent's deep web search is a long-running request that can be dropped
-// mid-flight ("terminated") or hit a transient auth/5xx blip — leaving the feed
-// stale for the whole interval. A few spaced retries let a run heal itself. Kept
-// within the workflow's timeout budget (short backoffs, 3 attempts total).
-async function callAgent(token: string): Promise<string> {
-  const backoffs = [12_000, 30_000]
+// Even a focused pull can be dropped mid-flight ("terminated") or hit a transient
+// auth/5xx blip — one spaced retry lets it heal without blowing the workflow's
+// timeout budget (two focused pulls per run).
+async function callAgent(token: string, focus: Focus): Promise<string> {
+  const backoffs = [15_000]
   let lastErr: unknown
   for (let attempt = 0; attempt <= backoffs.length; attempt++) {
     try {
-      return await callAgentOnce(token)
+      return await callAgentOnce(token, focus)
     } catch (err) {
       lastErr = err
       if (attempt < backoffs.length) {
         const msg = err instanceof Error ? err.message : String(err)
-        console.warn(`agent call attempt ${attempt + 1} failed (${msg}); retrying in ${backoffs[attempt] / 1000}s ...`)
+        console.warn(`[${focus.key}] agent call attempt ${attempt + 1} failed (${msg}); retrying in ${backoffs[attempt] / 1000}s ...`)
         await new Promise((r) => setTimeout(r, backoffs[attempt]))
       }
     }
@@ -251,20 +261,34 @@ async function main(): Promise<number> {
   const fetched_at = nowIso()
   const today = fetched_at.slice(0, 10)
 
-  console.log('Calling chat-muns agent for SAHI market intelligence ...')
-  let raw: string
-  try { raw = await callAgent(token) } catch (err) {
-    console.error(`ERROR: ${err instanceof Error ? err.message : String(err)}`); return 1
+  // Two FOCUSED pulls (company & analyst, then regulatory & sector) — each small
+  // enough to finish inside the agent's request window. A pull that fails doesn't
+  // sink the run; we merge whatever the successful pulls returned.
+  console.log(`Calling chat-muns agent — ${FOCUSES.length} focused pulls ...`)
+  const raws: string[] = []
+  for (const focus of FOCUSES) {
+    try {
+      console.log(`  · focus: ${focus.key}`)
+      raws.push(await callAgent(token, focus))
+    } catch (err) {
+      console.error(`  · focus ${focus.key} failed: ${err instanceof Error ? err.message : String(err)}`)
+    }
   }
-  const items = parseItems(extractAnswer(raw), today)
-  console.log(`Parsed ${items.length} intelligence item(s).`)
+  if (raws.length === 0) {
+    console.error('ERROR: all focused agent pulls failed — leaving snapshot untouched.')
+    return 1
+  }
+  // Parse every pull and de-dupe across them (same id = same headline + date).
+  const parsed = raws.flatMap((raw) => parseItems(extractAnswer(raw), today))
+  const items = [...new Map(parsed.map((i) => [i.id, i])).values()]
+  console.log(`Parsed ${items.length} item(s) from ${raws.length}/${FOCUSES.length} focused pull(s).`)
   for (const i of items) {
     console.log(`  + [${i.horizon}/${i.impact}] ${i.date ?? '—'} ${i.company_id}: ${i.headline}`)
   }
-  await appendLog('sahi-intelligence-agent.log', { count: items.length })
+  await appendLog('sahi-intelligence-agent.log', { count: items.length, pulls: raws.length })
 
   if (items.length === 0) {
-    console.error('No parseable items — leaving market-intelligence-snapshot.json untouched. Raw answer:\n' + extractAnswer(raw).slice(0, 1500))
+    console.error('No parseable items across pulls — leaving market-intelligence-snapshot.json untouched.')
     return 0
   }
 
