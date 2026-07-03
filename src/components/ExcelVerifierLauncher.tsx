@@ -1,18 +1,19 @@
 import { lazy, Suspense, Component, type ReactNode } from 'react'
 import { createPortal } from 'react-dom'
-import { FileCheck2, FileSpreadsheet, TriangleAlert, RotateCcw, Loader2, X } from 'lucide-react'
+import { FileSpreadsheet, TriangleAlert, RotateCcw, Loader2, X } from 'lucide-react'
 import { useVerify } from '@/state/verifyState'
 
 // ---------------------------------------------------------------------------
-//  ExcelVerifierLauncher — the entry point to the Excel Upload Verifier, placed
-//  INSIDE the Data Audit page (where the figures it checks against live). A
-//  compact contextual card + button that opens the verifier window.
+//  ExcelVerifierLauncher — a HEADLESS mount for the Excel Upload Verifier
+//  window, placed on the Data Audit page. The visible entry point is now the
+//  "Verify Excel" blob button in the audit control row (see AuditSpreadsheet);
+//  this component only mounts the lazy verifier window while it is open.
 //
 //  The window is lazy: SheetJS + the cell-level audit model load only when the
 //  tool is actually opened. To avoid a flash, the loading/error fallbacks match
 //  the real floating window's shape and position (read from the same saved
-//  geometry) — never the old full-height drawer — and the chunk is preloaded on
-//  hover so the fallback is rarely seen at all.
+//  geometry). The chunk is preloaded on hover of the Verify Excel button so the
+//  fallback is rarely seen at all.
 // ---------------------------------------------------------------------------
 
 const importDrawer = () => import('@/components/ExcelVerifierDrawer')
@@ -103,41 +104,12 @@ function VerifierLoading({ onClose }: { onClose: () => void }) {
 export function ExcelVerifierLauncher() {
   const v = useVerify()
   const close = v.closeVerifier
-  const active = !!v.result
+  if (!v.open) return null
   return (
-    <div className="flex flex-wrap items-center justify-between gap-3 rounded-xl2 border border-soft-border bg-gradient-to-r from-soft-blue/40 to-card p-4 shadow-soft">
-      <div className="flex items-start gap-2.5">
-        <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-soft-blue text-navy-primary">
-          <FileSpreadsheet className="h-4 w-4" />
-        </span>
-        <div className="leading-tight">
-          <p className="font-display text-[14px] text-navy-deep">
-            {active ? 'Verification active — review the highlighted cells below' : 'Check your workbook against this audit'}
-          </p>
-          <p className="mt-0.5 text-[11.5px] leading-relaxed text-ink-secondary">
-            {active
-              ? 'Reopen the verifier to browse the full result list, switch files, or export the report. Only flagged cells are highlighted in the grid.'
-              : 'Upload your Excel and it’s compared cell-by-cell to these figures — matches, mismatches and source/basis differences flagged, with a report to export.'}
-          </p>
-        </div>
-      </div>
-      <button
-        type="button"
-        onClick={v.openVerifier}
-        onPointerEnter={() => { void importDrawer() }}
-        onFocus={() => { void importDrawer() }}
-        className="inline-flex shrink-0 items-center gap-1.5 rounded-full bg-navy-primary px-4 py-2 text-[12.5px] font-semibold text-white shadow-soft transition-all hover:bg-navy-deep"
-        title="Upload an Excel file and check it cell-by-cell against this audit"
-      >
-        <FileCheck2 className="h-3.5 w-3.5" /> {active ? 'Reopen verifier' : 'Verify Excel'}
-      </button>
-      {v.open && (
-        <VerifierBoundary onClose={close}>
-          <Suspense fallback={<VerifierLoading onClose={close} />}>
-            <ExcelVerifierDrawer open onClose={close} />
-          </Suspense>
-        </VerifierBoundary>
-      )}
-    </div>
+    <VerifierBoundary onClose={close}>
+      <Suspense fallback={<VerifierLoading onClose={close} />}>
+        <ExcelVerifierDrawer open onClose={close} />
+      </Suspense>
+    </VerifierBoundary>
   )
 }

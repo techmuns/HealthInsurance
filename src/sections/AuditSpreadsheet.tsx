@@ -19,6 +19,25 @@ import { isReadyAuditCell } from '@/lib/analystReadout'
 import { useVerifyOptional } from '@/state/verifyState'
 import type { VerifyResult, VerifyRow, VerifyStatus } from '@/lib/excelVerify'
 
+// Blob-style control buttons (Excel verifier · AI Mode) — golden by default,
+// navy-blue when active, matching the section-nav blobs in HeaderSwitcher.
+const GOLD_BLOB_ICON = '#C99736'
+const GOLD_BLOB_ICON_ON = '#E4C67C'
+function blobBtnCls(active: boolean): string {
+  return [
+    'group relative inline-flex items-center gap-1.5 overflow-hidden rounded-lg border px-2.5 py-1.5 text-[12px] font-semibold tracking-tight transition-all duration-normal ease-premium',
+    active
+      ? 'border-transparent bg-gradient-to-br from-[#1E4079] to-[#143058] text-white shadow-[0_4px_14px_rgba(20,48,88,0.26)]'
+      : 'border-[#E7D8B6] bg-gradient-to-br from-[#F8F1DF] to-[#F1E6CC] text-[#6E5A2E] shadow-soft hover:-translate-y-0.5 hover:shadow-card',
+  ].join(' ')
+}
+function blobIconCls(active: boolean): string {
+  return [
+    'flex h-7 w-7 shrink-0 items-center justify-center blob-c transition-colors',
+    active ? 'bg-white/12 ring-1 ring-white/15' : 'bg-[#F4ECDB] ring-1 ring-[#E7D8B6]',
+  ].join(' ')
+}
+
 // ---------------------------------------------------------------------------
 //  Audit · Spreadsheet view — mirrors the source Excel template tab-for-tab and
 //  cell-for-cell, so a reviewer can put their Excel next to this and compare
@@ -933,35 +952,11 @@ function GridView({ group, fullColumns, companyLabel, isFiltered, raw, onRawChan
 
   return (
     <>
-      {/* Toolbar — context · value mode · legend */}
-      <div className="flex flex-wrap items-center justify-between gap-3">
-        <div className="flex items-center gap-2">
-          <span className="text-[11px] text-ink-secondary">{group.dashboardSection || group.role}</span>
-          <span className="text-ink-secondary/40">·</span>
-          <span className="text-[11px] text-ink-secondary">{group.dimensions}</span>
-        </div>
-        <div className="flex flex-wrap items-center gap-3">
-          <div className="inline-flex overflow-hidden rounded-full border border-soft-border bg-ice/60 p-0.5">
-            {([['final', 'Final value'], ['raw', 'As printed']] as const).map(([v, label]) => {
-              const on = (v === 'raw') === raw
-              return (
-                <button key={v} type="button" onClick={() => onRawChange(v === 'raw')}
-                  className={`rounded-full px-2.5 py-1 text-[11px] font-medium transition-all duration-normal ease-premium ${on ? 'bg-white text-navy-deep shadow-soft' : 'text-ink-secondary hover:text-navy-primary'}`}>
-                  {label}
-                </button>
-              )
-            })}
-          </div>
-          {!verify?.view && (
-            <div className="flex flex-wrap items-center gap-2 text-[10px] text-ink-secondary">
-              {LEGEND.map((c) => (
-                <span key={c} className="inline-flex items-center gap-1">
-                  <span className="h-2.5 w-2.5 rounded-[3px]" style={{ background: QA[c].dot, opacity: 0.85 }} />{QA[c].label}
-                </span>
-              ))}
-            </div>
-          )}
-        </div>
+      {/* Toolbar — context (value mode + legend now live in the source-pipeline row) */}
+      <div className="flex flex-wrap items-center gap-2">
+        <span className="text-[11px] text-ink-secondary">{group.dashboardSection || group.role}</span>
+        <span className="text-ink-secondary/40">·</span>
+        <span className="text-[11px] text-ink-secondary">{group.dimensions}</span>
       </div>
 
       {/* Source-pipeline coverage for this sheet — where each source maps and
@@ -992,6 +987,29 @@ function GridView({ group, fullColumns, companyLabel, isFiltered, raw, onRawChan
             <span className="text-ink-secondary">{pipeStats.notInDeck} cells</span>
           </span>
         )}
+        {/* Value mode + colour legend — relocated here from the toolbar, pinned right. */}
+        <div className="ml-auto flex flex-wrap items-center gap-3">
+          <div className="inline-flex overflow-hidden rounded-full border border-soft-border bg-ice/60 p-0.5">
+            {([['final', 'Final value'], ['raw', 'As printed']] as const).map(([v, label]) => {
+              const on = (v === 'raw') === raw
+              return (
+                <button key={v} type="button" onClick={() => onRawChange(v === 'raw')}
+                  className={`rounded-full px-2.5 py-1 text-[11px] font-medium transition-all duration-normal ease-premium ${on ? 'bg-white text-navy-deep shadow-soft' : 'text-ink-secondary hover:text-navy-primary'}`}>
+                  {label}
+                </button>
+              )
+            })}
+          </div>
+          {!verify?.view && (
+            <div className="flex flex-wrap items-center gap-2 text-[10px] text-ink-secondary">
+              {LEGEND.map((c) => (
+                <span key={c} className="inline-flex items-center gap-1">
+                  <span className="h-2.5 w-2.5 rounded-[3px]" style={{ background: QA[c].dot, opacity: 0.85 }} />{QA[c].label}
+                </span>
+              ))}
+            </div>
+          )}
+        </div>
       </div>
 
       {/* Customize View — the hidden-items tray + Save / Reset. Tap × on a
@@ -1350,20 +1368,38 @@ export function AuditSpreadsheet({ model, focus }: { model: AuditModel; focus?: 
             </span>
           )}
         </div>
-        {/* AI Mode — drag-select cells in the grid and ask for a quick analysis.
-            Hidden during the Excel verification overlay (the two don't mix). */}
+        {/* Excel verifier + AI Mode — twin blob buttons (golden by default, blue
+            when active). Hidden during the Excel verification overlay, which
+            carries its own control banner. */}
         {!verifyView && (
-          <button
-            type="button"
-            onClick={() => setAiMode((m) => !m)}
-            aria-pressed={aiMode}
-            title="Turn on to drag-select cells and analyse them with AI"
-            className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-[11.5px] font-semibold transition-all ${
-              aiMode ? 'border-transparent bg-gradient-to-br from-[#1E4079] to-[#143058] text-white shadow-soft' : 'border-soft-border bg-white text-navy-deep hover:border-muted-blue hover:shadow-soft'
-            }`}
-          >
-            <Sparkles className="h-3.5 w-3.5" /> AI Mode: {aiMode ? 'On' : 'Off'}
-          </button>
+          <div className="flex flex-wrap items-center gap-1.5">
+            <button
+              type="button"
+              onClick={() => vctx?.openVerifier()}
+              onPointerEnter={() => { void import('@/components/ExcelVerifierDrawer') }}
+              onFocus={() => { void import('@/components/ExcelVerifierDrawer') }}
+              aria-pressed={!!verifyResult}
+              title="Upload an Excel file and check it cell-by-cell against this audit"
+              className={blobBtnCls(!!verifyResult)}
+            >
+              <span className={blobIconCls(!!verifyResult)}>
+                <FileCheck2 className="h-[15px] w-[15px]" strokeWidth={2.2} style={{ color: verifyResult ? GOLD_BLOB_ICON_ON : GOLD_BLOB_ICON }} />
+              </span>
+              {verifyResult ? 'Reopen verifier' : 'Verify Excel'}
+            </button>
+            <button
+              type="button"
+              onClick={() => setAiMode((m) => !m)}
+              aria-pressed={aiMode}
+              title="Turn on to drag-select cells and analyse them with AI"
+              className={blobBtnCls(aiMode)}
+            >
+              <span className={blobIconCls(aiMode)}>
+                <Sparkles className="h-[15px] w-[15px]" strokeWidth={2.2} style={{ color: aiMode ? GOLD_BLOB_ICON_ON : GOLD_BLOB_ICON }} />
+              </span>
+              AI Mode{aiMode ? ' · On' : ''}
+            </button>
+          </div>
         )}
       </div>
 
