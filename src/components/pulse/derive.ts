@@ -120,6 +120,24 @@ const CATEGORY_LENS: Record<SignalCategory, Exclude<LensKey, 'overviewPulse'>> =
 const isRecent = (s: PulseSignal) => s.horizon !== 'upcoming'
 const isFreshToday = (s: PulseSignal) => isRecent(s) && (s.daysAgo ?? 999) <= 2
 
+// An EVERGREEN reference page — an explainer / guide / FAQ / IR "watch this page"
+// landing — NOT a dated development. An insurer's "what the new IRDAI rules mean"
+// article, a broker's "IRDA rules for health insurance" guide, or an IR landing page
+// carries no real publication date, so the feed stamps it with the day it was crawled.
+// That is exactly what makes a months-old rule show up as a "since yesterday" change.
+// Such an item stays in the fuller feed as background context, but it must NEVER be
+// counted as a day-over-day change. (Honesty, CLAUDE.md: old rules must not be dressed
+// up as new; a "since yesterday" delta shows only real, dated developments.)
+const EVERGREEN_URL_RE =
+  /health-insurance-articles|\/(blog|learn|guides?|knowledge|resources|faqs?)\/|what-is-|what-has-changed|rules-for-health|irda-rules|-guide(?:$|[-.?#/])|-explained|explainer|investor-relations|\.aspx(?:$|[?#])/i
+export function isEvergreenReference(s: { sourceUrl?: string | null }): boolean {
+  return !!s.sourceUrl && EVERGREEN_URL_RE.test(s.sourceUrl)
+}
+/** A genuinely NEW day-over-day development: dated today or yesterday (IST) AND a real
+ *  dated item — not an evergreen explainer/landing page mis-stamped with the crawl date. */
+const isNewDevelopment = (s: PulseSignal, today: string, yday: string) =>
+  (s.date === today || s.date === yday) && !isEvergreenReference(s)
+
 /** True when a signal has real, wired correlation data behind it (a live lens). */
 export function signalHasCorrelation(s: PulseSignal, pulse: InvestorPulse): boolean {
   const lens = pulse.lenses[CATEGORY_LENS[s.category]]
@@ -1229,9 +1247,10 @@ export function briefMessage(pulse: InvestorPulse, scoped: PulseSignal[], one: O
   const mgmt = selectManagementEvents(pulse.companyId, { recentOnly: true }).length
   if (reg + companyAny + mgmt === 0 && !one) return { since: '', keyThing: '', why: '', watch: '', nothing: true }
 
-  // What is genuinely NEW: items DATED today or yesterday (IST). For a past-date view
-  // the scoped slice is already that date's items, so "new" is all of them.
-  const newRecent = isToday ? recent.filter((s) => s.date === todayIso() || s.date === yesterdayIso()) : recent
+  // What is genuinely NEW: real dated developments from today or yesterday (IST) —
+  // excluding evergreen explainer/landing pages mis-stamped with the crawl date. For a
+  // past-date view the scoped slice is already that date's items, so "new" is all of them.
+  const newRecent = isToday ? recent.filter((s) => isNewDevelopment(s, todayIso(), yesterdayIso())) : recent
   const regNew = newRecent.filter((s) => s.category === 'Regulatory').length
   const companyPosNew = newRecent.filter((s) => s.scope === 'company' && s.impact === 'Positive').length
   const companyAnyNew = newRecent.filter((s) => s.scope === 'company').length
@@ -1297,12 +1316,15 @@ export function sinceYesterday(pulse: InvestorPulse): SinceDelta[] {
 
   // "Since yesterday" = developments DATED today or yesterday (IST) — what actually
   // happened in the last day. NOT the whole recent window (weeks-old items would be
-  // mislabeled as day-over-day changes), and NOT merely "surfaced today" (old news
-  // newly found is not a since-yesterday change; and the feed's first daily run stamps
-  // everything as captured-today, which would inflate the counts). On a quiet day these
-  // simply go to zero. (#10 / honest-period rule.)
-  const isNewSinceYesterday = (s: PulseSignal) => s.date === todayIso() || s.date === yesterdayIso()
-  const fresh = pulse.signals.filter(isRecent).filter(isNewSinceYesterday)
+  // mislabeled as day-over-day changes), NOT merely "surfaced today" (old news newly
+  // found is not a since-yesterday change; and the feed's first daily run stamps
+  // everything as captured-today, which would inflate the counts), and NOT an evergreen
+  // explainer / IR-landing page crawled today but describing a months-old rule (that
+  // was the "2 new regulatory updates" that were really last March's rules). On a quiet
+  // day these simply go to zero. (#10 / honest-period rule.)
+  const today = todayIso()
+  const yday = yesterdayIso()
+  const fresh = pulse.signals.filter(isRecent).filter((s) => isNewDevelopment(s, today, yday))
 
   // Each non-metric change carries a LOCATOR focus, so "View in dashboard" scrolls
   // to the exact section it lives in, blips it and pops a small "here it is" note.

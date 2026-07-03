@@ -62,6 +62,7 @@ function buildPayload(focus: Focus) {
         'source_url = the link backing the item.\n\n' +
         'PREFERRED SOURCES — prefer these trusted outlets for headlines and links: The Economic Times (economictimes.indiatimes.com / bfsi.economictimes.indiatimes.com), The Hindu BusinessLine (thehindubusinessline.com), Moneycontrol (moneycontrol.com), Livemint (livemint.com). You may DISCOVER headlines via Pulse by Zerodha (pulse.zerodha.com) but link the ORIGINAL outlet article, never the aggregator URL. Include other credible sources for anything these have not covered.\n\n' +
         `Give up to ${focus.maxItems} of the most relevant, current items, most market-moving first. Use real, sourced items only — do not invent events. Leave a cell blank rather than guess.\n\n` +
+        'DATE DISCIPLINE — the date must be the date the development actually happened / was published, NEVER today\'s date as a placeholder. Do NOT include evergreen explainer / "what the new rules mean" / guide / FAQ pages, or an insurer\'s investor-relations "watch this page" landing — those describe rules that may have changed months ago and have no real news date. If an item has no genuine, verifiable publication date, LEAVE THE DATE CELL BLANK rather than fill in today. Only a specific, dated development belongs in this feed.\n\n' +
         'Example (format only):\n' +
         'company | date | kind | horizon | impact | headline | detail | source_url\n' +
         'Niva Bupa | 2026-05-20 | earnings | upcoming | watch | Q4 FY26 results on 20 May | Combined ratio and growth guidance are the swing factors for the stock. | https://…',
@@ -145,6 +146,16 @@ function clean(s: string | undefined): string {
   return (s ?? '').replace(/^["'\s]+|["'\s]+$/g, '').trim()
 }
 
+// An evergreen explainer / guide / FAQ / IR-landing URL — reference content with no
+// genuine publication date (an insurer's "what the new IRDAI rules mean" article, a
+// broker's "IRDA rules" guide, an IR "watch this page"). Kept in sync with the reader's
+// guard in src/components/pulse/derive.ts (isEvergreenReference).
+const EVERGREEN_URL_RE =
+  /health-insurance-articles|\/(blog|learn|guides?|knowledge|resources|faqs?)\/|what-is-|what-has-changed|rules-for-health|irda-rules|-guide(?:$|[-.?#/])|-explained|explainer|investor-relations|\.aspx(?:$|[?#])/i
+function isEvergreenUrl(url: string | null): boolean {
+  return !!url && EVERGREEN_URL_RE.test(url)
+}
+
 interface IntelItem {
   id: string
   company_id: string
@@ -170,13 +181,18 @@ function parseItems(answer: string, today: string): IntelItem[] {
     if (/^company$/i.test(c[0]) || /^-+$/.test(c[1] ?? '')) continue // header / divider
     const headline = clean(c[5])
     if (!headline || headline.length < 4) continue
-    const dateRaw = clean(c[1])
-    const date = /\d{4}-\d{2}-\d{2}/.test(dateRaw) ? dateRaw.match(/\d{4}-\d{2}-\d{2}/)![0] : null
+    const sourceUrl = (c[7] || '').match(/https?:\/\/\S+/)?.[0] ?? null
+    const dateMatch = clean(c[1]).match(/\d{4}-\d{2}-\d{2}/)?.[0] ?? null
+    // An evergreen explainer / guide / FAQ / IR "watch this page" landing carries no
+    // real publication date; when the agent stamps one anyway (typically "today"), drop
+    // it so the item is stored as UNDATED background — never counted as a "since
+    // yesterday" development. This is what kept surfacing last March's IRDAI rules as
+    // brand-new regulatory updates. (Honesty: old rules must not be dressed up as new.)
+    const date = dateMatch && isEvergreenUrl(sourceUrl) ? null : dateMatch
     const kind = KINDS.has(c[2]) ? c[2] : 'sector_news'
     let horizon = (c[3] || '').toLowerCase() === 'upcoming' || (c[3] || '').toLowerCase() === 'recent' ? (c[3].toLowerCase() as 'upcoming' | 'recent') : null
     if (!horizon) horizon = date && date >= today ? 'upcoming' : 'recent'
     const impact = IMPACTS.has((c[4] || '').toLowerCase()) ? c[4].toLowerCase() : 'neutral'
-    const sourceUrl = (c[7] || '').match(/https?:\/\/\S+/)?.[0] ?? null
     out.push({
       id: createHash('sha1').update(headline + (date ?? '')).digest('hex').slice(0, 10),
       company_id: companyId(c[0]),
