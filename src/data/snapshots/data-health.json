@@ -1,6 +1,6 @@
 {
-  "last_successful_run": "2026-07-03T05:08:00.325Z",
-  "last_failed_run": "2026-07-03T05:08:00.325Z",
+  "last_successful_run": "2026-07-03T05:38:42.584Z",
+  "last_failed_run": "2026-07-03T05:38:42.584Z",
   "sources_checked": 12,
   "sources_success": 5,
   "sources_failed": 2,
@@ -24038,6 +24038,7 @@
     "[valuation_daily] godigit: HTTP 403 for https://www.nseindia.com/api/quote-equity?symbol=GODIGIT",
     "[valuation_daily] new-india: HTTP 403 for https://www.nseindia.com/api/quote-equity?symbol=NIACL",
     "[valuation_daily] religare-enterprises: HTTP 403 for https://www.nseindia.com/api/quote-equity?symbol=RELIGARE",
+    "[moneycontrol_analyst] Broker Research page fetched but no broker cards matched (DOM may have changed).",
     "[moneycontrol_analyst] Forecast endpoint 0 failed: HTTP 422 for https://api.moneycontrol.com/mcapi/v1/stock/estimates/price-forecast?scId=NBH&deviceType=W",
     "[moneycontrol_analyst] Forecast endpoint 1 failed: HTTP 422 for https://api.moneycontrol.com/mcapi/v1/stock/estimates/analyst-rating?scId=NBH&deviceType=W",
     "[moneycontrol_analyst] Forecast endpoint 2 failed: HTTP 404 for https://api.moneycontrol.com/mcapi/v1/stock/estimates/recommendation?scId=NBH&deviceType=W",
@@ -24066,7 +24067,7 @@
     {
       "source_id": "irdai_monthly_business",
       "status": "failed",
-      "last_attempt_at": "2026-07-03T04:59:47.014Z",
+      "last_attempt_at": "2026-07-03T05:30:40.667Z",
       "last_success_at": null,
       "records_fetched": 0,
       "error": "No XLSX link discovered on https://irdai.gov.in/non-life"
@@ -24214,28 +24215,28 @@
     {
       "source_id": "valuation_daily",
       "status": "pending",
-      "last_attempt_at": "2026-07-03T05:01:02.873Z",
+      "last_attempt_at": "2026-07-03T05:31:47.985Z",
       "last_success_at": null,
       "records_fetched": 0
     },
     {
       "source_id": "gicouncil_flash_sahi",
       "status": "success",
-      "last_attempt_at": "2026-07-03T04:59:52.042Z",
-      "last_success_at": "2026-07-03T04:59:52.042Z",
+      "last_attempt_at": "2026-07-03T05:30:45.741Z",
+      "last_success_at": "2026-07-03T05:30:45.741Z",
       "records_fetched": 91
     },
     {
       "source_id": "gicouncil_segmentwise",
       "status": "success",
-      "last_attempt_at": "2026-07-03T04:59:59.353Z",
-      "last_success_at": "2026-07-03T04:59:59.353Z",
+      "last_attempt_at": "2026-07-03T05:30:55.640Z",
+      "last_success_at": "2026-07-03T05:30:55.640Z",
       "records_fetched": 103
     },
     {
       "source_id": "irdai_nonlife_flash",
       "status": "pending",
-      "last_attempt_at": "2026-07-03T04:59:49.560Z",
+      "last_attempt_at": "2026-07-03T05:30:43.285Z",
       "last_success_at": null,
       "records_fetched": 0
     },
@@ -24249,28 +24250,28 @@
     {
       "source_id": "moneycontrol_analyst",
       "status": "success",
-      "last_attempt_at": "2026-07-03T05:01:06.772Z",
-      "last_success_at": "2026-07-03T05:01:06.772Z",
-      "records_fetched": 6
+      "last_attempt_at": "2026-07-03T05:31:50.760Z",
+      "last_success_at": "2026-07-03T05:31:50.760Z",
+      "records_fetched": 0
     },
     {
       "source_id": "price_history",
       "status": "pending",
-      "last_attempt_at": "2026-07-03T05:07:56.744Z",
+      "last_attempt_at": "2026-07-03T05:38:40.633Z",
       "last_success_at": null,
       "records_fetched": 0
     },
     {
       "source_id": "gicouncil_segmentwise_annual",
       "status": "success",
-      "last_attempt_at": "2026-07-03T05:00:55.904Z",
-      "last_success_at": "2026-07-03T05:00:55.904Z",
+      "last_attempt_at": "2026-07-03T05:31:41.139Z",
+      "last_success_at": "2026-07-03T05:31:41.139Z",
       "records_fetched": 2770
     },
     {
       "source_id": "muns_market_data",
       "status": "failed",
-      "last_attempt_at": "2026-07-03T05:07:28.271Z",
+      "last_attempt_at": "2026-07-03T05:38:12.154Z",
       "last_success_at": "2026-07-02T19:11:29.603Z",
       "records_fetched": 0,
       "error": "fetcher timed out after 6 min (capped so the run always reaches snapshot merge + commit)"
@@ -24278,22 +24279,22 @@
     {
       "source_id": "yahoo_price",
       "status": "pending",
-      "last_attempt_at": "2026-07-03T05:07:28.272Z",
+      "last_attempt_at": "2026-07-03T05:38:12.155Z",
       "last_success_at": null,
       "records_fetched": 0
     },
     {
       "source_id": "nse_delivery",
       "status": "pending",
-      "last_attempt_at": "2026-07-03T05:07:59.691Z",
+      "last_attempt_at": "2026-07-03T05:38:41.937Z",
       "last_success_at": "2026-06-30T07:09:57.409Z",
       "records_fetched": 0
     },
     {
       "source_id": "moneycontrol_stock_deals",
       "status": "success",
-      "last_attempt_at": "2026-07-03T05:01:19.979Z",
-      "last_success_at": "2026-07-03T05:01:19.979Z",
+      "last_attempt_at": "2026-07-03T05:32:03.772Z",
+      "last_success_at": "2026-07-03T05:32:03.772Z",
       "records_fetched": 0
     }
   ]
