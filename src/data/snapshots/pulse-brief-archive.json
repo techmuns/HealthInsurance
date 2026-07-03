@@ -6,12 +6,34 @@
         "company": "Niva Bupa",
         "companyId": "niva-bupa",
         "generatedAt": "2026-07-03T07:04:51.556Z",
-        "lastUpdatedAt": "2026-07-03T07:04:51.556Z",
+        "lastUpdatedAt": "2026-07-03T07:49:50.365Z",
         "status": "Watch",
         "sourceConfidence": "Medium",
+        "itemCount": 12,
         "runs": [
           {
             "runTime": "2026-07-03T07:04:51.556Z",
+            "developments": 14,
+            "sourceCount": 12,
+            "ideas": 4,
+            "status": "ok"
+          },
+          {
+            "runTime": "2026-07-03T07:45:04.506Z",
+            "developments": 14,
+            "sourceCount": 12,
+            "ideas": 4,
+            "status": "ok"
+          },
+          {
+            "runTime": "2026-07-03T07:47:03.955Z",
+            "developments": 14,
+            "sourceCount": 12,
+            "ideas": 4,
+            "status": "ok"
+          },
+          {
+            "runTime": "2026-07-03T07:49:50.365Z",
             "developments": 14,
             "sourceCount": 12,
             "ideas": 4,
@@ -28,10 +50,10 @@
           "confidencePct": 83,
           "confidenceTier": "High",
           "readingMins": 2,
-          "lastUpdatedLabel": "Today, 05:30 am"
+          "lastUpdatedLabel": "3 Jul, 05:30 am"
         },
         "message": {
-          "since": "Since yesterday, eight regulatory updates moved into focus, and Niva Bupa is back in the news for premium growth.",
+          "since": "Since yesterday, two regulatory updates moved into focus, and Niva Bupa drew fresh positive coverage.",
           "keyThing": "Reported rule changes such as tighter cashless timelines and limits on sharp senior-citizen premium hikes could pressure execution and pricing but may aid demand and trust.",
           "why": "Demand still looks strong, but the real question is whether claims and expenses start eating into that strength.",
           "watch": "any fresh IRDAI clarification, and expense-ratio movement",
@@ -298,7 +320,7 @@
           {
             "id": "reg",
             "label": "new regulatory updates",
-            "value": "8",
+            "value": "2",
             "direction": "up",
             "tone": "Watch",
             "target": {
@@ -315,7 +337,7 @@
                 "companyLabel": "Niva Bupa",
                 "comparisonType": "trend",
                 "tone": "neutral",
-                "insightLabel": "8 new regulatory updates",
+                "insightLabel": "2 new regulatory updates",
                 "unit": "",
                 "sahiTab": "sector-news",
                 "origin": "pulse"
@@ -345,33 +367,6 @@
                 "insightLabel": "2 fresh Niva Bupa updates",
                 "unit": "",
                 "sahiTab": "companies",
-                "origin": "pulse"
-              }
-            }
-          },
-          {
-            "id": "mgmt",
-            "label": "management changes",
-            "value": "2",
-            "direction": "up",
-            "tone": "Neutral",
-            "target": {
-              "page": "sahi",
-              "sahiTab": "governance",
-              "company": "niva-bupa",
-              "focus": {
-                "id": "pulse-since-mgmt",
-                "kind": "locator",
-                "locatorKind": "management",
-                "metricKey": "management",
-                "metricLabel": "Management change",
-                "company": "niva-bupa",
-                "companyLabel": "Niva Bupa",
-                "comparisonType": "trend",
-                "tone": "neutral",
-                "insightLabel": "2 management changes",
-                "unit": "",
-                "sahiTab": "governance",
                 "origin": "pulse"
               }
             }
@@ -482,12 +477,34 @@
         "company": "Star Health",
         "companyId": "star-health",
         "generatedAt": "2026-07-03T07:04:51.556Z",
-        "lastUpdatedAt": "2026-07-03T07:04:51.556Z",
+        "lastUpdatedAt": "2026-07-03T07:49:50.365Z",
         "status": "Watch",
         "sourceConfidence": "Medium",
+        "itemCount": 10,
         "runs": [
           {
             "runTime": "2026-07-03T07:04:51.556Z",
+            "developments": 11,
+            "sourceCount": 10,
+            "ideas": 4,
+            "status": "ok"
+          },
+          {
+            "runTime": "2026-07-03T07:45:04.506Z",
+            "developments": 11,
+            "sourceCount": 10,
+            "ideas": 4,
+            "status": "ok"
+          },
+          {
+            "runTime": "2026-07-03T07:47:03.955Z",
+            "developments": 11,
+            "sourceCount": 10,
+            "ideas": 4,
+            "status": "ok"
+          },
+          {
+            "runTime": "2026-07-03T07:49:50.365Z",
             "developments": 11,
             "sourceCount": 10,
             "ideas": 4,
@@ -504,10 +521,10 @@
           "confidencePct": 82,
           "confidenceTier": "High",
           "readingMins": 2,
-          "lastUpdatedLabel": "Today, 05:30 am"
+          "lastUpdatedLabel": "3 Jul, 05:30 am"
         },
         "message": {
-          "since": "Since yesterday, eight regulatory updates moved into focus, and there was a leadership change to note.",
+          "since": "Since yesterday, two regulatory updates moved into focus.",
           "keyThing": "Reported rule changes such as tighter cashless timelines and limits on sharp senior-citizen premium hikes could pressure execution and pricing but may aid demand and trust.",
           "why": "The near-term read now turns on how the new rules land on pricing and cost.",
           "watch": "any fresh IRDAI clarification, and expense-ratio movement",
@@ -770,7 +787,7 @@
           {
             "id": "reg",
             "label": "new regulatory updates",
-            "value": "8",
+            "value": "2",
             "direction": "up",
             "tone": "Watch",
             "target": {
@@ -787,36 +804,9 @@
                 "companyLabel": "Star Health",
                 "comparisonType": "trend",
                 "tone": "neutral",
-                "insightLabel": "8 new regulatory updates",
+                "insightLabel": "2 new regulatory updates",
                 "unit": "",
                 "sahiTab": "sector-news",
-                "origin": "pulse"
-              }
-            }
-          },
-          {
-            "id": "mgmt",
-            "label": "management change",
-            "value": "1",
-            "direction": "up",
-            "tone": "Neutral",
-            "target": {
-              "page": "sahi",
-              "sahiTab": "governance",
-              "company": "star-health",
-              "focus": {
-                "id": "pulse-since-mgmt",
-                "kind": "locator",
-                "locatorKind": "management",
-                "metricKey": "management",
-                "metricLabel": "Management change",
-                "company": "star-health",
-                "companyLabel": "Star Health",
-                "comparisonType": "trend",
-                "tone": "neutral",
-                "insightLabel": "1 management change",
-                "unit": "",
-                "sahiTab": "governance",
                 "origin": "pulse"
               }
             }
@@ -927,12 +917,34 @@
         "company": "Care Health",
         "companyId": "care-health",
         "generatedAt": "2026-07-03T07:04:51.556Z",
-        "lastUpdatedAt": "2026-07-03T07:04:51.556Z",
+        "lastUpdatedAt": "2026-07-03T07:49:50.365Z",
         "status": "Watch",
         "sourceConfidence": "Medium",
+        "itemCount": 10,
         "runs": [
           {
             "runTime": "2026-07-03T07:04:51.556Z",
+            "developments": 10,
+            "sourceCount": 10,
+            "ideas": 4,
+            "status": "ok"
+          },
+          {
+            "runTime": "2026-07-03T07:45:04.506Z",
+            "developments": 10,
+            "sourceCount": 10,
+            "ideas": 4,
+            "status": "ok"
+          },
+          {
+            "runTime": "2026-07-03T07:47:03.955Z",
+            "developments": 10,
+            "sourceCount": 10,
+            "ideas": 4,
+            "status": "ok"
+          },
+          {
+            "runTime": "2026-07-03T07:49:50.365Z",
             "developments": 10,
             "sourceCount": 10,
             "ideas": 4,
@@ -949,10 +961,10 @@
           "confidencePct": 82,
           "confidenceTier": "High",
           "readingMins": 2,
-          "lastUpdatedLabel": "Today, 05:30 am"
+          "lastUpdatedLabel": "3 Jul, 05:30 am"
         },
         "message": {
-          "since": "Since yesterday, eight regulatory updates moved into focus.",
+          "since": "Since yesterday, two regulatory updates moved into focus.",
           "keyThing": "Reported rule changes such as tighter cashless timelines and limits on sharp senior-citizen premium hikes could pressure execution and pricing but may aid demand and trust.",
           "why": "The near-term read now turns on how the new rules land on pricing and cost.",
           "watch": "any fresh IRDAI clarification, and expense-ratio movement",
@@ -1215,7 +1227,7 @@
           {
             "id": "reg",
             "label": "new regulatory updates",
-            "value": "8",
+            "value": "2",
             "direction": "up",
             "tone": "Watch",
             "target": {
@@ -1232,7 +1244,7 @@
                 "companyLabel": "Care Health",
                 "comparisonType": "trend",
                 "tone": "neutral",
-                "insightLabel": "8 new regulatory updates",
+                "insightLabel": "2 new regulatory updates",
                 "unit": "",
                 "sahiTab": "sector-news",
                 "origin": "pulse"
@@ -1345,12 +1357,34 @@
         "company": "Aditya Birla",
         "companyId": "aditya-birla",
         "generatedAt": "2026-07-03T07:04:51.556Z",
-        "lastUpdatedAt": "2026-07-03T07:04:51.556Z",
+        "lastUpdatedAt": "2026-07-03T07:49:50.365Z",
         "status": "Watch",
         "sourceConfidence": "Medium",
+        "itemCount": 10,
         "runs": [
           {
             "runTime": "2026-07-03T07:04:51.556Z",
+            "developments": 10,
+            "sourceCount": 10,
+            "ideas": 4,
+            "status": "ok"
+          },
+          {
+            "runTime": "2026-07-03T07:45:04.506Z",
+            "developments": 10,
+            "sourceCount": 10,
+            "ideas": 4,
+            "status": "ok"
+          },
+          {
+            "runTime": "2026-07-03T07:47:03.955Z",
+            "developments": 10,
+            "sourceCount": 10,
+            "ideas": 4,
+            "status": "ok"
+          },
+          {
+            "runTime": "2026-07-03T07:49:50.365Z",
             "developments": 10,
             "sourceCount": 10,
             "ideas": 4,
@@ -1367,10 +1401,10 @@
           "confidencePct": 82,
           "confidenceTier": "High",
           "readingMins": 2,
-          "lastUpdatedLabel": "Today, 05:30 am"
+          "lastUpdatedLabel": "3 Jul, 05:30 am"
         },
         "message": {
-          "since": "Since yesterday, eight regulatory updates moved into focus.",
+          "since": "Since yesterday, two regulatory updates moved into focus.",
           "keyThing": "Reported rule changes such as tighter cashless timelines and limits on sharp senior-citizen premium hikes could pressure execution and pricing but may aid demand and trust.",
           "why": "The near-term read now turns on how the new rules land on pricing and cost.",
           "watch": "any fresh IRDAI clarification, and expense-ratio movement",
@@ -1633,7 +1667,7 @@
           {
             "id": "reg",
             "label": "new regulatory updates",
-            "value": "8",
+            "value": "2",
             "direction": "up",
             "tone": "Watch",
             "target": {
@@ -1650,7 +1684,7 @@
                 "companyLabel": "Aditya Birla",
                 "comparisonType": "trend",
                 "tone": "neutral",
-                "insightLabel": "8 new regulatory updates",
+                "insightLabel": "2 new regulatory updates",
                 "unit": "",
                 "sahiTab": "sector-news",
                 "origin": "pulse"
@@ -1763,12 +1797,34 @@
         "company": "ManipalCigna",
         "companyId": "manipalcigna",
         "generatedAt": "2026-07-03T07:04:51.556Z",
-        "lastUpdatedAt": "2026-07-03T07:04:51.556Z",
+        "lastUpdatedAt": "2026-07-03T07:49:50.365Z",
         "status": "Watch",
         "sourceConfidence": "Medium",
+        "itemCount": 10,
         "runs": [
           {
             "runTime": "2026-07-03T07:04:51.556Z",
+            "developments": 10,
+            "sourceCount": 10,
+            "ideas": 4,
+            "status": "ok"
+          },
+          {
+            "runTime": "2026-07-03T07:45:04.506Z",
+            "developments": 10,
+            "sourceCount": 10,
+            "ideas": 4,
+            "status": "ok"
+          },
+          {
+            "runTime": "2026-07-03T07:47:03.955Z",
+            "developments": 10,
+            "sourceCount": 10,
+            "ideas": 4,
+            "status": "ok"
+          },
+          {
+            "runTime": "2026-07-03T07:49:50.365Z",
             "developments": 10,
             "sourceCount": 10,
             "ideas": 4,
@@ -1785,10 +1841,10 @@
           "confidencePct": 82,
           "confidenceTier": "High",
           "readingMins": 2,
-          "lastUpdatedLabel": "Today, 05:30 am"
+          "lastUpdatedLabel": "3 Jul, 05:30 am"
         },
         "message": {
-          "since": "Since yesterday, eight regulatory updates moved into focus.",
+          "since": "Since yesterday, two regulatory updates moved into focus.",
           "keyThing": "Reported rule changes such as tighter cashless timelines and limits on sharp senior-citizen premium hikes could pressure execution and pricing but may aid demand and trust.",
           "why": "The near-term read now turns on how the new rules land on pricing and cost.",
           "watch": "any fresh IRDAI clarification, and expense-ratio movement",
@@ -2051,7 +2107,7 @@
           {
             "id": "reg",
             "label": "new regulatory updates",
-            "value": "8",
+            "value": "2",
             "direction": "up",
             "tone": "Watch",
             "target": {
@@ -2068,7 +2124,7 @@
                 "companyLabel": "ManipalCigna",
                 "comparisonType": "trend",
                 "tone": "neutral",
-                "insightLabel": "8 new regulatory updates",
+                "insightLabel": "2 new regulatory updates",
                 "unit": "",
                 "sahiTab": "sector-news",
                 "origin": "pulse"
@@ -2180,6 +2236,6 @@
     "snapshot_id": "pulse-brief-archive",
     "description": "Immutable per-calendar-day Pulse brief records (IST), one per company. Past days are frozen exactly as shown that day; the live Today view recomposes. Kept ~90 days per company.",
     "last_updated": "2026-07-03",
-    "last_successful_run": "2026-07-03T07:04:51.556Z"
+    "last_successful_run": "2026-07-03T07:49:50.365Z"
   }
 }

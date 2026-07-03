@@ -52,6 +52,8 @@ jobs:
       - name: Freeze the daily Pulse brief archive
         # Upserts today's (IST) immutable per-company brief record from the just-
         # refreshed snapshot, so past days stay frozen on the Pulse timeline.
+        # Non-fatal: a hiccup here must never drop the fresh snapshot's commit below.
+        continue-on-error: true
         run: npx tsx --tsconfig tsconfig.app.json scripts/ingest/build-pulse-archive.ts
       - name: Commit results
         run: |

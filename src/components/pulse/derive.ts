@@ -512,14 +512,17 @@ function isoParts(iso: string): { weekday: string; dayNum: string; monthLabel: s
   if (isNaN(t.getTime())) return { weekday: '', dayNum: '', monthLabel: '' }
   return { weekday: WK[t.getDay()], dayNum: String(t.getDate()), monthLabel: MONTHS[t.getMonth()] }
 }
+// Wall-clock day in IST (the dashboard's timezone) — used for Today / Yesterday and
+// the today↔past boundary, so it lines up with the IST-keyed daily-brief archive and
+// rolls over at IST midnight (not UTC midnight) for every viewer.
+function istDay(offsetDays = 0): string {
+  return new Date(Date.now() + offsetDays * 86_400_000).toLocaleDateString('en-CA', { timeZone: 'Asia/Kolkata' })
+}
 function todayIso(): string {
-  const t = new Date()
-  return `${t.getFullYear()}-${String(t.getMonth() + 1).padStart(2, '0')}-${String(t.getDate()).padStart(2, '0')}`
+  return istDay(0)
 }
 function yesterdayIso(): string {
-  const t = new Date()
-  t.setDate(t.getDate() - 1)
-  return `${t.getFullYear()}-${String(t.getMonth() + 1).padStart(2, '0')}-${String(t.getDate()).padStart(2, '0')}`
+  return istDay(-1)
 }
 
 /** Timeline of ACTUAL brief dates: Today (wall-clock, pinned) + each past date that
@@ -567,7 +570,7 @@ export function timelineDays(pulse: InvestorPulse): TimelineDay[] {
       label: date === yday ? 'Yesterday' : '',
       ...isoParts(date),
       status: frozen ? frozen.status : items ? dayStatus(items) : null,
-      count: frozen ? frozen.ideas.length : items ? items.length : 0,
+      count: frozen ? (frozen.itemCount ?? frozen.ideas.length) : items ? items.length : 0,
     })
   }
   return days
@@ -1008,12 +1011,13 @@ function freshLabelFor(s: PulseSignal): string | undefined {
   const t = s.capturedAt ? Date.parse(s.capturedAt) : NaN
   if (!isNaN(t)) {
     const capDay = new Date(t).toLocaleDateString('en-CA', { timeZone: 'Asia/Kolkata' })
-    const todayIST = new Date().toLocaleDateString('en-CA', { timeZone: 'Asia/Kolkata' })
-    return capDay === todayIST
+    return capDay === todayIso()
       ? `New at ${new Date(t).toLocaleTimeString('en-IN', { hour: 'numeric', minute: '2-digit', hour12: true, timeZone: 'Asia/Kolkata' })}`
       : undefined
   }
-  return (s.daysAgo ?? 99) === 0 ? 'Fresh today' : undefined
+  // No capture time: dated-today (IST) fallback — compare the item's own date to the
+  // IST day, not the UTC-rolling daysAgo (which flips at 05:30 IST).
+  return s.date && s.date === todayIso() ? 'Fresh today' : undefined
 }
 
 /** Highest-conviction ideas from a scoped signal set — ranked by conviction (not
@@ -1218,18 +1222,25 @@ function watchLine(pulse: InvestorPulse, reg: number): string {
  *  honest ("nothing" when nothing material moved). */
 export function briefMessage(pulse: InvestorPulse, scoped: PulseSignal[], one: OneThing | null, isToday: boolean, dateLabel: string): BriefMessage {
   const recent = scoped.filter(isRecent)
+  // All-recent counts drive the THEME (why / watch) and the "no data at all" guard.
   const reg = recent.filter((s) => s.category === 'Regulatory').length
   const companyPos = recent.filter((s) => s.scope === 'company' && s.impact === 'Positive').length
   const companyAny = recent.filter((s) => s.scope === 'company').length
   const mgmt = selectManagementEvents(pulse.companyId, { recentOnly: true }).length
   if (reg + companyAny + mgmt === 0 && !one) return { since: '', keyThing: '', why: '', watch: '', nothing: true }
 
-  // Nothing captured/dated TODAY, but the standing thesis is still live (recent
-  // context exists) — lead with the honest "no new update" note and keep the thesis
-  // (one-thing / why / watch) visible, rather than dressing older items as "since
-  // yesterday". Only for the live Today view.
-  const freshToday = recent.filter((s) => freshLabelFor(s)).length
-  if (isToday && freshToday === 0) {
+  // What is genuinely NEW: items DATED today or yesterday (IST). For a past-date view
+  // the scoped slice is already that date's items, so "new" is all of them.
+  const newRecent = isToday ? recent.filter((s) => s.date === todayIso() || s.date === yesterdayIso()) : recent
+  const regNew = newRecent.filter((s) => s.category === 'Regulatory').length
+  const companyPosNew = newRecent.filter((s) => s.scope === 'company' && s.impact === 'Positive').length
+  const companyAnyNew = newRecent.filter((s) => s.scope === 'company').length
+  const mgmtNew = selectManagementEvents(pulse.companyId, { recentOnly: true }).filter((e) => (e.daysAgo ?? 99) <= 1).length
+
+  // Nothing genuinely new today, but the standing thesis is still live — lead with the
+  // honest "no new update" note and keep the thesis (one-thing / why / watch) visible,
+  // rather than dressing older items as "since yesterday". Only for the live Today view.
+  if (isToday && regNew + companyAnyNew + mgmtNew === 0) {
     return {
       since: 'No major new update has dropped today. The previous thesis remains live.',
       keyThing: one ? clamp(scrubCopy(one.sentence), 172) : '',
@@ -1239,11 +1250,16 @@ export function briefMessage(pulse: InvestorPulse, scoped: PulseSignal[], one: O
     }
   }
 
+  // Only attribute "premium growth" when a NEW positive company item is actually about
+  // premium / growth — otherwise a rating, deal or margin item would be misframed.
+  const companyPosAboutGrowth = newRecent.some(
+    (s) => s.scope === 'company' && s.impact === 'Positive' && /premium|growth|gwp|nwp|nep|retail health/i.test(`${s.title} ${s.whyItMatters}`),
+  )
   const bits: string[] = []
-  if (reg > 0) bits.push(`${numWord(reg)} regulatory ${reg === 1 ? 'update' : 'updates'} moved into focus`)
-  if (companyPos > 0) bits.push(`${pulse.company} is back in the news for premium growth`)
-  else if (companyAny > 0) bits.push(`${pulse.company} picked up fresh coverage`)
-  if (mgmt > 0 && bits.length < 2) bits.push(mgmt === 1 ? 'there was a leadership change to note' : 'there were leadership changes to note')
+  if (regNew > 0) bits.push(`${numWord(regNew)} regulatory ${regNew === 1 ? 'update' : 'updates'} moved into focus`)
+  if (companyPosNew > 0) bits.push(companyPosAboutGrowth ? `${pulse.company} is back in the news for premium growth` : `${pulse.company} drew fresh positive coverage`)
+  else if (companyAnyNew > 0) bits.push(`${pulse.company} picked up fresh coverage`)
+  if (mgmtNew > 0 && bits.length < 2) bits.push(mgmtNew === 1 ? 'there was a leadership change to note' : 'there were leadership changes to note')
 
   const opener = isToday ? 'Since yesterday' : `On ${dateLabel}`
   const since = bits.length ? `${opener}, ${joinNatural(bits.slice(0, 2))}.` : `${opener}, the board has stayed quiet — nothing fresh has forced a rethink.`
@@ -1276,9 +1292,17 @@ export interface SinceDelta {
  *  can jump straight to where that change lives on the dashboard. */
 export function sinceYesterday(pulse: InvestorPulse): SinceDelta[] {
   const out: SinceDelta[] = []
-  const recent = pulse.signals.filter(isRecent)
   const company = pulse.companyId
   const to = (sahiTab: string): NavTarget => ({ page: 'sahi', sahiTab, company })
+
+  // "Since yesterday" = developments DATED today or yesterday (IST) — what actually
+  // happened in the last day. NOT the whole recent window (weeks-old items would be
+  // mislabeled as day-over-day changes), and NOT merely "surfaced today" (old news
+  // newly found is not a since-yesterday change; and the feed's first daily run stamps
+  // everything as captured-today, which would inflate the counts). On a quiet day these
+  // simply go to zero. (#10 / honest-period rule.)
+  const isNewSinceYesterday = (s: PulseSignal) => s.date === todayIso() || s.date === yesterdayIso()
+  const fresh = pulse.signals.filter(isRecent).filter(isNewSinceYesterday)
 
   // Each non-metric change carries a LOCATOR focus, so "View in dashboard" scrolls
   // to the exact section it lives in, blips it and pops a small "here it is" note.
@@ -1287,13 +1311,15 @@ export function sinceYesterday(pulse: InvestorPulse): SinceDelta[] {
     focus: buildLocator({ id: `pulse-since-${id}`, locatorKind, company, companyLabel: pulse.company, insightLabel: label, sahiTab }),
   })
 
-  const reg = recent.filter((s) => s.category === 'Regulatory').length
+  const reg = fresh.filter((s) => s.category === 'Regulatory').length
   if (reg) out.push({ id: 'reg', label: reg === 1 ? 'new regulatory update' : 'new regulatory updates', value: String(reg), direction: 'up', tone: 'Watch', target: locTarget('sector-news', 'reg', 'regulatory', `${reg} new regulatory ${reg === 1 ? 'update' : 'updates'}`) })
 
-  const disclosures = recent.filter((s) => s.scope === 'company').length
+  const disclosures = fresh.filter((s) => s.scope === 'company').length
   if (disclosures) out.push({ id: 'co', label: disclosures === 1 ? 'fresh company update' : 'fresh company updates', value: String(disclosures), direction: 'up', tone: 'Positive', target: locTarget('companies', 'co', 'company', `${disclosures} fresh ${pulse.company} ${disclosures === 1 ? 'update' : 'updates'}`) })
 
-  const mgmt = selectManagementEvents(pulse.companyId, { recentOnly: true }).length
+  // Management changes only when genuinely recent (last day) — not the full 18-month
+  // governance window, which would read stale changes as "since yesterday".
+  const mgmt = selectManagementEvents(pulse.companyId, { recentOnly: true }).filter((e) => (e.daysAgo ?? 99) <= 1).length
   if (mgmt) out.push({ id: 'mgmt', label: mgmt === 1 ? 'management change' : 'management changes', value: String(mgmt), direction: 'up', tone: 'Neutral', target: locTarget('governance', 'mgmt', 'management', `${mgmt} management ${mgmt === 1 ? 'change' : 'changes'}`) })
 
   // (Premium-growth YoY is intentionally NOT shown here — it is a standing metric,
@@ -1304,7 +1330,7 @@ export function sinceYesterday(pulse: InvestorPulse): SinceDelta[] {
   if (events) out.push({ id: 'events', label: events === 1 ? 'event ahead' : 'events ahead', value: String(events), direction: 'up', tone: 'Neutral', target: locTarget('governance', 'events', 'events', `${events} ${events === 1 ? 'event' : 'events'} ahead`) })
 
   // Market reaction only when it is a genuine reported move; 0 shown as reassurance.
-  const moves = recent.filter((s) => s.category === 'Data Movement' && isMarketMove(s.title)).length
+  const moves = fresh.filter((s) => s.category === 'Data Movement' && isMarketMove(s.title)).length
   out.push({ id: 'moves', label: moves === 1 ? 'unusual market move' : 'unusual market moves', value: String(moves), direction: moves > 0 ? 'up' : 'flat', tone: moves > 0 ? 'Watch' : 'Positive', target: locTarget('valuation', 'moves', 'market_move', moves > 0 ? `${moves} unusual market ${moves === 1 ? 'move' : 'moves'}` : 'No unusual market moves') })
 
   return out
@@ -1323,6 +1349,7 @@ export function sinceYesterday(pulse: InvestorPulse): SinceDelta[] {
 interface FrozenBrief {
   date: string
   status: PulseStatus
+  itemCount?: number
   brief: MorningBrief
   message: BriefMessage
   one: OneThing | null

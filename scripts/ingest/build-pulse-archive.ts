@@ -27,6 +27,7 @@ import {
 import { readSnapshot, writeSnapshot, nowIso } from './util'
 
 const RETAIN_DAYS = 90
+const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 
 // The standalone health insurers the Pulse serves. Their daily brief spans all three
 // dimensions the reader cares about — company-specific items, sector moves, and
@@ -75,6 +76,12 @@ async function main(): Promise<number> {
     const events = upcomingEvents(pulse)
     const actions = actionsForBrief(pulse, scoped)
 
+    // Freeze the "updated" label in ABSOLUTE form so a past-date view never reads a
+    // relative "Today, HH:MM" on a later day.
+    const [, mm, dd] = today.split('-')
+    const absDate = `${Number(dd)} ${MONTHS[Number(mm) - 1]}`
+    if (brief.lastUpdatedLabel?.startsWith('Today,')) brief.lastUpdatedLabel = brief.lastUpdatedLabel.replace(/^Today,/, `${absDate},`)
+
     const perCompany = (archive.briefs[ins.id] ?? {}) as Record<string, { generatedAt?: string; runs?: unknown[] }>
     const existing = perCompany[today]
     const run = { runTime, developments: brief.developmentsCount, sourceCount: brief.sourcesCount, ideas: ideas.length, status: 'ok' }
@@ -87,6 +94,9 @@ async function main(): Promise<number> {
       lastUpdatedAt: runTime,
       status: pulse.todayRead ? statusOf(pulse.todayRead.stance) : 'Neutral',
       sourceConfidence: pulse.confidence,
+      // Real item count of the day's read — so the timeline badge is consistent
+      // whether the day is live or frozen (not the capped conviction-idea count).
+      itemCount: scoped.length,
       runs: [...(existing?.runs ?? []), run].slice(-24),
       // Frozen render bundle — exactly what the Pulse shows for this day.
       brief,
