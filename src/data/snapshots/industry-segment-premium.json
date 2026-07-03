@@ -4,8 +4,8 @@
     "description": "Industry-wide GI segment premium (Health / Motor / Fire / Crop / Marine / Personal Accident / Other). Drives Market Engine main chart and the Industry Snapshot GI premium-mix donut.",
     "schema_version": "1.0.0",
     "dataset": "mixed",
-    "last_updated": "2026-07-02",
-    "last_successful_run": "2026-07-02T19:12:03.779Z",
+    "last_updated": "2026-07-03",
+    "last_successful_run": "2026-07-03T04:34:20.791Z",
     "upstream_sources": [
       "irdai_handbook",
       "gi_council",
@@ -133,8 +133,8 @@
         "source_url": "https://www.gicouncil.in/media/4181/segment-wise-figures-upto-march-2023.xlsx",
         "source_file": "data/raw/gicouncil/segment-annual/FY23-march.xlsx",
         "source_period": "FY22",
-        "fetched_at": "2026-07-02T19:10:46.943Z",
-        "parsed_at": "2026-07-02T19:10:49.896Z",
+        "fetched_at": "2026-07-03T04:27:08.063Z",
+        "parsed_at": "2026-07-03T04:27:11.067Z",
         "parser_name": "ingest-gicouncil-segment-annual",
         "confidence": "high"
       },
