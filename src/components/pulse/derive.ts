@@ -497,6 +497,8 @@ const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', '
 export interface TimelineDay {
   key: string
   isToday: boolean
+  /** Plain-English rail label: 'Today' | 'Yesterday' | '' (else the date shows). */
+  label: string
   weekday: string
   dayNum: string
   monthLabel: string
@@ -513,32 +515,56 @@ function todayIso(): string {
   const t = new Date()
   return `${t.getFullYear()}-${String(t.getMonth() + 1).padStart(2, '0')}-${String(t.getDate()).padStart(2, '0')}`
 }
-
-/** Today (pinned) + each past read-date, newest first — the left rail. */
-// The date the current brief was generated — the feed's own run date, not the
-// wall clock, so "Today" never invents a date the data doesn't support.
-function briefGenIso(): string {
-  const d = FEED_META.last_updated
-  return d && /^\d{4}-\d{2}-\d{2}/.test(d) ? d.slice(0, 10) : todayIso()
+function yesterdayIso(): string {
+  const t = new Date()
+  t.setDate(t.getDate() - 1)
+  return `${t.getFullYear()}-${String(t.getMonth() + 1).padStart(2, '0')}-${String(t.getDate()).padStart(2, '0')}`
 }
 
-/** Timeline from ACTUAL saved brief dates only. We do not persist a brief per day
- *  yet, so the only real brief is the current one (the feed-generated date). News-
- *  item dates are NOT briefs and are never shown as timeline entries — inventing
- *  "22 Jun / 18 Jun" reads would be dishonest. When there is no saved history the
- *  UI shows "No previous reads yet"; once daily briefs are persisted, earlier real
- *  dates append here. */
+/** Timeline of ACTUAL brief dates: Today (wall-clock, pinned) + each past date that
+ *  carries real source-backed items, newest first. No invented/placeholder dates —
+ *  a past day appears only if items exist for it. "Today" is the wall clock (the
+ *  page always opens on today); the feed's own last-run time is shown honestly
+ *  elsewhere via `feedUpdatedLabel()` ("Updated HH:MM"). When the frozen daily-brief
+ *  archive is present it supplies the past dates; until then they derive from the
+ *  live feed's own item dates. */
 export function timelineDays(pulse: InvestorPulse): TimelineDay[] {
-  const gen = briefGenIso()
-  return [
+  const today = todayIso()
+  const yday = yesterdayIso()
+  const recent = pulse.signals.filter(isRecent)
+
+  // Today — always pinned, wall-clock; its read is the rolling recent view.
+  const days: TimelineDay[] = [
     {
       key: 'today',
-      isToday: gen === todayIso(),
-      ...isoParts(gen),
+      isToday: true,
+      label: 'Today',
+      ...isoParts(today),
       status: pulse.todayRead ? statusOf(pulse.todayRead.stance) : null,
-      count: pulse.signals.filter(isRecent).length,
+      count: recent.length,
     },
   ]
+
+  // Past dates with real items — grouped by the item's own date, newest first.
+  const byDate = new Map<string, PulseSignal[]>()
+  for (const s of recent) {
+    if (!s.date || s.date >= today) continue // today's / future items belong to the Today entry
+    const arr = byDate.get(s.date) ?? []
+    arr.push(s)
+    byDate.set(s.date, arr)
+  }
+  for (const date of [...byDate.keys()].sort((a, b) => (a < b ? 1 : -1))) {
+    const items = byDate.get(date)!
+    days.push({
+      key: date,
+      isToday: false,
+      label: date === yday ? 'Yesterday' : '',
+      ...isoParts(date),
+      status: dayStatus(items),
+      count: items.length,
+    })
+  }
+  return days
 }
 
 // ── Important Today strip ────────────────────────────────────────────────────
@@ -657,6 +683,26 @@ function ownershipFocus(pulse: InvestorPulse): InsightFocus | undefined {
   )
 }
 
+// Specific, decision-grade action labels tied to the company / topic actually on
+// the board — never a vague generic verb (#12). Consumed in a truncating pill, so
+// kept short.
+function actionLabel(id: string, company: string, agmKind?: string): string {
+  switch (id) {
+    case 'margins':
+      return `Compare ${company} margin`
+    case 'ownership':
+      return `Review ${company} ownership`
+    case 'regulation':
+      return 'Check IRDAI on claims cost'
+    case 'agm':
+      return /agm|annual general/i.test(agmKind ?? '') ? `Watch ${company} AGM` : `Watch ${company} meet`
+    case 'source':
+      return `Verify ${company} sources`
+    default:
+      return company
+  }
+}
+
 /** Up to 4 action pills, each tied to a real top pick / event (never generic). */
 export function actionsFor(pulse: InvestorPulse, picks: TopPick[]): PulseAction[] {
   const cats = new Set(picks.map((p) => p.category))
@@ -667,15 +713,15 @@ export function actionsFor(pulse: InvestorPulse, picks: TopPick[]): PulseAction[
   const out: PulseAction[] = []
 
   if (analyst || cats.has('Sector Catalyst'))
-    out.push({ id: 'margins', label: 'Compare margins', icon: 'margins', target: { page: 'sahi', sahiTab: 'profitability', company: companyId, focus: marginFocus(pulse) } })
+    out.push({ id: 'margins', label: actionLabel('margins', pulse.company), icon: 'margins', target: { page: 'sahi', sahiTab: 'profitability', company: companyId, focus: marginFocus(pulse) } })
   if (analyst)
-    out.push({ id: 'ownership', label: 'Review ownership', icon: 'ownership', target: { page: 'sahi', sahiTab: 'governance', company: companyId, focus: ownershipFocus(pulse) } })
+    out.push({ id: 'ownership', label: actionLabel('ownership', pulse.company), icon: 'ownership', target: { page: 'sahi', sahiTab: 'governance', company: companyId, focus: ownershipFocus(pulse) } })
   if (regulatory)
-    out.push({ id: 'regulation', label: 'Track regulation', icon: 'regulation', target: { page: 'sahi', sahiTab: 'governance', company: companyId } })
+    out.push({ id: 'regulation', label: actionLabel('regulation', pulse.company), icon: 'regulation', target: { page: 'sahi', sahiTab: 'governance', company: companyId } })
   if (agm)
-    out.push({ id: 'agm', label: /agm|annual general/i.test(agm.kindLabel) ? 'Watch AGM' : 'Watch meet', icon: 'agm', href: agm.url || undefined, target: agm.url ? undefined : { page: 'insights' } })
+    out.push({ id: 'agm', label: actionLabel('agm', pulse.company, agm.kindLabel), icon: 'agm', href: agm.url || undefined, target: agm.url ? undefined : { page: 'insights' } })
   if (picks.some((p) => p.evidence.url))
-    out.push({ id: 'source', label: 'Verify source', icon: 'source', target: { page: 'audit', company: companyId } })
+    out.push({ id: 'source', label: actionLabel('source', pulse.company), icon: 'source', target: { page: 'audit', company: companyId } })
 
   return [...new Map(out.map((a) => [a.id, a])).values()]
     .sort((a, b) => ACTION_ORDER.indexOf(a.id) - ACTION_ORDER.indexOf(b.id))
@@ -693,15 +739,15 @@ export function actionsForBrief(pulse: InvestorPulse, scoped: PulseSignal[]): Pu
   const out: PulseAction[] = []
 
   if (analyst || cats.has('Sector Catalyst'))
-    out.push({ id: 'margins', label: 'Compare margins', icon: 'margins', target: { page: 'sahi', sahiTab: 'profitability', company: companyId, focus: marginFocus(pulse) } })
+    out.push({ id: 'margins', label: actionLabel('margins', pulse.company), icon: 'margins', target: { page: 'sahi', sahiTab: 'profitability', company: companyId, focus: marginFocus(pulse) } })
   if (analyst)
-    out.push({ id: 'ownership', label: 'Review ownership', icon: 'ownership', target: { page: 'sahi', sahiTab: 'governance', company: companyId, focus: ownershipFocus(pulse) } })
+    out.push({ id: 'ownership', label: actionLabel('ownership', pulse.company), icon: 'ownership', target: { page: 'sahi', sahiTab: 'governance', company: companyId, focus: ownershipFocus(pulse) } })
   if (regulatory)
-    out.push({ id: 'regulation', label: 'Track regulation', icon: 'regulation', target: { page: 'sahi', sahiTab: 'governance', company: companyId } })
+    out.push({ id: 'regulation', label: actionLabel('regulation', pulse.company), icon: 'regulation', target: { page: 'sahi', sahiTab: 'governance', company: companyId } })
   if (agm)
-    out.push({ id: 'agm', label: /agm|annual general/i.test(agm.kindLabel) ? 'Watch AGM' : 'Watch meet', icon: 'agm', href: agm.url || undefined, target: agm.url ? undefined : { page: 'insights' } })
+    out.push({ id: 'agm', label: actionLabel('agm', pulse.company, agm.kindLabel), icon: 'agm', href: agm.url || undefined, target: agm.url ? undefined : { page: 'insights' } })
   if (scoped.some((s) => s.sourceUrl))
-    out.push({ id: 'source', label: 'Verify source', icon: 'source', target: { page: 'audit', company: companyId } })
+    out.push({ id: 'source', label: actionLabel('source', pulse.company), icon: 'source', target: { page: 'audit', company: companyId } })
 
   return [...new Map(out.map((a) => [a.id, a])).values()]
     .sort((a, b) => ACTION_ORDER.indexOf(a.id) - ACTION_ORDER.indexOf(b.id))
@@ -919,13 +965,13 @@ function actionForSignal(s: PulseSignal, pulse: InvestorPulse): PulseAction | nu
     case 'Analyst Action':
     case 'Sector Catalyst':
     case 'Data Movement':
-      return { id: 'margins', label: 'Compare margins', icon: 'margins', target: { page: 'sahi', sahiTab: 'profitability', company, focus: marginFocus(pulse) } }
+      return { id: 'margins', label: actionLabel('margins', pulse.company), icon: 'margins', target: { page: 'sahi', sahiTab: 'profitability', company, focus: marginFocus(pulse) } }
     case 'Regulatory':
-      return { id: 'regulation', label: 'Track regulation', icon: 'regulation', target: { page: 'sahi', sahiTab: 'governance', company } }
+      return { id: 'regulation', label: actionLabel('regulation', pulse.company), icon: 'regulation', target: { page: 'sahi', sahiTab: 'governance', company } }
     case 'Management':
-      return { id: 'ownership', label: 'Review ownership', icon: 'ownership', target: { page: 'sahi', sahiTab: 'governance', company, focus: ownershipFocus(pulse) } }
+      return { id: 'ownership', label: actionLabel('ownership', pulse.company), icon: 'ownership', target: { page: 'sahi', sahiTab: 'governance', company, focus: ownershipFocus(pulse) } }
     case 'Filing':
-      return { id: 'source', label: 'Verify source', icon: 'source', target: { page: 'audit', company } }
+      return { id: 'source', label: actionLabel('source', pulse.company), icon: 'source', target: { page: 'audit', company } }
   }
 }
 
@@ -943,7 +989,25 @@ export interface ConvictionIdea {
   action: PulseAction | null
   isBreaking: boolean
   isNew: boolean
+  /** Intraday freshness marker: "New at 3:30 PM" (captured today) / "Fresh today". */
+  freshLabel?: string
   sources: { kind: EvidenceKind; name: string; url: string }[]
+}
+
+// Intraday freshness for one signal: "New at 3:30 PM" when it was CAPTURED today
+// (from the ingestion's `capturedAt`/`first_seen`, formatted in IST), else "Fresh
+// today" when its own date is today. Undefined otherwise. Honest: only shows a time
+// when a real capture timestamp exists — never a fabricated one.
+function freshLabelFor(s: PulseSignal): string | undefined {
+  const t = s.capturedAt ? Date.parse(s.capturedAt) : NaN
+  if (!isNaN(t)) {
+    const capDay = new Date(t).toLocaleDateString('en-CA', { timeZone: 'Asia/Kolkata' })
+    const todayIST = new Date().toLocaleDateString('en-CA', { timeZone: 'Asia/Kolkata' })
+    return capDay === todayIST
+      ? `New at ${new Date(t).toLocaleTimeString('en-IN', { hour: 'numeric', minute: '2-digit', hour12: true, timeZone: 'Asia/Kolkata' })}`
+      : undefined
+  }
+  return (s.daysAgo ?? 99) === 0 ? 'Fresh today' : undefined
 }
 
 /** Highest-conviction ideas from a scoped signal set — ranked by conviction (not
@@ -969,6 +1033,7 @@ export function convictionIdeas(signals: PulseSignal[], pulse: InvestorPulse): C
       action: actionForSignal(s, pulse),
       isBreaking: s.id === freshestId && (s.daysAgo ?? 99) <= 2,
       isNew: (s.daysAgo ?? 99) === 0,
+      freshLabel: freshLabelFor(s),
       sources: c.evidence,
     }))
 }
@@ -1153,6 +1218,21 @@ export function briefMessage(pulse: InvestorPulse, scoped: PulseSignal[], one: O
   const mgmt = selectManagementEvents(pulse.companyId, { recentOnly: true }).length
   if (reg + companyAny + mgmt === 0 && !one) return { since: '', keyThing: '', why: '', watch: '', nothing: true }
 
+  // Nothing captured/dated TODAY, but the standing thesis is still live (recent
+  // context exists) — lead with the honest "no new update" note and keep the thesis
+  // (one-thing / why / watch) visible, rather than dressing older items as "since
+  // yesterday". Only for the live Today view.
+  const freshToday = recent.filter((s) => freshLabelFor(s)).length
+  if (isToday && freshToday === 0) {
+    return {
+      since: 'No major new update has dropped today. The previous thesis remains live.',
+      keyThing: one ? clamp(scrubCopy(one.sentence), 172) : '',
+      why: clamp(scrubCopy(whyLine(recent, reg, companyPos)), 150),
+      watch: clamp(scrubCopy(watchLine(pulse, reg)), 150),
+      nothing: false,
+    }
+  }
+
   const bits: string[] = []
   if (reg > 0) bits.push(`${numWord(reg)} regulatory ${reg === 1 ? 'update' : 'updates'} moved into focus`)
   if (companyPos > 0) bits.push(`${pulse.company} is back in the news for premium growth`)
@@ -1210,32 +1290,9 @@ export function sinceYesterday(pulse: InvestorPulse): SinceDelta[] {
   const mgmt = selectManagementEvents(pulse.companyId, { recentOnly: true }).length
   if (mgmt) out.push({ id: 'mgmt', label: mgmt === 1 ? 'management change' : 'management changes', value: String(mgmt), direction: 'up', tone: 'Neutral', target: locTarget('governance', 'mgmt', 'management', `${mgmt} management ${mgmt === 1 ? 'change' : 'changes'}`) })
 
-  // Premium growth (YoY) — a real, source-backed change when the growth lens has it.
-  // Carries an InsightFocus so "View in dashboard" lands on the premium chart with
-  // the FY-over-FY comparison spotlighted, connected and explained.
-  const g = pulse.lenses.growthLevers.metrics.find((m) => m.label === 'GWP growth (YoY)')
-  if (g) {
-    const n = parseFloat(g.value)
-    // Leave the periods unpinned so the premium chart spotlights its LATEST
-    // reported year vs the prior one (e.g. FY26 vs FY25 — the jump the growth
-    // headline is about), rather than the growth lens's older peer-comparison year.
-    const gwpFocus =
-      buildFocus({
-        id: 'pulse-since-gwp',
-        metricKey: 'gwp',
-        company,
-        companyLabel: pulse.company,
-        comparisonType: 'YoY',
-        deltaLabel: g.value,
-        deltaValue: isNaN(n) ? null : n,
-        // The chip describes the insight; the exact %, resolved on the chart's own
-        // basis, lives in the pinned callout + pill (avoids two YoY figures that
-        // differ only by premium basis reading as a contradiction).
-        insightLabel: 'Premium growth · year on year',
-        origin: 'pulse',
-      }) ?? undefined
-    out.push({ id: 'gwp', label: 'premium growth YoY', value: g.value, direction: !isNaN(n) && n < 0 ? 'down' : 'up', tone: g.tone, target: { ...to('distribution'), focus: gwpFocus } })
-  }
+  // (Premium-growth YoY is intentionally NOT shown here — it is a standing metric,
+  // not a change "since yesterday". It lives on the Premium & Distribution dashboard.
+  // #10 honesty: this strip shows only real, computable day-over-day changes.)
 
   const events = upcomingEvents(pulse).length
   if (events) out.push({ id: 'events', label: events === 1 ? 'event ahead' : 'events ahead', value: String(events), direction: 'up', tone: 'Neutral', target: locTarget('governance', 'events', 'events', `${events} ${events === 1 ? 'event' : 'events'} ahead`) })
@@ -1247,68 +1304,3 @@ export function sinceYesterday(pulse: InvestorPulse): SinceDelta[] {
   return out
 }
 
-// ===========================================================================
-//  Curated digest — the Pulse's premium, reasoning-led daily view.
-//
-//  A tight, editor-picked read worth a paid news desk: the day's single
-//  highest-value movement (the lead), a connective "so what", then the few other
-//  moves that matter — each tiered by what it means for the reader, reasoned and
-//  source-linked. Curation RANKS and FRAMES the already-scored, source-backed
-//  conviction ideas; it never invents one. No ideas → an honest empty view.
-// ===========================================================================
-
-export type CuratedTier = 'lead' | 'position' | 'watch' | 'context'
-
-export const CURATED_TIER_META: Record<CuratedTier, { label: string; blurb: string }> = {
-  lead: { label: 'Top call', blurb: 'The single most valuable move today' },
-  position: { label: 'Constructive', blurb: 'Supports the thesis' },
-  watch: { label: 'On watch', blurb: 'Could shift the trajectory' },
-  context: { label: 'Context', blurb: 'Background worth knowing' },
-}
-
-export interface CuratedEntry {
-  idea: ConvictionIdea
-  tier: CuratedTier
-}
-
-export interface CuratedView {
-  headline: string
-  synthesis: string
-  lead: ConvictionIdea | null
-  entries: CuratedEntry[]
-  confidenceTier: Confidence
-  developmentsCount: number
-  sourcesCount: number
-  domainsCount: number
-  updatedLabel: string
-  isEmpty: boolean
-}
-
-// Value-tier by what a movement MEANS for the reader: a regulatory / risk / watch
-// item can shift the trajectory (watch); a constructive company signal supports
-// the thesis (position); anything else is background (context).
-function curatedTierForIdea(idea: ConvictionIdea): CuratedTier {
-  if (idea.category === 'Regulatory' || idea.status === 'Risk' || idea.status === 'Watch') return 'watch'
-  if (idea.status === 'Constructive') return 'position'
-  return 'context'
-}
-
-/** The Curated view: the lead (highest-conviction) movement plus the few others
- *  that matter, tiered by value, with the brief's own narrative as the connective
- *  read. Curated = few, high-value, reasoned — never a dump, never fabricated. */
-export function curatedDigest(ideas: ConvictionIdea[], brief: MorningBrief): CuratedView {
-  const lead = ideas[0] ?? null
-  const entries = ideas.slice(1).map((idea) => ({ idea, tier: curatedTierForIdea(idea) }))
-  return {
-    headline: lead ? clamp(`${lead.entity} — ${scrubCopy(lead.why.whatHappened)}`, 132) : '',
-    synthesis: brief.narrative,
-    lead,
-    entries,
-    confidenceTier: brief.confidenceTier,
-    developmentsCount: brief.developmentsCount,
-    sourcesCount: brief.sourcesCount,
-    domainsCount: brief.domainsCount,
-    updatedLabel: brief.lastUpdatedLabel,
-    isEmpty: !lead,
-  }
-}

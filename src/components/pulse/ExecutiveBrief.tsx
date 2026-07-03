@@ -163,8 +163,17 @@ function ConvictionCard({ idea, active, onOpen }: { idea: ConvictionIdea; active
         <div className="flex items-center gap-1.5">
           <span className="truncate text-[12px] font-bold text-navy-deep">{idea.entity}</span>
           {idea.isBreaking && (
-            <span className="inline-flex items-center gap-1 rounded-full px-1 text-[7.5px] font-bold uppercase tracking-wide text-coral" style={{ background: 'rgba(192,88,79,0.10)' }}>
+            <span className="inline-flex shrink-0 items-center gap-1 rounded-full px-1 text-[7.5px] font-bold uppercase tracking-wide text-coral" style={{ background: 'rgba(192,88,79,0.10)' }}>
               <span className="pulse-live h-1 w-1 rounded-full" style={{ background: '#C0584F' }} /> Live
+            </span>
+          )}
+          {idea.freshLabel && (
+            <span
+              className="inline-flex shrink-0 items-center rounded-full px-1.5 text-[7.5px] font-bold uppercase tracking-wide"
+              style={{ color: '#2F855A', background: 'rgba(47,133,90,0.10)', boxShadow: 'inset 0 0 0 1px rgba(47,133,90,0.22)' }}
+              title="Newly captured today"
+            >
+              {idea.freshLabel}
             </span>
           )}
         </div>
@@ -395,9 +404,11 @@ export function ExecutiveBrief({
           <ConvictionList ideas={ideas} companyId={pulse.companyId} onNavigate={onNavigate} />
         </div>
 
-        {/* RIGHT — since yesterday · events · actions */}
+        {/* RIGHT — since yesterday · events · actions. All three are "today"
+            constructs (a since-yesterday delta / an upcoming event / a next action),
+            so a past-date archive view shows only its brief + conviction, not these. */}
         <div className="min-w-0 divide-y divide-soft-border/70 border-t border-soft-border lg:border-l lg:border-t-0">
-          <SinceYesterdayBlock deltas={sinceDeltas} onNavigate={onNavigate} />
+          {isToday && <SinceYesterdayBlock deltas={sinceDeltas} onNavigate={onNavigate} />}
           {isToday && events.length > 0 && <EventsBlock events={events} />}
           {isToday && actions.length > 0 && <ActionsBlock actions={actions} onRun={onRun} />}
         </div>

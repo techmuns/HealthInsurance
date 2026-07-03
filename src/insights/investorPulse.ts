@@ -65,6 +65,9 @@ export interface PulseSignal {
    * only — a not-yet-happened event is a catalyst to watch, never the newest update.
    */
   horizon: 'upcoming' | 'recent'
+  /** When this item first entered the feed (ISO), from the ingestion's `first_seen`.
+   *  Powers the "New at 3:30 PM" intraday marker. Null until a run stamps it. */
+  capturedAt: string | null
 }
 
 export interface PulseManagementEvent {
@@ -354,6 +357,8 @@ interface IntelItem {
   impact?: 'positive' | 'negative' | 'watch' | 'neutral'
   source_name?: string
   source_url?: string | null
+  /** When the ingestion first captured this item (ISO). Drives intraday freshness. */
+  first_seen?: string | null
 }
 
 const MOVEMENT_RE = /\bvolume|volumes|premium (growth|momentum|leadership)|spike|surge|turnover|delivery|inflow|outflow|gwp growth\b/i
@@ -411,6 +416,7 @@ function toSignal(item: IntelItem, companyId: string): PulseSignal | null {
     // Only an explicit 'upcoming' marks a scheduled event; anything else counts as
     // already-surfaced news for freshness purposes.
     horizon: item.horizon === 'upcoming' ? 'upcoming' : 'recent',
+    capturedAt: item.first_seen ?? null,
   }
 }
 

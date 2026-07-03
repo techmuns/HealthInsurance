@@ -59,7 +59,7 @@ export function PulseTimeline({
                       className="text-[11px] font-bold uppercase tracking-[0.08em]"
                       style={{ color: d.isToday ? GOLD_ON_NAVY : on ? '#EAF1FB' : 'rgba(233,241,251,0.72)' }}
                     >
-                      {d.isToday ? 'Today' : `${d.dayNum} ${d.monthLabel}`}
+                      {d.label || `${d.dayNum} ${d.monthLabel}`}
                     </span>
                     {d.count > 0 && (
                       <span className="rounded-full px-1 text-[8px] font-bold text-white/70" style={{ background: 'rgba(255,255,255,0.10)' }}>
@@ -68,7 +68,7 @@ export function PulseTimeline({
                     )}
                   </span>
                   <span className="block text-[9px] font-semibold uppercase tracking-[0.14em] text-white/40">
-                    {d.isToday ? `${d.dayNum} ${d.monthLabel} · ${d.weekday}` : d.weekday}
+                    {d.label ? `${d.dayNum} ${d.monthLabel} · ${d.weekday}` : d.weekday}
                   </span>
                 </span>
               </button>
