@@ -523,6 +523,11 @@ export interface TimelineDay {
   monthLabel: string
   status: PulseStatus | null
   count: number
+  /** True when this day carries real source-backed items (or a frozen brief). A
+   *  false value is an honest "quiet day" marker — a calendar day with no news, shown
+   *  so the rail reads as a continuous run rather than a set of jumped-over dates.
+   *  Never a fabricated 0: a quiet day is explicitly labelled "no news", not counted. */
+  hasNews: boolean
 }
 
 function isoParts(iso: string): { weekday: string; dayNum: string; monthLabel: string } {
@@ -543,13 +548,24 @@ function yesterdayIso(): string {
   return istDay(-1)
 }
 
-/** Timeline of ACTUAL brief dates: Today (wall-clock, pinned) + each past date that
- *  carries real source-backed items, newest first. No invented/placeholder dates —
- *  a past day appears only if items exist for it. "Today" is the wall clock (the
- *  page always opens on today); the feed's own last-run time is shown honestly
- *  elsewhere via `feedUpdatedLabel()` ("Updated HH:MM"). When the frozen daily-brief
- *  archive is present it supplies the past dates; until then they derive from the
- *  live feed's own item dates. */
+// How many calendar days back from today the rail fills CONTINUOUSLY (every day,
+// quiet ones marked). Beyond this window the rail keeps only the days that carry
+// real activity — so the recent stretch reads as a proper calendar while the rail
+// can never grow without bound. A month of continuous history covers the daily read.
+const TIMELINE_WINDOW_DAYS = 31
+
+/** Timeline as a CONTINUOUS calendar: Today (wall-clock, pinned) then EVERY calendar
+ *  day back through the recent window down to the oldest day that carries real activity.
+ *  Days with real source-backed items (or a frozen archived brief) show their status +
+ *  count; the quiet days in between appear as explicit "no news" markers (`hasNews:
+ *  false`, `count: 0`) rather than being skipped — so the rail reads as an unbroken run
+ *  and the gaps are visibly intentional, never a fabricated 0 and never an invented
+ *  development. The continuous fill is bounded by real data (it never runs before the
+ *  first real day) and by `TIMELINE_WINDOW_DAYS`; any activity days older than the
+ *  window are still kept (as their own rows) so no real day is ever dropped. "Today" is
+ *  the wall clock; the feed's own last-run time is shown honestly elsewhere via
+ *  `feedUpdatedLabel()`. When the frozen daily-brief archive is present it supplies a
+ *  day's status + count; otherwise the live feed's own item dates do. */
 export function timelineDays(pulse: InvestorPulse): TimelineDay[] {
   const today = todayIso()
   const yday = yesterdayIso()
@@ -564,13 +580,14 @@ export function timelineDays(pulse: InvestorPulse): TimelineDay[] {
       ...isoParts(today),
       status: pulse.todayRead ? statusOf(pulse.todayRead.stance) : null,
       count: recent.length,
+      hasNews: recent.length > 0,
     },
   ]
 
-  // Past dates: the union of (a) dates that still have real items in the live feed
-  // and (b) FROZEN archived dates for this company — so a day stays on the rail even
-  // after it ages out of the live window. Newest first. A frozen record supplies the
-  // day's status + item count; otherwise the live items do.
+  // Real past activity: the union of (a) dates that still have live-feed items and
+  // (b) FROZEN archived dates for this company — so a day stays on the rail even after
+  // it ages out of the live window. A frozen record supplies the day's status + count;
+  // otherwise the live items do.
   const byDate = new Map<string, PulseSignal[]>()
   for (const s of recent) {
     if (!s.date || s.date >= today) continue // today's / future items belong to the Today entry
@@ -578,18 +595,44 @@ export function timelineDays(pulse: InvestorPulse): TimelineDay[] {
     arr.push(s)
     byDate.set(s.date, arr)
   }
-  const pastDates = new Set<string>([...byDate.keys(), ...archivedDatesFor(pulse.companyId).filter((d) => d < today)])
-  for (const date of [...pastDates].sort((a, b) => (a < b ? 1 : -1))) {
+  const activityDates = new Set<string>([...byDate.keys(), ...archivedDatesFor(pulse.companyId).filter((d) => d < today)])
+  if (!activityDates.size) return days
+
+  // Build one rail row for a past date (news day or quiet day).
+  const emit = (date: string): void => {
     const frozen = frozenBriefFor(pulse.companyId, date)
     const items = byDate.get(date)
+    const count = frozen ? (frozen.itemCount ?? frozen.ideas.length) : items ? items.length : 0
     days.push({
       key: date,
       isToday: false,
       label: date === yday ? 'Yesterday' : '',
       ...isoParts(date),
       status: frozen ? frozen.status : items ? dayStatus(items) : null,
-      count: frozen ? (frozen.itemCount ?? frozen.ideas.length) : items ? items.length : 0,
+      count,
+      hasNews: count > 0,
     })
+  }
+
+  // The floor of the continuous fill: back to the oldest activity day, but never more
+  // than the window. (Both are real IST day-strings, so a string compare is a date
+  // compare.) The window floor is a real calendar day-string so the boundary is exact.
+  const windowFloor = istDay(-TIMELINE_WINDOW_DAYS)
+  const oldestActivity = [...activityDates].sort()[0]
+  const floor = oldestActivity > windowFloor ? oldestActivity : windowFloor
+
+  // 1) The continuous recent calendar: EVERY day from yesterday back to the floor,
+  //    emitting quiet days as explicit "no news" markers.
+  for (let off = -1; off >= -TIMELINE_WINDOW_DAYS; off--) {
+    const date = istDay(off)
+    if (date < floor) break
+    emit(date)
+  }
+  // 2) Any real activity days OLDER than the window — kept as their own rows (newest
+  //    first) so history stays reachable and no real day is ever silently dropped.
+  for (const date of [...activityDates].sort((a, b) => (a < b ? 1 : -1))) {
+    if (date >= floor) continue // already emitted in the continuous window above
+    emit(date)
   }
   return days
 }

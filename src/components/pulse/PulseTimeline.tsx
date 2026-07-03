@@ -1,6 +1,9 @@
 // Pulse Timeline — the left navy date rail. Today is pinned + highlighted (gold);
-// earlier entries appear ONLY for real saved brief dates (never news-item dates).
-// When there is no saved history, it shows "No previous reads yet".
+// below it the rail is a CONTINUOUS calendar: every day back through the recent window
+// is shown, so days with news (a coloured dot + item count, clickable) sit amongst the
+// quiet days (a faint hollow dot + "No news", non-interactive). Nothing is jumped over,
+// so a gap in the news reads as an intentional quiet day, not a missing/broken date.
+// When there is no saved history at all, it shows "No previous reads yet".
 // Vertical rail on laptop+, a compact horizontal date strip on narrow screens.
 
 import { STATUS_COLOR, type TimelineDay } from './derive'
@@ -37,6 +40,29 @@ export function PulseTimeline({
         <span className="absolute bottom-2 left-[10px] top-2 w-px" style={{ background: 'linear-gradient(180deg, rgba(228,198,124,0.4), rgba(228,198,124,0.08))' }} />
         {days.map((d) => {
           const on = d.key === selectedKey
+          // A quiet day (no source-backed items): an honest, non-interactive "no news"
+          // marker — faint hollow dot, dimmed date — so the rail reads as a continuous
+          // calendar and the gap is visibly intentional, not a jumped-over date.
+          if (!d.hasNews && !d.isToday) {
+            return (
+              <li key={d.key} className="relative">
+                <div className="flex w-full items-center gap-2.5 rounded-lg py-[3px] pl-0 pr-1">
+                  <span
+                    className="relative z-[1] grid h-[21px] w-[21px] shrink-0 place-items-center rounded-full"
+                    style={{ background: '#15294C', boxShadow: 'inset 0 0 0 1px rgba(255,255,255,0.08)' }}
+                  >
+                    <span className="h-1.5 w-1.5 rounded-full" style={{ background: 'transparent', boxShadow: 'inset 0 0 0 1px rgba(255,255,255,0.38)' }} />
+                  </span>
+                  <span className="flex min-w-0 flex-1 items-baseline gap-1.5">
+                    <span className="text-[10px] font-semibold uppercase tracking-[0.08em] text-white/40">
+                      {d.dayNum} {d.monthLabel}
+                    </span>
+                    <span className="text-[8px] font-semibold uppercase tracking-[0.12em] text-white/25">· No news</span>
+                  </span>
+                </div>
+              </li>
+            )
+          }
           return (
             <li key={d.key} className="relative">
               <button
@@ -81,6 +107,17 @@ export function PulseTimeline({
       <div className="flex gap-1.5 overflow-x-auto hide-scrollbar lg:hidden">
         {days.map((d) => {
           const on = d.key === selectedKey
+          // Quiet day — a dimmed, non-interactive "no news" marker (faint hollow dot),
+          // so the horizontal strip also reads as an unbroken run of days.
+          if (!d.hasNews && !d.isToday) {
+            return (
+              <div key={d.key} className="flex min-w-[46px] shrink-0 flex-col items-center gap-1 rounded-lg px-2 py-1.5">
+                <span className="h-2 w-2 rounded-full" style={{ background: 'transparent', boxShadow: 'inset 0 0 0 1px rgba(255,255,255,0.4)' }} />
+                <span className="text-[10px] font-bold uppercase text-white/45">{d.dayNum}</span>
+                <span className="text-[8px] font-semibold uppercase tracking-wide text-white/30">{d.monthLabel}</span>
+              </div>
+            )
+          }
           return (
             <button
               key={d.key}
