@@ -5,7 +5,7 @@
     "schema_version": "1.0.0",
     "dataset": "ai_generated",
     "last_updated": "2026-07-03",
-    "last_successful_run": "2026-07-03T12:01:05.311Z",
+    "last_successful_run": "2026-07-03T15:49:34.221Z",
     "upstream_sources": [
       "muns_agent_web"
     ],
@@ -73,6 +73,45 @@
       "detail": "The IR page showing FY26 quarterly and Q4 materials suggests investors should monitor for the next scheduled company communication, results pack or meeting update.",
       "source_name": "transactions.nivabupa.com",
       "source_url": "https://transactions.nivabupa.com/pages/investor-relations.aspx"
+    },
+    {
+      "id": "3add2fb352",
+      "company_id": "sector",
+      "date": "2026-07-03",
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "negative",
+      "headline": "RBI flags solvency weakness at three state-run general insurers",
+      "detail": "RBI’s financial-stability warning on persistent solvency breaches in PSU general insurers keeps sector regulation, capital adequacy and supervisory intensity in focus across non-life insurers, even if standalone health insurers are not the ones cited.",
+      "source_name": "livemint.com",
+      "source_url": "https://www.livemint.com/insurance/rbi-general-insurers-oriental-united-india-national-insurance-solvency-ratio-11782992284462.html",
+      "first_seen": "2026-07-03T15:49:34.221Z"
+    },
+    {
+      "id": "b60cfb639c",
+      "company_id": "sector",
+      "date": "2026-07-01",
+      "kind": "regulatory",
+      "horizon": "recent",
+      "impact": "watch",
+      "headline": "IRDAI grants Prudential-HCL health insurance licence",
+      "detail": "A new standalone health insurer entering the market raises competitive intensity in retail health, distribution and hiring, which matters for growth and pricing across Niva Bupa, Star Health, Care and peers.",
+      "source_name": "bfsi.economictimes.indiatimes.com",
+      "source_url": "https://bfsi.economictimes.indiatimes.com/articles/prudential-hcl-health-insurance-receives-irdai-license-a-milestone-in-indias-health-insurance-market/132118031",
+      "first_seen": "2026-07-03T15:49:34.221Z"
+    },
+    {
+      "id": "a59ad3ce59",
+      "company_id": "sector",
+      "date": "2026-07-01",
+      "kind": "regulatory",
+      "horizon": "recent",
+      "impact": "positive",
+      "headline": "IRDAI softens listing stance for insurers",
+      "detail": "IRDAI chair Ajay Seth said insurers should go public only when they need capital, easing a potential overhang from regulator-driven IPO expectations for mature private insurers including standalone health players.",
+      "source_name": "moneycontrol.com",
+      "source_url": "https://www.moneycontrol.com/news/business/banks/irdai-softens-stance-on-insurer-listings-13963096.html",
+      "first_seen": "2026-07-03T15:49:34.221Z"
     },
     {
       "id": "f3ce300c4e",
@@ -151,6 +190,32 @@
       "first_seen": "2026-07-03T05:30:20.868Z"
     },
     {
+      "id": "2a54e30df4",
+      "company_id": "niva-bupa",
+      "date": "2026-06-18",
+      "kind": "rating",
+      "horizon": "recent",
+      "impact": "positive",
+      "headline": "MOFSL sees Niva Bupa sustaining market-share gains",
+      "detail": "A fresh positive broker note matters because sustained retail-health growth and share gains can support rerating expectations for NIVABUPA.",
+      "source_name": "bfsi.economictimes.indiatimes.com",
+      "source_url": "https://bfsi.economictimes.indiatimes.com/articles/niva-bupa-forecasted-to-outpace-retail-health-insurance-market-amid-soaring-demand/131922688",
+      "first_seen": "2026-07-03T15:49:34.221Z"
+    },
+    {
+      "id": "1ea6c18e96",
+      "company_id": "niva-bupa",
+      "date": "2026-06-16",
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "positive",
+      "headline": "Niva Bupa among leaders in May premium growth",
+      "detail": "Faster premium growth versus peers is a near-term read-through for growth momentum, though investors will watch whether profitability keeps pace.",
+      "source_name": "bfsi.economictimes.indiatimes.com",
+      "source_url": "https://bfsi.economictimes.indiatimes.com/articles/niva-bupa-and-icici-lombard-drive-non-life-insurance-premium-growth-in-may-2026/131896688",
+      "first_seen": "2026-07-03T15:49:34.221Z"
+    },
+    {
       "id": "01089ad22c",
       "company_id": "sector",
       "date": "2026-06-15",
@@ -162,6 +227,58 @@
       "source_name": "irdai.gov.in",
       "source_url": "https://irdai.gov.in/warnings-and-penalties",
       "first_seen": "2026-07-03T05:30:20.868Z"
+    },
+    {
+      "id": "b8a982aff4",
+      "company_id": "sector",
+      "date": "2026-06-11",
+      "kind": "rating",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "Motilal Oswal reiterates Buy on Star Health with Rs 700 target",
+      "detail": "A bullish sell-side view on the largest listed standalone health insurer can lift sector sentiment, but also sharpens the benchmark Niva Bupa must match on profitability and scale.",
+      "source_name": "moneycontrol.com",
+      "source_url": "https://www.moneycontrol.com/news/business/stocks/buy-star-health-target-of-rs-700-motilal-oswal-13959277.html",
+      "first_seen": "2026-07-03T15:49:34.221Z"
+    },
+    {
+      "id": "3232c29598",
+      "company_id": "sector",
+      "date": "2026-06-06",
+      "kind": "catalyst",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "ManipalCigna appoints Anjan Kumar Ganguly as CFO",
+      "detail": "A named CFO appointment is relevant because leadership changes at private standalone-health peers can shape competitive execution, funding readiness and distribution strategy.",
+      "source_name": "bfsi.economictimes.indiatimes.com",
+      "source_url": "https://bfsi.economictimes.indiatimes.com/articles/anjan-kumar-ganguly-joins-manipalcigna-health-insurance-as-cfo/131631191",
+      "first_seen": "2026-07-03T15:49:34.221Z"
+    },
+    {
+      "id": "d633bd7f30",
+      "company_id": "sector",
+      "date": "2026-06-04",
+      "kind": "investor_meet",
+      "horizon": "recent",
+      "impact": "watch",
+      "headline": "Star Health held Q4FY26 analyst/investor meeting",
+      "detail": "Star’s Q4 discussion matters for the whole listed health-insurance space because commentary on pricing, claims and growth can influence read-throughs for Niva Bupa too.",
+      "source_name": "nsearchives.nseindia.com",
+      "source_url": "https://nsearchives.nseindia.com/corporate/STARHEALTH_19052026143510_Investor_meets_Single_22052026.pdf",
+      "first_seen": "2026-07-03T15:49:34.221Z"
+    },
+    {
+      "id": "338f7ffe04",
+      "company_id": "sector",
+      "date": "2026-05-30",
+      "kind": "catalyst",
+      "horizon": "recent",
+      "impact": "watch",
+      "headline": "Burman family raises stake in Religare above 30%",
+      "detail": "Ownership change at Religare matters indirectly for Care Health because parent-level control and capital-allocation decisions can affect strategic optionality around the insurer.",
+      "source_name": "livemint.com",
+      "source_url": "https://www.livemint.com/market/stock-market-news/burman-family-raises-stake-in-religare-enterprises-to-over-30-11774880578955.html",
+      "first_seen": "2026-07-03T15:49:34.221Z"
     },
     {
       "id": "a9a581005e",
