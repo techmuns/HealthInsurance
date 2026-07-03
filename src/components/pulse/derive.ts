@@ -1345,6 +1345,12 @@ export interface SinceDelta {
   tone: SignalImpact
   /** Where "View in dashboard" lands — the nearest real section for this change. */
   target: NavTarget
+  /** The exact source article for this change, when it is a SINGLE item. The Pulse
+   *  market-intelligence items don't live on the dashboard sections (those are built
+   *  from other snapshots), so an in-app jump can only land on the right area, never
+   *  on the item itself. When a delta is one item we open its real source instead —
+   *  that always points at the actual update. */
+  href?: string
 }
 
 /** "Since Yesterday" — real, computable category counts vs the previous brief.
@@ -1375,12 +1381,18 @@ export function sinceYesterday(pulse: InvestorPulse): SinceDelta[] {
     ...to(sahiTab),
     focus: buildLocator({ id: `pulse-since-${id}`, locatorKind, company, companyLabel: pulse.company, insightLabel: label, sahiTab }),
   })
+  // When a delta is a SINGLE item, its own source is the truest destination — the
+  // dashboard sections are built from other snapshots and don't carry this item, so an
+  // in-app jump can only reach the right area, not the update. One item → open its source.
+  const soleHref = (items: PulseSignal[]): string | undefined => (items.length === 1 && items[0].sourceUrl ? items[0].sourceUrl : undefined)
 
-  const reg = fresh.filter((s) => s.category === 'Regulatory').length
-  if (reg) out.push({ id: 'reg', label: reg === 1 ? 'new regulatory update' : 'new regulatory updates', value: String(reg), direction: 'up', tone: 'Watch', target: locTarget('sector-news', 'reg', 'regulatory', `${reg} new regulatory ${reg === 1 ? 'update' : 'updates'}`) })
+  const regItems = fresh.filter((s) => s.category === 'Regulatory')
+  const reg = regItems.length
+  if (reg) out.push({ id: 'reg', label: reg === 1 ? 'new regulatory update' : 'new regulatory updates', value: String(reg), direction: 'up', tone: 'Watch', target: locTarget('sector-news', 'reg', 'regulatory', `${reg} new regulatory ${reg === 1 ? 'update' : 'updates'}`), href: soleHref(regItems) })
 
-  const disclosures = fresh.filter((s) => s.scope === 'company').length
-  if (disclosures) out.push({ id: 'co', label: disclosures === 1 ? 'fresh company update' : 'fresh company updates', value: String(disclosures), direction: 'up', tone: 'Positive', target: locTarget('companies', 'co', 'company', `${disclosures} fresh ${pulse.company} ${disclosures === 1 ? 'update' : 'updates'}`) })
+  const coItems = fresh.filter((s) => s.scope === 'company')
+  const disclosures = coItems.length
+  if (disclosures) out.push({ id: 'co', label: disclosures === 1 ? 'fresh company update' : 'fresh company updates', value: String(disclosures), direction: 'up', tone: 'Positive', target: locTarget('companies', 'co', 'company', `${disclosures} fresh ${pulse.company} ${disclosures === 1 ? 'update' : 'updates'}`), href: soleHref(coItems) })
 
   // Management changes only when genuinely recent (last day) — not the full 18-month
   // governance window, which would read stale changes as "since yesterday".
@@ -1395,8 +1407,9 @@ export function sinceYesterday(pulse: InvestorPulse): SinceDelta[] {
   if (events) out.push({ id: 'events', label: events === 1 ? 'event ahead' : 'events ahead', value: String(events), direction: 'up', tone: 'Neutral', target: locTarget('governance', 'events', 'events', `${events} ${events === 1 ? 'event' : 'events'} ahead`) })
 
   // Market reaction only when it is a genuine reported move; 0 shown as reassurance.
-  const moves = fresh.filter((s) => s.category === 'Data Movement' && isMarketMove(s.title)).length
-  out.push({ id: 'moves', label: moves === 1 ? 'unusual market move' : 'unusual market moves', value: String(moves), direction: moves > 0 ? 'up' : 'flat', tone: moves > 0 ? 'Watch' : 'Positive', target: locTarget('valuation', 'moves', 'market_move', moves > 0 ? `${moves} unusual market ${moves === 1 ? 'move' : 'moves'}` : 'No unusual market moves') })
+  const moveItems = fresh.filter((s) => s.category === 'Data Movement' && isMarketMove(s.title))
+  const moves = moveItems.length
+  out.push({ id: 'moves', label: moves === 1 ? 'unusual market move' : 'unusual market moves', value: String(moves), direction: moves > 0 ? 'up' : 'flat', tone: moves > 0 ? 'Watch' : 'Positive', target: locTarget('valuation', 'moves', 'market_move', moves > 0 ? `${moves} unusual market ${moves === 1 ? 'move' : 'moves'}` : 'No unusual market moves'), href: soleHref(moveItems) })
 
   return out
 }

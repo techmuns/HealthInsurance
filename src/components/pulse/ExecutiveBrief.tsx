@@ -259,29 +259,49 @@ function SinceYesterdayBlock({ deltas, onNavigate }: { deltas: SinceDelta[]; onN
   if (deltas.length === 0) return null
   return (
     <div className="px-4 py-3">
-      <SectionHead icon={RefreshCw} label="Since Yesterday" note="view in dashboard" />
+      <SectionHead icon={RefreshCw} label="Since Yesterday" note="tap to open" />
       <div className="space-y-0.5">
         {deltas.map((d) => {
           const tone = IMPACT_META[d.tone]
           const Icon = d.direction === 'down' ? ArrowDown : d.direction === 'flat' ? Minus : ArrowUp
+          // A single-item delta opens its REAL source (the actual update); a multi-item
+          // delta falls back to the nearest in-app section. A zero/flat row (e.g. "0
+          // unusual market moves") is informational and not interactive.
+          const isLink = !!d.href
+          const canNav = !isLink && !!onNavigate && d.direction !== 'flat'
+          const affordance = (label: string) => (
+            <span className="ml-auto flex shrink-0 items-center gap-0.5 self-center text-[8.5px] font-semibold uppercase tracking-[0.08em] text-ink-secondary/45 transition-colors group-hover:text-champagne-deep">
+              <span className="max-w-0 overflow-hidden whitespace-nowrap opacity-0 transition-all duration-200 group-hover:max-w-[40px] group-hover:opacity-100">{label}</span>
+              <ArrowUpRight className="h-3 w-3" strokeWidth={2.2} />
+            </span>
+          )
+          const inner = (
+            <>
+              <Icon className="h-3 w-3 shrink-0 self-center" strokeWidth={2.4} style={{ color: tone.fg }} />
+              <span className="text-[12.5px] font-bold text-navy-deep">{d.value}</span>
+              <span className="text-[10.5px] text-ink-secondary">{d.label}</span>
+            </>
+          )
+          const base = 'group flex w-full items-baseline gap-1.5 rounded-md px-1 py-0.5 text-left transition-colors'
+          if (isLink) {
+            return (
+              <a key={d.id} href={d.href} target="_blank" rel="noreferrer" title="Open source" className={`${base} cursor-pointer hover:bg-ice/70`}>
+                {inner}
+                {affordance('Open')}
+              </a>
+            )
+          }
           return (
             <button
               key={d.id}
               type="button"
-              disabled={!onNavigate}
-              onClick={() => onNavigate?.(d.target, `pulse-since-${d.id}`)}
-              title={onNavigate ? 'View in dashboard' : undefined}
-              className={`group flex w-full items-baseline gap-1.5 rounded-md px-1 py-0.5 text-left transition-colors ${onNavigate ? 'cursor-pointer hover:bg-ice/70' : 'cursor-default'}`}
+              disabled={!canNav}
+              onClick={() => canNav && onNavigate?.(d.target, `pulse-since-${d.id}`)}
+              title={canNav ? 'View in dashboard' : undefined}
+              className={`${base} ${canNav ? 'cursor-pointer hover:bg-ice/70' : 'cursor-default'}`}
             >
-              <Icon className="h-3 w-3 shrink-0 self-center" strokeWidth={2.4} style={{ color: tone.fg }} />
-              <span className="text-[12.5px] font-bold text-navy-deep">{d.value}</span>
-              <span className="text-[10.5px] text-ink-secondary">{d.label}</span>
-              {onNavigate && (
-                <span className="ml-auto flex shrink-0 items-center gap-0.5 self-center text-[8.5px] font-semibold uppercase tracking-[0.08em] text-ink-secondary/45 transition-colors group-hover:text-champagne-deep">
-                  <span className="max-w-0 overflow-hidden whitespace-nowrap opacity-0 transition-all duration-200 group-hover:max-w-[36px] group-hover:opacity-100">View</span>
-                  <ArrowUpRight className="h-3 w-3" strokeWidth={2.2} />
-                </span>
-              )}
+              {inner}
+              {canNav && affordance('View')}
             </button>
           )
         })}
