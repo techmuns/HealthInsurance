@@ -11,7 +11,7 @@
 //  is kept only if it has a headline. Token from MUNS_API_TOKEN.
 // ---------------------------------------------------------------------------
 
-import { writeSnapshot, nowIso, appendLog } from './util'
+import { writeSnapshot, readSnapshot, nowIso, appendLog } from './util'
 import { createHash } from 'node:crypto'
 
 const API_URL = process.env.MUNS_AGENT_URL || 'https://devde.muns.io/chat/chat-muns'
@@ -38,6 +38,13 @@ function buildPayload() {
         'headline = one short line.\n' +
         'detail = one sentence on why it matters to the share / sector.\n' +
         'source_url = the link backing the item.\n\n' +
+        'PREFERRED SOURCES — search these trusted outlets deeply and prefer them for headlines and links:\n' +
+        '- The Economic Times (economictimes.indiatimes.com, including bfsi.economictimes.indiatimes.com)\n' +
+        '- The Hindu BusinessLine (thehindubusinessline.com)\n' +
+        '- Moneycontrol (moneycontrol.com)\n' +
+        '- Livemint / Mint (livemint.com)\n' +
+        '- Pulse by Zerodha (pulse.zerodha.com) — a live aggregator of Indian market news. Use it to DISCOVER the latest headlines, but link the ORIGINAL source article it points to (the Economic Times / BusinessLine / Moneycontrol / Livemint / other outlet page), never the aggregator URL.\n' +
+        'Dig into these for the latest IRDAI / regulatory, sector and company developments. When several outlets carry the same story, cite one of the trusted outlets above. Still include other credible sources for anything these have not covered — do not omit a real development just because it is elsewhere.\n\n' +
         'Give 6–12 of the most relevant, current items, most market-moving first. Use real, sourced items only — do not invent events. Leave a cell blank rather than guess.\n\n' +
         'Example (format only):\n' +
         'company | date | kind | horizon | impact | headline | detail | source_url\n' +
@@ -112,6 +119,9 @@ interface IntelItem {
   detail: string
   source_name: string | null
   source_url: string | null
+  /** Bookkeeping only (never shown): when this highlight first entered the feed.
+   *  Lets undated items age out of the accumulated feed. */
+  first_seen?: string
 }
 
 function parseItems(answer: string, today: string): IntelItem[] {
@@ -146,6 +156,68 @@ function parseItems(answer: string, today: string): IntelItem[] {
   return out
 }
 
+// ── Accumulation (Neha, 2026-07-03) ──────────────────────────────────────────
+// Each run MERGES its fresh pull into the stored feed instead of replacing it, so
+// a highlight surfaced earlier in the day is never lost when a later run doesn't
+// re-list it. New items are appended (deduped by id = hash(headline + date)); the
+// day's developments accumulate under the single "Today" read and the Pulse brief
+// re-composes over the fuller set. Genuinely stale items age out so the feed stays
+// current and compact, never unbounded.
+const RETAIN_RECENT_DAYS = 45 // drop 'recent' items older than this many days
+const UPCOMING_GRACE_DAYS = 3 // drop 'upcoming' items whose date passed this long ago
+const MAX_ITEMS = 60 // backstop cap on total stored items (newest kept)
+
+function daysSince(dateIso: string, today: string): number | null {
+  const t = Date.parse(`${dateIso}T00:00:00Z`)
+  const n = Date.parse(`${today}T00:00:00Z`)
+  if (isNaN(t) || isNaN(n)) return null
+  return Math.round((n - t) / 86_400_000) // > 0 in the past, < 0 in the future
+}
+
+// An item still belongs in the live feed when it is current: 'recent' items inside
+// the retention window; 'upcoming' items until shortly after their date passes.
+// Undatable items (no date, no first_seen) are kept but bounded by MAX_ITEMS.
+function isStillCurrent(it: IntelItem, today: string): boolean {
+  const ref = it.date || (it.first_seen ? it.first_seen.slice(0, 10) : '')
+  if (!ref) return true
+  const age = daysSince(ref, today)
+  if (age === null) return true
+  if (it.horizon === 'upcoming') return age <= UPCOMING_GRACE_DAYS
+  return age <= RETAIN_RECENT_DAYS
+}
+
+// Merge a fresh pull into the stored set: existing items win on conflict (a
+// first-captured highlight stays put), genuinely new ids are appended with a
+// first_seen stamp; then prune stale items and cap, newest first.
+function mergeFeed(
+  existing: IntelItem[],
+  fresh: IntelItem[],
+  today: string,
+  fetchedAt: string,
+): { merged: IntelItem[]; added: number; carried: number } {
+  const byId = new Map<string, IntelItem>()
+  for (const it of existing) byId.set(it.id, it)
+  const carried = byId.size
+  let added = 0
+  for (const it of fresh) {
+    if (!byId.has(it.id)) {
+      byId.set(it.id, { ...it, first_seen: fetchedAt })
+      added++
+    }
+  }
+  let merged = [...byId.values()].filter((it) => isStillCurrent(it, today))
+  merged.sort((a, b) => {
+    const da = a.date || ''
+    const db = b.date || ''
+    if (da && db) return da < db ? 1 : da > db ? -1 : 0
+    if (da) return -1
+    if (db) return 1
+    return 0
+  })
+  if (merged.length > MAX_ITEMS) merged = merged.slice(0, MAX_ITEMS)
+  return { merged, added, carried }
+}
+
 async function main(): Promise<number> {
   const token = (process.env.MUNS_API_TOKEN || '').trim()
   if (!token) { console.error('ERROR: MUNS_API_TOKEN is not set.'); return 1 }
@@ -169,6 +241,18 @@ async function main(): Promise<number> {
     return 0
   }
 
+  // Merge this pull into the stored feed so the day's highlights accumulate (a
+  // highlight surfaced at 11:30 isn't lost when the 15:30 run doesn't re-list it).
+  let existing: IntelItem[] = []
+  try {
+    const prev = await readSnapshot<{ data?: IntelItem[] }>('market-intelligence-snapshot.json')
+    if (Array.isArray(prev?.data)) existing = prev.data
+  } catch {
+    /* first run / no prior snapshot — start fresh */
+  }
+  const { merged, added, carried } = mergeFeed(existing, items, today, fetched_at)
+  console.log(`Feed merge: ${carried} carried + ${added} new this run = ${merged.length} stored (${items.length} pulled).`)
+
   await writeSnapshot('market-intelligence-snapshot.json', {
     _meta: {
       snapshot_id: 'market-intelligence-snapshot',
@@ -180,11 +264,11 @@ async function main(): Promise<number> {
       upstream_sources: ['muns_agent_web'],
       parser_status: 'ready',
       generated_by: 'AI (muns agent, web search)',
-      notes: 'Clearly labelled AI-generated intelligence — verify before acting. Items rank by investor impact, not recency.',
+      notes: 'Clearly labelled AI-generated intelligence — verify before acting. Items accumulate through the day and rank by investor impact, not recency.',
     },
-    data: items,
+    data: merged,
   })
-  console.log(`market-intelligence-snapshot: wrote ${items.length} item(s).`)
+  console.log(`market-intelligence-snapshot: wrote ${merged.length} item(s).`)
   return 0
 }
 
