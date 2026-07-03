@@ -346,7 +346,7 @@ function ActionsBlock({ actions, onRun }: { actions: PulseAction[]; onRun: (a: P
   return (
     <div className="px-4 py-3">
       <SectionHead icon={Zap} label="Action for Today" />
-      <div className="grid grid-cols-2 gap-1.5">
+      <div className="grid grid-cols-1 gap-1.5">
         {actions.map((a) => {
           const Icon = ACTION_ICON[a.icon]
           return (
