@@ -14,6 +14,7 @@
 import streetSnapshot from '@/data/snapshots/street-analyst-snapshot.json'
 import valuationFundamentals from '@/data/snapshots/valuation-fundamentals-snapshot.json'
 import insurerAnnual from '@/data/snapshots/insurer-annual-snapshot.json'
+import valuationSnapshot from '@/data/snapshots/valuation-snapshot.json'
 import type { StreetAnalystSnapshot } from '@/data/snapshots/_schemas'
 
 // Quarterly-refreshed reported financials (GWP / PAT / growth / retail share) for
@@ -38,6 +39,16 @@ function latestFundamentals(companyId: string): FundamentalsRow | null {
 }
 function fundamentalsFor(companyId: string, fy: string): FundamentalsRow | null {
   return FUND_ROWS.find((r) => r.company_id === companyId && r.fiscal_year === fy) ?? null
+}
+
+// Live daily market cap for a listed peer, read straight from the valuation
+// snapshot feed (same feed the market-view card and analyst coverage use). Read
+// here directly rather than importing getMarketQuote to avoid a circular import
+// (analystCoverage imports this module). Keeps every listed peer's multiple on
+// the SAME current vintage as the focal name, instead of a frozen seed.
+const VAL_QUOTE_ROWS = (valuationSnapshot.data as Array<{ company_id: string; market_cap: number | null }>) ?? []
+function liveMarketCap(companyId: string): number | null {
+  return VAL_QUOTE_ROWS.find((r) => r.company_id === companyId)?.market_cap ?? null
 }
 
 // The unlisted SAHIs have no market price (so no multiple), but their gross
@@ -378,11 +389,14 @@ export interface AnalystThesis {
   catalysts: string[]
 }
 
-// Star's P/GWP on the same basis as the peer table, for the thesis comparison.
+// Star's P/GWP on the same basis as the peer table, for the thesis comparison —
+// live market cap (seed only as a fallback) so the thesis prose stays in step
+// with the peer table and lenses rather than quoting a frozen peer multiple.
 const _starPGwp = (() => {
   const s = latestFundamentals('star-health')
   const g = s?.gwp ?? 20369
-  return g > 0 ? r2(30356 / g) : 1.49
+  const mcap = liveMarketCap('star-health') ?? 30356
+  return g > 0 ? r2(mcap / g) : 1.49
 })()
 
 export const analystThesis: AnalystThesis = {
@@ -440,7 +454,11 @@ function listedPeerRow(
   sourceId: string,
 ): PeerValuationRow {
   const f = latestFundamentals(companyId)
-  const mcap = companyId === FOCAL_VALUATION_ID ? marketSnapshot.marketCap : seedMcap
+  // Focal name tracks the live price feed; listed peers use their live daily
+  // market cap from the valuation snapshot (seed only as a fallback), so every
+  // listed peer's multiple is on the SAME current vintage — a like-for-like
+  // comparison rather than today's focal vs a months-old peer seed.
+  const mcap = companyId === FOCAL_VALUATION_ID ? marketSnapshot.marketCap : (liveMarketCap(companyId) ?? seedMcap)
   const gwp = f?.gwp ?? seedGwp
   const pat = f?.pat ?? null
   return {

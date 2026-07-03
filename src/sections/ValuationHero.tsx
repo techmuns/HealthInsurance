@@ -55,8 +55,11 @@ export function ValuationHero() {
     : premiumVsStar != null && premiumVsStar < -5 ? 'Discount to listed peer'
     : 'In line with peer'
   const verdictTone = ratingTone[ac.ratingLabel as keyof typeof ratingTone] ?? ratingTone.Buy
+  // "backed by faster growth" only reads when there's a MEANINGFUL premium to
+  // justify — gated on the same +5% band the "Premium to listed peers" stance
+  // uses, so it never appears alongside an "in line with peer" verdict.
   const growthEdge =
-    premiumVsStar != null && premiumVsStar > 0 && niva?.growth != null && star?.growth != null && niva.growth > star.growth
+    premiumVsStar != null && premiumVsStar > 5 && niva?.growth != null && star?.growth != null && niva.growth > star.growth
 
   // One-line takeaway built from the same numbers shown on the page (no new data).
   const takeaway: ReactNode = (
@@ -126,7 +129,7 @@ export function ValuationHero() {
           {/* Return + upside callouts — pulled close under the gauge/price */}
           <div className="mt-2.5 grid w-full grid-cols-2 gap-2">
             <Callout
-              label="Return since listing"
+              label="Return since IPO"
               value={upPct(ret)}
               tone={ret >= 0 ? 'teal' : 'coral'}
               icon={ret >= 0 ? <TrendingUp className="h-3.5 w-3.5" /> : <TrendingDown className="h-3.5 w-3.5" />}
@@ -268,6 +271,12 @@ function ValuationLensesCard({
   const barH = (v: number | null) => (v == null ? 0 : Math.round(12 + 26 * (v / maxV)))
   const pos52 = hi > lo ? Math.max(0, Math.min(100, ((price - lo) / (hi - lo)) * 100)) : 50
   const premiumUp = premiumVsStar != null && premiumVsStar >= 0
+  // Header stance mirrors the verdict's ±5% band, so the card never says
+  // "Premium" when the focal name is actually in line with (or below) the peer.
+  const peerStanceWord =
+    premiumVsStar == null || premiumVsStar > 5 ? 'Premium to listed peer'
+    : premiumVsStar < -5 ? 'Discount to listed peer'
+    : 'In line with listed peer'
 
   return (
     <aside className="flex flex-col rounded-2xl border border-soft-border bg-white/70 p-3.5 shadow-soft backdrop-blur">
@@ -280,7 +289,7 @@ function ValuationLensesCard({
       {pGwp != null && starPGwp != null && (
         <div className="mt-2.5 rounded-xl border border-[#EAD9B6] bg-gradient-to-b from-[#FBF7EE] to-white p-2.5">
           <div className="flex items-center justify-between">
-            <p className="text-[9px] font-bold uppercase tracking-[0.12em] text-champagne-deep">Premium to listed peer</p>
+            <p className="text-[9px] font-bold uppercase tracking-[0.12em] text-champagne-deep">{peerStanceWord}</p>
             {premiumVsStar != null && (
               <span className={`inline-flex items-center gap-0.5 rounded-full px-1.5 py-0.5 text-[9.5px] font-bold ${premiumUp ? 'bg-champagne-soft text-champagne-deep' : 'bg-[#F1FAF8] text-teal'}`}>
                 {premiumUp ? <TrendingUp className="h-2.5 w-2.5" /> : <TrendingDown className="h-2.5 w-2.5" />}
@@ -299,9 +308,9 @@ function ValuationLensesCard({
       {/* Lens rows */}
       <div className="mt-2.5 space-y-1">
         <LensRow label="P / GWP" value={xMult(pGwp)} tone="navy" hint={gwpFy} />
-        <LensRow label="Premium vs Star" value={premiumVsStar == null ? 'n/a' : `${premiumVsStar >= 0 ? '+' : ''}${premiumVsStar.toFixed(0)}%`} tone={premiumUp ? 'gold' : 'teal'} hint="P/GWP" />
+        <LensRow label={premiumUp ? 'Premium vs Star' : 'Discount vs Star'} value={premiumVsStar == null ? 'n/a' : `${Math.abs(premiumVsStar).toFixed(0)}%`} tone={premiumUp ? 'gold' : 'teal'} hint="P/GWP" />
         <LensRow label="Upside to fair value" value={upPct(upside)} tone={upside == null ? 'navy' : upside >= 0 ? 'gold' : 'coral'} hint="to consensus" />
-        <LensRow label="Return since listing" value={upPct(ret)} tone={ret >= 0 ? 'teal' : 'coral'} hint="vs IPO ₹74" />
+        <LensRow label="Return since IPO" value={upPct(ret)} tone={ret >= 0 ? 'teal' : 'coral'} hint="vs IPO ₹74" />
       </div>
 
       {/* 52-week position */}

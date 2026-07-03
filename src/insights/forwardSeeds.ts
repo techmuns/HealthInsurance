@@ -49,7 +49,7 @@ export const FORWARD_SEEDS: Record<string, { application: Application; watch: Wa
     application: {
       framing: 'A forward-ROE option read on Niva — the multiple already prices the ramp, not the current return.',
       uses: [
-        { angle: 'Relative value', detail: "Frames Niva vs Star: a richer 1.65x P/GWP on a 5.66% ROE against Star's 1.49x on ~11% — paying more for less current return." },
+        { angle: 'Relative value', detail: "On P/GWP Niva now sits roughly in line with Star (~1.7x each), so the stretched-valuation case rests on the 3x P/B against a ~5.7% ROE — not a premium to the listed peer." },
         { angle: 'Catalyst', detail: 'Positions around the ROE path: a 3.0x P/B vs a ~0.47x warranted multiple (ROE ÷ 12% CoE) is the gap the target must close.' },
         { angle: 'Risk flag', detail: 'Underwriting is still loss-making (CR 101.2%) and coverage is thin — little cushion if the ROE step stalls.' },
       ],

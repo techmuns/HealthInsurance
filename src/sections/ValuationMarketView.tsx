@@ -158,7 +158,7 @@ function ValuationPending({ company, peerRow }: { company: Insurer; peerRow: Pee
               <div className="mt-3 grid grid-cols-2 gap-2 sm:grid-cols-3">
                 <Tile k="Current price" v={px(price)} sub={quote?.asOf ?? '—'} />
                 <Tile k="Market cap" v={fmtCr(quote?.marketCap ?? null)} sub="latest" />
-                <Tile k="P / GWP" v={xMult(pGwp)} sub="FY26" tone="amber" />
+                <Tile k="P / GWP" v={xMult(pGwp)} sub={peerRow?.gwpFy ?? 'FY26'} tone="amber" />
                 <Tile k="P / E" v={xMult(quote?.pe ?? null, 1)} sub="TTM" />
                 <Tile k="P / B" v={xMult(quote?.pb ?? null, 1)} sub="latest" />
                 {ac != null && (
