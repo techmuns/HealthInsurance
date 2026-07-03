@@ -16,7 +16,7 @@ import { getFilteredInsurers, getHighlightedInsurer } from '@/lib/insurers'
 import { lookupProvenance, getAnnualRowProvenance, getValuationProvenance, getMetricRowProvenance, latestRetailMixPoint, getLatestAnnualFyLabel, RETAIL_MIX_SOURCE } from '@/lib/dataLayer'
 import { hasBasisData, getBasisProfit, ANNUAL_PERIODS, BASIS_SOURCE_LABEL, type AccountingBasis, type BasisPeriod } from '@/data/accountingBasis'
 import type { DashboardFilters, Insurer } from '@/data/types'
-import valuationSnapshot from '@/data/snapshots/valuation-snapshot.json'
+import { ifrsValuationMultiple } from '@/lib/ifrsValuation'
 
 type FilterInput = Pick<DashboardFilters, 'peerGroup' | 'highlightedCompany'>
 
@@ -41,21 +41,17 @@ export interface MetricDef {
   naWhen?: (i: Insurer) => boolean
 }
 
-// Listed-insurer valuation multiples (P/E, P/B) read straight from the daily
-// valuation feed. These are kept OUT of the canonical Insurer model (they are
-// listed-only and market-driven) — exactly as the Analysis Builder does it.
-// Unlisted SAHIs have no market price → null → rendered as an honest "—", never 0.
-interface ValuationFeedRow { company_id?: string; price_to_earnings?: number | null; price_to_book?: number | null }
-const VALUATION_BY_CO = new Map<string, ValuationFeedRow>(
-  ((valuationSnapshot.data as ValuationFeedRow[]) ?? [])
-    .filter((r) => !!r.company_id)
-    .map((r) => [r.company_id as string, r]),
-)
+// Listed-insurer valuation multiples (P/E, P/B) on the IFRS / listed-reporting
+// basis — market cap ÷ IFRS PAT (P/E) and ÷ IFRS net worth (P/B) — the SAME
+// figures the audit grid's "P/E (IFRS)" / "P/B (IFRS)" columns and the Valuation
+// tab show, so the whole page prices on one basis. NOT the third-party screener
+// multiple (which sits on a lower statutory/TTM earnings base and made Niva Bupa
+// read ~3× more expensive than its audited IFRS profit implies — 132.8x vs the
+// audit's 42.8x). Kept OUT of the canonical Insurer model (listed-only, market-
+// driven). No IFRS profit / net worth on record (unlisted SAHIs — no market
+// price; multiline general insurers — no IFRS accounts) → null → honest "—".
 function valuationMultiple(i: Insurer, kind: 'pe' | 'pb'): number | null {
-  const r = VALUATION_BY_CO.get(i.id)
-  if (!r) return null
-  const v = kind === 'pe' ? r.price_to_earnings : r.price_to_book
-  return typeof v === 'number' && isFinite(v) ? v : null
+  return ifrsValuationMultiple(i.id, kind)
 }
 
 /** The eight scorecard columns, grouped Growth · Quality · Capital · Valuation. */
@@ -93,12 +89,12 @@ export const METRICS: MetricDef[] = [
   },
   {
     key: 'priceToEarnings', resolve: (i) => valuationMultiple(i, 'pe'), label: 'P/E', short: 'P/E', group: 'Valuation', unit: 'x', polarity: 'rich',
-    whyItMatters: 'Price-to-earnings (market price ÷ trailing profit) is the classic richness gauge — how many years of current profit the market is paying for. Listed, profitable insurers only.',
+    whyItMatters: 'Price-to-earnings (market cap ÷ IFRS profit) is the classic richness gauge — how many years of current profit the market is paying for. On the IFRS / listed-reporting basis, matching the audit grid and Valuation tab. Listed, profitable insurers only.',
     naWhen: (i) => valuationMultiple(i, 'pe') == null,
   },
   {
     key: 'priceToBook', resolve: (i) => valuationMultiple(i, 'pb'), label: 'P/B', short: 'P/B', group: 'Valuation', unit: 'x', polarity: 'rich',
-    whyItMatters: 'Price-to-book (market price ÷ net worth) shows the premium over the capital base — for insurers it ties straight to ROE: a richer P/B has to be earned with a higher return on equity.',
+    whyItMatters: 'Price-to-book (market cap ÷ IFRS net worth) shows the premium over the capital base — for insurers it ties straight to ROE: a richer P/B has to be earned with a higher return on equity. On the IFRS / listed-reporting basis, matching the audit grid.',
     naWhen: (i) => valuationMultiple(i, 'pb') == null,
   },
   {
@@ -347,6 +343,26 @@ export function resolveCellSource(companyId: string, metricKey: string, basis: A
   }
 
   if (VALUATION_KEYS.has(metricKey)) {
+    // P/E and P/B are on the IFRS / listed-reporting basis — market cap (daily
+    // feed) ÷ IFRS PAT / IFRS net worth — the SAME derivation as the audit grid's
+    // "P/E (IFRS)" / "P/B (IFRS)" columns, NOT the third-party screener multiple.
+    // Cite the derivation honestly (link-free, like the IFRS combined-ratio case)
+    // so a reader never lands on a screener P/E that disagrees with the number.
+    if (metricKey === 'priceToEarnings' || metricKey === 'priceToBook') {
+      const driver = metricKey === 'priceToEarnings' ? 'IFRS PAT' : 'IFRS net worth'
+      const col = metricKey === 'priceToEarnings' ? 'P/E' : 'P/B'
+      return {
+        label: 'IFRS basis',
+        period: getLatestAnnualFyLabel(),
+        confidence: 'high',
+        provenance: {
+          source_name: `Market cap (daily market feed) ÷ ${driver} (company IFRS accounts) — the same figure as the audit grid's ${col} (IFRS) column`,
+          source_url: '',
+          fetched_at: null,
+        },
+      }
+    }
+    // P/GWP stays a pure market-feed multiple (market cap ÷ gross written premium).
     const v = getValuationProvenance(companyId)
     if (v?.source_url) {
       return {

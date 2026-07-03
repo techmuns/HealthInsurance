@@ -540,7 +540,7 @@ export function CompetitivePositioning() {
         <p className="flex items-start gap-1.5 rounded-lg border border-[#CDE7E4] bg-[#F1FAF8] px-3 py-2 text-[11px] leading-snug text-[#0E6F6D]">
           <span className="mt-0.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#168E8E]" />
           <span>
-            <strong className="font-semibold">IFRS lens.</strong> Only the <strong className="font-semibold">Combined Ratio</strong> moves to IFRS, and only for {BASIS_TRACKED_COMPANIES.join(', ')} — the SAHIs that publish IFRS accounts; insurers without an IFRS filing show <em>NA</em> rather than a cross-basis number. ROE has no published IFRS equity, so it stays on the statutory basis. Premium, share, solvency and valuation columns are basis-neutral.
+            <strong className="font-semibold">IFRS lens.</strong> Only the <strong className="font-semibold">Combined Ratio</strong> moves to IFRS, and only for {BASIS_TRACKED_COMPANIES.join(', ')} — the SAHIs that publish IFRS accounts; insurers without an IFRS filing show <em>NA</em> rather than a cross-basis number. ROE has no published IFRS equity, so it stays on the statutory basis. Premium, share and solvency columns are basis-neutral. <strong className="font-semibold">P/E and P/B</strong> are already on the IFRS basis — market cap ÷ IFRS profit / net worth, the same figures as the audit grid — on both lenses.
           </span>
         </p>
       )}
@@ -605,7 +605,7 @@ export function CompetitivePositioning() {
         <span
           className="inline-flex items-center gap-1.5 rounded-full px-2 py-0.5 font-semibold"
           style={{ background: hexA(TEAL, 0.12), color: TEAL_DEEP }}
-          title="Official filings (IRDAI disclosures &amp; annual reports) plus the daily market feed for P/E &amp; P/B; growth and signal fields are derived from those figures. No mock data."
+          title="Official filings (IRDAI disclosures &amp; annual reports); P/E &amp; P/B combine the daily market feed (market cap) with IFRS profit / net worth — the same figures as the audit grid — and growth and signal fields are derived from those figures. No mock data."
         >
           <span className="h-1.5 w-1.5 rounded-full" style={{ background: TEAL }} />
           Source-backed

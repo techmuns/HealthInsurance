@@ -40,6 +40,12 @@ HELD_BACK = REPO / "data" / "processed" / "excel-held-back.json"
 FILINGS = REPO / "src" / "data" / "snapshots" / "company-filings-snapshot.json"
 TEMPLATE = REPO / "templates" / "niva-bupa-portfolio-review.xlsx"
 OUT = REPO / "src" / "data" / "snapshots" / "extracted-data-audit.json"
+# Slim per-company IFRS valuation multiples, projected from this same index so the
+# dashboard's valuation surfaces (Competitive Positioning card, Analysis Builder)
+# show the SAME P/E and P/B the audit grid computes — one IFRS / listed-reporting
+# basis, never the third-party screener multiple (which sits on a different, lower
+# earnings base). Read by src/lib/ifrsValuation.ts.
+IFRS_MULTIPLES_OUT = REPO / "src" / "data" / "snapshots" / "ifrs-valuation-multiples.json"
 
 # Max referenced cells we record per formula (keeps a big SUM range bounded).
 MAX_FORMULA_INPUTS = 24
@@ -491,6 +497,62 @@ def _add_full_grid(sheets) -> int:
     return added
 
 
+def write_ifrs_multiples(sheets) -> None:
+    """Project the audit's own resolved IFRS valuation multiples into a slim
+    per-company snapshot for the dashboard's valuation surfaces.
+
+    P/E (IFRS) = market cap / IFRS PAT and P/B (IFRS) = market cap / IFRS net
+    worth are already computed here as the ``pe_ifrs`` / ``pb_ifrs`` cells; this
+    just distils their resolved ``calculated_value`` so the Competitive
+    Positioning card and Analysis Builder can read ONE tiny file instead of the
+    11 MB audit index. A company with no IFRS profit / net worth has no resolved
+    value and is simply omitted -> the UI renders an honest n/a, never a 0 and
+    never the screener multiple on a different basis.
+
+    Self-preserving: if nothing resolved (openpyxl/template absent on this run)
+    the committed snapshot is kept rather than overwritten with an empty map,
+    mirroring the extracted-data-audit.json fallback.
+    """
+    metric_key = {"pe_ifrs": "pe", "pb_ifrs": "pb"}
+    data: dict = {}
+    for sh in sheets or []:
+        for cell in sh.get("cells", []):
+            key = metric_key.get(cell.get("metric"))
+            ent = cell.get("entity")
+            val = cell.get("calculated_value")
+            if not key or not ent or val is None:
+                continue
+            data.setdefault(ent, {})[key] = round(val, 6)
+
+    if not data and IFRS_MULTIPLES_OUT.exists():
+        print("ifrs-valuation-multiples: nothing resolved — preserving committed snapshot; not overwriting.")
+        return
+
+    out = {
+        "_meta": {
+            "artifact": "ifrs-valuation-multiples",
+            "schema_version": "1.0.0",
+            "generated_at": datetime.now(timezone.utc).isoformat(),
+            "description": (
+                "Per-company IFRS valuation multiples (P/E = market cap / IFRS PAT; "
+                "P/B = market cap / IFRS net worth), projected from the Extracted "
+                "Data Audit's own resolved cells. The Competitive Positioning card "
+                "and Analysis Builder read these so every valuation surface shows "
+                "ONE IFRS figure per company — matching the audit grid and the "
+                "Valuation tab — never the third-party screener multiple, which "
+                "sits on a different, lower (statutory / TTM) earnings base. A "
+                "company with no IFRS profit / net worth is absent -> honest n/a."
+            ),
+            "source_artifact": "extracted-data-audit.json",
+            "basis": "IFRS / listed-reporting",
+        },
+        "data": data,
+    }
+    IFRS_MULTIPLES_OUT.parent.mkdir(parents=True, exist_ok=True)
+    IFRS_MULTIPLES_OUT.write_text(json.dumps(out, ensure_ascii=False, indent=1))
+    print(f"ifrs-valuation-multiples.json written -> {IFRS_MULTIPLES_OUT} ({len(data)} companies)")
+
+
 def main() -> None:
     schema = load(SCHEMA, {"sheets": [], "_meta": {}, "sources": {}})
     store = load(VALUES, {})
@@ -741,6 +803,9 @@ def main() -> None:
             prior_resolved = 0
         if prior_resolved:
             print(f"openpyxl unavailable — preserving committed index with {prior_resolved} resolved formula(s); not overwriting.")
+            # Keep the slim IFRS-multiples snapshot in step with the preserved
+            # index (derive it from the committed index's resolved cells).
+            write_ifrs_multiples(prior.get("sheets", []))
             return
 
     OUT.parent.mkdir(parents=True, exist_ok=True)
@@ -751,6 +816,9 @@ def main() -> None:
     print(f"  value-store entries: {len(values)} | held-back: {len(held_back)} | blocked filings: {len(blocked_filings)}")
     if not formula_resolved and total_computed:
         print("  note: formula detail omitted (openpyxl/template unavailable) — coverage unaffected")
+
+    # Slim projection: the per-company IFRS P/E & P/B the valuation surfaces read.
+    write_ifrs_multiples(sheets)
 
 
 if __name__ == "__main__":

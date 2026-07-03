@@ -15,7 +15,7 @@
 // ---------------------------------------------------------------------------
 
 import type { Insurer } from '@/data/types'
-import valuationSnapshot from '@/data/snapshots/valuation-snapshot.json'
+import { ifrsValuationMultiple } from '@/lib/ifrsValuation'
 import {
   ANNUAL_PERIODS,
   getBasisNep,
@@ -37,21 +37,14 @@ function latestAnnual(get: (p: BasisPeriod) => number | null): number | null {
   return null
 }
 
-// Listed-insurer valuation multiples (P/E, P/B) from the daily valuation feed.
-// The feed is currently pending (no rows) so these resolve to null → honest
-// "n/a"; the moment NSE/BSE quotes are ingested the columns light up with no UI
-// change. Keyed by company_id, tolerant of a few field-name spellings.
-interface ValuationRow { company_id?: string; price_to_earnings?: number | null; price_to_book?: number | null }
-const VALUATION_BY_CO = new Map<string, ValuationRow>(
-  ((valuationSnapshot.data as ValuationRow[]) ?? [])
-    .filter((r) => !!r.company_id)
-    .map((r) => [r.company_id as string, r]),
-)
+// Listed-insurer valuation multiples (P/E, P/B) on the IFRS / listed-reporting
+// basis — market cap ÷ IFRS PAT (P/E) and ÷ IFRS net worth (P/B) — the SAME
+// figures the audit grid and the Competitive Positioning card show, so the whole
+// page prices on one basis rather than the third-party screener multiple (a
+// different, lower earnings base). No IFRS profit / net worth on record (unlisted
+// SAHIs; multiline general insurers) → null → honest "n/a", never 0.
 function valuationMultiple(i: Insurer, kind: 'pe' | 'pb'): number | null {
-  const r = VALUATION_BY_CO.get(i.id)
-  if (!r) return null
-  const v = kind === 'pe' ? r.price_to_earnings : r.price_to_book
-  return typeof v === 'number' && isFinite(v) ? v : null
+  return ifrsValuationMultiple(i.id, kind)
 }
 
 export type BuilderCategory =
