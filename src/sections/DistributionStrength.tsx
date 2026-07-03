@@ -26,14 +26,16 @@ import {
   hasCompanyDistributionData,
 } from '@/lib/distributionEngine'
 
-// Default source-tag preset for Distribution Engine cards. UI is mock-seeded;
-// upgrades to per-company filings via distribution-channel-mix snapshot.
+// Source-tag preset for Distribution Engine cards. Channel mix is per-company,
+// read from the distribution-channel-mix snapshot (IRDAI NL-36/NL-40 business
+// returns + company filings) — never Niva-specific. On the SAHI pages the tag
+// routes to the Channel Mix tab in Data Audit, so it names that tab, not a filing.
 const DIST_SOURCE = {
   source: 'Company filing' as const,
   confidence: 'medium' as const,
   provenance: {
-    source_name: 'Niva Bupa channel mix from FY25 RHP / annual report; peer values from public disclosures',
-    source_url: 'https://transactions.nivabupa.com/pages/doc/pub-dis/annual-reports/Annual-Report-FY-2024-25.pdf',
+    source_name: 'Channel-wise premium mix — IRDAI business returns & company filings.',
+    source_url: '',
     fetched_at: '2026-05-28',
   },
 }
@@ -116,7 +118,7 @@ function HeroCard() {
         </div>
       </div>
       <div className="relative mt-4 flex justify-end">
-        <SourceTag source={DIST_SOURCE.source} confidence={DIST_SOURCE.confidence} provenance={DIST_SOURCE.provenance} period={data?.latest?.period} />
+        <SourceTag source={DIST_SOURCE.source} confidence={DIST_SOURCE.confidence} provenance={DIST_SOURCE.provenance} period={data?.latest?.period} audit={{ company: company.id, metric: 'Agency channel GWP', year: data?.latest?.period }} />
       </div>
     </section>
   )
@@ -330,7 +332,7 @@ function MainChartBlock() {
         </>
       )}
       <div className="mt-3 flex justify-end">
-        <SourceTag source={DIST_SOURCE.source} confidence={DIST_SOURCE.confidence} provenance={DIST_SOURCE.provenance} period={mixRows[mixRows.length - 1]?.period ?? data?.latest?.period} />
+        <SourceTag source={DIST_SOURCE.source} confidence={DIST_SOURCE.confidence} provenance={DIST_SOURCE.provenance} period={mixRows[mixRows.length - 1]?.period ?? data?.latest?.period} audit={{ company: company.id, metric: 'Agency channel GWP', year: mixRows[mixRows.length - 1]?.period ?? data?.latest?.period }} />
       </div>
     </section>
   )
@@ -556,7 +558,7 @@ function DependenceCard() {
       )}
 
       <div className="mt-3 flex justify-end">
-        <SourceTag source={DIST_SOURCE.source} confidence={DIST_SOURCE.confidence} provenance={DIST_SOURCE.provenance} period={latest?.period} />
+        <SourceTag source={DIST_SOURCE.source} confidence={DIST_SOURCE.confidence} provenance={DIST_SOURCE.provenance} period={latest?.period} audit={{ company: company.id, metric: 'Agency channel GWP', year: latest?.period }} />
       </div>
     </div>
   )

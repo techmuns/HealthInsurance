@@ -223,7 +223,7 @@ export function PatBasisCompareCard({
           <Layers className="h-3.5 w-3.5" />
           View accounting detail
         </button>
-        <SourceTag source={BASIS_SOURCE_LABEL[pageBasis]} period={periodLabel(period)} confidence="high" />
+        <SourceTag source={BASIS_SOURCE_LABEL[pageBasis]} period={periodLabel(period)} confidence="high" audit={{ company: companyId, metric: 'PAT', year: periodLabel(period).match(/FY\s?\d{2}/i)?.[0]?.replace(/\s/g, '') }} />
       </div>
     </section>
   )

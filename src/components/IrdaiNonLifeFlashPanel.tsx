@@ -109,6 +109,7 @@ export function IrdaiNonLifeFlashPanel() {
           period={view.reportLabel ?? 'monthly'}
           confidence={view.available ? 'high' : 'pending'}
           provenance={provenance}
+          audit={{ metric: 'GI segment premium' }}
         />
       </div>
     </section>

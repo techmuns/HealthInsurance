@@ -213,7 +213,7 @@ export function CompanySpecificAnalysis() {
         <PeerMetricsTable />
 
         <div className="mt-3 flex justify-end pt-1">
-          <SourceTag source="IRDAI + Company filing" period="FY24–FY25" confidence="high" provenance={PEER_SOURCE} />
+          <SourceTag source="Company filing + GI Council" period="FY24–FY25" confidence="high" provenance={PEER_SOURCE} audit={{ company: FOCAL_COMPANY_ID, metric: 'Overall health market share' }} />
         </div>
       </div>
     </section>

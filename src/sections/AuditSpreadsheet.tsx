@@ -1032,20 +1032,26 @@ const EMPTY_VERIFY_MAP = new Map<string, VerifyRow>()
 /** Resolve a Data-Audit focus (company + metricKey + year) to a real, pulseable
  *  cell: an exact company+metric+year cell first, then that company's metric row,
  *  then any cell for the metric. Returns null when the metric isn't in the grid. */
-function findAuditCell(sheets: AuditGroup[], company?: string, metricKey?: string, year?: string): AuditCell | null {
+function findAuditCell(sheets: AuditGroup[], company?: string, metricKey?: string, year?: string, preferSheet?: string): AuditCell | null {
   if (!metricKey) return null
   const all: AuditCell[] = []
-  for (const g of sheets) for (const c of g.cells) if (c.metricId === metricKey) all.push(c)
+  // Match the metric directly, or by its base id for per-entity cells whose id
+  // carries a `::suffix` (e.g. analyst_target_price::Motilal Oswal) — so an
+  // "Analyst coverage" tag lands on the broker grid rather than nowhere.
+  for (const g of sheets) for (const c of g.cells) if (c.metricId === metricKey || c.metricId.split('::')[0] === metricKey) all.push(c)
   if (!all.length) return null
+  // When a metric lives on more than one tab, prefer the one the source tag named
+  // (its `preferSheet`) so the tag's label and its landing tab always agree.
+  const pool = preferSheet && all.some((c) => c.sheet === preferSheet) ? all.filter((c) => c.sheet === preferSheet) : all
   if (company && year) {
-    const exact = all.find((c) => c.entityId === company && c.period === year)
+    const exact = pool.find((c) => c.entityId === company && c.period === year)
     if (exact) return exact
   }
   if (company) {
-    const byCompany = all.find((c) => c.entityId === company)
+    const byCompany = pool.find((c) => c.entityId === company)
     if (byCompany) return byCompany
   }
-  return all[0]
+  return pool[0]
 }
 
 // ── Page ─────────────────────────────────────────────────────────────────────
@@ -1086,7 +1092,7 @@ export function AuditSpreadsheet({ model, focus }: { model: AuditModel; focus?: 
   // metric isn't an addressable audit cell.
   useEffect(() => {
     if (!focus) return
-    const cell = findAuditCell(sheets, focus.company, focus.metricKey, focus.year)
+    const cell = findAuditCell(sheets, focus.company, focus.metricKey, focus.year, focus.preferSheet)
     if (cell) {
       setActive(cell.sheet)
       setCompany('all')

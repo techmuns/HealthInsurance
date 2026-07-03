@@ -4,7 +4,7 @@ import { ExternalLink, AlertTriangle, ShieldCheck, ArrowUpRight } from 'lucide-r
 import { DataStatusPill, type DataStatus } from './DataStatusPill'
 import { classifySource } from '@/lib/sourceHealth'
 import { useAuditSource } from '@/state/auditSource'
-import { resolveAuditCell } from '@/insights/sourceMap'
+import { resolveAuditCell, auditTabForMetric } from '@/insights/sourceMap'
 
 // ---------------------------------------------------------------------------
 //  SourceTag — small, premium source indicator placed at the corner of every
@@ -131,6 +131,11 @@ export function SourceTag({
   // On SAHI Analysis / Industry Data, source tags route to the Data Audit hub — the
   // single place that carries the raw PDF/PPT/URL — rather than opening it here.
   const routeToAudit = auditNav.active
+  // In audit-routing mode the tag names the Data Audit TAB it verifies against
+  // (e.g. "Industry Growth", "SAHIs comparison") instead of the far-upstream origin
+  // ("GI Council"). Falls back to the plain source label when the metric doesn't map.
+  const tabInfo = routeToAudit ? auditTabForMetric(audit?.metric) : undefined
+  const displaySource = tabInfo?.tab ?? source
   // Drop the dot to a warning tone when the *link* is the problem, not the data.
   // In audit-routing mode we never open the link, so the dot reflects data confidence only.
   const dot = routeToAudit
@@ -151,7 +156,7 @@ export function SourceTag({
         Source
       </span>
       <span aria-hidden className="text-ink-secondary/50">·</span>
-      <span className="font-medium">{source}</span>
+      <span className="font-medium">{displaySource}</span>
       {period && (
         <>
           <span aria-hidden className="text-ink-secondary/50">·</span>
@@ -255,19 +260,22 @@ export function SourceTag({
         onBlur={() => setHover(false)}
       >
         {inner}
-        {hover && (provenance?.source_name || source) && (
+        {hover && (
           <span
             className="absolute bottom-full z-30 mb-1.5 w-64 rounded-xl border border-soft-border bg-card p-3 text-left shadow-card"
             style={popoverPos}
           >
-            <span className="block text-[11px] font-semibold leading-snug text-navy-deep">{provenance?.source_name ?? source}</span>
+            <span className="block text-[11px] font-semibold leading-snug text-navy-deep">{displaySource}</span>
+            {tabInfo?.blurb && (
+              <span className="mt-1 block text-[10px] leading-snug text-ink-secondary">{tabInfo.blurb}</span>
+            )}
             <span className="mt-1.5 flex items-center gap-1.5 text-[10px] text-ink-secondary">
               <span className="h-1.5 w-1.5 rounded-full" style={{ background: dot }} />
               {confLabel(conf)}
             </span>
             <span className="mt-2 flex items-center gap-1 border-t border-soft-border pt-2 text-[9.5px] font-medium italic text-champagne-deep">
               <ArrowUpRight className="h-2.5 w-2.5" aria-hidden />
-              Opens the mapped data in Data Audit
+              {tabInfo ? `Opens the ${tabInfo.tab} tab in Data Audit` : 'Opens the mapped data in Data Audit'}
             </span>
           </span>
         )}

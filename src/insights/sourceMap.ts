@@ -36,6 +36,9 @@ export interface AuditFocus {
   year?: string // FY label (audit column)
   valueLabel?: string // formatted value used by the insight
   status: AuditMappingStatus
+  /** Preferred Data Audit tab (sheet) to land on when a metric lives on more than
+   *  one — so the tag's label and its click destination always agree. */
+  preferSheet?: string
   /** Non-intrusive note shown on arrival — e.g. the "nearest section" fallback. */
   note?: string
 }
@@ -227,8 +230,8 @@ const AUDIT_METRIC_RULES: { test: RegExp; key: string; label: string }[] = [
   { test: /\bpat\b|profit after tax|net profit/i, key: 'pat_igaap', label: 'PAT' },
   { test: /investment (aum|book|assets)|\baum\b/i, key: 'investment_aum', label: 'Investment AUM' },
   { test: /investment yield|\byield\b/i, key: 'investment_yield', label: 'Investment yield' },
-  { test: /retail health (share|market share)|retail.*market share|share gain|market[- ]?share change/i, key: 'retail_health_market_share', label: 'Retail health market share' },
-  { test: /overall health (share|market share)|overall market share/i, key: 'overall_health_market_share', label: 'Overall health market share' },
+  { test: /retail health (share|market share)|retail.*market share/i, key: 'retail_health_market_share', label: 'Retail health market share' },
+  { test: /overall health (share|market share)|overall market share|share gain|market[- ]?share change/i, key: 'overall_health_market_share', label: 'Overall health market share' },
   { test: /segment share/i, key: 'sahi_segment_share', label: 'SAHI segment share' },
   { test: /retail health (gwp|premium)|retail premium|retail mix|retail[- ]?led|retail\s*\/\s*group|retail vs group|retail book/i, key: 'retail_health_gwp', label: 'Retail health GWP' },
   { test: /group (other )?(gwp|premium|mix)|group book/i, key: 'group_other_gwp', label: 'Group premium' },
@@ -237,10 +240,14 @@ const AUDIT_METRIC_RULES: { test: RegExp; key: string; label: string }[] = [
   { test: /p\s*\/\s*e\b|price.?to.?earnings|\bpe\b/i, key: 'pe_ifrs', label: 'Price / earnings' },
   { test: /p\s*\/\s*b\b|price.?to.?book|\bpb\b/i, key: 'pb_ifrs', label: 'Price / book' },
   { test: /market cap|market value|enterprise value|\bev\b/i, key: 'market_cap', label: 'Market cap' },
-  { test: /share price|stock price|\bprice\b|live quote|\bquote\b|consensus|price target|analyst|broker|coverage|rating/i, key: 'close_price', label: 'Share price' },
   { test: /\bnwp\b|net written/i, key: 'nwp', label: 'Net written premium (NWP)' },
   { test: /\bnep\b|net earned/i, key: 'nep', label: 'Net earned premium (NEP)' },
   { test: /channel|agency|bancass|distribution|\bagents?\b|individual agent/i, key: 'individual_agents_gwp', label: 'Agency / channel GWP' },
+  // Analyst / broker research must land on the Analyst-coverage grid, NOT the
+  // share-price row. Kept above the generic price rule so "consensus target" /
+  // "price target" resolve here first.
+  { test: /consensus|price target|target price|analyst|broker note|broker research|\bcoverage\b|rating|recommendation/i, key: 'analyst_target_price', label: 'Analyst coverage' },
+  { test: /share price|stock price|\bprice\b|live quote|\bquote\b|\bcmp\b|52[- ]?week/i, key: 'close_price', label: 'Share price' },
   { test: /total gwp|gross written|gross direct|gwp growth|premium growth|written premium|premium engine|\bgwp\b|premium/i, key: 'total_gwp', label: 'Gross written premium' },
   { test: /settlement/i, key: 'settlement_ratio', label: 'Claim settlement ratio' },
   { test: /renewal/i, key: 'renewal_rate', label: 'Renewal rate' },
@@ -252,6 +259,80 @@ const AUDIT_STATUS_LABEL: Record<AuditMappingStatus, string> = {
   audit_row: 'Audit row available',
   chart_fallback: 'Chart fallback only',
   pending: 'Source mapping pending',
+}
+
+// ── Data-Audit TAB naming (source tags name the tab, not the raw origin) ──────
+//
+//  A source tag on a chart should say WHERE in our own Data Audit the number can
+//  be checked — e.g. "Industry Growth", "SAHIs comparison" — not the far-upstream
+//  origin ("GI Council"). This maps each audited metric to its Data Audit tab (the
+//  Excel sheet the AuditSpreadsheet mirrors) so the tag can (a) show the tab name
+//  and (b) land the reader on that exact tab when clicked. The tab strings must
+//  match the sheet names in the audit grid verbatim. Keep in sync if a sheet is
+//  renamed or a metric moves tabs.
+
+export const AUDIT_TAB_FOR_KEY: Record<string, string> = {
+  gi_segment_gross_premium: 'Industry Growth',
+  total_gwp: 'SAHIs comparison',
+  retail_health_gwp: 'SAHIs comparison',
+  group_other_gwp: 'SAHIs comparison',
+  nwp: 'SAHIs comparison',
+  nep: 'SAHIs comparison',
+  pat_igaap: 'SAHIs comparison',
+  combined_ratio_igaap: 'SAHIs comparison',
+  claims_ratio_igaap: 'SAHIs comparison',
+  expense_ratio_igaap: 'SAHIs comparison',
+  commission_ratio_igaap: 'SAHIs comparison',
+  solvency_ratio: 'SAHIs comparison',
+  net_worth: 'SAHIs comparison',
+  investment_aum: 'SAHIs comparison',
+  investment_yield: 'SAHIs comparison',
+  retail_health_market_share: 'SAHIs comparison',
+  overall_health_market_share: 'SAHIs comparison',
+  sahi_segment_share: 'SAHIs comparison',
+  settlement_ratio: 'SAHIs comparison',
+  renewal_rate: 'SAHIs comparison',
+  customer_retention: 'SAHIs comparison',
+  individual_agents_gwp: 'Channel Mix',
+  roe_igaap: 'Comps',
+  pe_ifrs: 'Comps',
+  pb_ifrs: 'Comps',
+  price_to_gwp: 'Comps',
+  market_cap: 'Comps',
+  analyst_target_price: 'Analyst coverage',
+  close_price: 'Historical Stock Movement',
+}
+
+/** One short, plain-English line describing what each Data Audit tab holds — shown
+ *  in the source-tag hover in place of a long provenance paragraph. */
+export const AUDIT_TAB_BLURB: Record<string, string> = {
+  'Industry Growth': "India's non-life premium by segment — the GI Council industry figures.",
+  'SAHIs comparison': 'The standalone health insurers, financials side by side.',
+  'FY26 GWP': "Each insurer's premium, quarter by quarter.",
+  "Q1'26 GWP": "Each insurer's premium, month by month.",
+  'Analyst coverage': 'Broker ratings and price targets for the stock.',
+  Comps: 'Valuation multiples and market value across peers.',
+  Captable: 'Who owns the company — the shareholding pattern.',
+  'Channel Mix': "Premium split by how it's sold — agents, banks, direct.",
+  'Historical Stock Movement': 'Daily share-price history from the exchange.',
+}
+
+export interface AuditTabInfo {
+  /** The Data Audit tab (sheet) name, shown as the tag label. */
+  tab: string
+  /** Short, plain-English description of the tab, for the hover. */
+  blurb?: string
+}
+
+/** Resolve a source tag's metric label to the Data Audit tab it verifies against.
+ *  Returns undefined when the metric doesn't map onto an audited tab (e.g. a news
+ *  feed), so the tag falls back to its plain source label. */
+export function auditTabForMetric(metric?: string): AuditTabInfo | undefined {
+  if (!metric) return undefined
+  const rule = AUDIT_METRIC_RULES.find((r) => r.test.test(metric))
+  if (!rule) return undefined
+  const tab = AUDIT_TAB_FOR_KEY[rule.key]
+  return tab ? { tab, blurb: AUDIT_TAB_BLURB[tab] } : undefined
 }
 
 /** Map an insight onto the Data Audit grid (company × metric × year). The richest
@@ -267,7 +348,7 @@ export function resolveAuditTarget(ins: Insight): AuditFocus {
   const valueLabel = fmtVal(stat.value, stat.unit)
   if (!rule) return { status: 'chart_fallback', company, companyLabel: pretty(stat.insurer), valueLabel }
   const status: AuditMappingStatus = company && year ? 'exact_cell' : 'audit_row'
-  return { status, company, companyLabel: pretty(stat.insurer), metricKey: rule.key, metricLabel: rule.label, year, valueLabel }
+  return { status, company, companyLabel: pretty(stat.insurer), metricKey: rule.key, metricLabel: rule.label, year, valueLabel, preferSheet: AUDIT_TAB_FOR_KEY[rule.key] }
 }
 
 /**
@@ -293,7 +374,7 @@ export function resolveAuditCell(args: { company?: string; metric?: string; year
     }
   }
   const status: AuditMappingStatus = company && year ? 'exact_cell' : 'audit_row'
-  return { status, company, companyLabel, metricKey: rule.key, metricLabel: rule.label, year, valueLabel: args.valueLabel }
+  return { status, company, companyLabel, metricKey: rule.key, metricLabel: rule.label, year, valueLabel: args.valueLabel, preferSheet: AUDIT_TAB_FOR_KEY[rule.key] }
 }
 
 /** The compact data read shown on the back BEFORE the user navigates. */
