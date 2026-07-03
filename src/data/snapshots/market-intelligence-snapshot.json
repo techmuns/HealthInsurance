@@ -5,13 +5,13 @@
     "schema_version": "1.0.0",
     "dataset": "ai_generated",
     "last_updated": "2026-07-03",
-    "last_successful_run": "2026-07-03T04:08:30.917Z",
+    "last_successful_run": "2026-07-03T05:30:20.868Z",
     "upstream_sources": [
       "muns_agent_web"
     ],
     "parser_status": "ready",
     "generated_by": "AI (muns agent, web search)",
-    "notes": "Clearly labelled AI-generated intelligence — verify before acting. Items rank by investor impact, not recency."
+    "notes": "Clearly labelled AI-generated intelligence — verify before acting. Items accumulate through the day and rank by investor impact, not recency."
   },
   "data": [
     {
@@ -63,6 +63,18 @@
       "source_url": "https://www.acko.com/health-insurance/irda-rules-for-health-insurance/"
     },
     {
+      "id": "6d3875a803",
+      "company_id": "niva-bupa",
+      "date": "2026-07-03",
+      "kind": "catalyst",
+      "horizon": "recent",
+      "impact": "watch",
+      "headline": "Investor-relations page flags FY26 earnings materials availability",
+      "detail": "The IR page showing FY26 quarterly and Q4 materials suggests investors should monitor for the next scheduled company communication, results pack or meeting update.",
+      "source_name": "transactions.nivabupa.com",
+      "source_url": "https://transactions.nivabupa.com/pages/investor-relations.aspx"
+    },
+    {
       "id": "f3ce300c4e",
       "company_id": "sector",
       "date": "2026-06-30",
@@ -87,40 +99,69 @@
       "source_url": "https://moneycontrol.com/news/business/irdai-grants-final-r3-licence-to-prudential-hcl-health-insurance-venture-13963822.html"
     },
     {
-      "id": "19c319aabc",
-      "company_id": "niva-bupa",
-      "date": "2026-01-29",
-      "kind": "earnings",
+      "id": "930c383096",
+      "company_id": "sector",
+      "date": "2026-06-27",
+      "kind": "regulatory",
       "horizon": "recent",
-      "impact": "watch",
-      "headline": "Q3 FY26 results and earnings call held on 29 Jan 2026",
-      "detail": "The Q3 result set and management commentary on growth, claims and profitability remain the latest hard company datapoint for the stock until the next results cycle.",
-      "source_name": "transactions.nivabupa.com",
-      "source_url": "https://transactions.nivabupa.com/pages/doc/investor-relations/financial-results/2025-2026/Outcome-financial-results-December-2025.pdf?v=1.0"
+      "impact": "negative",
+      "headline": "IRDAI grants final licence to Prudential-HCL health insurer",
+      "detail": "A new standalone health insurer raises competitive intensity in retail health, distribution and pricing, which matters for Niva Bupa and peers.",
+      "source_name": "moneycontrol.com",
+      "source_url": "https://www.moneycontrol.com/news/business/irdai-grants-final-r3-licence-to-prudential-hcl-health-insurance-venture-13963822.html",
+      "first_seen": "2026-07-03T05:30:20.868Z"
     },
     {
-      "id": "e4a323be7f",
-      "company_id": "niva-bupa",
-      "date": "2026-01-29",
-      "kind": "investor_meet",
+      "id": "b4cfffad3c",
+      "company_id": "sector",
+      "date": "2026-06-27",
+      "kind": "sector_news",
       "horizon": "recent",
       "impact": "watch",
-      "headline": "Earnings presentation issued with Q3 FY26 results",
-      "detail": "The earnings-call deck is relevant because near-term share moves will hinge on management guidance around premium growth, claims trends and margins.",
-      "source_name": "bseindia.com",
-      "source_url": "https://www.bseindia.com/xml-data/corpfiling/AttachHis/833d6359-951e-48ae-83c6-49f22ec36242.pdf"
+      "headline": "IRDAI softens stance on insurer listings",
+      "detail": "Easier listing norms could reopen capital-raising and listing optionality across insurers, affecting valuation frameworks and funding flexibility for the sector.",
+      "source_name": "moneycontrol.com",
+      "source_url": "https://www.moneycontrol.com/news/business/banks/irdai-softens-stance-on-insurer-listings-13963096.html",
+      "first_seen": "2026-07-03T05:30:20.868Z"
     },
     {
-      "id": "6d3875a803",
-      "company_id": "niva-bupa",
-      "date": "2026-07-03",
-      "kind": "catalyst",
+      "id": "ec9c6553c8",
+      "company_id": "sector",
+      "date": "2026-06-27",
+      "kind": "regulatory",
       "horizon": "recent",
       "impact": "watch",
-      "headline": "Investor-relations page flags FY26 earnings materials availability",
-      "detail": "The IR page showing FY26 quarterly and Q4 materials suggests investors should monitor for the next scheduled company communication, results pack or meeting update.",
-      "source_name": "transactions.nivabupa.com",
-      "source_url": "https://transactions.nivabupa.com/pages/investor-relations.aspx"
+      "headline": "Prudential-HCL venture gets IRDAI nod amid health-insurance demand push",
+      "detail": "The regulator’s approval signals continued capacity addition in health insurance and reinforces that the market remains attractive for fresh capital and new entrants.",
+      "source_name": "economictimes.indiatimes.com",
+      "source_url": "https://economictimes.indiatimes.com/markets/stocks/news/prudential-hcl-health-insurance-gets-irdai-nod/articleshow/132126831.cms",
+      "first_seen": "2026-07-03T05:30:20.868Z"
+    },
+    {
+      "id": "0800fcbda0",
+      "company_id": "sector",
+      "date": "2026-06-18",
+      "kind": "regulatory",
+      "horizon": "recent",
+      "impact": "watch",
+      "headline": "Cashless and claims-service rules stay central to sector execution",
+      "detail": "IRDAI’s policyholder-service framework, including fast cashless approval and discharge expectations highlighted in recent regulatory explainers, keeps claims TAT and hospital-network execution in focus for all health insurers.",
+      "source_name": "irdai.gov.in",
+      "source_url": "https://irdai.gov.in/circulars",
+      "first_seen": "2026-07-03T05:30:20.868Z"
+    },
+    {
+      "id": "01089ad22c",
+      "company_id": "sector",
+      "date": "2026-06-15",
+      "kind": "regulatory",
+      "horizon": "recent",
+      "impact": "watch",
+      "headline": "IRDAI penalties and enforcement remain a live sector monitor",
+      "detail": "Ongoing enforcement risk matters because claims handling, distribution conduct and compliance failures can trigger penalties or remediation costs across health and general insurers.",
+      "source_name": "irdai.gov.in",
+      "source_url": "https://irdai.gov.in/warnings-and-penalties",
+      "first_seen": "2026-07-03T05:30:20.868Z"
     }
   ]
 }
