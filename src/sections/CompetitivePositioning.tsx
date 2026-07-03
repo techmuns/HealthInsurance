@@ -1,4 +1,5 @@
 import { Fragment, useEffect, useMemo, useState } from 'react'
+import { Info } from 'lucide-react'
 import { useFilters } from '@/state/filters'
 import { InsightContextChip } from '@/components/insight/InsightContextChip'
 import { useSectionInsight } from '@/components/insight/useSectionInsight'
@@ -176,6 +177,11 @@ function HeatCell({ cell, companyId, selected, onPickCell, naReason }: { cell: C
             style={{ background: GOLD, boxShadow: `0 0 0 2px ${hexA(GOLD, 0.22)}` }}
             title="Best in column"
           />
+        )}
+        {isNA && (
+          <span className="absolute right-1.5 top-1.5" style={{ color: hexA(SLATE, 0.9) }} title={naTitle}>
+            <Info className="h-3 w-3" strokeWidth={2.25} />
+          </span>
         )}
         {isNA ? (
           <span className="font-display text-[16px] leading-none" style={{ color: hexA(SLATE, 0.85) }} title={naTitle}>

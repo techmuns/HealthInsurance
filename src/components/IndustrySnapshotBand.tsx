@@ -47,8 +47,9 @@ interface RingCard {
   enhanced?: boolean
   centerValue?: string // e.g. "₹3.36L Cr"
   centerCaption?: string // e.g. "FY26 General Insurance"
-  // Honest "why the newer year isn't shown yet" note — when set, a small "i"
-  // badge on the card title reveals it on hover, so a held year never reads as
+  fy?: string // the year this card is showing — labels the "Why FYxx?" pill
+  // Honest "why the newer year isn't shown yet" note — when set, a labelled "i"
+  // pill on the card title reveals it on hover, so a held year never reads as
   // stale. Undefined when the card is already on the newest published year.
   pendingNote?: string
 }
@@ -124,6 +125,7 @@ function buildRingCards(cards: StructureCard[]): RingCard[] {
       enhanced,
       centerValue: enhanced && c.total != null ? inrCompact(c.total) : undefined,
       centerCaption: enhanced ? `${c.fy} GI Premium` : undefined,
+      fy: c.fy,
       pendingNote: c.pendingNote,
     }
   })
@@ -265,23 +267,25 @@ const TINT: Record<RingCard['tone'], { accent: string; wash: string; bloom: stri
   gold: { accent: '#C29A45', wash: 'rgba(194,154,69,0.07)', bloom: 'rgba(194,154,69,0.13)', insight: 'bg-champagne-soft text-champagne-deep' },
 }
 
-/** Small "i" badge shown on a card whose year is deliberately held back because a
- *  newer year isn't fully published. Hover (or focus) reveals the honest reason,
- *  so a held year never reads as "not updated". The note explains an ABSENT value
- *  — the one case a lineage note is allowed to reach the viewer. */
-function PendingInfoBadge({ note }: { note: string }) {
+/** Labelled "i" pill shown on a card whose year is deliberately held back because
+ *  a newer year isn't fully published. It reads "ⓘ Why FYxx?" so it's unmissable,
+ *  and hover (or focus) reveals the honest reason — so a held year never looks
+ *  "not updated". The note explains an ABSENT value — the one case a lineage note
+ *  is allowed to reach the viewer. */
+function PendingInfoBadge({ note, fy }: { note: string; fy?: string }) {
   return (
     <span className="group/info relative z-20 inline-flex shrink-0">
       <button
         type="button"
         aria-label={note}
-        className="flex h-4 w-4 items-center justify-center rounded-full border border-champagne/50 bg-champagne-soft text-champagne-deep outline-none transition-colors hover:bg-champagne hover:text-white focus-visible:bg-champagne focus-visible:text-white"
+        className="flex items-center gap-1 rounded-full border border-champagne/60 bg-champagne-soft px-2 py-[3px] text-[9.5px] font-bold uppercase tracking-[0.04em] text-champagne-deep outline-none transition-colors hover:bg-champagne hover:text-white focus-visible:bg-champagne focus-visible:text-white"
       >
-        <Info className="h-2.5 w-2.5" strokeWidth={2.5} />
+        <Info className="h-3 w-3" strokeWidth={2.5} />
+        {fy ? `Why ${fy}?` : 'Why?'}
       </button>
       <span
         role="tooltip"
-        className="pointer-events-none absolute right-0 top-[calc(100%+7px)] z-30 w-60 origin-top-right rounded-lg border border-soft-border bg-card px-3 py-2 text-left text-[10.5px] font-medium leading-snug text-ink-secondary opacity-0 shadow-card transition-opacity duration-150 group-hover/info:opacity-100 group-focus-within/info:opacity-100"
+        className="pointer-events-none absolute right-0 top-[calc(100%+7px)] z-30 w-64 origin-top-right rounded-lg border border-soft-border bg-card px-3 py-2 text-left text-[10.5px] font-medium leading-snug text-ink-secondary opacity-0 shadow-card transition-opacity duration-150 group-hover/info:opacity-100 group-focus-within/info:opacity-100"
       >
         {note}
       </span>
@@ -289,7 +293,7 @@ function PendingInfoBadge({ note }: { note: string }) {
   )
 }
 
-function RingInsightCard({ title, subtitle, segments, insight, tone, enhanced, centerValue, centerCaption, pendingNote }: RingCard) {
+function RingInsightCard({ title, subtitle, segments, insight, tone, enhanced, centerValue, centerCaption, fy, pendingNote }: RingCard) {
   const t = TINT[tone]
   return (
     <div
@@ -301,7 +305,7 @@ function RingInsightCard({ title, subtitle, segments, insight, tone, enhanced, c
       <span aria-hidden className="pointer-events-none absolute -right-10 -top-12 h-32 w-32 rounded-full opacity-60 blur-2xl transition-opacity duration-300 group-hover:opacity-100" style={{ background: t.bloom }} />
       <div className="relative flex items-start justify-between gap-2">
         <h3 className="font-display text-[15px] leading-tight text-navy-deep">{title}</h3>
-        {pendingNote && <PendingInfoBadge note={pendingNote} />}
+        {pendingNote && <PendingInfoBadge note={pendingNote} fy={fy} />}
       </div>
       <p className="relative mt-0.5 text-[11px] text-ink-secondary">{subtitle}</p>
 
