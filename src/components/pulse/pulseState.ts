@@ -9,6 +9,7 @@
 export const SS = {
   filter: 'pulse:filter',
   date: 'pulse:date',
+  mode: 'pulse:mode',
   openIdea: 'pulse:openIdea',
   openPage: 'pulse:openPage',
 } as const

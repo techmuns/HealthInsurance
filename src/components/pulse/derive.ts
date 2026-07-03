@@ -793,19 +793,51 @@ interface Conviction {
   evidence: { kind: EvidenceKind; name: string; url: string }[]
 }
 
+// Freshness weight — a daily read values what moved NOW. Fresh items are lifted;
+// genuinely stale ones are actively demoted so a months-old filing never tops
+// today's read (which is what let a January earnings item outrank live IRDAI news).
+function recencyWeight(daysAgo: number | null): number {
+  if (daysAgo == null) return 0
+  if (daysAgo <= 2) return 1.0 // today / breaking
+  if (daysAgo <= 7) return 0.6 // this week
+  if (daysAgo <= 21) return 0.25
+  if (daysAgo <= 45) return 0
+  return -1.4 // stale — push it below anything current
+}
+
+// Structural weight by category — a sector-wide regulatory move is a high-value,
+// market-moving event and must rival a company item's relevance bonus rather than
+// being buried beneath routine company filings / IR-page housekeeping.
+function categoryWeight(c: SignalCategory): number {
+  if (c === 'Regulatory') return 1.2
+  if (c === 'Analyst Action') return 0.4
+  if (c === 'Management') return 0.4
+  if (c === 'Data Movement') return 0.3
+  if (c === 'Sector Catalyst') return 0.25
+  return 0
+}
+
 /** A conviction score built ONLY from real attributes: company relevance,
- *  directionality, source confidence, whether wired correlation data backs it,
- *  and how many distinct sources support it. */
+ *  DIRECTIONALITY (a positive/risk move far outweighs a "watch"), HOW FRESH it is,
+ *  the structural weight of its category, source confidence and how many distinct
+ *  sources back it. Directionality + freshness + category are the primary drivers
+ *  so the ranking surfaces the highest-value *recent* movement — not a trivial but
+ *  fresh housekeeping note, nor a high-confidence but months-old filing. Source
+ *  confidence/evidence are tie-breakers, never the headline. */
 function convictionScore(s: PulseSignal, pulse: InvestorPulse): Conviction {
   const evidence = evidenceFor(s, pulse)
   let score = 0
   if (s.scope === 'company') score += 1.2
-  score += s.impact === 'Positive' || s.impact === 'Risk' ? 1 : s.impact === 'Watch' ? 0.5 : 0.2
-  score += { High: 1.7, Medium: 1.0, Low: 0.4 }[s.confidence]
-  if (signalHasCorrelation(s, pulse)) score += 0.7
-  score += Math.min(1, Math.max(0, evidence.length - 1) * 0.3)
+  // directionality — the primary value signal (wide gap so a real move beats noise)
+  score += s.impact === 'Positive' || s.impact === 'Risk' ? 1.4 : s.impact === 'Watch' ? 0.4 : 0.1
+  score += recencyWeight(s.daysAgo)
+  score += categoryWeight(s.category)
+  if (signalHasCorrelation(s, pulse)) score += 0.5
+  // source quality — a tie-breaker (narrower spread than the value drivers above)
+  score += { High: 1.1, Medium: 0.7, Low: 0.3 }[s.confidence]
+  score += Math.min(0.8, Math.max(0, evidence.length - 1) * 0.25)
   const stars = Math.max(1, Math.min(5, Math.round(score)))
-  const pct = Math.round(Math.min(96, 44 + score * 10))
+  const pct = Math.max(32, Math.round(Math.min(96, 44 + score * 10)))
   return { score, stars, pct, evidence }
 }
 
@@ -1213,4 +1245,70 @@ export function sinceYesterday(pulse: InvestorPulse): SinceDelta[] {
   out.push({ id: 'moves', label: moves === 1 ? 'unusual market move' : 'unusual market moves', value: String(moves), direction: moves > 0 ? 'up' : 'flat', tone: moves > 0 ? 'Watch' : 'Positive', target: locTarget('valuation', 'moves', 'market_move', moves > 0 ? `${moves} unusual market ${moves === 1 ? 'move' : 'moves'}` : 'No unusual market moves') })
 
   return out
+}
+
+// ===========================================================================
+//  Curated digest — the Pulse's premium, reasoning-led daily view.
+//
+//  A tight, editor-picked read worth a paid news desk: the day's single
+//  highest-value movement (the lead), a connective "so what", then the few other
+//  moves that matter — each tiered by what it means for the reader, reasoned and
+//  source-linked. Curation RANKS and FRAMES the already-scored, source-backed
+//  conviction ideas; it never invents one. No ideas → an honest empty view.
+// ===========================================================================
+
+export type CuratedTier = 'lead' | 'position' | 'watch' | 'context'
+
+export const CURATED_TIER_META: Record<CuratedTier, { label: string; blurb: string }> = {
+  lead: { label: 'Top call', blurb: 'The single most valuable move today' },
+  position: { label: 'Constructive', blurb: 'Supports the thesis' },
+  watch: { label: 'On watch', blurb: 'Could shift the trajectory' },
+  context: { label: 'Context', blurb: 'Background worth knowing' },
+}
+
+export interface CuratedEntry {
+  idea: ConvictionIdea
+  tier: CuratedTier
+}
+
+export interface CuratedView {
+  headline: string
+  synthesis: string
+  lead: ConvictionIdea | null
+  entries: CuratedEntry[]
+  confidenceTier: Confidence
+  developmentsCount: number
+  sourcesCount: number
+  domainsCount: number
+  updatedLabel: string
+  isEmpty: boolean
+}
+
+// Value-tier by what a movement MEANS for the reader: a regulatory / risk / watch
+// item can shift the trajectory (watch); a constructive company signal supports
+// the thesis (position); anything else is background (context).
+function curatedTierForIdea(idea: ConvictionIdea): CuratedTier {
+  if (idea.category === 'Regulatory' || idea.status === 'Risk' || idea.status === 'Watch') return 'watch'
+  if (idea.status === 'Constructive') return 'position'
+  return 'context'
+}
+
+/** The Curated view: the lead (highest-conviction) movement plus the few others
+ *  that matter, tiered by value, with the brief's own narrative as the connective
+ *  read. Curated = few, high-value, reasoned — never a dump, never fabricated. */
+export function curatedDigest(ideas: ConvictionIdea[], brief: MorningBrief): CuratedView {
+  const lead = ideas[0] ?? null
+  const entries = ideas.slice(1).map((idea) => ({ idea, tier: curatedTierForIdea(idea) }))
+  return {
+    headline: lead ? clamp(`${lead.entity} — ${scrubCopy(lead.why.whatHappened)}`, 132) : '',
+    synthesis: brief.narrative,
+    lead,
+    entries,
+    confidenceTier: brief.confidenceTier,
+    developmentsCount: brief.developmentsCount,
+    sourcesCount: brief.sourcesCount,
+    domainsCount: brief.domainsCount,
+    updatedLabel: brief.lastUpdatedLabel,
+    isEmpty: !lead,
+  }
 }
