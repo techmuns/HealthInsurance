@@ -42,6 +42,9 @@ jobs:
           PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: '1'
 
       - name: Fetch management / governance events (muns agent)
+        # A dropped agent call / transient outage is not a failure: the last events
+        # stay shown and the next run refreshes them. Never red the run over it.
+        continue-on-error: true
         env:
           MUNS_API_TOKEN: ${{ secrets.MUNS_API_TOKEN }}
           MUNS_AGENT_URL: ${{ secrets.MUNS_AGENT_URL }}

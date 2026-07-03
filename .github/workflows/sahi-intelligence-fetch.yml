@@ -45,6 +45,9 @@ jobs:
         env:
           PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: '1'
       - name: Generate AI market intelligence (muns agent)
+        # A dropped agent call / transient outage is not a failure: the last feed
+        # stays shown and the next run refreshes it. Never red the run over it.
+        continue-on-error: true
         env:
           MUNS_API_TOKEN: ${{ secrets.MUNS_API_TOKEN }}
           MUNS_AGENT_URL: ${{ secrets.MUNS_AGENT_URL }}

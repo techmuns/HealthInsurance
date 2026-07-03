@@ -87,6 +87,9 @@ jobs:
       # whether or not ANTHROPIC_API_KEY is set; the key only upgrades the WORDING to
       # the AI's variant-perception prose, never gates whether it refreshes.
       - name: Generate insights
+        # A transient AI/API outage is not a failure: the last insights stay shown
+        # (the grounding check below still guards honesty). Never red the run over it.
+        continue-on-error: true
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           INSIGHTS_MODEL: ${{ vars.INSIGHTS_MODEL }}

@@ -32,6 +32,9 @@ jobs:
         env:
           PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: '1'
       - name: Run Screener backup fetch (India-IP proxy)
+        # Screener is a labelled BACKUP source; a blocked/failed fetch is a non-event
+        # (official values still win). Never red the run over it.
+        continue-on-error: true
         env:
           # Live network fetch (default is offline = staged-file only).
           INGEST_OFFLINE: '0'
