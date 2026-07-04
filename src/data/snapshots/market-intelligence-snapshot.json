@@ -4,8 +4,8 @@
     "description": "AI-generated market intelligence for the SAHI health insurers — investor meets, earnings/board dates, sector & regulatory news, share catalysts. Web-sourced; each item links its source. AI-generated, not audited.",
     "schema_version": "1.0.0",
     "dataset": "ai_generated",
-    "last_updated": "2026-07-03",
-    "last_successful_run": "2026-07-03T15:49:34.221Z",
+    "last_updated": "2026-07-04",
+    "last_successful_run": "2026-07-04T05:38:27.228Z",
     "upstream_sources": [
       "muns_agent_web"
     ],
@@ -177,6 +177,58 @@
       "first_seen": "2026-07-03T05:30:20.868Z"
     },
     {
+      "id": "1ee80ca8b9",
+      "company_id": "sector",
+      "date": "2026-06-27",
+      "kind": "regulatory",
+      "horizon": "recent",
+      "impact": "negative",
+      "headline": "IRDAI plans tighter commission rules to curb mis-selling",
+      "detail": "A move to stagger commissions and tighten disclosure could pressure distributor-led growth, agent payouts and customer-acquisition economics across standalone health insurers if implemented.",
+      "source_name": "economictimes.indiatimes.com",
+      "source_url": "https://economictimes.indiatimes.com/industry/banking/finance/insure/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/articleshow/132155581.cms",
+      "first_seen": "2026-07-04T05:38:27.228Z"
+    },
+    {
+      "id": "6851b32f81",
+      "company_id": "sector",
+      "date": "2026-06-26",
+      "kind": "regulatory",
+      "horizon": "recent",
+      "impact": "negative",
+      "headline": "IRDAI grants final licence to Prudential-HCL health insurer",
+      "detail": "A new standalone health insurer raises competitive intensity in pricing, distribution and hiring, which matters for incumbents such as Niva Bupa, Star Health, Care and ManipalCigna.",
+      "source_name": "moneycontrol.com",
+      "source_url": "https://www.moneycontrol.com/news/business/irdai-grants-final-r3-licence-to-prudential-hcl-health-insurance-venture-13963822.html",
+      "first_seen": "2026-07-04T05:38:27.228Z"
+    },
+    {
+      "id": "d4237e61e1",
+      "company_id": "sector",
+      "date": "2026-06-25",
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "watch",
+      "headline": "Aditya Birla Health says preventive-health model is becoming central",
+      "detail": "Peer commentary on business mix and product strategy matters because it indicates where competitive intensity and customer acquisition spending may shift for Niva Bupa.",
+      "source_name": "moneycontrol.com",
+      "source_url": "https://www.moneycontrol.com/banking/health-insurance-moving-from-hospitalization-cover-to-preventive-healthcare-aditya-birla-health-ceo-article-13929893.html",
+      "first_seen": "2026-07-04T05:38:27.228Z"
+    },
+    {
+      "id": "e314bc72b8",
+      "company_id": "sector",
+      "date": "2026-06-25",
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "negative",
+      "headline": "RBI flags rising claims and costs as insurance-sector risks",
+      "detail": "Rising claims ratios, surrenders and operating costs are sector-level warning signs that can weigh on profitability, solvency comfort and valuation multiples for health insurers.",
+      "source_name": "bfsi.economictimes.indiatimes.com",
+      "source_url": "https://bfsi.economictimes.indiatimes.com/articles/rbi-highlights-risks-to-indias-insurance-sector-rising-claims-surrenders-and-costs/132104375",
+      "first_seen": "2026-07-04T05:38:27.228Z"
+    },
+    {
       "id": "0800fcbda0",
       "company_id": "sector",
       "date": "2026-06-18",
@@ -201,6 +253,19 @@
       "source_name": "bfsi.economictimes.indiatimes.com",
       "source_url": "https://bfsi.economictimes.indiatimes.com/articles/niva-bupa-forecasted-to-outpace-retail-health-insurance-market-amid-soaring-demand/131922688",
       "first_seen": "2026-07-03T15:49:34.221Z"
+    },
+    {
+      "id": "f07892164b",
+      "company_id": "niva-bupa",
+      "date": "2026-06-18",
+      "kind": "rating",
+      "horizon": "recent",
+      "impact": "positive",
+      "headline": "MOFSL keeps Buy, sees market-share gains continuing",
+      "detail": "A fresh Buy/target-price reiteration matters because Niva Bupa is still in market-share capture mode and sell-side support can anchor sentiment after results.",
+      "source_name": "bfsi.economictimes.indiatimes.com",
+      "source_url": "https://bfsi.economictimes.indiatimes.com/amp/articles/niva-bupa-forecasted-to-outpace-retail-health-insurance-market-amid-soaring-demand/131922688",
+      "first_seen": "2026-07-04T05:38:27.228Z"
     },
     {
       "id": "1ea6c18e96",
@@ -242,6 +307,19 @@
       "first_seen": "2026-07-03T15:49:34.221Z"
     },
     {
+      "id": "7a43ad88e8",
+      "company_id": "sector",
+      "date": "2026-06-09",
+      "kind": "catalyst",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "ManipalCigna appoints Anjan Kumar Ganguly as CFO",
+      "detail": "Senior management changes at a meaningful private peer can signal capital, profitability or expansion priorities across the standalone health-insurance space.",
+      "source_name": "bfsi.economictimes.indiatimes.com",
+      "source_url": "https://bfsi.economictimes.indiatimes.com/articles/anjan-kumar-ganguly-joins-manipalcigna-health-insurance-as-cfo/131631191",
+      "first_seen": "2026-07-04T05:38:27.228Z"
+    },
+    {
       "id": "3232c29598",
       "company_id": "sector",
       "date": "2026-06-06",
@@ -281,6 +359,32 @@
       "first_seen": "2026-07-03T15:49:34.221Z"
     },
     {
+      "id": "97775d9ec8",
+      "company_id": "sector",
+      "date": "2026-05-29",
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "watch",
+      "headline": "BusinessLine flags persistent claim-settlement friction in health insurance",
+      "detail": "Continued claims friction keeps regulatory heat high and can increase compliance costs, reputational risk and the odds of stricter sector-wide claims rules.",
+      "source_name": "thehindubusinessline.com",
+      "source_url": "https://www.thehindubusinessline.com/specials/pulse/when-patients-fall-through-the-cracks-of-health-insurance-claims/article71153838.ece",
+      "first_seen": "2026-07-04T05:38:27.228Z"
+    },
+    {
+      "id": "38c92dca5c",
+      "company_id": "niva-bupa",
+      "date": "2026-05-26",
+      "kind": "rating",
+      "horizon": "recent",
+      "impact": "positive",
+      "headline": "Motilal Oswal reiterates Buy with Rs 97 target",
+      "detail": "A post-results target-price call is a direct stock catalyst because it frames upside versus current price and signals confidence in earnings trajectory.",
+      "source_name": "moneycontrol.com",
+      "source_url": "https://www.moneycontrol.com/india/stockpricequote/lifehealth-insurance/nivabupahealthinsurancecompany/NBH",
+      "first_seen": "2026-07-04T05:38:27.228Z"
+    },
+    {
       "id": "a9a581005e",
       "company_id": "sector",
       "date": null,
@@ -305,6 +409,19 @@
       "source_name": null,
       "source_url": null,
       "first_seen": "2026-07-03T12:01:05.311Z"
+    },
+    {
+      "id": "4d45001f5b",
+      "company_id": "niva-bupa",
+      "date": null,
+      "kind": "earnings",
+      "horizon": "recent",
+      "impact": "watch",
+      "headline": "Investor presentation for earnings conference call filed",
+      "detail": "The earnings-call deck filing signals management commentary is available to the market, with growth, claims and combined-ratio trends the key swing factors for the share.",
+      "source_name": "economictimes.indiatimes.com",
+      "source_url": "https://economictimes.indiatimes.com/niva-bupa-health-insurance-company-ltd/stocksupdate/companyid-31347.cms",
+      "first_seen": "2026-07-04T05:38:27.228Z"
     }
   ]
 }

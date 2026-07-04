@@ -479,6 +479,468 @@
             }
           }
         ]
+      },
+      "2026-07-04": {
+        "date": "2026-07-04",
+        "company": "Niva Bupa",
+        "companyId": "niva-bupa",
+        "generatedAt": "2026-07-04T05:41:58.642Z",
+        "lastUpdatedAt": "2026-07-04T05:41:58.642Z",
+        "status": "Watch",
+        "sourceConfidence": "Medium",
+        "itemCount": 30,
+        "runs": [
+          {
+            "runTime": "2026-07-04T05:41:58.642Z",
+            "developments": 32,
+            "sourceCount": 30,
+            "ideas": 4,
+            "status": "ok"
+          }
+        ],
+        "brief": {
+          "greeting": "Good morning",
+          "narrative": "Regulatory pressure is the main watch item for health insurers today. Niva Bupa is under pressure on premium growth and demand, but claims-cost and conduct scrutiny will decide whether the strength is sustainable.",
+          "attentionCount": 4,
+          "developmentsCount": 32,
+          "sourcesCount": 30,
+          "domainsCount": 12,
+          "confidencePct": 79,
+          "confidenceTier": "Medium",
+          "readingMins": 2,
+          "lastUpdatedLabel": "4 Jul, 05:38 am"
+        },
+        "message": {
+          "since": "Since yesterday, Niva Bupa drew fresh positive coverage.",
+          "keyThing": "Reported rule changes such as tighter cashless timelines and limits on sharp senior-citizen premium hikes could pressure execution and pricing but may aid demand and trust.",
+          "why": "Demand still looks strong, but the real question is whether claims and expenses start eating into that strength.",
+          "watch": "any fresh IRDAI clarification, and expense-ratio movement",
+          "nothing": false
+        },
+        "one": {
+          "sentence": "Reported rule changes such as tighter cashless timelines and limits on sharp senior-citizen premium hikes could pressure execution and pricing but may aid demand and trust.",
+          "status": "Watch"
+        },
+        "ideas": [
+          {
+            "id": "c409095fae",
+            "entity": "Niva Bupa",
+            "stars": 5,
+            "reasoning": [
+              "A fresh positive initiation on Niva Bupa can move sentiment and valuation expectations for a relatively newly listed…",
+              "Solvency 3.03x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency."
+            ],
+            "whatToWatch": "Solvency vs the 1.5x regulatory floor",
+            "confidencePct": 96,
+            "evidenceCount": 4,
+            "status": "Constructive",
+            "category": "Sector Catalyst",
+            "why": {
+              "whatHappened": "Nomura initiates with Buy on Niva Bupa",
+              "whyItMatters": "A fresh positive initiation on Niva Bupa can move sentiment and valuation expectations for a relatively newly listed insurer.",
+              "whoAffected": "Niva Bupa directly — its premium growth, margins and shareholders.",
+              "historicalContext": "Solvency 3.03x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency.",
+              "potentialImpact": "Solvency vs the 1.5x regulatory floor",
+              "whatToWatch": "Solvency vs the 1.5x regulatory floor"
+            },
+            "action": {
+              "id": "margins",
+              "label": "Compare Niva Bupa margin",
+              "icon": "margins",
+              "target": {
+                "page": "sahi",
+                "sahiTab": "profitability",
+                "company": "niva-bupa",
+                "focus": {
+                  "id": "pulse-margins",
+                  "metricKey": "combined_ratio",
+                  "metricLabel": "Combined ratio",
+                  "company": "niva-bupa",
+                  "companyLabel": "Niva Bupa",
+                  "comparisonType": "YoY",
+                  "tone": "neutral",
+                  "insightLabel": "Underwriting margin — combined ratio",
+                  "unit": "%",
+                  "higherIsBetter": false,
+                  "sahiTab": "profitability",
+                  "origin": "pulse"
+                }
+              }
+            },
+            "isBreaking": false,
+            "isNew": false,
+            "sources": [
+              {
+                "kind": "News",
+                "name": "ndtvprofit.com",
+                "url": "https://www.ndtvprofit.com/markets/niva-bupa-star-health-get-buy-calls-as-nomura-initiates-on-four-insurers-check-target-prices"
+              },
+              {
+                "kind": "News",
+                "name": "transactions.nivabupa.com",
+                "url": "https://transactions.nivabupa.com/pages/investor-relations.aspx"
+              },
+              {
+                "kind": "News",
+                "name": "bfsi.economictimes.indiatimes.com",
+                "url": "https://bfsi.economictimes.indiatimes.com/articles/niva-bupa-and-icici-lombard-drive-non-life-insurance-premium-growth-in-may-2026/131896688"
+              },
+              {
+                "kind": "Market data",
+                "name": "Derived from insurer-annual-snapshot + industry-segment-premium",
+                "url": "https://transactions.nivabupa.com/pages/doc/investor-relations/other-fin-disclosures/Press-Release-Results-March-2025.pdf"
+              }
+            ]
+          },
+          {
+            "id": "2a54e30df4",
+            "entity": "Niva Bupa",
+            "stars": 5,
+            "reasoning": [
+              "A fresh positive broker note matters because sustained retail-health growth and share gains can support rerating expe…",
+              "Niva carries a 3x price-to-book while delivering a 5.7% ROE."
+            ],
+            "whatToWatch": "ROE — Delivered ROE climbs toward the level the 3x multiple implies.",
+            "confidencePct": 96,
+            "evidenceCount": 5,
+            "status": "Constructive",
+            "category": "Analyst Action",
+            "why": {
+              "whatHappened": "MOFSL sees Niva Bupa sustaining market-share gains",
+              "whyItMatters": "A fresh positive broker note matters because sustained retail-health growth and share gains can support rerating expectations for NIVABUPA.",
+              "whoAffected": "Niva Bupa shareholders and anyone tracking its re-rating.",
+              "historicalContext": "Niva carries a 3x price-to-book while delivering a 5.7% ROE.",
+              "potentialImpact": "Share gains only help the thesis if they are profitable share — watch the claims ratio as the book grows, not just the share number.",
+              "whatToWatch": "ROE — Delivered ROE climbs toward the level the 3x multiple implies."
+            },
+            "action": {
+              "id": "margins",
+              "label": "Compare Niva Bupa margin",
+              "icon": "margins",
+              "target": {
+                "page": "sahi",
+                "sahiTab": "profitability",
+                "company": "niva-bupa",
+                "focus": {
+                  "id": "pulse-margins",
+                  "metricKey": "combined_ratio",
+                  "metricLabel": "Combined ratio",
+                  "company": "niva-bupa",
+                  "companyLabel": "Niva Bupa",
+                  "comparisonType": "YoY",
+                  "tone": "neutral",
+                  "insightLabel": "Underwriting margin — combined ratio",
+                  "unit": "%",
+                  "higherIsBetter": false,
+                  "sahiTab": "profitability",
+                  "origin": "pulse"
+                }
+              }
+            },
+            "isBreaking": false,
+            "isNew": false,
+            "sources": [
+              {
+                "kind": "Analyst report",
+                "name": "bfsi.economictimes.indiatimes.com",
+                "url": "https://bfsi.economictimes.indiatimes.com/articles/niva-bupa-forecasted-to-outpace-retail-health-insurance-market-amid-soaring-demand/131922688"
+              },
+              {
+                "kind": "Analyst report",
+                "name": "bfsi.economictimes.indiatimes.com",
+                "url": "https://bfsi.economictimes.indiatimes.com/amp/articles/niva-bupa-forecasted-to-outpace-retail-health-insurance-market-amid-soaring-demand/131922688"
+              },
+              {
+                "kind": "Analyst report",
+                "name": "moneycontrol.com",
+                "url": "https://www.moneycontrol.com/india/stockpricequote/lifehealth-insurance/nivabupahealthinsurancecompany/NBH"
+              },
+              {
+                "kind": "Market data",
+                "name": "Derived from insurer-annual-snapshot + industry-segment-premium",
+                "url": "https://transactions.nivabupa.com/pages/doc/investor-relations/other-fin-disclosures/Press-Release-Results-March-2025.pdf"
+              },
+              {
+                "kind": "Market data",
+                "name": "1 curated source-backed insight",
+                "url": ""
+              }
+            ]
+          },
+          {
+            "id": "f07892164b",
+            "entity": "Niva Bupa",
+            "stars": 5,
+            "reasoning": [
+              "A fresh Buy/target-price reiteration matters because Niva Bupa is still in market-share capture mode and sell-side su…",
+              "Niva carries a 3x price-to-book while delivering a 5.7% ROE."
+            ],
+            "whatToWatch": "ROE — Delivered ROE climbs toward the level the 3x multiple implies.",
+            "confidencePct": 96,
+            "evidenceCount": 5,
+            "status": "Constructive",
+            "category": "Analyst Action",
+            "why": {
+              "whatHappened": "MOFSL keeps Buy, sees market-share gains continuing",
+              "whyItMatters": "A fresh Buy/target-price reiteration matters because Niva Bupa is still in market-share capture mode and sell-side support can anchor sentiment after results.",
+              "whoAffected": "Niva Bupa shareholders and anyone tracking its re-rating.",
+              "historicalContext": "Niva carries a 3x price-to-book while delivering a 5.7% ROE.",
+              "potentialImpact": "Share gains only help the thesis if they are profitable share — watch the claims ratio as the book grows, not just the share number.",
+              "whatToWatch": "ROE — Delivered ROE climbs toward the level the 3x multiple implies."
+            },
+            "action": {
+              "id": "margins",
+              "label": "Compare Niva Bupa margin",
+              "icon": "margins",
+              "target": {
+                "page": "sahi",
+                "sahiTab": "profitability",
+                "company": "niva-bupa",
+                "focus": {
+                  "id": "pulse-margins",
+                  "metricKey": "combined_ratio",
+                  "metricLabel": "Combined ratio",
+                  "company": "niva-bupa",
+                  "companyLabel": "Niva Bupa",
+                  "comparisonType": "YoY",
+                  "tone": "neutral",
+                  "insightLabel": "Underwriting margin — combined ratio",
+                  "unit": "%",
+                  "higherIsBetter": false,
+                  "sahiTab": "profitability",
+                  "origin": "pulse"
+                }
+              }
+            },
+            "isBreaking": false,
+            "isNew": false,
+            "freshLabel": "New at 11:08 am",
+            "sources": [
+              {
+                "kind": "Analyst report",
+                "name": "bfsi.economictimes.indiatimes.com",
+                "url": "https://bfsi.economictimes.indiatimes.com/amp/articles/niva-bupa-forecasted-to-outpace-retail-health-insurance-market-amid-soaring-demand/131922688"
+              },
+              {
+                "kind": "Analyst report",
+                "name": "bfsi.economictimes.indiatimes.com",
+                "url": "https://bfsi.economictimes.indiatimes.com/articles/niva-bupa-forecasted-to-outpace-retail-health-insurance-market-amid-soaring-demand/131922688"
+              },
+              {
+                "kind": "Analyst report",
+                "name": "moneycontrol.com",
+                "url": "https://www.moneycontrol.com/india/stockpricequote/lifehealth-insurance/nivabupahealthinsurancecompany/NBH"
+              },
+              {
+                "kind": "Market data",
+                "name": "Derived from insurer-annual-snapshot + industry-segment-premium",
+                "url": "https://transactions.nivabupa.com/pages/doc/investor-relations/other-fin-disclosures/Press-Release-Results-March-2025.pdf"
+              },
+              {
+                "kind": "Market data",
+                "name": "1 curated source-backed insight",
+                "url": ""
+              }
+            ]
+          },
+          {
+            "id": "6d3875a803",
+            "entity": "Niva Bupa",
+            "stars": 5,
+            "reasoning": [
+              "The IR page showing FY26 quarterly and Q4 materials suggests the market should monitor for the next scheduled company…",
+              "Solvency 3.03x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency."
+            ],
+            "whatToWatch": "Solvency vs the 1.5x regulatory floor",
+            "confidencePct": 96,
+            "evidenceCount": 4,
+            "status": "Watch",
+            "category": "Sector Catalyst",
+            "why": {
+              "whatHappened": "the market-relations page flags FY26 earnings materials availability",
+              "whyItMatters": "The IR page showing FY26 quarterly and Q4 materials suggests the market should monitor for the next scheduled company communication, results pack or meeting update.",
+              "whoAffected": "Niva Bupa directly — its premium growth, margins and shareholders.",
+              "historicalContext": "Solvency 3.03x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency.",
+              "potentialImpact": "Solvency vs the 1.5x regulatory floor",
+              "whatToWatch": "Solvency vs the 1.5x regulatory floor"
+            },
+            "action": {
+              "id": "margins",
+              "label": "Compare Niva Bupa margin",
+              "icon": "margins",
+              "target": {
+                "page": "sahi",
+                "sahiTab": "profitability",
+                "company": "niva-bupa",
+                "focus": {
+                  "id": "pulse-margins",
+                  "metricKey": "combined_ratio",
+                  "metricLabel": "Combined ratio",
+                  "company": "niva-bupa",
+                  "companyLabel": "Niva Bupa",
+                  "comparisonType": "YoY",
+                  "tone": "neutral",
+                  "insightLabel": "Underwriting margin — combined ratio",
+                  "unit": "%",
+                  "higherIsBetter": false,
+                  "sahiTab": "profitability",
+                  "origin": "pulse"
+                }
+              }
+            },
+            "isBreaking": false,
+            "isNew": false,
+            "sources": [
+              {
+                "kind": "News",
+                "name": "transactions.nivabupa.com",
+                "url": "https://transactions.nivabupa.com/pages/investor-relations.aspx"
+              },
+              {
+                "kind": "News",
+                "name": "ndtvprofit.com",
+                "url": "https://www.ndtvprofit.com/markets/niva-bupa-star-health-get-buy-calls-as-nomura-initiates-on-four-insurers-check-target-prices"
+              },
+              {
+                "kind": "News",
+                "name": "bfsi.economictimes.indiatimes.com",
+                "url": "https://bfsi.economictimes.indiatimes.com/articles/niva-bupa-and-icici-lombard-drive-non-life-insurance-premium-growth-in-may-2026/131896688"
+              },
+              {
+                "kind": "Market data",
+                "name": "Derived from insurer-annual-snapshot + industry-segment-premium",
+                "url": "https://transactions.nivabupa.com/pages/doc/investor-relations/other-fin-disclosures/Press-Release-Results-March-2025.pdf"
+              }
+            ]
+          }
+        ],
+        "sinceDeltas": [
+          {
+            "id": "co",
+            "label": "fresh company update",
+            "value": "1",
+            "direction": "up",
+            "tone": "Positive",
+            "target": {
+              "page": "sahi",
+              "sahiTab": "companies",
+              "company": "niva-bupa",
+              "focus": {
+                "id": "pulse-since-co",
+                "kind": "locator",
+                "locatorKind": "company",
+                "metricKey": "company",
+                "metricLabel": "Company update",
+                "company": "niva-bupa",
+                "companyLabel": "Niva Bupa",
+                "comparisonType": "trend",
+                "tone": "neutral",
+                "insightLabel": "1 fresh Niva Bupa update",
+                "unit": "",
+                "sahiTab": "companies",
+                "origin": "pulse"
+              }
+            },
+            "href": "https://www.ndtvprofit.com/markets/niva-bupa-star-health-get-buy-calls-as-nomura-initiates-on-four-insurers-check-target-prices"
+          },
+          {
+            "id": "moves",
+            "label": "unusual market moves",
+            "value": "0",
+            "direction": "flat",
+            "tone": "Positive",
+            "target": {
+              "page": "sahi",
+              "sahiTab": "valuation",
+              "company": "niva-bupa",
+              "focus": {
+                "id": "pulse-since-moves",
+                "kind": "locator",
+                "locatorKind": "market_move",
+                "metricKey": "market_move",
+                "metricLabel": "Market moves",
+                "company": "niva-bupa",
+                "companyLabel": "Niva Bupa",
+                "comparisonType": "trend",
+                "tone": "neutral",
+                "insightLabel": "No unusual market moves",
+                "unit": "",
+                "sahiTab": "valuation",
+                "origin": "pulse"
+              }
+            }
+          }
+        ],
+        "events": [],
+        "actions": [
+          {
+            "id": "ownership",
+            "label": "Review Niva Bupa ownership",
+            "icon": "ownership",
+            "target": {
+              "page": "sahi",
+              "sahiTab": "governance",
+              "company": "niva-bupa",
+              "focus": {
+                "id": "pulse-ownership",
+                "metricKey": "promoter_holding",
+                "metricLabel": "Promoter holding",
+                "company": "niva-bupa",
+                "companyLabel": "Niva Bupa",
+                "comparisonType": "sequential",
+                "tone": "neutral",
+                "insightLabel": "Ownership — promoter holding trend",
+                "unit": "%",
+                "higherIsBetter": true,
+                "sahiTab": "governance",
+                "origin": "pulse"
+              }
+            }
+          },
+          {
+            "id": "margins",
+            "label": "Compare Niva Bupa margin",
+            "icon": "margins",
+            "target": {
+              "page": "sahi",
+              "sahiTab": "profitability",
+              "company": "niva-bupa",
+              "focus": {
+                "id": "pulse-margins",
+                "metricKey": "combined_ratio",
+                "metricLabel": "Combined ratio",
+                "company": "niva-bupa",
+                "companyLabel": "Niva Bupa",
+                "comparisonType": "YoY",
+                "tone": "neutral",
+                "insightLabel": "Underwriting margin — combined ratio",
+                "unit": "%",
+                "higherIsBetter": false,
+                "sahiTab": "profitability",
+                "origin": "pulse"
+              }
+            }
+          },
+          {
+            "id": "source",
+            "label": "Verify Niva Bupa sources",
+            "icon": "source",
+            "target": {
+              "page": "audit",
+              "company": "niva-bupa"
+            }
+          },
+          {
+            "id": "regulation",
+            "label": "Check IRDAI on claims cost",
+            "icon": "regulation",
+            "target": {
+              "page": "sahi",
+              "sahiTab": "governance",
+              "company": "niva-bupa"
+            }
+          }
+        ]
       }
     },
     "star-health": {
@@ -810,6 +1272,394 @@
                 "kind": "Regulatory",
                 "name": "moneycontrol.com",
                 "url": "https://www.moneycontrol.com/news/business/irdai-grants-final-r3-licence-to-prudential-hcl-health-insurance-venture-13963822.html"
+              }
+            ]
+          }
+        ],
+        "sinceDeltas": [
+          {
+            "id": "moves",
+            "label": "unusual market moves",
+            "value": "0",
+            "direction": "flat",
+            "tone": "Positive",
+            "target": {
+              "page": "sahi",
+              "sahiTab": "valuation",
+              "company": "star-health",
+              "focus": {
+                "id": "pulse-since-moves",
+                "kind": "locator",
+                "locatorKind": "market_move",
+                "metricKey": "market_move",
+                "metricLabel": "Market moves",
+                "company": "star-health",
+                "companyLabel": "Star Health",
+                "comparisonType": "trend",
+                "tone": "neutral",
+                "insightLabel": "No unusual market moves",
+                "unit": "",
+                "sahiTab": "valuation",
+                "origin": "pulse"
+              }
+            }
+          }
+        ],
+        "events": [],
+        "actions": [
+          {
+            "id": "ownership",
+            "label": "Review Star Health ownership",
+            "icon": "ownership",
+            "target": {
+              "page": "sahi",
+              "sahiTab": "governance",
+              "company": "star-health",
+              "focus": {
+                "id": "pulse-ownership",
+                "metricKey": "promoter_holding",
+                "metricLabel": "Promoter holding",
+                "company": "star-health",
+                "companyLabel": "Star Health",
+                "comparisonType": "sequential",
+                "tone": "neutral",
+                "insightLabel": "Ownership — promoter holding trend",
+                "unit": "%",
+                "higherIsBetter": true,
+                "sahiTab": "governance",
+                "origin": "pulse"
+              }
+            }
+          },
+          {
+            "id": "margins",
+            "label": "Compare Star Health margin",
+            "icon": "margins",
+            "target": {
+              "page": "sahi",
+              "sahiTab": "profitability",
+              "company": "star-health",
+              "focus": {
+                "id": "pulse-margins",
+                "metricKey": "combined_ratio",
+                "metricLabel": "Combined ratio",
+                "company": "star-health",
+                "companyLabel": "Star Health",
+                "comparisonType": "YoY",
+                "tone": "neutral",
+                "insightLabel": "Underwriting margin — combined ratio",
+                "unit": "%",
+                "higherIsBetter": false,
+                "sahiTab": "profitability",
+                "origin": "pulse"
+              }
+            }
+          },
+          {
+            "id": "source",
+            "label": "Verify Star Health sources",
+            "icon": "source",
+            "target": {
+              "page": "audit",
+              "company": "star-health"
+            }
+          },
+          {
+            "id": "regulation",
+            "label": "Check IRDAI on claims cost",
+            "icon": "regulation",
+            "target": {
+              "page": "sahi",
+              "sahiTab": "governance",
+              "company": "star-health"
+            }
+          }
+        ]
+      },
+      "2026-07-04": {
+        "date": "2026-07-04",
+        "company": "Star Health",
+        "companyId": "star-health",
+        "generatedAt": "2026-07-04T05:41:58.642Z",
+        "lastUpdatedAt": "2026-07-04T05:41:58.642Z",
+        "status": "Watch",
+        "sourceConfidence": "Medium",
+        "itemCount": 23,
+        "runs": [
+          {
+            "runTime": "2026-07-04T05:41:58.642Z",
+            "developments": 24,
+            "sourceCount": 23,
+            "ideas": 4,
+            "status": "ok"
+          }
+        ],
+        "brief": {
+          "greeting": "Good morning",
+          "narrative": "Regulatory pressure is the main watch item for health insurers today. Star Health is under pressure on premium growth and demand, but claims-cost and conduct scrutiny will decide whether the strength is sustainable.",
+          "attentionCount": 4,
+          "developmentsCount": 24,
+          "sourcesCount": 23,
+          "domainsCount": 10,
+          "confidencePct": 79,
+          "confidenceTier": "Medium",
+          "readingMins": 2,
+          "lastUpdatedLabel": "4 Jul, 05:38 am"
+        },
+        "message": {
+          "since": "No major new update has dropped today. The previous thesis remains live.",
+          "keyThing": "Reported rule changes such as tighter cashless timelines and limits on sharp senior-citizen premium hikes could pressure execution and pricing but may aid demand and trust.",
+          "why": "The near-term read now turns on how the new rules land on pricing and cost.",
+          "watch": "any fresh IRDAI clarification, and expense-ratio movement",
+          "nothing": false
+        },
+        "one": {
+          "sentence": "Reported rule changes such as tighter cashless timelines and limits on sharp senior-citizen premium hikes could pressure execution and pricing but may aid demand and trust.",
+          "status": "Watch"
+        },
+        "ideas": [
+          {
+            "id": "930c383096",
+            "entity": "Regulatory Update",
+            "stars": 5,
+            "reasoning": [
+              "A new standalone health insurer raises competitive intensity in retail health, distribution and pricing, which matter…",
+              "Solvency 2.2x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency."
+            ],
+            "whatToWatch": "Solvency vs the 1.5x regulatory floor",
+            "confidencePct": 96,
+            "evidenceCount": 5,
+            "status": "Risk",
+            "category": "Regulatory",
+            "why": {
+              "whatHappened": "IRDAI grants final licence to Prudential-HCL health insurer",
+              "whyItMatters": "A new standalone health insurer raises competitive intensity in retail health, distribution and pricing, which matters for Niva Bupa and peers.",
+              "whoAffected": "Every standalone health insurer (SAHI) — pricing, product design and compliance cost.",
+              "historicalContext": "Solvency 2.2x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency.",
+              "potentialImpact": "Solvency vs the 1.5x regulatory floor",
+              "whatToWatch": "Solvency vs the 1.5x regulatory floor"
+            },
+            "action": {
+              "id": "regulation",
+              "label": "Check IRDAI on claims cost",
+              "icon": "regulation",
+              "target": {
+                "page": "sahi",
+                "sahiTab": "governance",
+                "company": "star-health"
+              }
+            },
+            "isBreaking": false,
+            "isNew": false,
+            "sources": [
+              {
+                "kind": "Regulatory",
+                "name": "moneycontrol.com",
+                "url": "https://www.moneycontrol.com/news/business/irdai-grants-final-r3-licence-to-prudential-hcl-health-insurance-venture-13963822.html"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "nivabupa.com",
+                "url": "https://www.nivabupa.com/health-insurance-articles/new-irdai-rules-what-has-changed-for-policyholders.html"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "acko.com",
+                "url": "https://www.acko.com/health-insurance/irda-rules-for-health-insurance/"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "economictimes.indiatimes.com",
+                "url": "https://economictimes.indiatimes.com/industry/banking/finance/insure/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/articleshow/132155581.cms"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "moneycontrol.com",
+                "url": "https://www.moneycontrol.com/news/business/banks/irdai-softens-stance-on-insurer-listings-13963096.html"
+              }
+            ]
+          },
+          {
+            "id": "1ee80ca8b9",
+            "entity": "Regulatory Update",
+            "stars": 5,
+            "reasoning": [
+              "A move to stagger commissions and tighten disclosure could pressure distributor-led growth, agent payouts and custome…",
+              "Solvency 2.2x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency."
+            ],
+            "whatToWatch": "Solvency vs the 1.5x regulatory floor",
+            "confidencePct": 96,
+            "evidenceCount": 5,
+            "status": "Risk",
+            "category": "Regulatory",
+            "why": {
+              "whatHappened": "IRDAI plans tighter commission rules to curb mis-selling",
+              "whyItMatters": "A move to stagger commissions and tighten disclosure could pressure distributor-led growth, agent payouts and customer-acquisition economics across standalone health insurers if implemented.",
+              "whoAffected": "Every standalone health insurer (SAHI) — pricing, product design and compliance cost.",
+              "historicalContext": "Solvency 2.2x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency.",
+              "potentialImpact": "Solvency vs the 1.5x regulatory floor",
+              "whatToWatch": "Solvency vs the 1.5x regulatory floor"
+            },
+            "action": {
+              "id": "regulation",
+              "label": "Check IRDAI on claims cost",
+              "icon": "regulation",
+              "target": {
+                "page": "sahi",
+                "sahiTab": "governance",
+                "company": "star-health"
+              }
+            },
+            "isBreaking": false,
+            "isNew": false,
+            "freshLabel": "New at 11:08 am",
+            "sources": [
+              {
+                "kind": "Regulatory",
+                "name": "economictimes.indiatimes.com",
+                "url": "https://economictimes.indiatimes.com/industry/banking/finance/insure/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/articleshow/132155581.cms"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "nivabupa.com",
+                "url": "https://www.nivabupa.com/health-insurance-articles/new-irdai-rules-what-has-changed-for-policyholders.html"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "acko.com",
+                "url": "https://www.acko.com/health-insurance/irda-rules-for-health-insurance/"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "moneycontrol.com",
+                "url": "https://www.moneycontrol.com/news/business/irdai-grants-final-r3-licence-to-prudential-hcl-health-insurance-venture-13963822.html"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "moneycontrol.com",
+                "url": "https://www.moneycontrol.com/news/business/banks/irdai-softens-stance-on-insurer-listings-13963096.html"
+              }
+            ]
+          },
+          {
+            "id": "a59ad3ce59",
+            "entity": "Regulatory Update",
+            "stars": 5,
+            "reasoning": [
+              "IRDAI chair Ajay Seth said insurers should go public only when they need capital, easing a potential overhang from re…",
+              "Solvency 2.2x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency."
+            ],
+            "whatToWatch": "Solvency vs the 1.5x regulatory floor",
+            "confidencePct": 96,
+            "evidenceCount": 5,
+            "status": "Constructive",
+            "category": "Regulatory",
+            "why": {
+              "whatHappened": "IRDAI softens listing stance for insurers",
+              "whyItMatters": "IRDAI chair Ajay Seth said insurers should go public only when they need capital, easing a potential overhang from regulator-driven IPO expectations for mature private insurers including standalone h…",
+              "whoAffected": "Every standalone health insurer (SAHI) — pricing, product design and compliance cost.",
+              "historicalContext": "Solvency 2.2x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency.",
+              "potentialImpact": "Solvency vs the 1.5x regulatory floor",
+              "whatToWatch": "Solvency vs the 1.5x regulatory floor"
+            },
+            "action": {
+              "id": "regulation",
+              "label": "Check IRDAI on claims cost",
+              "icon": "regulation",
+              "target": {
+                "page": "sahi",
+                "sahiTab": "governance",
+                "company": "star-health"
+              }
+            },
+            "isBreaking": false,
+            "isNew": false,
+            "sources": [
+              {
+                "kind": "Regulatory",
+                "name": "moneycontrol.com",
+                "url": "https://www.moneycontrol.com/news/business/banks/irdai-softens-stance-on-insurer-listings-13963096.html"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "nivabupa.com",
+                "url": "https://www.nivabupa.com/health-insurance-articles/new-irdai-rules-what-has-changed-for-policyholders.html"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "acko.com",
+                "url": "https://www.acko.com/health-insurance/irda-rules-for-health-insurance/"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "moneycontrol.com",
+                "url": "https://www.moneycontrol.com/news/business/irdai-grants-final-r3-licence-to-prudential-hcl-health-insurance-venture-13963822.html"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "economictimes.indiatimes.com",
+                "url": "https://economictimes.indiatimes.com/industry/banking/finance/insure/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/articleshow/132155581.cms"
+              }
+            ]
+          },
+          {
+            "id": "f3ce300c4e",
+            "entity": "Regulatory Update",
+            "stars": 5,
+            "reasoning": [
+              "A friendlier listing stance can improve capital-raising and exit optionality across insurance, supporting sector sent…",
+              "Solvency 2.2x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency."
+            ],
+            "whatToWatch": "Solvency vs the 1.5x regulatory floor",
+            "confidencePct": 96,
+            "evidenceCount": 5,
+            "status": "Constructive",
+            "category": "Regulatory",
+            "why": {
+              "whatHappened": "IRDAI softens stance on insurer listings",
+              "whyItMatters": "A friendlier listing stance can improve capital-raising and exit optionality across insurance, supporting sector sentiment and private-player valuations.",
+              "whoAffected": "Every standalone health insurer (SAHI) — pricing, product design and compliance cost.",
+              "historicalContext": "Solvency 2.2x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency.",
+              "potentialImpact": "Solvency vs the 1.5x regulatory floor",
+              "whatToWatch": "Solvency vs the 1.5x regulatory floor"
+            },
+            "action": {
+              "id": "regulation",
+              "label": "Check IRDAI on claims cost",
+              "icon": "regulation",
+              "target": {
+                "page": "sahi",
+                "sahiTab": "governance",
+                "company": "star-health"
+              }
+            },
+            "isBreaking": false,
+            "isNew": false,
+            "sources": [
+              {
+                "kind": "Regulatory",
+                "name": "moneycontrol.com",
+                "url": "https://moneycontrol.com/news/business/banks/irdai-softens-stance-on-insurer-listings-13963096.html"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "nivabupa.com",
+                "url": "https://www.nivabupa.com/health-insurance-articles/new-irdai-rules-what-has-changed-for-policyholders.html"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "acko.com",
+                "url": "https://www.acko.com/health-insurance/irda-rules-for-health-insurance/"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "moneycontrol.com",
+                "url": "https://www.moneycontrol.com/news/business/irdai-grants-final-r3-licence-to-prudential-hcl-health-insurance-venture-13963822.html"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "economictimes.indiatimes.com",
+                "url": "https://economictimes.indiatimes.com/industry/banking/finance/insure/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/articleshow/132155581.cms"
               }
             ]
           }
@@ -1347,6 +2197,394 @@
             }
           }
         ]
+      },
+      "2026-07-04": {
+        "date": "2026-07-04",
+        "company": "Care Health",
+        "companyId": "care-health",
+        "generatedAt": "2026-07-04T05:41:58.642Z",
+        "lastUpdatedAt": "2026-07-04T05:41:58.642Z",
+        "status": "Watch",
+        "sourceConfidence": "Medium",
+        "itemCount": 23,
+        "runs": [
+          {
+            "runTime": "2026-07-04T05:41:58.642Z",
+            "developments": 23,
+            "sourceCount": 23,
+            "ideas": 4,
+            "status": "ok"
+          }
+        ],
+        "brief": {
+          "greeting": "Good morning",
+          "narrative": "Regulatory pressure is the main watch item for health insurers today. Care Health is under pressure on premium growth and demand, but claims-cost and conduct scrutiny will decide whether the strength is sustainable.",
+          "attentionCount": 4,
+          "developmentsCount": 23,
+          "sourcesCount": 23,
+          "domainsCount": 10,
+          "confidencePct": 79,
+          "confidenceTier": "Medium",
+          "readingMins": 2,
+          "lastUpdatedLabel": "4 Jul, 05:38 am"
+        },
+        "message": {
+          "since": "No major new update has dropped today. The previous thesis remains live.",
+          "keyThing": "Reported rule changes such as tighter cashless timelines and limits on sharp senior-citizen premium hikes could pressure execution and pricing but may aid demand and trust.",
+          "why": "The near-term read now turns on how the new rules land on pricing and cost.",
+          "watch": "any fresh IRDAI clarification, and expense-ratio movement",
+          "nothing": false
+        },
+        "one": {
+          "sentence": "Reported rule changes such as tighter cashless timelines and limits on sharp senior-citizen premium hikes could pressure execution and pricing but may aid demand and trust.",
+          "status": "Watch"
+        },
+        "ideas": [
+          {
+            "id": "930c383096",
+            "entity": "Regulatory Update",
+            "stars": 5,
+            "reasoning": [
+              "A new standalone health insurer raises competitive intensity in retail health, distribution and pricing, which matter…",
+              "At 1.68x solvency — only just above the 1.5x regulatory floor — Care's headroom erodes fastest as it keeps compoundin…"
+            ],
+            "whatToWatch": "Equity raise — Care raises capital or growth slows below the pace that erodes the 1.68x cushion.",
+            "confidencePct": 96,
+            "evidenceCount": 5,
+            "status": "Risk",
+            "category": "Regulatory",
+            "why": {
+              "whatHappened": "IRDAI grants final licence to Prudential-HCL health insurer",
+              "whyItMatters": "A new standalone health insurer raises competitive intensity in retail health, distribution and pricing, which matters for Niva Bupa and peers.",
+              "whoAffected": "Every standalone health insurer (SAHI) — pricing, product design and compliance cost.",
+              "historicalContext": "At 1.68x solvency — only just above the 1.5x regulatory floor — Care's headroom erodes fastest as it keeps compounding premium.",
+              "potentialImpact": "Solvency sits close enough to the floor that a capital raise or slower growth is a live possibility.",
+              "whatToWatch": "Equity raise — Care raises capital or growth slows below the pace that erodes the 1.68x cushion."
+            },
+            "action": {
+              "id": "regulation",
+              "label": "Check IRDAI on claims cost",
+              "icon": "regulation",
+              "target": {
+                "page": "sahi",
+                "sahiTab": "governance",
+                "company": "care-health"
+              }
+            },
+            "isBreaking": false,
+            "isNew": false,
+            "sources": [
+              {
+                "kind": "Regulatory",
+                "name": "moneycontrol.com",
+                "url": "https://www.moneycontrol.com/news/business/irdai-grants-final-r3-licence-to-prudential-hcl-health-insurance-venture-13963822.html"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "nivabupa.com",
+                "url": "https://www.nivabupa.com/health-insurance-articles/new-irdai-rules-what-has-changed-for-policyholders.html"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "acko.com",
+                "url": "https://www.acko.com/health-insurance/irda-rules-for-health-insurance/"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "economictimes.indiatimes.com",
+                "url": "https://economictimes.indiatimes.com/industry/banking/finance/insure/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/articleshow/132155581.cms"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "moneycontrol.com",
+                "url": "https://www.moneycontrol.com/news/business/banks/irdai-softens-stance-on-insurer-listings-13963096.html"
+              }
+            ]
+          },
+          {
+            "id": "1ee80ca8b9",
+            "entity": "Regulatory Update",
+            "stars": 5,
+            "reasoning": [
+              "A move to stagger commissions and tighten disclosure could pressure distributor-led growth, agent payouts and custome…",
+              "At 1.68x solvency — only just above the 1.5x regulatory floor — Care's headroom erodes fastest as it keeps compoundin…"
+            ],
+            "whatToWatch": "Equity raise — Care raises capital or growth slows below the pace that erodes the 1.68x cushion.",
+            "confidencePct": 96,
+            "evidenceCount": 5,
+            "status": "Risk",
+            "category": "Regulatory",
+            "why": {
+              "whatHappened": "IRDAI plans tighter commission rules to curb mis-selling",
+              "whyItMatters": "A move to stagger commissions and tighten disclosure could pressure distributor-led growth, agent payouts and customer-acquisition economics across standalone health insurers if implemented.",
+              "whoAffected": "Every standalone health insurer (SAHI) — pricing, product design and compliance cost.",
+              "historicalContext": "At 1.68x solvency — only just above the 1.5x regulatory floor — Care's headroom erodes fastest as it keeps compounding premium.",
+              "potentialImpact": "Solvency sits close enough to the floor that a capital raise or slower growth is a live possibility.",
+              "whatToWatch": "Equity raise — Care raises capital or growth slows below the pace that erodes the 1.68x cushion."
+            },
+            "action": {
+              "id": "regulation",
+              "label": "Check IRDAI on claims cost",
+              "icon": "regulation",
+              "target": {
+                "page": "sahi",
+                "sahiTab": "governance",
+                "company": "care-health"
+              }
+            },
+            "isBreaking": false,
+            "isNew": false,
+            "freshLabel": "New at 11:08 am",
+            "sources": [
+              {
+                "kind": "Regulatory",
+                "name": "economictimes.indiatimes.com",
+                "url": "https://economictimes.indiatimes.com/industry/banking/finance/insure/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/articleshow/132155581.cms"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "nivabupa.com",
+                "url": "https://www.nivabupa.com/health-insurance-articles/new-irdai-rules-what-has-changed-for-policyholders.html"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "acko.com",
+                "url": "https://www.acko.com/health-insurance/irda-rules-for-health-insurance/"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "moneycontrol.com",
+                "url": "https://www.moneycontrol.com/news/business/irdai-grants-final-r3-licence-to-prudential-hcl-health-insurance-venture-13963822.html"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "moneycontrol.com",
+                "url": "https://www.moneycontrol.com/news/business/banks/irdai-softens-stance-on-insurer-listings-13963096.html"
+              }
+            ]
+          },
+          {
+            "id": "a59ad3ce59",
+            "entity": "Regulatory Update",
+            "stars": 5,
+            "reasoning": [
+              "IRDAI chair Ajay Seth said insurers should go public only when they need capital, easing a potential overhang from re…",
+              "At 1.68x solvency — only just above the 1.5x regulatory floor — Care's headroom erodes fastest as it keeps compoundin…"
+            ],
+            "whatToWatch": "Equity raise — Care raises capital or growth slows below the pace that erodes the 1.68x cushion.",
+            "confidencePct": 96,
+            "evidenceCount": 5,
+            "status": "Constructive",
+            "category": "Regulatory",
+            "why": {
+              "whatHappened": "IRDAI softens listing stance for insurers",
+              "whyItMatters": "IRDAI chair Ajay Seth said insurers should go public only when they need capital, easing a potential overhang from regulator-driven IPO expectations for mature private insurers including standalone h…",
+              "whoAffected": "Every standalone health insurer (SAHI) — pricing, product design and compliance cost.",
+              "historicalContext": "At 1.68x solvency — only just above the 1.5x regulatory floor — Care's headroom erodes fastest as it keeps compounding premium.",
+              "potentialImpact": "Solvency sits close enough to the floor that a capital raise or slower growth is a live possibility.",
+              "whatToWatch": "Equity raise — Care raises capital or growth slows below the pace that erodes the 1.68x cushion."
+            },
+            "action": {
+              "id": "regulation",
+              "label": "Check IRDAI on claims cost",
+              "icon": "regulation",
+              "target": {
+                "page": "sahi",
+                "sahiTab": "governance",
+                "company": "care-health"
+              }
+            },
+            "isBreaking": false,
+            "isNew": false,
+            "sources": [
+              {
+                "kind": "Regulatory",
+                "name": "moneycontrol.com",
+                "url": "https://www.moneycontrol.com/news/business/banks/irdai-softens-stance-on-insurer-listings-13963096.html"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "nivabupa.com",
+                "url": "https://www.nivabupa.com/health-insurance-articles/new-irdai-rules-what-has-changed-for-policyholders.html"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "acko.com",
+                "url": "https://www.acko.com/health-insurance/irda-rules-for-health-insurance/"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "moneycontrol.com",
+                "url": "https://www.moneycontrol.com/news/business/irdai-grants-final-r3-licence-to-prudential-hcl-health-insurance-venture-13963822.html"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "economictimes.indiatimes.com",
+                "url": "https://economictimes.indiatimes.com/industry/banking/finance/insure/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/articleshow/132155581.cms"
+              }
+            ]
+          },
+          {
+            "id": "f3ce300c4e",
+            "entity": "Regulatory Update",
+            "stars": 5,
+            "reasoning": [
+              "A friendlier listing stance can improve capital-raising and exit optionality across insurance, supporting sector sent…",
+              "At 1.68x solvency — only just above the 1.5x regulatory floor — Care's headroom erodes fastest as it keeps compoundin…"
+            ],
+            "whatToWatch": "Equity raise — Care raises capital or growth slows below the pace that erodes the 1.68x cushion.",
+            "confidencePct": 96,
+            "evidenceCount": 5,
+            "status": "Constructive",
+            "category": "Regulatory",
+            "why": {
+              "whatHappened": "IRDAI softens stance on insurer listings",
+              "whyItMatters": "A friendlier listing stance can improve capital-raising and exit optionality across insurance, supporting sector sentiment and private-player valuations.",
+              "whoAffected": "Every standalone health insurer (SAHI) — pricing, product design and compliance cost.",
+              "historicalContext": "At 1.68x solvency — only just above the 1.5x regulatory floor — Care's headroom erodes fastest as it keeps compounding premium.",
+              "potentialImpact": "Solvency sits close enough to the floor that a capital raise or slower growth is a live possibility.",
+              "whatToWatch": "Equity raise — Care raises capital or growth slows below the pace that erodes the 1.68x cushion."
+            },
+            "action": {
+              "id": "regulation",
+              "label": "Check IRDAI on claims cost",
+              "icon": "regulation",
+              "target": {
+                "page": "sahi",
+                "sahiTab": "governance",
+                "company": "care-health"
+              }
+            },
+            "isBreaking": false,
+            "isNew": false,
+            "sources": [
+              {
+                "kind": "Regulatory",
+                "name": "moneycontrol.com",
+                "url": "https://moneycontrol.com/news/business/banks/irdai-softens-stance-on-insurer-listings-13963096.html"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "nivabupa.com",
+                "url": "https://www.nivabupa.com/health-insurance-articles/new-irdai-rules-what-has-changed-for-policyholders.html"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "acko.com",
+                "url": "https://www.acko.com/health-insurance/irda-rules-for-health-insurance/"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "moneycontrol.com",
+                "url": "https://www.moneycontrol.com/news/business/irdai-grants-final-r3-licence-to-prudential-hcl-health-insurance-venture-13963822.html"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "economictimes.indiatimes.com",
+                "url": "https://economictimes.indiatimes.com/industry/banking/finance/insure/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/articleshow/132155581.cms"
+              }
+            ]
+          }
+        ],
+        "sinceDeltas": [
+          {
+            "id": "moves",
+            "label": "unusual market moves",
+            "value": "0",
+            "direction": "flat",
+            "tone": "Positive",
+            "target": {
+              "page": "sahi",
+              "sahiTab": "valuation",
+              "company": "care-health",
+              "focus": {
+                "id": "pulse-since-moves",
+                "kind": "locator",
+                "locatorKind": "market_move",
+                "metricKey": "market_move",
+                "metricLabel": "Market moves",
+                "company": "care-health",
+                "companyLabel": "Care Health",
+                "comparisonType": "trend",
+                "tone": "neutral",
+                "insightLabel": "No unusual market moves",
+                "unit": "",
+                "sahiTab": "valuation",
+                "origin": "pulse"
+              }
+            }
+          }
+        ],
+        "events": [],
+        "actions": [
+          {
+            "id": "ownership",
+            "label": "Review Care Health ownership",
+            "icon": "ownership",
+            "target": {
+              "page": "sahi",
+              "sahiTab": "governance",
+              "company": "care-health",
+              "focus": {
+                "id": "pulse-ownership",
+                "metricKey": "promoter_holding",
+                "metricLabel": "Promoter holding",
+                "company": "care-health",
+                "companyLabel": "Care Health",
+                "comparisonType": "sequential",
+                "tone": "neutral",
+                "insightLabel": "Ownership — promoter holding trend",
+                "unit": "%",
+                "higherIsBetter": true,
+                "sahiTab": "governance",
+                "origin": "pulse"
+              }
+            }
+          },
+          {
+            "id": "margins",
+            "label": "Compare Care Health margin",
+            "icon": "margins",
+            "target": {
+              "page": "sahi",
+              "sahiTab": "profitability",
+              "company": "care-health",
+              "focus": {
+                "id": "pulse-margins",
+                "metricKey": "combined_ratio",
+                "metricLabel": "Combined ratio",
+                "company": "care-health",
+                "companyLabel": "Care Health",
+                "comparisonType": "YoY",
+                "tone": "neutral",
+                "insightLabel": "Underwriting margin — combined ratio",
+                "unit": "%",
+                "higherIsBetter": false,
+                "sahiTab": "profitability",
+                "origin": "pulse"
+              }
+            }
+          },
+          {
+            "id": "source",
+            "label": "Verify Care Health sources",
+            "icon": "source",
+            "target": {
+              "page": "audit",
+              "company": "care-health"
+            }
+          },
+          {
+            "id": "regulation",
+            "label": "Check IRDAI on claims cost",
+            "icon": "regulation",
+            "target": {
+              "page": "sahi",
+              "sahiTab": "governance",
+              "company": "care-health"
+            }
+          }
+        ]
       }
     },
     "aditya-birla": {
@@ -1678,6 +2916,394 @@
                 "kind": "Regulatory",
                 "name": "moneycontrol.com",
                 "url": "https://www.moneycontrol.com/news/business/irdai-grants-final-r3-licence-to-prudential-hcl-health-insurance-venture-13963822.html"
+              }
+            ]
+          }
+        ],
+        "sinceDeltas": [
+          {
+            "id": "moves",
+            "label": "unusual market moves",
+            "value": "0",
+            "direction": "flat",
+            "tone": "Positive",
+            "target": {
+              "page": "sahi",
+              "sahiTab": "valuation",
+              "company": "aditya-birla",
+              "focus": {
+                "id": "pulse-since-moves",
+                "kind": "locator",
+                "locatorKind": "market_move",
+                "metricKey": "market_move",
+                "metricLabel": "Market moves",
+                "company": "aditya-birla",
+                "companyLabel": "Aditya Birla",
+                "comparisonType": "trend",
+                "tone": "neutral",
+                "insightLabel": "No unusual market moves",
+                "unit": "",
+                "sahiTab": "valuation",
+                "origin": "pulse"
+              }
+            }
+          }
+        ],
+        "events": [],
+        "actions": [
+          {
+            "id": "ownership",
+            "label": "Review Aditya Birla ownership",
+            "icon": "ownership",
+            "target": {
+              "page": "sahi",
+              "sahiTab": "governance",
+              "company": "aditya-birla",
+              "focus": {
+                "id": "pulse-ownership",
+                "metricKey": "promoter_holding",
+                "metricLabel": "Promoter holding",
+                "company": "aditya-birla",
+                "companyLabel": "Aditya Birla",
+                "comparisonType": "sequential",
+                "tone": "neutral",
+                "insightLabel": "Ownership — promoter holding trend",
+                "unit": "%",
+                "higherIsBetter": true,
+                "sahiTab": "governance",
+                "origin": "pulse"
+              }
+            }
+          },
+          {
+            "id": "margins",
+            "label": "Compare Aditya Birla margin",
+            "icon": "margins",
+            "target": {
+              "page": "sahi",
+              "sahiTab": "profitability",
+              "company": "aditya-birla",
+              "focus": {
+                "id": "pulse-margins",
+                "metricKey": "combined_ratio",
+                "metricLabel": "Combined ratio",
+                "company": "aditya-birla",
+                "companyLabel": "Aditya Birla",
+                "comparisonType": "YoY",
+                "tone": "neutral",
+                "insightLabel": "Underwriting margin — combined ratio",
+                "unit": "%",
+                "higherIsBetter": false,
+                "sahiTab": "profitability",
+                "origin": "pulse"
+              }
+            }
+          },
+          {
+            "id": "source",
+            "label": "Verify Aditya Birla sources",
+            "icon": "source",
+            "target": {
+              "page": "audit",
+              "company": "aditya-birla"
+            }
+          },
+          {
+            "id": "regulation",
+            "label": "Check IRDAI on claims cost",
+            "icon": "regulation",
+            "target": {
+              "page": "sahi",
+              "sahiTab": "governance",
+              "company": "aditya-birla"
+            }
+          }
+        ]
+      },
+      "2026-07-04": {
+        "date": "2026-07-04",
+        "company": "Aditya Birla",
+        "companyId": "aditya-birla",
+        "generatedAt": "2026-07-04T05:41:58.642Z",
+        "lastUpdatedAt": "2026-07-04T05:41:58.642Z",
+        "status": "Watch",
+        "sourceConfidence": "Medium",
+        "itemCount": 23,
+        "runs": [
+          {
+            "runTime": "2026-07-04T05:41:58.642Z",
+            "developments": 23,
+            "sourceCount": 23,
+            "ideas": 4,
+            "status": "ok"
+          }
+        ],
+        "brief": {
+          "greeting": "Good morning",
+          "narrative": "Regulatory pressure is the main watch item for health insurers today. Aditya Birla is under pressure on premium growth and demand, but claims-cost and conduct scrutiny will decide whether the strength is sustainable.",
+          "attentionCount": 4,
+          "developmentsCount": 23,
+          "sourcesCount": 23,
+          "domainsCount": 10,
+          "confidencePct": 79,
+          "confidenceTier": "Medium",
+          "readingMins": 2,
+          "lastUpdatedLabel": "4 Jul, 05:38 am"
+        },
+        "message": {
+          "since": "No major new update has dropped today. The previous thesis remains live.",
+          "keyThing": "Reported rule changes such as tighter cashless timelines and limits on sharp senior-citizen premium hikes could pressure execution and pricing but may aid demand and trust.",
+          "why": "The near-term read now turns on how the new rules land on pricing and cost.",
+          "watch": "any fresh IRDAI clarification, and expense-ratio movement",
+          "nothing": false
+        },
+        "one": {
+          "sentence": "Reported rule changes such as tighter cashless timelines and limits on sharp senior-citizen premium hikes could pressure execution and pricing but may aid demand and trust.",
+          "status": "Watch"
+        },
+        "ideas": [
+          {
+            "id": "930c383096",
+            "entity": "Regulatory Update",
+            "stars": 5,
+            "reasoning": [
+              "A new standalone health insurer raises competitive intensity in retail health, distribution and pricing, which matter…",
+              "Solvency 1.84x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency."
+            ],
+            "whatToWatch": "Solvency vs the 1.5x regulatory floor",
+            "confidencePct": 96,
+            "evidenceCount": 5,
+            "status": "Risk",
+            "category": "Regulatory",
+            "why": {
+              "whatHappened": "IRDAI grants final licence to Prudential-HCL health insurer",
+              "whyItMatters": "A new standalone health insurer raises competitive intensity in retail health, distribution and pricing, which matters for Niva Bupa and peers.",
+              "whoAffected": "Every standalone health insurer (SAHI) — pricing, product design and compliance cost.",
+              "historicalContext": "Solvency 1.84x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency.",
+              "potentialImpact": "Solvency vs the 1.5x regulatory floor",
+              "whatToWatch": "Solvency vs the 1.5x regulatory floor"
+            },
+            "action": {
+              "id": "regulation",
+              "label": "Check IRDAI on claims cost",
+              "icon": "regulation",
+              "target": {
+                "page": "sahi",
+                "sahiTab": "governance",
+                "company": "aditya-birla"
+              }
+            },
+            "isBreaking": false,
+            "isNew": false,
+            "sources": [
+              {
+                "kind": "Regulatory",
+                "name": "moneycontrol.com",
+                "url": "https://www.moneycontrol.com/news/business/irdai-grants-final-r3-licence-to-prudential-hcl-health-insurance-venture-13963822.html"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "nivabupa.com",
+                "url": "https://www.nivabupa.com/health-insurance-articles/new-irdai-rules-what-has-changed-for-policyholders.html"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "acko.com",
+                "url": "https://www.acko.com/health-insurance/irda-rules-for-health-insurance/"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "economictimes.indiatimes.com",
+                "url": "https://economictimes.indiatimes.com/industry/banking/finance/insure/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/articleshow/132155581.cms"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "moneycontrol.com",
+                "url": "https://www.moneycontrol.com/news/business/banks/irdai-softens-stance-on-insurer-listings-13963096.html"
+              }
+            ]
+          },
+          {
+            "id": "1ee80ca8b9",
+            "entity": "Regulatory Update",
+            "stars": 5,
+            "reasoning": [
+              "A move to stagger commissions and tighten disclosure could pressure distributor-led growth, agent payouts and custome…",
+              "Solvency 1.84x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency."
+            ],
+            "whatToWatch": "Solvency vs the 1.5x regulatory floor",
+            "confidencePct": 96,
+            "evidenceCount": 5,
+            "status": "Risk",
+            "category": "Regulatory",
+            "why": {
+              "whatHappened": "IRDAI plans tighter commission rules to curb mis-selling",
+              "whyItMatters": "A move to stagger commissions and tighten disclosure could pressure distributor-led growth, agent payouts and customer-acquisition economics across standalone health insurers if implemented.",
+              "whoAffected": "Every standalone health insurer (SAHI) — pricing, product design and compliance cost.",
+              "historicalContext": "Solvency 1.84x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency.",
+              "potentialImpact": "Solvency vs the 1.5x regulatory floor",
+              "whatToWatch": "Solvency vs the 1.5x regulatory floor"
+            },
+            "action": {
+              "id": "regulation",
+              "label": "Check IRDAI on claims cost",
+              "icon": "regulation",
+              "target": {
+                "page": "sahi",
+                "sahiTab": "governance",
+                "company": "aditya-birla"
+              }
+            },
+            "isBreaking": false,
+            "isNew": false,
+            "freshLabel": "New at 11:08 am",
+            "sources": [
+              {
+                "kind": "Regulatory",
+                "name": "economictimes.indiatimes.com",
+                "url": "https://economictimes.indiatimes.com/industry/banking/finance/insure/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/articleshow/132155581.cms"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "nivabupa.com",
+                "url": "https://www.nivabupa.com/health-insurance-articles/new-irdai-rules-what-has-changed-for-policyholders.html"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "acko.com",
+                "url": "https://www.acko.com/health-insurance/irda-rules-for-health-insurance/"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "moneycontrol.com",
+                "url": "https://www.moneycontrol.com/news/business/irdai-grants-final-r3-licence-to-prudential-hcl-health-insurance-venture-13963822.html"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "moneycontrol.com",
+                "url": "https://www.moneycontrol.com/news/business/banks/irdai-softens-stance-on-insurer-listings-13963096.html"
+              }
+            ]
+          },
+          {
+            "id": "a59ad3ce59",
+            "entity": "Regulatory Update",
+            "stars": 5,
+            "reasoning": [
+              "IRDAI chair Ajay Seth said insurers should go public only when they need capital, easing a potential overhang from re…",
+              "Solvency 1.84x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency."
+            ],
+            "whatToWatch": "Solvency vs the 1.5x regulatory floor",
+            "confidencePct": 96,
+            "evidenceCount": 5,
+            "status": "Constructive",
+            "category": "Regulatory",
+            "why": {
+              "whatHappened": "IRDAI softens listing stance for insurers",
+              "whyItMatters": "IRDAI chair Ajay Seth said insurers should go public only when they need capital, easing a potential overhang from regulator-driven IPO expectations for mature private insurers including standalone h…",
+              "whoAffected": "Every standalone health insurer (SAHI) — pricing, product design and compliance cost.",
+              "historicalContext": "Solvency 1.84x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency.",
+              "potentialImpact": "Solvency vs the 1.5x regulatory floor",
+              "whatToWatch": "Solvency vs the 1.5x regulatory floor"
+            },
+            "action": {
+              "id": "regulation",
+              "label": "Check IRDAI on claims cost",
+              "icon": "regulation",
+              "target": {
+                "page": "sahi",
+                "sahiTab": "governance",
+                "company": "aditya-birla"
+              }
+            },
+            "isBreaking": false,
+            "isNew": false,
+            "sources": [
+              {
+                "kind": "Regulatory",
+                "name": "moneycontrol.com",
+                "url": "https://www.moneycontrol.com/news/business/banks/irdai-softens-stance-on-insurer-listings-13963096.html"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "nivabupa.com",
+                "url": "https://www.nivabupa.com/health-insurance-articles/new-irdai-rules-what-has-changed-for-policyholders.html"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "acko.com",
+                "url": "https://www.acko.com/health-insurance/irda-rules-for-health-insurance/"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "moneycontrol.com",
+                "url": "https://www.moneycontrol.com/news/business/irdai-grants-final-r3-licence-to-prudential-hcl-health-insurance-venture-13963822.html"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "economictimes.indiatimes.com",
+                "url": "https://economictimes.indiatimes.com/industry/banking/finance/insure/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/articleshow/132155581.cms"
+              }
+            ]
+          },
+          {
+            "id": "f3ce300c4e",
+            "entity": "Regulatory Update",
+            "stars": 5,
+            "reasoning": [
+              "A friendlier listing stance can improve capital-raising and exit optionality across insurance, supporting sector sent…",
+              "Solvency 1.84x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency."
+            ],
+            "whatToWatch": "Solvency vs the 1.5x regulatory floor",
+            "confidencePct": 96,
+            "evidenceCount": 5,
+            "status": "Constructive",
+            "category": "Regulatory",
+            "why": {
+              "whatHappened": "IRDAI softens stance on insurer listings",
+              "whyItMatters": "A friendlier listing stance can improve capital-raising and exit optionality across insurance, supporting sector sentiment and private-player valuations.",
+              "whoAffected": "Every standalone health insurer (SAHI) — pricing, product design and compliance cost.",
+              "historicalContext": "Solvency 1.84x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency.",
+              "potentialImpact": "Solvency vs the 1.5x regulatory floor",
+              "whatToWatch": "Solvency vs the 1.5x regulatory floor"
+            },
+            "action": {
+              "id": "regulation",
+              "label": "Check IRDAI on claims cost",
+              "icon": "regulation",
+              "target": {
+                "page": "sahi",
+                "sahiTab": "governance",
+                "company": "aditya-birla"
+              }
+            },
+            "isBreaking": false,
+            "isNew": false,
+            "sources": [
+              {
+                "kind": "Regulatory",
+                "name": "moneycontrol.com",
+                "url": "https://moneycontrol.com/news/business/banks/irdai-softens-stance-on-insurer-listings-13963096.html"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "nivabupa.com",
+                "url": "https://www.nivabupa.com/health-insurance-articles/new-irdai-rules-what-has-changed-for-policyholders.html"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "acko.com",
+                "url": "https://www.acko.com/health-insurance/irda-rules-for-health-insurance/"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "moneycontrol.com",
+                "url": "https://www.moneycontrol.com/news/business/irdai-grants-final-r3-licence-to-prudential-hcl-health-insurance-venture-13963822.html"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "economictimes.indiatimes.com",
+                "url": "https://economictimes.indiatimes.com/industry/banking/finance/insure/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/articleshow/132155581.cms"
               }
             ]
           }
@@ -2215,13 +3841,401 @@
             }
           }
         ]
+      },
+      "2026-07-04": {
+        "date": "2026-07-04",
+        "company": "ManipalCigna",
+        "companyId": "manipalcigna",
+        "generatedAt": "2026-07-04T05:41:58.642Z",
+        "lastUpdatedAt": "2026-07-04T05:41:58.642Z",
+        "status": "Watch",
+        "sourceConfidence": "Medium",
+        "itemCount": 23,
+        "runs": [
+          {
+            "runTime": "2026-07-04T05:41:58.642Z",
+            "developments": 23,
+            "sourceCount": 23,
+            "ideas": 4,
+            "status": "ok"
+          }
+        ],
+        "brief": {
+          "greeting": "Good morning",
+          "narrative": "Regulatory pressure is the main watch item for health insurers today. ManipalCigna is under pressure on premium growth and demand, but claims-cost and conduct scrutiny will decide whether the strength is sustainable.",
+          "attentionCount": 4,
+          "developmentsCount": 23,
+          "sourcesCount": 23,
+          "domainsCount": 10,
+          "confidencePct": 79,
+          "confidenceTier": "Medium",
+          "readingMins": 2,
+          "lastUpdatedLabel": "4 Jul, 05:38 am"
+        },
+        "message": {
+          "since": "No major new update has dropped today. The previous thesis remains live.",
+          "keyThing": "Reported rule changes such as tighter cashless timelines and limits on sharp senior-citizen premium hikes could pressure execution and pricing but may aid demand and trust.",
+          "why": "The near-term read now turns on how the new rules land on pricing and cost.",
+          "watch": "any fresh IRDAI clarification, and expense-ratio movement",
+          "nothing": false
+        },
+        "one": {
+          "sentence": "Reported rule changes such as tighter cashless timelines and limits on sharp senior-citizen premium hikes could pressure execution and pricing but may aid demand and trust.",
+          "status": "Watch"
+        },
+        "ideas": [
+          {
+            "id": "930c383096",
+            "entity": "Regulatory Update",
+            "stars": 5,
+            "reasoning": [
+              "A new standalone health insurer raises competitive intensity in retail health, distribution and pricing, which matter…",
+              "Solvency 1.7x vs the 1.5x floor — headroom is thinner; watch solvency alongside regulation."
+            ],
+            "whatToWatch": "Solvency vs the 1.5x regulatory floor",
+            "confidencePct": 96,
+            "evidenceCount": 5,
+            "status": "Risk",
+            "category": "Regulatory",
+            "why": {
+              "whatHappened": "IRDAI grants final licence to Prudential-HCL health insurer",
+              "whyItMatters": "A new standalone health insurer raises competitive intensity in retail health, distribution and pricing, which matters for Niva Bupa and peers.",
+              "whoAffected": "Every standalone health insurer (SAHI) — pricing, product design and compliance cost.",
+              "historicalContext": "Solvency 1.7x vs the 1.5x floor — headroom is thinner; watch solvency alongside regulation.",
+              "potentialImpact": "Solvency sits close enough to the floor that a capital raise or slower growth is a live possibility.",
+              "whatToWatch": "Solvency vs the 1.5x regulatory floor"
+            },
+            "action": {
+              "id": "regulation",
+              "label": "Check IRDAI on claims cost",
+              "icon": "regulation",
+              "target": {
+                "page": "sahi",
+                "sahiTab": "governance",
+                "company": "manipalcigna"
+              }
+            },
+            "isBreaking": false,
+            "isNew": false,
+            "sources": [
+              {
+                "kind": "Regulatory",
+                "name": "moneycontrol.com",
+                "url": "https://www.moneycontrol.com/news/business/irdai-grants-final-r3-licence-to-prudential-hcl-health-insurance-venture-13963822.html"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "nivabupa.com",
+                "url": "https://www.nivabupa.com/health-insurance-articles/new-irdai-rules-what-has-changed-for-policyholders.html"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "acko.com",
+                "url": "https://www.acko.com/health-insurance/irda-rules-for-health-insurance/"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "economictimes.indiatimes.com",
+                "url": "https://economictimes.indiatimes.com/industry/banking/finance/insure/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/articleshow/132155581.cms"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "moneycontrol.com",
+                "url": "https://www.moneycontrol.com/news/business/banks/irdai-softens-stance-on-insurer-listings-13963096.html"
+              }
+            ]
+          },
+          {
+            "id": "1ee80ca8b9",
+            "entity": "Regulatory Update",
+            "stars": 5,
+            "reasoning": [
+              "A move to stagger commissions and tighten disclosure could pressure distributor-led growth, agent payouts and custome…",
+              "Solvency 1.7x vs the 1.5x floor — headroom is thinner; watch solvency alongside regulation."
+            ],
+            "whatToWatch": "Solvency vs the 1.5x regulatory floor",
+            "confidencePct": 96,
+            "evidenceCount": 5,
+            "status": "Risk",
+            "category": "Regulatory",
+            "why": {
+              "whatHappened": "IRDAI plans tighter commission rules to curb mis-selling",
+              "whyItMatters": "A move to stagger commissions and tighten disclosure could pressure distributor-led growth, agent payouts and customer-acquisition economics across standalone health insurers if implemented.",
+              "whoAffected": "Every standalone health insurer (SAHI) — pricing, product design and compliance cost.",
+              "historicalContext": "Solvency 1.7x vs the 1.5x floor — headroom is thinner; watch solvency alongside regulation.",
+              "potentialImpact": "Solvency sits close enough to the floor that a capital raise or slower growth is a live possibility.",
+              "whatToWatch": "Solvency vs the 1.5x regulatory floor"
+            },
+            "action": {
+              "id": "regulation",
+              "label": "Check IRDAI on claims cost",
+              "icon": "regulation",
+              "target": {
+                "page": "sahi",
+                "sahiTab": "governance",
+                "company": "manipalcigna"
+              }
+            },
+            "isBreaking": false,
+            "isNew": false,
+            "freshLabel": "New at 11:08 am",
+            "sources": [
+              {
+                "kind": "Regulatory",
+                "name": "economictimes.indiatimes.com",
+                "url": "https://economictimes.indiatimes.com/industry/banking/finance/insure/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/articleshow/132155581.cms"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "nivabupa.com",
+                "url": "https://www.nivabupa.com/health-insurance-articles/new-irdai-rules-what-has-changed-for-policyholders.html"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "acko.com",
+                "url": "https://www.acko.com/health-insurance/irda-rules-for-health-insurance/"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "moneycontrol.com",
+                "url": "https://www.moneycontrol.com/news/business/irdai-grants-final-r3-licence-to-prudential-hcl-health-insurance-venture-13963822.html"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "moneycontrol.com",
+                "url": "https://www.moneycontrol.com/news/business/banks/irdai-softens-stance-on-insurer-listings-13963096.html"
+              }
+            ]
+          },
+          {
+            "id": "a59ad3ce59",
+            "entity": "Regulatory Update",
+            "stars": 5,
+            "reasoning": [
+              "IRDAI chair Ajay Seth said insurers should go public only when they need capital, easing a potential overhang from re…",
+              "Solvency 1.7x vs the 1.5x floor — headroom is thinner; watch solvency alongside regulation."
+            ],
+            "whatToWatch": "Solvency vs the 1.5x regulatory floor",
+            "confidencePct": 96,
+            "evidenceCount": 5,
+            "status": "Constructive",
+            "category": "Regulatory",
+            "why": {
+              "whatHappened": "IRDAI softens listing stance for insurers",
+              "whyItMatters": "IRDAI chair Ajay Seth said insurers should go public only when they need capital, easing a potential overhang from regulator-driven IPO expectations for mature private insurers including standalone h…",
+              "whoAffected": "Every standalone health insurer (SAHI) — pricing, product design and compliance cost.",
+              "historicalContext": "Solvency 1.7x vs the 1.5x floor — headroom is thinner; watch solvency alongside regulation.",
+              "potentialImpact": "Solvency sits close enough to the floor that a capital raise or slower growth is a live possibility.",
+              "whatToWatch": "Solvency vs the 1.5x regulatory floor"
+            },
+            "action": {
+              "id": "regulation",
+              "label": "Check IRDAI on claims cost",
+              "icon": "regulation",
+              "target": {
+                "page": "sahi",
+                "sahiTab": "governance",
+                "company": "manipalcigna"
+              }
+            },
+            "isBreaking": false,
+            "isNew": false,
+            "sources": [
+              {
+                "kind": "Regulatory",
+                "name": "moneycontrol.com",
+                "url": "https://www.moneycontrol.com/news/business/banks/irdai-softens-stance-on-insurer-listings-13963096.html"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "nivabupa.com",
+                "url": "https://www.nivabupa.com/health-insurance-articles/new-irdai-rules-what-has-changed-for-policyholders.html"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "acko.com",
+                "url": "https://www.acko.com/health-insurance/irda-rules-for-health-insurance/"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "moneycontrol.com",
+                "url": "https://www.moneycontrol.com/news/business/irdai-grants-final-r3-licence-to-prudential-hcl-health-insurance-venture-13963822.html"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "economictimes.indiatimes.com",
+                "url": "https://economictimes.indiatimes.com/industry/banking/finance/insure/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/articleshow/132155581.cms"
+              }
+            ]
+          },
+          {
+            "id": "f3ce300c4e",
+            "entity": "Regulatory Update",
+            "stars": 5,
+            "reasoning": [
+              "A friendlier listing stance can improve capital-raising and exit optionality across insurance, supporting sector sent…",
+              "Solvency 1.7x vs the 1.5x floor — headroom is thinner; watch solvency alongside regulation."
+            ],
+            "whatToWatch": "Solvency vs the 1.5x regulatory floor",
+            "confidencePct": 96,
+            "evidenceCount": 5,
+            "status": "Constructive",
+            "category": "Regulatory",
+            "why": {
+              "whatHappened": "IRDAI softens stance on insurer listings",
+              "whyItMatters": "A friendlier listing stance can improve capital-raising and exit optionality across insurance, supporting sector sentiment and private-player valuations.",
+              "whoAffected": "Every standalone health insurer (SAHI) — pricing, product design and compliance cost.",
+              "historicalContext": "Solvency 1.7x vs the 1.5x floor — headroom is thinner; watch solvency alongside regulation.",
+              "potentialImpact": "Solvency sits close enough to the floor that a capital raise or slower growth is a live possibility.",
+              "whatToWatch": "Solvency vs the 1.5x regulatory floor"
+            },
+            "action": {
+              "id": "regulation",
+              "label": "Check IRDAI on claims cost",
+              "icon": "regulation",
+              "target": {
+                "page": "sahi",
+                "sahiTab": "governance",
+                "company": "manipalcigna"
+              }
+            },
+            "isBreaking": false,
+            "isNew": false,
+            "sources": [
+              {
+                "kind": "Regulatory",
+                "name": "moneycontrol.com",
+                "url": "https://moneycontrol.com/news/business/banks/irdai-softens-stance-on-insurer-listings-13963096.html"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "nivabupa.com",
+                "url": "https://www.nivabupa.com/health-insurance-articles/new-irdai-rules-what-has-changed-for-policyholders.html"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "acko.com",
+                "url": "https://www.acko.com/health-insurance/irda-rules-for-health-insurance/"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "moneycontrol.com",
+                "url": "https://www.moneycontrol.com/news/business/irdai-grants-final-r3-licence-to-prudential-hcl-health-insurance-venture-13963822.html"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "economictimes.indiatimes.com",
+                "url": "https://economictimes.indiatimes.com/industry/banking/finance/insure/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/articleshow/132155581.cms"
+              }
+            ]
+          }
+        ],
+        "sinceDeltas": [
+          {
+            "id": "moves",
+            "label": "unusual market moves",
+            "value": "0",
+            "direction": "flat",
+            "tone": "Positive",
+            "target": {
+              "page": "sahi",
+              "sahiTab": "valuation",
+              "company": "manipalcigna",
+              "focus": {
+                "id": "pulse-since-moves",
+                "kind": "locator",
+                "locatorKind": "market_move",
+                "metricKey": "market_move",
+                "metricLabel": "Market moves",
+                "company": "manipalcigna",
+                "companyLabel": "ManipalCigna",
+                "comparisonType": "trend",
+                "tone": "neutral",
+                "insightLabel": "No unusual market moves",
+                "unit": "",
+                "sahiTab": "valuation",
+                "origin": "pulse"
+              }
+            }
+          }
+        ],
+        "events": [],
+        "actions": [
+          {
+            "id": "ownership",
+            "label": "Review ManipalCigna ownership",
+            "icon": "ownership",
+            "target": {
+              "page": "sahi",
+              "sahiTab": "governance",
+              "company": "manipalcigna",
+              "focus": {
+                "id": "pulse-ownership",
+                "metricKey": "promoter_holding",
+                "metricLabel": "Promoter holding",
+                "company": "manipalcigna",
+                "companyLabel": "ManipalCigna",
+                "comparisonType": "sequential",
+                "tone": "neutral",
+                "insightLabel": "Ownership — promoter holding trend",
+                "unit": "%",
+                "higherIsBetter": true,
+                "sahiTab": "governance",
+                "origin": "pulse"
+              }
+            }
+          },
+          {
+            "id": "margins",
+            "label": "Compare ManipalCigna margin",
+            "icon": "margins",
+            "target": {
+              "page": "sahi",
+              "sahiTab": "profitability",
+              "company": "manipalcigna",
+              "focus": {
+                "id": "pulse-margins",
+                "metricKey": "combined_ratio",
+                "metricLabel": "Combined ratio",
+                "company": "manipalcigna",
+                "companyLabel": "ManipalCigna",
+                "comparisonType": "YoY",
+                "tone": "neutral",
+                "insightLabel": "Underwriting margin — combined ratio",
+                "unit": "%",
+                "higherIsBetter": false,
+                "sahiTab": "profitability",
+                "origin": "pulse"
+              }
+            }
+          },
+          {
+            "id": "source",
+            "label": "Verify ManipalCigna sources",
+            "icon": "source",
+            "target": {
+              "page": "audit",
+              "company": "manipalcigna"
+            }
+          },
+          {
+            "id": "regulation",
+            "label": "Check IRDAI on claims cost",
+            "icon": "regulation",
+            "target": {
+              "page": "sahi",
+              "sahiTab": "governance",
+              "company": "manipalcigna"
+            }
+          }
+        ]
       }
     }
   },
   "_meta": {
     "snapshot_id": "pulse-brief-archive",
     "description": "Immutable per-calendar-day Pulse brief records (IST), one per company. Past days are frozen exactly as shown that day; the live Today view recomposes. Kept ~90 days per company.",
-    "last_updated": "2026-07-03",
-    "last_successful_run": "2026-07-03T15:50:45.413Z"
+    "last_updated": "2026-07-04",
+    "last_successful_run": "2026-07-04T05:41:58.642Z"
   }
 }
