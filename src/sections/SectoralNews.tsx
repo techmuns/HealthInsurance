@@ -155,12 +155,6 @@ export function SectoralNews() {
           { label: 'Themes', value: String(SECTORAL_CATEGORY_ORDER.length) },
           { label: 'Most active', value: SECTORAL_CATEGORY_META[dominant].short },
         ]}
-        source="Portfolio + AI web"
-        sourcePeriod={windowLabel}
-        sourceFrequency="Event-based"
-        sourceStatus="available"
-        sourceConfidence="medium"
-        sourceProvenance={{ source_name: SNAP?._meta?.snapshot_id ? 'Seed: portfolio pack · Updates: muns web agent' : 'Portfolio pack' }}
       />
 
       {/* ── Self-updating banner (honest AI provenance) ──────────────────── */}
