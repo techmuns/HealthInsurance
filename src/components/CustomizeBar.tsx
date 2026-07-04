@@ -25,6 +25,7 @@ export function CustomizeBar({
   dirty,
   customized,
   hasSaved,
+  embedded = false,
 }: {
   chips: TrayChip[]
   onRestore: (chip: TrayChip) => void
@@ -34,19 +35,24 @@ export function CustomizeBar({
   dirty: boolean
   customized: boolean
   hasSaved: boolean
+  /** Render bare (no bordered box) so the tray + Save/Reset can slot inline into
+   *  a shared control toolbar — used by the compact Data-Audit grid toolbar. */
+  embedded?: boolean
 }) {
-  return (
-    <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-1.5 rounded-lg border border-soft-border bg-ice/25 px-3 py-1.5">
-      {/* Hidden-items tray */}
-      <div className="flex min-w-0 flex-wrap items-center gap-1.5">
-        <span className="inline-flex items-center gap-1 text-[9.5px] font-bold uppercase tracking-[0.08em] text-ink-secondary">
-          <SlidersHorizontal className="h-3 w-3" /> Hidden
-        </span>
-        {chips.length === 0 ? (
+  const tray = (
+    <div className="flex min-w-0 flex-wrap items-center gap-1.5">
+      <span className="inline-flex items-center gap-1 text-[9.5px] font-bold uppercase tracking-[0.08em] text-ink-secondary">
+        <SlidersHorizontal className="h-3 w-3" /> Hidden
+      </span>
+      {chips.length === 0 ? (
+        embedded ? (
+          <span className="text-[10.5px] text-ink-secondary/60">none</span>
+        ) : (
           <span className="text-[11px] text-ink-secondary/70">
             Nothing hidden — tap <span className="font-semibold text-ink-secondary">×</span> on a company or column header to tidy the view.
           </span>
-        ) : (
+        )
+      ) : (
           <>
             {chips.map((c) => (
               <button
@@ -74,30 +80,40 @@ export function CustomizeBar({
             </button>
           </>
         )}
-      </div>
+    </div>
+  )
 
-      {/* Save / Reset */}
-      <div className="flex shrink-0 items-center gap-1.5">
-        {dirty && <span className="h-1.5 w-1.5 rounded-full bg-champagne-deep" title="Unsaved changes to this view" />}
-        <button
-          type="button"
-          onClick={onSave}
-          disabled={!dirty}
-          title={hasSaved ? 'Update your saved view' : 'Save this view (hidden items + column order)'}
-          className="inline-flex items-center gap-1 rounded-full border px-2.5 py-1 text-[11px] font-medium shadow-soft transition-colors disabled:cursor-default disabled:opacity-40 border-navy-primary/30 bg-soft-blue text-navy-primary hover:enabled:border-navy-primary/50"
-        >
-          <Bookmark className="h-3.5 w-3.5" /> Save view
-        </button>
-        <button
-          type="button"
-          onClick={onReset}
-          disabled={!customized && !hasSaved}
-          title="Reset to the default view"
-          className="inline-flex items-center gap-1 rounded-full border border-soft-border bg-white px-2.5 py-1 text-[11px] font-medium text-ink-secondary shadow-soft transition-colors hover:enabled:border-navy-primary/30 hover:enabled:text-navy-primary disabled:cursor-default disabled:opacity-40"
-        >
-          <Undo2 className="h-3.5 w-3.5" /> Reset
-        </button>
-      </div>
+  const actions = (
+    <div className="flex shrink-0 items-center gap-1.5">
+      {dirty && <span className="h-1.5 w-1.5 rounded-full bg-champagne-deep" title="Unsaved changes to this view" />}
+      <button
+        type="button"
+        onClick={onSave}
+        disabled={!dirty}
+        title={hasSaved ? 'Update your saved view' : 'Save this view (hidden items + column order)'}
+        className="inline-flex items-center gap-1 rounded-full border px-2.5 py-1 text-[11px] font-medium shadow-soft transition-colors disabled:cursor-default disabled:opacity-40 border-navy-primary/30 bg-soft-blue text-navy-primary hover:enabled:border-navy-primary/50"
+      >
+        <Bookmark className="h-3.5 w-3.5" /> Save view
+      </button>
+      <button
+        type="button"
+        onClick={onReset}
+        disabled={!customized && !hasSaved}
+        title="Reset to the default view"
+        className="inline-flex items-center gap-1 rounded-full border border-soft-border bg-white px-2.5 py-1 text-[11px] font-medium text-ink-secondary shadow-soft transition-colors hover:enabled:border-navy-primary/30 hover:enabled:text-navy-primary disabled:cursor-default disabled:opacity-40"
+      >
+        <Undo2 className="h-3.5 w-3.5" /> Reset
+      </button>
+    </div>
+  )
+
+  // Embedded: bare tray + actions so they slot into a shared toolbar row.
+  if (embedded) return (<>{tray}{actions}</>)
+
+  return (
+    <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-1.5 rounded-lg border border-soft-border bg-ice/25 px-3 py-1.5">
+      {tray}
+      {actions}
     </div>
   )
 }
