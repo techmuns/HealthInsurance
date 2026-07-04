@@ -5,7 +5,7 @@
     "schema_version": "1.0.0",
     "dataset": "ai_generated",
     "last_updated": "2026-07-04",
-    "last_successful_run": "2026-07-04T08:24:33.011Z",
+    "last_successful_run": "2026-07-04T11:18:33.041Z",
     "upstream_sources": [
       "muns_agent_web"
     ],
@@ -88,6 +88,32 @@
       "first_seen": "2026-07-03T15:49:34.221Z"
     },
     {
+      "id": "14836d70c0",
+      "company_id": "sector",
+      "date": "2026-07-03",
+      "kind": "regulatory",
+      "horizon": "upcoming",
+      "impact": "negative",
+      "headline": "IRDAI plans overhaul of insurance commission rules",
+      "detail": "A draft expected within 4-6 weeks could stagger distributor commissions over policy life, potentially lowering upfront acquisition incentives/costs but disrupting health-insurance distribution economics and growth tactics.",
+      "source_name": "economictimes.indiatimes.com",
+      "source_url": "https://economictimes.indiatimes.com/industry/banking/finance/insure/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/articleshow/132155581.cms",
+      "first_seen": "2026-07-04T11:18:33.041Z"
+    },
+    {
+      "id": "c575ebb3dd",
+      "company_id": "sector",
+      "date": "2026-07-02",
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "watch",
+      "headline": "ET reports broader IRDAI regulatory package alongside new licence",
+      "detail": "ET said IRDAI also approved rollout of Ind AS, a policyholder protection fund and retention of three domestic systemically important insurers, all of which matter for capital, reporting and sector oversight.",
+      "source_name": "economictimes.indiatimes.com",
+      "source_url": "https://economictimes.indiatimes.com/markets/stocks/news/prudential-hcl-health-insurance-gets-irdai-nod/articleshow/132126831.cms",
+      "first_seen": "2026-07-04T11:18:33.041Z"
+    },
+    {
       "id": "b60cfb639c",
       "company_id": "sector",
       "date": "2026-07-01",
@@ -112,6 +138,19 @@
       "source_name": "moneycontrol.com",
       "source_url": "https://www.moneycontrol.com/news/business/banks/irdai-softens-stance-on-insurer-listings-13963096.html",
       "first_seen": "2026-07-03T15:49:34.221Z"
+    },
+    {
+      "id": "c49f21aac0",
+      "company_id": "sector",
+      "date": "2026-07-01",
+      "kind": "regulatory",
+      "horizon": "recent",
+      "impact": "negative",
+      "headline": "IRDAI grants final licence to Prudential-HCL Health Insurance",
+      "detail": "A new standalone health insurer raises competitive intensity in a market led by Star Health, Niva Bupa and Care, with implications for pricing, distribution and customer acquisition costs.",
+      "source_name": "moneycontrol.com",
+      "source_url": "https://www.moneycontrol.com/news/business/irdai-grants-final-r3-licence-to-prudential-hcl-health-insurance-venture-13963822.html",
+      "first_seen": "2026-07-04T11:18:33.041Z"
     },
     {
       "id": "f3ce300c4e",
@@ -255,6 +294,19 @@
       "first_seen": "2026-07-04T08:24:33.011Z"
     },
     {
+      "id": "e4abbac79d",
+      "company_id": "sector",
+      "date": "2026-06-26",
+      "kind": "rating",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "Motilal Oswal raises bullish case on Star Health, target ₹700",
+      "detail": "Another positive Star Health note matters because peer re-ratings can influence valuation expectations across listed standalone health insurers, including Niva Bupa.",
+      "source_name": "moneycontrol.com",
+      "source_url": "https://www.moneycontrol.com/news/business/stocks/buy-star-health-target-of-rs-700-motilal-oswal-13959277.html",
+      "first_seen": "2026-07-04T11:18:33.041Z"
+    },
+    {
       "id": "d4237e61e1",
       "company_id": "sector",
       "date": "2026-06-25",
@@ -294,6 +346,19 @@
       "first_seen": "2026-07-04T08:24:33.011Z"
     },
     {
+      "id": "3cdbe06ce5",
+      "company_id": "niva-bupa",
+      "date": "2026-06-23",
+      "kind": "rating",
+      "horizon": "recent",
+      "impact": "positive",
+      "headline": "MOFSL keeps Buy on Niva Bupa with ₹100 target",
+      "detail": "A fresh positive brokerage call can support sentiment as it argues Niva Bupa can outgrow retail health insurance with improving profitability and market-share gains.",
+      "source_name": "bfsi.economictimes.indiatimes.com",
+      "source_url": "https://bfsi.economictimes.indiatimes.com/amp/articles/niva-bupa-forecasted-to-outpace-retail-health-insurance-market-amid-soaring-demand/131922688",
+      "first_seen": "2026-07-04T11:18:33.041Z"
+    },
+    {
       "id": "5bc2e94321",
       "company_id": "niva-bupa",
       "date": "2026-06-22",
@@ -305,6 +370,32 @@
       "source_name": "moneycontrol.com",
       "source_url": "https://www.moneycontrol.com/news/business/stocks/buy-niva-bupa-health-insurance-target-of-rs-100-motilal-oswal-13955458.html",
       "first_seen": "2026-07-04T08:24:33.011Z"
+    },
+    {
+      "id": "66ac59cc39",
+      "company_id": "niva-bupa",
+      "date": "2026-06-22",
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "positive",
+      "headline": "Niva Bupa posts 30% May premium growth, ahead of many peers",
+      "detail": "Strong May GWP growth and 45% retail-health growth reinforce momentum in the core business that investors use as a near-term readthrough for earnings quality.",
+      "source_name": "bfsi.economictimes.indiatimes.com",
+      "source_url": "https://bfsi.economictimes.indiatimes.com/articles/niva-bupa-and-icici-lombard-drive-non-life-insurance-premium-growth-in-may-2026/131896688",
+      "first_seen": "2026-07-04T11:18:33.041Z"
+    },
+    {
+      "id": "a1db7c36b1",
+      "company_id": "sector",
+      "date": "2026-06-22",
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "positive",
+      "headline": "Standalone health insurers keep gaining share in May",
+      "detail": "SAHIs grew 31% YoY in May and gained market share, a supportive backdrop for Niva Bupa as sector demand remains strong even while some general-insurance lines stay weak.",
+      "source_name": "bfsi.economictimes.indiatimes.com",
+      "source_url": "https://bfsi.economictimes.indiatimes.com/articles/niva-bupa-and-icici-lombard-drive-non-life-insurance-premium-growth-in-may-2026/131896688",
+      "first_seen": "2026-07-04T11:18:33.041Z"
     },
     {
       "id": "0800fcbda0",
@@ -487,6 +578,32 @@
       "source_name": "irdai.gov.in",
       "source_url": "https://irdai.gov.in/document-detail?documentId=4942918",
       "first_seen": "2026-07-04T08:24:33.011Z"
+    },
+    {
+      "id": "8de127f1e1",
+      "company_id": "sector",
+      "date": "2026-05-29",
+      "kind": "regulatory",
+      "horizon": "recent",
+      "impact": "negative",
+      "headline": "IRDAI cashless/discharge timelines remain a live execution pressure point",
+      "detail": "The regulator’s health master circular requires fast cashless approvals and discharge authorisation timelines, increasing claims-servicing compliance pressure and possible cost leakage for all health insurers if hospital processes slip.",
+      "source_name": "economictimes.indiatimes.com",
+      "source_url": "https://economictimes.indiatimes.com/wealth/insure/health-insurance/health-insurance-claim-delay-cant-stop-patients-hospital-discharge-insurers-must-clear-in-3-hours-or-pay-for-delay/articleshow/110529869.cms",
+      "first_seen": "2026-07-04T11:18:33.041Z"
+    },
+    {
+      "id": "48a7c207c8",
+      "company_id": "sector",
+      "date": "2026-05-29",
+      "kind": "regulatory",
+      "horizon": "recent",
+      "impact": "watch",
+      "headline": "Health master circular preserves full cover during grace period",
+      "detail": "IRDAI’s health-insurance circular requiring full coverage during the premium grace period is consumer-positive but can marginally raise underwriting and lapse-management risk across standalone health insurers.",
+      "source_name": "economictimes.indiatimes.com",
+      "source_url": "https://economictimes.indiatimes.com/wealth/insure/health-insurance/health-insurance-new-rule-get-full-coverage-during-grace-period-despite-unpaid-premium-mandates-irdai/articleshow/110540873.cms",
+      "first_seen": "2026-07-04T11:18:33.041Z"
     },
     {
       "id": "38c92dca5c",
