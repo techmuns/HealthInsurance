@@ -235,7 +235,6 @@ function BulkBlockTimeline({ view, companyName }: { view: TradeDisclosuresView; 
       <div className="mb-2 flex items-start justify-between gap-2">
         <div className="min-w-0">
           <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-ink-secondary">Bulk / Block Deal Timeline</p>
-          <p className="mt-0.5 truncate text-[11px] text-ink-secondary">{companyName} · {view.headerLabel}</p>
         </div>
         <div className="flex shrink-0 flex-col items-end gap-0.5">
           <a href={sourceHref(view.sourceUrl) ?? view.sourceUrl} target="_blank" rel="noreferrer" className="inline-flex items-center gap-0.5 text-[10px] font-medium text-navy-primary hover:underline" title={view.moneycontrolUsed ? 'Moneycontrol Stock Deals + Screener Trades' : 'Screener → Trades'}>
@@ -244,13 +243,6 @@ function BulkBlockTimeline({ view, companyName }: { view: TradeDisclosuresView; 
           <span className="text-[9.5px] text-ink-secondary">Updated {view.lastUpdated ?? '—'}</span>
         </div>
       </div>
-
-      {/* Honest scope note — bulk/block deals are transaction disclosures, not the
-          quarter-end shareholding pattern that drives the trend above. */}
-      <p className="mb-2.5 flex items-start gap-1.5 rounded-lg bg-ice/60 px-2.5 py-1.5 text-[10.5px] leading-snug text-ink-secondary ring-1 ring-soft-border">
-        <Info className="mt-px h-3 w-3 shrink-0 text-navy-primary/70" />
-        Bulk / block deals are individual transaction disclosures and may not equal the quarter-end shareholding-pattern movement shown in the Ownership Trend above.
-      </p>
 
       {/* Per-source status — Screener Trades + Moneycontrol Stock Deals — so a
           Screener zero is never mistaken for "no deals exist". */}
