@@ -5,7 +5,7 @@
     "schema_version": "1.0.0",
     "dataset": "ai_generated",
     "last_updated": "2026-07-04",
-    "last_successful_run": "2026-07-04T05:38:27.228Z",
+    "last_successful_run": "2026-07-04T08:24:33.011Z",
     "upstream_sources": [
       "muns_agent_web"
     ],
@@ -138,6 +138,19 @@
       "source_url": "https://moneycontrol.com/news/business/irdai-grants-final-r3-licence-to-prudential-hcl-health-insurance-venture-13963822.html"
     },
     {
+      "id": "fef56d0db2",
+      "company_id": "sector",
+      "date": "2026-06-28",
+      "kind": "regulatory",
+      "horizon": "recent",
+      "impact": "watch",
+      "headline": "IRDAI may tighten commission rules to curb mis-selling",
+      "detail": "Any overhaul of commissions can reshape distributor economics, product mix and growth costs across health insurers, with near-term uncertainty but possible medium-term quality benefits.",
+      "source_name": "economictimes.indiatimes.com",
+      "source_url": "https://economictimes.indiatimes.com/industry/banking/finance/insure/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/articleshow/132155581.cms",
+      "first_seen": "2026-07-04T08:24:33.011Z"
+    },
+    {
       "id": "930c383096",
       "company_id": "sector",
       "date": "2026-06-27",
@@ -190,6 +203,19 @@
       "first_seen": "2026-07-04T05:38:27.228Z"
     },
     {
+      "id": "478680bf76",
+      "company_id": "sector",
+      "date": "2026-06-27",
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "negative",
+      "headline": "IRDAI clears Prudential-HCL health insurer, raising competitive intensity",
+      "detail": "A new standalone health insurer licence can increase pricing and distribution competition across listed and unlisted health insurers, a watch item for growth and margins.",
+      "source_name": "economictimes.indiatimes.com",
+      "source_url": "https://economictimes.indiatimes.com/markets/stocks/news/prudential-hcl-health-insurance-gets-irdai-nod/articleshow/132126831.cms",
+      "first_seen": "2026-07-04T08:24:33.011Z"
+    },
+    {
       "id": "6851b32f81",
       "company_id": "sector",
       "date": "2026-06-26",
@@ -201,6 +227,32 @@
       "source_name": "moneycontrol.com",
       "source_url": "https://www.moneycontrol.com/news/business/irdai-grants-final-r3-licence-to-prudential-hcl-health-insurance-venture-13963822.html",
       "first_seen": "2026-07-04T05:38:27.228Z"
+    },
+    {
+      "id": "4adf317004",
+      "company_id": "sector",
+      "date": "2026-06-26",
+      "kind": "rating",
+      "horizon": "recent",
+      "impact": "watch",
+      "headline": "MOFSL upgrades tone on Star Health with ₹700 target",
+      "detail": "Star Health is Niva Bupa’s closest listed standalone health-insurance comp, so a positive re-rating on underwriting recovery and price hikes helps benchmark sector multiples and competitive expectations.",
+      "source_name": "moneycontrol.com",
+      "source_url": "https://www.moneycontrol.com/news/business/stocks/buy-star-health-target-of-rs-700-motilal-oswal-13959277.html",
+      "first_seen": "2026-07-04T08:24:33.011Z"
+    },
+    {
+      "id": "451d2aaa91",
+      "company_id": "sector",
+      "date": "2026-06-26",
+      "kind": "regulatory",
+      "horizon": "recent",
+      "impact": "watch",
+      "headline": "IRDAI softens stance on insurer listings",
+      "detail": "Easing listing norms could reopen capital-market options for insurers and improve strategic flexibility for private-sector players, while also signaling a more accommodative regulatory posture.",
+      "source_name": "moneycontrol.com",
+      "source_url": "https://moneycontrol.com/news/business/banks/irdai-softens-stance-on-insurer-listings-13963096.html",
+      "first_seen": "2026-07-04T08:24:33.011Z"
     },
     {
       "id": "d4237e61e1",
@@ -227,6 +279,32 @@
       "source_name": "bfsi.economictimes.indiatimes.com",
       "source_url": "https://bfsi.economictimes.indiatimes.com/articles/rbi-highlights-risks-to-indias-insurance-sector-rising-claims-surrenders-and-costs/132104375",
       "first_seen": "2026-07-04T05:38:27.228Z"
+    },
+    {
+      "id": "1bc05289a7",
+      "company_id": "niva-bupa",
+      "date": "2026-06-23",
+      "kind": "rating",
+      "horizon": "recent",
+      "impact": "positive",
+      "headline": "MOFSL reiterates Buy, ₹100 target on Niva Bupa",
+      "detail": "A fresh bullish target-price action matters because the note argues Niva can keep gaining retail-health market share and compound insurance revenue strongly, supporting sentiment on the listed name.",
+      "source_name": "bfsi.economictimes.indiatimes.com",
+      "source_url": "https://bfsi.economictimes.indiatimes.com/amp/articles/niva-bupa-forecasted-to-outpace-retail-health-insurance-market-amid-soaring-demand/131922688",
+      "first_seen": "2026-07-04T08:24:33.011Z"
+    },
+    {
+      "id": "5bc2e94321",
+      "company_id": "niva-bupa",
+      "date": "2026-06-22",
+      "kind": "rating",
+      "horizon": "recent",
+      "impact": "positive",
+      "headline": "Moneycontrol carries MOFSL Buy call with ₹100 target",
+      "detail": "The published broker note reinforces a near-term market catalyst for the stock by framing Niva Bupa as one of the fastest-growing retail health insurers with improving profitability.",
+      "source_name": "moneycontrol.com",
+      "source_url": "https://www.moneycontrol.com/news/business/stocks/buy-niva-bupa-health-insurance-target-of-rs-100-motilal-oswal-13955458.html",
+      "first_seen": "2026-07-04T08:24:33.011Z"
     },
     {
       "id": "0800fcbda0",
@@ -307,6 +385,32 @@
       "first_seen": "2026-07-03T15:49:34.221Z"
     },
     {
+      "id": "92f00ed287",
+      "company_id": "sector",
+      "date": "2026-06-11",
+      "kind": "regulatory",
+      "horizon": "recent",
+      "impact": "watch",
+      "headline": "General-insurance master circular remains relevant for standalone health insurers on governance and conduct",
+      "detail": "Standalone health insurers also operate within the broader general-insurance regulatory perimeter, so circular-linked compliance, reporting and conduct expectations remain material for valuations.",
+      "source_name": "irdai.gov.in",
+      "source_url": "https://irdai.gov.in/documents/37343/365525/%E0%A4%B8%E0%A4%BE%E0%A4%A7%E0%A4%BE%E0%A4%B0%E0%A4%A3+%E0%A4%AC%E0%A5%80%E0%A4%AE%E0%A4%BE+%E0%A4%B5%E0%A5%8D%E0%A4%AF%E0%A4%B5%E0%A4%B8%E0%A4%BE%E0%A4%AF+%E0%A4%AA%E0%A4%B0+%E0%A4%AE%E0%A4%BE%E0%A4%B8%E0%A5%8D%E0%A4%9F%E0%A4%B0+%E0%A4%AA%E0%A4%B0%E0%A4%BF%E0%A4%AA%E0%A4%A4%E0%A5%8D%E0%A4%B0+_+Master+Circular+on+General+Insurance+Business.pdf/2ce8ba9e-7774-ae28-8b4b-a038fafa9aea?version=1.0&t=1718096241357&download=true",
+      "first_seen": "2026-07-04T08:24:33.011Z"
+    },
+    {
+      "id": "68fc9bac41",
+      "company_id": "sector",
+      "date": "2026-06-10",
+      "kind": "catalyst",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "ManipalCigna appoints Anjan Kumar Ganguly as CFO",
+      "detail": "A named CFO hire is relevant because leadership changes at a private standalone health insurer can signal tighter financial discipline and competitive sharpening in the sector Niva Bupa operates in.",
+      "source_name": "bfsi.economictimes.indiatimes.com",
+      "source_url": "https://bfsi.economictimes.indiatimes.com/articles/anjan-kumar-ganguly-joins-manipalcigna-health-insurance-as-cfo/131631191",
+      "first_seen": "2026-07-04T08:24:33.011Z"
+    },
+    {
       "id": "7a43ad88e8",
       "company_id": "sector",
       "date": "2026-06-09",
@@ -370,6 +474,19 @@
       "source_name": "thehindubusinessline.com",
       "source_url": "https://www.thehindubusinessline.com/specials/pulse/when-patients-fall-through-the-cracks-of-health-insurance-claims/article71153838.ece",
       "first_seen": "2026-07-04T05:38:27.228Z"
+    },
+    {
+      "id": "20558b40ca",
+      "company_id": "sector",
+      "date": "2026-05-29",
+      "kind": "regulatory",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "2024 health-insurance master circular remains the baseline rulebook in 2026",
+      "detail": "The health insurance master circular embeds requirements around claims, policy servicing and initiatives such as NHCX-linked faster claims settlement, which continue to frame sector operations and compliance.",
+      "source_name": "irdai.gov.in",
+      "source_url": "https://irdai.gov.in/document-detail?documentId=4942918",
+      "first_seen": "2026-07-04T08:24:33.011Z"
     },
     {
       "id": "38c92dca5c",
