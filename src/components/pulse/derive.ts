@@ -71,7 +71,11 @@ function firstSentence(s: string): string {
 }
 function clamp(s: string, n: number): string {
   const t = (s ?? '').trim()
-  return t.length > n ? `${t.slice(0, n - 1).trimEnd()}…` : t
+  if (t.length <= n) return t
+  // Break on a whole word, never mid-word — a truncated line should still read cleanly.
+  const cut = t.slice(0, n - 1)
+  const sp = cut.lastIndexOf(' ')
+  return `${(sp > n * 0.6 ? cut.slice(0, sp) : cut).trimEnd()}…`
 }
 // Copy guard for the Pulse surface: strip the words the brief bans from any
 // free-text that flows in from the analysis layer. The composed lines never use
@@ -1078,9 +1082,12 @@ function whyCareFor(s: PulseSignal, pulse: InvestorPulse): WhyCare {
 // "so what", both source-derived.
 function reasoningLines(s: PulseSignal, pulse: InvestorPulse): string[] {
   const lens = pulse.lenses[CATEGORY_LENS[s.category]]
-  const l1 = clamp(scrubCopy(firstSentence(s.whyItMatters || s.title)), 118)
+  // Keep the WHOLE first sentence — these feed the note's "What changed" story, where a
+  // sentence cut off at 118 chars ("…newly listed") reads as broken. The compact card
+  // still shows one line (CSS line-clamp), so a fuller string costs it nothing.
+  const l1 = clamp(scrubCopy(firstSentence(s.whyItMatters || s.title)), 220)
   const l2raw = lens?.oneLineRead || lens?.investorImplication || whatToWatchFor(s, pulse)
-  const l2 = clamp(scrubCopy(firstSentence(l2raw)), 118)
+  const l2 = clamp(scrubCopy(firstSentence(l2raw)), 220)
   return [l1, l2].filter((x, i, a) => x.length > 0 && a.indexOf(x) === i)
 }
 

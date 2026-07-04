@@ -103,7 +103,7 @@ function StoryPage({ idea }: { idea: ConvictionIdea }) {
       <PageTitle icon={Zap} kicker="The story" title="What changed?" />
       <div className="space-y-1.5">
         {narrative.map((l, i) => (
-          <p key={i} className={`font-editorial leading-relaxed ${i === 0 ? 'text-[13.5px] text-navy-deep' : 'text-[12.5px] text-ink-secondary'}`}>{l}</p>
+          <p key={i} className={`font-editorial leading-relaxed ${i === 0 ? 'text-[13.5px] text-navy-deep' : 'text-[13px] text-ink-primary'}`}>{l}</p>
         ))}
       </div>
       {hook && (
