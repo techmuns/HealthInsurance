@@ -1,6 +1,5 @@
 import { useMemo, useState } from 'react'
 import { CalendarDays, ExternalLink, Newspaper, RefreshCw, Search, Sparkles } from 'lucide-react'
-import { VerdictStrip } from '@/components/VerdictStrip'
 import { SourceTag } from '@/components/SourceTag'
 import { InsightContextChip } from '@/components/insight/InsightContextChip'
 import { useSectionInsight } from '@/components/insight/useSectionInsight'
@@ -98,7 +97,6 @@ export function SectoralNews() {
     for (const n of ALL_ITEMS) c[n.category] += 1
     return c
   }, [])
-  const dominant = SECTORAL_CATEGORY_ORDER.reduce((a, b) => (counts[b] > counts[a] ? b : a), SECTORAL_CATEGORY_ORDER[0])
 
   // Date span — computed live so the timeline always reaches the newest item.
   const { spanStart, spanEnd } = useMemo(() => {
@@ -136,27 +134,6 @@ export function SectoralNews() {
   return (
     <div ref={focusRef} className={`space-y-6 ${arrived ? 'insight-arrival rounded-2xl' : ''}`}>
       {focus && <InsightContextChip focus={focus} />}
-      {/* ── Answer-first verdict ─────────────────────────────────────────── */}
-      <VerdictStrip
-        eyebrow={`Sector Pulse · ${windowLabel}`}
-        verdict="Consolidation meets reform"
-        tone="navy"
-        badge={`${total} updates`}
-        summary={
-          <>
-            Two forces dominate standalone health: <b className="font-semibold text-navy-deep">competitive activity</b> —
-            new entrants, JVs and leadership changes ({counts['Competition / Peers']}) — and{' '}
-            <b className="font-semibold text-navy-deep">regulatory change</b> — 100% FDI, composite licences, Ind AS and
-            consumer-protection rules ({counts.Regulatory}). GST relief and medical inflation make up the rest.
-          </>
-        }
-        stats={[
-          { label: 'Tracked', value: String(total) },
-          { label: 'Themes', value: String(SECTORAL_CATEGORY_ORDER.length) },
-          { label: 'Most active', value: SECTORAL_CATEGORY_META[dominant].short },
-        ]}
-      />
-
       {/* ── Self-updating banner (honest AI provenance) ──────────────────── */}
       <div className="flex flex-wrap items-center justify-between gap-2 rounded-xl border border-[#EAD9B6]/70 bg-gradient-to-r from-[#FBF6EA] to-white px-3.5 py-2">
         <span className="inline-flex items-center gap-1.5 text-[11.5px] font-semibold text-champagne-deep">
