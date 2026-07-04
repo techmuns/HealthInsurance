@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState, type ComponentType } from 'react'
-import { Users, Share2, Gauge, Scale, Activity, Landmark, Newspaper, ArrowLeft, type LucideIcon } from 'lucide-react'
+import { ArrowLeft } from 'lucide-react'
 import type { AuditFocus, NavTarget } from '@/insights/sourceMap'
 import type { InsightFocus } from '@/insights/insightFocus'
 import { FilterProvider, useFilters } from '@/state/filters'
@@ -12,7 +12,6 @@ import { SectionTransition } from '@/components/SectionTransition'
 import { DataAuditPane } from '@/components/DataAuditPane'
 import { HeaderSwitcher, type TopPage } from '@/components/HeaderSwitcher'
 import { SahiAnalysisHeader } from '@/components/SahiAnalysisHeader'
-import { PageHeadline, type HeadlineTone } from '@/components/PageHeadline'
 import { type SectionTab } from '@/components/SectionTabs'
 import { Sidebar } from '@/components/Sidebar'
 import { MarketTrendExplorer } from '@/components/MarketTrendExplorer'
@@ -127,100 +126,27 @@ function IndustryInsightsPage() {
   )
 }
 
-/** Per-tab premium headline band — the SAHI "headline system". Each tab opens
- *  with a tone-coded title + sharp subtitle so the analysis reads as a guided
- *  story: scoreboard → how they grow → do they profit → what they're worth →
- *  the live market vote → who's behind them → what's coming next. The subtitle
- *  introduces the data; it never restates the numbers below. Colour psychology:
- *  navy = core financial logic, teal = growth engine, gold = valuation/importance. */
-interface SahiHead {
-  eyebrow: string
-  title: string
-  subtitle: string
-  Icon: LucideIcon
-  tone: HeadlineTone
-}
-const SAHI_HEAD: Record<string, SahiHead> = {
-  companies: {
-    eyebrow: 'Peer Positioning',
-    title: 'The standalone-health scoreboard',
-    subtitle: 'Who leads and who lags across the standalone health insurers — before the company-level detail.',
-    Icon: Users,
-    tone: 'navy',
-  },
-  distribution: {
-    eyebrow: 'Premium & Distribution',
-    title: 'How each insurer builds its premium',
-    subtitle: 'The retail-versus-group mix and the channel engine behind the rankings.',
-    Icon: Share2,
-    tone: 'teal',
-  },
-  profitability: {
-    eyebrow: 'Profitability',
-    title: 'Does the growth convert to profit?',
-    subtitle: 'Whether each insurer’s growth strategy turns into durable, high-quality profitability.',
-    Icon: Gauge,
-    tone: 'navy',
-  },
-  valuation: {
-    eyebrow: 'Valuation',
-    title: 'Is the valuation earned?',
-    subtitle: 'Whether the price is supported by growth, profitability and peer positioning.',
-    Icon: Scale,
-    tone: 'gold',
-  },
-  'street-view': {
-    eyebrow: 'Street View',
-    title: 'The live market read',
-    subtitle: 'Price, targets and momentum as the market sees them today.',
-    Icon: Activity,
-    tone: 'gold',
-  },
-  governance: {
-    eyebrow: 'Governance',
-    title: 'Who owns and steers these franchises',
-    subtitle: 'Ownership, leadership and who has recently been buying or selling.',
-    Icon: Landmark,
-    tone: 'navy',
-  },
-  'sector-news': {
-    eyebrow: 'Key Sectoral News',
-    title: 'Signals shaping the quarters ahead',
-    subtitle: 'The regulatory and sector developments moving the health-insurance pool.',
-    Icon: Newspaper,
-    tone: 'navy',
-  },
-}
-
-/** Renders the active SAHI deep-dive sub-section (no Overview — that has moved),
- *  each opened by a premium headline band that guides the reader into the data. */
+/** Renders the active SAHI deep-dive sub-section (no Overview — that has moved).
+ *  Each section now carries its own calm, Industry-style header (SahiPageHeader);
+ *  the old top headline band was a redundant glass cover and has been removed. */
 function SahiContent({ tab }: { tab: string }) {
-  const head = SAHI_HEAD[tab] ?? SAHI_HEAD.companies
-  const section = () => {
-    switch (tab) {
-      case 'distribution':
-        return <MarketDistribution />
-      case 'profitability':
-        return <ProfitabilityReview />
-      case 'valuation':
-        return <ValuationMarketView />
-      case 'street-view':
-        return <StreetView />
-      case 'governance':
-        return <StatefulSection Comp={OwnershipGovernance} />
-      case 'sector-news':
-        return <SectoralNews />
-      case 'companies':
-      default:
-        return <CompetitivePositioning />
-    }
+  switch (tab) {
+    case 'distribution':
+      return <MarketDistribution />
+    case 'profitability':
+      return <ProfitabilityReview />
+    case 'valuation':
+      return <ValuationMarketView />
+    case 'street-view':
+      return <StreetView />
+    case 'governance':
+      return <StatefulSection Comp={OwnershipGovernance} />
+    case 'sector-news':
+      return <SectoralNews />
+    case 'companies':
+    default:
+      return <CompetitivePositioning />
   }
-  return (
-    <div>
-      <PageHeadline eyebrow={head.eyebrow} title={head.title} subtitle={head.subtitle} Icon={head.Icon} tone={head.tone} />
-      {section()}
-    </div>
-  )
 }
 
 /** Where a Data-Audit visit came from, so "Back to dashboard" restores it. */

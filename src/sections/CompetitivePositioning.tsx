@@ -6,6 +6,7 @@ import { useSectionInsight } from '@/components/insight/useSectionInsight'
 import { getLatestAnnualFyLabel } from '@/lib/dataLayer'
 import { AnalysisBuilder } from '@/components/AnalysisBuilder'
 import { SectionTabs } from '@/components/SectionTabs'
+import { SahiPageHeader } from '@/components/SahiPageHeader'
 import { SourceTag, type SourceTagAuditRef } from '@/components/SourceTag'
 import { AccountingBasisToggle } from '@/components/AccountingBasisControls'
 import { BASIS_TRACKED_COMPANIES, type AccountingBasis } from '@/data/accountingBasis'
@@ -518,23 +519,18 @@ export function CompetitivePositioning() {
   return (
     <div ref={focusRef} className={`space-y-5 ${arrived ? 'insight-arrival rounded-2xl' : ''}`}>
       {focus && <InsightContextChip focus={focus} />}
-      {/* Header */}
-      <div className="flex flex-wrap items-start justify-between gap-3">
-        <div>
-          <div className="flex items-center gap-2.5">
-            <span className="h-6 w-1.5 rounded-full" style={{ background: GOLD }} />
-            <h2 className="font-display text-[22px] leading-tight text-navy-deep">Peer Positioning</h2>
-          </div>
-          <p className="mt-1 pl-4 text-[12px] text-ink-secondary">
+      {/* Section header — calm Industry-style header. The accounting lens sits
+          inline on the right (scorecard/table views only — the Analysis Builder
+          runs its own metric set). */}
+      <SahiPageHeader
+        title="Peer Positioning"
+        subtitle={
+          <>
             <span className="font-semibold text-navy-deep">{focal.shortName}</span> · {card.groupLabel} peer group · Multi-metric scorecard
-          </p>
-        </div>
-        {/* Accounting lens — re-points the Combined Ratio column between
-            IGAAP/Statutory (reported) and IFRS for the SAHIs that file IFRS.
-            Only on the scorecard/table views (the Analysis Builder runs its own
-            metric set). */}
-        {tab !== 'Analysis Builder' && <AccountingBasisToggle value={basis} onChange={setBasis} />}
-      </div>
+          </>
+        }
+        right={tab !== 'Analysis Builder' ? <AccountingBasisToggle value={basis} onChange={setBasis} /> : undefined}
+      />
 
       {basis === 'ifrs' && tab !== 'Analysis Builder' && (
         <p className="flex items-start gap-1.5 rounded-lg border border-[#CDE7E4] bg-[#F1FAF8] px-3 py-2 text-[11px] leading-snug text-[#0E6F6D]">

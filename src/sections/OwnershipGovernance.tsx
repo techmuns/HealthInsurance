@@ -1,4 +1,5 @@
 import { SectionTabs, type SectionTab } from '@/components/SectionTabs'
+import { SahiPageHeader } from '@/components/SahiPageHeader'
 import { Ownership } from '@/sections/Ownership'
 import { ManagementEvents } from '@/sections/ManagementEvents'
 import { useSectionFocus } from '@/state/insightFocus'
@@ -24,6 +25,7 @@ export function OwnershipGovernance({ onNavigate, sub }: { onNavigate?: (id: str
   const go = (id: string) => onNavigate?.(`ownership-governance/${id}`)
   return (
     <div className="space-y-5">
+      <SahiPageHeader title="Governance" subtitle="Ownership, leadership and who has recently been buying or selling." />
       <SectionTabs tabs={TABS} active={tab} onSelect={go} />
       <div key={tab} className="animate-fade-in">
         {tab === 'ownership' && <Ownership />}
