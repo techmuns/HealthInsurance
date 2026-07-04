@@ -93,8 +93,7 @@ function SignalGauge({ kind, score, buy, hold, sell, upside }: { kind: SignalKin
   )
 }
 
-// ── KPI card — soft tint + icon + a data-driven mini accent ──────────────────
-export function StreetView() {
+export function StreetView({ embedded = false }: { embedded?: boolean } = {}) {
   const company = useActiveCompany()
   const coverage = getAnalystCoverage(company.id)
   const isFocal = company.id === FOCAL_VALUATION_ID
@@ -102,7 +101,11 @@ export function StreetView() {
   if (!coverage) {
     return (
       <div className="space-y-5">
-        <HeroBanner company={company.shortName} subtitle="Analyst targets, ratings, price trend, and key catalysts." kind="Neutral" right={null} />
+        {embedded ? (
+          <PanelHead title="Street View" note="Analyst targets, ratings, price trend, and key catalysts." />
+        ) : (
+          <HeroBanner company={company.shortName} subtitle="Analyst targets, ratings, price trend, and key catalysts." kind="Neutral" right={null} />
+        )}
         <div className="card-surface p-5">
           <EmptyState
             title={`Analyst coverage not tracked for ${company.shortName}`}
@@ -149,23 +152,38 @@ export function StreetView() {
   // dated audit calls don't, so an empty column would read as missing data.
   const hasThesis = reports.some((r) => (r.thesis ?? '').trim().length > 0)
 
+
   return (
     <div className="space-y-5">
       {/* ── Hero + Street Signal ───────────────────────────────────────────── */}
       <div className="grid grid-cols-1 gap-4 lg:grid-cols-[1.5fr_1fr]">
-        <HeroBanner
-          company={company.shortName}
-          subtitle="Price, targets and momentum as the market sees them today."
-          kind={kind}
-          right={
+        {embedded ? (
+          // Inside Valuation, the big hero would repeat the verdict above it — so the
+          // "live market read" collapses to a calm section header + the same three
+          // numbers (no redundant hero). Data and layout are otherwise unchanged.
+          <div className="card-surface flex flex-col justify-center gap-3 p-5">
+            <PanelHead title="Street View" note={`The live market read — price, targets and momentum as the market sees them today.${priceAsOf ? ` · as of ${priceAsOf}` : ''}`} />
             <div className="flex flex-wrap items-end gap-x-5 gap-y-2">
               <div><p className="text-[9px] font-semibold uppercase tracking-wide text-ink-secondary">Current price</p><p className="font-display text-[20px] leading-none text-navy-deep tabular-nums">{px(price)}</p></div>
               <div><p className="text-[9px] font-semibold uppercase tracking-wide text-ink-secondary">Consensus</p><p className="font-display text-[20px] leading-none tabular-nums" style={{ color: NAVY }}>{px(target)}</p></div>
               <div><p className="text-[9px] font-semibold uppercase tracking-wide text-ink-secondary">Upside</p><p className="font-display text-[20px] leading-none tabular-nums" style={{ color: upside == null ? SLATE : upside >= 0 ? TEAL : BURG }}>{upPct(upside)}</p></div>
             </div>
-          }
-          asOf={priceAsOf}
-        />
+          </div>
+        ) : (
+          <HeroBanner
+            company={company.shortName}
+            subtitle="Price, targets and momentum as the market sees them today."
+            kind={kind}
+            right={
+              <div className="flex flex-wrap items-end gap-x-5 gap-y-2">
+                <div><p className="text-[9px] font-semibold uppercase tracking-wide text-ink-secondary">Current price</p><p className="font-display text-[20px] leading-none text-navy-deep tabular-nums">{px(price)}</p></div>
+                <div><p className="text-[9px] font-semibold uppercase tracking-wide text-ink-secondary">Consensus</p><p className="font-display text-[20px] leading-none tabular-nums" style={{ color: NAVY }}>{px(target)}</p></div>
+                <div><p className="text-[9px] font-semibold uppercase tracking-wide text-ink-secondary">Upside</p><p className="font-display text-[20px] leading-none tabular-nums" style={{ color: upside == null ? SLATE : upside >= 0 ? TEAL : BURG }}>{upPct(upside)}</p></div>
+              </div>
+            }
+            asOf={priceAsOf}
+          />
+        )}
         <SignalGauge kind={kind} score={score} buy={ac.buyCount} hold={ac.holdCount} sell={ac.sellCount} upside={upside} />
       </div>
 

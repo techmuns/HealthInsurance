@@ -196,7 +196,9 @@ export function institutionalInsight(view: OwnershipTrendView): InsightFigure {
   const sumAt = (i: number): number | null => {
     const a = fii[i]
     const b = dii[i]
-    return a == null && b == null ? null : (a ?? 0) + (b ?? 0)
+    // Institutional = FII + DII. If either leg is missing the combined figure
+    // cannot be stated honestly — never coerce an absent holding to 0.
+    return a == null || b == null ? null : a + b
   }
   const n = view.periods.length
   const latest = n ? sumAt(n - 1) : null

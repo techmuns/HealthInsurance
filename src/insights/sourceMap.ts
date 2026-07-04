@@ -413,7 +413,7 @@ const METRIC_RULES: { test: RegExp; dest: Dest }[] = [
   { test: /p\/b|p\s?\/\s?gwp|warranted|\broe\b|cost of equity|\bcoe\b|valuation/i, dest: { tab: 'valuation', area: 'Valuation', table: 'P/B vs ROE' } },
   { test: /retail|group health|\bmix\b|channel|distribution|agency|bancass/i, dest: { tab: 'distribution', area: 'Premium & Distribution', table: 'Retail vs group mix' } },
   { test: /growth|\bgwp\b|premium|\bnwp\b|\bnep\b/i, dest: { tab: 'distribution', area: 'Premium & Distribution', table: 'Premium growth' } },
-  { test: /guidance|consensus|target|analyst|coverage|dispersion/i, dest: { tab: 'street-view', area: 'Street View', table: 'Analyst targets & consensus' } },
+  { test: /guidance|consensus|target|analyst|coverage|dispersion/i, dest: { tab: 'valuation', area: 'Valuation', table: 'Analyst targets & consensus' } },
   { test: /ownership|stake|holding|pledge|promoter|board|management/i, dest: { tab: 'governance', area: 'Governance', table: 'Ownership & management' } },
   { test: /regulat|irdai|policy|reform|sector/i, dest: { tab: 'sector-news', area: 'Key Sectoral News', table: 'Sector developments' } },
 ]
@@ -424,7 +424,7 @@ const CATEGORY_DEST: Record<InsightCategory, Dest> = {
   valuation: { tab: 'valuation', area: 'Valuation', table: 'P/B vs ROE' },
   growth: { tab: 'distribution', area: 'Premium & Distribution', table: 'Premium growth' },
   quality: { tab: 'profitability', area: 'Profitability', table: 'Combined ratio' },
-  management: { tab: 'street-view', area: 'Street View', table: 'Analyst targets & consensus' },
+  management: { tab: 'valuation', area: 'Valuation', table: 'Analyst targets & consensus' },
   regulatory: { tab: 'sector-news', area: 'Key Sectoral News', table: 'Sector developments' },
   market_structure: { tab: 'companies', area: 'Companies', table: 'Peer scoreboard' },
 }

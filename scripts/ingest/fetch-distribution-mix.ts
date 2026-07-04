@@ -72,12 +72,10 @@ async function main(): Promise<void> {
   const dir = resolve('data/raw/distribution')
   await mkdir(dir, { recursive: true })
   await writeFile(resolve(dir, 'niva-channel-mix-extract.json'), `${JSON.stringify(out, null, 2)}\n`)
-  // eslint-disable-next-line no-console
   console.log('extract:', out.sources.map((x) => `${x.id}: ${x.error ? 'ERR ' + x.error.slice(0, 40) : (x.matchCount ?? 0) + ' ch / ' + (x.plCount ?? 0) + ' pl'}`).join(' | '))
 }
 
 main().catch((e) => {
-  // eslint-disable-next-line no-console
   console.error(e)
   process.exitCode = 1
 })

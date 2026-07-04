@@ -113,6 +113,52 @@ interface MgmtEventRow {
   fetched_at: string
 }
 
+// A parsed row carries a URL-SHAPED source, but the agent (an LLM) can still emit a
+// plausible-but-nonexistent link — e.g. a guessed "investor.<co>.in" subdomain that
+// does not resolve. This guard drops a row whose source is DEFINITIVELY dead, using
+// the same classification as the CI guard (scripts/check-source-links.ts): a
+// malformed URL, an unresolvable host (DNS ENOTFOUND / EAI_AGAIN) or a 400/404/410/451
+// is broken; a bot-block / timeout (403 / 429 / 5xx / network) is UNVERIFIED and kept,
+// because real Indian insurer + regulator pages routinely block datacenter/CI IPs yet
+// are fine in a browser. Net effect: the snapshot never ships a link that would fail
+// CI, while a merely bot-blocked (but real) source still survives. No network at all
+// (fully isolated run) → every probe times out → nothing is dropped (safe default).
+const LINK_UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36'
+const DEAD_HTTP = new Set([400, 404, 410, 451])
+async function sourceUrlIsDead(url: string): Promise<boolean> {
+  if (/[\s\\]/.test(url) || /%5C/i.test(url)) return true // malformed URL is itself a defect
+  for (let attempt = 0; attempt < 2; attempt++) {
+    const ac = new AbortController()
+    const timer = setTimeout(() => ac.abort(), 20_000)
+    try {
+      const res = await fetch(url, { redirect: 'follow', signal: ac.signal, headers: { 'user-agent': LINK_UA } })
+      clearTimeout(timer)
+      return DEAD_HTTP.has(res.status) // 2xx/3xx ok, 403/429/5xx bot-block → keep (unverified)
+    } catch (err: unknown) {
+      clearTimeout(timer)
+      const code = (err as { cause?: { code?: string } })?.cause?.code
+      if (code === 'ENOTFOUND' || code === 'EAI_AGAIN') return true // host does not exist
+      if (attempt === 0) continue // one retry for a transient timeout
+      return false // network timeout/refused → unverified, keep
+    }
+  }
+  return false
+}
+
+/** Drop rows whose source link is definitively dead (probes deduped by URL). */
+async function dropDeadSources(rows: MgmtEventRow[]): Promise<MgmtEventRow[]> {
+  const urls = Array.from(new Set(rows.map((r) => r.source_url)))
+  const dead = new Set<string>()
+  const CONC = 8
+  for (let i = 0; i < urls.length; i += CONC) {
+    const batch = urls.slice(i, i + CONC)
+    const verdicts = await Promise.all(batch.map(async (u) => [u, await sourceUrlIsDead(u)] as const))
+    for (const [u, isDead] of verdicts) if (isDead) dead.add(u)
+  }
+  for (const r of rows) if (dead.has(r.source_url)) console.warn(`  ✗ dropped ${r.company_id} · ${r.person_name ?? '—'} — dead source ${r.source_url}`)
+  return rows.filter((r) => !dead.has(r.source_url))
+}
+
 function parseRows(answer: string, fetched_at: string): MgmtEventRow[] {
   const out: MgmtEventRow[] = []
   const seen = new Set<string>()
@@ -162,13 +208,16 @@ async function main(): Promise<number> {
   try { raw = await callAgent(token) } catch (err) {
     console.error(`ERROR: ${err instanceof Error ? err.message : String(err)}`); return 1
   }
-  const rows = parseRows(extractAnswer(raw), fetched_at)
-  console.log(`Parsed ${rows.length} management event(s).`)
+  const parsed = parseRows(extractAnswer(raw), fetched_at)
+  console.log(`Parsed ${parsed.length} management event(s); verifying source links ...`)
+  // Root-cause guard: never ship a link the CI source-link check would fail on.
+  const rows = await dropDeadSources(parsed)
+  if (rows.length < parsed.length) console.log(`Dropped ${parsed.length - rows.length} event(s) with a dead source link.`)
   for (const r of rows) console.log(`  + ${r.event_date ?? '—'} ${r.company_id} · ${r.event_type} · ${r.person_name ?? '—'} (${r.designation ?? '—'})`)
-  await appendLog('management-events-agent.log', { count: rows.length })
+  await appendLog('management-events-agent.log', { count: rows.length, dropped: parsed.length - rows.length })
 
   if (rows.length === 0) {
-    console.error('No parseable, attributed events — leaving management-events.json untouched (honest pending). Raw answer:\n' + extractAnswer(raw).slice(0, 1200))
+    console.error('No parseable, live-sourced events — leaving management-events.json untouched (honest pending). Raw answer:\n' + extractAnswer(raw).slice(0, 1200))
     return 0
   }
 

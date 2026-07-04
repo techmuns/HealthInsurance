@@ -20,6 +20,7 @@ import { getCompanyDistributionData, type DistChannel } from '@/lib/distribution
 import { EmptyState } from '@/components/EmptyState'
 import { SourceTag } from '@/components/SourceTag'
 import { PremiumFlowQuality } from '@/components/PremiumFlowQuality'
+import { SahiPageHeader } from '@/components/SahiPageHeader'
 
 /**
  * Market & Distribution — the Channel Mix surface: the active company's GWP by
@@ -33,15 +34,18 @@ import { PremiumFlowQuality } from '@/components/PremiumFlowQuality'
 export function MarketDistribution() {
   const company = useActiveCompany()
   return (
-    <div className="grid grid-cols-1 gap-6">
-      {/* Premium engine — GWP / NWP / NEP bars for the active insurer, full width
-          above the business-mix module. */}
-      <PremiumFlowQuality focalId={company.id} />
-      {/* Business-mix module — Retail/Group split (left) + Channel mix (right) as
-          one equal-width, equal-height row on large screens; stacked on small. */}
-      <div className="grid grid-cols-1 items-stretch gap-6 lg:grid-cols-2">
-        <RetailGroupMixCard />
-        <ChannelMixCard />
+    <div className="space-y-5">
+      <SahiPageHeader title="Premium & Distribution" subtitle="The retail-versus-group mix and the channel engine behind the rankings." />
+      <div className="grid grid-cols-1 gap-6">
+        {/* Premium engine — GWP / NWP / NEP bars for the active insurer, full width
+            above the business-mix module. */}
+        <PremiumFlowQuality focalId={company.id} />
+        {/* Business-mix module — Retail/Group split (left) + Channel mix (right) as
+            one equal-width, equal-height row on large screens; stacked on small. */}
+        <div className="grid grid-cols-1 items-stretch gap-6 lg:grid-cols-2">
+          <RetailGroupMixCard />
+          <ChannelMixCard />
+        </div>
       </div>
     </div>
   )

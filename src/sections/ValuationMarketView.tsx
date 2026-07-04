@@ -12,6 +12,7 @@ import type { Insurer } from '@/data/types'
 import { CORAL, Eyebrow, GOLD, GREEN, NAVY, PEER, TEAL, ValPill, clamp, fmtCr, px, ratingTone, upPct, xMult } from './valuationShared'
 import { ValuationHero } from './ValuationHero'
 import { PeerValuationMatrix } from './PeerValuationMatrix'
+import { StreetView } from './StreetView'
 
 export function ValuationMarketView() {
   const company = useActiveCompany()
@@ -116,6 +117,12 @@ export function ValuationMarketView() {
           <WhatThisMeans tone={qualityRead.tone}>{qualityRead.text}</WhatThisMeans>
         </div>
       </section>
+
+      {/* ═══ 6. STREET VIEW — the live analyst market read, merged in from the
+               former standalone tab (data & calculations unchanged; its big hero
+               collapses to a calm section header so the verdict above isn't
+               repeated). ══════════════════════════════════════════════════════ */}
+      <StreetView embedded />
     </div>
   )
 }

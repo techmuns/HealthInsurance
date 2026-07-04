@@ -13,7 +13,6 @@ import {
   type NavTarget,
 } from '@/insights/sourceMap'
 import { InsightCard, pretty, type Priority } from '@/components/InsightCard'
-import { companyColor } from '@/lib/companyColors'
 
 const FILE = generated as unknown as InsightsFile
 const PANEL_LATEST = latestPeriodAcross(FILE.insights)
@@ -54,10 +53,6 @@ function priorityOf(ins: Insight): Priority {
 }
 // Auto-sort order: highest priority first, watch next, context last (no manual control).
 const PRIORITY_RANK: Record<Priority, number> = { high: 0, watch: 1, normal: 2 }
-
-// Company chips — Niva Bupa & Star Health lead, then the rest of the panel.
-const COMPANY_ORDER = ['niva-bupa', 'star-health', 'care-health', 'aditya-birla', 'manipalcigna']
-const companyRank = (id: string) => { const i = COMPANY_ORDER.indexOf(id); return i < 0 ? 99 : i }
 
 interface Row {
   ins: Insight
@@ -169,73 +164,31 @@ function PeriodRail({ periods, counts, selected, onSelect }: {
   )
 }
 
-// ── Company chips ─────────────────────────────────────────────────────────────
-// Simple buttons (not a dropdown). Active = navy-gold; each carries the company's
-// identity dot. Clicking a chip filters the cards.
-const ACTIVE_CHIP: React.CSSProperties = {
-  background: 'linear-gradient(135deg, #1E4079 0%, #14294C 100%)',
-  boxShadow: 'inset 0 0 0 1px rgba(228,198,124,0.45), 0 3px 9px rgba(20,48,88,0.20)',
-}
-function CompanyChips({ options, value, onChange }: {
-  options: { id: string; label: string }[]
-  value: string
-  onChange: (id: string) => void
-}) {
-  return (
-    <div className="flex flex-wrap items-center gap-1.5">
-      {options.map((o) => {
-        const on = o.id === value
-        const dot = o.id === 'all' ? null : companyColor(o.id).key
-        return (
-          <button
-            key={o.id}
-            type="button"
-            onClick={() => onChange(o.id)}
-            aria-pressed={on}
-            className={[
-              'inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-[12px] font-semibold transition-all duration-normal ease-premium',
-              on ? 'text-white' : 'border border-soft-border bg-white text-navy-deep shadow-soft hover:border-muted-blue hover:bg-ice',
-            ].join(' ')}
-            style={on ? ACTIVE_CHIP : undefined}
-          >
-            {dot && <span className="h-2 w-2 rounded-full" style={{ background: on ? '#FFFFFF' : dot }} />}
-            {o.label}
-          </button>
-        )
-      })}
-    </div>
-  )
-}
-
 // Data Insights — a clean quarterly/yearly insight reading page (not a dashboard).
-// Left: a reporting-period rail (real periods only). Top: company chips. Main: a
+// Left: a reporting-period rail (real periods only). The company scope comes from
+// the shared Insights selector in the tab header ("All" = combined). Main: a
 // full-width stack of flip cards, auto-sorted highest-priority first. Each card's
 // FRONT is one sharp read (section · priority · headline · take · company); a tap
 // flips it to the BACK — the full basis (derivation, formula, framework, source,
 // what to watch, and a jump to the exact source).
 export function DataInsights({
+  company,
   onGoToSource,
   reopenInsightId,
 }: {
+  /** The shared Insights company scope — 'all' shows the combined set. */
+  company: string
   onGoToSource: (target: NavTarget, insightId: string) => void
   reopenInsightId?: string | null
 }) {
   // Returning from "Go to source → Back to Insight" opens on that insight's period.
   const reopenRow = reopenInsightId ? ROWS.find((r) => r.ins.id === reopenInsightId) : undefined
-  const [company, setCompany] = useState<string>('all')
   const [period, setPeriod] = useState<string>(reopenRow?.period ?? PANEL_LATEST)
 
   // Flip the reopened card exactly once — never re-flip when the reader later
   // changes company/period.
   const reopenConsumed = useRef(false)
   useEffect(() => { reopenConsumed.current = true }, [])
-
-  // Company chips: "All" + every insurer that actually has an insight (ordered).
-  const companyOptions = useMemo(() => {
-    const ids = [...new Set(ROWS.flatMap((r) => r.ins.affectedInsurers).filter((id) => id !== 'panel'))]
-      .sort((a, b) => companyRank(a) - companyRank(b))
-    return [{ id: 'all', label: 'All' }, ...ids.map((id) => ({ id, label: pretty(id) }))]
-  }, [])
 
   const companyRows = useMemo(
     () => (company === 'all' ? ROWS : ROWS.filter((r) => r.ins.affectedInsurers.includes(company))),
@@ -266,10 +219,9 @@ export function DataInsights({
       {/* Left: reporting-period timeline */}
       <PeriodRail periods={availablePeriods} counts={periodCounts} selected={effPeriod} onSelect={setPeriod} />
 
-      {/* Main: company chips + the full-width flip-card stack */}
+      {/* Main: the full-width flip-card stack (company scope is the shared header
+          selector; the period rail is on the left). */}
       <div className="min-w-0 flex-1 space-y-4">
-        <CompanyChips options={companyOptions} value={company} onChange={setCompany} />
-
         {shown.length > 0 ? (
           <div className="flex flex-col gap-4">
             {shown.map((r) => (

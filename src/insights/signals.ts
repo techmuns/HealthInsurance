@@ -63,7 +63,10 @@ export function dispersionSignals(d: Dataset): Signal[] {
 export function growthQualitySignals(d: Dataset): Signal[] {
   const out: Signal[] = []
   for (const p of d.insurers) {
-    const hm = p.healthMix.filter((h) => h.retail != null && h.group != null && h.total != null)
+    // total > 0 guard: a zero-total row (retail/group/total all 0) would pass a
+    // null-only filter and make the retail-mix ratio 0/0 = NaN. Exclude it here so
+    // such rows route to the honest dataGap path below, never a NaN signal value.
+    const hm = p.healthMix.filter((h) => h.retail != null && h.group != null && h.total != null && h.total > 0)
     const pair = lastTwo(hm)
     if (!pair) {
       out.push({ family: 'growth_quality', insurer: p.id, period: d.asOf, metric: 'Retail vs group growth', value: null, unit: '%', layers: GIC, dataGap: true, note: 'insufficient retail/group history' })
@@ -74,7 +77,20 @@ export function growthQualitySignals(d: Dataset): Signal[] {
     const gg = pctChange(prev.group, cur.group)
     const mixCur = (cur.retail as number) / (cur.total as number) * 100
     const mixPrev = (prev.retail as number) / (prev.total as number) * 100
-    if (rg != null) out.push({ family: 'growth_quality', insurer: p.id, period: cur.fiscal_year, metric: 'Retail health premium growth YoY', value: round(rg, 1), unit: '%', comparison: { basis: 'prior_period', referenceValue: round(gg ?? 0, 1), delta: round(rg - (gg ?? 0), 1) }, layers: GIC, dataGap: false, note: `group grew ${round(gg ?? 0, 1)}%` })
+    if (rg != null) {
+      // Only compare retail growth against group growth when group growth is
+      // measurable. A null gg (prior-year group base = 0) must not be coerced to a
+      // fake "group grew 0%" — render an honest n/a instead (missing ≠ zero).
+      // Field order matches the original literal so the signal hash is byte-stable
+      // for the common case (group growth measurable); only the gg==null edge
+      // case changes, dropping the fabricated comparison.
+      out.push({
+        family: 'growth_quality', insurer: p.id, period: cur.fiscal_year, metric: 'Retail health premium growth YoY', value: round(rg, 1), unit: '%',
+        ...(gg != null ? { comparison: { basis: 'prior_period' as const, referenceValue: round(gg, 1), delta: round(rg - gg, 1) } } : {}),
+        layers: GIC, dataGap: false,
+        note: gg != null ? `group grew ${round(gg, 1)}%` : 'group growth n/a (no comparable prior-year base)',
+      })
+    }
     if (gg != null) out.push({ family: 'growth_quality', insurer: p.id, period: cur.fiscal_year, metric: 'Group health premium growth YoY', value: round(gg, 1), unit: '%', layers: GIC, dataGap: false })
     out.push({ family: 'growth_quality', insurer: p.id, period: cur.fiscal_year, metric: 'Retail mix (health)', value: round(mixCur, 1), unit: '%', comparison: { basis: 'prior_period', referenceValue: round(mixPrev, 1), delta: round(mixCur - mixPrev, 1) }, layers: GIC, dataGap: false, note: `${mixCur >= mixPrev ? '+' : ''}${round(mixCur - mixPrev, 1)}pp YoY` })
     // retail-mix slope over the trailing window (inflection)

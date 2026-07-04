@@ -336,7 +336,7 @@ function toPick(s: PulseSignal, rank: number, pulse: InvestorPulse): TopPick {
   return {
     id: s.id,
     rank,
-    entity: s.scope === 'company' ? pulse.company : SECTOR_TOPIC[s.category],
+    entity: s.scope === 'company' ? s.companyName ?? pulse.company : SECTOR_TOPIC[s.category],
     category: s.category,
     impact: s.impact,
     status: statusOf(s.impact),
@@ -775,33 +775,44 @@ const ACTION_ORDER = ['ownership', 'margins', 'source', 'agm', 'regulation']
 // margins" / "Review ownership" land on the right chart with the real comparison
 // spotlighted. The destination chart resolves the actual current/prior values
 // from its own source data — these only name the metric, company and period.
-function marginFocus(pulse: InvestorPulse): InsightFocus | undefined {
+// A real insurer is needed to spotlight a chart — the combined ("All") scope has
+// no single company, so a focus is only built when a concrete company is named.
+function marginFocus(pulse: InvestorPulse, companyId = pulse.companyId, companyLabel = pulse.company): InsightFocus | undefined {
+  if (companyId === 'all') return undefined
   // Periods unpinned → the profitability chart spotlights its latest reported
   // combined ratio vs the prior year.
   return (
     buildFocus({
       id: 'pulse-margins',
       metricKey: 'combined_ratio',
-      company: pulse.companyId,
-      companyLabel: pulse.company,
+      company: companyId,
+      companyLabel,
       comparisonType: 'YoY',
       insightLabel: 'Underwriting margin — combined ratio',
       origin: 'pulse',
     }) ?? undefined
   )
 }
-function ownershipFocus(pulse: InvestorPulse): InsightFocus | undefined {
+function ownershipFocus(pulse: InvestorPulse, companyId = pulse.companyId, companyLabel = pulse.company): InsightFocus | undefined {
+  if (companyId === 'all') return undefined
   return (
     buildFocus({
       id: 'pulse-ownership',
       metricKey: 'promoter_holding',
-      company: pulse.companyId,
-      companyLabel: pulse.company,
+      company: companyId,
+      companyLabel,
       comparisonType: 'sequential',
       insightLabel: 'Ownership — promoter holding trend',
       origin: 'pulse',
     }) ?? undefined
   )
+}
+
+// The label used in action pills / prose for the current scope. The combined
+// ("All") view reads as "peers" so pills stay short and grammatical; a single
+// company reads as its own name.
+function scopeLabel(pulse: InvestorPulse): string {
+  return pulse.companyId === 'all' ? 'peers' : pulse.company
 }
 
 // Specific, decision-grade action labels tied to the company / topic actually on
@@ -834,15 +845,15 @@ export function actionsFor(pulse: InvestorPulse, picks: TopPick[]): PulseAction[
   const out: PulseAction[] = []
 
   if (analyst || cats.has('Sector Catalyst'))
-    out.push({ id: 'margins', label: actionLabel('margins', pulse.company), icon: 'margins', target: { page: 'sahi', sahiTab: 'profitability', company: companyId, focus: marginFocus(pulse) } })
+    out.push({ id: 'margins', label: actionLabel('margins', scopeLabel(pulse)), icon: 'margins', target: { page: 'sahi', sahiTab: 'profitability', company: companyId, focus: marginFocus(pulse) } })
   if (analyst)
-    out.push({ id: 'ownership', label: actionLabel('ownership', pulse.company), icon: 'ownership', target: { page: 'sahi', sahiTab: 'governance', company: companyId, focus: ownershipFocus(pulse) } })
+    out.push({ id: 'ownership', label: actionLabel('ownership', scopeLabel(pulse)), icon: 'ownership', target: { page: 'sahi', sahiTab: 'governance', company: companyId, focus: ownershipFocus(pulse) } })
   if (regulatory)
-    out.push({ id: 'regulation', label: actionLabel('regulation', pulse.company), icon: 'regulation', target: { page: 'sahi', sahiTab: 'governance', company: companyId } })
+    out.push({ id: 'regulation', label: actionLabel('regulation', scopeLabel(pulse)), icon: 'regulation', target: { page: 'sahi', sahiTab: 'governance', company: companyId } })
   if (agm)
-    out.push({ id: 'agm', label: actionLabel('agm', pulse.company, agm.kindLabel), icon: 'agm', href: agm.url || undefined, target: agm.url ? undefined : { page: 'insights' } })
+    out.push({ id: 'agm', label: actionLabel('agm', scopeLabel(pulse), agm.kindLabel), icon: 'agm', href: agm.url || undefined, target: agm.url ? undefined : { page: 'insights' } })
   if (picks.some((p) => p.evidence.url))
-    out.push({ id: 'source', label: actionLabel('source', pulse.company), icon: 'source', target: { page: 'audit', company: companyId } })
+    out.push({ id: 'source', label: actionLabel('source', scopeLabel(pulse)), icon: 'source', target: { page: 'audit', company: companyId } })
 
   return [...new Map(out.map((a) => [a.id, a])).values()]
     .sort((a, b) => ACTION_ORDER.indexOf(a.id) - ACTION_ORDER.indexOf(b.id))
@@ -860,15 +871,15 @@ export function actionsForBrief(pulse: InvestorPulse, scoped: PulseSignal[]): Pu
   const out: PulseAction[] = []
 
   if (analyst || cats.has('Sector Catalyst'))
-    out.push({ id: 'margins', label: actionLabel('margins', pulse.company), icon: 'margins', target: { page: 'sahi', sahiTab: 'profitability', company: companyId, focus: marginFocus(pulse) } })
+    out.push({ id: 'margins', label: actionLabel('margins', scopeLabel(pulse)), icon: 'margins', target: { page: 'sahi', sahiTab: 'profitability', company: companyId, focus: marginFocus(pulse) } })
   if (analyst)
-    out.push({ id: 'ownership', label: actionLabel('ownership', pulse.company), icon: 'ownership', target: { page: 'sahi', sahiTab: 'governance', company: companyId, focus: ownershipFocus(pulse) } })
+    out.push({ id: 'ownership', label: actionLabel('ownership', scopeLabel(pulse)), icon: 'ownership', target: { page: 'sahi', sahiTab: 'governance', company: companyId, focus: ownershipFocus(pulse) } })
   if (regulatory)
-    out.push({ id: 'regulation', label: actionLabel('regulation', pulse.company), icon: 'regulation', target: { page: 'sahi', sahiTab: 'governance', company: companyId } })
+    out.push({ id: 'regulation', label: actionLabel('regulation', scopeLabel(pulse)), icon: 'regulation', target: { page: 'sahi', sahiTab: 'governance', company: companyId } })
   if (agm)
-    out.push({ id: 'agm', label: actionLabel('agm', pulse.company, agm.kindLabel), icon: 'agm', href: agm.url || undefined, target: agm.url ? undefined : { page: 'insights' } })
+    out.push({ id: 'agm', label: actionLabel('agm', scopeLabel(pulse), agm.kindLabel), icon: 'agm', href: agm.url || undefined, target: agm.url ? undefined : { page: 'insights' } })
   if (scoped.some((s) => s.sourceUrl))
-    out.push({ id: 'source', label: actionLabel('source', pulse.company), icon: 'source', target: { page: 'audit', company: companyId } })
+    out.push({ id: 'source', label: actionLabel('source', scopeLabel(pulse)), icon: 'source', target: { page: 'audit', company: companyId } })
 
   return [...new Map(out.map((a) => [a.id, a])).values()]
     .sort((a, b) => ACTION_ORDER.indexOf(a.id) - ACTION_ORDER.indexOf(b.id))
@@ -1019,9 +1030,11 @@ function convictionScore(s: PulseSignal, pulse: InvestorPulse): Conviction {
 
 function whoAffected(s: PulseSignal, pulse: InvestorPulse): string {
   if (s.scope === 'company') {
-    if (s.category === 'Analyst Action') return `${pulse.company} shareholders and anyone tracking its re-rating.`
-    if (s.category === 'Management') return `${pulse.company}'s board, leadership continuity and its shareholders.`
-    return `${pulse.company} directly — its premium growth, margins and shareholders.`
+    // In the combined view each company item names its own insurer, not "All".
+    const co = s.companyName ?? pulse.company
+    if (s.category === 'Analyst Action') return `${co} shareholders and anyone tracking its re-rating.`
+    if (s.category === 'Management') return `${co}'s board, leadership continuity and its shareholders.`
+    return `${co} directly — its premium growth, margins and shareholders.`
   }
   if (s.category === 'Regulatory') return 'Every standalone health insurer (SAHI) — pricing, product design and compliance cost.'
   if (s.category === 'Analyst Action') return 'The listed SAHI names and how the Street frames the sector.'
@@ -1093,18 +1106,21 @@ function reasoningLines(s: PulseSignal, pulse: InvestorPulse): string[] {
 
 // The single "what should I do next" for one idea — tied to its category.
 function actionForSignal(s: PulseSignal, pulse: InvestorPulse): PulseAction | null {
-  const company = pulse.companyId
+  // In the combined view a company item acts on its own insurer; a sector item
+  // (and every item in a single-company view) acts on the current scope.
+  const company = s.scope === 'company' && s.companyId ? s.companyId : pulse.companyId
+  const label = s.scope === 'company' && s.companyName ? s.companyName : scopeLabel(pulse)
   switch (s.category) {
     case 'Analyst Action':
     case 'Sector Catalyst':
     case 'Data Movement':
-      return { id: 'margins', label: actionLabel('margins', pulse.company), icon: 'margins', target: { page: 'sahi', sahiTab: 'profitability', company, focus: marginFocus(pulse) } }
+      return { id: 'margins', label: actionLabel('margins', label), icon: 'margins', target: { page: 'sahi', sahiTab: 'profitability', company, focus: marginFocus(pulse, company, label) } }
     case 'Regulatory':
-      return { id: 'regulation', label: actionLabel('regulation', pulse.company), icon: 'regulation', target: { page: 'sahi', sahiTab: 'governance', company } }
+      return { id: 'regulation', label: actionLabel('regulation', label), icon: 'regulation', target: { page: 'sahi', sahiTab: 'governance', company } }
     case 'Management':
-      return { id: 'ownership', label: actionLabel('ownership', pulse.company), icon: 'ownership', target: { page: 'sahi', sahiTab: 'governance', company, focus: ownershipFocus(pulse) } }
+      return { id: 'ownership', label: actionLabel('ownership', label), icon: 'ownership', target: { page: 'sahi', sahiTab: 'governance', company, focus: ownershipFocus(pulse, company, label) } }
     case 'Filing':
-      return { id: 'source', label: actionLabel('source', pulse.company), icon: 'source', target: { page: 'audit', company } }
+      return { id: 'source', label: actionLabel('source', label), icon: 'source', target: { page: 'audit', company } }
   }
 }
 
@@ -1165,7 +1181,7 @@ export function convictionIdeas(signals: PulseSignal[], pulse: InvestorPulse): C
     .slice(0, 4)
     .map(({ s, c }) => ({
       id: s.id,
-      entity: s.scope === 'company' ? pulse.company : SECTOR_TOPIC[s.category],
+      entity: s.scope === 'company' ? s.companyName ?? pulse.company : SECTOR_TOPIC[s.category],
       stars: c.stars,
       reasoning: reasoningLines(s, pulse),
       whatToWatch: whatToWatchFor(s, pulse),
@@ -1266,7 +1282,8 @@ function briefNarrative(pulse: InvestorPulse, scoped: PulseSignal[], ideas: Conv
   else if (pos > 0) theme = `Premium momentum is keeping the tone constructive across health insurers ${when}`
   else theme = `Signals are mixed across health insurers ${when}, with no single dominant driver`
 
-  const company = pulse.company
+  // The combined view speaks about the whole pool, not one insurer.
+  const company = pulse.companyId === 'all' ? 'The standalone-health pool' : pulse.company
   const supported = pos >= risk + watch ? 'remains supported by' : 'is under pressure on'
   const strength = pos > 0 ? 'premium growth and demand' : 'its market position'
   const watchLead = reg > 0 ? 'claims-cost and conduct scrutiny' : risk > pos ? 'margin and solvency pressure' : 'how margins hold as the book grows'
@@ -1375,6 +1392,13 @@ export function briefMessage(pulse: InvestorPulse, scoped: PulseSignal[], one: O
   const mgmt = selectManagementEvents(pulse.companyId, { recentOnly: true }).length
   if (reg + companyAny + mgmt === 0 && !one) return { since: '', keyThing: '', why: '', watch: '', nothing: true }
 
+  // In the combined ("all insurers") view the company subject reads as the pool with
+  // plural agreement; a single company reads as its own name. (Preserved from the
+  // combined-view work on main; folded into the freshness-fixed branches below.)
+  const combined = pulse.companyId === 'all'
+  const coSubj = combined ? 'the insurers' : pulse.company
+  const isVerb = combined ? 'are' : 'is'
+
   const thesis = {
     keyThing: one ? clamp(scrubCopy(one.sentence), 172) : '',
     why: clamp(scrubCopy(whyLine(recent, reg, companyPos)), 150),
@@ -1424,8 +1448,8 @@ export function briefMessage(pulse: InvestorPulse, scoped: PulseSignal[], one: O
     )
     const bits: string[] = []
     if (regNew > 0) bits.push(`${numWord(regNew)} regulatory ${regNew === 1 ? 'update' : 'updates'} moved into focus`)
-    if (companyPosNew > 0) bits.push(aboutGrowth ? `${pulse.company} is back in the news for premium growth` : `${pulse.company} received fresh positive coverage`)
-    else if (companyAnyNew > 0) bits.push(`${pulse.company} received fresh coverage`)
+    if (companyPosNew > 0) bits.push(aboutGrowth ? `${coSubj} ${isVerb} back in the news for premium growth` : `${coSubj} received fresh positive coverage`)
+    else if (companyAnyNew > 0) bits.push(`${coSubj} received fresh coverage`)
     if (mgmtNew > 0 && bits.length < 2) bits.push(mgmtNew === 1 ? 'there was a leadership change to note' : 'there were leadership changes to note')
     // Fresh items exist but none is company-specific → name the absence, then the sector read.
     if (noCompanyMovement) return { since: `No ${pulse.company}-specific movement since the last brief; ${joinNatural(bits.slice(0, 2))} across the sector.`, ...thesis }
@@ -1436,8 +1460,8 @@ export function briefMessage(pulse: InvestorPulse, scoped: PulseSignal[], one: O
   // honestly as "recently surfaced" (never "since yesterday").
   if (!noCompanyMovement) {
     const lead = companyPosSurfaced > 0
-      ? `${pulse.company} had recently surfaced positive analyst coverage`
-      : `${pulse.company} had recently surfaced relevant coverage`
+      ? `${coSubj} had recently surfaced positive analyst coverage`
+      : `${coSubj} had recently surfaced relevant coverage`
     const regClause = regSurfaced > 0 ? ', alongside older regulatory items now in view' : ''
     return { since: `${lead}${regClause}. No fresh company-specific update was published since the last brief.`, ...thesis }
   }
@@ -1515,19 +1539,21 @@ export function sinceYesterday(pulse: InvestorPulse): SinceDelta[] {
   // Company — a "fresh update" ONLY when the source was published in the window; an
   // older/unverified item we merely found today is a "newly surfaced relevant update".
   // The row OPENS the actual article (the freshest one carrying a source), since the
-  // dashboard's Companies tab is a financial scorecard, not a news feed.
+  // dashboard's Companies tab is a financial scorecard, not a news feed. In the combined
+  // ("all insurers") view the label reads "company" rather than a single name.
+  const coLabel = pulse.companyId === 'all' ? 'company' : pulse.company
   const coFresh = fresh.filter((s) => s.scope === 'company')
   const coSurfaced = surfaced.filter((s) => s.scope === 'company')
   if (coFresh.length) {
     const n = coFresh.length
-    out.push({ id: 'co', label: n === 1 ? 'fresh update' : 'fresh updates', value: String(n), direction: 'up', tone: 'Positive', target: locTarget('companies', 'co', 'company', `${n} fresh ${pulse.company} ${n === 1 ? 'update' : 'updates'}`), href: freshestHref(coFresh) })
+    out.push({ id: 'co', label: n === 1 ? 'fresh update' : 'fresh updates', value: String(n), direction: 'up', tone: 'Positive', target: locTarget('companies', 'co', 'company', `${n} fresh ${coLabel} ${n === 1 ? 'update' : 'updates'}`), href: freshestHref(coFresh) })
   } else if (coSurfaced.length) {
     const n = coSurfaced.length
-    out.push({ id: 'co', label: n === 1 ? 'newly surfaced relevant update' : 'newly surfaced relevant updates', value: String(n), direction: 'up', tone: 'Neutral', target: locTarget('companies', 'co', 'company', `${n} newly surfaced ${pulse.company} ${n === 1 ? 'update' : 'updates'}`), href: freshestHref(coSurfaced) })
+    out.push({ id: 'co', label: n === 1 ? 'newly surfaced relevant update' : 'newly surfaced relevant updates', value: String(n), direction: 'up', tone: 'Neutral', target: locTarget('companies', 'co', 'company', `${n} newly surfaced ${coLabel} ${n === 1 ? 'update' : 'updates'}`), href: freshestHref(coSurfaced) })
   } else {
     // No company-specific movement at all — show an explicit, honest "0" (like the
     // market-moves row) so a quiet name reads clearly instead of just omitting the row.
-    out.push({ id: 'co', label: 'company-specific updates', value: '0', direction: 'flat', tone: 'Neutral', target: locTarget('companies', 'co', 'company', `No ${pulse.company}-specific updates`) })
+    out.push({ id: 'co', label: 'company-specific updates', value: '0', direction: 'flat', tone: 'Neutral', target: locTarget('companies', 'co', 'company', `No ${coLabel}-specific updates`) })
   }
 
   // Management changes only when genuinely recent (last day) — not the full 18-month

@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState, type ComponentType } from 'react'
-import { Users, Share2, Gauge, Scale, Activity, Landmark, Newspaper, ArrowLeft, type LucideIcon } from 'lucide-react'
+import { ArrowLeft } from 'lucide-react'
 import type { AuditFocus, NavTarget } from '@/insights/sourceMap'
 import type { InsightFocus } from '@/insights/insightFocus'
 import { FilterProvider, useFilters } from '@/state/filters'
@@ -12,7 +12,6 @@ import { SectionTransition } from '@/components/SectionTransition'
 import { DataAuditPane } from '@/components/DataAuditPane'
 import { HeaderSwitcher, type TopPage } from '@/components/HeaderSwitcher'
 import { SahiAnalysisHeader } from '@/components/SahiAnalysisHeader'
-import { PageHeadline, type HeadlineTone } from '@/components/PageHeadline'
 import { type SectionTab } from '@/components/SectionTabs'
 import { Sidebar } from '@/components/Sidebar'
 import { MarketTrendExplorer } from '@/components/MarketTrendExplorer'
@@ -21,7 +20,6 @@ import { MarketDistribution } from '@/sections/MarketDistribution'
 import { CompetitivePositioning } from '@/sections/CompetitivePositioning'
 import { ProfitabilityReview } from '@/sections/ProfitabilityReview'
 import { ValuationMarketView } from '@/sections/ValuationMarketView'
-import { StreetView } from '@/sections/StreetView'
 import { OwnershipGovernance } from '@/sections/OwnershipGovernance'
 import { SectoralNews } from '@/sections/SectoralNews'
 import { Insights } from '@/sections/Insights'
@@ -43,7 +41,6 @@ const SAHI_TABS: SectionTab[] = [
   { id: 'distribution', label: 'Premium & Distribution' },
   { id: 'profitability', label: 'Profitability' },
   { id: 'valuation', label: 'Valuation' },
-  { id: 'street-view', label: 'Street View' },
   { id: 'governance', label: 'Governance' },
   { id: 'sector-news', label: 'Key Sectoral News' },
 ]
@@ -54,7 +51,6 @@ const AURA_KEY: Record<string, string> = {
   distribution: 'market-distribution',
   profitability: 'company-performance',
   valuation: 'company-performance',
-  'street-view': 'street-view',
   governance: 'ownership-governance',
   'sector-news': 'sector-news',
 }
@@ -63,7 +59,6 @@ const SECTION_AURA: Record<string, { a: string; b: string; c: string }> = {
   overview: { a: '#27457E', b: '#168E8E', c: '#B68B3A' },
   'market-distribution': { a: '#168E8E', b: '#4F7BCF', c: '#27457E' },
   'company-performance': { a: '#3D5F9F', b: '#168E8E', c: '#B68B3A' },
-  'street-view': { a: '#B68B3A', b: '#27457E', c: '#168E8E' },
   peers: { a: '#6E7BD6', b: '#168E8E', c: '#27457E' },
   'ownership-governance': { a: '#27457E', b: '#8C97A8', c: '#B68B3A' },
   // Editorial field for the sector briefing — navy (trust) / gold (editorial) / teal.
@@ -127,100 +122,28 @@ function IndustryInsightsPage() {
   )
 }
 
-/** Per-tab premium headline band — the SAHI "headline system". Each tab opens
- *  with a tone-coded title + sharp subtitle so the analysis reads as a guided
- *  story: scoreboard → how they grow → do they profit → what they're worth →
- *  the live market vote → who's behind them → what's coming next. The subtitle
- *  introduces the data; it never restates the numbers below. Colour psychology:
- *  navy = core financial logic, teal = growth engine, gold = valuation/importance. */
-interface SahiHead {
-  eyebrow: string
-  title: string
-  subtitle: string
-  Icon: LucideIcon
-  tone: HeadlineTone
-}
-const SAHI_HEAD: Record<string, SahiHead> = {
-  companies: {
-    eyebrow: 'Peer Positioning',
-    title: 'The standalone-health scoreboard',
-    subtitle: 'Who leads and who lags across the standalone health insurers — before the company-level detail.',
-    Icon: Users,
-    tone: 'navy',
-  },
-  distribution: {
-    eyebrow: 'Premium & Distribution',
-    title: 'How each insurer builds its premium',
-    subtitle: 'The retail-versus-group mix and the channel engine behind the rankings.',
-    Icon: Share2,
-    tone: 'teal',
-  },
-  profitability: {
-    eyebrow: 'Profitability',
-    title: 'Does the growth convert to profit?',
-    subtitle: 'Whether each insurer’s growth strategy turns into durable, high-quality profitability.',
-    Icon: Gauge,
-    tone: 'navy',
-  },
-  valuation: {
-    eyebrow: 'Valuation',
-    title: 'Is the valuation earned?',
-    subtitle: 'Whether the price is supported by growth, profitability and peer positioning.',
-    Icon: Scale,
-    tone: 'gold',
-  },
-  'street-view': {
-    eyebrow: 'Street View',
-    title: 'The live market read',
-    subtitle: 'Price, targets and momentum as the market sees them today.',
-    Icon: Activity,
-    tone: 'gold',
-  },
-  governance: {
-    eyebrow: 'Governance',
-    title: 'Who owns and steers these franchises',
-    subtitle: 'Ownership, leadership and who has recently been buying or selling.',
-    Icon: Landmark,
-    tone: 'navy',
-  },
-  'sector-news': {
-    eyebrow: 'Key Sectoral News',
-    title: 'Signals shaping the quarters ahead',
-    subtitle: 'The regulatory and sector developments moving the health-insurance pool.',
-    Icon: Newspaper,
-    tone: 'navy',
-  },
-}
-
-/** Renders the active SAHI deep-dive sub-section (no Overview — that has moved),
- *  each opened by a premium headline band that guides the reader into the data. */
+/** Renders the active SAHI deep-dive sub-section (no Overview — that has moved).
+ *  Each section now carries its own calm, Industry-style header (SahiPageHeader);
+ *  the old top headline band was a redundant glass cover and has been removed. */
 function SahiContent({ tab }: { tab: string }) {
-  const head = SAHI_HEAD[tab] ?? SAHI_HEAD.companies
-  const section = () => {
-    switch (tab) {
-      case 'distribution':
-        return <MarketDistribution />
-      case 'profitability':
-        return <ProfitabilityReview />
-      case 'valuation':
-        return <ValuationMarketView />
-      case 'street-view':
-        return <StreetView />
-      case 'governance':
-        return <StatefulSection Comp={OwnershipGovernance} />
-      case 'sector-news':
-        return <SectoralNews />
-      case 'companies':
-      default:
-        return <CompetitivePositioning />
-    }
+  switch (tab) {
+    case 'distribution':
+      return <MarketDistribution />
+    case 'profitability':
+      return <ProfitabilityReview />
+    // Street View is merged into Valuation; an old 'street-view' route is
+    // normalized to 'valuation' before it reaches here (see AppInner).
+    case 'valuation':
+    case 'street-view':
+      return <ValuationMarketView />
+    case 'governance':
+      return <StatefulSection Comp={OwnershipGovernance} />
+    case 'sector-news':
+      return <SectoralNews />
+    case 'companies':
+    default:
+      return <CompetitivePositioning />
   }
-  return (
-    <div>
-      <PageHeadline eyebrow={head.eyebrow} title={head.title} subtitle={head.subtitle} Icon={head.Icon} tone={head.tone} />
-      {section()}
-    </div>
-  )
 }
 
 /** Where a Data-Audit visit came from, so "Back to dashboard" restores it. */
@@ -234,7 +157,11 @@ interface DashboardReturn {
 function AppInner() {
   const { setHighlightedCompany, highlightedCompany } = useFilters()
   const [page, setPage] = useState<TopPage>('industry')
-  const [sahiTab, setSahiTab] = useState('companies')
+  const [sahiTabRaw, setSahiTab] = useState('companies')
+  // Street View is merged into Valuation — normalize any legacy 'street-view'
+  // route (persisted state, an insight jump, a saved return) so the Valuation tab
+  // lights up and renders the merged content instead of falling through.
+  const sahiTab = sahiTabRaw === 'street-view' ? 'valuation' : sahiTabRaw
   const [navOpen, setNavOpen] = useState(false)
   // Insight → source navigation: the Data-Audit cell to highlight on arrival, the
   // insight to offer "Back to Insight" for, and the insight to re-open (flipped)
@@ -311,10 +238,11 @@ function AppInner() {
     setInsightReturn(insightId)
     setAuditFocus(target.page === 'audit' ? target.audit ?? null : null)
     // Carry the insight-linked highlight context into the destination section, and
-    // pre-select the company it names so the chart lands on the right series.
+    // pre-select the company it names so the chart lands on the right series. The
+    // combined ("all") scope names no single insurer, so it never sets the highlight.
     setInsightFocus(target.focus ?? null)
     const company = target.focus?.company ?? target.company
-    if (company) setHighlightedCompany(company)
+    if (company && company !== 'all') setHighlightedCompany(company)
     setPage(target.page)
     if (target.sahiTab) setSahiTab(target.sahiTab)
     setNavOpen(false)

@@ -46,20 +46,26 @@ export function CompanyFilter({
 
   return (
     <div ref={ref} className="relative">
-      <span className="mr-2 text-[10px] font-bold uppercase tracking-[0.08em] text-ink-secondary">Company</span>
+      {/* Navy "blob" pill matching the Verify Excel / AI Mode action buttons — a
+          gold building-icon tile when viewing all companies; the selected
+          insurer's colour dot (and a brighter gold ring) when filtered. */}
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
+        aria-haspopup="listbox"
+        aria-expanded={open}
         title="Filter the audit tables by company — view only one insurer or all"
-        className="inline-flex items-center gap-1.5 rounded-full border border-soft-border bg-white px-2.5 py-1 text-[11.5px] font-medium text-navy-deep shadow-soft transition-colors hover:border-navy-primary/30"
+        className={`group relative inline-flex items-center gap-1.5 rounded-full px-2.5 py-1.5 text-[12px] font-semibold tracking-tight text-white transition-all duration-normal ease-premium hover:-translate-y-0.5 ${isAll ? 'blob-btn' : 'blob-btn-on'}`}
       >
-        {isAll ? (
-          <Building2 className="h-3.5 w-3.5 text-ink-secondary" />
-        ) : (
-          <span className="h-2.5 w-2.5 rounded-full" style={{ background: dot }} />
-        )}
-        {selected.label}
-        <ChevronDown className={`h-3.5 w-3.5 text-ink-secondary transition-transform ${open ? 'rotate-180' : ''}`} />
+        <span className={`flex h-7 w-7 shrink-0 items-center justify-center blob-c transition-colors ${isAll ? 'bg-white/10 ring-1 ring-[#E4C67C]/25' : 'bg-white/[0.16] ring-1 ring-[#E4C67C]/50'}`}>
+          {isAll ? (
+            <Building2 className="h-[15px] w-[15px]" strokeWidth={2.2} style={{ color: '#E4C67C' }} />
+          ) : (
+            <span className="h-2.5 w-2.5 rounded-full ring-2 ring-white/25" style={{ background: dot }} />
+          )}
+        </span>
+        <span className="max-w-[150px] truncate">{selected.label}</span>
+        <ChevronDown className={`h-3.5 w-3.5 shrink-0 text-white/65 transition-transform ${open ? 'rotate-180' : ''}`} />
       </button>
 
       {open && (

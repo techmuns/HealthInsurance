@@ -628,6 +628,10 @@ function donutSlicePath(cx: number, cy: number, rO: number, rI: number, a0: numb
 function OwnershipPositionDonut({ view, selectedIdx, onLatest }: { view: OwnershipTrendView; selectedIdx: number; onLatest: () => void }) {
   const groups = TREND_GROUPS
   const target = useMemo(() => groups.map((g) => view.seriesByGroup[g][selectedIdx] ?? 0), [view, selectedIdx, groups])
+  // Raw (nullable) values: arc geometry uses `target` (a missing group = 0 span),
+  // but the legend/center text must read "n/a" for an undisclosed group — never a
+  // fabricated 0.0% (the tooltip already shows n/a; keep them consistent).
+  const raw = useMemo(() => groups.map((g) => view.seriesByGroup[g][selectedIdx] ?? null), [view, selectedIdx, groups])
   const vals = useTween(target, 620)
   const sel = view.periods[selectedIdx]
   const isLatest = selectedIdx === view.periods.length - 1
@@ -674,7 +678,7 @@ function OwnershipPositionDonut({ view, selectedIdx, onLatest }: { view: Ownersh
           ))}
         </svg>
         <div className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center text-center">
-          <span className="font-display text-[27px] leading-none text-navy-deep tabular-nums">{vals[0].toFixed(1)}%</span>
+          <span className="font-display text-[27px] leading-none text-navy-deep tabular-nums">{raw[0] == null ? 'n/a' : `${vals[0].toFixed(1)}%`}</span>
           <span className="mt-1 text-[9px] font-semibold uppercase tracking-[0.08em] text-ink-secondary">Promoter</span>
           <span className="mt-0.5 text-[10.5px] font-medium text-navy-deep">{sel?.fiscal ?? ''}</span>
         </div>
@@ -685,7 +689,7 @@ function OwnershipPositionDonut({ view, selectedIdx, onLatest }: { view: Ownersh
           <li key={g} className="flex items-center gap-2 text-[11px]">
             <span className="h-2.5 w-2.5 shrink-0 rounded-full" style={{ background: TREND_COLOR[g] }} />
             <span className="flex-1 truncate text-ink-secondary">{CATEGORY_LABEL[g]}</span>
-            <span className="w-14 shrink-0 text-right font-semibold tabular-nums text-navy-deep">{vals[i].toFixed(1)}%</span>
+            <span className="w-14 shrink-0 text-right font-semibold tabular-nums text-navy-deep">{raw[i] == null ? 'n/a' : `${vals[i].toFixed(1)}%`}</span>
           </li>
         ))}
       </ul>
@@ -1156,7 +1160,7 @@ export function Ownership() {
       {/* 1 — Hero: split Ownership Trend (line) + Ownership Position (donut) */}
       {view.available ? (
         <div ref={focusRef} className={arrived ? 'insight-arrival rounded-2xl' : ''}>
-          <OwnershipTrendHero view={view} focus={dispFocus} resolved={resolved} />
+          <OwnershipTrendHero key={company.id} view={view} focus={dispFocus} resolved={resolved} />
         </div>
       ) : (
         <div className="card-surface card-tint-navy p-4">
@@ -1175,7 +1179,7 @@ export function Ownership() {
       {/* 4 — Bulk / Block Deal timeline (Screener → Trades; separate from the
             shareholding-pattern trend — transaction disclosures, not quarter-end
             position). Handles its own empty / pending / populated states. */}
-      <BulkBlockTimeline view={trades} companyName={company.shortName} />
+      <BulkBlockTimeline key={company.id} view={trades} companyName={company.shortName} />
 
       {/* 5 — Source / audit footer — two clearly-separated sources (PART 10 + Task 7) */}
       <div className="rounded-xl border border-soft-border bg-ice/40 px-4 py-3 text-[10.5px] leading-relaxed text-ink-secondary">

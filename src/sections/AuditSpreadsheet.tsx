@@ -19,22 +19,23 @@ import { isReadyAuditCell } from '@/lib/analystReadout'
 import { useVerifyOptional } from '@/state/verifyState'
 import type { VerifyResult, VerifyRow, VerifyStatus } from '@/lib/excelVerify'
 
-// Blob-style control buttons (Excel verifier · AI Mode) — golden by default,
-// navy-blue when active, matching the section-nav blobs in HeaderSwitcher.
-const GOLD_BLOB_ICON = '#C99736'
-const GOLD_BLOB_ICON_ON = '#E4C67C'
+// Blob-style control buttons (Company · Verify Excel · AI Mode) — navy-filled
+// with a gold icon + hairline gold accent, matching the Insights / Pulse button
+// language. The gold ring + fill brighten on the active / selected state (see
+// .blob-btn / .blob-btn-on in index.css). Kept compact — a premium pill, not a
+// bulky block.
+const GOLD_BLOB_ICON = '#E4C67C'
+const GOLD_BLOB_ICON_ON = '#F0D9A2'
 function blobBtnCls(active: boolean): string {
   return [
-    'group relative inline-flex items-center gap-1.5 overflow-hidden rounded-lg border px-2.5 py-1.5 text-[12px] font-semibold tracking-tight transition-all duration-normal ease-premium',
-    active
-      ? 'border-transparent bg-gradient-to-br from-[#1E4079] to-[#143058] text-white shadow-[0_4px_14px_rgba(20,48,88,0.26)]'
-      : 'border-[#E7D8B6] bg-gradient-to-br from-[#F8F1DF] to-[#F1E6CC] text-[#6E5A2E] shadow-soft hover:-translate-y-0.5 hover:shadow-card',
+    'group relative inline-flex items-center gap-1.5 rounded-full px-2.5 py-1.5 text-[12px] font-semibold tracking-tight text-white transition-all duration-normal ease-premium hover:-translate-y-0.5',
+    active ? 'blob-btn-on' : 'blob-btn',
   ].join(' ')
 }
 function blobIconCls(active: boolean): string {
   return [
     'flex h-7 w-7 shrink-0 items-center justify-center blob-c transition-colors',
-    active ? 'bg-white/12 ring-1 ring-white/15' : 'bg-[#F4ECDB] ring-1 ring-[#E7D8B6]',
+    active ? 'bg-white/[0.16] ring-1 ring-[#E4C67C]/50' : 'bg-white/10 ring-1 ring-[#E4C67C]/25',
   ].join(' ')
 }
 
@@ -951,18 +952,18 @@ function GridView({ group, fullColumns, companyLabel, isFiltered, raw, onRawChan
   }
 
   return (
-    <>
-      {/* Toolbar — context (value mode + legend now live in the source-pipeline row) */}
-      <div className="flex flex-wrap items-center gap-2">
-        <span className="text-[11px] text-ink-secondary">{group.dashboardSection || group.role}</span>
-        <span className="text-ink-secondary/40">·</span>
-        <span className="text-[11px] text-ink-secondary">{group.dimensions}</span>
-      </div>
-
-      {/* Source-pipeline coverage for this sheet — where each source maps and
-          how much of it has been fetched. */}
-      <div className="flex flex-wrap items-center gap-1.5 rounded-lg border border-soft-border bg-ice/30 px-3 py-1.5">
-        <span className="text-[9.5px] font-bold uppercase tracking-[0.08em] text-ink-secondary">Source pipelines</span>
+    <div className="space-y-2">
+      {/* Row 2 — one slim control toolbar. Source-pipeline coverage on the left;
+          the value-mode toggle, colour legend, hidden-items tray and Save / Reset
+          on the right. What used to stack as three separate rows now reads as a
+          single compact strip, so the table starts high. */}
+      <div className="relative z-10 flex flex-wrap items-center gap-x-3 gap-y-1.5 rounded-xl border border-soft-border bg-white/55 px-3 py-1.5 shadow-soft backdrop-blur-sm">
+        <span
+          className="text-[9.5px] font-bold uppercase tracking-[0.08em] text-ink-secondary"
+          title={`${group.dashboardSection || group.role} · ${group.dimensions}`}
+        >
+          Source pipelines
+        </span>
         {(['irdai', 'company', 'exchange', 'computed', 'aggregator', 'capitaliq'] as PipelineKey[]).map((k) => {
           const p = PIPELINE[k]
           const st = pipeStats.pipes[k]
@@ -987,8 +988,9 @@ function GridView({ group, fullColumns, companyLabel, isFiltered, raw, onRawChan
             <span className="text-ink-secondary">{pipeStats.notInDeck} cells</span>
           </span>
         )}
-        {/* Value mode + colour legend — relocated here from the toolbar, pinned right. */}
-        <div className="ml-auto flex flex-wrap items-center gap-3">
+
+        {/* Right cluster — value toggle · legend · hidden tray · Save / Reset. */}
+        <div className="ml-auto flex flex-wrap items-center gap-x-3 gap-y-1.5">
           <div className="inline-flex overflow-hidden rounded-full border border-soft-border bg-ice/60 p-0.5">
             {([['final', 'Final value'], ['raw', 'As printed']] as const).map(([v, label]) => {
               const on = (v === 'raw') === raw
@@ -1009,21 +1011,21 @@ function GridView({ group, fullColumns, companyLabel, isFiltered, raw, onRawChan
               ))}
             </div>
           )}
+          <span className="hidden h-4 w-px shrink-0 bg-soft-border sm:block" />
+          {/* Hidden-items tray + Save / Reset, rendered bare so it sits inline. */}
+          <CustomizeBar
+            embedded
+            chips={chips}
+            onRestore={restore}
+            onRestoreAll={view.restoreAll}
+            onSave={view.save}
+            onReset={view.reset}
+            dirty={view.dirty}
+            customized={view.customized}
+            hasSaved={view.hasSaved}
+          />
         </div>
       </div>
-
-      {/* Customize View — the hidden-items tray + Save / Reset. Tap × on a
-          company band or a column header to tidy the view; restore from here. */}
-      <CustomizeBar
-        chips={chips}
-        onRestore={restore}
-        onRestoreAll={view.restoreAll}
-        onSave={view.save}
-        onReset={view.reset}
-        dirty={view.dirty}
-        customized={view.customized}
-        hasSaved={view.hasSaved}
-      />
 
       {/* Grid + (optional) detail */}
       <div className={selected ? 'grid grid-cols-1 gap-4 lg:grid-cols-[1fr_340px]' : ''}>
@@ -1039,7 +1041,7 @@ function GridView({ group, fullColumns, companyLabel, isFiltered, raw, onRawChan
           </div>
         )}
       </div>
-    </>
+    </div>
   )
 }
 
@@ -1252,7 +1254,7 @@ export function AuditSpreadsheet({ model, focus }: { model: AuditModel; focus?: 
   if (!sheets.length) return null
 
   return (
-    <div className="space-y-2.5">
+    <div className="space-y-2">
       {/* Excel verification status bar — counts + filter + exit/clear. Only the
           flagged statuses pop in the grid; matched cells go neutral. */}
       {verifyResult && (verifyView ? (
@@ -1326,86 +1328,79 @@ export function AuditSpreadsheet({ model, focus }: { model: AuditModel; focus?: 
         </div>
       )}
 
-      {/* Audit section tabs — a compact premium rail that wraps to a second row
-          on narrow widths instead of scrolling sideways, so nothing is cut off. */}
-      <div className="flex flex-wrap items-center gap-1 px-0.5 pt-0.5 pb-2">
-        {sheets.map((g) => {
-          const on = g.sheet === active
-          const filled = g.stats.valuePresent
-          return (
-            <button
-              key={g.sheet}
-              type="button"
-              onClick={() => { setActive(g.sheet); setSelected(null) }}
-              title={`${g.sheet} — ${filled}/${g.stats.total} cells with a value`}
-              className={[
-                'group relative flex shrink-0 items-center gap-1 whitespace-nowrap rounded-lg px-2 py-1 text-[11px] transition-all duration-normal ease-premium',
-                on
-                  ? 'bg-gradient-to-b from-[#27457E] to-[#1E3A6B] font-semibold text-white shadow-[0_2px_8px_rgba(23,43,77,0.18)]'
-                  : 'font-medium text-ink-secondary hover:bg-ice/70 hover:text-navy-primary',
-              ].join(' ')}
-            >
-              <span>{g.sheet}</span>
-              <span className={`rounded-full px-1 py-px text-[8.5px] font-semibold tabular-nums ${on ? 'bg-white/20 text-white' : 'bg-ice text-ink-secondary'}`}>
-                {filled}/{g.stats.total}
-              </span>
-              {on && <span className="pointer-events-none absolute inset-x-2.5 bottom-1 h-[2px] rounded-full bg-gradient-to-r from-champagne to-champagne-deep" />}
-            </button>
-          )
-        })}
-      </div>
+      {/* Row 1 — the audit command bar. Metric / category tabs in one compact
+          strip on the left; the action area (Company selector · Verify Excel ·
+          AI Mode) pinned right. A glassy panel over the soft-blue field so it
+          reads as part of the same premium system as the Insights / Pulse header. */}
+      {/* relative z-30: the backdrop-blur below makes Row 1 and Row 2 separate
+          stacking contexts, so the Company dropdown (inside Row 1) can only clear
+          the later Row 2 if Row 1's whole context is lifted above it. */}
+      <div className="relative z-30 flex items-center justify-between gap-x-3 gap-y-2 rounded-xl border border-soft-border bg-surface-tint/70 px-2.5 py-2 shadow-soft backdrop-blur-md">
+        {/* Metric / category tabs — take the remaining width and wrap internally
+            so the action area always stays pinned to the right. */}
+        <div className="flex min-w-0 flex-1 flex-wrap items-center gap-1">
+          {sheets.map((g) => {
+            const on = g.sheet === active
+            const filled = g.stats.valuePresent
+            return (
+              <button
+                key={g.sheet}
+                type="button"
+                onClick={() => { setActive(g.sheet); setSelected(null) }}
+                title={`${g.sheet} — ${filled}/${g.stats.total} cells with a value`}
+                className={[
+                  'group relative flex shrink-0 items-center gap-1 whitespace-nowrap rounded-lg px-2 py-1 text-[11px] transition-all duration-normal ease-premium',
+                  on
+                    ? 'bg-gradient-to-b from-[#27457E] to-[#1E3A6B] font-semibold text-white shadow-[0_2px_8px_rgba(23,43,77,0.18)]'
+                    : 'font-medium text-ink-secondary hover:bg-white/70 hover:text-navy-primary',
+                ].join(' ')}
+              >
+                <span>{g.sheet}</span>
+                <span className={`rounded-full px-1 py-px text-[8.5px] font-semibold tabular-nums ${on ? 'bg-white/20 text-white' : 'bg-ice text-ink-secondary'}`}>
+                  {filled}/{g.stats.total}
+                </span>
+                {on && <span className="pointer-events-none absolute inset-x-2.5 bottom-1 h-[2px] rounded-full bg-gradient-to-r from-champagne to-champagne-deep" />}
+              </button>
+            )
+          })}
+        </div>
 
-      {/* Page control row — the company filter applies to every sheet type. */}
-      <div className="flex flex-wrap items-center justify-between gap-3">
-        <div className="flex flex-wrap items-center gap-3">
+        {/* Action area — Company selector + the twin blob controls, right-aligned
+            and compact. The blobs hide during the Excel verification overlay,
+            which carries its own control banner. */}
+        <div className="flex shrink-0 flex-wrap items-center gap-1.5">
           <CompanyFilter options={companyOptions} value={effectiveCompany} onChange={(c) => { setCompany(c); setSelected(null) }} />
-          {effectiveCompany !== 'all' && (
-            <span className="inline-flex items-center gap-1.5 text-[11px] text-ink-secondary">
-              <span className="h-2 w-2 rounded-full" style={{ background: companyColor(effectiveCompany).key }} />
-              Showing <span className="font-semibold text-navy-deep">{companyLabel}</span> only
+          {!verifyView && (
+            <>
               <button
                 type="button"
-                onClick={() => { setCompany('all'); setSelected(null) }}
-                className="ml-1 rounded-full border border-soft-border bg-white px-2 py-0.5 text-[10px] font-medium text-navy-primary transition-colors hover:border-navy-primary/30"
+                onClick={() => vctx?.openVerifier()}
+                onPointerEnter={() => { void import('@/components/ExcelVerifierDrawer') }}
+                onFocus={() => { void import('@/components/ExcelVerifierDrawer') }}
+                aria-pressed={!!verifyResult}
+                title="Upload an Excel file and check it cell-by-cell against this audit"
+                className={blobBtnCls(!!verifyResult)}
               >
-                Show all
+                <span className={blobIconCls(!!verifyResult)}>
+                  <FileCheck2 className="h-[15px] w-[15px]" strokeWidth={2.2} style={{ color: verifyResult ? GOLD_BLOB_ICON_ON : GOLD_BLOB_ICON }} />
+                </span>
+                {verifyResult ? 'Reopen verifier' : 'Verify Excel'}
               </button>
-            </span>
+              <button
+                type="button"
+                onClick={() => setAiMode((m) => !m)}
+                aria-pressed={aiMode}
+                title="Turn on to drag-select cells and analyse them with AI"
+                className={blobBtnCls(aiMode)}
+              >
+                <span className={blobIconCls(aiMode)}>
+                  <Sparkles className="h-[15px] w-[15px]" strokeWidth={2.2} style={{ color: aiMode ? GOLD_BLOB_ICON_ON : GOLD_BLOB_ICON }} />
+                </span>
+                AI Mode{aiMode ? ' · On' : ''}
+              </button>
+            </>
           )}
         </div>
-        {/* Excel verifier + AI Mode — twin blob buttons (golden by default, blue
-            when active). Hidden during the Excel verification overlay, which
-            carries its own control banner. */}
-        {!verifyView && (
-          <div className="flex flex-wrap items-center gap-1.5">
-            <button
-              type="button"
-              onClick={() => vctx?.openVerifier()}
-              onPointerEnter={() => { void import('@/components/ExcelVerifierDrawer') }}
-              onFocus={() => { void import('@/components/ExcelVerifierDrawer') }}
-              aria-pressed={!!verifyResult}
-              title="Upload an Excel file and check it cell-by-cell against this audit"
-              className={blobBtnCls(!!verifyResult)}
-            >
-              <span className={blobIconCls(!!verifyResult)}>
-                <FileCheck2 className="h-[15px] w-[15px]" strokeWidth={2.2} style={{ color: verifyResult ? GOLD_BLOB_ICON_ON : GOLD_BLOB_ICON }} />
-              </span>
-              {verifyResult ? 'Reopen verifier' : 'Verify Excel'}
-            </button>
-            <button
-              type="button"
-              onClick={() => setAiMode((m) => !m)}
-              aria-pressed={aiMode}
-              title="Turn on to drag-select cells and analyse them with AI"
-              className={blobBtnCls(aiMode)}
-            >
-              <span className={blobIconCls(aiMode)}>
-                <Sparkles className="h-[15px] w-[15px]" strokeWidth={2.2} style={{ color: aiMode ? GOLD_BLOB_ICON_ON : GOLD_BLOB_ICON }} />
-              </span>
-              AI Mode{aiMode ? ' · On' : ''}
-            </button>
-          </div>
-        )}
       </div>
 
       {/* AI Mode — a contextual bar right above the grid: the drag hint until
