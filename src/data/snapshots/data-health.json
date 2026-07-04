@@ -1,6 +1,6 @@
 {
-  "last_successful_run": "2026-07-04T15:27:03.307Z",
-  "last_failed_run": "2026-07-04T15:27:03.307Z",
+  "last_successful_run": "2026-07-04T15:43:50.719Z",
+  "last_failed_run": "2026-07-04T15:43:50.719Z",
   "sources_checked": 12,
   "sources_success": 6,
   "sources_failed": 1,
@@ -24047,6 +24047,7 @@
     "[yahoo_price] star-health: HTTP 429 for https://query1.finance.yahoo.com/v8/finance/chart/STARHEALTH.NS?range=2y&interval=1d. Source: https://finance.yahoo.com/quote/STARHEALTH.NS/history/",
     "[yahoo_price] icici-lombard: HTTP 429 for https://query1.finance.yahoo.com/v8/finance/chart/ICICIGI.NS?range=2y&interval=1d. Source: https://finance.yahoo.com/quote/ICICIGI.NS/history/",
     "[yahoo_price] godigit: HTTP 429 for https://query1.finance.yahoo.com/v8/finance/chart/GODIGIT.NS?range=2y&interval=1d. Source: https://finance.yahoo.com/quote/GODIGIT.NS/history/",
+    "[price_history] icici-lombard: rate limited at https://www.nseindia.com/api/historical/securityArchives?symbol=ICICIGI&dataType=priceVolumeDeliverable&series=EQ (NSE). Stage official CSV under data/raw/exchanges/icici-lombard/ or set INGEST_FETCH_PROXY.",
     "[validation-rejected] gic-health-quarterly 9MFY21/new-india/general: health_govt (-0.23) is negative — premium cannot be negative.",
     "[validation-rejected] gic-health-quarterly H1FY21/bajaj-general/general: health_govt (-5.07) is negative — premium cannot be negative.",
     "[validation-rejected] gic-health-quarterly Q1FY21/bajaj-general/general: health_govt (-6.03) is negative — premium cannot be negative.",
@@ -24066,7 +24067,7 @@
     {
       "source_id": "irdai_monthly_business",
       "status": "failed",
-      "last_attempt_at": "2026-07-04T15:24:29.228Z",
+      "last_attempt_at": "2026-07-04T15:41:25.519Z",
       "last_success_at": null,
       "records_fetched": 0,
       "error": "No XLSX link discovered on https://irdai.gov.in/non-life"
@@ -24214,28 +24215,28 @@
     {
       "source_id": "valuation_daily",
       "status": "pending",
-      "last_attempt_at": "2026-07-04T15:26:02.487Z",
+      "last_attempt_at": "2026-07-04T15:42:38.757Z",
       "last_success_at": null,
       "records_fetched": 0
     },
     {
       "source_id": "gicouncil_flash_sahi",
       "status": "success",
-      "last_attempt_at": "2026-07-04T15:24:32.417Z",
-      "last_success_at": "2026-07-04T15:24:32.417Z",
+      "last_attempt_at": "2026-07-04T15:41:30.325Z",
+      "last_success_at": "2026-07-04T15:41:30.325Z",
       "records_fetched": 91
     },
     {
       "source_id": "gicouncil_segmentwise",
       "status": "success",
-      "last_attempt_at": "2026-07-04T15:24:39.521Z",
-      "last_success_at": "2026-07-04T15:24:39.521Z",
+      "last_attempt_at": "2026-07-04T15:41:36.706Z",
+      "last_success_at": "2026-07-04T15:41:36.706Z",
       "records_fetched": 103
     },
     {
       "source_id": "irdai_nonlife_flash",
       "status": "pending",
-      "last_attempt_at": "2026-07-04T15:24:31.492Z",
+      "last_attempt_at": "2026-07-04T15:41:27.962Z",
       "last_success_at": null,
       "records_fetched": 0
     },
@@ -24249,51 +24250,51 @@
     {
       "source_id": "moneycontrol_analyst",
       "status": "success",
-      "last_attempt_at": "2026-07-04T15:26:04.654Z",
-      "last_success_at": "2026-07-04T15:26:04.654Z",
+      "last_attempt_at": "2026-07-04T15:42:43.416Z",
+      "last_success_at": "2026-07-04T15:42:43.416Z",
       "records_fetched": 6
     },
     {
       "source_id": "price_history",
-      "status": "pending",
-      "last_attempt_at": "2026-07-04T15:26:59.275Z",
+      "status": "blocked",
+      "last_attempt_at": "2026-07-04T15:43:48.355Z",
       "last_success_at": null,
       "records_fetched": 0
     },
     {
       "source_id": "gicouncil_segmentwise_annual",
       "status": "success",
-      "last_attempt_at": "2026-07-04T15:25:55.808Z",
-      "last_success_at": "2026-07-04T15:25:55.808Z",
+      "last_attempt_at": "2026-07-04T15:42:32.027Z",
+      "last_success_at": "2026-07-04T15:42:32.027Z",
       "records_fetched": 2770
     },
     {
       "source_id": "muns_market_data",
       "status": "success",
-      "last_attempt_at": "2026-07-04T15:26:24.795Z",
-      "last_success_at": "2026-07-04T15:26:24.795Z",
+      "last_attempt_at": "2026-07-04T15:43:14.999Z",
+      "last_success_at": "2026-07-04T15:43:14.999Z",
       "records_fetched": 8,
       "error": "fetcher timed out after 6 min (capped so the run always reaches snapshot merge + commit)"
     },
     {
       "source_id": "yahoo_price",
       "status": "pending",
-      "last_attempt_at": "2026-07-04T15:26:29.689Z",
+      "last_attempt_at": "2026-07-04T15:43:19.854Z",
       "last_success_at": null,
       "records_fetched": 0
     },
     {
       "source_id": "nse_delivery",
       "status": "pending",
-      "last_attempt_at": "2026-07-04T15:27:02.644Z",
+      "last_attempt_at": "2026-07-04T15:43:50.078Z",
       "last_success_at": "2026-07-03T14:35:51.158Z",
       "records_fetched": 0
     },
     {
       "source_id": "moneycontrol_stock_deals",
       "status": "success",
-      "last_attempt_at": "2026-07-04T15:26:16.973Z",
-      "last_success_at": "2026-07-04T15:26:16.973Z",
+      "last_attempt_at": "2026-07-04T15:43:07.178Z",
+      "last_success_at": "2026-07-04T15:43:07.178Z",
       "records_fetched": 0
     }
   ]
