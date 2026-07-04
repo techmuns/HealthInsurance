@@ -957,7 +957,7 @@ function GridView({ group, fullColumns, companyLabel, isFiltered, raw, onRawChan
           the value-mode toggle, colour legend, hidden-items tray and Save / Reset
           on the right. What used to stack as three separate rows now reads as a
           single compact strip, so the table starts high. */}
-      <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5 rounded-xl border border-soft-border bg-white/55 px-3 py-1.5 shadow-soft backdrop-blur-sm">
+      <div className="relative z-10 flex flex-wrap items-center gap-x-3 gap-y-1.5 rounded-xl border border-soft-border bg-white/55 px-3 py-1.5 shadow-soft backdrop-blur-sm">
         <span
           className="text-[9.5px] font-bold uppercase tracking-[0.08em] text-ink-secondary"
           title={`${group.dashboardSection || group.role} · ${group.dimensions}`}
@@ -1332,7 +1332,10 @@ export function AuditSpreadsheet({ model, focus }: { model: AuditModel; focus?: 
           strip on the left; the action area (Company selector · Verify Excel ·
           AI Mode) pinned right. A glassy panel over the soft-blue field so it
           reads as part of the same premium system as the Insights / Pulse header. */}
-      <div className="flex items-center justify-between gap-x-3 gap-y-2 rounded-xl border border-soft-border bg-surface-tint/70 px-2.5 py-2 shadow-soft backdrop-blur-md">
+      {/* relative z-30: the backdrop-blur below makes Row 1 and Row 2 separate
+          stacking contexts, so the Company dropdown (inside Row 1) can only clear
+          the later Row 2 if Row 1's whole context is lifted above it. */}
+      <div className="relative z-30 flex items-center justify-between gap-x-3 gap-y-2 rounded-xl border border-soft-border bg-surface-tint/70 px-2.5 py-2 shadow-soft backdrop-blur-md">
         {/* Metric / category tabs — take the remaining width and wrap internally
             so the action area always stays pinned to the right. */}
         <div className="flex min-w-0 flex-1 flex-wrap items-center gap-1">
