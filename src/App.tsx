@@ -20,7 +20,6 @@ import { MarketDistribution } from '@/sections/MarketDistribution'
 import { CompetitivePositioning } from '@/sections/CompetitivePositioning'
 import { ProfitabilityReview } from '@/sections/ProfitabilityReview'
 import { ValuationMarketView } from '@/sections/ValuationMarketView'
-import { StreetView } from '@/sections/StreetView'
 import { OwnershipGovernance } from '@/sections/OwnershipGovernance'
 import { SectoralNews } from '@/sections/SectoralNews'
 import { Insights } from '@/sections/Insights'
@@ -42,7 +41,6 @@ const SAHI_TABS: SectionTab[] = [
   { id: 'distribution', label: 'Premium & Distribution' },
   { id: 'profitability', label: 'Profitability' },
   { id: 'valuation', label: 'Valuation' },
-  { id: 'street-view', label: 'Street View' },
   { id: 'governance', label: 'Governance' },
   { id: 'sector-news', label: 'Key Sectoral News' },
 ]
@@ -53,7 +51,6 @@ const AURA_KEY: Record<string, string> = {
   distribution: 'market-distribution',
   profitability: 'company-performance',
   valuation: 'company-performance',
-  'street-view': 'street-view',
   governance: 'ownership-governance',
   'sector-news': 'sector-news',
 }
@@ -62,7 +59,6 @@ const SECTION_AURA: Record<string, { a: string; b: string; c: string }> = {
   overview: { a: '#27457E', b: '#168E8E', c: '#B68B3A' },
   'market-distribution': { a: '#168E8E', b: '#4F7BCF', c: '#27457E' },
   'company-performance': { a: '#3D5F9F', b: '#168E8E', c: '#B68B3A' },
-  'street-view': { a: '#B68B3A', b: '#27457E', c: '#168E8E' },
   peers: { a: '#6E7BD6', b: '#168E8E', c: '#27457E' },
   'ownership-governance': { a: '#27457E', b: '#8C97A8', c: '#B68B3A' },
   // Editorial field for the sector briefing — navy (trust) / gold (editorial) / teal.
@@ -135,10 +131,11 @@ function SahiContent({ tab }: { tab: string }) {
       return <MarketDistribution />
     case 'profitability':
       return <ProfitabilityReview />
+    // Street View is merged into Valuation; an old 'street-view' route is
+    // normalized to 'valuation' before it reaches here (see AppInner).
     case 'valuation':
-      return <ValuationMarketView />
     case 'street-view':
-      return <StreetView />
+      return <ValuationMarketView />
     case 'governance':
       return <StatefulSection Comp={OwnershipGovernance} />
     case 'sector-news':
@@ -160,7 +157,11 @@ interface DashboardReturn {
 function AppInner() {
   const { setHighlightedCompany, highlightedCompany } = useFilters()
   const [page, setPage] = useState<TopPage>('industry')
-  const [sahiTab, setSahiTab] = useState('companies')
+  const [sahiTabRaw, setSahiTab] = useState('companies')
+  // Street View is merged into Valuation — normalize any legacy 'street-view'
+  // route (persisted state, an insight jump, a saved return) so the Valuation tab
+  // lights up and renders the merged content instead of falling through.
+  const sahiTab = sahiTabRaw === 'street-view' ? 'valuation' : sahiTabRaw
   const [navOpen, setNavOpen] = useState(false)
   // Insight → source navigation: the Data-Audit cell to highlight on arrival, the
   // insight to offer "Back to Insight" for, and the insight to re-open (flipped)

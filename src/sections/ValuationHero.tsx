@@ -76,14 +76,18 @@ export function ValuationHero() {
   )
 
   return (
-    <section className="relative overflow-hidden rounded-[1.5rem] border border-[#ECEAE0] bg-gradient-to-br from-[#FBFAF6] via-[#FCFCFA] to-[#F4F7FC] p-4 shadow-[0_2px_4px_rgba(23,43,77,0.04),0_22px_50px_rgba(23,43,77,0.08)] sm:p-5 lg:p-6">
-      {/* faint tonal pools — keep the canvas warm, never flat */}
-      <span className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full opacity-50 blur-3xl" style={{ background: 'radial-gradient(circle,rgba(22,142,142,0.10),transparent 70%)' }} />
-      <span className="pointer-events-none absolute -bottom-28 -left-20 h-72 w-72 rounded-full opacity-50 blur-3xl" style={{ background: 'radial-gradient(circle,rgba(182,139,58,0.10),transparent 70%)' }} />
+    <section
+      className="relative overflow-hidden rounded-[1.5rem] p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.55),0_2px_4px_rgba(23,43,77,0.05),0_20px_46px_rgba(23,43,77,0.07)] sm:p-5"
+      style={{ background: 'linear-gradient(162deg, #E9F1FB 0%, #DBE7F7 55%, #E6EEFA 100%)' }}
+    >
+      {/* soft blue wash — the Insights field — bound by a subtle navy + gold blob so
+          the three blocks read as one valuation story, never a flat white card */}
+      <span className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full opacity-60 blur-3xl" style={{ background: 'radial-gradient(circle,rgba(39,69,126,0.12),transparent 70%)' }} />
+      <span className="pointer-events-none absolute -bottom-28 -left-20 h-72 w-72 rounded-full opacity-50 blur-3xl" style={{ background: 'radial-gradient(circle,rgba(182,139,58,0.09),transparent 70%)' }} />
 
       <div className="relative grid items-stretch gap-4 lg:grid-cols-[0.92fr_1.16fr_0.96fr] lg:gap-5">
         {/* ── LEFT · the verdict (answers the page's question) ──────────── */}
-        <div className="flex flex-col">
+        <div className="flex flex-col rounded-2xl border border-soft-border bg-white/65 p-4 shadow-soft backdrop-blur">
           <div className="flex items-center gap-2">
             <span className="h-2 w-2 rounded-full" style={{ background: verdictTone.fg }} />
             <p className="text-[10.5px] font-bold uppercase tracking-[0.24em] text-champagne-deep">Street verdict</p>
