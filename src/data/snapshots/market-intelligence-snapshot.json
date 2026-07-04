@@ -5,7 +5,7 @@
     "schema_version": "1.0.0",
     "dataset": "ai_generated",
     "last_updated": "2026-07-04",
-    "last_successful_run": "2026-07-04T11:18:33.041Z",
+    "last_successful_run": "2026-07-04T14:58:23.219Z",
     "upstream_sources": [
       "muns_agent_web"
     ],
@@ -14,6 +14,19 @@
     "notes": "Clearly labelled AI-generated intelligence — verify before acting. Items accumulate through the day and rank by investor impact, not recency."
   },
   "data": [
+    {
+      "id": "725a333e97",
+      "company_id": "sector",
+      "date": "2026-07-29",
+      "kind": "board_meeting",
+      "horizon": "upcoming",
+      "impact": "watch",
+      "headline": "Star Health board to consider Q1 FY27 results on July 29",
+      "detail": "Star is the closest listed health-insurance read-through for Niva Bupa, so its quarterly print and commentary can reset sector expectations on growth and underwriting.",
+      "source_name": "moneycontrol.com",
+      "source_url": "https://www.moneycontrol.com/company-notices/starhealthalliedinsurancecompany/notices/SHA/",
+      "first_seen": "2026-07-04T14:58:23.219Z"
+    },
     {
       "id": "c409095fae",
       "company_id": "niva-bupa",
@@ -101,6 +114,32 @@
       "first_seen": "2026-07-04T11:18:33.041Z"
     },
     {
+      "id": "e7a14707ce",
+      "company_id": "sector",
+      "date": "2026-07-03",
+      "kind": "regulatory",
+      "horizon": "recent",
+      "impact": "watch",
+      "headline": "IRDAI plans staggered insurance commissions to curb mis-selling",
+      "detail": "A shift away from large upfront commissions could pressure distributor economics, reduce churn-led growth and reshape acquisition costs across health insurers including Niva Bupa.",
+      "source_name": "bfsi.economictimes.indiatimes.com",
+      "source_url": "https://bfsi.economictimes.indiatimes.com/news/insurance/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132156228",
+      "first_seen": "2026-07-04T14:58:23.219Z"
+    },
+    {
+      "id": "96087d91b2",
+      "company_id": "sector",
+      "date": "2026-07-03",
+      "kind": "catalyst",
+      "horizon": "upcoming",
+      "impact": "watch",
+      "headline": "Distribution reform consultation paper expected by end-July",
+      "detail": "With the IRDAI chair signalling a consultation paper soon, the next formal draft is an imminent regulatory catalyst for valuations tied to growth quality and distribution-led profitability.",
+      "source_name": "livemint.com",
+      "source_url": "https://livemint.com/money/personal-finance/irdai-plans-insurance-commission-overhaul-to-curb-mis-selling-with-staggered-payouts-and-stricter-transparency-rules-11783065965488.html",
+      "first_seen": "2026-07-04T14:58:23.219Z"
+    },
+    {
       "id": "c575ebb3dd",
       "company_id": "sector",
       "date": "2026-07-02",
@@ -151,6 +190,19 @@
       "source_name": "moneycontrol.com",
       "source_url": "https://www.moneycontrol.com/news/business/irdai-grants-final-r3-licence-to-prudential-hcl-health-insurance-venture-13963822.html",
       "first_seen": "2026-07-04T11:18:33.041Z"
+    },
+    {
+      "id": "5f8d0020be",
+      "company_id": "sector",
+      "date": "2026-07-01",
+      "kind": "regulatory",
+      "horizon": "recent",
+      "impact": "negative",
+      "headline": "IRDAI grants licence to new standalone health insurer Prudential HCL",
+      "detail": "A new deep-pocketed entrant raises competitive intensity in retail health, distribution and hiring, which can weigh on growth economics and market share for listed and private standalone players.",
+      "source_name": "economictimes.indiatimes.com",
+      "source_url": "https://economictimes.indiatimes.com/markets/stocks/news/prudential-hcl-health-insurance-gets-irdai-nod/articleshow/132126831.cms",
+      "first_seen": "2026-07-04T14:58:23.219Z"
     },
     {
       "id": "f3ce300c4e",
@@ -359,6 +411,19 @@
       "first_seen": "2026-07-04T11:18:33.041Z"
     },
     {
+      "id": "4aa959a8b5",
+      "company_id": "niva-bupa",
+      "date": "2026-06-23",
+      "kind": "rating",
+      "horizon": "recent",
+      "impact": "positive",
+      "headline": "MOFSL keeps Buy on Niva Bupa, target Rs 100",
+      "detail": "A fresh bullish call matters because valuation support and expectations of growth outperformance can lift sentiment on a newly listed standalone health insurer.",
+      "source_name": "bfsi.economictimes.indiatimes.com",
+      "source_url": "https://bfsi.economictimes.indiatimes.com/amp/articles/niva-bupa-forecasted-to-outpace-retail-health-insurance-market-amid-soaring-demand/131922688",
+      "first_seen": "2026-07-04T14:58:23.219Z"
+    },
+    {
       "id": "5bc2e94321",
       "company_id": "niva-bupa",
       "date": "2026-06-22",
@@ -396,6 +461,19 @@
       "source_name": "bfsi.economictimes.indiatimes.com",
       "source_url": "https://bfsi.economictimes.indiatimes.com/articles/niva-bupa-and-icici-lombard-drive-non-life-insurance-premium-growth-in-may-2026/131896688",
       "first_seen": "2026-07-04T11:18:33.041Z"
+    },
+    {
+      "id": "c7b80801b7",
+      "company_id": "sector",
+      "date": "2026-06-19",
+      "kind": "regulatory",
+      "horizon": "recent",
+      "impact": "watch",
+      "headline": "IRDAI issues exposure draft to amend TPA health-services regulations",
+      "detail": "Changes to TPA rules could affect claims servicing, cashless operations, compliance burden and partner economics for every standalone health insurer.",
+      "source_name": "irdai.gov.in",
+      "source_url": "https://irdai.gov.in/web/guest/document-detail?documentId=9572466",
+      "first_seen": "2026-07-04T14:58:23.219Z"
     },
     {
       "id": "0800fcbda0",
@@ -539,6 +617,45 @@
       "source_name": "nsearchives.nseindia.com",
       "source_url": "https://nsearchives.nseindia.com/corporate/STARHEALTH_19052026143510_Investor_meets_Single_22052026.pdf",
       "first_seen": "2026-07-03T15:49:34.221Z"
+    },
+    {
+      "id": "d337dc1e83",
+      "company_id": "niva-bupa",
+      "date": "2026-06-03",
+      "kind": "catalyst",
+      "horizon": "recent",
+      "impact": "watch",
+      "headline": "Milind Gajanan Barve resigns as independent director",
+      "detail": "A same-day independent-director exit is a governance watch-point until investors get comfort on board continuity and replacement quality.",
+      "source_name": "economictimes.indiatimes.com",
+      "source_url": "https://economictimes.indiatimes.com/niva-bupa-health-insurance-company-ltd/stocksupdate/companyid-31347.cms",
+      "first_seen": "2026-07-04T14:58:23.219Z"
+    },
+    {
+      "id": "bb0dbf297a",
+      "company_id": "niva-bupa",
+      "date": "2026-06-03",
+      "kind": "catalyst",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "Ashwani Bhatia joins board as independent director",
+      "detail": "A board-level appointment can influence governance perception and strategic oversight, though near-term earnings impact is limited.",
+      "source_name": "economictimes.indiatimes.com",
+      "source_url": "https://economictimes.indiatimes.com/niva-bupa-health-insurance-company-ltd/stocksupdate/companyid-31347.cms",
+      "first_seen": "2026-07-04T14:58:23.219Z"
+    },
+    {
+      "id": "db386a4b78",
+      "company_id": "sector",
+      "date": "2026-06-01",
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "positive",
+      "headline": "LIC shelves health-insurance entry plan",
+      "detail": "LIC stepping back reduces the threat of a deep-pocketed new competitor in standalone health insurance, which is incrementally supportive for incumbents like Niva Bupa and Star.",
+      "source_name": "moneycontrol.com",
+      "source_url": "https://www.moneycontrol.com/banking/lic-pivots-to-fintech-shelves-health-insurance-plan-to-expand-distribution-article-13937723.html",
+      "first_seen": "2026-07-04T14:58:23.219Z"
     },
     {
       "id": "338f7ffe04",
