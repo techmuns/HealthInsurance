@@ -68,6 +68,16 @@ export interface PulseSignal {
   /** When this item first entered the feed (ISO), from the ingestion's `first_seen`.
    *  Powers the "New at 3:30 PM" intraday marker. Null until a run stamps it. */
   capturedAt: string | null
+  /** The source's real PUBLICATION date (YYYY-MM-DD), when known. Null = not on
+   *  record (never guessed). Only an in-window value here can make the item "fresh". */
+  publishedAt: string | null
+  /** When our pipeline first DISCOVERED the item (YYYY-MM-DD). Distinct from
+   *  publication: an old article found today is discovery-fresh, not "fresh". */
+  discoveredAt: string | null
+  /** fresh / newly-surfaced / existing / unknown vs the daily window (see classifyFreshness). */
+  freshness: Freshness
+  /** Viewer-facing freshness label for this item's card. */
+  freshnessLabel: string
 }
 
 export interface PulseManagementEvent {
@@ -312,12 +322,109 @@ function freshness(d: number | null): { label: string; tone: 'fresh' | 'recent' 
   return { label: `${mo} month${mo === 1 ? '' : 's'} ago`, tone: 'older' }
 }
 
+// ── Freshness CLASSIFICATION — published vs discovered vs brief date ──────────
+//
+// The one rule this whole fix turns on: an item may be called "fresh" ONLY when the
+// SOURCE ITSELF was published/updated inside the daily window. "We discovered it
+// today" is NOT the same as "it happened today" — an analyst note published on 29 Jun
+// and first crawled on 3 Jul is a *newly surfaced* older update, never a "since
+// yesterday" development. Discovery drives visibility; publication drives freshness.
+
+/** The calendar day (YYYY-MM-DD) in IST — the brief runs and is dated in IST. */
+export function istTodayIso(): string {
+  return new Date().toLocaleDateString('en-CA', { timeZone: 'Asia/Kolkata' })
+}
+
+/** Normalize any date/ISO string to a YYYY-MM-DD calendar day (IST for timestamps). */
+function toDayIso(d?: string | null): string | null {
+  if (!d) return null
+  const m = /^(\d{4})-(\d{2})-(\d{2})/.exec(d)
+  if (m) return `${m[1]}-${m[2]}-${m[3]}`
+  const t = Date.parse(d)
+  if (isNaN(t)) return null
+  return new Date(t).toLocaleDateString('en-CA', { timeZone: 'Asia/Kolkata' })
+}
+
+/** Whole calendar days from `fromIso` to `toIso` (>0 when `fromIso` is in the past). */
+function dayGap(fromIso: string, toIso: string): number | null {
+  const a = Date.parse(`${fromIso}T00:00:00Z`)
+  const b = Date.parse(`${toIso}T00:00:00Z`)
+  if (isNaN(a) || isNaN(b)) return null
+  return Math.round((b - a) / MS_DAY)
+}
+
+export type Freshness = 'fresh' | 'newly-surfaced' | 'existing' | 'unknown'
+
+/** Human labels for the four freshness states (viewer-facing). */
+export const FRESHNESS_LABEL: Record<Freshness, string> = {
+  fresh: 'Fresh update',
+  'newly-surfaced': 'Newly surfaced',
+  existing: 'Existing context',
+  unknown: 'Date not on record',
+}
+
+/** "Since the last brief" window — an item is fresh only if published today or the
+ *  day before the brief (IST). Kept as a named constant so the brief copy, the delta
+ *  strip and the card badge all measure freshness the same way. */
+export const DAILY_LOOKBACK_DAYS = 1
+
+export interface FreshnessInput {
+  /** Real source publication date (explicit only — never the crawl day). */
+  publishedAt?: string | null
+  /** Source last-updated date, if distinct. Treated as the stronger publication signal. */
+  updatedAt?: string | null
+  /** When our pipeline first found the item. */
+  discoveredAt?: string | null
+  /** The brief date (YYYY-MM-DD). Defaults to IST today. */
+  asOf?: string | null
+  /** Days back from the brief date that still count as "since the last brief". */
+  lookbackDays?: number
+}
+
+/**
+ * Classify an item's freshness against the brief date:
+ *   • fresh          — the SOURCE was published/updated inside the window.
+ *   • newly-surfaced — published earlier (or publication unverified), but WE first
+ *                      surfaced it inside the window.
+ *   • existing       — we have a timestamp, but it sits outside the window.
+ *   • unknown        — no usable timestamp at all.
+ * Nothing is ever "fresh" without a real, in-window publication/update timestamp.
+ */
+export function classifyFreshness(input: FreshnessInput): Freshness {
+  const asOf = toDayIso(input.asOf) ?? istTodayIso()
+  const look = input.lookbackDays ?? DAILY_LOOKBACK_DAYS
+  const published = toDayIso(input.updatedAt) ?? toDayIso(input.publishedAt)
+  const discovered = toDayIso(input.discoveredAt)
+  const inWindow = (day: string | null): boolean => {
+    if (!day) return false
+    const gap = dayGap(day, asOf)
+    return gap != null && gap >= 0 && gap <= look // on/just-before the brief date, not the future
+  }
+  if (inWindow(published)) return 'fresh'
+  if (inWindow(discovered)) return 'newly-surfaced'
+  if (published || discovered) return 'existing'
+  return 'unknown'
+}
+
 // ── Source → confidence (confidence reflects the SOURCE, per the honesty rule) ─
 
 // Primary / authoritative domains: an exchange filing, the regulator, or the
 // company's own IR. A link to one of these earns High confidence in the source.
 const PRIMARY_HOST =
   /(^|\.)(bseindia\.com|nseindia\.com|nsearchives\.nseindia\.com|irdai\.gov\.in|sebi\.gov\.in|nivabupa\.com|starhealth\.in|careinsurance\.com|adityabirlacapital\.com|manipalcigna\.com)$|\.gov\.in$/i
+
+// A standing REFERENCE page — an explainer / guide / FAQ / IR "watch this page"
+// landing / regulator section-list — NOT a dated development. It carries no genuine
+// publication date, so even on an official host it is neither "fresh" nor "newly
+// surfaced" and is not a High-confidence filing. Kept in sync with the reader guard in
+// src/components/pulse/derive.ts (isEvergreenReference) and the ingest agent. The
+// trailing IRDAI section-landing alternatives catch bare list pages (…/circulars,
+// …/warnings-and-penalties) that describe long-standing rules, not today's news.
+const EVERGREEN_REF_RE =
+  /health-insurance-articles|\/(blog|learn|guides?|knowledge|resources|faqs?)\/|what-is-|what-has-changed|rules-for-health|irda-rules|-guide(?:$|[-.?#/])|-explained|explainer|investor-relations|\.aspx(?:$|[?#])|irdai\.gov\.in\/(circulars|warnings-and-penalties|rules|regulations|consolidated-gazette-notified-regulations)(?:$|[/?#])/i
+function isEvergreenRef(url?: string | null): boolean {
+  return !!url && EVERGREEN_REF_RE.test(url)
+}
 
 function hostOf(url: string): string {
   try {
@@ -344,11 +451,44 @@ function titleCaseConfidence(raw?: string | null, url?: string | null): Confiden
   return sourceConfidence(url)
 }
 
+// Template-ish "why it matters" prose — hedged, generic, doesn't tie the source to a
+// specific claim ("could move sentiment", "matters for the sector"). Such filler
+// shouldn't lend confidence to a "today" development.
+const VAGUE_DETAIL_RE = /\b(can|could|may|might)\b[^.]{0,48}\b(move sentiment|matter|matters|impact|affect|supportive|in focus|attention)\b/i
+function isVagueDetail(detail?: string | null): boolean {
+  const t = (detail ?? '').trim()
+  if (t.length < 24) return true
+  return VAGUE_DETAIL_RE.test(t)
+}
+
+/**
+ * Confidence in a single intelligence item — source quality FIRST, then honest
+ * penalties (per CLAUDE.md / this fix): a credible-but-secondary outlet is not "High"
+ * just because several domains carry the story; it earns High only from a primary /
+ * official source. Secondary items are further reduced when we can't verify recency
+ * (no publication date), the item sits outside the daily window, or its rationale is
+ * generic/template text. Primary sources (filing / regulator / IR) keep their authority.
+ */
+function signalConfidence(item: IntelItem, freshness: Freshness): Confidence {
+  if (!isLinkable(item.source_url)) return 'Low'
+  const primary = PRIMARY_HOST.test(hostOf(item.source_url ?? ''))
+  if (primary) return 'High'
+  let score = 2 // credible secondary outlet → Medium baseline
+  const hasPubDate = !!(item.source_published_at || item.source_updated_at)
+  if (!hasPubDate) score -= 0.4 // recency can't be verified from the source itself
+  if (freshness === 'existing') score -= 0.4 // outside the daily window
+  if (isVagueDetail(item.detail)) score -= 0.3 // generic "why it matters"
+  return score >= 2.75 ? 'High' : score >= 1.6 ? 'Medium' : 'Low'
+}
+
 // ── market-intelligence snapshot → normalized signals ───────────────────────
 
 interface IntelItem {
   id?: string
   company_id?: string
+  /** Best-known EVENT date (YYYY-MM-DD). Historically the agent stamps the crawl day
+   *  here when it can't read a real byline date, so this alone is NOT proof of when
+   *  the item was published — freshness keys off `source_published_at` instead. */
   date?: string | null
   kind?: string
   horizon?: 'upcoming' | 'recent'
@@ -357,8 +497,17 @@ interface IntelItem {
   impact?: 'positive' | 'negative' | 'watch' | 'neutral'
   source_name?: string
   source_url?: string | null
-  /** When the ingestion first captured this item (ISO). Drives intraday freshness. */
+  /** When this item first entered the feed (ISO) — our DISCOVERY timestamp. */
   first_seen?: string | null
+  /** The source article's real PUBLICATION date (ISO / YYYY-MM-DD), when the page
+   *  exposes one. Null when unknown — never guessed. This is the only field allowed
+   *  to make an item read "fresh". */
+  source_published_at?: string | null
+  /** The source's last-updated date, if distinct from publication. */
+  source_updated_at?: string | null
+  /** When our pipeline first discovered the item (ISO). Alias of `first_seen`, kept
+   *  explicit so published-vs-discovered is unambiguous in the schema. */
+  discovered_at?: string | null
 }
 
 const MOVEMENT_RE = /\bvolume|volumes|premium (growth|momentum|leadership)|spike|surge|turnover|delivery|inflow|outflow|gwp growth\b/i
@@ -400,6 +549,33 @@ function toSignal(item: IntelItem, companyId: string): PulseSignal | null {
   const hasLink = isLinkable(item.source_url)
   if (!item.source_name && !hasLink) return null
   const scope: 'company' | 'sector' = item.company_id === companyId ? 'company' : 'sector'
+
+  // Published vs discovered — kept strictly separate. `source_published_at` is the
+  // ONLY field trusted to prove publication freshness. `discovered_at`/`first_seen`
+  // is when WE found it. Crucially: with no explicit publication date, the bare
+  // `date` is treated as a DISCOVERY/surface date (that is what it factually is when
+  // the agent stamps the crawl day), so an undated item can never read "fresh" — at
+  // most "newly surfaced". This is the core of the freshness-classification fix.
+  const publishedAt = toDayIso(item.source_published_at ?? item.source_updated_at ?? null)
+  const explicitDiscovered = item.discovered_at ?? item.first_seen ?? null
+  const discoveredAt = toDayIso(explicitDiscovered) ?? (item.source_published_at ? null : toDayIso(item.date))
+  // A standing reference page is never a dated development — force it to "existing"
+  // context so it is neither "fresh" nor "newly surfaced", regardless of when we
+  // crawled it (an official host doesn't make a landing page today's news).
+  const evergreen = isEvergreenRef(item.source_url)
+  const freshness: Freshness = evergreen
+    ? 'existing'
+    : classifyFreshness({
+        publishedAt: item.source_published_at,
+        updatedAt: item.source_updated_at,
+        discoveredAt: explicitDiscovered ?? (item.source_published_at ? null : item.date),
+        asOf: istTodayIso(),
+      })
+  // Confidence reflects the source; but an undated standing reference is not a
+  // High-confidence filing even on a primary host (source date is missing → reduce).
+  let confidence = signalConfidence(item, freshness)
+  if (evergreen && confidence === 'High') confidence = 'Medium'
+
   return {
     id: item.id ?? `${item.kind}-${item.date}`,
     date: item.date ?? '',
@@ -411,12 +587,16 @@ function toSignal(item: IntelItem, companyId: string): PulseSignal | null {
     whyItMatters: item.detail ?? '',
     sourceName: item.source_name || hostOf(item.source_url ?? '') || 'Source on record',
     sourceUrl: hasLink ? sourceHref(item.source_url)! : '',
-    confidence: sourceConfidence(item.source_url),
+    confidence,
     scope,
     // Only an explicit 'upcoming' marks a scheduled event; anything else counts as
     // already-surfaced news for freshness purposes.
     horizon: item.horizon === 'upcoming' ? 'upcoming' : 'recent',
     capturedAt: item.first_seen ?? null,
+    publishedAt,
+    discoveredAt,
+    freshness,
+    freshnessLabel: FRESHNESS_LABEL[freshness],
   }
 }
 

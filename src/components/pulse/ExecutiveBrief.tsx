@@ -170,8 +170,12 @@ function ConvictionCard({ idea, active, onOpen }: { idea: ConvictionIdea; active
           {idea.freshLabel && (
             <span
               className="inline-flex shrink-0 items-center rounded-full px-1.5 text-[7.5px] font-bold uppercase tracking-wide"
-              style={{ color: '#2F855A', background: 'rgba(47,133,90,0.10)', boxShadow: 'inset 0 0 0 1px rgba(47,133,90,0.22)' }}
-              title="Newly captured today"
+              style={
+                idea.freshness === 'fresh'
+                  ? { color: '#2F855A', background: 'rgba(47,133,90,0.10)', boxShadow: 'inset 0 0 0 1px rgba(47,133,90,0.22)' }
+                  : { color: '#9C7430', background: 'rgba(156,116,48,0.12)', boxShadow: 'inset 0 0 0 1px rgba(156,116,48,0.24)' }
+              }
+              title={idea.freshness === 'fresh' ? 'Source published within the daily window' : 'Older item — first surfaced today, not newly published'}
             >
               {idea.freshLabel}
             </span>

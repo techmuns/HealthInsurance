@@ -75,6 +75,8 @@ const TAG_STYLE: Record<PickTag, { fg: string; bg: string; ring: string }> = {
   Regulatory: { fg: CATEGORY_META.Regulatory.fg, bg: CATEGORY_META.Regulatory.bg, ring: CATEGORY_META.Regulatory.ring },
   Sector: { fg: '#0E6F6D', bg: 'rgba(14,111,109,0.08)', ring: 'rgba(14,111,109,0.20)' },
   'Fresh today': { fg: '#2F855A', bg: 'rgba(47,133,90,0.10)', ring: 'rgba(47,133,90,0.22)' },
+  // Older item we first surfaced today — amber, distinct from the green "Fresh today".
+  'Newly surfaced': { fg: '#9C7430', bg: 'rgba(156,116,48,0.12)', ring: 'rgba(156,116,48,0.24)' },
   'Source-backed': { fg: '#5B6573', bg: 'rgba(91,101,115,0.08)', ring: 'rgba(91,101,115,0.20)' },
   Correlation: { fg: '#27457E', bg: 'rgba(39,69,126,0.08)', ring: 'rgba(39,69,126,0.20)' },
 }

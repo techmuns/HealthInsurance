@@ -24,6 +24,7 @@ import {
   type LensKey,
   type TodayRead,
   type Confidence,
+  type Freshness,
 } from '@/insights/investorPulse'
 import type { NavTarget } from '@/insights/sourceMap'
 import { buildFocus, buildLocator, type InsightFocus } from '@/insights/insightFocus'
@@ -133,10 +134,14 @@ const EVERGREEN_URL_RE =
 export function isEvergreenReference(s: { sourceUrl?: string | null }): boolean {
   return !!s.sourceUrl && EVERGREEN_URL_RE.test(s.sourceUrl)
 }
-/** A genuinely NEW day-over-day development: dated today or yesterday (IST) AND a real
- *  dated item — not an evergreen explainer/landing page mis-stamped with the crawl date. */
-const isNewDevelopment = (s: PulseSignal, today: string, yday: string) =>
-  (s.date === today || s.date === yday) && !isEvergreenReference(s)
+/** A genuinely NEW day-over-day development: the SOURCE was PUBLISHED/updated inside
+ *  the daily window (freshness === 'fresh') — NOT merely discovered/crawled today, and
+ *  not an evergreen explainer/landing page mis-stamped with the crawl date. This is the
+ *  fix's core: "we found it today" no longer counts as "it happened since yesterday". */
+const isNewDevelopment = (s: PulseSignal) => s.freshness === 'fresh' && !isEvergreenReference(s)
+/** An older item (or one whose publication date we can't verify) that WE first surfaced
+ *  inside the daily window — real, worth showing, but honestly "newly surfaced", not "fresh". */
+const isNewlySurfaced = (s: PulseSignal) => s.freshness === 'newly-surfaced' && !isEvergreenReference(s)
 
 /** True when a signal has real, wired correlation data behind it (a live lens). */
 export function signalHasCorrelation(s: PulseSignal, pulse: InvestorPulse): boolean {
@@ -243,7 +248,7 @@ const SECTOR_TOPIC: Record<SignalCategory, string> = {
   'Data Movement': 'Market Move',
 }
 
-export type PickTag = 'High priority' | 'Regulatory' | 'Sector' | 'Fresh today' | 'Source-backed' | 'Correlation'
+export type PickTag = 'High priority' | 'Regulatory' | 'Sector' | 'Fresh today' | 'Newly surfaced' | 'Source-backed' | 'Correlation'
 
 export interface TopPick {
   id: string
@@ -260,6 +265,11 @@ export interface TopPick {
   daysAgo: number | null
   scope: 'company' | 'sector'
   evidence: { kind: EvidenceKind; name: string; url: string }
+  /** Published vs discovered vs classified freshness — the honest per-card trail. */
+  freshness: Freshness
+  freshnessLabel: string
+  publishedLabel: string
+  discoveredLabel: string
 }
 
 // Concrete "what to watch" fallbacks by category — used only when the mapped lens
@@ -273,10 +283,29 @@ const CATEGORY_WATCH_FALLBACK: Record<SignalCategory, string> = {
   'Data Movement': 'Whether the underlying data confirms the reported move.',
 }
 
+// Distinctive topical tokens used to decide whether a lens watch-item actually
+// belongs to a given signal — so a generic standing watch (e.g. "Solvency vs the 1.5x
+// regulatory floor") is NOT stapled onto an unrelated analyst-rating or commission-rule
+// card. ('regulatory'/'irdai' are deliberately excluded — too broad to be discriminating.)
+const WATCH_TOPIC_RE = /solvency|capital|combined ratio|expense ratio|claims|commission|distribution|conduct|mis-selling|premium|growth|gwp|market share|rating|target price|pricing|cashless|underwrit|margin/gi
+
+/** The lens watch-item most relevant to THIS signal (shares a topical token), or null
+ *  when none genuinely relates — so the caller falls back to a category-appropriate
+ *  watch line instead of reusing a standing metric watch on an unrelated card. (#5) */
+function relevantWatch(s: PulseSignal, watchList?: string[]): string | null {
+  if (!watchList?.length) return null
+  const sTok = new Set(`${s.title} ${s.whyItMatters}`.toLowerCase().match(WATCH_TOPIC_RE) ?? [])
+  if (!sTok.size) return null
+  for (const w of watchList) {
+    const wTok = w.toLowerCase().match(WATCH_TOPIC_RE) ?? []
+    if (wTok.some((t) => sTok.has(t))) return w
+  }
+  return null
+}
+
 function watchFor(s: PulseSignal, pulse: InvestorPulse): string {
   const lens = pulse.lenses[CATEGORY_LENS[s.category]]
-  const fromLens = lens?.watchNext?.[0]
-  const base = fromLens || CATEGORY_WATCH_FALLBACK[s.category]
+  const base = relevantWatch(s, lens?.watchNext) || CATEGORY_WATCH_FALLBACK[s.category]
   return clamp(scrubCopy(firstSentence(base)), 104)
 }
 
@@ -291,7 +320,9 @@ function tagsFor(s: PulseSignal, rank: number, pulse: InvestorPulse): PickTag[] 
   if (rank === 1 || (s.scope === 'company' && s.impact !== 'Neutral')) tags.push('High priority')
   if (s.category === 'Regulatory') tags.push('Regulatory')
   if (s.scope === 'sector') tags.push('Sector')
-  if ((s.daysAgo ?? 999) === 0 && isRecent(s)) tags.push('Fresh today')
+  // Freshness tag by CLASSIFIED freshness (published-in-window), not a crawl-stamped date.
+  if (s.freshness === 'fresh') tags.push('Fresh today')
+  else if (s.freshness === 'newly-surfaced') tags.push('Newly surfaced')
   if (signalHasCorrelation(s, pulse)) tags.push('Correlation')
   if (s.sourceUrl) tags.push('Source-backed')
   return [...new Set(tags)].slice(0, 3)
@@ -313,6 +344,10 @@ function toPick(s: PulseSignal, rank: number, pulse: InvestorPulse): TopPick {
     daysAgo: s.daysAgo,
     scope: s.scope,
     evidence: { kind: EVIDENCE_BY_CATEGORY[s.category], name: s.sourceName, url: s.sourceUrl },
+    freshness: s.freshness,
+    freshnessLabel: s.freshnessLabel,
+    publishedLabel: shortDay(s.publishedAt),
+    discoveredLabel: shortDay(s.discoveredAt),
   }
 }
 
@@ -512,6 +547,18 @@ export function previousReads(pulse: InvestorPulse, filter: PulseFilter): Previo
 
 const WK = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
 const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+
+// Compact "29 Jun" day label (no year) for the per-card Published / Discovered lines.
+// Returns '—' when there is no date on record — an honest blank, never a fake today.
+function shortDay(iso?: string | null): string {
+  if (!iso) return '—'
+  const m = /^(\d{4})-(\d{2})-(\d{2})/.exec(iso)
+  if (m) return `${Number(m[3])} ${MONTHS[Number(m[2]) - 1]}`
+  const t = Date.parse(iso)
+  if (isNaN(t)) return '—'
+  const d = new Date(t)
+  return `${d.getDate()} ${MONTHS[d.getMonth()]}`
+}
 
 export interface TimelineDay {
   key: string
@@ -951,9 +998,16 @@ function convictionScore(s: PulseSignal, pulse: InvestorPulse): Conviction {
   if (signalHasCorrelation(s, pulse)) score += 0.5
   // source quality — a tie-breaker (narrower spread than the value drivers above)
   score += { High: 1.1, Medium: 0.7, Low: 0.3 }[s.confidence]
-  score += Math.min(0.8, Math.max(0, evidence.length - 1) * 0.25)
+  // Extra sources corroborate but must NOT dominate — a story echoed by many domains
+  // is not "near-certain" on that basis alone (per the confidence-scoring rule).
+  score += Math.min(0.45, Math.max(0, evidence.length - 1) * 0.15)
   const stars = Math.max(1, Math.min(5, Math.round(score)))
-  const pct = Math.max(32, Math.round(Math.min(96, 44 + score * 10)))
+  // Confidence % is source-led. With honest per-signal confidence, High comes only
+  // from a primary/official source; so a NON-primary item is capped well below
+  // "near-certain" — harder still when its publication isn't even in the daily window.
+  const primarySourced = s.confidence === 'High'
+  let pct = Math.max(32, Math.round(Math.min(96, 44 + score * 10)))
+  if (!primarySourced) pct = Math.min(pct, s.freshness === 'fresh' ? 88 : 78)
   return { score, stars, pct, evidence }
 }
 
@@ -993,7 +1047,9 @@ function potentialImpact(s: PulseSignal, pulse: InvestorPulse): string | null {
 // What to monitor next — the concrete watch item (lens watch-list first).
 function whatToWatchFor(s: PulseSignal, pulse: InvestorPulse): string {
   const lens = pulse.lenses[CATEGORY_LENS[s.category]]
-  const w = lens?.watchNext?.[0] || CATEGORY_WATCH_FALLBACK[s.category]
+  // Prefer a lens watch-item that is genuinely about this signal; otherwise a
+  // category-appropriate fallback — never a standing solvency watch on an unrelated card.
+  const w = relevantWatch(s, lens?.watchNext) || CATEGORY_WATCH_FALLBACK[s.category]
   return clamp(scrubCopy(firstSentence(w)), 150)
 }
 
@@ -1059,26 +1115,36 @@ export interface ConvictionIdea {
   action: PulseAction | null
   isBreaking: boolean
   isNew: boolean
-  /** Intraday freshness marker: "New at 3:30 PM" (captured today) / "Fresh today". */
+  /** Intraday freshness marker: "New at 3:30 PM" / "Fresh today" / "Newly surfaced". */
   freshLabel?: string
+  /** Classified freshness of the lead item (fresh / newly-surfaced / existing / unknown). */
+  freshness: Freshness
+  /** Viewer-facing freshness label for the card ("Fresh update" / "Newly surfaced" / …). */
+  freshnessLabel: string
+  /** Lead source's real publication day ("29 Jun") or "—" when not on record. */
+  publishedLabel: string
+  /** When we first discovered the lead item ("3 Jul") or "—". */
+  discoveredLabel: string
   sources: { kind: EvidenceKind; name: string; url: string }[]
 }
 
-// Intraday freshness for one signal: "New at 3:30 PM" when it was CAPTURED today
-// (from the ingestion's `capturedAt`/`first_seen`, formatted in IST), else "Fresh
-// today" when its own date is today. Undefined otherwise. Honest: only shows a time
-// when a real capture timestamp exists — never a fabricated one.
+// Honest intraday freshness marker for one signal, driven by CLASSIFIED freshness
+// (published-vs-discovered), never by discovery alone:
+//   • fresh (source published in-window) → "New at 3:30 PM" (when we have a real
+//     capture time) or "Fresh today".
+//   • newly-surfaced (older/undated item we just found) → "Newly surfaced" — NOT a
+//     time, because "we found it now" is not "it happened now".
+// Undefined for everything else. Never fabricates a time.
 function freshLabelFor(s: PulseSignal): string | undefined {
+  if (s.freshness === 'newly-surfaced') return 'Newly surfaced'
+  if (s.freshness !== 'fresh') return undefined
   const t = s.capturedAt ? Date.parse(s.capturedAt) : NaN
   if (!isNaN(t)) {
     const capDay = new Date(t).toLocaleDateString('en-CA', { timeZone: 'Asia/Kolkata' })
-    return capDay === todayIso()
-      ? `New at ${new Date(t).toLocaleTimeString('en-IN', { hour: 'numeric', minute: '2-digit', hour12: true, timeZone: 'Asia/Kolkata' })}`
-      : undefined
+    if (capDay === todayIso())
+      return `New at ${new Date(t).toLocaleTimeString('en-IN', { hour: 'numeric', minute: '2-digit', hour12: true, timeZone: 'Asia/Kolkata' })}`
   }
-  // No capture time: dated-today (IST) fallback — compare the item's own date to the
-  // IST day, not the UTC-rolling daysAgo (which flips at 05:30 IST).
-  return s.date && s.date === todayIso() ? 'Fresh today' : undefined
+  return 'Fresh today'
 }
 
 /** Highest-conviction ideas from a scoped signal set — ranked by conviction (not
@@ -1102,9 +1168,16 @@ export function convictionIdeas(signals: PulseSignal[], pulse: InvestorPulse): C
       category: s.category,
       why: whyCareFor(s, pulse),
       action: actionForSignal(s, pulse),
-      isBreaking: s.id === freshestId && (s.daysAgo ?? 99) <= 2,
-      isNew: (s.daysAgo ?? 99) === 0,
+      // "Breaking / live" and "new" require GENUINE freshness (source published in the
+      // window), not a crawl-stamped date — otherwise an older, just-discovered item
+      // would flash as breaking news.
+      isBreaking: s.id === freshestId && s.freshness === 'fresh',
+      isNew: s.freshness === 'fresh',
       freshLabel: freshLabelFor(s),
+      freshness: s.freshness,
+      freshnessLabel: s.freshnessLabel,
+      publishedLabel: shortDay(s.publishedAt),
+      discoveredLabel: shortDay(s.discoveredAt),
       sources: c.evidence,
     }))
 }
@@ -1146,7 +1219,12 @@ function briefConfidence(signals: PulseSignal[]): { pct: number; tier: Confidenc
   const avg = signals.reduce((n, s) => n + CONF_SCORE[s.confidence], 0) / signals.length // 1..3
   const sourced = signals.filter((s) => s.sourceUrl).length / signals.length
   const base = 50 + ((avg - 1) / 2) * 40
-  const pct = Math.round(Math.min(97, base + sourced * 6))
+  let pct = Math.round(Math.min(97, base + sourced * 6))
+  // A feed carried ONLY by secondary outlets with no verifiable recency can't read as
+  // High confidence just because several domains echo it — needs a primary/official
+  // source or a genuinely fresh (in-window published) item to clear the High bar.
+  const anyPrimaryOrFresh = signals.some((s) => s.confidence === 'High' || s.freshness === 'fresh')
+  if (!anyPrimaryOrFresh) pct = Math.min(pct, 79)
   const tier: Confidence = pct >= 82 ? 'High' : pct >= 66 ? 'Medium' : 'Low'
   return { pct, tier }
 }
@@ -1290,49 +1368,70 @@ export function briefMessage(pulse: InvestorPulse, scoped: PulseSignal[], one: O
   const mgmt = selectManagementEvents(pulse.companyId, { recentOnly: true }).length
   if (reg + companyAny + mgmt === 0 && !one) return { since: '', keyThing: '', why: '', watch: '', nothing: true }
 
-  // What is genuinely NEW: real dated developments from today or yesterday (IST) —
-  // excluding evergreen explainer/landing pages mis-stamped with the crawl date. For a
-  // past-date view the scoped slice is already that date's items, so "new" is all of them.
-  const newRecent = isToday ? recent.filter((s) => isNewDevelopment(s, todayIso(), yesterdayIso())) : recent
-  const regNew = newRecent.filter((s) => s.category === 'Regulatory').length
-  const companyPosNew = newRecent.filter((s) => s.scope === 'company' && s.impact === 'Positive').length
-  const companyAnyNew = newRecent.filter((s) => s.scope === 'company').length
-  const mgmtNew = selectManagementEvents(pulse.companyId, { recentOnly: true }).filter((e) => (e.daysAgo ?? 99) <= 1).length
-
-  // Nothing genuinely new today, but the standing thesis is still live — lead with the
-  // honest "no new update" note and keep the thesis (one-thing / why / watch) visible,
-  // rather than dressing older items as "since yesterday". Only for the live Today view.
-  if (isToday && regNew + companyAnyNew + mgmtNew === 0) {
-    return {
-      since: 'No major new update has dropped today. The previous thesis remains live.',
-      keyThing: one ? clamp(scrubCopy(one.sentence), 172) : '',
-      why: clamp(scrubCopy(whyLine(recent, reg, companyPos)), 150),
-      watch: clamp(scrubCopy(watchLine(pulse, reg)), 150),
-      nothing: false,
-    }
-  }
-
-  // Only attribute "premium growth" when a NEW positive company item is actually about
-  // premium / growth — otherwise a rating, deal or margin item would be misframed.
-  const companyPosAboutGrowth = newRecent.some(
-    (s) => s.scope === 'company' && s.impact === 'Positive' && /premium|growth|gwp|nwp|nep|retail health/i.test(`${s.title} ${s.whyItMatters}`),
-  )
-  const bits: string[] = []
-  if (regNew > 0) bits.push(`${numWord(regNew)} regulatory ${regNew === 1 ? 'update' : 'updates'} moved into focus`)
-  if (companyPosNew > 0) bits.push(companyPosAboutGrowth ? `${pulse.company} is back in the news for premium growth` : `${pulse.company} drew fresh positive coverage`)
-  else if (companyAnyNew > 0) bits.push(`${pulse.company} picked up fresh coverage`)
-  if (mgmtNew > 0 && bits.length < 2) bits.push(mgmtNew === 1 ? 'there was a leadership change to note' : 'there were leadership changes to note')
-
-  const opener = isToday ? 'Since yesterday' : `On ${dateLabel}`
-  const since = bits.length ? `${opener}, ${joinNatural(bits.slice(0, 2))}.` : `${opener}, the board has stayed quiet — nothing fresh has forced a rethink.`
-
-  return {
-    since,
+  const thesis = {
     keyThing: one ? clamp(scrubCopy(one.sentence), 172) : '',
     why: clamp(scrubCopy(whyLine(recent, reg, companyPos)), 150),
     watch: clamp(scrubCopy(watchLine(pulse, reg)), 150),
     nothing: false,
   }
+
+  // A live PAST-date fallback describes that date's items plainly (the frozen archive
+  // is the normal path). No fresh/surfaced split — freshness is measured vs *today*.
+  if (!isToday) {
+    const bits: string[] = []
+    if (reg > 0) bits.push(`${numWord(reg)} regulatory ${reg === 1 ? 'update' : 'updates'} in focus`)
+    if (companyPos > 0) bits.push(`${pulse.company} had positive coverage`)
+    else if (companyAny > 0) bits.push(`${pulse.company} was in the news`)
+    const since = bits.length ? `On ${dateLabel}, ${joinNatural(bits.slice(0, 2))}.` : `On ${dateLabel}, nothing company-specific was recorded.`
+    return { since, ...thesis }
+  }
+
+  // TODAY — split what genuinely moved from what merely surfaced:
+  //   • FRESH        = the source was published/updated in the daily window (real news).
+  //   • NEWLY SURFACED = older / publication-unverified item we first found today.
+  // The "since the last brief" claim uses FRESH only; newly-surfaced items are shown
+  // with honest "recently surfaced" wording and never as a day-over-day development.
+  const fresh = recent.filter(isNewDevelopment)
+  const surfaced = recent.filter(isNewlySurfaced)
+  const regNew = fresh.filter((s) => s.category === 'Regulatory').length
+  const companyPosNew = fresh.filter((s) => s.scope === 'company' && s.impact === 'Positive').length
+  const companyAnyNew = fresh.filter((s) => s.scope === 'company').length
+  const mgmtNew = selectManagementEvents(pulse.companyId, { recentOnly: true }).filter((e) => (e.daysAgo ?? 99) <= 1).length
+  const regSurfaced = surfaced.filter((s) => s.category === 'Regulatory').length
+  const companyPosSurfaced = surfaced.filter((s) => s.scope === 'company' && s.impact === 'Positive').length
+  const companyAnySurfaced = surfaced.filter((s) => s.scope === 'company').length
+
+  // Something was genuinely PUBLISHED in the window → the real "since the last brief".
+  if (regNew + companyAnyNew + mgmtNew > 0) {
+    // Only attribute "premium growth" when a FRESH positive company item is actually
+    // about premium/growth — otherwise a rating/deal/margin item would be misframed.
+    const aboutGrowth = fresh.some(
+      (s) => s.scope === 'company' && s.impact === 'Positive' && /premium|growth|gwp|nwp|nep|retail health/i.test(`${s.title} ${s.whyItMatters}`),
+    )
+    const bits: string[] = []
+    if (regNew > 0) bits.push(`${numWord(regNew)} regulatory ${regNew === 1 ? 'update' : 'updates'} moved into focus`)
+    if (companyPosNew > 0) bits.push(aboutGrowth ? `${pulse.company} is back in the news for premium growth` : `${pulse.company} received fresh positive coverage`)
+    else if (companyAnyNew > 0) bits.push(`${pulse.company} received fresh coverage`)
+    if (mgmtNew > 0 && bits.length < 2) bits.push(mgmtNew === 1 ? 'there was a leadership change to note' : 'there were leadership changes to note')
+    return { since: `Since the last brief, ${joinNatural(bits.slice(0, 2))}.`, ...thesis }
+  }
+
+  // Nothing newly PUBLISHED, but we DID surface older/unverified-date items today —
+  // report them honestly as "recently surfaced", never "since yesterday". Lead with the
+  // company read and keep regulatory as a soft clause (no alarming raw count, since the
+  // feed carries the same story across several outlets).
+  if (companyAnySurfaced + regSurfaced > 0) {
+    const lead = companyPosSurfaced > 0
+      ? `${pulse.company} had recently surfaced positive analyst coverage`
+      : companyAnySurfaced > 0
+        ? `${pulse.company} had recently surfaced relevant coverage`
+        : 'Older regulatory items are now in view'
+    const regClause = companyAnySurfaced > 0 && regSurfaced > 0 ? ', alongside older regulatory items now in view' : ''
+    return { since: `${lead}${regClause}. No fresh company-specific update was published since the last brief.`, ...thesis }
+  }
+
+  // Genuinely quiet — nothing fresh, nothing newly surfaced. Keep the standing thesis.
+  return { since: 'No fresh company-specific update found today. The previous thesis remains live.', ...thesis }
 }
 
 // ── "Since yesterday" — real, computable deltas only (no fabricated sentiment) ─
@@ -1363,17 +1462,15 @@ export function sinceYesterday(pulse: InvestorPulse): SinceDelta[] {
   const company = pulse.companyId
   const to = (sahiTab: string): NavTarget => ({ page: 'sahi', sahiTab, company })
 
-  // "Since yesterday" = developments DATED today or yesterday (IST) — what actually
-  // happened in the last day. NOT the whole recent window (weeks-old items would be
-  // mislabeled as day-over-day changes), NOT merely "surfaced today" (old news newly
-  // found is not a since-yesterday change; and the feed's first daily run stamps
-  // everything as captured-today, which would inflate the counts), and NOT an evergreen
-  // explainer / IR-landing page crawled today but describing a months-old rule (that
-  // was the "2 new regulatory updates" that were really last March's rules). On a quiet
-  // day these simply go to zero. (#10 / honest-period rule.)
-  const today = todayIso()
-  const yday = yesterdayIso()
-  const fresh = pulse.signals.filter(isRecent).filter((s) => isNewDevelopment(s, today, yday))
+  // A day-over-day change requires the SOURCE to have been PUBLISHED/updated inside the
+  // window (freshness === 'fresh') — NOT merely discovered/crawled today. Older or
+  // publication-unverified items we first found today are "newly surfaced": real, worth
+  // a row, but labelled honestly and never counted as a "since yesterday" development.
+  // (The feed's first daily run stamps everything captured-today, and evergreen explainer
+  // pages carry no real date — both are excluded from "fresh" by construction.)
+  const recentSignals = pulse.signals.filter(isRecent)
+  const fresh = recentSignals.filter(isNewDevelopment)
+  const surfaced = recentSignals.filter(isNewlySurfaced)
 
   // Each non-metric change carries a LOCATOR focus, so "View in dashboard" scrolls
   // to the exact section it lives in, blips it and pops a small "here it is" note.
@@ -1385,19 +1482,32 @@ export function sinceYesterday(pulse: InvestorPulse): SinceDelta[] {
   // dashboard sections are built from other snapshots and don't carry this item, so an
   // in-app jump can only reach the right area, not the update. One item → open its source.
   const soleHref = (items: PulseSignal[]): string | undefined => (items.length === 1 && items[0].sourceUrl ? items[0].sourceUrl : undefined)
+  const freshestHref = (items: PulseSignal[]): string | undefined => items.filter((s) => s.sourceUrl).sort(byNewestSignal)[0]?.sourceUrl || undefined
 
-  const regItems = fresh.filter((s) => s.category === 'Regulatory')
-  const reg = regItems.length
-  if (reg) out.push({ id: 'reg', label: reg === 1 ? 'new regulatory update' : 'new regulatory updates', value: String(reg), direction: 'up', tone: 'Watch', target: locTarget('sector-news', 'reg', 'regulatory', `${reg} new regulatory ${reg === 1 ? 'update' : 'updates'}`), href: soleHref(regItems) })
+  // Regulatory — genuinely fresh first; else honestly "newly surfaced" (never "new").
+  const regFresh = fresh.filter((s) => s.category === 'Regulatory')
+  const regSurfaced = surfaced.filter((s) => s.category === 'Regulatory')
+  if (regFresh.length) {
+    const n = regFresh.length
+    out.push({ id: 'reg', label: n === 1 ? 'new regulatory update' : 'new regulatory updates', value: String(n), direction: 'up', tone: 'Watch', target: locTarget('sector-news', 'reg', 'regulatory', `${n} new regulatory ${n === 1 ? 'update' : 'updates'}`), href: soleHref(regFresh) })
+  } else if (regSurfaced.length) {
+    const n = regSurfaced.length
+    out.push({ id: 'reg', label: n === 1 ? 'newly surfaced regulatory update' : 'newly surfaced regulatory updates', value: String(n), direction: 'up', tone: 'Watch', target: locTarget('sector-news', 'reg', 'regulatory', `${n} newly surfaced regulatory ${n === 1 ? 'update' : 'updates'}`), href: soleHref(regSurfaced) })
+  }
 
-  // A fresh company update is company-specific news — it lives in the feed, not on any
-  // dashboard section (the Companies tab is a financial scorecard, not a news feed). So
-  // the row OPENS the actual update: the freshest one carrying a source. Unlike the other
-  // rows (which fall back to a section for a multi-item delta), a multi-item company delta
-  // still opens its freshest source, because no section would show the company news.
-  const coItems = fresh.filter((s) => s.scope === 'company')
-  const disclosures = coItems.length
-  if (disclosures) out.push({ id: 'co', label: disclosures === 1 ? 'fresh company update' : 'fresh company updates', value: String(disclosures), direction: 'up', tone: 'Positive', target: locTarget('companies', 'co', 'company', `${disclosures} fresh ${pulse.company} ${disclosures === 1 ? 'update' : 'updates'}`), href: coItems.filter((s) => s.sourceUrl).sort(byNewestSignal)[0]?.sourceUrl || undefined })
+  // Company — a "fresh update" ONLY when the source was published in the window; an
+  // older/unverified item we merely found today is a "newly surfaced relevant update".
+  // The row OPENS the actual article (the freshest one carrying a source), since the
+  // dashboard's Companies tab is a financial scorecard, not a news feed.
+  const coFresh = fresh.filter((s) => s.scope === 'company')
+  const coSurfaced = surfaced.filter((s) => s.scope === 'company')
+  if (coFresh.length) {
+    const n = coFresh.length
+    out.push({ id: 'co', label: n === 1 ? 'fresh update' : 'fresh updates', value: String(n), direction: 'up', tone: 'Positive', target: locTarget('companies', 'co', 'company', `${n} fresh ${pulse.company} ${n === 1 ? 'update' : 'updates'}`), href: freshestHref(coFresh) })
+  } else if (coSurfaced.length) {
+    const n = coSurfaced.length
+    out.push({ id: 'co', label: n === 1 ? 'newly surfaced relevant update' : 'newly surfaced relevant updates', value: String(n), direction: 'up', tone: 'Neutral', target: locTarget('companies', 'co', 'company', `${n} newly surfaced ${pulse.company} ${n === 1 ? 'update' : 'updates'}`), href: freshestHref(coSurfaced) })
+  }
 
   // Management changes only when genuinely recent (last day) — not the full 18-month
   // governance window, which would read stale changes as "since yesterday".

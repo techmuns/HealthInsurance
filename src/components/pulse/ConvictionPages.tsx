@@ -31,7 +31,7 @@ import {
   type LucideIcon,
 } from 'lucide-react'
 import type { NavTarget } from '@/insights/sourceMap'
-import type { SignalCategory } from '@/insights/investorPulse'
+import type { SignalCategory, Freshness } from '@/insights/investorPulse'
 import { dashboardTargetFor, type ConvictionIdea, type EvidenceKind } from './derive'
 import { GOLD, GOLD_ON_NAVY } from './parts'
 
@@ -41,6 +41,15 @@ const tierOf = (pct: number): 'High' | 'Medium' | 'Low' => (pct >= 82 ? 'High' :
 const TIER_COLOR: Record<string, string> = { High: '#0E6F6D', Medium: '#9C7430', Low: '#8C7A55' }
 // Same tiers, brightened to read on the navy header.
 const TIER_ON_NAVY: Record<string, string> = { High: '#4FD1C5', Medium: '#E9C46C', Low: '#C4B487' }
+
+// Freshness pill tone: genuinely fresh = green; newly surfaced = amber (older item we
+// just found); existing/undated = slate. Colour is signal, per the freshness rule.
+const FRESHNESS_TONE: Record<Freshness, { color: string; background: string }> = {
+  fresh: { color: '#2F855A', background: 'rgba(47,133,90,0.12)' },
+  'newly-surfaced': { color: '#9C7430', background: 'rgba(156,116,48,0.14)' },
+  existing: { color: '#5B6573', background: 'rgba(140,151,168,0.14)' },
+  unknown: { color: '#8C7A55', background: 'rgba(140,124,85,0.12)' },
+}
 
 // ── shared page pieces ────────────────────────────────────────────────────────
 
@@ -205,6 +214,18 @@ function SourcesPage({ idea, companyId, onNavigate }: { idea: ConvictionIdea; co
           <div className="text-[14px] font-bold" style={{ color: TIER_COLOR[tier] }}>{tier}</div>
           <div className="mt-0.5 text-[8.5px] font-semibold uppercase tracking-[0.08em] text-ink-secondary">source confidence</div>
         </div>
+      </div>
+      {/* Published vs discovered vs freshness — the honest provenance trail per the
+          freshness-classification rule: when we found it is not when it happened. */}
+      <div className="mt-2 flex flex-wrap items-center gap-x-2.5 gap-y-1 text-[9px] font-semibold text-ink-secondary">
+        <span>Published <span className="text-navy-deep">{idea.publishedLabel}</span></span>
+        <span className="h-2.5 w-px bg-soft-border" />
+        <span>Discovered <span className="text-navy-deep">{idea.discoveredLabel}</span></span>
+        <span className="h-2.5 w-px bg-soft-border" />
+        <span className="inline-flex items-center gap-1">
+          Freshness
+          <span className="rounded-full px-1.5 py-0.5 text-[8.5px] font-bold" style={FRESHNESS_TONE[idea.freshness]}>{idea.freshnessLabel}</span>
+        </span>
       </div>
       <div className="mt-2 flex flex-wrap gap-1">
         {chips.map((c) => (

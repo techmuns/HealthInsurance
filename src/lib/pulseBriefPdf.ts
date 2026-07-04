@@ -114,6 +114,9 @@ function ideasSection(ideas: ConvictionIdea[]): string {
       if (idea.whatToWatch) rows.push(`<div class="row"><span class="k">What to watch next</span><span class="v">${esc(idea.whatToWatch)}</span></div>`)
       const srcNames = idea.sources.slice(0, 3).map((s) => esc(s.name)).join(' · ')
       const srcLine = srcNames ? `<div class="row"><span class="k">Source basis</span><span class="v muted">${srcNames}</span></div>` : ''
+      // Honest freshness trail: published vs discovered vs classification — so a "found
+      // today" item is never read as "happened today".
+      const freshLine = `<div class="row"><span class="k">Freshness</span><span class="v muted">Published ${esc(idea.publishedLabel)} · Discovered ${esc(idea.discoveredLabel)} · ${esc(idea.freshnessLabel)}</span></div>`
       return `
         <article class="idea">
           <div class="idea-head">
@@ -124,6 +127,7 @@ function ideasSection(ideas: ConvictionIdea[]): string {
           </div>
           ${rows.join('\n')}
           ${srcLine}
+          ${freshLine}
         </article>`
     })
     .join('\n')

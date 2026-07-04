@@ -50,7 +50,7 @@ function buildPayload(focus: Focus) {
       "I'm an investor tracking NIVA BUPA HEALTH INSURANCE (NSE: NIVABUPA) and the Indian standalone health-insurance sector (Star Health, Care, Aditya Birla, ManipalCigna). Give me a concise, source-linked market-intelligence feed of what could MOVE these shares or matters for the health-insurance sector right now.\n\n" +
         focus.scope +
         '\n\nReturn a table with exactly these columns, in this order, pipe-delimited:\n\n' +
-        'company | date | kind | horizon | impact | headline | detail | source_url\n\n' +
+        'company | date | kind | horizon | impact | headline | detail | source_url | published\n\n' +
         'Rules:\n' +
         'company = "Niva Bupa" for company-specific items, or "Sector" for sector/regulatory items.\n' +
         'date = the event/news date as YYYY-MM-DD (best estimate if a window).\n' +
@@ -59,13 +59,14 @@ function buildPayload(focus: Focus) {
         'impact = one of: positive, negative, watch, neutral (likely effect on the Niva Bupa share).\n' +
         'headline = one short line.\n' +
         'detail = one sentence on why it matters to the share / sector.\n' +
-        'source_url = the link backing the item.\n\n' +
+        'source_url = the link backing the item.\n' +
+        "published = the article's ORIGINAL PUBLICATION date (YYYY-MM-DD) exactly as printed on the article / byline / dateline. This is DIFFERENT from `date`: it is when the SOURCE was published, not when a scheduled event is due. Leave BLANK if the page shows no explicit publication date. NEVER put today's date here unless the article was genuinely published today — an analyst note you find today that was published last week must carry LAST WEEK's date here, so it is not mislabelled as a fresh, same-day development.\n\n" +
         'PREFERRED SOURCES — prefer these trusted outlets for headlines and links: The Economic Times (economictimes.indiatimes.com / bfsi.economictimes.indiatimes.com), The Hindu BusinessLine (thehindubusinessline.com), Moneycontrol (moneycontrol.com), Livemint (livemint.com). You may DISCOVER headlines via Pulse by Zerodha (pulse.zerodha.com) but link the ORIGINAL outlet article, never the aggregator URL. Include other credible sources for anything these have not covered.\n\n' +
         `Give up to ${focus.maxItems} of the most relevant, current items, most market-moving first. Use real, sourced items only — do not invent events. Leave a cell blank rather than guess.\n\n` +
-        'DATE DISCIPLINE — the date must be the date the development actually happened / was published, NEVER today\'s date as a placeholder. Do NOT include evergreen explainer / "what the new rules mean" / guide / FAQ pages, or an insurer\'s investor-relations "watch this page" landing — those describe rules that may have changed months ago and have no real news date. If an item has no genuine, verifiable publication date, LEAVE THE DATE CELL BLANK rather than fill in today. Only a specific, dated development belongs in this feed.\n\n' +
+        'DATE DISCIPLINE — the date must be the date the development actually happened / was published, NEVER today\'s date as a placeholder. Fill the `published` column with the source\'s real byline date whenever the page shows one (and leave it blank otherwise) — do NOT copy today\'s date into it. We separately record when WE discovered each item, so an older article you surface today is labelled "newly surfaced", not "fresh": accurate publication dates are what make that distinction work. Do NOT include evergreen explainer / "what the new rules mean" / guide / FAQ pages, or an insurer\'s investor-relations "watch this page" landing — those describe rules that may have changed months ago and have no real news date. If an item has no genuine, verifiable publication date, LEAVE THE DATE CELL BLANK rather than fill in today. Only a specific, dated development belongs in this feed.\n\n' +
         'Example (format only):\n' +
-        'company | date | kind | horizon | impact | headline | detail | source_url\n' +
-        'Niva Bupa | 2026-05-20 | earnings | upcoming | watch | Q4 FY26 results on 20 May | Combined ratio and growth guidance are the swing factors for the stock. | https://…',
+        'company | date | kind | horizon | impact | headline | detail | source_url | published\n' +
+        'Niva Bupa | 2026-05-20 | earnings | upcoming | watch | Q4 FY26 results on 20 May | Combined ratio and growth guidance are the swing factors for the stock. | https://… | 2026-05-06',
     ],
     query_context: {
       TICKER_SYMBOL: ['NIVABUPA', 'STARHEALTH'],
@@ -159,6 +160,8 @@ function isEvergreenUrl(url: string | null): boolean {
 interface IntelItem {
   id: string
   company_id: string
+  /** Best-known EVENT date. NOT trusted as proof of publication (the reader treats a
+   *  bare date as a discovery/surface date unless `source_published_at` is present). */
   date: string | null
   kind: string
   horizon: 'upcoming' | 'recent'
@@ -167,8 +170,14 @@ interface IntelItem {
   detail: string
   source_name: string | null
   source_url: string | null
-  /** Bookkeeping only (never shown): when this highlight first entered the feed.
-   *  Lets undated items age out of the accumulated feed. */
+  /** The source article's real PUBLICATION date (YYYY-MM-DD) from its byline, when the
+   *  page exposes one. Null when unknown — never today-as-placeholder. The ONLY field
+   *  the reader trusts to call an item "fresh". */
+  source_published_at?: string | null
+  /** When our pipeline first DISCOVERED the item (ISO). Stamped on first capture. */
+  discovered_at?: string
+  /** Bookkeeping (never shown): when this highlight first entered the feed. Alias of
+   *  discovered_at, kept for back-compat / ageing undated items out of the feed. */
   first_seen?: string
 }
 
@@ -189,6 +198,11 @@ function parseItems(answer: string, today: string): IntelItem[] {
     // yesterday" development. This is what kept surfacing last March's IRDAI rules as
     // brand-new regulatory updates. (Honesty: old rules must not be dressed up as new.)
     const date = dateMatch && isEvergreenUrl(sourceUrl) ? null : dateMatch
+    // The source's REAL publication date (last column) — kept strictly separate from
+    // `date`. Same evergreen guard: an explainer / landing page has no genuine byline
+    // date, so we never store one. Null when the agent left it blank (unknown).
+    const publishedMatch = clean(c[8] ?? '').match(/\d{4}-\d{2}-\d{2}/)?.[0] ?? null
+    const source_published_at = publishedMatch && !isEvergreenUrl(sourceUrl) ? publishedMatch : null
     const kind = KINDS.has(c[2]) ? c[2] : 'sector_news'
     let horizon = (c[3] || '').toLowerCase() === 'upcoming' || (c[3] || '').toLowerCase() === 'recent' ? (c[3].toLowerCase() as 'upcoming' | 'recent') : null
     if (!horizon) horizon = date && date >= today ? 'upcoming' : 'recent'
@@ -204,6 +218,7 @@ function parseItems(answer: string, today: string): IntelItem[] {
       detail: clean(c[6]),
       source_name: sourceUrl ? new URL(sourceUrl).hostname.replace(/^www\./, '') : null,
       source_url: sourceUrl,
+      source_published_at,
     })
   }
   return out
@@ -254,7 +269,9 @@ function mergeFeed(
   let added = 0
   for (const it of fresh) {
     if (!byId.has(it.id)) {
-      byId.set(it.id, { ...it, first_seen: fetchedAt })
+      // Stamp DISCOVERY on first capture — when WE found it (distinct from when the
+      // source was published). `first_seen` kept as an alias for back-compat.
+      byId.set(it.id, { ...it, first_seen: fetchedAt, discovered_at: fetchedAt })
       added++
     }
   }
