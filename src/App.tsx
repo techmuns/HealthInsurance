@@ -311,10 +311,11 @@ function AppInner() {
     setInsightReturn(insightId)
     setAuditFocus(target.page === 'audit' ? target.audit ?? null : null)
     // Carry the insight-linked highlight context into the destination section, and
-    // pre-select the company it names so the chart lands on the right series.
+    // pre-select the company it names so the chart lands on the right series. The
+    // combined ("all") scope names no single insurer, so it never sets the highlight.
     setInsightFocus(target.focus ?? null)
     const company = target.focus?.company ?? target.company
-    if (company) setHighlightedCompany(company)
+    if (company && company !== 'all') setHighlightedCompany(company)
     setPage(target.page)
     if (target.sahiTab) setSahiTab(target.sahiTab)
     setNavOpen(false)

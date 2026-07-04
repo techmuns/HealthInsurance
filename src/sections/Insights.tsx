@@ -2,10 +2,10 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import { Radar, Layers } from 'lucide-react'
 import generated from '@/data/insights.generated.json'
 import type { InsightsFile } from '@/insights/types'
-import { useFilters, useActiveCompany } from '@/state/filters'
+import { useFilters } from '@/state/filters'
 import { type NavTarget } from '@/insights/sourceMap'
 import { buildInvestorPulse } from '@/insights/investorPulse'
-import { CompanyFilter, PulseView } from '@/components/InvestorPulse'
+import { ALL_COMPANIES, insightsCompanyLabel, CompanyFilter, PulseView } from '@/components/InvestorPulse'
 import { DataInsights } from '@/components/DataInsights'
 
 const FILE = generated as unknown as InsightsFile
@@ -20,9 +20,19 @@ type View = 'pulse' | 'dataInsights'
  * "Daily Signal Pulse" block — every insight still present, just simpler.
  */
 export function Insights({ onNavigate, reopenInsightId, onReopened }: { onNavigate?: (target: NavTarget, insightId: string) => void; reopenInsightId?: string | null; onReopened?: () => void }) {
-  const company = useActiveCompany()
   const { setHighlightedCompany } = useFilters()
-  const pulse = useMemo(() => buildInvestorPulse(company.id, company.shortName), [company.id, company.shortName])
+  // One shared company scope for the whole Insights tab — Pulse and Data Insights
+  // read the same selection, so switching tabs never changes the company. Defaults
+  // to "All" (the combined, no-company-filter view).
+  const [insCompany, setInsCompany] = useState<string>(ALL_COMPANIES)
+  const pulse = useMemo(() => buildInvestorPulse(insCompany, insightsCompanyLabel(insCompany)), [insCompany])
+
+  const onSelectCompany = (id: string) => {
+    setInsCompany(id)
+    // Keep SAHI Analysis highlighting in sync when a specific insurer is chosen;
+    // "All" has no single company to highlight, so it leaves the global lens as-is.
+    if (id !== ALL_COMPANIES) setHighlightedCompany(id)
+  }
 
   // On return from "Go to source → Back to Insight": the reopened insight lives in
   // a Data Insights section, so open that view + section.
@@ -35,7 +45,7 @@ export function Insights({ onNavigate, reopenInsightId, onReopened }: { onNaviga
   }, [])
 
   const goToSource = (target: NavTarget, insightId: string) => {
-    if (target.company) setHighlightedCompany(target.company)
+    if (target.company && target.company !== ALL_COMPANIES) setHighlightedCompany(target.company)
     onNavigate?.(target, insightId)
   }
 
@@ -59,10 +69,10 @@ export function Insights({ onNavigate, reopenInsightId, onReopened }: { onNaviga
           </h1>
         </div>
         <div className="flex flex-wrap items-center gap-2">
-          {/* Pulse reads one company at a time; Data Insights carries its own
-              Company filter in its filter bar, so the header selector would be a
-              redundant second control there. */}
-          {view === 'pulse' && <CompanyFilter />}
+          {/* One shared Company selector for both views — "All" (combined) by
+              default. The selection persists across the Pulse ⇄ Data Insights
+              toggle, so switching tabs never changes the company in view. */}
+          <CompanyFilter value={insCompany} onChange={onSelectCompany} />
           <div className="inline-flex rounded-lg border border-soft-border bg-white p-0.5 shadow-soft">
             {TABS.map(({ id, label, Icon }) => {
               const on = id === view
@@ -96,7 +106,7 @@ export function Insights({ onNavigate, reopenInsightId, onReopened }: { onNaviga
         {view === 'pulse' ? (
           <PulseView pulse={pulse} onGoToSource={goToSource} />
         ) : (
-          <DataInsights onGoToSource={goToSource} reopenInsightId={reopenRef.current} />
+          <DataInsights company={insCompany} onGoToSource={goToSource} reopenInsightId={reopenRef.current} />
         )}
       </div>
     </div>

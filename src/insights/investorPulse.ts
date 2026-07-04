@@ -24,6 +24,7 @@ import generated from '@/data/insights.generated.json'
 import annualSnapshot from '@/data/snapshots/insurer-annual-snapshot.json'
 import peerSnapshot from '@/data/snapshots/sahi-peer-comparison.json'
 import type { Insight, InsightCategory, InsightsFile } from '@/insights/types'
+import { insurers } from '@/data/mockData'
 import { getManagementEvents } from '@/lib/dataLayer'
 import { getAnalystCoverage } from '@/lib/analystCoverage'
 import { getPromises } from '@/lib/promiseTracker'
@@ -31,6 +32,20 @@ import { getEarningsBridge, earningsQuality, BRIDGE_SOURCE, BRIDGE_SOURCE_URL } 
 import { isLinkable, sourceHref, classifySource } from '@/lib/sourceHealth'
 
 const INSIGHTS_FILE = generated as unknown as InsightsFile
+
+// ── Combined ("All") scope ───────────────────────────────────────────────────
+// The Insights tab reads for one insurer OR for the whole standalone-health pool
+// at once ('all'). The combined build keeps every insurer's own items plus the
+// sector-wide items in a single feed. These helpers back that aggregation.
+export const ALL_SCOPE = 'all'
+const INSURER_NAME = new Map((insurers as { id: string; shortName: string }[]).map((i) => [i.id, i.shortName]))
+const SAHI_IDS = (insurers as { id: string; peerGroup: string }[])
+  .filter((i) => i.peerGroup === 'SAHI')
+  .map((i) => i.id)
+/** A market-intelligence item with no specific insurer — a sector-wide signal. */
+function isSectorItem(companyIdOfItem?: string | null): boolean {
+  return !companyIdOfItem || companyIdOfItem === 'sector' || companyIdOfItem === ALL_SCOPE
+}
 
 // ── Normalized vocabulary (the contract the UI renders) ─────────────────────
 
@@ -59,6 +74,11 @@ export interface PulseSignal {
   confidence: Confidence
   /** Sector-wide item vs a company-specific one (drives a subtle "sector" tag). */
   scope: 'company' | 'sector'
+  /** The specific insurer this item is about (null for a sector-wide item). In the
+   *  combined ("All") view this labels the entity + targets the right company; in a
+   *  single-company view it equals the selected company. */
+  companyId: string | null
+  companyName: string | null
   /**
    * 'upcoming' = a scheduled future event (AGM, next results date); 'recent' =
    * already-surfaced news. Freshness and "latest" are measured over surfaced items
@@ -393,13 +413,19 @@ const IMPACT_MAP: Record<string, SignalImpact> = {
   neutral: 'Neutral',
 }
 
-function toSignal(item: IntelItem, companyId: string): PulseSignal | null {
+function toSignal(item: IntelItem, companyId: string, isAll = false): PulseSignal | null {
   // Source discipline: an item with no source name AND no usable link is dropped
   // (never shown without a trail). An item with a name but a dead link is kept and
   // marked Low.
   const hasLink = isLinkable(item.source_url)
   if (!item.source_name && !hasLink) return null
-  const scope: 'company' | 'sector' = item.company_id === companyId ? 'company' : 'sector'
+  // In the combined view, an item about any specific insurer is a 'company' item
+  // (labelled with that insurer); only genuinely sector-wide items are 'sector'.
+  // In a single-company view, only the selected company's items are 'company'.
+  const scope: 'company' | 'sector' = isAll
+    ? isSectorItem(item.company_id) ? 'sector' : 'company'
+    : item.company_id === companyId ? 'company' : 'sector'
+  const itemCompanyId = isSectorItem(item.company_id) ? null : item.company_id ?? null
   return {
     id: item.id ?? `${item.kind}-${item.date}`,
     date: item.date ?? '',
@@ -413,6 +439,8 @@ function toSignal(item: IntelItem, companyId: string): PulseSignal | null {
     sourceUrl: hasLink ? sourceHref(item.source_url)! : '',
     confidence: sourceConfidence(item.source_url),
     scope,
+    companyId: itemCompanyId,
+    companyName: itemCompanyId ? INSURER_NAME.get(itemCompanyId) ?? null : null,
     // Only an explicit 'upcoming' marks a scheduled event; anything else counts as
     // already-surfaced news for freshness purposes.
     horizon: item.horizon === 'upcoming' ? 'upcoming' : 'recent',
@@ -521,7 +549,12 @@ export function selectManagementEvents(
   companyId: string,
   opts: { governanceOnly?: boolean; recentOnly?: boolean; withinMonths?: number } = {},
 ): PulseManagementEvent[] {
-  const { rows } = getManagementEvents(companyId) as { rows: MgmtEventRow[] }
+  // Combined ("All") scope aggregates every standalone-health insurer's events into
+  // one governance feed; a single company reads only its own.
+  const rows =
+    companyId === ALL_SCOPE
+      ? SAHI_IDS.flatMap((id) => (getManagementEvents(id).rows as MgmtEventRow[]))
+      : (getManagementEvents(companyId).rows as MgmtEventRow[])
   let events = (rows ?? [])
     .map((r, i) => toManagementEvent(r, i))
     .filter((e): e is PulseManagementEvent => e != null)
@@ -1123,18 +1156,22 @@ function buildLenses(companyId: string, signals: PulseSignal[]): Record<Exclude<
  * the selected company — the UI renders an honest empty state, never filler.
  */
 export function buildInvestorPulse(companyId: string, companyName: string): InvestorPulse {
+  const isAll = companyId === ALL_SCOPE
   const rawIntel = (intelSnapshot.data as IntelItem[]) ?? []
-  // In-scope items: this company's own items + sector-wide items.
-  const scoped = rawIntel.filter(
-    (i) => !i.company_id || i.company_id === companyId || i.company_id === 'sector' || i.company_id === 'all',
-  )
+  // In-scope items: the combined ("All") view takes every insurer's items plus the
+  // sector-wide items; a single company takes its own items + sector-wide items.
+  const scoped = isAll
+    ? rawIntel
+    : rawIntel.filter(
+        (i) => !i.company_id || i.company_id === companyId || i.company_id === 'sector' || i.company_id === 'all',
+      )
   // Curated ranking for the feed: freshness band → impact → company relevance →
   // source confidence (a stale-but-loud item never buries today's material news).
   const freshBand = (d: number | null) => (d == null ? 4 : d <= 2 ? 0 : d <= 7 ? 1 : d <= 31 ? 2 : 3)
   const scopeRank = (s: PulseSignal) => (s.scope === 'company' ? 0 : 1)
   const confRank = (s: PulseSignal) => ({ High: 0, Medium: 1, Low: 2 }[s.confidence])
   const signals = scoped
-    .map((i) => toSignal(i, companyId))
+    .map((i) => toSignal(i, companyId, isAll))
     .filter((s): s is PulseSignal => s != null)
     .sort(
       (a, b) =>
