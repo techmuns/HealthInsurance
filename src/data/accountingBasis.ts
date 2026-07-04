@@ -305,11 +305,17 @@ export function getBasisSolvency(companyId: string, period: BasisPeriod): number
   return SOLVENCY[companyId]?.[period] ?? null
 }
 
-/** Statutory RoE (%) = IGAAP PAT ÷ reported net worth. There is no IFRS equity
- *  to compute an IFRS RoE cleanly, so this statutory figure is the only RoE. */
+/** Statutory RoE (%) = annual IGAAP PAT ÷ reported year-end net worth. There is
+ *  no IFRS equity to compute an IFRS RoE cleanly, so this statutory figure is the
+ *  only RoE. Annual periods only: net worth is stored year-end (annual-only), so
+ *  a Q4 standalone would divide a 3-month PAT by full-year equity — an
+ *  unannualised, misleading ratio on a mismatched basis. Quarterly periods
+ *  therefore return null and the RoE row blanks, matching the capital-efficiency
+ *  rows (getInvestment*) which have no Q4 basis either. */
 export function getStatutoryRoe(companyId: string, period: BasisPeriod): number | null {
   const c = PROFIT_BY_BASIS[companyId]
   if (!c) return null
+  if (!isAnnual(period)) return null
   const pat = c.igaap[period]?.pat
   const nw = netWorthFor(companyId, period)
   if (pat == null || nw == null || nw === 0) return null

@@ -64,22 +64,25 @@ export function AnalysisBuilder({ rows, focalId }: { rows: Insurer[]; focalId: s
   // Sorted rows by the active sort column.
   const sortedRows = useMemo(() => {
     const list = [...rows]
+    const dir = sortDir === 'desc' ? -1 : 1
     if (sortKey === 'company') {
-      list.sort((a, b) => a.shortName.localeCompare(b.shortName))
+      list.sort((a, b) => a.shortName.localeCompare(b.shortName) * dir)
     } else {
       const m = metricByKey(sortKey)
       if (m) {
+        // Apply the direction inside the comparator so n/a rows stay pinned to the
+        // bottom in BOTH directions. (A blanket list.reverse() on a desc sort would
+        // flip the bottom-pinned n/a rows to the top — ranking missing data as #1.)
         list.sort((a, b) => {
           const va = valueFor(a, m)
           const vb = valueFor(b, m)
           if (va == null && vb == null) return 0
           if (va == null) return 1 // n/a always sinks
           if (vb == null) return -1
-          return va - vb
+          return (va - vb) * dir
         })
       }
     }
-    if (sortDir === 'desc') list.reverse()
     return list
   }, [rows, sortKey, sortDir])
 

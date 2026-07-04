@@ -988,7 +988,14 @@ function metricOneLine(key: Exclude<LensKey, 'overviewPulse'>, metrics: MetricRe
   if (key === 'investmentPerformance') {
     const pct = metricNum(metrics, 'Investment income vs PAT')
     if (pct == null) return null
-    return `Investment income is ${pct}% of PAT — earnings are investment-led, not underwriting-led, so profit quality is weaker than headline PAT suggests.`
+    // Match the tile's earningsQuality() read: profit is "investment-led" only
+    // when the core book runs an underwriting loss (the pct alone doesn't decide
+    // it). When underwriting is itself profitable, say so — never assert weaker
+    // profit quality unconditionally, which would contradict the "Core-led" tile.
+    const uw = metricNum(metrics, 'Underwriting result')
+    return uw != null && uw < 0
+      ? `Investment income is ${pct}% of PAT — earnings are investment-led, not underwriting-led, so profit quality is weaker than headline PAT suggests.`
+      : `Investment income is ${pct}% of PAT, but underwriting itself is profitable — so the profit is core-led, not dependent on investment income.`
   }
   return null
 }
