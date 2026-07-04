@@ -1336,9 +1336,10 @@ export function AuditSpreadsheet({ model, focus }: { model: AuditModel; focus?: 
           stacking contexts, so the Company dropdown (inside Row 1) can only clear
           the later Row 2 if Row 1's whole context is lifted above it. */}
       <div className="relative z-30 flex items-center justify-between gap-x-3 gap-y-2 rounded-xl border border-soft-border bg-surface-tint/70 px-2.5 py-2 shadow-soft backdrop-blur-md">
-        {/* Metric / category tabs — take the remaining width and wrap internally
-            so the action area always stays pinned to the right. */}
-        <div className="flex min-w-0 flex-1 flex-wrap items-center gap-1">
+        {/* Metric / category tabs — a single-line strip that takes the remaining
+            width and scrolls horizontally (no visible scrollbar) if it ever
+            overflows, so the action area always stays pinned to the right. */}
+        <div className="flex min-w-0 flex-1 items-center gap-1 overflow-x-auto hide-scrollbar">
           {sheets.map((g) => {
             const on = g.sheet === active
             const filled = g.stats.valuePresent
@@ -1349,16 +1350,13 @@ export function AuditSpreadsheet({ model, focus }: { model: AuditModel; focus?: 
                 onClick={() => { setActive(g.sheet); setSelected(null) }}
                 title={`${g.sheet} — ${filled}/${g.stats.total} cells with a value`}
                 className={[
-                  'group relative flex shrink-0 items-center gap-1 whitespace-nowrap rounded-lg px-2 py-1 text-[11px] transition-all duration-normal ease-premium',
+                  'group relative flex shrink-0 items-center whitespace-nowrap rounded-lg px-2 py-1 text-[11px] transition-all duration-normal ease-premium',
                   on
                     ? 'bg-gradient-to-b from-[#27457E] to-[#1E3A6B] font-semibold text-white shadow-[0_2px_8px_rgba(23,43,77,0.18)]'
                     : 'font-medium text-ink-secondary hover:bg-white/70 hover:text-navy-primary',
                 ].join(' ')}
               >
                 <span>{g.sheet}</span>
-                <span className={`rounded-full px-1 py-px text-[8.5px] font-semibold tabular-nums ${on ? 'bg-white/20 text-white' : 'bg-ice text-ink-secondary'}`}>
-                  {filled}/{g.stats.total}
-                </span>
                 {on && <span className="pointer-events-none absolute inset-x-2.5 bottom-1 h-[2px] rounded-full bg-gradient-to-r from-champagne to-champagne-deep" />}
               </button>
             )
