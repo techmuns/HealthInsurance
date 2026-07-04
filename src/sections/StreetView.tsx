@@ -1,4 +1,4 @@
-import { Activity, ArrowUpRight, CalendarClock, Gauge, Lock, Percent, TrendingDown, TrendingUp } from 'lucide-react'
+import { Activity, Gauge, Percent, TrendingDown, TrendingUp } from 'lucide-react'
 import { EmptyState } from '@/components/EmptyState'
 import { SourceTag } from '@/components/SourceTag'
 import { useActiveCompany } from '@/state/filters'
@@ -127,17 +127,6 @@ export function StreetView({ embedded = false }: { embedded?: boolean } = {}) {
   const { score, kind } = computeSignal(ac.buyCount, ac.holdCount, ac.sellCount, ac.analystCount, upside ?? 0)
   const up = (t: number | null) => (t != null && price != null && price > 0 ? (t / price - 1) * 100 : null)
 
-  // One row per broker: keep each broker's most recent note (newest-first).
-  const latestByBroker = reports.filter((r, i) => reports.findIndex((x) => x.brokerage === r.brokerage) === i)
-
-  // Attributions for the takeaway cards, derived from the live coverage (never
-  // hardcoded): highest target = most bullish, lowest = most conservative,
-  // newest note = latest update.
-  const withTarget = latestByBroker.filter((r) => r.targetPrice != null)
-  const mostBullish = withTarget.reduce<(typeof withTarget)[number] | null>((best, r) => (best == null || (r.targetPrice as number) > (best.targetPrice as number) ? r : best), null)
-  const mostConservative = withTarget.reduce<(typeof withTarget)[number] | null>((worst, r) => (worst == null || (r.targetPrice as number) < (worst.targetPrice as number) ? r : worst), null)
-  const latestNote = latestByBroker[0] ?? null
-
   // Dynamic "Average Analyst Target" — the mean of the valid (numeric, > 0)
   // targets across every dated broker call on the table below. Blank / null /
   // non-numeric / NA / stale placeholder values are excluded, and it recomputes
@@ -185,41 +174,6 @@ export function StreetView({ embedded = false }: { embedded?: boolean } = {}) {
           />
         )}
         <SignalGauge kind={kind} score={score} buy={ac.buyCount} hold={ac.holdCount} sell={ac.sellCount} upside={upside} />
-      </div>
-
-      {/* ── Rating split capsule + Top analyst takeaways ───────────────────── */}
-      <div className="grid grid-cols-1 gap-4 lg:grid-cols-[0.8fr_1.2fr]">
-        <div className="card-surface flex flex-col p-5">
-          <PanelHead title="Rating Split" note={`${ac.analystCount} analysts · refreshed ${ac.lastUpdated}`} />
-          {/* segmented capsule */}
-          <div className="mt-5 flex h-9 overflow-hidden rounded-full shadow-[inset_0_1px_2px_rgba(23,43,77,0.06)] ring-1 ring-soft-border">
-            {([['Buy', ac.buyCount], ['Hold', ac.holdCount], ['Sell', ac.sellCount]] as const).map(([r, c], i) =>
-              c > 0 ? (
-                <div key={r} className="flex items-center justify-center gap-1 text-[11px] font-semibold tabular-nums" style={{ width: `${(c / ac.analystCount) * 100}%`, background: ratingTone[r].bg, color: ratingTone[r].fg, boxShadow: i < 2 ? 'inset -1px 0 0 rgba(255,255,255,0.7)' : undefined }} title={`${c} ${r}`}>
-                  <span className="h-1.5 w-1.5 rounded-full" style={{ background: ratingTone[r].fg }} />
-                  {c}
-                </div>
-              ) : null,
-            )}
-          </div>
-          <div className="mt-3 flex flex-wrap gap-2">
-            {([['Buy', ac.buyCount], ['Hold', ac.holdCount], ['Sell', ac.sellCount]] as const).map(([r, c]) => (
-              <span key={r} className="inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[11px] font-semibold" style={{ color: ratingTone[r].fg, background: ratingTone[r].bg }}>
-                <span className="h-1.5 w-1.5 rounded-full" style={{ background: ratingTone[r].fg }} />{c} {r}
-              </span>
-            ))}
-          </div>
-          <p className="mt-auto pt-3 text-[10.5px] text-ink-secondary">{ac.buyCount} of {ac.analystCount} rate it a Buy — the consensus tilt.</p>
-        </div>
-
-        <div className="card-surface p-5">
-          <PanelHead title="Top Analyst Takeaways" />
-          <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-3">
-            <Takeaway icon={<TrendingUp className="h-3.5 w-3.5" />} tone="teal" head="Most bullish" name={mostBullish?.brokerage ?? '—'} detail={mostBullish ? `${mostBullish.rating ?? '—'} · ${px(mostBullish.targetPrice as number)} · ${upPct(up(mostBullish.targetPrice))}` : 'Source pending'} pending={mostBullish == null} />
-            <Takeaway icon={<TrendingDown className="h-3.5 w-3.5" />} tone="slate" head="Most conservative" name={mostConservative?.brokerage ?? '—'} detail={mostConservative ? `${mostConservative.rating ?? '—'} · ${px(mostConservative.targetPrice as number)} · ${upPct(up(mostConservative.targetPrice))}` : 'Source pending'} pending={mostConservative == null} />
-            <Takeaway icon={<CalendarClock className="h-3.5 w-3.5" />} tone="navy" head="Latest update" name={latestNote ? `${latestNote.brokerage} · ${latestNote.reportDate}` : '—'} detail={latestNote ? `${latestNote.rating ?? '—'}${latestNote.targetPrice != null ? ` ${px(latestNote.targetPrice)}` : ''} · ${px(target)} consensus` : 'Source pending'} pending={latestNote == null} />
-          </div>
-        </div>
       </div>
 
       {/* ── All analyst views ──────────────────────────────────────────────── */}
@@ -337,25 +291,6 @@ function PanelHead({ title, note }: { title: string; note?: string }) {
         <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-champagne-deep">{title}</p>
       </div>
       {note && <p className="mt-1 pl-[11px] text-[11.5px] text-ink-secondary">{note}</p>}
-    </div>
-  )
-}
-
-// Compact mini insight card — soft tint, small icon, subtle left accent.
-function Takeaway({ icon, tone, head, name, detail, pending }: { icon: React.ReactNode; tone: 'teal' | 'slate' | 'navy'; head: string; name: string; detail: string; pending: boolean }) {
-  const c = tone === 'teal' ? { bg: '#E6F4F1', fg: TEAL } : tone === 'navy' ? { bg: '#EAF0FB', fg: NAVY } : { bg: '#EEF2F8', fg: SLATE }
-  return (
-    <div className="relative overflow-hidden rounded-xl border border-soft-border p-3 shadow-soft transition-all duration-200 hover:-translate-y-0.5 hover:shadow-card" style={{ background: `linear-gradient(150deg, #FFFFFF 58%, ${c.bg})` }}>
-      <span className="absolute inset-y-0 left-0 w-[2.5px]" style={{ background: c.fg }} aria-hidden />
-      <div className="flex items-center gap-1.5">
-        <span className="grid h-6 w-6 place-items-center rounded-lg" style={{ background: c.bg, color: c.fg }}>{icon}</span>
-        <span className="text-[9.5px] font-semibold uppercase tracking-wide text-ink-secondary">{head}</span>
-      </div>
-      <p className="mt-1.5 flex items-center gap-1 text-[12.5px] font-semibold text-navy-deep">
-        {name}
-        {pending ? <Lock className="h-3 w-3 text-champagne-deep" /> : <ArrowUpRight className="h-3 w-3 text-ink-secondary/50" />}
-      </p>
-      <p className="mt-0.5 text-[10.5px] text-ink-secondary">{detail}</p>
     </div>
   )
 }
