@@ -1,4 +1,4 @@
-import { Activity, ArrowUpRight, CalendarClock, Gauge, Lock, Percent, Target, TrendingDown, TrendingUp, Users, Wallet } from 'lucide-react'
+import { Activity, ArrowUpRight, CalendarClock, Gauge, Lock, Percent, TrendingDown, TrendingUp } from 'lucide-react'
 import { EmptyState } from '@/components/EmptyState'
 import { SourceTag } from '@/components/SourceTag'
 import { useActiveCompany } from '@/state/filters'
@@ -24,8 +24,6 @@ const TINT = {
   gold: { from: '#FFFFFF', to: '#F8F1E1', ring: 'rgba(182,139,58,0.22)' },
   slate: { from: '#FFFFFF', to: '#EEF2F8', ring: 'rgba(140,151,168,0.22)' },
 }
-type TintKey = keyof typeof TINT
-const RAIL_GRAD = 'linear-gradient(90deg,#F4DEDB 0%,#F6EAD6 50%,#DDEFEA 100%)' // coral → gold → teal
 
 // ── Street signal (Bull / Neutral / Bear) — logic unchanged ──────────────────
 type SignalKind = 'Bullish' | 'Neutral' | 'Bearish'
@@ -96,70 +94,6 @@ function SignalGauge({ kind, score, buy, hold, sell, upside }: { kind: SignalKin
 }
 
 // ── KPI card — soft tint + icon + a data-driven mini accent ──────────────────
-function Kpi({ label, value, sub, tone, Icon, accent }: { label: string; value: string; sub: string; tone: TintKey; Icon: typeof Target; accent?: React.ReactNode }) {
-  const t = TINT[tone]
-  const fg = tone === 'teal' ? TEAL : tone === 'coral' ? BURG : tone === 'gold' ? GOLD : tone === 'slate' ? SLATE : NAVY
-  return (
-    <div className="group relative overflow-hidden rounded-[1.15rem] border p-4 shadow-[0_1px_2px_rgba(23,43,77,0.04),0_10px_24px_rgba(23,43,77,0.05)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_2px_6px_rgba(23,43,77,0.06),0_16px_34px_rgba(23,43,77,0.09)]" style={{ background: `linear-gradient(150deg, ${t.from} 0%, ${t.to} 100%)`, borderColor: t.ring }}>
-      <div className="flex items-center justify-between">
-        <p className="text-[9.5px] font-semibold uppercase tracking-wide text-ink-secondary">{label}</p>
-        <span className="grid h-6 w-6 place-items-center rounded-lg" style={{ background: `${fg}14`, color: fg }}><Icon className="h-3.5 w-3.5" /></span>
-      </div>
-      <p className="mt-1.5 font-display text-[24px] leading-none tabular-nums" style={{ color: fg }}>{value}</p>
-      <p className="mt-1 text-[10px] text-ink-secondary/85">{sub}</p>
-      {accent && <div className="mt-2.5">{accent}</div>}
-    </div>
-  )
-}
-
-// data-driven mini accents
-function MiniBar({ pct, color }: { pct: number; color: string }) {
-  return (
-    <div className="h-1.5 w-full overflow-hidden rounded-full bg-black/[0.05]">
-      <div className="h-full rounded-full" style={{ width: `${Math.max(4, Math.min(100, pct))}%`, background: color }} />
-    </div>
-  )
-}
-function MiniSplit({ buy, hold, sell, total }: { buy: number; hold: number; sell: number; total: number }) {
-  const w = (n: number) => (total > 0 ? (n / total) * 100 : 0)
-  return (
-    <div className="flex h-1.5 w-full overflow-hidden rounded-full bg-black/[0.05]">
-      <span style={{ width: `${w(buy)}%`, background: ratingTone.Buy.fg }} />
-      <span style={{ width: `${w(hold)}%`, background: ratingTone.Hold.fg }} />
-      <span style={{ width: `${w(sell)}%`, background: ratingTone.Sell.fg }} />
-    </div>
-  )
-}
-function MiniDot({ pct }: { pct: number }) {
-  return (
-    <div className="relative h-1.5 w-full rounded-full" style={{ background: 'linear-gradient(90deg,#EEF2F8,#E2E8F2)' }}>
-      <span className="absolute top-1/2 h-2.5 w-2.5 -translate-x-1/2 -translate-y-1/2 rounded-full ring-2 ring-white" style={{ left: `${Math.max(3, Math.min(97, pct))}%`, background: GOLD }} />
-    </div>
-  )
-}
-
-// ── A labelled value range rail on a shared ₹ scale (data unchanged) ─────────
-function ScaledRange({ label, lo, hi, domainLo, domainHi, trackColor, marker }: { label: string; lo: number; hi: number; domainLo: number; domainHi: number; trackColor: string; marker?: { value: number; color: string; caption: string } }) {
-  const span = domainHi - domainLo || 1
-  const pos = (v: number) => Math.max(0, Math.min(100, ((v - domainLo) / span) * 100))
-  return (
-    <div>
-      <div className="mb-1.5 flex items-center justify-between text-[10px]">
-        <span className="font-semibold uppercase tracking-wide text-ink-secondary">{label}</span>
-        <span className="tabular-nums text-ink-secondary">{px(lo)} – {px(hi)}</span>
-      </div>
-      <div className="relative h-2.5 rounded-full bg-[#EEF2F8]">
-        <div className="absolute top-0 h-full rounded-full" style={{ left: `${pos(lo)}%`, width: `${pos(hi) - pos(lo)}%`, background: trackColor, opacity: 0.85 }} />
-        {marker && (
-          <span className="absolute top-1/2 flex -translate-x-1/2 -translate-y-1/2 flex-col items-center" style={{ left: `${pos(marker.value)}%` }} title={marker.caption}>
-            <span className="h-3.5 w-3.5 rounded-full ring-2 ring-white shadow-soft" style={{ background: marker.color }} />
-          </span>
-        )}
-      </div>
-    </div>
-  )
-}
-
 export function StreetView() {
   const company = useActiveCompany()
   const coverage = getAnalystCoverage(company.id)
@@ -185,10 +119,7 @@ export function StreetView() {
   const reports = coverage.reports
   const price = ac.currentPrice ?? quote?.price ?? null
   const priceAsOf = isFocal ? marketSnapshot.priceAsOf : quote?.asOf ?? '—'
-  const has52 = isFocal // 52-week range / daily price history curated for the focal name only
   const target = ac.consensusTargetPrice
-  const lo = ac.lowestTargetPrice
-  const hi = ac.highestTargetPrice
   const upside = target != null && price != null && price > 0 ? (target / price - 1) * 100 : null
   const { score, kind } = computeSignal(ac.buyCount, ac.holdCount, ac.sellCount, ac.analystCount, upside ?? 0)
   const up = (t: number | null) => (t != null && price != null && price > 0 ? (t / price - 1) * 100 : null)
@@ -218,14 +149,6 @@ export function StreetView() {
   // dated audit calls don't, so an empty column would read as missing data.
   const hasThesis = reports.some((r) => (r.thesis ?? '').trim().length > 0)
 
-  // Shared ₹ domain for the range bars (52-week range exists for the focal name only).
-  const dom = has52
-    ? { lo: Math.min(marketSnapshot.weekLow52, lo ?? marketSnapshot.weekLow52), hi: Math.max(marketSnapshot.weekHigh52, hi ?? marketSnapshot.weekHigh52) }
-    : { lo: lo ?? price ?? 0, hi: hi ?? price ?? 0 }
-
-  const rangePos = (v: number | null) => (v != null && lo != null && hi != null && hi > lo ? Math.max(0, Math.min(100, ((v - lo) / (hi - lo)) * 100)) : 50)
-  const pos52 = (v: number | null) => (v != null && has52 ? Math.max(0, Math.min(100, ((v - marketSnapshot.weekLow52) / (marketSnapshot.weekHigh52 - marketSnapshot.weekLow52)) * 100)) : 50)
-
   return (
     <div className="space-y-5">
       {/* ── Hero + Street Signal ───────────────────────────────────────────── */}
@@ -244,73 +167,6 @@ export function StreetView() {
           asOf={priceAsOf}
         />
         <SignalGauge kind={kind} score={score} buy={ac.buyCount} hold={ac.holdCount} sell={ac.sellCount} upside={upside} />
-      </div>
-
-      {/* ── KPI cards ──────────────────────────────────────────────────────── */}
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
-        <Kpi label="Consensus Target" value={px(target)} sub={`${upPct(upside)} vs current`} tone={upside == null ? 'slate' : upside >= 0 ? 'teal' : 'coral'} Icon={Target}
-          accent={<MiniBar pct={upside == null ? 0 : Math.abs(upside) * 3} color={upside == null ? SLATE : upside >= 0 ? TEAL : BURG} />} />
-        <Kpi label="Current Price" value={px(price)} sub={`as of ${priceAsOf}`} tone="navy" Icon={Wallet}
-          accent={has52 ? <MiniDot pct={pos52(price)} /> : <MiniBar pct={rangePos(price)} color={NAVY} />} />
-        <Kpi label="Analysts Covering" value={`${ac.analystCount}`} sub={`${ac.buyCount} Buy · ${ac.holdCount} Hold · ${ac.sellCount} Sell`} tone="gold" Icon={Users}
-          accent={<MiniSplit buy={ac.buyCount} hold={ac.holdCount} sell={ac.sellCount} total={ac.analystCount} />} />
-      </div>
-
-      {/* ── Target range rail + Price vs target rails ──────────────────────── */}
-      <div className={`grid grid-cols-1 gap-4 ${has52 ? 'lg:grid-cols-2' : ''}`}>
-        {/* Target range — gradient rail with callout markers */}
-        <div className="card-surface flex flex-col p-5">
-          <PanelHead title="Target Range" note="Where the price sits across the analyst target range." />
-          <div className="mt-7 flex-1">
-            <div className="relative h-3 rounded-full" style={{ background: RAIL_GRAD }}>
-              {/* consensus tick */}
-              {target != null && lo != null && hi != null && (
-                <span className="absolute -top-6 -translate-x-1/2 whitespace-nowrap text-center" style={{ left: `${rangePos(target)}%` }}>
-                  <span className="rounded-md bg-white px-1.5 py-0.5 text-[9px] font-semibold text-navy-deep shadow-soft ring-1 ring-soft-border">Consensus {px(target)}</span>
-                </span>
-              )}
-              {target != null && lo != null && hi != null && (
-                <span className="absolute top-1/2 h-5 w-[2px] -translate-x-1/2 -translate-y-1/2 rounded-full" style={{ left: `${rangePos(target)}%`, background: 'rgba(39,69,126,0.55)' }} />
-              )}
-              {/* current price marker + callout */}
-              {price != null && lo != null && hi != null && (
-                <>
-                  <span className="absolute top-1/2 h-5 w-5 -translate-x-1/2 -translate-y-1/2 rounded-full ring-2 ring-white shadow-soft" style={{ left: `${rangePos(price)}%`, background: target != null && price < target ? TEAL : GOLD }} />
-                  <span className="absolute top-7 -translate-x-1/2 whitespace-nowrap" style={{ left: `${rangePos(price)}%` }}>
-                    <span className="rounded-md px-1.5 py-0.5 text-[9px] font-semibold text-white shadow-soft" style={{ background: target != null && price < target ? TEAL : GOLD }}>Now {px(price)}</span>
-                  </span>
-                </>
-              )}
-            </div>
-            <div className="mt-9 flex justify-between text-[11px]">
-              <div><p className="font-semibold tabular-nums" style={{ color: BURG }}>{px(lo)}</p><p className="text-[9px] uppercase tracking-wide text-ink-secondary">Low</p></div>
-              <div className="text-center"><p className="font-semibold tabular-nums text-navy-deep">{px(target)}</p><p className="text-[9px] uppercase tracking-wide text-ink-secondary">Consensus</p></div>
-              <div className="text-right"><p className="font-semibold tabular-nums" style={{ color: TEAL }}>{px(hi)}</p><p className="text-[9px] uppercase tracking-wide text-ink-secondary">High</p></div>
-            </div>
-            <div className="mt-3 inline-flex items-center gap-1.5 rounded-full bg-[#F1F4F9] px-2.5 py-1 text-[11px]">
-              <span className="h-2.5 w-2.5 rounded-full ring-2 ring-white" style={{ background: target != null && price != null && price < target ? TEAL : GOLD }} />
-              Current <span className="font-semibold text-navy-deep">{px(price)}</span> · {upPct(upside)} to consensus
-            </div>
-          </div>
-        </div>
-
-        {/* Price vs target — 52-week range vs analyst target range (focal only) */}
-        {has52 && (
-          <div className="card-surface flex flex-col p-5">
-            <PanelHead title="Price vs Target" note="52-week trading range vs the analyst target range." />
-            <div className="mt-6 flex flex-1 flex-col justify-center gap-6">
-              <ScaledRange label="52-week trading range" lo={marketSnapshot.weekLow52} hi={marketSnapshot.weekHigh52} domainLo={dom.lo} domainHi={dom.hi} trackColor={SLATE} marker={price != null ? { value: price, color: GOLD, caption: `Current ${px(price)}` } : undefined} />
-              {lo != null && hi != null && (
-                <ScaledRange label="Analyst target range" lo={lo} hi={hi} domainLo={dom.lo} domainHi={dom.hi} trackColor={TEAL} marker={target != null ? { value: target, color: NAVY, caption: `Consensus ${px(target)}` } : undefined} />
-              )}
-              <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-[10px] text-ink-secondary">
-                <span className="inline-flex items-center gap-1"><span className="h-2 w-2 rounded-full" style={{ background: GOLD }} />Current price</span>
-                <span className="inline-flex items-center gap-1"><span className="h-2 w-2 rounded-full" style={{ background: NAVY }} />Consensus target</span>
-                <span className="italic text-ink-secondary/70">Daily price history not yet ingested — shown as ranges.</span>
-              </div>
-            </div>
-          </div>
-        )}
       </div>
 
       {/* ── Rating split capsule + Top analyst takeaways ───────────────────── */}
