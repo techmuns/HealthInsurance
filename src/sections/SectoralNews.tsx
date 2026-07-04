@@ -1,7 +1,6 @@
 import { useMemo, useState } from 'react'
 import { CalendarDays, ExternalLink, Newspaper, RefreshCw, Search, Sparkles } from 'lucide-react'
 import { VerdictStrip } from '@/components/VerdictStrip'
-import { SectionHeading } from '@/components/SectionHeading'
 import { SourceTag } from '@/components/SourceTag'
 import { InsightContextChip } from '@/components/insight/InsightContextChip'
 import { useSectionInsight } from '@/components/insight/useSectionInsight'
@@ -52,23 +51,6 @@ function domainOf(url: string): string {
     return ''
   }
 }
-/** Inclusive list of yyyy-mm keys from the first to the last update. */
-function monthsBetween(startISO: string, endISO: string): string[] {
-  const out: string[] = []
-  let y = +startISO.slice(0, 4)
-  let m = +startISO.slice(5, 7)
-  const ey = +endISO.slice(0, 4)
-  const em = +endISO.slice(5, 7)
-  while (y < ey || (y === ey && m <= em)) {
-    out.push(`${y}-${String(m).padStart(2, '0')}`)
-    m += 1
-    if (m > 12) {
-      m = 1
-      y += 1
-    }
-  }
-  return out
-}
 function shiftDays(iso: string, delta: number): string {
   const d = new Date(`${iso.slice(0, 10)}T00:00:00Z`)
   d.setUTCDate(d.getUTCDate() + delta)
@@ -117,8 +99,6 @@ export function SectoralNews() {
     return c
   }, [])
   const dominant = SECTORAL_CATEGORY_ORDER.reduce((a, b) => (counts[b] > counts[a] ? b : a), SECTORAL_CATEGORY_ORDER[0])
-  // Share of the feed taken by the two structural themes (consolidation + reform).
-  const structuralShare = Math.round(((counts['Competition / Peers'] + counts.Regulatory) / total) * 100)
 
   // Date span — computed live so the timeline always reaches the newest item.
   const { spanStart, spanEnd } = useMemo(() => {
@@ -126,25 +106,6 @@ export function SectoralNews() {
     return { spanStart: sorted[0], spanEnd: sorted[sorted.length - 1] }
   }, [])
   const windowLabel = `${fmtMonth(spanStart)} – ${fmtMonth(spanEnd)}`
-
-  // Monthly volume histogram — the "when" of the story.
-  const months = useMemo(() => monthsBetween(spanStart, spanEnd), [spanStart, spanEnd])
-  const monthCounts = useMemo(() => {
-    const m: Record<string, number> = {}
-    for (const n of ALL_ITEMS) m[monthKey(n.date)] = (m[monthKey(n.date)] ?? 0) + 1
-    return m
-  }, [])
-  const maxMonth = Math.max(1, ...months.map((m) => monthCounts[m] ?? 0))
-  const peakKey = months.reduce((a, b) => ((monthCounts[b] ?? 0) > (monthCounts[a] ?? 0) ? b : a), months[0])
-  // The dominant theme WITHIN the peak month — so the "why" is read from the live
-  // data, not pinned to a fixed past event the feed may have moved on from.
-  const peakTheme = useMemo(() => {
-    const inPeak = ALL_ITEMS.filter((i) => monthKey(i.date) === peakKey)
-    if (!inPeak.length) return null
-    const c = {} as Record<SectoralCategory, number>
-    for (const n of inPeak) c[n.category] = (c[n.category] ?? 0) + 1
-    return (Object.keys(c) as SectoralCategory[]).reduce((a, b) => (c[b] > c[a] ? b : a))
-  }, [peakKey])
 
   // Filter (theme + free-text) then sort newest-first.
   const filtered = useMemo(() => {
@@ -214,89 +175,6 @@ export function SectoralNews() {
           {LAST_REFRESHED ? `Last refreshed ${fmtFull(LAST_REFRESHED)}` : 'Awaiting first auto-refresh'}
         </span>
       </div>
-
-      {/* ── "Shape of the news" — what dominates (left) + when it clustered (right) ── */}
-      <section className="card-surface p-5">
-        <SectionHeading eyebrow="The shape of the news" title="What's the sector talking about?" note={windowLabel} />
-        <div className="grid gap-6 lg:grid-cols-[1.12fr_0.88fr]">
-          {/* WHAT — theme mix */}
-          <div>
-            <div className="flex h-3.5 w-full overflow-hidden rounded-full ring-1 ring-soft-border">
-              {SECTORAL_CATEGORY_ORDER.map((c) => {
-                const meta = SECTORAL_CATEGORY_META[c]
-                const w = (counts[c] / total) * 100
-                const on = lens === 'all' || lens === c
-                if (w === 0) return null
-                return (
-                  <button
-                    key={c}
-                    type="button"
-                    onClick={() => setLens((p) => (p === c ? 'all' : c))}
-                    title={`${meta.label}: ${counts[c]} of ${total} (${Math.round(w)}%)`}
-                    aria-label={`Filter by ${meta.label}`}
-                    className="h-full transition-opacity duration-200"
-                    style={{ width: `${w}%`, background: meta.color, opacity: on ? 1 : 0.32 }}
-                  />
-                )
-              })}
-            </div>
-            <div className="mt-3 flex flex-wrap gap-x-4 gap-y-1.5">
-              {SECTORAL_CATEGORY_ORDER.map((c) => {
-                const meta = SECTORAL_CATEGORY_META[c]
-                return (
-                  <span key={c} className="inline-flex items-baseline gap-1.5 text-[11px]">
-                    <span className="h-2.5 w-2.5 translate-y-[1px] rounded-[3px]" style={{ background: meta.color }} />
-                    <span className="text-ink-secondary">{meta.short}</span>
-                    <span className="font-semibold tabular-nums text-navy-deep">{counts[c]}</span>
-                    <span className="text-ink-secondary/55">·</span>
-                    <span className="tabular-nums text-ink-secondary/70">{Math.round((counts[c] / total) * 100)}%</span>
-                  </span>
-                )
-              })}
-            </div>
-            <p className="mt-3 text-[12px] leading-relaxed text-ink-secondary">
-              <b className="font-semibold text-navy-deep">{structuralShare}%</b> of updates are Competition or Regulatory —
-              the sector is consolidating and re-regulating at once. Tap a band to filter the feed.
-            </p>
-          </div>
-
-          {/* WHEN — monthly flow */}
-          <div className="lg:border-l lg:border-soft-border lg:pl-6">
-            <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.14em] text-ink-secondary">News flow by month</p>
-            <div className="flex h-16 items-end gap-[3px]">
-              {months.map((m) => {
-                const c = monthCounts[m] ?? 0
-                const pct = c === 0 ? 0 : Math.max(14, Math.round((c / maxMonth) * 100))
-                const isPeak = c > 0 && c === maxMonth
-                return (
-                  <div
-                    key={m}
-                    className="flex h-full flex-1 items-end"
-                    title={`${fmtMonth(m)} · ${c} update${c === 1 ? '' : 's'}`}
-                  >
-                    {c === 0 ? (
-                      <div className="h-[2px] w-full rounded-full bg-soft-border" />
-                    ) : (
-                      <div
-                        className="w-full rounded-t-sm transition-colors"
-                        style={{ height: `${pct}%`, background: isPeak ? '#B68B3A' : NAVY }}
-                      />
-                    )}
-                  </div>
-                )
-              })}
-            </div>
-            <div className="mt-1.5 flex justify-between text-[9.5px] text-ink-secondary/70">
-              <span>{fmtMonth(months[0])}</span>
-              <span>{fmtMonth(months[months.length - 1])}</span>
-            </div>
-            <p className="mt-2 text-[11.5px] leading-snug text-ink-secondary">
-              Activity peaked in <b className="font-semibold text-navy-deep">{fmtMonth(peakKey)}</b>
-              {peakTheme ? <>, led by <b className="font-semibold text-navy-deep">{SECTORAL_CATEGORY_META[peakTheme].short}</b> news</> : null}.
-            </p>
-          </div>
-        </div>
-      </section>
 
       {/* ── Filter + search controls ─────────────────────────────────────── */}
       <div className="flex flex-col gap-3 rounded-2xl border border-soft-border bg-white/70 p-3 shadow-soft backdrop-blur md:flex-row md:items-center md:justify-between">
