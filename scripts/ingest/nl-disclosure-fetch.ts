@@ -231,7 +231,7 @@ function row(company: string, year: string, metric: string, value: number, unit:
 
 async function processCompany(companyId: string): Promise<number> {
   const docs = await discoverDocs(companyId, PERIOD)
-  console.log(`${companyId} ${PERIOD}: discovered ${docs.length} doc(s)`) // eslint-disable-line no-console
+  console.log(`${companyId} ${PERIOD}: discovered ${docs.length} doc(s)`)
   docs.forEach((u) => console.log(`  • ${u}`))
   const rows: CleanRow[] = []
   for (const url of docs) {

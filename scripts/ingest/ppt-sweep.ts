@@ -36,7 +36,6 @@ import { fileURLToPath } from 'node:url'
 import { createRequire } from 'node:module'
 
 const require_ = createRequire(import.meta.url)
-// eslint-disable-next-line @typescript-eslint/no-var-requires
 const pdfParse = require_('pdf-parse') as (b: Buffer, o?: object) => Promise<{ text: string; numpages: number }>
 
 const HERE = dirname(fileURLToPath(import.meta.url))

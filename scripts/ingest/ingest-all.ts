@@ -142,7 +142,6 @@ async function main() {
   }
   await buildSnapshots(results)
   await appendLog('ingest-all.log', { event: 'run_complete', results: results.length })
-  // eslint-disable-next-line no-console
   console.log(`ingest-all complete · ${results.length} fetchers · cadence=${CADENCE}`)
 }
 

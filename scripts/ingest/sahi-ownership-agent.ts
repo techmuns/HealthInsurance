@@ -17,11 +17,6 @@ import { writeSnapshot, nowIso, appendLog } from './util'
 const API_URL = process.env.MUNS_AGENT_URL || 'https://devde.muns.io/chat/chat-muns'
 const API_TIMEOUT_MS = 600_000
 
-const LISTED: Array<{ company_id: string; name: string }> = [
-  { company_id: 'star-health', name: 'Star Health and Allied Insurance' },
-  { company_id: 'niva-bupa', name: 'Niva Bupa Health Insurance' },
-]
-
 function buildPayload() {
   return {
     user_index: 124,
