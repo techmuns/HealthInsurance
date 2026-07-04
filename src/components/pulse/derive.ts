@@ -1401,6 +1401,13 @@ export function briefMessage(pulse: InvestorPulse, scoped: PulseSignal[], one: O
   const companyPosSurfaced = surfaced.filter((s) => s.scope === 'company' && s.impact === 'Positive').length
   const companyAnySurfaced = surfaced.filter((s) => s.scope === 'company').length
 
+  // Did THIS company itself move — a company-specific item (fresh, newly surfaced, or
+  // a leadership change)? Distinct from the shared sector/regulatory news that shows for
+  // every insurer. When it didn't, we say so plainly and BY NAME, so switching the
+  // company selector to a quiet name reads honestly instead of dressing sector news up
+  // as that company's activity.
+  const noCompanyMovement = companyAnyNew === 0 && companyAnySurfaced === 0 && mgmtNew === 0
+
   // Something was genuinely PUBLISHED in the window → the real "since the last brief".
   if (regNew + companyAnyNew + mgmtNew > 0) {
     // Only attribute "premium growth" when a FRESH positive company item is actually
@@ -1413,25 +1420,28 @@ export function briefMessage(pulse: InvestorPulse, scoped: PulseSignal[], one: O
     if (companyPosNew > 0) bits.push(aboutGrowth ? `${pulse.company} is back in the news for premium growth` : `${pulse.company} received fresh positive coverage`)
     else if (companyAnyNew > 0) bits.push(`${pulse.company} received fresh coverage`)
     if (mgmtNew > 0 && bits.length < 2) bits.push(mgmtNew === 1 ? 'there was a leadership change to note' : 'there were leadership changes to note')
+    // Fresh items exist but none is company-specific → name the absence, then the sector read.
+    if (noCompanyMovement) return { since: `No ${pulse.company}-specific movement since the last brief; ${joinNatural(bits.slice(0, 2))} across the sector.`, ...thesis }
     return { since: `Since the last brief, ${joinNatural(bits.slice(0, 2))}.`, ...thesis }
   }
 
-  // Nothing newly PUBLISHED, but we DID surface older/unverified-date items today —
-  // report them honestly as "recently surfaced", never "since yesterday". Lead with the
-  // company read and keep regulatory as a soft clause (no alarming raw count, since the
-  // feed carries the same story across several outlets).
-  if (companyAnySurfaced + regSurfaced > 0) {
+  // Nothing newly PUBLISHED. If the company itself had items surface, report them
+  // honestly as "recently surfaced" (never "since yesterday").
+  if (!noCompanyMovement) {
     const lead = companyPosSurfaced > 0
       ? `${pulse.company} had recently surfaced positive analyst coverage`
-      : companyAnySurfaced > 0
-        ? `${pulse.company} had recently surfaced relevant coverage`
-        : 'Older regulatory items are now in view'
-    const regClause = companyAnySurfaced > 0 && regSurfaced > 0 ? ', alongside older regulatory items now in view' : ''
+      : `${pulse.company} had recently surfaced relevant coverage`
+    const regClause = regSurfaced > 0 ? ', alongside older regulatory items now in view' : ''
     return { since: `${lead}${regClause}. No fresh company-specific update was published since the last brief.`, ...thesis }
   }
 
-  // Genuinely quiet — nothing fresh, nothing newly surfaced. Keep the standing thesis.
-  return { since: 'No fresh company-specific update found today. The previous thesis remains live.', ...thesis }
+  // No company-specific movement at all. Say so BY NAME. If there is shared sector /
+  // regulatory news, point the reader to it as context that applies across the group;
+  // otherwise it is a genuinely quiet day for this name.
+  if (regSurfaced + reg > 0) {
+    return { since: `No company-specific movement for ${pulse.company} since the last brief — the read below is sector & regulatory context that applies across standalone health insurers.`, ...thesis }
+  }
+  return { since: `No movement for ${pulse.company} since the last brief. The previous thesis remains live.`, ...thesis }
 }
 
 // ── "Since yesterday" — real, computable deltas only (no fabricated sentiment) ─
@@ -1507,6 +1517,10 @@ export function sinceYesterday(pulse: InvestorPulse): SinceDelta[] {
   } else if (coSurfaced.length) {
     const n = coSurfaced.length
     out.push({ id: 'co', label: n === 1 ? 'newly surfaced relevant update' : 'newly surfaced relevant updates', value: String(n), direction: 'up', tone: 'Neutral', target: locTarget('companies', 'co', 'company', `${n} newly surfaced ${pulse.company} ${n === 1 ? 'update' : 'updates'}`), href: freshestHref(coSurfaced) })
+  } else {
+    // No company-specific movement at all — show an explicit, honest "0" (like the
+    // market-moves row) so a quiet name reads clearly instead of just omitting the row.
+    out.push({ id: 'co', label: 'company-specific updates', value: '0', direction: 'flat', tone: 'Neutral', target: locTarget('companies', 'co', 'company', `No ${pulse.company}-specific updates`) })
   }
 
   // Management changes only when genuinely recent (last day) — not the full 18-month
