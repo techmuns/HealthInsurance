@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react'
-import { CalendarDays, ExternalLink, Newspaper, RefreshCw, Search, Sparkles } from 'lucide-react'
+import { CalendarDays, ChevronDown, ExternalLink, Newspaper, RefreshCw, Search, Sparkles } from 'lucide-react'
 import { SourceTag } from '@/components/SourceTag'
 import { InsightContextChip } from '@/components/insight/InsightContextChip'
 import { useSectionInsight } from '@/components/insight/useSectionInsight'
@@ -16,18 +16,22 @@ import sectoralSnapshot from '@/data/snapshots/sectoral-news-snapshot.json'
 
 // ---------------------------------------------------------------------------
 //  Key Sectoral News — a calm, tone-coded briefing of the standalone-health
-//  sector's moving parts. Answer-first verdict → "shape of the news" infographic
-//  (what themes dominate + when activity clustered) → a filterable, searchable,
-//  month-grouped feed where every update links its original article.
+//  sector's moving parts, presented as month BLOCKS: each month is its own soft
+//  powder-blue container (collapsible) holding a clean grid of white cards, so
+//  the feed reads as a structured, scannable timeline rather than one long list.
 //
 //  SELF-UPDATING: the feed is the seed floor (31 curated portfolio-pack items)
 //  merged with an auto-refreshed snapshot a scheduled web agent keeps current.
 //  Seed items are curated; agent items are AI-gathered (web) and clearly tagged.
+//  This file is presentation only — the dataset, classification, freshness,
+//  counts, search and filter logic below are unchanged.
 // ---------------------------------------------------------------------------
 
 type Lens = SectoralCategory | 'all'
 
 const NAVY = '#27457E'
+// How many cards a month shows before "Show more" (2 full rows of the 3-col grid).
+const INITIAL_CARDS = 6
 
 function fmtFull(iso: string): string {
   const d = new Date(iso)
@@ -86,6 +90,12 @@ function isNew(it: SectoralNewsItem): boolean {
 export function SectoralNews() {
   const [lens, setLens] = useState<Lens>('all')
   const [query, setQuery] = useState('')
+  // Per-month collapse override (keyed by yyyy-mm). When absent, the default rule
+  // applies: the latest month opens; while filtering/searching every matching
+  // month opens so no match hides behind a collapsed block.
+  const [openMonths, setOpenMonths] = useState<Record<string, boolean>>({})
+  // Per-month "show all cards" override (else the first INITIAL_CARDS show).
+  const [showAll, setShowAll] = useState<Record<string, boolean>>({})
   const { focus, ref: focusRef, arrived } = useSectionInsight('sector-news')
 
   const total = ALL_ITEMS.length
@@ -131,24 +141,35 @@ export function SectoralNews() {
     return Array.from(map.entries())
   }, [filtered])
 
+  const filtering = lens !== 'all' || query.trim() !== ''
+  // A month is open when the user has set it, else: while filtering every match
+  // opens; otherwise only the latest (first) month opens and older ones collapse.
+  const isMonthOpen = (key: string, idx: number) => openMonths[key] ?? (filtering ? true : idx === 0)
+  const toggleMonth = (key: string, idx: number) =>
+    setOpenMonths((p) => ({ ...p, [key]: !isMonthOpen(key, idx) }))
+  const toggleShowAll = (key: string) => setShowAll((p) => ({ ...p, [key]: !p[key] }))
+
   return (
-    <div ref={focusRef} className={`space-y-6 ${arrived ? 'insight-arrival rounded-2xl' : ''}`}>
+    // Relative, isolated shell so the soft powder-blue field sits behind the whole
+    // section (Option A) — a calm tint, never a flat white page.
+    <div ref={focusRef} className={`relative isolate space-y-4 ${arrived ? 'insight-arrival rounded-2xl' : ''}`}>
+      <SectoralBackdrop />
       {focus && <InsightContextChip focus={focus} />}
-      {/* ── Self-updating banner (honest AI provenance) ──────────────────── */}
-      <div className="flex flex-wrap items-center justify-between gap-2 rounded-xl border border-[#EAD9B6]/70 bg-gradient-to-r from-[#FBF6EA] to-white px-3.5 py-2">
-        <span className="inline-flex items-center gap-1.5 text-[11.5px] font-semibold text-champagne-deep">
-          <RefreshCw className="h-3.5 w-3.5" /> Self-updating · fresh items are AI-gathered from public web sources and
-          source-linked — verify before acting
+
+      {/* ── Self-updating status strip — slim, subtle warm gold ───────────── */}
+      <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-1 rounded-lg border border-[#E8D6AC]/70 bg-[#FCF9F0]/85 px-3 py-1.5 backdrop-blur-sm">
+        <span className="inline-flex items-center gap-1.5 text-[11px] font-medium leading-snug text-[#8A6516]">
+          <RefreshCw className="h-3.5 w-3.5 shrink-0" /> Self-updating · fresh items are AI-gathered from public web sources and source-linked — verify before acting
         </span>
-        <span className="text-[10.5px] text-ink-secondary">
+        <span className="shrink-0 text-[10.5px] text-ink-secondary">
           {newCount > 0 && <b className="font-semibold text-teal">{newCount} new</b>}
           {newCount > 0 && ' · '}
           {LAST_REFRESHED ? `Last refreshed ${fmtFull(LAST_REFRESHED)}` : 'Awaiting first auto-refresh'}
         </span>
       </div>
 
-      {/* ── Filter + search controls ─────────────────────────────────────── */}
-      <div className="flex flex-col gap-3 rounded-2xl border border-soft-border bg-white/70 p-3 shadow-soft backdrop-blur md:flex-row md:items-center md:justify-between">
+      {/* ── Filter + search — one clean row of pill chips ─────────────────── */}
+      <div className="flex flex-col gap-2.5 rounded-2xl border border-[#D6E2F2] bg-white/70 p-2.5 shadow-soft backdrop-blur md:flex-row md:items-center md:justify-between">
         <div className="flex flex-wrap items-center gap-1.5">
           <LensChip label="All" count={total} color={NAVY} active={lens === 'all'} onClick={() => setLens('all')} />
           {SECTORAL_CATEGORY_ORDER.map((c) => {
@@ -165,7 +186,7 @@ export function SectoralNews() {
             )
           })}
         </div>
-        <div className="relative md:w-64">
+        <div className="relative md:w-60">
           <Search className="pointer-events-none absolute left-2.5 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-ink-secondary" />
           <input
             type="search"
@@ -173,18 +194,18 @@ export function SectoralNews() {
             onChange={(e) => setQuery(e.target.value)}
             aria-label="Search sector updates"
             placeholder="Search updates…"
-            className="w-full rounded-full border border-soft-border bg-white/85 py-1.5 pl-8 pr-3 text-[12px] text-navy-deep outline-none transition-colors placeholder:text-ink-secondary/70 focus:border-navy-primary"
+            className="w-full rounded-full border border-[#D6E2F2] bg-white/85 py-1.5 pl-8 pr-3 text-[12px] text-navy-deep outline-none transition-colors placeholder:text-ink-secondary/70 focus:border-navy-primary"
           />
         </div>
       </div>
 
-      {/* ── Feed (month-grouped, newest first) ───────────────────────────── */}
-      <div className="flex items-center justify-between">
+      {/* ── Count + clear ────────────────────────────────────────────────── */}
+      <div className="flex items-center justify-between px-0.5">
         <p className="text-[11px] text-ink-secondary">
           Showing <b className="font-semibold text-navy-deep">{filtered.length}</b> of {total} updates
           {lens !== 'all' && <> · {SECTORAL_CATEGORY_META[lens].label}</>}
         </p>
-        {(lens !== 'all' || query) && (
+        {filtering && (
           <button
             type="button"
             onClick={() => {
@@ -198,35 +219,73 @@ export function SectoralNews() {
         )}
       </div>
 
+      {/* ── Month blocks (newest first) or a clean empty state ───────────── */}
       {filtered.length === 0 ? (
-        <div className="flex flex-col items-center gap-2 rounded-2xl border border-dashed border-soft-border bg-white/50 py-14 text-center">
+        <div className="flex flex-col items-center gap-2 rounded-2xl border border-dashed border-[#CBDAEF] bg-white/55 py-14 text-center">
           <Newspaper className="h-5 w-5 text-ink-secondary/60" />
-          <p className="text-[13px] font-semibold text-navy-deep">No updates match your filter</p>
+          <p className="text-[13px] font-semibold text-navy-deep">No updates found for this filter.</p>
           <p className="text-[11.5px] text-ink-secondary">Try a different theme or clear the search.</p>
         </div>
       ) : (
-        <div className="space-y-5">
-          {groups.map(([key, items]) => (
-            <div key={key} className="space-y-2.5">
-              <div className="flex items-center gap-2.5">
-                <span className="font-display text-[14px] text-navy-deep">{fmtMonth(key)}</span>
-                <span className="h-px flex-1 bg-soft-border" />
-                <span className="text-[10px] font-semibold uppercase tracking-wide text-ink-secondary">
-                  {items.length} update{items.length === 1 ? '' : 's'}
-                </span>
-              </div>
-              <div className="grid gap-2.5">
-                {items.map((n) => (
-                  <NewsCard key={n.id ?? n.sn} item={n} neu={isNew(n)} />
-                ))}
-              </div>
-            </div>
-          ))}
+        <div className="space-y-3">
+          {groups.map(([key, items], idx) => {
+            const open = isMonthOpen(key, idx)
+            const all = showAll[key]
+            const visible = all ? items : items.slice(0, INITIAL_CARDS)
+            const hidden = items.length - visible.length
+            return (
+              <section
+                key={key}
+                className="overflow-hidden rounded-2xl border border-[#D3E1F2] bg-gradient-to-b from-[#EFF5FD] to-[#F8FBFE] shadow-[0_1px_2px_rgba(23,43,77,0.04),0_10px_26px_rgba(23,43,77,0.06)]"
+              >
+                {/* Header — calendar · month · count · chevron (collapses the body) */}
+                <button
+                  type="button"
+                  onClick={() => toggleMonth(key, idx)}
+                  aria-expanded={open}
+                  className="flex w-full items-center gap-2.5 px-3.5 py-2.5 text-left transition-colors hover:bg-white/40"
+                >
+                  <span className="grid h-7 w-7 shrink-0 place-items-center rounded-lg bg-navy-primary/10 text-navy-primary">
+                    <CalendarDays className="h-3.5 w-3.5" />
+                  </span>
+                  <span className="font-display text-[14.5px] leading-none text-navy-deep">{fmtMonth(key)}</span>
+                  <span className="ml-auto rounded-full bg-white/70 px-2 py-0.5 text-[10px] font-semibold tabular-nums text-ink-secondary ring-1 ring-[#D6E2F2]">
+                    {items.length} update{items.length === 1 ? '' : 's'}
+                  </span>
+                  <ChevronDown
+                    className={`h-4 w-4 shrink-0 text-ink-secondary transition-transform duration-200 ${open ? 'rotate-0' : '-rotate-90'}`}
+                  />
+                </button>
+
+                {/* Body — a clean, equal-height card grid */}
+                {open && (
+                  <div className="px-3 pb-3.5 pt-0.5">
+                    <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+                      {visible.map((n) => (
+                        <NewsCard key={n.id ?? n.sn} item={n} neu={isNew(n)} />
+                      ))}
+                    </div>
+                    {items.length > INITIAL_CARDS && (
+                      <div className="mt-3 flex justify-center">
+                        <button
+                          type="button"
+                          onClick={() => toggleShowAll(key)}
+                          className="inline-flex items-center gap-1 rounded-full border border-[#D6E2F2] bg-white/80 px-3 py-1 text-[11px] font-semibold text-navy-primary shadow-soft transition-colors hover:border-navy-primary/30"
+                        >
+                          {all ? 'Show less' : `Show ${hidden} more`}
+                        </button>
+                      </div>
+                    )}
+                  </div>
+                )}
+              </section>
+            )
+          })}
         </div>
       )}
 
       {/* ── Honest provenance footer ─────────────────────────────────────── */}
-      <div className="flex flex-wrap items-center justify-between gap-2 border-t border-soft-border pt-3">
+      <div className="flex flex-wrap items-center justify-between gap-2 border-t border-[#D6E2F2] pt-3">
         <p className="max-w-[62ch] text-[11px] leading-relaxed text-ink-secondary">
           Self-updating feed. The {SNAP?._meta?.seed_count ?? 31}-item history is curated from the investor portfolio
           pack; ongoing updates are AI-gathered from public web sources on a schedule, each linking its source — verify
@@ -245,7 +304,22 @@ export function SectoralNews() {
   )
 }
 
-// ── Theme filter chip ────────────────────────────────────────────────────────
+// Soft powder-blue backdrop for the Key Sectoral News section (Option A) — a very
+// light blue-white canvas with a couple of pale blue blobs. No warm accent here:
+// gold is reserved for the AI / source badges. Decorative; sits behind all
+// content (-z-10).
+function SectoralBackdrop() {
+  return (
+    <div aria-hidden className="pointer-events-none absolute -inset-x-2 -inset-y-2 -z-10 overflow-hidden rounded-3xl">
+      <div className="absolute inset-0" style={{ background: 'linear-gradient(165deg, #F4F8FE 0%, #E7F0FB 52%, #F2F7FD 100%)' }} />
+      <div className="blob-a absolute -left-28 -top-24 h-[24rem] w-[24rem] opacity-80 blur-3xl" style={{ background: 'radial-gradient(circle at 42% 42%, rgba(180,207,244,0.6), transparent 70%)' }} />
+      <div className="blob-b absolute -right-24 -top-10 h-[26rem] w-[26rem] opacity-70 blur-3xl" style={{ background: 'radial-gradient(circle at 52% 42%, rgba(198,219,246,0.6), transparent 72%)' }} />
+      <div className="blob-c absolute -left-10 bottom-8 h-72 w-72 opacity-55 blur-3xl" style={{ background: 'radial-gradient(circle at 50% 50%, rgba(205,224,247,0.5), transparent 72%)' }} />
+    </div>
+  )
+}
+
+// ── Theme filter chip — navy when selected, soft blue-tinted white otherwise ──
 function LensChip({
   label,
   count,
@@ -266,93 +340,77 @@ function LensChip({
       aria-pressed={active}
       className={[
         'chip-soft inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[11px] font-semibold transition-all duration-200',
-        active ? 'text-white shadow-soft' : 'bg-white text-ink-secondary ring-1 ring-soft-border hover:text-navy-primary',
+        active
+          ? 'text-white shadow-soft'
+          : 'bg-white/70 text-ink-secondary ring-1 ring-[#D6E2F2] hover:text-navy-primary hover:ring-navy-primary/30',
       ].join(' ')}
-      style={active ? { background: color } : undefined}
+      style={active ? { background: NAVY } : undefined}
     >
-      <span
-        className="h-1.5 w-1.5 rounded-full"
-        style={{ background: active ? 'rgba(255,255,255,0.85)' : color }}
-      />
+      <span className="h-1.5 w-1.5 rounded-full" style={{ background: active ? 'rgba(255,255,255,0.9)' : color }} />
       {label}
       <span className={`tabular-nums ${active ? 'text-white/80' : 'text-ink-secondary/60'}`}>{count}</span>
     </button>
   )
 }
 
-// ── Single update card ───────────────────────────────────────────────────────
+// ── Single update card — white with a slight blue tint; equal-height, with the
+//    source pinned to the bottom so every row of cards lines up. ───────────────
 function NewsCard({ item, neu }: { item: SectoralNewsItem; neu: boolean }) {
   const meta = SECTORAL_CATEGORY_META[item.category]
-  const [open, setOpen] = useState(false)
-  const long = item.summary.length > 230 || item.summary.includes('\n')
   const domain = domainOf(item.reference)
 
   return (
-    <article
-      className="group relative overflow-hidden rounded-xl border border-soft-border py-3 pl-4 pr-4 shadow-soft transition-all duration-200 hover:-translate-y-0.5 hover:border-navy-primary/25 hover:shadow-card"
-      style={{ background: `linear-gradient(100deg, ${meta.soft} 0%, #ffffff 24%)` }}
-    >
-      <span className="absolute inset-y-0 left-0 w-1.5" style={{ background: meta.color }} aria-hidden />
-      <div className="flex flex-wrap items-center gap-2">
-        <span
-          className="inline-flex items-center gap-1.5 rounded-full px-2 py-0.5 text-[10px] font-semibold"
-          style={{ background: meta.soft, color: meta.color }}
-        >
+    <article className="flex h-full flex-col rounded-xl border border-[#DCE7F4] bg-gradient-to-br from-white to-[#F4F9FE] p-3.5 shadow-[0_1px_2px_rgba(23,43,77,0.04)] transition-all duration-200 hover:-translate-y-0.5 hover:border-navy-primary/25 hover:shadow-[0_10px_26px_rgba(23,43,77,0.1)]">
+      {/* Category (colored dot) · AI badge top-right */}
+      <div className="flex items-center gap-2">
+        <span className="inline-flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-wide" style={{ color: meta.color }}>
           <span className="h-1.5 w-1.5 rounded-full" style={{ background: meta.color }} />
-          {item.category}
+          {meta.short}
         </span>
-        <span className="inline-flex items-center gap-1 text-[10.5px] font-medium text-ink-secondary">
+        {item.origin === 'agent' && (
+          <span
+            className="ml-auto inline-flex items-center gap-1 rounded-full border border-[#E8D6AC]/70 bg-[#FBF4E4] px-1.5 py-0.5 text-[9px] font-semibold text-[#8A6516]"
+            title="AI-gathered from a public web source — verify before acting"
+          >
+            <Sparkles className="h-2.5 w-2.5" /> AI
+          </span>
+        )}
+      </div>
+
+      {/* Date · NEW */}
+      <div className="mt-1.5 flex items-center gap-2">
+        <span className="inline-flex items-center gap-1 text-[10px] font-medium text-ink-secondary">
           <CalendarDays className="h-3 w-3" /> {fmtFull(item.date)}
         </span>
         {neu && (
-          <span className="rounded-full bg-teal-soft px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-wide text-teal">
+          <span className="rounded-full bg-teal-soft px-1.5 py-0.5 text-[8.5px] font-bold uppercase tracking-wide text-teal">
             New
           </span>
         )}
-        <span className="ml-auto inline-flex items-center gap-2">
-          {item.origin === 'agent' && (
-            <span
-              className="inline-flex items-center gap-1 rounded-full bg-champagne-soft px-1.5 py-0.5 text-[9px] font-semibold text-champagne-deep"
-              title="AI-gathered from a public web source — verify before acting"
-            >
-              <Sparkles className="h-2.5 w-2.5" /> AI
-            </span>
-          )}
-          <span className="text-[10px] font-semibold tabular-nums text-ink-secondary/40">#{item.sn}</span>
-        </span>
       </div>
 
-      <h4 className="mt-1.5 text-[13.5px] font-semibold leading-snug text-navy-deep">{item.subject}</h4>
-      <p
-        className={`mt-1 text-[12px] leading-relaxed text-ink-secondary ${
-          !open && long ? 'line-clamp-3' : 'whitespace-pre-line'
-        }`}
-      >
+      {/* Title · summary */}
+      <h4 className="mt-2 line-clamp-2 text-[12.5px] font-semibold leading-snug text-navy-deep" title={item.subject}>
+        {item.subject}
+      </h4>
+      <p className="mt-1 line-clamp-3 text-[11.5px] leading-relaxed text-ink-secondary" title={item.summary}>
         {item.summary}
       </p>
 
-      <div className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1">
-        {long && (
-          <button
-            type="button"
-            onClick={() => setOpen((v) => !v)}
-            className="text-[10.5px] font-semibold text-navy-primary hover:underline"
-          >
-            {open ? 'Show less' : 'Show more'}
-          </button>
-        )}
-        {item.reference && (
+      {/* Source — pinned to the bottom so cards align across a row */}
+      {item.reference && (
+        <div className="mt-auto border-t border-[#EAF1F9] pt-2.5">
           <a
             href={item.reference}
             target="_blank"
             rel="noreferrer"
-            className="ml-auto inline-flex items-center gap-1 text-[10.5px] font-medium text-muted-blue transition-colors hover:text-navy-primary hover:underline"
+            className="inline-flex items-center gap-1 text-[10.5px] font-medium text-muted-blue transition-colors hover:text-navy-primary hover:underline"
           >
             {domain ? `Read at ${domain}` : 'Read source'}
             <ExternalLink className="h-3 w-3" />
           </a>
-        )}
-      </div>
+        </div>
+      )}
     </article>
   )
 }
