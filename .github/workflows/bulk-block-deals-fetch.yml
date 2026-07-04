@@ -63,7 +63,7 @@ jobs:
           git diff --staged --quiet && { echo "no change this run"; exit 0; }
           git commit -m "data: bulk/block deals @ $(date -u +%Y-%m-%dT%H:%MZ)"
           for i in 1 2 3 4 5; do
-            git fetch origin main && git rebase origin/main || { git rebase --abort 2>/dev/null || true; sleep 5; continue; }
+            git fetch origin main && git rebase --autostash origin/main || { git rebase --abort 2>/dev/null || true; sleep 5; continue; }
             if git push origin HEAD:main; then echo "pushed on attempt $i"; exit 0; fi
             sleep 5
           done
