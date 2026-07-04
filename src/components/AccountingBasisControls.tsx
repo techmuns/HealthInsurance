@@ -17,7 +17,39 @@ export const BASIS_TONE: Record<AccountingBasis, string> = {
  * reported view), teal for IFRS (the comparison lens) — so the chosen lens is
  * obvious at a glance.
  */
-export function AccountingBasisToggle({ value, onChange }: { value: AccountingBasis; onChange: (b: AccountingBasis) => void }) {
+export function AccountingBasisToggle({ value, onChange, compact = false }: { value: AccountingBasis; onChange: (b: AccountingBasis) => void; compact?: boolean }) {
+  const segmented = (
+    <div className="inline-flex items-center gap-0.5 rounded-full border border-soft-border bg-ice p-0.5" role="group" aria-label="Accounting basis">
+      {BASIS_OPTIONS.map((o) => {
+        const active = o.value === value
+        const tone = BASIS_TONE[o.value]
+        return (
+          <button
+            key={o.value}
+            type="button"
+            onClick={() => onChange(o.value)}
+            aria-pressed={active}
+            className={`rounded-full font-semibold transition-all duration-200 ${compact ? 'px-2.5 py-1 text-[11px]' : 'px-3.5 py-1.5 text-xs'} ${active ? '' : 'text-ink-secondary hover:text-navy-primary'}`}
+            style={active ? { background: tone, color: '#fff', boxShadow: `0 1px 6px ${tone}55` } : undefined}
+          >
+            {o.label}
+          </button>
+        )
+      })}
+    </div>
+  )
+
+  // Compact: just a small "Basis" label + the segmented switch, so it sits INSIDE
+  // a table header bar as a control for the table (no floating card chrome).
+  if (compact) {
+    return (
+      <span className="inline-flex items-center gap-2">
+        <span className="text-[9px] font-bold uppercase tracking-[0.14em] text-champagne-deep">Basis</span>
+        {segmented}
+      </span>
+    )
+  }
+
   return (
     <div className="inline-flex items-center gap-2.5 rounded-xl border border-[#D9E2F1] bg-gradient-to-br from-white to-[#F3F7FC] px-3 py-2 shadow-[0_1px_3px_rgba(23,43,77,0.05)]">
       <span className="inline-flex items-center gap-1.5">
@@ -29,24 +61,7 @@ export function AccountingBasisToggle({ value, onChange }: { value: AccountingBa
           <span className="text-[10px] font-medium text-ink-secondary">Switch the lens</span>
         </span>
       </span>
-      <div className="inline-flex items-center gap-0.5 rounded-full border border-soft-border bg-ice p-0.5" role="group" aria-label="Accounting basis">
-        {BASIS_OPTIONS.map((o) => {
-          const active = o.value === value
-          const tone = BASIS_TONE[o.value]
-          return (
-            <button
-              key={o.value}
-              type="button"
-              onClick={() => onChange(o.value)}
-              aria-pressed={active}
-              className={`rounded-full px-3.5 py-1.5 text-xs font-semibold transition-all duration-200 ${active ? '' : 'text-ink-secondary hover:text-navy-primary'}`}
-              style={active ? { background: tone, color: '#fff', boxShadow: `0 1px 6px ${tone}55` } : undefined}
-            >
-              {o.label}
-            </button>
-          )
-        })}
-      </div>
+      {segmented}
     </div>
   )
 }
