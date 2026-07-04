@@ -436,12 +436,12 @@ function TableView({ rows, metrics }: { rows: ScoreRow[]; metrics: MetricDef[] }
 }
 
 // ── Page ────────────────────────────────────────────────────────────────────
-// Table-first: the peer comparison table is the default view; the Scorecard
-// (heatmap + focal-company summary + "Why this score?" panel) and the interactive
-// Analysis Builder are one click away. The tabs + accounting-basis lens read as a
-// control for the current view, not a separate floating header.
+// Scorecard-first: the peer Scorecard (heatmap + focal-company summary + "Why
+// this score?" panel) is the default view; the plain comparison Table and the
+// interactive Analysis Builder are one click away. The tabs + accounting-basis
+// lens read as a control for the current view, not a separate floating header.
 type Tab = 'Scorecard' | 'Table' | 'Analysis Builder'
-const TABS: Tab[] = ['Table', 'Scorecard', 'Analysis Builder']
+const TABS: Tab[] = ['Scorecard', 'Table', 'Analysis Builder']
 const PILLS = [
   { key: 'growth', label: 'GWP Growth' },
   { key: 'roe', label: 'ROE' },
@@ -467,7 +467,7 @@ function IfrsNote({ boxed }: { boxed?: boolean }) {
 export function CompetitivePositioning() {
   const filters = useFilters()
   const { focus, ref: focusRef, arrived } = useSectionInsight('companies')
-  const [tab, setTab] = useState<Tab>('Table')
+  const [tab, setTab] = useState<Tab>('Scorecard')
   const [activeKey, setActiveKey] = useState('growth')
   // Accounting lens for the profit-basis column (Combined Ratio). Default
   // IGAAP/Statutory keeps the reported view unchanged; IFRS re-points Combined
