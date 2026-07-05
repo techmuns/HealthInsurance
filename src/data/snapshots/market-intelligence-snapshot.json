@@ -4,8 +4,8 @@
     "description": "AI-generated market intelligence for the SAHI health insurers — investor meets, earnings/board dates, sector & regulatory news, share catalysts. Web-sourced; each item links its source. AI-generated, not audited.",
     "schema_version": "1.0.0",
     "dataset": "ai_generated",
-    "last_updated": "2026-07-04",
-    "last_successful_run": "2026-07-04T14:58:23.219Z",
+    "last_updated": "2026-07-05",
+    "last_successful_run": "2026-07-05T05:56:21.373Z",
     "upstream_sources": [
       "muns_agent_web"
     ],
@@ -205,6 +205,36 @@
       "first_seen": "2026-07-04T14:58:23.219Z"
     },
     {
+      "id": "fd9878429a",
+      "company_id": "sector",
+      "date": "2026-07-01",
+      "kind": "regulatory",
+      "horizon": "recent",
+      "impact": "watch",
+      "headline": "IRDAI softens stance on insurer listings",
+      "detail": "A softer IPO stance can ease regulatory overhang on mature insurers including listed and unlisted health players, but may also delay valuation discovery and capital-market discipline for the sector.",
+      "source_name": "moneycontrol.com",
+      "source_url": "https://www.moneycontrol.com/news/business/banks/irdai-softens-stance-on-insurer-listings-13963096.html",
+      "source_published_at": "2026-07-01",
+      "first_seen": "2026-07-05T05:56:21.373Z",
+      "discovered_at": "2026-07-05T05:56:21.373Z"
+    },
+    {
+      "id": "7783c0fa8d",
+      "company_id": "sector",
+      "date": "2026-07-01",
+      "kind": "regulatory",
+      "horizon": "recent",
+      "impact": "negative",
+      "headline": "IRDAI grants final licence to Prudential-HCL health insurer",
+      "detail": "A new standalone health-insurance entrant raises competitive intensity in pricing, distribution and claims service across incumbents like Niva Bupa, Star Health and Care.",
+      "source_name": "moneycontrol.com",
+      "source_url": "https://www.moneycontrol.com/news/business/irdai-grants-final-r3-licence-to-prudential-hcl-health-insurance-venture-13963822.html",
+      "source_published_at": "2026-07-01",
+      "first_seen": "2026-07-05T05:56:21.373Z",
+      "discovered_at": "2026-07-05T05:56:21.373Z"
+    },
+    {
       "id": "f3ce300c4e",
       "company_id": "sector",
       "date": "2026-06-30",
@@ -227,6 +257,21 @@
       "detail": "A new health insurer entering the market raises medium-term competition risk in retail health products, distribution and pricing.",
       "source_name": "moneycontrol.com",
       "source_url": "https://moneycontrol.com/news/business/irdai-grants-final-r3-licence-to-prudential-hcl-health-insurance-venture-13963822.html"
+    },
+    {
+      "id": "5b4cfb4f31",
+      "company_id": "sector",
+      "date": "2026-06-30",
+      "kind": "regulatory",
+      "horizon": "recent",
+      "impact": "watch",
+      "headline": "IRDAI plans commission-rule overhaul to curb mis-selling",
+      "detail": "Proposed staggered commissions and tighter disclosure could alter channel economics, especially for retail health products sold through agents, brokers and banks.",
+      "source_name": "bfsi.economictimes.indiatimes.com",
+      "source_url": "https://bfsi.economictimes.indiatimes.com/news/insurance/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132156228",
+      "source_published_at": null,
+      "first_seen": "2026-07-05T05:56:21.373Z",
+      "discovered_at": "2026-07-05T05:56:21.373Z"
     },
     {
       "id": "fef56d0db2",
@@ -359,6 +404,21 @@
       "first_seen": "2026-07-04T11:18:33.041Z"
     },
     {
+      "id": "74b6041431",
+      "company_id": "sector",
+      "date": "2026-06-26",
+      "kind": "rating",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "Motilal Oswal raises positive call on Star Health, TP ₹700",
+      "detail": "A stronger Street stance on the listed peer supports sector multiples, though it also raises the competitive benchmark for Niva Bupa on growth and underwriting.",
+      "source_name": "moneycontrol.com",
+      "source_url": "https://moneycontrol.com/news/business/stocks/buy-star-health-target-of-rs-700-motilal-oswal-13959277.html",
+      "source_published_at": "2026-06-26",
+      "first_seen": "2026-07-05T05:56:21.373Z",
+      "discovered_at": "2026-07-05T05:56:21.373Z"
+    },
+    {
       "id": "d4237e61e1",
       "company_id": "sector",
       "date": "2026-06-25",
@@ -461,6 +521,36 @@
       "source_name": "bfsi.economictimes.indiatimes.com",
       "source_url": "https://bfsi.economictimes.indiatimes.com/articles/niva-bupa-and-icici-lombard-drive-non-life-insurance-premium-growth-in-may-2026/131896688",
       "first_seen": "2026-07-04T11:18:33.041Z"
+    },
+    {
+      "id": "a6bd99a90c",
+      "company_id": "niva-bupa",
+      "date": "2026-06-22",
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "positive",
+      "headline": "Niva Bupa leads May premium growth among SAHIs",
+      "detail": "Strong May premium momentum matters because Niva Bupa posted 30% YoY growth and 45% retail-health growth, reinforcing near-term growth and share-gain expectations.",
+      "source_name": "bfsi.economictimes.indiatimes.com",
+      "source_url": "https://bfsi.economictimes.indiatimes.com/articles/niva-bupa-and-icici-lombard-drive-non-life-insurance-premium-growth-in-may-2026/131896688",
+      "source_published_at": "2026-06-22",
+      "first_seen": "2026-07-05T05:56:21.373Z",
+      "discovered_at": "2026-07-05T05:56:21.373Z"
+    },
+    {
+      "id": "bbc9768780",
+      "company_id": "sector",
+      "date": "2026-06-22",
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "positive",
+      "headline": "Standalone health insurers continue to gain share in May",
+      "detail": "The sector read-through is supportive for Niva Bupa because SAHIs grew 31% YoY in May and gained market share while public-sector insurers shrank.",
+      "source_name": "bfsi.economictimes.indiatimes.com",
+      "source_url": "https://bfsi.economictimes.indiatimes.com/articles/niva-bupa-and-icici-lombard-drive-non-life-insurance-premium-growth-in-may-2026/131896688",
+      "source_published_at": "2026-06-22",
+      "first_seen": "2026-07-05T05:56:21.373Z",
+      "discovered_at": "2026-07-05T05:56:21.373Z"
     },
     {
       "id": "c7b80801b7",
@@ -708,71 +798,6 @@
       "source_name": "economictimes.indiatimes.com",
       "source_url": "https://economictimes.indiatimes.com/wealth/insure/health-insurance/health-insurance-claim-delay-cant-stop-patients-hospital-discharge-insurers-must-clear-in-3-hours-or-pay-for-delay/articleshow/110529869.cms",
       "first_seen": "2026-07-04T11:18:33.041Z"
-    },
-    {
-      "id": "48a7c207c8",
-      "company_id": "sector",
-      "date": "2026-05-29",
-      "kind": "regulatory",
-      "horizon": "recent",
-      "impact": "watch",
-      "headline": "Health master circular preserves full cover during grace period",
-      "detail": "IRDAI’s health-insurance circular requiring full coverage during the premium grace period is consumer-positive but can marginally raise underwriting and lapse-management risk across standalone health insurers.",
-      "source_name": "economictimes.indiatimes.com",
-      "source_url": "https://economictimes.indiatimes.com/wealth/insure/health-insurance/health-insurance-new-rule-get-full-coverage-during-grace-period-despite-unpaid-premium-mandates-irdai/articleshow/110540873.cms",
-      "first_seen": "2026-07-04T11:18:33.041Z"
-    },
-    {
-      "id": "38c92dca5c",
-      "company_id": "niva-bupa",
-      "date": "2026-05-26",
-      "kind": "rating",
-      "horizon": "recent",
-      "impact": "positive",
-      "headline": "Motilal Oswal reiterates Buy with Rs 97 target",
-      "detail": "A post-results target-price call is a direct stock catalyst because it frames upside versus current price and signals confidence in earnings trajectory.",
-      "source_name": "moneycontrol.com",
-      "source_url": "https://www.moneycontrol.com/india/stockpricequote/lifehealth-insurance/nivabupahealthinsurancecompany/NBH",
-      "first_seen": "2026-07-04T05:38:27.228Z"
-    },
-    {
-      "id": "a9a581005e",
-      "company_id": "sector",
-      "date": null,
-      "kind": "sector_news",
-      "horizon": "recent",
-      "impact": "neutral",
-      "headline": "impact",
-      "detail": "headline",
-      "source_name": null,
-      "source_url": null,
-      "first_seen": "2026-07-03T12:01:05.311Z"
-    },
-    {
-      "id": "c4c6c57253",
-      "company_id": "sector",
-      "date": null,
-      "kind": "sector_news",
-      "horizon": "recent",
-      "impact": "neutral",
-      "headline": "positive",
-      "detail": "FY26 PAT surges 80% to ₹366",
-      "source_name": null,
-      "source_url": null,
-      "first_seen": "2026-07-03T12:01:05.311Z"
-    },
-    {
-      "id": "4d45001f5b",
-      "company_id": "niva-bupa",
-      "date": null,
-      "kind": "earnings",
-      "horizon": "recent",
-      "impact": "watch",
-      "headline": "Investor presentation for earnings conference call filed",
-      "detail": "The earnings-call deck filing signals management commentary is available to the market, with growth, claims and combined-ratio trends the key swing factors for the share.",
-      "source_name": "economictimes.indiatimes.com",
-      "source_url": "https://economictimes.indiatimes.com/niva-bupa-health-insurance-company-ltd/stocksupdate/companyid-31347.cms",
-      "first_seen": "2026-07-04T05:38:27.228Z"
     }
   ]
 }
