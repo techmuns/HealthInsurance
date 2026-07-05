@@ -5,7 +5,7 @@
     "schema_version": "1.0.0",
     "dataset": "ai_generated",
     "last_updated": "2026-07-05",
-    "last_successful_run": "2026-07-05T11:23:57.879Z",
+    "last_successful_run": "2026-07-05T15:06:16.710Z",
     "upstream_sources": [
       "muns_agent_web"
     ],
@@ -26,6 +26,21 @@
       "source_name": "moneycontrol.com",
       "source_url": "https://www.moneycontrol.com/company-notices/starhealthalliedinsurancecompany/notices/SHA/",
       "first_seen": "2026-07-04T14:58:23.219Z"
+    },
+    {
+      "id": "23fb9e20b0",
+      "company_id": "sector",
+      "date": "2026-07-04",
+      "kind": "regulatory",
+      "horizon": "recent",
+      "impact": "negative",
+      "headline": "IRDAI likely to tighten commission norms for intermediaries",
+      "detail": "Lower commissions and higher disclosure requirements would pressure distribution economics across health and general insurers, especially in commission-heavy retail health.",
+      "source_name": "indianexpress.com",
+      "source_url": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494",
+      "source_published_at": "2026-07-04",
+      "first_seen": "2026-07-05T15:06:16.710Z",
+      "discovered_at": "2026-07-05T15:06:16.710Z"
     },
     {
       "id": "c409095fae",
@@ -454,6 +469,21 @@
       "discovered_at": "2026-07-05T11:23:57.879Z"
     },
     {
+      "id": "1e09dd7b2d",
+      "company_id": "sector",
+      "date": "2026-06-29",
+      "kind": "regulatory",
+      "horizon": "recent",
+      "impact": "watch",
+      "headline": "IRDAI clears Prudential-HCL health venture as 8th standalone health insurer",
+      "detail": "A new standalone health insurer raises competitive intensity in pricing, distribution and hiring across the listed and unlisted health-insurance peer set.",
+      "source_name": "livemint.com",
+      "source_url": "https://www.livemint.com/companies/news/prudential-hcl-health-irdai-approval-11782915502104.html",
+      "source_published_at": null,
+      "first_seen": "2026-07-05T15:06:16.710Z",
+      "discovered_at": "2026-07-05T15:06:16.710Z"
+    },
+    {
       "id": "fef56d0db2",
       "company_id": "sector",
       "date": "2026-06-28",
@@ -545,6 +575,36 @@
       "source_published_at": null,
       "first_seen": "2026-07-05T08:43:25.282Z",
       "discovered_at": "2026-07-05T08:43:25.282Z"
+    },
+    {
+      "id": "2806e8f09f",
+      "company_id": "sector",
+      "date": "2026-06-27",
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "watch",
+      "headline": "Motor third-party premium hike under government review after IRDAI proposal",
+      "detail": "Though motor-focused, any tariff action signals broader non-life pricing discipline and capital/profitability conditions that influence investor sentiment toward general and health insurers.",
+      "source_name": "moneycontrol.com",
+      "source_url": "https://www.moneycontrol.com/banking/govt-reviews-18-hike-in-motor-tp-premiums-amid-widening-losses-and-years-of-tariff-freeze-article-13107561.html",
+      "source_published_at": null,
+      "first_seen": "2026-07-05T15:06:16.710Z",
+      "discovered_at": "2026-07-05T15:06:16.710Z"
+    },
+    {
+      "id": "060b05fa3a",
+      "company_id": "sector",
+      "date": "2026-06-27",
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "watch",
+      "headline": "Significant hike in motor third-party premiums expected soon",
+      "detail": "A sector-wide move to restore loss-making non-life lines would be read as supportive for industry underwriting discipline, even if health insurers benefit only indirectly.",
+      "source_name": "bfsi.economictimes.indiatimes.com",
+      "source_url": "https://bfsi.economictimes.indiatimes.com/articles/significant-hike-in-third-party-motor-insurance-premiums-expected-soon/122123110",
+      "source_published_at": null,
+      "first_seen": "2026-07-05T15:06:16.710Z",
+      "discovered_at": "2026-07-05T15:06:16.710Z"
     },
     {
       "id": "6851b32f81",
@@ -776,58 +836,6 @@
       "source_published_at": "2026-06-22",
       "first_seen": "2026-07-05T05:56:21.373Z",
       "discovered_at": "2026-07-05T05:56:21.373Z"
-    },
-    {
-      "id": "c7b80801b7",
-      "company_id": "sector",
-      "date": "2026-06-19",
-      "kind": "regulatory",
-      "horizon": "recent",
-      "impact": "watch",
-      "headline": "IRDAI issues exposure draft to amend TPA health-services regulations",
-      "detail": "Changes to TPA rules could affect claims servicing, cashless operations, compliance burden and partner economics for every standalone health insurer.",
-      "source_name": "irdai.gov.in",
-      "source_url": "https://irdai.gov.in/web/guest/document-detail?documentId=9572466",
-      "first_seen": "2026-07-04T14:58:23.219Z"
-    },
-    {
-      "id": "0800fcbda0",
-      "company_id": "sector",
-      "date": "2026-06-18",
-      "kind": "regulatory",
-      "horizon": "recent",
-      "impact": "watch",
-      "headline": "Cashless and claims-service rules stay central to sector execution",
-      "detail": "IRDAI’s policyholder-service framework, including fast cashless approval and discharge expectations highlighted in recent regulatory explainers, keeps claims TAT and hospital-network execution in focus for all health insurers.",
-      "source_name": "irdai.gov.in",
-      "source_url": "https://irdai.gov.in/circulars",
-      "first_seen": "2026-07-03T05:30:20.868Z"
-    },
-    {
-      "id": "2a54e30df4",
-      "company_id": "niva-bupa",
-      "date": "2026-06-18",
-      "kind": "rating",
-      "horizon": "recent",
-      "impact": "positive",
-      "headline": "MOFSL sees Niva Bupa sustaining market-share gains",
-      "detail": "A fresh positive broker note matters because sustained retail-health growth and share gains can support rerating expectations for NIVABUPA.",
-      "source_name": "bfsi.economictimes.indiatimes.com",
-      "source_url": "https://bfsi.economictimes.indiatimes.com/articles/niva-bupa-forecasted-to-outpace-retail-health-insurance-market-amid-soaring-demand/131922688",
-      "first_seen": "2026-07-03T15:49:34.221Z"
-    },
-    {
-      "id": "f07892164b",
-      "company_id": "niva-bupa",
-      "date": "2026-06-18",
-      "kind": "rating",
-      "horizon": "recent",
-      "impact": "positive",
-      "headline": "MOFSL keeps Buy, sees market-share gains continuing",
-      "detail": "A fresh Buy/target-price reiteration matters because Niva Bupa is still in market-share capture mode and sell-side support can anchor sentiment after results.",
-      "source_name": "bfsi.economictimes.indiatimes.com",
-      "source_url": "https://bfsi.economictimes.indiatimes.com/amp/articles/niva-bupa-forecasted-to-outpace-retail-health-insurance-market-amid-soaring-demand/131922688",
-      "first_seen": "2026-07-04T05:38:27.228Z"
     }
   ]
 }
