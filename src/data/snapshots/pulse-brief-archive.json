@@ -1163,13 +1163,20 @@
         "company": "Niva Bupa",
         "companyId": "niva-bupa",
         "generatedAt": "2026-07-05T06:06:38.369Z",
-        "lastUpdatedAt": "2026-07-05T06:06:38.369Z",
+        "lastUpdatedAt": "2026-07-05T08:44:40.641Z",
         "status": "Watch",
         "sourceConfidence": "Medium",
-        "itemCount": 57,
+        "itemCount": 56,
         "runs": [
           {
             "runTime": "2026-07-05T06:06:38.369Z",
+            "developments": 62,
+            "sourceCount": 60,
+            "ideas": 4,
+            "status": "ok"
+          },
+          {
+            "runTime": "2026-07-05T08:44:40.641Z",
             "developments": 62,
             "sourceCount": 60,
             "ideas": 4,
@@ -1182,11 +1189,11 @@
           "attentionCount": 4,
           "developmentsCount": 62,
           "sourcesCount": 60,
-          "domainsCount": 12,
+          "domainsCount": 11,
           "confidencePct": 71,
           "confidenceTier": "Medium",
           "readingMins": 2,
-          "lastUpdatedLabel": "5 Jul, 05:56 am"
+          "lastUpdatedLabel": "5 Jul, 08:43 am"
         },
         "message": {
           "since": "Niva Bupa had recently surfaced positive analyst coverage, alongside older regulatory items now in view. No fresh company-specific update was published since the last brief.",
@@ -1519,7 +1526,7 @@
           {
             "id": "reg",
             "label": "newly surfaced regulatory updates",
-            "value": "14",
+            "value": "15",
             "direction": "up",
             "tone": "Watch",
             "target": {
@@ -1536,7 +1543,7 @@
                 "companyLabel": "Niva Bupa",
                 "comparisonType": "trend",
                 "tone": "neutral",
-                "insightLabel": "14 newly surfaced regulatory updates",
+                "insightLabel": "15 newly surfaced regulatory updates",
                 "unit": "",
                 "sahiTab": "sector-news",
                 "origin": "pulse"
@@ -2797,13 +2804,20 @@
         "company": "Star Health",
         "companyId": "star-health",
         "generatedAt": "2026-07-05T06:06:38.369Z",
-        "lastUpdatedAt": "2026-07-05T06:06:38.369Z",
+        "lastUpdatedAt": "2026-07-05T08:44:40.641Z",
         "status": "Watch",
         "sourceConfidence": "Medium",
-        "itemCount": 44,
+        "itemCount": 43,
         "runs": [
           {
             "runTime": "2026-07-05T06:06:38.369Z",
+            "developments": 47,
+            "sourceCount": 47,
+            "ideas": 4,
+            "status": "ok"
+          },
+          {
+            "runTime": "2026-07-05T08:44:40.641Z",
             "developments": 47,
             "sourceCount": 47,
             "ideas": 4,
@@ -2816,11 +2830,11 @@
           "attentionCount": 4,
           "developmentsCount": 47,
           "sourcesCount": 47,
-          "domainsCount": 10,
+          "domainsCount": 9,
           "confidencePct": 71,
           "confidenceTier": "Medium",
           "readingMins": 2,
-          "lastUpdatedLabel": "5 Jul, 05:56 am"
+          "lastUpdatedLabel": "5 Jul, 08:43 am"
         },
         "message": {
           "since": "No company-specific movement for Star Health since the last brief — the read below is sector & regulatory context that applies across standalone health insurers.",
@@ -2895,8 +2909,8 @@
               },
               {
                 "kind": "Regulatory",
-                "name": "acko.com",
-                "url": "https://www.acko.com/health-insurance/irda-rules-for-health-insurance/"
+                "name": "livemint.com",
+                "url": "https://www.livemint.com/money/personal-finance/irdai-plans-insurance-commission-overhaul-to-curb-mis-selling-with-staggered-payouts-and-stricter-transparency-rules-11783065965488.html"
               }
             ]
           },
@@ -2961,8 +2975,8 @@
               },
               {
                 "kind": "Regulatory",
-                "name": "acko.com",
-                "url": "https://www.acko.com/health-insurance/irda-rules-for-health-insurance/"
+                "name": "livemint.com",
+                "url": "https://www.livemint.com/money/personal-finance/irdai-plans-insurance-commission-overhaul-to-curb-mis-selling-with-staggered-payouts-and-stricter-transparency-rules-11783065965488.html"
               }
             ]
           },
@@ -3027,17 +3041,17 @@
               },
               {
                 "kind": "Regulatory",
-                "name": "acko.com",
-                "url": "https://www.acko.com/health-insurance/irda-rules-for-health-insurance/"
+                "name": "livemint.com",
+                "url": "https://www.livemint.com/money/personal-finance/irdai-plans-insurance-commission-overhaul-to-curb-mis-selling-with-staggered-payouts-and-stricter-transparency-rules-11783065965488.html"
               }
             ]
           },
           {
-            "id": "1ee80ca8b9",
+            "id": "80855b4a9f",
             "entity": "Regulatory Update",
             "stars": 5,
             "reasoning": [
-              "A move to stagger commissions and tighten disclosure could pressure distributor-led growth, agent payouts and customer-acquisition economics across standalone health insurers if implemented.",
+              "A new licensed rival raises competitive intensity in health insurance, with likely pressure on pricing, distribution and acquisition economics for incumbents including Niva Bupa.",
               "Solvency 2.2x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency."
             ],
             "whatToWatch": "IRDAI mis-selling / distribution-conduct rules",
@@ -3046,8 +3060,8 @@
             "status": "Risk",
             "category": "Regulatory",
             "why": {
-              "whatHappened": "IRDAI plans tighter commission rules to curb mis-selling",
-              "whyItMatters": "A move to stagger commissions and tighten disclosure could pressure distributor-led growth, agent payouts and customer-acquisition economics across standalone health insurers if implemented.",
+              "whatHappened": "IRDAI grants Prudential-HCL final licence, creating eighth standalone health insurer",
+              "whyItMatters": "A new licensed rival raises competitive intensity in health insurance, with likely pressure on pricing, distribution and acquisition economics for incumbents including Niva Bupa.",
               "whoAffected": "Every standalone health insurer (SAHI) — pricing, product design and compliance cost.",
               "historicalContext": "Solvency 2.2x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency.",
               "potentialImpact": "Solvency vs the 1.5x regulatory floor",
@@ -3068,9 +3082,14 @@
             "freshLabel": "Newly surfaced",
             "freshness": "newly-surfaced",
             "freshnessLabel": "Newly surfaced",
-            "publishedLabel": "—",
-            "discoveredLabel": "4 Jul",
+            "publishedLabel": "1 Jul",
+            "discoveredLabel": "5 Jul",
             "sources": [
+              {
+                "kind": "Regulatory",
+                "name": "moneycontrol.com",
+                "url": "https://www.moneycontrol.com/news/business/irdai-grants-final-r3-licence-to-prudential-hcl-health-insurance-venture-13963822.html"
+              },
               {
                 "kind": "Regulatory",
                 "name": "economictimes.indiatimes.com",
@@ -3088,13 +3107,8 @@
               },
               {
                 "kind": "Regulatory",
-                "name": "acko.com",
-                "url": "https://www.acko.com/health-insurance/irda-rules-for-health-insurance/"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "moneycontrol.com",
-                "url": "https://www.moneycontrol.com/news/business/irdai-grants-final-r3-licence-to-prudential-hcl-health-insurance-venture-13963822.html"
+                "name": "livemint.com",
+                "url": "https://www.livemint.com/money/personal-finance/irdai-plans-insurance-commission-overhaul-to-curb-mis-selling-with-staggered-payouts-and-stricter-transparency-rules-11783065965488.html"
               }
             ]
           }
@@ -3103,7 +3117,7 @@
           {
             "id": "reg",
             "label": "newly surfaced regulatory updates",
-            "value": "14",
+            "value": "15",
             "direction": "up",
             "tone": "Watch",
             "target": {
@@ -3120,7 +3134,7 @@
                 "companyLabel": "Star Health",
                 "comparisonType": "trend",
                 "tone": "neutral",
-                "insightLabel": "14 newly surfaced regulatory updates",
+                "insightLabel": "15 newly surfaced regulatory updates",
                 "unit": "",
                 "sahiTab": "sector-news",
                 "origin": "pulse"
@@ -4380,13 +4394,20 @@
         "company": "Care Health",
         "companyId": "care-health",
         "generatedAt": "2026-07-05T06:06:38.369Z",
-        "lastUpdatedAt": "2026-07-05T06:06:38.369Z",
+        "lastUpdatedAt": "2026-07-05T08:44:40.641Z",
         "status": "Watch",
         "sourceConfidence": "Medium",
-        "itemCount": 44,
+        "itemCount": 43,
         "runs": [
           {
             "runTime": "2026-07-05T06:06:38.369Z",
+            "developments": 47,
+            "sourceCount": 47,
+            "ideas": 4,
+            "status": "ok"
+          },
+          {
+            "runTime": "2026-07-05T08:44:40.641Z",
             "developments": 47,
             "sourceCount": 47,
             "ideas": 4,
@@ -4399,11 +4420,11 @@
           "attentionCount": 4,
           "developmentsCount": 47,
           "sourcesCount": 47,
-          "domainsCount": 10,
+          "domainsCount": 9,
           "confidencePct": 71,
           "confidenceTier": "Medium",
-          "readingMins": 3,
-          "lastUpdatedLabel": "5 Jul, 05:56 am"
+          "readingMins": 2,
+          "lastUpdatedLabel": "5 Jul, 08:43 am"
         },
         "message": {
           "since": "No company-specific movement for Care Health since the last brief — the read below is sector & regulatory context that applies across standalone health insurers.",
@@ -4478,8 +4499,8 @@
               },
               {
                 "kind": "Regulatory",
-                "name": "acko.com",
-                "url": "https://www.acko.com/health-insurance/irda-rules-for-health-insurance/"
+                "name": "livemint.com",
+                "url": "https://www.livemint.com/money/personal-finance/irdai-plans-insurance-commission-overhaul-to-curb-mis-selling-with-staggered-payouts-and-stricter-transparency-rules-11783065965488.html"
               }
             ]
           },
@@ -4544,8 +4565,8 @@
               },
               {
                 "kind": "Regulatory",
-                "name": "acko.com",
-                "url": "https://www.acko.com/health-insurance/irda-rules-for-health-insurance/"
+                "name": "livemint.com",
+                "url": "https://www.livemint.com/money/personal-finance/irdai-plans-insurance-commission-overhaul-to-curb-mis-selling-with-staggered-payouts-and-stricter-transparency-rules-11783065965488.html"
               }
             ]
           },
@@ -4610,31 +4631,31 @@
               },
               {
                 "kind": "Regulatory",
-                "name": "acko.com",
-                "url": "https://www.acko.com/health-insurance/irda-rules-for-health-insurance/"
+                "name": "livemint.com",
+                "url": "https://www.livemint.com/money/personal-finance/irdai-plans-insurance-commission-overhaul-to-curb-mis-selling-with-staggered-payouts-and-stricter-transparency-rules-11783065965488.html"
               }
             ]
           },
           {
-            "id": "1ee80ca8b9",
+            "id": "80855b4a9f",
             "entity": "Regulatory Update",
             "stars": 5,
             "reasoning": [
-              "A move to stagger commissions and tighten disclosure could pressure distributor-led growth, agent payouts and customer-acquisition economics across standalone health insurers if implemented.",
+              "A new licensed rival raises competitive intensity in health insurance, with likely pressure on pricing, distribution and acquisition economics for incumbents including Niva Bupa.",
               "At 1.68x solvency — only just above the 1.5x regulatory floor — Care's headroom erodes fastest as it keeps compounding premium."
             ],
-            "whatToWatch": "Equity raise — Care raises capital or growth slows below the pace that erodes the 1.68x cushion.",
+            "whatToWatch": "The impact on claims cost, expense ratio and pricing as rules tighten.",
             "confidencePct": 78,
             "evidenceCount": 5,
             "status": "Risk",
             "category": "Regulatory",
             "why": {
-              "whatHappened": "IRDAI plans tighter commission rules to curb mis-selling",
-              "whyItMatters": "A move to stagger commissions and tighten disclosure could pressure distributor-led growth, agent payouts and customer-acquisition economics across standalone health insurers if implemented.",
+              "whatHappened": "IRDAI grants Prudential-HCL final licence, creating eighth standalone health insurer",
+              "whyItMatters": "A new licensed rival raises competitive intensity in health insurance, with likely pressure on pricing, distribution and acquisition economics for incumbents including Niva Bupa.",
               "whoAffected": "Every standalone health insurer (SAHI) — pricing, product design and compliance cost.",
               "historicalContext": "At 1.68x solvency — only just above the 1.5x regulatory floor — Care's headroom erodes fastest as it keeps compounding premium.",
               "potentialImpact": "Solvency sits close enough to the floor that a capital raise or slower growth is a live possibility.",
-              "whatToWatch": "Equity raise — Care raises capital or growth slows below the pace that erodes the 1.68x cushion."
+              "whatToWatch": "The impact on claims cost, expense ratio and pricing as rules tighten."
             },
             "action": {
               "id": "regulation",
@@ -4651,9 +4672,14 @@
             "freshLabel": "Newly surfaced",
             "freshness": "newly-surfaced",
             "freshnessLabel": "Newly surfaced",
-            "publishedLabel": "—",
-            "discoveredLabel": "4 Jul",
+            "publishedLabel": "1 Jul",
+            "discoveredLabel": "5 Jul",
             "sources": [
+              {
+                "kind": "Regulatory",
+                "name": "moneycontrol.com",
+                "url": "https://www.moneycontrol.com/news/business/irdai-grants-final-r3-licence-to-prudential-hcl-health-insurance-venture-13963822.html"
+              },
               {
                 "kind": "Regulatory",
                 "name": "economictimes.indiatimes.com",
@@ -4671,13 +4697,8 @@
               },
               {
                 "kind": "Regulatory",
-                "name": "acko.com",
-                "url": "https://www.acko.com/health-insurance/irda-rules-for-health-insurance/"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "moneycontrol.com",
-                "url": "https://www.moneycontrol.com/news/business/irdai-grants-final-r3-licence-to-prudential-hcl-health-insurance-venture-13963822.html"
+                "name": "livemint.com",
+                "url": "https://www.livemint.com/money/personal-finance/irdai-plans-insurance-commission-overhaul-to-curb-mis-selling-with-staggered-payouts-and-stricter-transparency-rules-11783065965488.html"
               }
             ]
           }
@@ -4686,7 +4707,7 @@
           {
             "id": "reg",
             "label": "newly surfaced regulatory updates",
-            "value": "14",
+            "value": "15",
             "direction": "up",
             "tone": "Watch",
             "target": {
@@ -4703,7 +4724,7 @@
                 "companyLabel": "Care Health",
                 "comparisonType": "trend",
                 "tone": "neutral",
-                "insightLabel": "14 newly surfaced regulatory updates",
+                "insightLabel": "15 newly surfaced regulatory updates",
                 "unit": "",
                 "sahiTab": "sector-news",
                 "origin": "pulse"
@@ -5963,13 +5984,20 @@
         "company": "Aditya Birla",
         "companyId": "aditya-birla",
         "generatedAt": "2026-07-05T06:06:38.369Z",
-        "lastUpdatedAt": "2026-07-05T06:06:38.369Z",
+        "lastUpdatedAt": "2026-07-05T08:44:40.641Z",
         "status": "Watch",
         "sourceConfidence": "Medium",
-        "itemCount": 44,
+        "itemCount": 43,
         "runs": [
           {
             "runTime": "2026-07-05T06:06:38.369Z",
+            "developments": 47,
+            "sourceCount": 47,
+            "ideas": 4,
+            "status": "ok"
+          },
+          {
+            "runTime": "2026-07-05T08:44:40.641Z",
             "developments": 47,
             "sourceCount": 47,
             "ideas": 4,
@@ -5982,11 +6010,11 @@
           "attentionCount": 4,
           "developmentsCount": 47,
           "sourcesCount": 47,
-          "domainsCount": 10,
+          "domainsCount": 9,
           "confidencePct": 71,
           "confidenceTier": "Medium",
           "readingMins": 2,
-          "lastUpdatedLabel": "5 Jul, 05:56 am"
+          "lastUpdatedLabel": "5 Jul, 08:43 am"
         },
         "message": {
           "since": "No company-specific movement for Aditya Birla since the last brief — the read below is sector & regulatory context that applies across standalone health insurers.",
@@ -6061,8 +6089,8 @@
               },
               {
                 "kind": "Regulatory",
-                "name": "acko.com",
-                "url": "https://www.acko.com/health-insurance/irda-rules-for-health-insurance/"
+                "name": "livemint.com",
+                "url": "https://www.livemint.com/money/personal-finance/irdai-plans-insurance-commission-overhaul-to-curb-mis-selling-with-staggered-payouts-and-stricter-transparency-rules-11783065965488.html"
               }
             ]
           },
@@ -6127,8 +6155,8 @@
               },
               {
                 "kind": "Regulatory",
-                "name": "acko.com",
-                "url": "https://www.acko.com/health-insurance/irda-rules-for-health-insurance/"
+                "name": "livemint.com",
+                "url": "https://www.livemint.com/money/personal-finance/irdai-plans-insurance-commission-overhaul-to-curb-mis-selling-with-staggered-payouts-and-stricter-transparency-rules-11783065965488.html"
               }
             ]
           },
@@ -6193,17 +6221,17 @@
               },
               {
                 "kind": "Regulatory",
-                "name": "acko.com",
-                "url": "https://www.acko.com/health-insurance/irda-rules-for-health-insurance/"
+                "name": "livemint.com",
+                "url": "https://www.livemint.com/money/personal-finance/irdai-plans-insurance-commission-overhaul-to-curb-mis-selling-with-staggered-payouts-and-stricter-transparency-rules-11783065965488.html"
               }
             ]
           },
           {
-            "id": "1ee80ca8b9",
+            "id": "80855b4a9f",
             "entity": "Regulatory Update",
             "stars": 5,
             "reasoning": [
-              "A move to stagger commissions and tighten disclosure could pressure distributor-led growth, agent payouts and customer-acquisition economics across standalone health insurers if implemented.",
+              "A new licensed rival raises competitive intensity in health insurance, with likely pressure on pricing, distribution and acquisition economics for incumbents including Niva Bupa.",
               "Solvency 1.84x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency."
             ],
             "whatToWatch": "IRDAI mis-selling / distribution-conduct rules",
@@ -6212,8 +6240,8 @@
             "status": "Risk",
             "category": "Regulatory",
             "why": {
-              "whatHappened": "IRDAI plans tighter commission rules to curb mis-selling",
-              "whyItMatters": "A move to stagger commissions and tighten disclosure could pressure distributor-led growth, agent payouts and customer-acquisition economics across standalone health insurers if implemented.",
+              "whatHappened": "IRDAI grants Prudential-HCL final licence, creating eighth standalone health insurer",
+              "whyItMatters": "A new licensed rival raises competitive intensity in health insurance, with likely pressure on pricing, distribution and acquisition economics for incumbents including Niva Bupa.",
               "whoAffected": "Every standalone health insurer (SAHI) — pricing, product design and compliance cost.",
               "historicalContext": "Solvency 1.84x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency.",
               "potentialImpact": "Solvency vs the 1.5x regulatory floor",
@@ -6234,9 +6262,14 @@
             "freshLabel": "Newly surfaced",
             "freshness": "newly-surfaced",
             "freshnessLabel": "Newly surfaced",
-            "publishedLabel": "—",
-            "discoveredLabel": "4 Jul",
+            "publishedLabel": "1 Jul",
+            "discoveredLabel": "5 Jul",
             "sources": [
+              {
+                "kind": "Regulatory",
+                "name": "moneycontrol.com",
+                "url": "https://www.moneycontrol.com/news/business/irdai-grants-final-r3-licence-to-prudential-hcl-health-insurance-venture-13963822.html"
+              },
               {
                 "kind": "Regulatory",
                 "name": "economictimes.indiatimes.com",
@@ -6254,13 +6287,8 @@
               },
               {
                 "kind": "Regulatory",
-                "name": "acko.com",
-                "url": "https://www.acko.com/health-insurance/irda-rules-for-health-insurance/"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "moneycontrol.com",
-                "url": "https://www.moneycontrol.com/news/business/irdai-grants-final-r3-licence-to-prudential-hcl-health-insurance-venture-13963822.html"
+                "name": "livemint.com",
+                "url": "https://www.livemint.com/money/personal-finance/irdai-plans-insurance-commission-overhaul-to-curb-mis-selling-with-staggered-payouts-and-stricter-transparency-rules-11783065965488.html"
               }
             ]
           }
@@ -6269,7 +6297,7 @@
           {
             "id": "reg",
             "label": "newly surfaced regulatory updates",
-            "value": "14",
+            "value": "15",
             "direction": "up",
             "tone": "Watch",
             "target": {
@@ -6286,7 +6314,7 @@
                 "companyLabel": "Aditya Birla",
                 "comparisonType": "trend",
                 "tone": "neutral",
-                "insightLabel": "14 newly surfaced regulatory updates",
+                "insightLabel": "15 newly surfaced regulatory updates",
                 "unit": "",
                 "sahiTab": "sector-news",
                 "origin": "pulse"
@@ -7546,13 +7574,20 @@
         "company": "ManipalCigna",
         "companyId": "manipalcigna",
         "generatedAt": "2026-07-05T06:06:38.369Z",
-        "lastUpdatedAt": "2026-07-05T06:06:38.369Z",
+        "lastUpdatedAt": "2026-07-05T08:44:40.641Z",
         "status": "Watch",
         "sourceConfidence": "Medium",
-        "itemCount": 44,
+        "itemCount": 43,
         "runs": [
           {
             "runTime": "2026-07-05T06:06:38.369Z",
+            "developments": 47,
+            "sourceCount": 47,
+            "ideas": 4,
+            "status": "ok"
+          },
+          {
+            "runTime": "2026-07-05T08:44:40.641Z",
             "developments": 47,
             "sourceCount": 47,
             "ideas": 4,
@@ -7565,11 +7600,11 @@
           "attentionCount": 4,
           "developmentsCount": 47,
           "sourcesCount": 47,
-          "domainsCount": 10,
+          "domainsCount": 9,
           "confidencePct": 71,
           "confidenceTier": "Medium",
           "readingMins": 2,
-          "lastUpdatedLabel": "5 Jul, 05:56 am"
+          "lastUpdatedLabel": "5 Jul, 08:43 am"
         },
         "message": {
           "since": "No company-specific movement for ManipalCigna since the last brief — the read below is sector & regulatory context that applies across standalone health insurers.",
@@ -7644,8 +7679,8 @@
               },
               {
                 "kind": "Regulatory",
-                "name": "acko.com",
-                "url": "https://www.acko.com/health-insurance/irda-rules-for-health-insurance/"
+                "name": "livemint.com",
+                "url": "https://www.livemint.com/money/personal-finance/irdai-plans-insurance-commission-overhaul-to-curb-mis-selling-with-staggered-payouts-and-stricter-transparency-rules-11783065965488.html"
               }
             ]
           },
@@ -7710,8 +7745,8 @@
               },
               {
                 "kind": "Regulatory",
-                "name": "acko.com",
-                "url": "https://www.acko.com/health-insurance/irda-rules-for-health-insurance/"
+                "name": "livemint.com",
+                "url": "https://www.livemint.com/money/personal-finance/irdai-plans-insurance-commission-overhaul-to-curb-mis-selling-with-staggered-payouts-and-stricter-transparency-rules-11783065965488.html"
               }
             ]
           },
@@ -7776,17 +7811,17 @@
               },
               {
                 "kind": "Regulatory",
-                "name": "acko.com",
-                "url": "https://www.acko.com/health-insurance/irda-rules-for-health-insurance/"
+                "name": "livemint.com",
+                "url": "https://www.livemint.com/money/personal-finance/irdai-plans-insurance-commission-overhaul-to-curb-mis-selling-with-staggered-payouts-and-stricter-transparency-rules-11783065965488.html"
               }
             ]
           },
           {
-            "id": "1ee80ca8b9",
+            "id": "80855b4a9f",
             "entity": "Regulatory Update",
             "stars": 5,
             "reasoning": [
-              "A move to stagger commissions and tighten disclosure could pressure distributor-led growth, agent payouts and customer-acquisition economics across standalone health insurers if implemented.",
+              "A new licensed rival raises competitive intensity in health insurance, with likely pressure on pricing, distribution and acquisition economics for incumbents including Niva Bupa.",
               "Solvency 1.7x vs the 1.5x floor — headroom is thinner; watch solvency alongside regulation."
             ],
             "whatToWatch": "IRDAI mis-selling / distribution-conduct rules",
@@ -7795,8 +7830,8 @@
             "status": "Risk",
             "category": "Regulatory",
             "why": {
-              "whatHappened": "IRDAI plans tighter commission rules to curb mis-selling",
-              "whyItMatters": "A move to stagger commissions and tighten disclosure could pressure distributor-led growth, agent payouts and customer-acquisition economics across standalone health insurers if implemented.",
+              "whatHappened": "IRDAI grants Prudential-HCL final licence, creating eighth standalone health insurer",
+              "whyItMatters": "A new licensed rival raises competitive intensity in health insurance, with likely pressure on pricing, distribution and acquisition economics for incumbents including Niva Bupa.",
               "whoAffected": "Every standalone health insurer (SAHI) — pricing, product design and compliance cost.",
               "historicalContext": "Solvency 1.7x vs the 1.5x floor — headroom is thinner; watch solvency alongside regulation.",
               "potentialImpact": "Solvency sits close enough to the floor that a capital raise or slower growth is a live possibility.",
@@ -7817,9 +7852,14 @@
             "freshLabel": "Newly surfaced",
             "freshness": "newly-surfaced",
             "freshnessLabel": "Newly surfaced",
-            "publishedLabel": "—",
-            "discoveredLabel": "4 Jul",
+            "publishedLabel": "1 Jul",
+            "discoveredLabel": "5 Jul",
             "sources": [
+              {
+                "kind": "Regulatory",
+                "name": "moneycontrol.com",
+                "url": "https://www.moneycontrol.com/news/business/irdai-grants-final-r3-licence-to-prudential-hcl-health-insurance-venture-13963822.html"
+              },
               {
                 "kind": "Regulatory",
                 "name": "economictimes.indiatimes.com",
@@ -7837,13 +7877,8 @@
               },
               {
                 "kind": "Regulatory",
-                "name": "acko.com",
-                "url": "https://www.acko.com/health-insurance/irda-rules-for-health-insurance/"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "moneycontrol.com",
-                "url": "https://www.moneycontrol.com/news/business/irdai-grants-final-r3-licence-to-prudential-hcl-health-insurance-venture-13963822.html"
+                "name": "livemint.com",
+                "url": "https://www.livemint.com/money/personal-finance/irdai-plans-insurance-commission-overhaul-to-curb-mis-selling-with-staggered-payouts-and-stricter-transparency-rules-11783065965488.html"
               }
             ]
           }
@@ -7852,7 +7887,7 @@
           {
             "id": "reg",
             "label": "newly surfaced regulatory updates",
-            "value": "14",
+            "value": "15",
             "direction": "up",
             "tone": "Watch",
             "target": {
@@ -7869,7 +7904,7 @@
                 "companyLabel": "ManipalCigna",
                 "comparisonType": "trend",
                 "tone": "neutral",
-                "insightLabel": "14 newly surfaced regulatory updates",
+                "insightLabel": "15 newly surfaced regulatory updates",
                 "unit": "",
                 "sahiTab": "sector-news",
                 "origin": "pulse"
@@ -8049,6 +8084,6 @@
     "snapshot_id": "pulse-brief-archive",
     "description": "Immutable per-calendar-day Pulse brief records (IST), one per company. Past days are frozen exactly as shown that day; the live Today view recomposes. Kept ~90 days per company.",
     "last_updated": "2026-07-05",
-    "last_successful_run": "2026-07-05T06:06:38.369Z"
+    "last_successful_run": "2026-07-05T08:44:40.641Z"
   }
 }
