@@ -1705,10 +1705,10 @@
         "company": "Niva Bupa",
         "companyId": "niva-bupa",
         "generatedAt": "2026-07-06T06:20:55.536Z",
-        "lastUpdatedAt": "2026-07-06T06:20:55.536Z",
+        "lastUpdatedAt": "2026-07-06T13:39:43.324Z",
         "status": "Watch",
         "sourceConfidence": "Low",
-        "itemCount": 56,
+        "itemCount": 55,
         "runs": [
           {
             "runTime": "2026-07-06T06:20:55.536Z",
@@ -1716,19 +1716,26 @@
             "sourceCount": 60,
             "ideas": 4,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-07-06T13:39:43.324Z",
+            "developments": 59,
+            "sourceCount": 59,
+            "ideas": 4,
+            "status": "ok"
           }
         ],
         "brief": {
-          "greeting": "Good morning",
+          "greeting": "Good afternoon",
           "narrative": "Regulatory pressure is the main watch item for health insurers today. Niva Bupa is under pressure on premium growth and demand, but claims-cost and conduct scrutiny and regulatory deadlines will decide whether the strength is sustainable.",
           "attentionCount": 4,
-          "developmentsCount": 60,
-          "sourcesCount": 60,
+          "developmentsCount": 59,
+          "sourcesCount": 59,
           "domainsCount": 14,
-          "confidencePct": 65,
-          "confidenceTier": "Low",
+          "confidencePct": 66,
+          "confidenceTier": "Medium",
           "readingMins": 2,
-          "lastUpdatedLabel": "6 Jul, 06:19 am"
+          "lastUpdatedLabel": "6 Jul, 01:38 pm"
         },
         "message": {
           "since": "No company-specific movement for Niva Bupa since the last brief — the read below is sector & regulatory context that applies across standalone health insurers.",
@@ -3812,10 +3819,10 @@
         "company": "Star Health",
         "companyId": "star-health",
         "generatedAt": "2026-07-06T06:20:55.536Z",
-        "lastUpdatedAt": "2026-07-06T06:20:55.536Z",
+        "lastUpdatedAt": "2026-07-06T13:39:43.324Z",
         "status": "Watch",
         "sourceConfidence": "Low",
-        "itemCount": 49,
+        "itemCount": 51,
         "runs": [
           {
             "runTime": "2026-07-06T06:20:55.536Z",
@@ -3823,24 +3830,31 @@
             "sourceCount": 53,
             "ideas": 4,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-07-06T13:39:43.324Z",
+            "developments": 55,
+            "sourceCount": 55,
+            "ideas": 4,
+            "status": "ok"
           }
         ],
         "brief": {
-          "greeting": "Good morning",
+          "greeting": "Good afternoon",
           "narrative": "Regulatory pressure is the main watch item for health insurers today. Star Health is under pressure on premium growth and demand, but claims-cost and conduct scrutiny and regulatory deadlines will decide whether the strength is sustainable.",
           "attentionCount": 4,
-          "developmentsCount": 53,
-          "sourcesCount": 53,
+          "developmentsCount": 55,
+          "sourcesCount": 55,
           "domainsCount": 12,
-          "confidencePct": 66,
+          "confidencePct": 67,
           "confidenceTier": "Medium",
           "readingMins": 2,
-          "lastUpdatedLabel": "6 Jul, 06:19 am"
+          "lastUpdatedLabel": "6 Jul, 01:38 pm"
         },
         "message": {
-          "since": "No company-specific movement for Star Health since the last brief — the read below is sector & regulatory context that applies across standalone health insurers.",
+          "since": "Star Health had recently surfaced positive analyst coverage, alongside older regulatory items now in view. No fresh company-specific update was published since the last brief.",
           "keyThing": "Lower commissions and higher disclosure requirements would pressure distribution economics across health and general insurers, especially in commission-heavy retail health.",
-          "why": "The near-term read now turns on how the new rules land on pricing and cost.",
+          "why": "Demand still looks strong, but the real question is whether claims and expenses start eating into that strength.",
           "watch": "any fresh IRDAI clarification, and expense-ratio movement",
           "nothing": false
         },
@@ -4144,9 +4158,9 @@
           },
           {
             "id": "co",
-            "label": "company-specific updates",
-            "value": "0",
-            "direction": "flat",
+            "label": "newly surfaced relevant update",
+            "value": "1",
+            "direction": "up",
             "tone": "Neutral",
             "target": {
               "page": "sahi",
@@ -4162,12 +4176,13 @@
                 "companyLabel": "Star Health",
                 "comparisonType": "trend",
                 "tone": "neutral",
-                "insightLabel": "No Star Health-specific updates",
+                "insightLabel": "1 newly surfaced Star Health update",
                 "unit": "",
                 "sahiTab": "companies",
                 "origin": "pulse"
               }
-            }
+            },
+            "href": "https://www.moneycontrol.com/news/business/stocks/buy-star-health-target-of-rs-700-motilal-oswal-13959277.html"
           },
           {
             "id": "events",
@@ -5919,10 +5934,10 @@
         "company": "Care Health",
         "companyId": "care-health",
         "generatedAt": "2026-07-06T06:20:55.536Z",
-        "lastUpdatedAt": "2026-07-06T06:20:55.536Z",
+        "lastUpdatedAt": "2026-07-06T13:39:43.324Z",
         "status": "Watch",
         "sourceConfidence": "Low",
-        "itemCount": 49,
+        "itemCount": 50,
         "runs": [
           {
             "runTime": "2026-07-06T06:20:55.536Z",
@@ -5930,19 +5945,26 @@
             "sourceCount": 53,
             "ideas": 4,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-07-06T13:39:43.324Z",
+            "developments": 58,
+            "sourceCount": 54,
+            "ideas": 4,
+            "status": "ok"
           }
         ],
         "brief": {
-          "greeting": "Good morning",
+          "greeting": "Good afternoon",
           "narrative": "Regulatory pressure is the main watch item for health insurers today. Care Health is under pressure on premium growth and demand, but claims-cost and conduct scrutiny and regulatory deadlines will decide whether the strength is sustainable.",
           "attentionCount": 4,
-          "developmentsCount": 53,
-          "sourcesCount": 53,
+          "developmentsCount": 58,
+          "sourcesCount": 54,
           "domainsCount": 12,
           "confidencePct": 66,
           "confidenceTier": "Medium",
           "readingMins": 2,
-          "lastUpdatedLabel": "6 Jul, 06:19 am"
+          "lastUpdatedLabel": "6 Jul, 01:38 pm"
         },
         "message": {
           "since": "No company-specific movement for Care Health since the last brief — the read below is sector & regulatory context that applies across standalone health insurers.",
@@ -8026,10 +8048,10 @@
         "company": "Aditya Birla",
         "companyId": "aditya-birla",
         "generatedAt": "2026-07-06T06:20:55.536Z",
-        "lastUpdatedAt": "2026-07-06T06:20:55.536Z",
+        "lastUpdatedAt": "2026-07-06T13:39:43.324Z",
         "status": "Watch",
         "sourceConfidence": "Low",
-        "itemCount": 49,
+        "itemCount": 50,
         "runs": [
           {
             "runTime": "2026-07-06T06:20:55.536Z",
@@ -8037,22 +8059,29 @@
             "sourceCount": 53,
             "ideas": 4,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-07-06T13:39:43.324Z",
+            "developments": 55,
+            "sourceCount": 54,
+            "ideas": 4,
+            "status": "ok"
           }
         ],
         "brief": {
-          "greeting": "Good morning",
+          "greeting": "Good afternoon",
           "narrative": "Regulatory pressure is the main watch item for health insurers today. Aditya Birla is under pressure on premium growth and demand, but claims-cost and conduct scrutiny and regulatory deadlines will decide whether the strength is sustainable.",
           "attentionCount": 4,
-          "developmentsCount": 53,
-          "sourcesCount": 53,
+          "developmentsCount": 55,
+          "sourcesCount": 54,
           "domainsCount": 12,
           "confidencePct": 66,
           "confidenceTier": "Medium",
           "readingMins": 2,
-          "lastUpdatedLabel": "6 Jul, 06:19 am"
+          "lastUpdatedLabel": "6 Jul, 01:38 pm"
         },
         "message": {
-          "since": "No company-specific movement for Aditya Birla since the last brief — the read below is sector & regulatory context that applies across standalone health insurers.",
+          "since": "Since the last brief, there was a leadership change to note.",
           "keyThing": "Lower commissions and higher disclosure requirements would pressure distribution economics across health and general insurers, especially in commission-heavy retail health.",
           "why": "The near-term read now turns on how the new rules land on pricing and cost.",
           "watch": "any fresh IRDAI clarification, and expense-ratio movement",
@@ -8379,6 +8408,33 @@
                 "insightLabel": "No Aditya Birla-specific updates",
                 "unit": "",
                 "sahiTab": "companies",
+                "origin": "pulse"
+              }
+            }
+          },
+          {
+            "id": "mgmt",
+            "label": "management change",
+            "value": "1",
+            "direction": "up",
+            "tone": "Neutral",
+            "target": {
+              "page": "sahi",
+              "sahiTab": "governance",
+              "company": "aditya-birla",
+              "focus": {
+                "id": "pulse-since-mgmt",
+                "kind": "locator",
+                "locatorKind": "management",
+                "metricKey": "management",
+                "metricLabel": "Management change",
+                "company": "aditya-birla",
+                "companyLabel": "Aditya Birla",
+                "comparisonType": "trend",
+                "tone": "neutral",
+                "insightLabel": "1 management change",
+                "unit": "",
+                "sahiTab": "governance",
                 "origin": "pulse"
               }
             }
@@ -10133,10 +10189,10 @@
         "company": "ManipalCigna",
         "companyId": "manipalcigna",
         "generatedAt": "2026-07-06T06:20:55.536Z",
-        "lastUpdatedAt": "2026-07-06T06:20:55.536Z",
+        "lastUpdatedAt": "2026-07-06T13:39:43.324Z",
         "status": "Watch",
         "sourceConfidence": "Low",
-        "itemCount": 49,
+        "itemCount": 50,
         "runs": [
           {
             "runTime": "2026-07-06T06:20:55.536Z",
@@ -10144,19 +10200,26 @@
             "sourceCount": 53,
             "ideas": 4,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-07-06T13:39:43.324Z",
+            "developments": 61,
+            "sourceCount": 54,
+            "ideas": 4,
+            "status": "ok"
           }
         ],
         "brief": {
-          "greeting": "Good morning",
+          "greeting": "Good afternoon",
           "narrative": "Regulatory pressure is the main watch item for health insurers today. ManipalCigna is under pressure on premium growth and demand, but claims-cost and conduct scrutiny and regulatory deadlines will decide whether the strength is sustainable.",
           "attentionCount": 4,
-          "developmentsCount": 56,
-          "sourcesCount": 53,
+          "developmentsCount": 61,
+          "sourcesCount": 54,
           "domainsCount": 12,
           "confidencePct": 66,
           "confidenceTier": "Medium",
           "readingMins": 2,
-          "lastUpdatedLabel": "6 Jul, 06:19 am"
+          "lastUpdatedLabel": "6 Jul, 01:38 pm"
         },
         "message": {
           "since": "No company-specific movement for ManipalCigna since the last brief — the read below is sector & regulatory context that applies across standalone health insurers.",
@@ -10636,6 +10699,6 @@
     "snapshot_id": "pulse-brief-archive",
     "description": "Immutable per-calendar-day Pulse brief records (IST), one per company. Past days are frozen exactly as shown that day; the live Today view recomposes. Kept ~90 days per company.",
     "last_updated": "2026-07-06",
-    "last_successful_run": "2026-07-06T06:20:55.536Z"
+    "last_successful_run": "2026-07-06T13:39:43.324Z"
   }
 }
