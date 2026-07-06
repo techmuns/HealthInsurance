@@ -3,14 +3,69 @@
     "snapshot_id": "sectoral-news-snapshot",
     "description": "Key Sectoral News feed — a permanent seed of 31 curated portfolio-pack updates, kept current by a scheduled muns web-search agent. Each item links its source. Seed items are curated; agent items are AI-gathered (web), clearly labelled and not audited.",
     "schema_version": "1.0.0",
-    "last_updated": "2026-06-29",
-    "last_successful_run": "2026-07-02T08:57:50.266Z",
+    "last_updated": "2026-07-06",
+    "last_successful_run": "2026-07-06T10:23:17.995Z",
     "seed_count": 31,
-    "agent_count": 71,
+    "agent_count": 80,
     "generated_by": "Seed: investor portfolio pack. Updates: AI (muns agent, web search).",
     "notes": "Seed floor can never be lost. Agent items are de-duped by subject+date and verified-before-acting."
   },
   "data": [
+    {
+      "sn": 104,
+      "category": "General",
+      "date": "2026-07-03",
+      "subject": "Industry conference flags fast-changing insurance risk landscape",
+      "summary": "A late-June industry event highlighted changing risk patterns and the need to redesign insurance offerings and distribution for a shifting health and protection market. For investors, it reinforces that underwriting, digital servicing and product adaptability remain central competitive variables.",
+      "reference": "https://www.business-standard.com/amp/content/press-releases-ani/reimagining-insurance-in-a-rapidly-transforming-risk-landscape-tuesday-30th-june-2026-126070300655_1.html",
+      "id": "0a2b20920e5971",
+      "origin": "agent",
+      "added_at": "2026-07-06"
+    },
+    {
+      "sn": 103,
+      "category": "Regulatory",
+      "date": "2026-07-03",
+      "subject": "IRDAI plans commission-rule overhaul to curb misselling",
+      "summary": "IRDAI is reportedly working on a revamp of commission rules to reduce mis-selling and better align distributor incentives. For health insurers, any tightening in distribution economics can affect growth channels, acquisition cost and product mix.",
+      "reference": "https://www.business-standard.com/finance/insurance/irdai-plans-overhaul-of-commission-rules-to-curb-insurance-misselling-126070300966_1.html",
+      "id": "09ab2a69576da1",
+      "origin": "agent",
+      "added_at": "2026-07-06"
+    },
+    {
+      "sn": 105,
+      "category": "Regulatory",
+      "date": "2026-07-02",
+      "subject": "IRDAI extends transitional fee and registration arrangements",
+      "summary": "IRDAI extended transitional arrangements for payment of annual fees and issuance of certificates of registration. While administrative, it signals continuing regulatory system changes and implementation work across insurance entities and intermediaries.",
+      "reference": "https://irdai.gov.in/documents/37343/365525/%E0%A4%B5%E0%A4%BE%E0%A4%B0%E0%A5%8D%E0%A4%B7%E0%A4%BF%E0%A4%95+%E0%A4%B6%E0%A5%81%E0%A4%B2%E0%A5%8D%E0%A4%95+%E0%A4%95%E0%A5%87+%E0%A4%AD%E0%A5%81%E0%A4%97%E0%A4%A4%E0%A4%BE%E0%A4%A8+%E0%A4%94%E0%A4%B0+%E0%A4%AA%E0%A4%82%E0%A4%9C%E0%A5%80%E0%A4%95%E0%A4%B0%E0%A4%A3+%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A4%AE%E0%A4%BE%E0%A4%A3%E0%A4%AA%E0%A4%A4%E0%A5%8D%E0%A4%B0+%E0%A4%95%E0%A5%87+%E0%A4%A8%E0%A4%BF%E0%A4%B0%E0%A5%8D%E0%A4%97%E0%A4%AE%E0%A4%A8+%E0%A4%95%E0%A5%87+%E0%A4%B2%E0%A4%BF%E0%A4%8F+%E0%A4%AA%E0%A4%B0%E0%A4%BF%E0%A4%B5%E0%A4%B0%E0%A5%8D%E0%A4%A4%E0%A5%80+%E0%A4%B5%E0%A5%8D%E0%A4%AF%E0%A4%B5%E0%A4%B8%E0%A5%8D%E0%A4%A5%E0%A4%BE+%E0%A4%95%E0%A4%BE+%E0%A4%B5%E0%A4%BF%E0%A4%B8%E0%A5%8D%E0%A4%A4%E0%A4%BE%E0%A4%B0+_+Extension+of+Transitional+Arrangements+for+Payment+of+Annual+Fee+and+Issuance+of+Certificate+of+Registration.pdf/dcbdf531-a720-34ef-544a-31a52d5d7a7b?version=1.0&t=1782992160826&download=true",
+      "id": "0ddff3b4a37b6d",
+      "origin": "agent",
+      "added_at": "2026-07-06"
+    },
+    {
+      "sn": 106,
+      "category": "Regulatory",
+      "date": "2026-07-01",
+      "subject": "IRDAI softens stance on insurer listings",
+      "summary": "Moneycontrol reported IRDAI has eased its position on insurer listings, potentially making it simpler for insurance companies to access capital markets. That matters because listed peers and prospective listings can reshape valuation benchmarks, capital raising flexibility and consolidation dynamics in the sector.",
+      "reference": "https://www.moneycontrol.com/news/business/banks/irdai-softens-stance-on-insurer-listings-13963096.html",
+      "id": "00c24beee42375",
+      "origin": "agent",
+      "added_at": "2026-07-06"
+    },
+    {
+      "sn": 107,
+      "category": "Profitability",
+      "date": "2026-06-30",
+      "subject": "Claim-settlement league table highlights Niva and Aditya Birla",
+      "summary": "New IRDAI-linked reporting on claim settlement ratios put Niva and Aditya Birla among stronger performers, while some general insurers lagged. Even though settlement ratio is not the same as profitability, it matters for franchise quality, growth sustainability and the balance between customer acquisition and claims discipline.",
+      "reference": "https://economictimes.indiatimes.com/wealth/insure/latest-claim-settlement-ratio-of-health-and-general-insurers-released-by-irda-in-2026-acko-aditya-birla-galaxy-lead-shriram-iffco-tokio-fall-below-90/articleshow/127906061.cms",
+      "id": "06602036559f5a",
+      "origin": "agent",
+      "added_at": "2026-07-06"
+    },
     {
       "sn": 93,
       "category": "Regulatory",
@@ -331,6 +386,17 @@
       "added_at": "2026-06-18"
     },
     {
+      "sn": 108,
+      "category": "Regulatory",
+      "date": "2026-05-25",
+      "subject": "IRDAI issues KMP remuneration circular",
+      "summary": "IRDAI issued a circular on remuneration to key management persons. The move is relevant for governance, board oversight and executive pay structures, especially as insurers balance growth ambitions with profitability and capital discipline.",
+      "reference": "https://irdai.gov.in/documents/37343/365525/%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A4%AC%E0%A4%82%E0%A4%A7%E0%A4%A8+%E0%A4%95%E0%A5%87+%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A4%AE%E0%A5%81%E0%A4%96+%E0%A4%B5%E0%A5%8D%E0%A4%AF%E0%A4%95%E0%A5%8D%E0%A4%A4%E0%A4%BF%E0%A4%AF%E0%A5%8B%E0%A4%82+%28%E0%A4%95%E0%A5%87%E0%A4%8F%E0%A4%AE%E0%A4%AA%E0%A5%80%E0%A4%8F%E0%A4%B8%29+%E0%A4%95%E0%A5%8B+%E0%A4%AA%E0%A4%BE%E0%A4%B0%E0%A4%BF%E0%A4%B6%E0%A5%8D%E0%A4%B0%E0%A4%AE%E0%A4%BF%E0%A4%95+_+Remuneration+to+Key+Management+Persons+%28KMPs%29.pdf/9d5a30f4-538e-e7fa-c1ba-7e9f01ebdf27?version=3.0&t=1779887395196&download=true",
+      "id": "02527a7458393b",
+      "origin": "agent",
+      "added_at": "2026-07-06"
+    },
+    {
       "sn": 45,
       "category": "Regulatory",
       "date": "2026-05-25",
@@ -373,6 +439,17 @@
       "id": "17f40c867c57fd",
       "origin": "agent",
       "added_at": "2026-06-29"
+    },
+    {
+      "sn": 109,
+      "category": "General",
+      "date": "2026-05-01",
+      "subject": "IRDAI data renews focus on insurers’ claims-paying behaviour",
+      "summary": "Business Standard highlighted fresh IRDAI data on how much health insurers paid out in claims, putting incurred claim ratios back in focus. For investors, this is a direct read-through to underwriting quality, pricing sufficiency and future premium actions across standalone health and diversified general insurers.",
+      "reference": "https://www.business-standard.com/finance/personal-finance/paying-claims-or-pushing-back-what-irdai-data-reveals-about-insurers-126010100580_1.html",
+      "id": "0611d1ce0073a8",
+      "origin": "agent",
+      "added_at": "2026-07-06"
     },
     {
       "sn": 96,
@@ -472,6 +549,17 @@
       "id": "06b3cfd71a1137",
       "origin": "agent",
       "added_at": "2026-06-18"
+    },
+    {
+      "sn": 110,
+      "category": "Regulatory",
+      "date": "2026-04-07",
+      "subject": "IRDAI clarifies annual-fee process for surveyors and loss assessors",
+      "summary": "IRDAI issued clarification on annual fee payments for surveyors and loss assessors. This is operational rather than sector-transforming, but it affects ecosystem functioning and claims-related service infrastructure in general insurance.",
+      "reference": "https://irdai.gov.in/documents/37343/365525/%E0%A4%AA%E0%A4%B0%E0%A4%BF%E0%A4%AA%E0%A4%A4%E0%A5%8D%E0%A4%B0+-+%E0%A4%B8%E0%A4%B0%E0%A5%8D%E0%A4%B5%E0%A5%87%E0%A4%95%E0%A5%8D%E0%A4%B7%E0%A4%95%E0%A5%8B%E0%A4%82+%E0%A4%94%E0%A4%B0+%E0%A4%B9%E0%A4%BE%E0%A4%A8%E0%A4%BF+%E0%A4%A8%E0%A4%BF%E0%A4%B0%E0%A5%8D%E0%A4%A7%E0%A4%BE%E0%A4%B0%E0%A4%95%E0%A5%8B%E0%A4%82+%E0%A4%95%E0%A5%87+%E0%A4%B2%E0%A4%BF%E0%A4%8F+%E0%A4%B5%E0%A4%BE%E0%A4%B0%E0%A5%8D%E0%A4%B7%E0%A4%BF%E0%A4%95+%E0%A4%B6%E0%A5%81%E0%A4%B2%E0%A5%8D%E0%A4%95+%E0%A4%AD%E0%A5%81%E0%A4%97%E0%A4%A4%E0%A4%BE%E0%A4%A8+%E0%A4%B8%E0%A4%82%E0%A4%AC%E0%A4%82%E0%A4%A7%E0%A5%80+%E0%A4%B8%E0%A5%8D%E0%A4%AA%E0%A4%B7%E0%A5%8D%E0%A4%9F%E0%A5%80%E0%A4%95%E0%A4%B0%E0%A4%A3+_+Circular+-+Surveyors+and+Loss+Assessors+clarification+regarding+payment+of+Annual+Fees.pdf/8b47078c-d4e8-9a3d-0ead-e4f0a515ea4f?version=1.0&t=1775642573794&download=true",
+      "id": "1bb6461aa2e698",
+      "origin": "agent",
+      "added_at": "2026-07-06"
     },
     {
       "sn": 47,
@@ -659,6 +747,17 @@
       "id": "1bd4b99c36a7e0",
       "origin": "agent",
       "added_at": "2026-06-29"
+    },
+    {
+      "sn": 111,
+      "category": "GST",
+      "date": "2026-03-01",
+      "subject": "No fresh GST change on individual health premiums in the last 90 days",
+      "summary": "The latest official DFS page available indicates GST on all individual health insurance policies had already been reduced to zero effective 2025-09-22, and no newer change was surfaced in the reviewed April-July 2026 window. For investors, that means GST is not the incremental near-term swing factor right now; growth and claims trends matter more.",
+      "reference": "https://financialservices.gov.in/beta/en/exemption-on-gst",
+      "id": "027a9ce4b26be1",
+      "origin": "agent",
+      "added_at": "2026-07-06"
     },
     {
       "sn": 102,
