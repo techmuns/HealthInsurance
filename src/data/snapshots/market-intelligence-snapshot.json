@@ -4,8 +4,8 @@
     "description": "AI-generated market intelligence for the SAHI health insurers — investor meets, earnings/board dates, sector & regulatory news, share catalysts. Web-sourced; each item links its source. AI-generated, not audited.",
     "schema_version": "1.0.0",
     "dataset": "ai_generated",
-    "last_updated": "2026-07-05",
-    "last_successful_run": "2026-07-05T15:06:16.710Z",
+    "last_updated": "2026-07-06",
+    "last_successful_run": "2026-07-06T06:19:46.701Z",
     "upstream_sources": [
       "muns_agent_web"
     ],
@@ -215,6 +215,21 @@
       "discovered_at": "2026-07-05T11:23:57.879Z"
     },
     {
+      "id": "e36a29e026",
+      "company_id": "sector",
+      "date": "2026-07-03",
+      "kind": "regulatory",
+      "horizon": "recent",
+      "impact": "negative",
+      "headline": "IRDAI plans staggered commissions and tighter disclosure norms",
+      "detail": "A move away from large upfront commissions could pressure distributor economics, slow aggressive health-policy selling and reshape acquisition costs across standalone health insurers.",
+      "source_name": "bfsi.economictimes.indiatimes.com",
+      "source_url": "https://bfsi.economictimes.indiatimes.com/news/insurance/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132156228",
+      "source_published_at": "2026-07-03",
+      "first_seen": "2026-07-06T06:19:46.701Z",
+      "discovered_at": "2026-07-06T06:19:46.701Z"
+    },
+    {
       "id": "c575ebb3dd",
       "company_id": "sector",
       "date": "2026-07-02",
@@ -241,6 +256,21 @@
       "source_published_at": "2026-07-02",
       "first_seen": "2026-07-05T11:23:57.879Z",
       "discovered_at": "2026-07-05T11:23:57.879Z"
+    },
+    {
+      "id": "8bf3cdceab",
+      "company_id": "sector",
+      "date": "2026-07-02",
+      "kind": "regulatory",
+      "horizon": "recent",
+      "impact": "negative",
+      "headline": "IRDAI clears Prudential HCL Health Insurance entry",
+      "detail": "A new standalone health insurer adds competition in an already crowded segment, raising the risk of tougher pricing, distribution battles and higher customer-acquisition spend.",
+      "source_name": "economictimes.indiatimes.com",
+      "source_url": "https://economictimes.indiatimes.com/markets/stocks/news/prudential-hcl-health-insurance-gets-irdai-nod/articleshow/132126831.cms",
+      "source_published_at": "2026-07-02",
+      "first_seen": "2026-07-06T06:19:46.701Z",
+      "discovered_at": "2026-07-06T06:19:46.701Z"
     },
     {
       "id": "b60cfb639c",
@@ -368,6 +398,21 @@
       "source_published_at": null,
       "first_seen": "2026-07-05T08:43:25.282Z",
       "discovered_at": "2026-07-05T08:43:25.282Z"
+    },
+    {
+      "id": "b6b925110d",
+      "company_id": "sector",
+      "date": "2026-07-01",
+      "kind": "regulatory",
+      "horizon": "recent",
+      "impact": "positive",
+      "headline": "IRDAI softens stance on mandatory insurer listings",
+      "detail": "Saying insurers should list only if they need capital lowers forced-IPO pressure on mature private insurers and may improve flexibility for sector capital planning and foreign partners.",
+      "source_name": "moneycontrol.com",
+      "source_url": "https://moneycontrol.com/news/business/banks/irdai-softens-stance-on-insurer-listings-13963096.html",
+      "source_published_at": "2026-07-01",
+      "first_seen": "2026-07-06T06:19:46.701Z",
+      "discovered_at": "2026-07-06T06:19:46.701Z"
     },
     {
       "id": "f3ce300c4e",
@@ -793,49 +838,6 @@
       "source_name": "bfsi.economictimes.indiatimes.com",
       "source_url": "https://bfsi.economictimes.indiatimes.com/articles/niva-bupa-and-icici-lombard-drive-non-life-insurance-premium-growth-in-may-2026/131896688",
       "first_seen": "2026-07-04T11:18:33.041Z"
-    },
-    {
-      "id": "a1db7c36b1",
-      "company_id": "sector",
-      "date": "2026-06-22",
-      "kind": "sector_news",
-      "horizon": "recent",
-      "impact": "positive",
-      "headline": "Standalone health insurers keep gaining share in May",
-      "detail": "SAHIs grew 31% YoY in May and gained market share, a supportive backdrop for Niva Bupa as sector demand remains strong even while some general-insurance lines stay weak.",
-      "source_name": "bfsi.economictimes.indiatimes.com",
-      "source_url": "https://bfsi.economictimes.indiatimes.com/articles/niva-bupa-and-icici-lombard-drive-non-life-insurance-premium-growth-in-may-2026/131896688",
-      "first_seen": "2026-07-04T11:18:33.041Z"
-    },
-    {
-      "id": "a6bd99a90c",
-      "company_id": "niva-bupa",
-      "date": "2026-06-22",
-      "kind": "sector_news",
-      "horizon": "recent",
-      "impact": "positive",
-      "headline": "Niva Bupa leads May premium growth among SAHIs",
-      "detail": "Strong May premium momentum matters because Niva Bupa posted 30% YoY growth and 45% retail-health growth, reinforcing near-term growth and share-gain expectations.",
-      "source_name": "bfsi.economictimes.indiatimes.com",
-      "source_url": "https://bfsi.economictimes.indiatimes.com/articles/niva-bupa-and-icici-lombard-drive-non-life-insurance-premium-growth-in-may-2026/131896688",
-      "source_published_at": "2026-06-22",
-      "first_seen": "2026-07-05T05:56:21.373Z",
-      "discovered_at": "2026-07-05T05:56:21.373Z"
-    },
-    {
-      "id": "bbc9768780",
-      "company_id": "sector",
-      "date": "2026-06-22",
-      "kind": "sector_news",
-      "horizon": "recent",
-      "impact": "positive",
-      "headline": "Standalone health insurers continue to gain share in May",
-      "detail": "The sector read-through is supportive for Niva Bupa because SAHIs grew 31% YoY in May and gained market share while public-sector insurers shrank.",
-      "source_name": "bfsi.economictimes.indiatimes.com",
-      "source_url": "https://bfsi.economictimes.indiatimes.com/articles/niva-bupa-and-icici-lombard-drive-non-life-insurance-premium-growth-in-may-2026/131896688",
-      "source_published_at": "2026-06-22",
-      "first_seen": "2026-07-05T05:56:21.373Z",
-      "discovered_at": "2026-07-05T05:56:21.373Z"
     }
   ]
 }
