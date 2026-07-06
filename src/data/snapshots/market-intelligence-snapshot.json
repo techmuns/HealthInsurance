@@ -5,7 +5,7 @@
     "schema_version": "1.0.0",
     "dataset": "ai_generated",
     "last_updated": "2026-07-06",
-    "last_successful_run": "2026-07-06T13:38:39.332Z",
+    "last_successful_run": "2026-07-06T16:48:32.222Z",
     "upstream_sources": [
       "muns_agent_web"
     ],
@@ -415,6 +415,21 @@
       "discovered_at": "2026-07-06T06:19:46.701Z"
     },
     {
+      "id": "2d758b398a",
+      "company_id": "sector",
+      "date": "2026-07-01",
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "negative",
+      "headline": "IRDAI clears Prudential-HCL as 8th standalone health insurer",
+      "detail": "A new deep-pocketed entrant raises competitive intensity in retail health, which can pressure growth economics, pricing discipline and distribution costs for incumbents including Niva Bupa.",
+      "source_name": "moneycontrol.com",
+      "source_url": "https://www.moneycontrol.com/news/business/irdai-grants-final-r3-licence-to-prudential-hcl-health-insurance-venture-13963822.html",
+      "source_published_at": "2026-07-01",
+      "first_seen": "2026-07-06T16:48:32.222Z",
+      "discovered_at": "2026-07-06T16:48:32.222Z"
+    },
+    {
       "id": "f3ce300c4e",
       "company_id": "sector",
       "date": "2026-06-30",
@@ -527,6 +542,21 @@
       "source_published_at": null,
       "first_seen": "2026-07-05T15:06:16.710Z",
       "discovered_at": "2026-07-05T15:06:16.710Z"
+    },
+    {
+      "id": "b84328aa40",
+      "company_id": "sector",
+      "date": "2026-06-29",
+      "kind": "regulatory",
+      "horizon": "recent",
+      "impact": "negative",
+      "headline": "IRDAI approval adds another health-insurance licence in 2026",
+      "detail": "The regulator’s 136th Authority meeting approval signals a pro-entry stance and more sector capacity, which matters for market-share assumptions across listed and private health insurers.",
+      "source_name": "livemint.com",
+      "source_url": "https://www.livemint.com/companies/news/prudential-hcl-health-irdai-approval-11782915502104.html",
+      "source_published_at": "2026-07-01",
+      "first_seen": "2026-07-06T16:48:32.222Z",
+      "discovered_at": "2026-07-06T16:48:32.222Z"
     },
     {
       "id": "fef56d0db2",
@@ -816,32 +846,6 @@
       "source_name": "bfsi.economictimes.indiatimes.com",
       "source_url": "https://bfsi.economictimes.indiatimes.com/amp/articles/niva-bupa-forecasted-to-outpace-retail-health-insurance-market-amid-soaring-demand/131922688",
       "first_seen": "2026-07-04T08:24:33.011Z"
-    },
-    {
-      "id": "3cdbe06ce5",
-      "company_id": "niva-bupa",
-      "date": "2026-06-23",
-      "kind": "rating",
-      "horizon": "recent",
-      "impact": "positive",
-      "headline": "MOFSL keeps Buy on Niva Bupa with ₹100 target",
-      "detail": "A fresh positive brokerage call can support sentiment as it argues Niva Bupa can outgrow retail health insurance with improving profitability and market-share gains.",
-      "source_name": "bfsi.economictimes.indiatimes.com",
-      "source_url": "https://bfsi.economictimes.indiatimes.com/amp/articles/niva-bupa-forecasted-to-outpace-retail-health-insurance-market-amid-soaring-demand/131922688",
-      "first_seen": "2026-07-04T11:18:33.041Z"
-    },
-    {
-      "id": "4aa959a8b5",
-      "company_id": "niva-bupa",
-      "date": "2026-06-23",
-      "kind": "rating",
-      "horizon": "recent",
-      "impact": "positive",
-      "headline": "MOFSL keeps Buy on Niva Bupa, target Rs 100",
-      "detail": "A fresh bullish call matters because valuation support and expectations of growth outperformance can lift sentiment on a newly listed standalone health insurer.",
-      "source_name": "bfsi.economictimes.indiatimes.com",
-      "source_url": "https://bfsi.economictimes.indiatimes.com/amp/articles/niva-bupa-forecasted-to-outpace-retail-health-insurance-market-amid-soaring-demand/131922688",
-      "first_seen": "2026-07-04T14:58:23.219Z"
     }
   ]
 }
