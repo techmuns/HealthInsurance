@@ -6,9 +6,9 @@ _Clicked every internal source chip on the analysis surfaces and verified it lan
 
 | Category | Count |
 | --- | ---: |
-| Internal source chips clicked | 13 |
-| · PASS (exact cell highlighted) | 13 |
-| · FALLBACK (banner only — metric not an addressable cell) | 0 |
+| Internal source chips clicked | 39 |
+| · PASS (exact cell highlighted) | 17 |
+| · FALLBACK (banner only — metric not an addressable cell) | 22 |
 | · FAIL (did not navigate) | 0 |
 | External source chips (open a document) | 0 |
 | · without href | 0 |
@@ -26,10 +26,36 @@ _Clicked every internal source chip on the analysis surfaces and verified it lan
 | SAHI · Profitability | internal | audit::niva-bupa::Combined ratio → niva-bupa::Combined ratio | PASS | cell SAHIs comparison!C21 · "Verify this sourceNiva Bupa · Combined ratio = FY23–FY26Locate the Com" |
 | SAHI · Valuation | internal | audit::niva-bupa::Share price → niva-bupa::Share price | PASS | cell (pulsing) · "Verify this sourceNiva Bupa · Share price = as of 1 Jun 2026Locate the" |
 | SAHI · Valuation | internal | audit::niva-bupa::Consensus target → niva-bupa::Consensus target | PASS | cell Analyst coverage!H4 · "Verify this sourceNiva Bupa · Analyst coverage = 4 brokers' latest vie" |
+| SAHI · Valuation | internal | audit::niva-bupa::P / GWP::FY26 → niva-bupa::P / GWP::FY26 | PASS | cell Comps!J4 · "Verify this sourceNiva Bupa · Price / GWP · FY26Highlighted below — Pr" |
+| SAHI · Valuation | internal | audit::star-health::P / GWP::FY26 → star-health::P / GWP::FY26 | PASS | cell Comps!J5 · "Verify this sourceStar Health · Price / GWP · FY26Highlighted below — " |
+| SAHI · Valuation | internal | audit::unlisted-peers::Equity value → unlisted-peers::Equity value | FALLBACK | section fallback (no exact cell) · "Verify this sourceThis companyExact source mapping not found — showing" |
+| SAHI · Valuation | internal | audit::unlisted-peers::Equity value → unlisted-peers::Equity value | FALLBACK | section fallback (no exact cell) · "Verify this sourceThis companyExact source mapping not found — showing" |
+| SAHI · Valuation | internal | audit::unlisted-peers::Equity value → unlisted-peers::Equity value | FALLBACK | section fallback (no exact cell) · "Verify this sourceThis companyExact source mapping not found — showing" |
 | SAHI · Valuation | internal | audit::niva-bupa::Consensus target → niva-bupa::Consensus target | PASS | cell Analyst coverage!H4 · "Verify this sourceNiva Bupa · Analyst coverage = 4 brokers' latest vie" |
+| SAHI · Valuation | internal | audit::niva-bupa → niva-bupa | FALLBACK | section fallback (no exact cell) · "Verify this sourceNiva BupaExact source mapping not found — showing th" |
+| SAHI · Valuation | internal | audit::niva-bupa → niva-bupa | FALLBACK | section fallback (no exact cell) · "Verify this sourceNiva BupaExact source mapping not found — showing th" |
+| SAHI · Valuation | internal | audit::niva-bupa → niva-bupa | FALLBACK | section fallback (no exact cell) · "Verify this sourceNiva BupaExact source mapping not found — showing th" |
+| SAHI · Valuation | internal | audit::niva-bupa → niva-bupa | FALLBACK | section fallback (no exact cell) · "Verify this sourceNiva BupaExact source mapping not found — showing th" |
+| SAHI · Valuation | internal | audit::niva-bupa → niva-bupa | FALLBACK | section fallback (no exact cell) · "Verify this sourceNiva BupaExact source mapping not found — showing th" |
+| SAHI · Valuation | internal | audit::niva-bupa → niva-bupa | FALLBACK | section fallback (no exact cell) · "Verify this sourceNiva BupaExact source mapping not found — showing th" |
+| SAHI · Valuation | internal | audit::niva-bupa → niva-bupa | FALLBACK | section fallback (no exact cell) · "Verify this sourceNiva BupaExact source mapping not found — showing th" |
+| SAHI · Valuation | internal | audit::niva-bupa → niva-bupa | FALLBACK | section fallback (no exact cell) · "Verify this sourceNiva BupaExact source mapping not found — showing th" |
 | SAHI · Street View | internal | audit::niva-bupa::Share price → niva-bupa::Share price | PASS | cell (pulsing) · "Verify this sourceNiva Bupa · Share price = as of 1 Jun 2026Locate the" |
 | SAHI · Street View | internal | audit::niva-bupa::Consensus target → niva-bupa::Consensus target | PASS | cell Analyst coverage!H4 · "Verify this sourceNiva Bupa · Analyst coverage = 4 brokers' latest vie" |
+| SAHI · Street View | internal | audit::niva-bupa::P / GWP::FY26 → niva-bupa::P / GWP::FY26 | PASS | cell Comps!J4 · "Verify this sourceNiva Bupa · Price / GWP · FY26Highlighted below — Pr" |
+| SAHI · Street View | internal | audit::star-health::P / GWP::FY26 → star-health::P / GWP::FY26 | PASS | cell Comps!J5 · "Verify this sourceStar Health · Price / GWP · FY26Highlighted below — " |
+| SAHI · Street View | internal | audit::unlisted-peers::Equity value → unlisted-peers::Equity value | FALLBACK | section fallback (no exact cell) · "Verify this sourceThis companyExact source mapping not found — showing" |
+| SAHI · Street View | internal | audit::unlisted-peers::Equity value → unlisted-peers::Equity value | FALLBACK | section fallback (no exact cell) · "Verify this sourceThis companyExact source mapping not found — showing" |
+| SAHI · Street View | internal | audit::unlisted-peers::Equity value → unlisted-peers::Equity value | FALLBACK | section fallback (no exact cell) · "Verify this sourceThis companyExact source mapping not found — showing" |
 | SAHI · Street View | internal | audit::niva-bupa::Consensus target → niva-bupa::Consensus target | PASS | cell Analyst coverage!H4 · "Verify this sourceNiva Bupa · Analyst coverage = 4 brokers' latest vie" |
+| SAHI · Street View | internal | audit::niva-bupa → niva-bupa | FALLBACK | section fallback (no exact cell) · "Verify this sourceNiva BupaExact source mapping not found — showing th" |
+| SAHI · Street View | internal | audit::niva-bupa → niva-bupa | FALLBACK | section fallback (no exact cell) · "Verify this sourceNiva BupaExact source mapping not found — showing th" |
+| SAHI · Street View | internal | audit::niva-bupa → niva-bupa | FALLBACK | section fallback (no exact cell) · "Verify this sourceNiva BupaExact source mapping not found — showing th" |
+| SAHI · Street View | internal | audit::niva-bupa → niva-bupa | FALLBACK | section fallback (no exact cell) · "Verify this sourceNiva BupaExact source mapping not found — showing th" |
+| SAHI · Street View | internal | audit::niva-bupa → niva-bupa | FALLBACK | section fallback (no exact cell) · "Verify this sourceNiva BupaExact source mapping not found — showing th" |
+| SAHI · Street View | internal | audit::niva-bupa → niva-bupa | FALLBACK | section fallback (no exact cell) · "Verify this sourceNiva BupaExact source mapping not found — showing th" |
+| SAHI · Street View | internal | audit::niva-bupa → niva-bupa | FALLBACK | section fallback (no exact cell) · "Verify this sourceNiva BupaExact source mapping not found — showing th" |
+| SAHI · Street View | internal | audit::niva-bupa → niva-bupa | FALLBACK | section fallback (no exact cell) · "Verify this sourceNiva BupaExact source mapping not found — showing th" |
 | SAHI · Key Sectoral News | none |  | SILENT_PILL | 1 source note(s) with no URL/target |
 | Industry | internal | audit::niva-bupa::GI segment premium → niva-bupa::GI segment premium | PASS | cell Industry Growth!C4 · "Verify this sourceNiva Bupa · GI segment premium = FY22 → FY26Locate t" |
 | Industry | internal | audit::niva-bupa::Overall health market share → niva-bupa::Overall health market share | PASS | cell SAHIs comparison!C9 · "Verify this sourceNiva Bupa · Overall health market share = FY22–FY27L" |

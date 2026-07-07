@@ -86,9 +86,9 @@ export function ManagementEvents() {
       {/* Board / KMP / leadership changes — compact, governance-relevant view of
           the SHARED component. The full "Management & Event Intelligence" block
           lives in Insights; this stays lean and governance-only. */}
-      <div ref={focusRef} className={`relative ${arrived ? 'insight-arrival rounded-2xl' : ''}`}>
+      <div ref={focusRef} className={`relative ${arrived && !focus?.targetItemId ? 'insight-arrival rounded-2xl' : ''}`}>
         {focus && <LocatorBadge label={focus.insightLabel} className="absolute -top-2.5 right-4 z-10" />}
-        <ManagementEventIntelligence variant="compact" governanceOnly companyId={company.id} companyName={company.shortName} />
+        <ManagementEventIntelligence variant="compact" governanceOnly companyId={company.id} companyName={company.shortName} focusEventId={focus?.targetItemId ?? null} />
       </div>
     </div>
   )

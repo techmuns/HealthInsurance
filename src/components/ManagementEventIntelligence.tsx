@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { CalendarClock, ExternalLink, Users, ChevronDown, ShieldCheck } from 'lucide-react'
 import {
   selectManagementEvents,
@@ -36,11 +36,20 @@ function ConfidencePill({ confidence }: { confidence: PulseManagementEvent['conf
   )
 }
 
-function EventRow({ e, dense }: { e: PulseManagementEvent; dense: boolean }) {
+function EventRow({ e, dense, targeted = false }: { e: PulseManagementEvent; dense: boolean; targeted?: boolean }) {
   const dot = EVENT_DOT[e.eventType] ?? '#27457E'
   const imp = IMPACT_META[e.impact]
   return (
-    <li className="rounded-xl border border-soft-border bg-card p-3 transition-colors hover:border-navy-primary/25">
+    <li
+      data-source-id={e.id}
+      data-source-highlight={targeted ? '1' : undefined}
+      className={`rounded-xl border p-3 transition-colors ${targeted ? 'insight-arrival border-navy-primary/60 bg-soft-blue/60' : 'border-soft-border bg-card hover:border-navy-primary/25'}`}
+    >
+      {targeted && (
+        <div className="mb-2 rounded-lg border border-[#E4CE93] bg-[#FBF6EA] px-2 py-1 text-[9px] font-bold uppercase tracking-[0.1em] text-champagne-deep">
+          Source for: Management change
+        </div>
+      )}
       <div className="flex flex-wrap items-center gap-2">
         <span className="inline-flex items-center gap-1 text-[10.5px] font-semibold text-ink-secondary">
           <CalendarClock className="h-3.5 w-3.5 text-navy-primary" strokeWidth={2.2} />
@@ -81,6 +90,7 @@ export function ManagementEventIntelligence({
   variant = 'full',
   governanceOnly = false,
   title,
+  focusEventId = null,
 }: {
   companyId: string
   companyName: string
@@ -89,10 +99,26 @@ export function ManagementEventIntelligence({
   governanceOnly?: boolean
   /** Override the compact-header label (e.g. "Management & Events" in Pulse). */
   title?: string
+  /** A source-tag / insight jump highlights this exact event (its id) — reveal it
+   *  past the "show more" cap, scroll it to centre and blip it. */
+  focusEventId?: string | null
 }) {
   const dense = variant === 'compact'
   const events = selectManagementEvents(companyId, { governanceOnly })
   const [showAll, setShowAll] = useState(false)
+
+  // Deep-link: reveal the targeted event (past the cap) and scroll it into view.
+  useEffect(() => {
+    if (!focusEventId || !events.some((e) => e.id === focusEventId)) return
+    setShowAll(true)
+    const t = window.setTimeout(() => {
+      document
+        .querySelector<HTMLElement>(`[data-source-id="${focusEventId.replace(/(["\\])/g, '\\$1')}"]`)
+        ?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+    }, 160)
+    return () => window.clearTimeout(t)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [focusEventId])
 
   if (events.length === 0) {
     // Compact hides entirely on an empty set so the surface stays clean; the full
@@ -116,7 +142,7 @@ export function ManagementEventIntelligence({
       <Header variant={variant} count={events.length} title={title} />
       <ul className={dense ? 'mt-3 space-y-2' : 'mt-4 space-y-2.5'}>
         {shown.map((e) => (
-          <EventRow key={e.id} e={e} dense={dense} />
+          <EventRow key={e.id} e={e} dense={dense} targeted={!!focusEventId && e.id === focusEventId} />
         ))}
       </ul>
       {events.length > shown.length && (

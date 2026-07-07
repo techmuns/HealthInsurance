@@ -30,6 +30,7 @@ import { getAnalystCoverage } from '@/lib/analystCoverage'
 import { getPromises } from '@/lib/promiseTracker'
 import { getEarningsBridge, earningsQuality, BRIDGE_SOURCE, BRIDGE_SOURCE_URL } from '@/data/earningsBridge'
 import { isLinkable, sourceHref, classifySource } from '@/lib/sourceHealth'
+import { makeSectoralId } from '@/data/sectoralNews'
 
 const INSIGHTS_FILE = generated as unknown as InsightsFile
 
@@ -116,6 +117,9 @@ export interface PulseManagementEvent {
   impact: SignalImpact
   /** True for governance-relevant events (board/KMP/auditor/leadership). */
   governanceRelevant: boolean
+  /** The insurer this event belongs to — lets a combined ("All") deep-link switch
+   *  the Governance tab to the right company before highlighting the exact card. */
+  companyId: string | null
 }
 
 export interface DataAnomaly {
@@ -672,11 +676,23 @@ function eventImpact(type?: string): SignalImpact {
   return 'Neutral'
 }
 
-function toManagementEvent(row: MgmtEventRow, idx: number): PulseManagementEvent | null {
+/** A STABLE id for a management event — a deterministic hash of its identifying
+ *  fields (company, date, type, person, role). The SAME event resolves to the SAME
+ *  id whether it was selected for one company or via the combined "All" feed. (The
+ *  old `${company}-${date}-${idx}` embedded the array position, so an event's id
+ *  shifted with scope and a Daily-Brief deep-link could never match the exact card
+ *  the Governance tab rendered.) */
+function mgmtEventId(row: MgmtEventRow): string {
+  const key = [row.company_id, row.event_date, row.event_type, row.person_name, row.designation].map((x) => x ?? '').join('|')
+  return `mgmt-${makeSectoralId(key, '')}`
+}
+
+function toManagementEvent(row: MgmtEventRow): PulseManagementEvent | null {
   if (!row.source_name && !isLinkable(row.source_url)) return null
   const type = row.event_type ?? 'board_change'
   return {
-    id: `${row.company_id}-${row.event_date}-${idx}`,
+    id: mgmtEventId(row),
+    companyId: row.company_id ?? null,
     date: row.event_date ?? '',
     dateLabel: fmtDate(row.event_date),
     daysAgo: daysAgo(row.event_date),
@@ -736,7 +752,7 @@ export function selectManagementEvents(
       ? SAHI_IDS.flatMap((id) => (getManagementEvents(id).rows as MgmtEventRow[]))
       : (getManagementEvents(companyId).rows as MgmtEventRow[])
   let events = (rows ?? [])
-    .map((r, i) => toManagementEvent(r, i))
+    .map((r) => toManagementEvent(r))
     .filter((e): e is PulseManagementEvent => e != null)
     .sort(byNewest)
   if (opts.governanceOnly) events = events.filter((e) => e.governanceRelevant)

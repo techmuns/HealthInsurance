@@ -1780,8 +1780,40 @@ export function sinceYesterday(pulse: InvestorPulse): SinceDelta[] {
 
   // Management changes only when genuinely recent (last day) — not the full 18-month
   // governance window, which would read stale changes as "since yesterday".
-  const mgmt = selectManagementEvents(pulse.companyId, { recentOnly: true }).filter((e) => (e.daysAgo ?? 99) <= 1).length
-  if (mgmt) out.push({ id: 'mgmt', label: mgmt === 1 ? 'management change' : 'management changes', value: String(mgmt), direction: 'up', tone: 'Neutral', target: locTarget('governance', 'mgmt', 'management', `${mgmt} management ${mgmt === 1 ? 'change' : 'changes'}`) })
+  // Count + target the SAME set the Governance → Management tab shows (governance-
+  // relevant, recent), so this row DEEP-LINKS to the exact event card, highlighted.
+  const mgmtEvents = selectManagementEvents(pulse.companyId, { governanceOnly: true, recentOnly: true }).filter((e) => (e.daysAgo ?? 99) <= 1)
+  const mgmt = mgmtEvents.length
+  if (mgmt) {
+    const top = mgmtEvents[0]
+    // Deep-link to the EXACT event card: switch the Governance tab to the insurer
+    // this change belongs to (a combined "All" brief can surface another insurer's
+    // change), then highlight the exact card by its stable id. Without the company
+    // switch the tab would render the focal insurer and never show this event.
+    const evCompany = top.companyId ?? company
+    const evCompanyLabel = insurers.find((i) => i.id === evCompany)?.shortName ?? pulse.company
+    out.push({
+      id: 'mgmt',
+      label: mgmt === 1 ? 'management change' : 'management changes',
+      value: String(mgmt),
+      direction: 'up',
+      tone: 'Neutral',
+      target: {
+        ...to('governance'),
+        company: evCompany,
+        focus: buildLocator({
+          id: 'pulse-since-mgmt',
+          locatorKind: 'management',
+          company: evCompany,
+          companyLabel: evCompanyLabel,
+          insightLabel: `${mgmt} management ${mgmt === 1 ? 'change' : 'changes'}`,
+          sahiTab: 'governance',
+          targetItemId: top.id,
+          reasonShownToday: `Management change reported ${top.dateLabel}${evCompanyLabel ? ` · ${evCompanyLabel}` : ''}.`,
+        }),
+      },
+    })
+  }
 
   // (Premium-growth YoY is intentionally NOT shown here — it is a standing metric,
   // not a change "since yesterday". It lives on the Premium & Distribution dashboard.

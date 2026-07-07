@@ -59,6 +59,14 @@ async function main() {
     { key: 'management', re: /management changes?/i, section: /Promise Tracker|Governance events|Management/i },
   ]
 
+  // Why a row legitimately opens the source article instead of deep-linking inside
+  // (Path 2 — external-only). Listed explicitly so an external landing is a
+  // reasoned, verified choice, never an unexplained gap.
+  const EXTERNAL_REASON = {
+    company:
+      'A company update is a news article. The dashboard has no internal card that reproduces the article body (the Companies tab is a financial scorecard, not a news feed; raw market-intelligence signals are not rendered as addressable cards). The exact article IS the precise evidence, so the row opens it — the zero-confusion path for external-only news.',
+  }
+
   for (const row of ROWS) {
     await openInsights(page)
     const el = page.getByText(row.re).first()
@@ -66,7 +74,7 @@ async function main() {
     const rowText = ((await el.textContent().catch(() => '')) || '').replace(/\s+/g, ' ').trim()
     // External (opens the article) vs internal (deep-links into the dashboard)?
     const href = await el.evaluate((node) => node.closest('a')?.getAttribute('href') ?? null).catch(() => null)
-    if (href) { rec({ label: `${row.key} (${rowText.slice(0, 40)})`, verdict: 'EXTERNAL_OK', detail: `opens ${href.slice(0, 48)}` }); continue }
+    if (href) { rec({ label: `${row.key} (${rowText.slice(0, 40)})`, verdict: 'EXTERNAL_OK', detail: `opens ${href.slice(0, 48)}`, reason: EXTERNAL_REASON[row.key] }); continue }
     await el.scrollIntoViewIfNeeded()
     await el.click()
     const v = await verifyLanded(page, row.section)
@@ -82,6 +90,12 @@ async function main() {
   const L = ['# Daily Brief source-click audit', '', `_Clicks each "Since Yesterday" row and verifies where it lands. Base: ${BASE_URL}._`, '', '## Summary', '', '| Category | Count |', '| --- | ---: |']
   L.push(`| PASS — exact card highlighted + labelled | ${pass.length} |`, `| SECTION — opened the right section/tab, no exact-item highlight (follow-up) | ${section.length} |`, `| FAIL — did not land | ${fail.length} |`, `| External rows (open the article) | ${external.length} |`, `| Rows absent today | ${results.filter((r) => r.verdict === 'ABSENT').length} |`, `| Page errors | ${errors.length} |`, '')
   if (section.length) { L.push('## Documented section-level landings (exceptions)', ''); for (const r of section) L.push(`- **${r.label}** — ${r.detail}`); L.push('') }
+  if (external.length) {
+    L.push('## External sources (Path 2 — open the exact article, by design)', '')
+    L.push('_These rows are external-only: the source is a document/article with no internal card to deep-link to. Opening the exact URL is the precise verification path, not a gap._', '')
+    for (const r of external) L.push(`- **${r.label}** — ${r.detail}${r.reason ? `\n  - _Why external:_ ${r.reason}` : ''}`)
+    L.push('')
+  }
   L.push('## Every row', '', '| Row | Verdict | Detail |', '| --- | --- | --- |')
   for (const r of results) L.push(`| ${r.label} | ${r.verdict} | ${(r.detail || '').replace(/\|/g, '/')} |`)
   mkdirSync('docs', { recursive: true })
