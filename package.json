@@ -8,7 +8,7 @@
     "prebuild": "(pip3 install --quiet --disable-pip-version-check openpyxl 2>/dev/null || pip install --quiet --disable-pip-version-check openpyxl 2>/dev/null || true); python3 scripts/excel/build_audit_index.py || echo 'audit index: python unavailable — using committed index'",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "typecheck": "tsc --noEmit",
+    "typecheck": "tsc -b",
     "check:retail-mix": "tsx --tsconfig tsconfig.app.json scripts/check-retail-mix.ts",
     "check:basis": "tsx --tsconfig tsconfig.app.json scripts/check-basis-toggle.ts",
     "check:links": "tsx scripts/check-source-links.ts",
