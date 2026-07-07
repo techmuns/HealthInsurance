@@ -20,6 +20,7 @@ import {
 } from 'lucide-react'
 import { CATEGORY_META, type SignalCategory } from '@/insights/investorPulse'
 import { STATUS_COLOR, type PulseStatus, type PickTag, type EvidenceKind } from './derive'
+import type { PeStatus, PeExposureLevel, PeActionVerb } from '@/lib/peBrief'
 
 export const GOLD = '#B68B3A'
 export const GOLD_ON_NAVY = '#E4C67C'
@@ -64,6 +65,80 @@ export function StatusPill({ status, onNavy = false }: { status: PulseStatus; on
     >
       <span className="h-1.5 w-1.5 rounded-full" style={{ background: c.dot }} />
       {status}
+    </span>
+  )
+}
+
+// ── PE-impact chips — Status / Exposure / Action / metric, the "same logic" the
+//    PDF brief renders, so the on-screen Pulse card reads the same way. ─────────
+
+type Swatch = { fg: string; bg: string; ring: string }
+
+// Status: confirmation level. Green/teal = confirmed/in-force; gold = draft;
+// navy = a plain media report; slate = unverified. Colour is signal, not decoration.
+const PE_STATUS_STYLE: Record<PeStatus, Swatch> = {
+  'Final rule': { fg: '#0E6F6D', bg: 'rgba(14,111,109,0.10)', ring: 'rgba(14,111,109,0.28)' },
+  Confirmed: { fg: '#2F855A', bg: 'rgba(47,133,90,0.10)', ring: 'rgba(47,133,90,0.24)' },
+  'Draft expected': { fg: '#9C7430', bg: 'rgba(182,139,58,0.13)', ring: 'rgba(182,139,58,0.30)' },
+  Reported: { fg: '#27457E', bg: 'rgba(39,69,126,0.08)', ring: 'rgba(39,69,126,0.22)' },
+  Rumour: { fg: '#8C7A55', bg: 'rgba(140,124,85,0.10)', ring: 'rgba(140,124,85,0.26)' },
+}
+export function PeStatusPill({ status, hint }: { status: PeStatus; hint?: string }) {
+  const s = PE_STATUS_STYLE[status]
+  return (
+    <span
+      title={hint}
+      className="inline-flex items-center rounded-full px-1.5 py-[1px] text-[8px] font-bold uppercase tracking-[0.05em]"
+      style={{ color: s.fg, background: s.bg, boxShadow: `inset 0 0 0 1px ${s.ring}` }}
+    >
+      {status}
+    </span>
+  )
+}
+
+// Exposure: how exposed THIS company is. High = warm (more at stake), Low = green,
+// "Needs data" = a neutral slate so an honest gap never reads as a real level.
+const EXPOSURE_STYLE: Record<PeExposureLevel, Swatch> = {
+  High: { fg: '#B4453C', bg: 'rgba(180,69,60,0.10)', ring: 'rgba(180,69,60,0.26)' },
+  Medium: { fg: '#9C7430', bg: 'rgba(182,139,58,0.12)', ring: 'rgba(182,139,58,0.26)' },
+  Low: { fg: '#2F855A', bg: 'rgba(47,133,90,0.10)', ring: 'rgba(47,133,90,0.24)' },
+  'Needs data': { fg: '#5B6573', bg: 'rgba(91,101,115,0.08)', ring: 'rgba(91,101,115,0.22)' },
+}
+export function ExposureChip({ level, basis }: { level: PeExposureLevel; basis?: string }) {
+  const s = EXPOSURE_STYLE[level]
+  return (
+    <span
+      title={basis ? `Exposure: ${level} — ${basis}` : `Exposure: ${level}`}
+      className="inline-flex items-center gap-1 rounded-full px-1.5 py-[1px] text-[8px] font-bold uppercase tracking-[0.05em]"
+      style={{ color: s.fg, background: s.bg, boxShadow: `inset 0 0 0 1px ${s.ring}` }}
+    >
+      <span className="font-semibold opacity-55">Exp</span>
+      {level}
+    </span>
+  )
+}
+
+// PE action verb — one gold accent so "what to do" always reads the same.
+export function PeActionChip({ verb, label }: { verb: PeActionVerb; label?: string }) {
+  return (
+    <span
+      title={label}
+      className="inline-flex items-center rounded-full px-1.5 py-[1px] text-[8px] font-bold uppercase tracking-[0.05em]"
+      style={{ color: '#8A6A25', background: 'rgba(182,139,58,0.12)', boxShadow: 'inset 0 0 0 1px rgba(182,139,58,0.26)' }}
+    >
+      {verb}
+    </span>
+  )
+}
+
+// A metric tag (Commission ratio, Expense ratio, …) — the "Impact:" chips.
+export function MetricChip({ label }: { label: string }) {
+  return (
+    <span
+      className="inline-flex items-center rounded-[4px] px-1.5 py-[1px] text-[8px] font-bold"
+      style={{ color: '#27457E', background: '#EDF1F8', boxShadow: 'inset 0 0 0 1px #DCE4F0' }}
+    >
+      {label}
     </span>
   )
 }

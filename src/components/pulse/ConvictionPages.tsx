@@ -10,7 +10,7 @@
 // fixed height and each page scrolls internally if it runs long. Calm motion,
 // reduced-motion respected. All content is source-derived (see ./derive).
 
-import { useLayoutEffect, useRef, useState } from 'react'
+import { useLayoutEffect, useRef, useState, type ReactNode } from 'react'
 import {
   ChevronLeft,
   ChevronRight,
@@ -33,11 +33,11 @@ import {
 import type { NavTarget } from '@/insights/sourceMap'
 import type { SignalCategory, Freshness } from '@/insights/investorPulse'
 import { dashboardTargetFor, type ConvictionIdea, type EvidenceKind } from './derive'
-import { GOLD, GOLD_ON_NAVY } from './parts'
+import { GOLD, GOLD_ON_NAVY, PeStatusPill, ExposureChip, PeActionChip, MetricChip } from './parts'
+import type { PeBriefItem } from '@/lib/peBrief'
 
 const PAGES = ['Story', 'Impact', 'Sources'] as const
 
-const tierOf = (pct: number): 'High' | 'Medium' | 'Low' => (pct >= 82 ? 'High' : pct >= 66 ? 'Medium' : 'Low')
 const TIER_COLOR: Record<string, string> = { High: '#0E6F6D', Medium: '#9C7430', Low: '#8C7A55' }
 // Same tiers, brightened to read on the navy header.
 const TIER_ON_NAVY: Record<string, string> = { High: '#4FD1C5', Medium: '#E9C46C', Low: '#C4B487' }
@@ -60,20 +60,6 @@ function PageTitle({ icon: Icon, kicker, title }: { icon: LucideIcon; kicker: st
         <Icon className="h-2.5 w-2.5" strokeWidth={2.4} /> {kicker}
       </span>
       <h4 className="font-display text-[15.5px] font-semibold leading-tight text-navy-deep">{title}</h4>
-    </div>
-  )
-}
-
-function LabelRow({ icon: Icon, label, text }: { icon: LucideIcon; label: string; text: string }) {
-  return (
-    <div className="flex gap-1.5">
-      <span className="mt-[3px] grid h-4 w-4 shrink-0 place-items-center rounded-[5px]" style={{ background: 'rgba(39,69,126,0.06)' }}>
-        <Icon className="h-2.5 w-2.5 text-navy-primary" strokeWidth={2} />
-      </span>
-      <div className="min-w-0">
-        <span className="text-[8px] font-bold uppercase tracking-[0.08em] text-ink-secondary">{label}</span>
-        <p className="text-[11px] leading-snug text-ink-primary">{text}</p>
-      </div>
     </div>
   )
 }
@@ -118,17 +104,55 @@ function StoryPage({ idea }: { idea: ConvictionIdea }) {
 
 // ── page 2 · why it matters ───────────────────────────────────────────────────
 
-function ImpactPage({ idea }: { idea: ConvictionIdea }) {
-  const w = idea.why
-  const couldChange = w.potentialImpact ?? w.historicalContext
+// A labelled row whose value is chips + optional text — the PE breakdown reads the
+// same as the printed brief (Impact metrics · Exposure · PE read · Action · Watch).
+function ChipRow({ icon: Icon, label, children }: { icon: LucideIcon; label: string; children: ReactNode }) {
+  return (
+    <div className="flex gap-1.5">
+      <span className="mt-[3px] grid h-4 w-4 shrink-0 place-items-center rounded-[5px]" style={{ background: 'rgba(39,69,126,0.06)' }}>
+        <Icon className="h-2.5 w-2.5 text-navy-primary" strokeWidth={2} />
+      </span>
+      <div className="min-w-0">
+        <span className="text-[8px] font-bold uppercase tracking-[0.08em] text-ink-secondary">{label}</span>
+        <div className="mt-0.5">{children}</div>
+      </div>
+    </div>
+  )
+}
+
+function ImpactPage({ pe }: { pe: PeBriefItem }) {
   return (
     <div>
       <PageTitle icon={ShieldCheck} kicker="Impact" title="Why should I care?" />
       <div className="space-y-2">
-        <LabelRow icon={ShieldCheck} label="Why it matters" text={w.whyItMatters} />
-        <LabelRow icon={Users} label="Who is affected" text={w.whoAffected} />
-        {couldChange && <LabelRow icon={TrendingUp} label="What could change" text={couldChange} />}
-        <LabelRow icon={Radar} label="What to watch next" text={idea.whatToWatch} />
+        <ChipRow icon={ShieldCheck} label="Impact">
+          <div className="flex flex-wrap gap-1">
+            {pe.metrics.map((m) => (
+              <MetricChip key={m} label={m} />
+            ))}
+          </div>
+          <p className="mt-1 text-[11px] leading-snug text-ink-primary">{pe.impactLine}</p>
+        </ChipRow>
+        <ChipRow icon={Users} label="Company exposure">
+          <span className="inline-flex items-center gap-1.5">
+            <ExposureChip level={pe.exposure.level} basis={pe.exposure.basis} />
+            <span className="text-[11px] leading-snug text-ink-primary">{pe.exposure.basis}</span>
+          </span>
+        </ChipRow>
+        <ChipRow icon={TrendingUp} label="PE read">
+          <p className="text-[11px] leading-snug text-ink-primary">{pe.peRead}</p>
+        </ChipRow>
+        <ChipRow icon={Zap} label="Next action">
+          <span className="inline-flex items-center gap-1.5">
+            <PeActionChip verb={pe.action.verb} label={pe.action.label} />
+            <span className="text-[11px] leading-snug text-ink-primary">{pe.action.label}</span>
+          </span>
+        </ChipRow>
+        {pe.watchNext.length > 0 && (
+          <ChipRow icon={Radar} label="Watch next">
+            <p className="text-[11px] leading-snug text-ink-secondary">{pe.watchNext.join(' · ')}</p>
+          </ChipRow>
+        )}
       </div>
     </div>
   )
@@ -195,24 +219,26 @@ function ActionBtn({ icon: Icon, label, onClick, href, primary }: { icon: Lucide
   )
 }
 
-function SourcesPage({ idea, companyId, onNavigate }: { idea: ConvictionIdea; companyId: string; onNavigate?: (t: NavTarget, id: string) => void }) {
+function SourcesPage({ idea, pe, companyId, onNavigate }: { idea: ConvictionIdea; pe: PeBriefItem; companyId: string; onNavigate?: (t: NavTarget, id: string) => void }) {
   const chips = chipTypes(idea)
   const dash = dashboardTargetFor(idea, companyId)
   const primary = idea.sources.find((s) => s.url)?.url
   const full = idea.sources.find((s) => (s.kind === 'Filing' || s.kind === 'Analyst report') && s.url && s.url !== primary)?.url
-  const tier = tierOf(idea.confidencePct)
+  // ONE confidence, the same tier the card + printed brief show — never a second,
+  // differently-derived number.
+  const tier = pe.confidence
   return (
     <div>
       <PageTitle icon={Landmark} kicker="Sources" title="Where to verify" />
       <div className="flex items-center gap-3 rounded-lg border border-soft-border bg-white/70 px-3 py-1.5">
-        <div className="leading-none">
-          <div className="text-[16px] font-bold text-navy-deep">{idea.evidenceCount}</div>
-          <div className="mt-0.5 text-[8.5px] font-semibold uppercase tracking-[0.08em] text-ink-secondary">{idea.evidenceCount === 1 ? 'source' : 'sources'}</div>
+        <div className="min-w-0 leading-none">
+          <div className="text-[12.5px] font-bold text-navy-deep">{pe.sourceLabel}</div>
+          <div className="mt-0.5 text-[8.5px] font-semibold uppercase tracking-[0.08em] text-ink-secondary">source cluster</div>
         </div>
-        <span className="h-6 w-px bg-soft-border" />
-        <div className="leading-none">
+        <span className="h-6 w-px shrink-0 bg-soft-border" />
+        <div className="shrink-0 leading-none" title={pe.confidenceWhy}>
           <div className="text-[14px] font-bold" style={{ color: TIER_COLOR[tier] }}>{tier}</div>
-          <div className="mt-0.5 text-[8.5px] font-semibold uppercase tracking-[0.08em] text-ink-secondary">source confidence</div>
+          <div className="mt-0.5 text-[8.5px] font-semibold uppercase tracking-[0.08em] text-ink-secondary">confidence</div>
         </div>
       </div>
       {/* Published vs discovered vs freshness — the honest provenance trail per the
@@ -297,12 +323,14 @@ function FootArrow({ dir, disabled, onClick }: { dir: 'prev' | 'next'; disabled:
 
 export function ConvictionPages({
   idea,
+  pe,
   companyId,
   page,
   onPage,
   onNavigate,
 }: {
   idea: ConvictionIdea
+  pe: PeBriefItem
   companyId: string
   page: number
   onPage: (p: number) => void
@@ -311,8 +339,8 @@ export function ConvictionPages({
   const go = (d: number) => onPage(Math.max(0, Math.min(PAGES.length - 1, page + d)))
   const bodies = [
     <StoryPage idea={idea} />,
-    <ImpactPage idea={idea} />,
-    <SourcesPage idea={idea} companyId={companyId} onNavigate={onNavigate} />,
+    <ImpactPage pe={pe} />,
+    <SourcesPage idea={idea} pe={pe} companyId={companyId} onNavigate={onNavigate} />,
   ]
 
   // A "paper sweep": when `page` changes, the destination page is already mounted
@@ -393,14 +421,15 @@ const CAT_LABEL: Record<SignalCategory, string> = {
   'Data Movement': 'Market move',
 }
 
-function NoteHeader({ idea, onClose }: { idea: ConvictionIdea; onClose: () => void }) {
-  const tier = tierOf(idea.confidencePct)
+function NoteHeader({ idea, pe, onClose }: { idea: ConvictionIdea; pe: PeBriefItem; onClose: () => void }) {
+  const tier = pe.confidence
   return (
     <div className="relative flex items-start gap-2.5 px-3.5 py-2.5" style={{ background: 'linear-gradient(135deg, #1E4079 0%, #14294C 100%)' }}>
       <div className="pointer-events-none absolute inset-x-0 top-0 h-px" style={{ background: 'linear-gradient(90deg, transparent, rgba(228,198,124,0.5) 30%, rgba(228,198,124,0.5) 70%, transparent)' }} />
       <div className="min-w-0 flex-1">
         <div className="flex flex-wrap items-center gap-x-2 gap-y-0.5">
           <span className="truncate font-display text-[14.5px] font-semibold leading-tight text-white">{idea.entity}</span>
+          <PeStatusPill status={pe.status} hint={pe.statusHint} />
           {idea.isBreaking && (
             <span className="inline-flex items-center gap-1 rounded-full px-1.5 py-[1px] text-[7.5px] font-bold uppercase tracking-wide text-white" style={{ background: 'rgba(192,88,79,0.38)' }}>
               <span className="pulse-live h-1 w-1 rounded-full" style={{ background: '#F0A199' }} /> Live
@@ -413,7 +442,7 @@ function NoteHeader({ idea, onClose }: { idea: ConvictionIdea; onClose: () => vo
         <div className="mt-0.5 flex items-center gap-1.5 text-[9.5px] font-semibold text-white/60">
           <span style={{ color: TIER_ON_NAVY[tier] }}>{tier} confidence</span>
           <span className="h-2 w-px bg-white/25" />
-          <span>
+          <span title={pe.sourceLabel}>
             {idea.evidenceCount} source{idea.evidenceCount === 1 ? '' : 's'}
           </span>
         </div>
@@ -435,6 +464,7 @@ function NoteHeader({ idea, onClose }: { idea: ConvictionIdea; onClose: () => vo
  *  above. Only ever one open at a time (the caller holds a single open id). */
 export function ConvictionOverlay({
   idea,
+  pe,
   companyId,
   page,
   onPage,
@@ -442,6 +472,7 @@ export function ConvictionOverlay({
   onNavigate,
 }: {
   idea: ConvictionIdea
+  pe: PeBriefItem
   companyId: string
   page: number
   onPage: (p: number) => void
@@ -466,8 +497,8 @@ export function ConvictionOverlay({
         role="dialog"
         aria-label={`${idea.entity} — insight note`}
       >
-        <NoteHeader idea={idea} onClose={onClose} />
-        <ConvictionPages idea={idea} companyId={companyId} page={page} onPage={onPage} onNavigate={onNavigate} />
+        <NoteHeader idea={idea} pe={pe} onClose={onClose} />
+        <ConvictionPages idea={idea} pe={pe} companyId={companyId} page={page} onPage={onPage} onNavigate={onNavigate} />
       </div>
     </div>
   )

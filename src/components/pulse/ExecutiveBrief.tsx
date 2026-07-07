@@ -40,8 +40,9 @@ import {
   type PulseAction,
   type ActionIcon,
 } from './derive'
-import { GOLD, GOLD_ON_NAVY } from './parts'
+import { GOLD, GOLD_ON_NAVY, PeStatusPill, ExposureChip, PeActionChip } from './parts'
 import { ConvictionOverlay } from './ConvictionPages'
+import { toPeBriefItem, type PeBriefItem } from '@/lib/peBrief'
 import { SS, readSS, writeSS, clearSS } from './pulseState'
 
 // Colour-psychology signal: regulatory = orange (caution); otherwise the status
@@ -137,19 +138,14 @@ const clampPage = (s: string | null): number => {
   return Number.isFinite(n) && n >= 0 && n <= 2 ? n : 0
 }
 
-const CAT_LABEL: Record<string, string> = {
-  'Analyst Action': 'Analyst view',
-  'Sector Catalyst': 'Sector',
-  Regulatory: 'Regulatory',
-  Management: 'Management',
-  Filing: 'Filing',
-  'Data Movement': 'Market move',
-}
+// Confidence tone for the compact card's single confidence marker.
+const CONF_TONE: Record<string, string> = { High: '#0E6F6D', Medium: '#9C7430', Low: '#8C7A55' }
 
-// Collapsed conviction card — compact, no stars/%: a category dot, the topic, a
-// one-line read, source count + category, and an "Open note" affordance. Clicking
-// opens the single insight-note overlay (never an inline expansion).
-function ConvictionCard({ idea, active, onOpen }: { idea: ConvictionIdea; active: boolean; onOpen: () => void }) {
+// Collapsed conviction card — compact: a category dot, the topic, the PE tags
+// (Status · Exposure · Action) that the PDF brief also shows, a one-line read, a
+// single confidence + source count, and an "Open note" affordance. Clicking opens
+// the single insight-note overlay (never an inline expansion).
+function ConvictionCard({ idea, pe, active, onOpen }: { idea: ConvictionIdea; pe: PeBriefItem; active: boolean; onOpen: () => void }) {
   const accent = accentFor(idea)
   return (
     <button
@@ -160,8 +156,9 @@ function ConvictionCard({ idea, active, onOpen }: { idea: ConvictionIdea; active
     >
       <span className="mt-1 h-2 w-2 shrink-0 rounded-full" style={{ background: accent, boxShadow: `0 0 0 3px ${accent}1f` }} title={idea.category === 'Regulatory' ? 'Regulatory' : idea.status} />
       <div className="min-w-0 flex-1">
-        <div className="flex items-center gap-1.5">
+        <div className="flex flex-wrap items-center gap-x-1.5 gap-y-1">
           <span className="truncate text-[12px] font-bold text-navy-deep">{idea.entity}</span>
+          <PeStatusPill status={pe.status} hint={pe.statusHint} />
           {idea.isBreaking && (
             <span className="inline-flex shrink-0 items-center gap-1 rounded-full px-1 text-[7.5px] font-bold uppercase tracking-wide text-coral" style={{ background: 'rgba(192,88,79,0.10)' }}>
               <span className="pulse-live h-1 w-1 rounded-full" style={{ background: '#C0584F' }} /> Live
@@ -181,13 +178,21 @@ function ConvictionCard({ idea, active, onOpen }: { idea: ConvictionIdea; active
             </span>
           )}
         </div>
-        <p className="mt-0.5 line-clamp-1 text-[11px] leading-snug text-ink-secondary">{idea.reasoning[0]}</p>
-        <div className="mt-1 flex items-center gap-1.5 text-[9px] font-semibold text-ink-secondary">
-          <span>
-            {idea.evidenceCount} source{idea.evidenceCount === 1 ? '' : 's'}
+        <p className="mt-1 line-clamp-1 text-[11px] leading-snug text-ink-secondary">{idea.reasoning[0]}</p>
+        {/* PE tags — Exposure + next action, the "same logic" the printed brief shows. */}
+        <div className="mt-1.5 flex flex-wrap items-center gap-1">
+          <ExposureChip level={pe.exposure.level} basis={pe.exposure.basis} />
+          <PeActionChip verb={pe.action.verb} label={pe.action.label} />
+        </div>
+        <div className="mt-1.5 flex items-center gap-1.5 text-[9px] font-semibold text-ink-secondary">
+          <span className="inline-flex items-center gap-1" title={pe.confidenceWhy}>
+            <span className="h-1.5 w-1.5 rounded-full" style={{ background: CONF_TONE[pe.confidence] }} />
+            {pe.confidence}
           </span>
           <span className="h-2.5 w-px bg-soft-border" />
-          <span className="uppercase tracking-[0.06em]">{CAT_LABEL[idea.category] ?? 'Signal'}</span>
+          <span title={pe.sourceLabel}>
+            {idea.evidenceCount} source{idea.evidenceCount === 1 ? '' : 's'}
+          </span>
           <span className="ml-auto inline-flex items-center gap-1 text-[8.5px] font-bold uppercase tracking-[0.08em] text-champagne-deep">
             Open note <BookOpen className="h-3 w-3 transition-transform group-hover:translate-x-0.5" strokeWidth={2.2} />
           </span>
@@ -197,8 +202,9 @@ function ConvictionCard({ idea, active, onOpen }: { idea: ConvictionIdea; active
   )
 }
 
-function ConvictionList({ ideas, companyId, onNavigate }: { ideas: ConvictionIdea[]; companyId: string; onNavigate?: (t: NavTarget, id: string) => void }) {
+function ConvictionList({ ideas, companyId, company, onNavigate }: { ideas: ConvictionIdea[]; companyId: string; company: string; onNavigate?: (t: NavTarget, id: string) => void }) {
   const top = ideas.slice(0, 3)
+  const peOf = (idea: ConvictionIdea): PeBriefItem => toPeBriefItem(idea, companyId, company)
 
   // Single open note (only one at a time), restored after a dashboard round-trip.
   const restoredId = readSS(SS.openIdea, companyId)
@@ -246,12 +252,12 @@ function ConvictionList({ ideas, companyId, onNavigate }: { ideas: ConvictionIde
       ) : (
         <div className="space-y-1.5">
           {top.map((idea) => (
-            <ConvictionCard key={idea.id} idea={idea} active={idea.id === openId} onOpen={() => open(idea.id)} />
+            <ConvictionCard key={idea.id} idea={idea} pe={peOf(idea)} active={idea.id === openId} onOpen={() => open(idea.id)} />
           ))}
         </div>
       )}
       {openIdea && (
-        <ConvictionOverlay idea={openIdea} companyId={companyId} page={page} onPage={changePage} onClose={close} onNavigate={onNavigate} />
+        <ConvictionOverlay idea={openIdea} pe={peOf(openIdea)} companyId={companyId} page={page} onPage={changePage} onClose={close} onNavigate={onNavigate} />
       )}
     </div>
   )
@@ -425,7 +431,7 @@ export function ExecutiveBrief({
 
         {/* CENTER — Highest Conviction Ideas */}
         <div className="min-w-0 border-t border-soft-border lg:border-l lg:border-t-0">
-          <ConvictionList ideas={ideas} companyId={pulse.companyId} onNavigate={onNavigate} />
+          <ConvictionList ideas={ideas} companyId={pulse.companyId} company={pulse.company} onNavigate={onNavigate} />
         </div>
 
         {/* RIGHT — since yesterday · events · actions. Presence-driven: today's live
