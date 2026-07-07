@@ -1149,6 +1149,26 @@ export interface ConvictionIdea {
   /** When we first discovered the lead item ("3 Jul") or "—". */
   discoveredLabel: string
   sources: { kind: EvidenceKind; name: string; url: string }[]
+  // ── PE-impact layer (dedup + exposure + honest confidence) ─────────────────
+  //  These are OPTIONAL: live/new-archive ideas always carry them, but a brief
+  //  frozen BEFORE this layer landed will not — so the PE builder falls back
+  //  gracefully (see toPeBriefItem) rather than crashing a past-date download.
+  /** The lead signal's raw impact + scope + owner — so the PE layer can map the
+   *  event to metrics/exposure without re-deriving them from prose. */
+  impact?: SignalImpact
+  scope?: 'company' | 'sector'
+  companyId?: string | null
+  sourceUrl?: string
+  /** The lead source's own confidence tier (drives the single PE confidence). */
+  sourceConfidence?: Confidence
+  /** How many articles were collapsed into this one story (1 = no duplicates). */
+  clusterSize?: number
+  /** The distinct outlets carrying this one story (deduped by domain) — grouped
+   *  under the single card so many links can still be few independent voices. */
+  clusterSources?: { kind: EvidenceKind; name: string; url: string }[]
+  /** Distinct source domains across the cluster — the honest "independent" count
+   *  (syndicated repeats of one wire do NOT inflate it). */
+  independentSources?: number
 }
 
 // Honest intraday freshness marker for one signal, driven by CLASSIFIED freshness
@@ -1170,39 +1190,181 @@ function freshLabelFor(s: PulseSignal): string | undefined {
   return 'Fresh today'
 }
 
-/** Highest-conviction ideas from a scoped signal set — ranked by conviction (not
- *  just freshness), each with 2-line AI reasoning, a confidence %, evidence, a
- *  what-to-watch and a full why. Market intelligence, not a stock call. */
+// ── Story clustering — collapse duplicate coverage into ONE item (#1) ─────────
+//  Multiple outlets routinely carry the SAME development (a broker note echoed by
+//  two sites; three articles on one IRDAI move). Rendering each as its own card
+//  over-weights a single story and inflates the source count. We collapse genuine
+//  duplicates into one cluster whose representative is the strongest framing, and
+//  group the other outlets under it — WITHOUT merging distinct sub-topics
+//  (commission norms vs cashless timelines stay separate). Deliberately
+//  conservative: it merges only on strong title overlap, or a shared distinctive
+//  anchor (a broker name, a specific entity, a topic keyword) at the same impact
+//  sign within a week. Under-merging (two near-dups slip through) is preferred to
+//  over-merging (two real stories wrongly fused) — honesty first.
+
+const STORY_STOP = new Set(
+  'the a an and or for to of in on at as is are be by with from into over under after ahead will would could may might set plans plan likely reported reportedly report reports said says over across its their this that these those health insurance insurer insurers india indian sector company companies share shares stock price amid'.split(
+    ' ',
+  ),
+)
+// Names too common to signal a shared STORY (every regulatory item names IRDAI).
+const REGULATOR_ANCHORS = new Set(['irdai', 'irda', 'sebi', 'pfrda', 'rbi', 'gst', 'government', 'govt', 'centre', 'ministry', 'niti'])
+const GENERIC_PROPER = new Set(['health', 'insurance', 'insurer', 'insurers', 'india', 'indian', 'new', 'fy', 'the', 'q1', 'q2', 'q3', 'q4', 'buy', 'sell', 'hold', 'board'])
+// Curated topic keywords — a shared one is a strong same-story signal (commission
+// ↔ commission), while different ones keep sub-topics apart (commission ↮ cashless).
+const TOPIC_ANCHORS = [
+  'commission', 'cashless', 'solvency', 'persistency', 'bancassurance', 'composite', 'surrender', 'claims', 'premium',
+  'merger', 'acquisition', 'stake', 'ipo', 'dividend', 'rights', 'bonus', 'fraud', 'penalty', 'licence', 'license',
+  'registration', 'delisting', 'expense', 'repricing', 'reinsurance',
+]
+
+function significantTokens(title: string): Set<string> {
+  const out = new Set<string>()
+  for (const raw of title.toLowerCase().match(/[a-z0-9]+/g) ?? []) {
+    if (raw.length < 4 && !/^\d+$/.test(raw)) continue
+    if (STORY_STOP.has(raw)) continue
+    out.add(raw)
+  }
+  return out
+}
+// Distinctive anchors: proper nouns in the ORIGINAL title (not a regulator, generic
+// word, or the company itself) PLUS any curated topic keyword present.
+function storyAnchors(s: PulseSignal): Set<string> {
+  const out = new Set<string>()
+  const companyTokens = new Set((s.companyName ?? '').toLowerCase().match(/[a-z]+/g) ?? [])
+  for (const m of s.title.match(/\b[A-Z][A-Za-z.&]{2,}\b/g) ?? []) {
+    const t = m.toLowerCase().replace(/\./g, '')
+    if (t.length < 3) continue
+    if (REGULATOR_ANCHORS.has(t) || STORY_STOP.has(t) || GENERIC_PROPER.has(t) || companyTokens.has(t)) continue
+    out.add(t)
+  }
+  const low = s.title.toLowerCase()
+  for (const kw of TOPIC_ANCHORS) if (low.includes(kw)) out.add(kw)
+  return out
+}
+function signBucket(i: SignalImpact): number {
+  return i === 'Positive' ? 1 : i === 'Neutral' ? 0 : -1 // Risk & Watch share the "caution" bucket
+}
+function broadTopic(s: PulseSignal): string {
+  const t = s.title.toLowerCase()
+  if (s.category === 'Regulatory') return 'regulatory'
+  if (s.category === 'Management' || /\bceo\b|\bcfo\b|appoint|resign|steps? down|managing director|\bmd\b/.test(t)) return 'management'
+  if (s.category === 'Analyst Action' || /rating|\bbuy\b|\bsell\b|target|initiat|upgrade|downgrade|overweight|underweight|coverage|re-?rat/.test(t)) return 'analyst'
+  if (/block deal|bulk deal|stake|promoter|pledge|shareholding/.test(t)) return 'ownership'
+  if (/premium|\bgwp\b|\bnwp\b|\bnep\b|growth|retail health/.test(t)) return 'premium'
+  return 'other'
+}
+function jaccard(a: Set<string>, b: Set<string>): number {
+  if (!a.size || !b.size) return 0
+  let inter = 0
+  for (const x of a) if (b.has(x)) inter++
+  return inter / (a.size + b.size - inter)
+}
+const daysApart = (a: string, b: string): number => {
+  const ta = Date.parse(a)
+  const tb = Date.parse(b)
+  return isNaN(ta) || isNaN(tb) ? 999 : Math.abs(ta - tb) / DAY_MS
+}
+interface StoryFeatures { sig: Set<string>; anchors: Set<string>; topic: string }
+function sameStory(a: PulseSignal, fa: StoryFeatures, b: PulseSignal, fb: StoryFeatures): boolean {
+  const j = jaccard(fa.sig, fb.sig)
+  // A near-verbatim headline is the SAME story even if two outlets tagged its tone
+  // differently (one "watch", one "positive") — so identical coverage never splits
+  // into two cards on a sign quirk. Guarded by a loose recency window.
+  if (j >= 0.75 && (!a.date || !b.date || daysApart(a.date, b.date) <= 21)) return true
+  if (signBucket(a.impact) !== signBucket(b.impact)) return false
+  if (a.date && b.date && daysApart(a.date, b.date) > 7) return false
+  if (j >= 0.5) return true
+  let shared = 0
+  for (const x of fa.anchors) if (fb.anchors.has(x)) shared++
+  if (shared >= 2) return true
+  if (shared >= 1 && (j >= 0.25 || (fa.topic === fb.topic && fa.topic !== 'other'))) return true
+  return false
+}
+
+export interface SignalCluster { lead: PulseSignal; members: PulseSignal[] }
+
+/** Collapse near-duplicate coverage into one story per cluster (single-link pass).
+ *  The representative (lead) is the highest-conviction member; the rest group under
+ *  it. Order-stable so the ranking downstream is deterministic. */
+export function clusterSignals(signals: PulseSignal[], pulse: InvestorPulse): SignalCluster[] {
+  const feats = new Map<string, StoryFeatures>()
+  for (const s of signals) feats.set(s.id, { sig: significantTokens(s.title), anchors: storyAnchors(s), topic: broadTopic(s) })
+  const clusters: PulseSignal[][] = []
+  for (const s of signals) {
+    const fs = feats.get(s.id)!
+    const hit = clusters.find((c) => c.some((m) => sameStory(m, feats.get(m.id)!, s, fs)))
+    if (hit) hit.push(s)
+    else clusters.push([s])
+  }
+  return clusters.map((members) => ({
+    lead: members.slice().sort((a, b) => convictionScore(b, pulse).score - convictionScore(a, pulse).score)[0],
+    members,
+  }))
+}
+
+/** The distinct outlets across a cluster (deduped by domain, else name). */
+function clusterSourceList(members: PulseSignal[]): { kind: EvidenceKind; name: string; url: string }[] {
+  const out: { kind: EvidenceKind; name: string; url: string }[] = []
+  const seen = new Set<string>()
+  for (const m of members) {
+    if (!m.sourceName && !m.sourceUrl) continue
+    const key = domainOf(m.sourceUrl) || m.sourceName
+    if (seen.has(key)) continue
+    seen.add(key)
+    out.push({ kind: EVIDENCE_BY_CATEGORY[m.category], name: m.sourceName, url: m.sourceUrl })
+  }
+  return out
+}
+
+/** Highest-conviction ideas from a scoped signal set — DEDUPED into stories, then
+ *  ranked by conviction (not just freshness), each with 2-line AI reasoning, a
+ *  single confidence, the grouped source cluster, a what-to-watch and a full why.
+ *  Market intelligence, not a stock call. */
 export function convictionIdeas(signals: PulseSignal[], pulse: InvestorPulse): ConvictionIdea[] {
-  const freshestId = signals.slice().sort(byNewestSignal)[0]?.id
-  return signals
-    .map((s) => ({ s, c: convictionScore(s, pulse) }))
+  const clusters = clusterSignals(signals, pulse)
+  const freshestId = clusters.map((c) => c.lead).slice().sort(byNewestSignal)[0]?.id
+  return clusters
+    .map((cl) => ({ cl, c: convictionScore(cl.lead, pulse) }))
     .sort((a, b) => b.c.score - a.c.score)
     .slice(0, 4)
-    .map(({ s, c }) => ({
-      id: s.id,
-      entity: s.scope === 'company' ? s.companyName ?? pulse.company : SECTOR_TOPIC[s.category],
-      stars: c.stars,
-      reasoning: reasoningLines(s, pulse),
-      whatToWatch: whatToWatchFor(s, pulse),
-      confidencePct: c.pct,
-      evidenceCount: c.evidence.length,
-      status: statusOf(s.impact),
-      category: s.category,
-      why: whyCareFor(s, pulse),
-      action: actionForSignal(s, pulse),
-      // "Breaking / live" and "new" require GENUINE freshness (source published in the
-      // window), not a crawl-stamped date — otherwise an older, just-discovered item
-      // would flash as breaking news.
-      isBreaking: s.id === freshestId && s.freshness === 'fresh',
-      isNew: s.freshness === 'fresh',
-      freshLabel: freshLabelFor(s),
-      freshness: s.freshness,
-      freshnessLabel: s.freshnessLabel,
-      publishedLabel: shortDay(s.publishedAt),
-      discoveredLabel: shortDay(s.discoveredAt),
-      sources: c.evidence,
-    }))
+    .map(({ cl, c }) => {
+      const s = cl.lead
+      const clusterSources = clusterSourceList(cl.members)
+      const independentSources = new Set(cl.members.map((m) => domainOf(m.sourceUrl)).filter(Boolean)).size || (s.sourceUrl ? 1 : 0)
+      return {
+        id: s.id,
+        entity: s.scope === 'company' ? s.companyName ?? pulse.company : SECTOR_TOPIC[s.category],
+        stars: c.stars,
+        reasoning: reasoningLines(s, pulse),
+        whatToWatch: whatToWatchFor(s, pulse),
+        confidencePct: c.pct,
+        evidenceCount: c.evidence.length,
+        status: statusOf(s.impact),
+        category: s.category,
+        why: whyCareFor(s, pulse),
+        action: actionForSignal(s, pulse),
+        // "Breaking / live" and "new" require GENUINE freshness (source published in the
+        // window), not a crawl-stamped date — otherwise an older, just-discovered item
+        // would flash as breaking news.
+        isBreaking: s.id === freshestId && s.freshness === 'fresh',
+        isNew: s.freshness === 'fresh',
+        freshLabel: freshLabelFor(s),
+        freshness: s.freshness,
+        freshnessLabel: s.freshnessLabel,
+        publishedLabel: shortDay(s.publishedAt),
+        discoveredLabel: shortDay(s.discoveredAt),
+        sources: c.evidence,
+        impact: s.impact,
+        scope: s.scope,
+        companyId: s.companyId,
+        sourceUrl: s.sourceUrl,
+        sourceConfidence: s.confidence,
+        clusterSize: cl.members.length,
+        clusterSources,
+        independentSources,
+      }
+    })
 }
 
 /** The exact dashboard section a conviction idea should open — resolved from the
@@ -1565,7 +1727,9 @@ export function sinceYesterday(pulse: InvestorPulse): SinceDelta[] {
   // not a change "since yesterday". It lives on the Premium & Distribution dashboard.
   // #10 honesty: this strip shows only real, computable day-over-day changes.)
 
-  const events = upcomingEvents(pulse).length
+  // "Events ahead" counts genuinely FUTURE events only (#7) — a past-dated "active
+  // catalyst" is not an event ahead, so it never inflates this strip.
+  const events = upcomingEvents(pulse).filter((e) => e.isFirm).length
   if (events) out.push({ id: 'events', label: events === 1 ? 'event ahead' : 'events ahead', value: String(events), direction: 'up', tone: 'Neutral', target: locTarget('governance', 'events', 'events', `${events} ${events === 1 ? 'event' : 'events'} ahead`) })
 
   // Market reaction only when it is a genuine reported move; 0 shown as reassurance.

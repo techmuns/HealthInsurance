@@ -89,6 +89,7 @@ export function PulseView({
   const handleDownload = () => {
     downloadDailyBrief({
       company: pulse.company,
+      companyId: pulse.companyId,
       dateLabel,
       isToday,
       brief,
