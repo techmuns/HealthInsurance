@@ -2,7 +2,7 @@
  "_meta": {
   "artifact": "extracted-data-audit",
   "schema_version": "1.0.0",
-  "generated_at": "2026-07-07T07:09:47.316471+00:00",
+  "generated_at": "2026-07-07T07:59:48.446411+00:00",
   "description": "QA index for the Extracted Data Audit tab. A compact projection of schema-map.json (cell contract) + excel-values.json (normalized value store) + held-back + blocked-filings. The binding x value join (Fetched / Missing / Parser issue / Source unavailable / Manual override) is computed at read time in src/lib/extractedDataAudit.ts so no data logic is duplicated.",
   "template_file": "niva-bupa-portfolio-review.xlsx",
   "template_sha256": "21c81ae8b5e531fa4937cac84fc879b213d8a2e18272584c5d9c3a77eed0346d",
@@ -28,7 +28,7 @@
    "sheets": 9,
    "audit_cells": 3255,
    "computed_cells": 690,
-   "value_store_entries": 12423,
+   "value_store_entries": 12432,
    "held_back": 10,
    "blocked_filings": 26
   }
@@ -41843,7 +41843,7 @@
        "metric": "gwp"
       }
      ],
-     "calculated_value": 1.849911
+     "calculated_value": 1.903862
     },
     {
      "cell": "K4",
@@ -41875,7 +41875,7 @@
        "metric": "pat_igaap"
       }
      ],
-     "calculated_value": 119.737804
+     "calculated_value": 123.229852
     },
     {
      "cell": "L4",
@@ -41907,7 +41907,7 @@
        "metric": "net_worth_igaap"
       }
      ],
-     "calculated_value": 4.864651
+     "calculated_value": 5.006524
     },
     {
      "cell": "M4",
@@ -41971,7 +41971,7 @@
        "metric": "pat_ifrs"
       }
      ],
-     "calculated_value": 42.773313
+     "calculated_value": 44.020759
     },
     {
      "cell": "O4",
@@ -42003,7 +42003,7 @@
        "metric": "net_worth_ifrs"
       }
      ],
-     "calculated_value": 4.371179
+     "calculated_value": 4.49866
     },
     {
      "cell": "P4",
@@ -42279,7 +42279,7 @@
        "metric": "gwp"
       }
      ],
-     "calculated_value": 1.865887
+     "calculated_value": 1.862726
     },
     {
      "cell": "K5",
@@ -42311,7 +42311,7 @@
        "metric": "pat_igaap"
       }
      ],
-     "calculated_value": 62.326409
+     "calculated_value": 62.220826
     },
     {
      "cell": "L5",
@@ -42343,7 +42343,7 @@
        "metric": "net_worth_igaap"
       }
      ],
-     "calculated_value": 4.574696
+     "calculated_value": 4.566946
     },
     {
      "cell": "M5",
@@ -42407,7 +42407,7 @@
        "metric": "pat_ifrs"
       }
      ],
-     "calculated_value": 38.107366
+     "calculated_value": 38.04281
     },
     {
      "cell": "O5",
@@ -42439,7 +42439,7 @@
        "metric": "net_worth_ifrs"
       }
      ],
-     "calculated_value": 3.624536
+     "calculated_value": 3.618396
     },
     {
      "cell": "P5",
@@ -42654,8 +42654,7 @@
        "entity": "icici-lombard",
        "metric": "gwp"
       }
-     ],
-     "calculated_value": 3.04076
+     ]
     },
     {
      "cell": "K6",
@@ -42686,8 +42685,7 @@
        "entity": "icici-lombard",
        "metric": "pat_igaap"
       }
-     ],
-     "calculated_value": 31.496291
+     ]
     },
     {
      "cell": "L6",
@@ -42718,8 +42716,7 @@
        "entity": "icici-lombard",
        "metric": "net_worth_igaap"
       }
-     ],
-     "calculated_value": 5.18362
+     ]
     },
     {
      "cell": "M6",
@@ -43028,7 +43025,7 @@
        "metric": "gwp"
       }
      ],
-     "calculated_value": 3.033048
+     "calculated_value": 2.910591
     },
     {
      "cell": "K7",
@@ -43060,7 +43057,7 @@
        "metric": "pat_igaap"
       }
      ],
-     "calculated_value": 54.896544
+     "calculated_value": 52.680147
     },
     {
      "cell": "L7",
@@ -43092,7 +43089,7 @@
        "metric": "net_worth_igaap"
       }
      ],
-     "calculated_value": 6.511932
+     "calculated_value": 6.249019
     },
     {
      "cell": "M7",
@@ -61399,7 +61396,7 @@
    "source_name": "GI Council Segment-wise Report (upto March 2023 (FY23, provisional & unaudited)) — prior-year comparative columns",
    "source_url": "https://www.gicouncil.in/media/4181/segment-wise-figures-upto-march-2023.xlsx",
    "source_file": "data/raw/gicouncil/segment-annual/FY23-march.xlsx",
-   "fetched_at": "2026-07-06T12:04:16.674Z",
+   "fetched_at": "2026-07-07T07:58:30.097Z",
    "confidence": "high",
    "source_status": "available",
    "source_layer": "official_snapshot",
@@ -61418,7 +61415,7 @@
    "source_name": "GI Council Segment-wise Report (upto March 2023 (FY23, provisional & unaudited)) — prior-year comparative columns",
    "source_url": "https://www.gicouncil.in/media/4181/segment-wise-figures-upto-march-2023.xlsx",
    "source_file": "data/raw/gicouncil/segment-annual/FY23-march.xlsx",
-   "fetched_at": "2026-07-06T12:04:16.674Z",
+   "fetched_at": "2026-07-07T07:58:30.097Z",
    "confidence": "high",
    "source_status": "available",
    "source_layer": "official_snapshot",
@@ -61437,7 +61434,7 @@
    "source_name": "GI Council Segment-wise Report (upto March 2023 (FY23, provisional & unaudited)) — prior-year comparative columns",
    "source_url": "https://www.gicouncil.in/media/4181/segment-wise-figures-upto-march-2023.xlsx",
    "source_file": "data/raw/gicouncil/segment-annual/FY23-march.xlsx",
-   "fetched_at": "2026-07-06T12:04:16.674Z",
+   "fetched_at": "2026-07-07T07:58:30.097Z",
    "confidence": "high",
    "source_status": "available",
    "source_layer": "official_snapshot",
@@ -61456,7 +61453,7 @@
    "source_name": "GI Council Segment-wise Report (upto March 2023 (FY23, provisional & unaudited)) — prior-year comparative columns",
    "source_url": "https://www.gicouncil.in/media/4181/segment-wise-figures-upto-march-2023.xlsx",
    "source_file": "data/raw/gicouncil/segment-annual/FY23-march.xlsx",
-   "fetched_at": "2026-07-06T12:04:16.674Z",
+   "fetched_at": "2026-07-07T07:58:30.097Z",
    "confidence": "high",
    "source_status": "available",
    "source_layer": "official_snapshot",
@@ -145950,7 +145947,7 @@
    "source_name": "GI Council Segment-wise Report (upto March 2023 (FY23, provisional & unaudited)) — prior-year comparative columns",
    "source_url": "https://www.gicouncil.in/media/4181/segment-wise-figures-upto-march-2023.xlsx",
    "source_file": "data/raw/gicouncil/segment-annual/FY23-march.xlsx",
-   "fetched_at": "2026-07-06T12:04:16.674Z",
+   "fetched_at": "2026-07-07T07:58:30.097Z",
    "confidence": "high",
    "source_status": "available",
    "source_layer": "official_snapshot",
@@ -145969,7 +145966,7 @@
    "source_name": "GI Council Segment-wise Report (upto March 2023 (FY23, provisional & unaudited)) — prior-year comparative columns",
    "source_url": "https://www.gicouncil.in/media/4181/segment-wise-figures-upto-march-2023.xlsx",
    "source_file": "data/raw/gicouncil/segment-annual/FY23-march.xlsx",
-   "fetched_at": "2026-07-06T12:04:16.674Z",
+   "fetched_at": "2026-07-07T07:58:30.097Z",
    "confidence": "high",
    "source_status": "available",
    "source_layer": "official_snapshot",
@@ -145988,7 +145985,7 @@
    "source_name": "GI Council Segment-wise Report (upto March 2023 (FY23, provisional & unaudited)) — prior-year comparative columns",
    "source_url": "https://www.gicouncil.in/media/4181/segment-wise-figures-upto-march-2023.xlsx",
    "source_file": "data/raw/gicouncil/segment-annual/FY23-march.xlsx",
-   "fetched_at": "2026-07-06T12:04:16.674Z",
+   "fetched_at": "2026-07-07T07:58:30.097Z",
    "confidence": "high",
    "source_status": "available",
    "source_layer": "official_snapshot",
@@ -146007,7 +146004,7 @@
    "source_name": "GI Council Segment-wise Report (upto March 2023 (FY23, provisional & unaudited)) — prior-year comparative columns",
    "source_url": "https://www.gicouncil.in/media/4181/segment-wise-figures-upto-march-2023.xlsx",
    "source_file": "data/raw/gicouncil/segment-annual/FY23-march.xlsx",
-   "fetched_at": "2026-07-06T12:04:16.674Z",
+   "fetched_at": "2026-07-07T07:58:30.097Z",
    "confidence": "high",
    "source_status": "available",
    "source_layer": "official_snapshot",
@@ -146026,7 +146023,7 @@
    "source_name": "GI Council Segment-wise Report (upto March 2023 (FY23, provisional & unaudited)) — prior-year comparative columns",
    "source_url": "https://www.gicouncil.in/media/4181/segment-wise-figures-upto-march-2023.xlsx",
    "source_file": "data/raw/gicouncil/segment-annual/FY23-march.xlsx",
-   "fetched_at": "2026-07-06T12:04:16.674Z",
+   "fetched_at": "2026-07-07T07:58:30.097Z",
    "confidence": "high",
    "source_status": "available",
    "source_layer": "official_snapshot",
@@ -146045,7 +146042,7 @@
    "source_name": "GI Council Segment-wise Report (upto March 2023 (FY23, provisional & unaudited)) — prior-year comparative columns",
    "source_url": "https://www.gicouncil.in/media/4181/segment-wise-figures-upto-march-2023.xlsx",
    "source_file": "data/raw/gicouncil/segment-annual/FY23-march.xlsx",
-   "fetched_at": "2026-07-06T12:04:16.674Z",
+   "fetched_at": "2026-07-07T07:58:30.097Z",
    "confidence": "high",
    "source_status": "available",
    "source_layer": "official_snapshot",
@@ -146064,7 +146061,7 @@
    "source_name": "GI Council Segment-wise Report (upto March 2023 (FY23, provisional & unaudited)) — prior-year comparative columns",
    "source_url": "https://www.gicouncil.in/media/4181/segment-wise-figures-upto-march-2023.xlsx",
    "source_file": "data/raw/gicouncil/segment-annual/FY23-march.xlsx",
-   "fetched_at": "2026-07-06T12:04:16.674Z",
+   "fetched_at": "2026-07-07T07:58:30.097Z",
    "confidence": "high",
    "source_status": "available",
    "source_layer": "official_snapshot",
@@ -146083,7 +146080,7 @@
    "source_name": "GI Council Segment-wise Report (upto March 2023 (FY23, provisional & unaudited)) — prior-year comparative columns",
    "source_url": "https://www.gicouncil.in/media/4181/segment-wise-figures-upto-march-2023.xlsx",
    "source_file": "data/raw/gicouncil/segment-annual/FY23-march.xlsx",
-   "fetched_at": "2026-07-06T12:04:16.674Z",
+   "fetched_at": "2026-07-07T07:58:30.097Z",
    "confidence": "high",
    "source_status": "available",
    "source_layer": "official_snapshot",
@@ -146102,7 +146099,7 @@
    "source_name": "GI Council Segment-wise Report (upto March 2023 (FY23, provisional & unaudited)) — prior-year comparative columns",
    "source_url": "https://www.gicouncil.in/media/4181/segment-wise-figures-upto-march-2023.xlsx",
    "source_file": "data/raw/gicouncil/segment-annual/FY23-march.xlsx",
-   "fetched_at": "2026-07-06T12:04:16.674Z",
+   "fetched_at": "2026-07-07T07:58:30.097Z",
    "confidence": "high",
    "source_status": "available",
    "source_layer": "official_snapshot",
@@ -146121,7 +146118,7 @@
    "source_name": "GI Council Segment-wise Report (upto March 2023 (FY23, provisional & unaudited)) — prior-year comparative columns",
    "source_url": "https://www.gicouncil.in/media/4181/segment-wise-figures-upto-march-2023.xlsx",
    "source_file": "data/raw/gicouncil/segment-annual/FY23-march.xlsx",
-   "fetched_at": "2026-07-06T12:04:16.674Z",
+   "fetched_at": "2026-07-07T07:58:30.097Z",
    "confidence": "high",
    "source_status": "available",
    "source_layer": "official_snapshot",
@@ -146140,7 +146137,7 @@
    "source_name": "GI Council Segment-wise Report (upto March 2023 (FY23, provisional & unaudited)) — prior-year comparative columns",
    "source_url": "https://www.gicouncil.in/media/4181/segment-wise-figures-upto-march-2023.xlsx",
    "source_file": "data/raw/gicouncil/segment-annual/FY23-march.xlsx",
-   "fetched_at": "2026-07-06T12:04:16.674Z",
+   "fetched_at": "2026-07-07T07:58:30.097Z",
    "confidence": "high",
    "source_status": "available",
    "source_layer": "official_snapshot",
@@ -146159,7 +146156,7 @@
    "source_name": "GI Council Segment-wise Report (upto March 2023 (FY23, provisional & unaudited)) — prior-year comparative columns",
    "source_url": "https://www.gicouncil.in/media/4181/segment-wise-figures-upto-march-2023.xlsx",
    "source_file": "data/raw/gicouncil/segment-annual/FY23-march.xlsx",
-   "fetched_at": "2026-07-06T12:04:16.674Z",
+   "fetched_at": "2026-07-07T07:58:30.097Z",
    "confidence": "high",
    "source_status": "available",
    "source_layer": "official_snapshot",
@@ -146178,7 +146175,7 @@
    "source_name": "GI Council Segment-wise Report (upto March 2023 (FY23, provisional & unaudited)) — prior-year comparative columns",
    "source_url": "https://www.gicouncil.in/media/4181/segment-wise-figures-upto-march-2023.xlsx",
    "source_file": "data/raw/gicouncil/segment-annual/FY23-march.xlsx",
-   "fetched_at": "2026-07-06T12:04:16.674Z",
+   "fetched_at": "2026-07-07T07:58:30.097Z",
    "confidence": "high",
    "source_status": "available",
    "source_layer": "official_snapshot",
@@ -146197,7 +146194,7 @@
    "source_name": "GI Council Segment-wise Report (upto March 2023 (FY23, provisional & unaudited)) — prior-year comparative columns",
    "source_url": "https://www.gicouncil.in/media/4181/segment-wise-figures-upto-march-2023.xlsx",
    "source_file": "data/raw/gicouncil/segment-annual/FY23-march.xlsx",
-   "fetched_at": "2026-07-06T12:04:16.674Z",
+   "fetched_at": "2026-07-07T07:58:30.097Z",
    "confidence": "high",
    "source_status": "available",
    "source_layer": "official_snapshot",
@@ -146216,7 +146213,7 @@
    "source_name": "GI Council Segment-wise Report (upto March 2023 (FY23, provisional & unaudited)) — prior-year comparative columns",
    "source_url": "https://www.gicouncil.in/media/4181/segment-wise-figures-upto-march-2023.xlsx",
    "source_file": "data/raw/gicouncil/segment-annual/FY23-march.xlsx",
-   "fetched_at": "2026-07-06T12:04:16.674Z",
+   "fetched_at": "2026-07-07T07:58:30.097Z",
    "confidence": "high",
    "source_status": "available",
    "source_layer": "official_snapshot",
@@ -146235,7 +146232,7 @@
    "source_name": "GI Council Segment-wise Report (upto March 2023 (FY23, provisional & unaudited)) — prior-year comparative columns",
    "source_url": "https://www.gicouncil.in/media/4181/segment-wise-figures-upto-march-2023.xlsx",
    "source_file": "data/raw/gicouncil/segment-annual/FY23-march.xlsx",
-   "fetched_at": "2026-07-06T12:04:16.674Z",
+   "fetched_at": "2026-07-07T07:58:30.097Z",
    "confidence": "high",
    "source_status": "available",
    "source_layer": "official_snapshot",
@@ -146254,7 +146251,7 @@
    "source_name": "GI Council Segment-wise Report (upto March 2023 (FY23, provisional & unaudited)) — prior-year comparative columns",
    "source_url": "https://www.gicouncil.in/media/4181/segment-wise-figures-upto-march-2023.xlsx",
    "source_file": "data/raw/gicouncil/segment-annual/FY23-march.xlsx",
-   "fetched_at": "2026-07-06T12:04:16.674Z",
+   "fetched_at": "2026-07-07T07:58:30.097Z",
    "confidence": "high",
    "source_status": "available",
    "source_layer": "official_snapshot",
@@ -146273,7 +146270,7 @@
    "source_name": "GI Council Segment-wise Report (upto March 2023 (FY23, provisional & unaudited)) — prior-year comparative columns",
    "source_url": "https://www.gicouncil.in/media/4181/segment-wise-figures-upto-march-2023.xlsx",
    "source_file": "data/raw/gicouncil/segment-annual/FY23-march.xlsx",
-   "fetched_at": "2026-07-06T12:04:16.674Z",
+   "fetched_at": "2026-07-07T07:58:30.097Z",
    "confidence": "high",
    "source_status": "available",
    "source_layer": "official_snapshot",
@@ -146292,7 +146289,7 @@
    "source_name": "GI Council Segment-wise Report (upto March 2023 (FY23, provisional & unaudited)) — prior-year comparative columns",
    "source_url": "https://www.gicouncil.in/media/4181/segment-wise-figures-upto-march-2023.xlsx",
    "source_file": "data/raw/gicouncil/segment-annual/FY23-march.xlsx",
-   "fetched_at": "2026-07-06T12:04:16.674Z",
+   "fetched_at": "2026-07-07T07:58:30.097Z",
    "confidence": "high",
    "source_status": "available",
    "source_layer": "official_snapshot",
@@ -146311,7 +146308,7 @@
    "source_name": "GI Council Segment-wise Report (upto March 2023 (FY23, provisional & unaudited)) — prior-year comparative columns",
    "source_url": "https://www.gicouncil.in/media/4181/segment-wise-figures-upto-march-2023.xlsx",
    "source_file": "data/raw/gicouncil/segment-annual/FY23-march.xlsx",
-   "fetched_at": "2026-07-06T12:04:16.674Z",
+   "fetched_at": "2026-07-07T07:58:30.097Z",
    "confidence": "high",
    "source_status": "available",
    "source_layer": "official_snapshot",
@@ -146330,7 +146327,7 @@
    "source_name": "GI Council Segment-wise Report (upto March 2023 (FY23, provisional & unaudited)) — prior-year comparative columns",
    "source_url": "https://www.gicouncil.in/media/4181/segment-wise-figures-upto-march-2023.xlsx",
    "source_file": "data/raw/gicouncil/segment-annual/FY23-march.xlsx",
-   "fetched_at": "2026-07-06T12:04:16.674Z",
+   "fetched_at": "2026-07-07T07:58:30.097Z",
    "confidence": "high",
    "source_status": "available",
    "source_layer": "official_snapshot",
@@ -146349,7 +146346,7 @@
    "source_name": "GI Council Segment-wise Report (upto March 2023 (FY23, provisional & unaudited)) — prior-year comparative columns",
    "source_url": "https://www.gicouncil.in/media/4181/segment-wise-figures-upto-march-2023.xlsx",
    "source_file": "data/raw/gicouncil/segment-annual/FY23-march.xlsx",
-   "fetched_at": "2026-07-06T12:04:16.674Z",
+   "fetched_at": "2026-07-07T07:58:30.097Z",
    "confidence": "high",
    "source_status": "available",
    "source_layer": "official_snapshot",
@@ -146368,7 +146365,7 @@
    "source_name": "GI Council Segment-wise Report (upto March 2023 (FY23, provisional & unaudited)) — prior-year comparative columns",
    "source_url": "https://www.gicouncil.in/media/4181/segment-wise-figures-upto-march-2023.xlsx",
    "source_file": "data/raw/gicouncil/segment-annual/FY23-march.xlsx",
-   "fetched_at": "2026-07-06T12:04:16.674Z",
+   "fetched_at": "2026-07-07T07:58:30.097Z",
    "confidence": "high",
    "source_status": "available",
    "source_layer": "official_snapshot",
@@ -146387,7 +146384,7 @@
    "source_name": "GI Council Segment-wise Report (upto March 2023 (FY23, provisional & unaudited)) — prior-year comparative columns",
    "source_url": "https://www.gicouncil.in/media/4181/segment-wise-figures-upto-march-2023.xlsx",
    "source_file": "data/raw/gicouncil/segment-annual/FY23-march.xlsx",
-   "fetched_at": "2026-07-06T12:04:16.674Z",
+   "fetched_at": "2026-07-07T07:58:30.097Z",
    "confidence": "high",
    "source_status": "available",
    "source_layer": "official_snapshot",
@@ -146938,7 +146935,7 @@
    "source_name": "GI Council Segment-wise Report (upto March 2023 (FY23, provisional & unaudited)) — prior-year comparative columns",
    "source_url": "https://www.gicouncil.in/media/4181/segment-wise-figures-upto-march-2023.xlsx",
    "source_file": "data/raw/gicouncil/segment-annual/FY23-march.xlsx",
-   "fetched_at": "2026-07-06T12:04:16.674Z",
+   "fetched_at": "2026-07-07T07:58:30.097Z",
    "confidence": "high",
    "source_status": "available",
    "source_layer": "official_snapshot",
@@ -146957,7 +146954,7 @@
    "source_name": "GI Council Segment-wise Report (upto March 2023 (FY23, provisional & unaudited)) — prior-year comparative columns",
    "source_url": "https://www.gicouncil.in/media/4181/segment-wise-figures-upto-march-2023.xlsx",
    "source_file": "data/raw/gicouncil/segment-annual/FY23-march.xlsx",
-   "fetched_at": "2026-07-06T12:04:16.674Z",
+   "fetched_at": "2026-07-07T07:58:30.097Z",
    "confidence": "high",
    "source_status": "available",
    "source_layer": "official_snapshot",
@@ -146976,7 +146973,7 @@
    "source_name": "GI Council Segment-wise Report (upto March 2023 (FY23, provisional & unaudited)) — prior-year comparative columns",
    "source_url": "https://www.gicouncil.in/media/4181/segment-wise-figures-upto-march-2023.xlsx",
    "source_file": "data/raw/gicouncil/segment-annual/FY23-march.xlsx",
-   "fetched_at": "2026-07-06T12:04:16.674Z",
+   "fetched_at": "2026-07-07T07:58:30.097Z",
    "confidence": "high",
    "source_status": "available",
    "source_layer": "official_snapshot",
@@ -146995,7 +146992,7 @@
    "source_name": "GI Council Segment-wise Report (upto March 2023 (FY23, provisional & unaudited)) — prior-year comparative columns",
    "source_url": "https://www.gicouncil.in/media/4181/segment-wise-figures-upto-march-2023.xlsx",
    "source_file": "data/raw/gicouncil/segment-annual/FY23-march.xlsx",
-   "fetched_at": "2026-07-06T12:04:16.674Z",
+   "fetched_at": "2026-07-07T07:58:30.097Z",
    "confidence": "high",
    "source_status": "available",
    "source_layer": "official_snapshot",
@@ -147014,7 +147011,7 @@
    "source_name": "GI Council Segment-wise Report (upto March 2023 (FY23, provisional & unaudited)) — prior-year comparative columns · derived: sum of the printed National + New India + Oriental + United India rows",
    "source_url": "https://www.gicouncil.in/media/4181/segment-wise-figures-upto-march-2023.xlsx",
    "source_file": "data/raw/gicouncil/segment-annual/FY23-march.xlsx",
-   "fetched_at": "2026-07-06T12:04:16.674Z",
+   "fetched_at": "2026-07-07T07:58:30.097Z",
    "confidence": "high",
    "source_status": "available",
    "source_layer": "official_snapshot",
@@ -147033,7 +147030,7 @@
    "source_name": "GI Council Segment-wise Report (upto March 2023 (FY23, provisional & unaudited)) — prior-year comparative columns · derived: printed General Insurers Sub Total − the 4 public-sector insurers",
    "source_url": "https://www.gicouncil.in/media/4181/segment-wise-figures-upto-march-2023.xlsx",
    "source_file": "data/raw/gicouncil/segment-annual/FY23-march.xlsx",
-   "fetched_at": "2026-07-06T12:04:16.674Z",
+   "fetched_at": "2026-07-07T07:58:30.097Z",
    "confidence": "high",
    "source_status": "available",
    "source_layer": "official_snapshot",
@@ -147052,7 +147049,7 @@
    "source_name": "GI Council Segment-wise Report (upto March 2023 (FY23, provisional & unaudited)) — prior-year comparative columns · derived: printed Industry Total retail − the 6 named insurer rows",
    "source_url": "https://www.gicouncil.in/media/4181/segment-wise-figures-upto-march-2023.xlsx",
    "source_file": "data/raw/gicouncil/segment-annual/FY23-march.xlsx",
-   "fetched_at": "2026-07-06T12:04:16.674Z",
+   "fetched_at": "2026-07-07T07:58:30.097Z",
    "confidence": "high",
    "source_status": "available",
    "source_layer": "official_snapshot",
@@ -170727,6 +170724,44 @@
    "source_url": "https://fastapi.muns.io/market_data",
    "source_file": "https://fastapi.muns.io/market_data?ticker=GODIGIT&start=2026-07-04&end=2026-07-07&country=India",
    "fetched_at": "2026-07-06T08:05:00.212Z",
+   "confidence": "high",
+   "source_status": "available",
+   "source_layer": "official_snapshot",
+   "priority_rank": 3,
+   "conflict_status": "none",
+   "eligible_for_excel": true
+  },
+  "godigit::close_price::2026-07-07": {
+   "entity": "godigit",
+   "metric": "close_price",
+   "period": "2026-07-07",
+   "unit": "INR",
+   "raw_value": 310.05,
+   "normalized_value": 310.05,
+   "transformation_used": "identity (value used as-is)",
+   "source_name": "muns market-data API — NSE daily history",
+   "source_url": "https://fastapi.muns.io/market_data",
+   "source_file": "https://fastapi.muns.io/market_data?ticker=GODIGIT&start=2026-07-07&end=2026-07-08&country=India",
+   "fetched_at": "2026-07-07T07:59:00.960Z",
+   "confidence": "high",
+   "source_status": "available",
+   "source_layer": "official_snapshot",
+   "priority_rank": 3,
+   "conflict_status": "none",
+   "eligible_for_excel": true
+  },
+  "godigit::traded_quantity::2026-07-07": {
+   "entity": "godigit",
+   "metric": "traded_quantity",
+   "period": "2026-07-07",
+   "unit": "shares",
+   "raw_value": 92129,
+   "normalized_value": 92129,
+   "transformation_used": "identity (value used as-is)",
+   "source_name": "muns market-data API — NSE daily history",
+   "source_url": "https://fastapi.muns.io/market_data",
+   "source_file": "https://fastapi.muns.io/market_data?ticker=GODIGIT&start=2026-07-07&end=2026-07-08&country=India",
+   "fetched_at": "2026-07-07T07:59:00.960Z",
    "confidence": "high",
    "source_status": "available",
    "source_layer": "official_snapshot",
@@ -194446,6 +194481,44 @@
    "conflict_status": "none",
    "eligible_for_excel": true
   },
+  "icici-lombard::close_price::2026-07-07": {
+   "entity": "icici-lombard",
+   "metric": "close_price",
+   "period": "2026-07-07",
+   "unit": "INR",
+   "raw_value": 1789.1,
+   "normalized_value": 1789.1,
+   "transformation_used": "identity (value used as-is)",
+   "source_name": "muns market-data API — NSE daily history",
+   "source_url": "https://fastapi.muns.io/market_data",
+   "source_file": "https://fastapi.muns.io/market_data?ticker=ICICIGI&start=2026-07-07&end=2026-07-08&country=India",
+   "fetched_at": "2026-07-07T07:59:00.960Z",
+   "confidence": "high",
+   "source_status": "available",
+   "source_layer": "official_snapshot",
+   "priority_rank": 3,
+   "conflict_status": "none",
+   "eligible_for_excel": true
+  },
+  "icici-lombard::traded_quantity::2026-07-07": {
+   "entity": "icici-lombard",
+   "metric": "traded_quantity",
+   "period": "2026-07-07",
+   "unit": "shares",
+   "raw_value": 280262,
+   "normalized_value": 280262,
+   "transformation_used": "identity (value used as-is)",
+   "source_name": "muns market-data API — NSE daily history",
+   "source_url": "https://fastapi.muns.io/market_data",
+   "source_file": "https://fastapi.muns.io/market_data?ticker=ICICIGI&start=2026-07-07&end=2026-07-08&country=India",
+   "fetched_at": "2026-07-07T07:59:00.960Z",
+   "confidence": "high",
+   "source_status": "available",
+   "source_layer": "official_snapshot",
+   "priority_rank": 3,
+   "conflict_status": "none",
+   "eligible_for_excel": true
+  },
   "niva-bupa::close_price::2024-11-14": {
    "entity": "niva-bupa",
    "metric": "close_price",
@@ -217626,6 +217699,44 @@
    "conflict_status": "none",
    "eligible_for_excel": true
   },
+  "niva-bupa::close_price::2026-07-07": {
+   "entity": "niva-bupa",
+   "metric": "close_price",
+   "period": "2026-07-07",
+   "unit": "INR",
+   "raw_value": 86.47,
+   "normalized_value": 86.47,
+   "transformation_used": "identity (value used as-is)",
+   "source_name": "muns market-data API — NSE daily history",
+   "source_url": "https://fastapi.muns.io/market_data",
+   "source_file": "https://fastapi.muns.io/market_data?ticker=NIVABUPA&start=2026-07-07&end=2026-07-08&country=India",
+   "fetched_at": "2026-07-07T07:59:00.960Z",
+   "confidence": "high",
+   "source_status": "available",
+   "source_layer": "official_snapshot",
+   "priority_rank": 3,
+   "conflict_status": "none",
+   "eligible_for_excel": true
+  },
+  "niva-bupa::traded_quantity::2026-07-07": {
+   "entity": "niva-bupa",
+   "metric": "traded_quantity",
+   "period": "2026-07-07",
+   "unit": "shares",
+   "raw_value": 1560854,
+   "normalized_value": 1560854,
+   "transformation_used": "identity (value used as-is)",
+   "source_name": "muns market-data API — NSE daily history",
+   "source_url": "https://fastapi.muns.io/market_data",
+   "source_file": "https://fastapi.muns.io/market_data?ticker=NIVABUPA&start=2026-07-07&end=2026-07-08&country=India",
+   "fetched_at": "2026-07-07T07:59:00.960Z",
+   "confidence": "high",
+   "source_status": "available",
+   "source_layer": "official_snapshot",
+   "priority_rank": 3,
+   "conflict_status": "none",
+   "eligible_for_excel": true
+  },
   "religare-enterprises::close_price::2024-11-01": {
    "entity": "religare-enterprises",
    "metric": "close_price",
@@ -233351,6 +233462,44 @@
    "source_url": "https://fastapi.muns.io/market_data",
    "source_file": "https://fastapi.muns.io/market_data?ticker=RELIGARE&start=2026-07-04&end=2026-07-07&country=India",
    "fetched_at": "2026-07-06T08:05:00.212Z",
+   "confidence": "high",
+   "source_status": "available",
+   "source_layer": "official_snapshot",
+   "priority_rank": 3,
+   "conflict_status": "none",
+   "eligible_for_excel": true
+  },
+  "religare-enterprises::close_price::2026-07-07": {
+   "entity": "religare-enterprises",
+   "metric": "close_price",
+   "period": "2026-07-07",
+   "unit": "INR",
+   "raw_value": 264.55,
+   "normalized_value": 264.55,
+   "transformation_used": "identity (value used as-is)",
+   "source_name": "muns market-data API — NSE daily history",
+   "source_url": "https://fastapi.muns.io/market_data",
+   "source_file": "https://fastapi.muns.io/market_data?ticker=RELIGARE&start=2026-07-07&end=2026-07-08&country=India",
+   "fetched_at": "2026-07-07T07:59:00.960Z",
+   "confidence": "high",
+   "source_status": "available",
+   "source_layer": "official_snapshot",
+   "priority_rank": 3,
+   "conflict_status": "none",
+   "eligible_for_excel": true
+  },
+  "religare-enterprises::traded_quantity::2026-07-07": {
+   "entity": "religare-enterprises",
+   "metric": "traded_quantity",
+   "period": "2026-07-07",
+   "unit": "shares",
+   "raw_value": 325840,
+   "normalized_value": 325840,
+   "transformation_used": "identity (value used as-is)",
+   "source_name": "muns market-data API — NSE daily history",
+   "source_url": "https://fastapi.muns.io/market_data",
+   "source_file": "https://fastapi.muns.io/market_data?ticker=RELIGARE&start=2026-07-07&end=2026-07-08&country=India",
+   "fetched_at": "2026-07-07T07:59:00.960Z",
    "confidence": "high",
    "source_status": "available",
    "source_layer": "official_snapshot",
@@ -257070,17 +257219,55 @@
    "conflict_status": "none",
    "eligible_for_excel": true
   },
+  "star-health::close_price::2026-07-07": {
+   "entity": "star-health",
+   "metric": "close_price",
+   "period": "2026-07-07",
+   "unit": "INR",
+   "raw_value": 588.3,
+   "normalized_value": 588.3,
+   "transformation_used": "identity (value used as-is)",
+   "source_name": "muns market-data API — NSE daily history",
+   "source_url": "https://fastapi.muns.io/market_data",
+   "source_file": "https://fastapi.muns.io/market_data?ticker=STARHEALTH&start=2026-07-07&end=2026-07-08&country=India",
+   "fetched_at": "2026-07-07T07:59:00.960Z",
+   "confidence": "high",
+   "source_status": "available",
+   "source_layer": "official_snapshot",
+   "priority_rank": 3,
+   "conflict_status": "none",
+   "eligible_for_excel": true
+  },
+  "star-health::traded_quantity::2026-07-07": {
+   "entity": "star-health",
+   "metric": "traded_quantity",
+   "period": "2026-07-07",
+   "unit": "shares",
+   "raw_value": 338781,
+   "normalized_value": 338781,
+   "transformation_used": "identity (value used as-is)",
+   "source_name": "muns market-data API — NSE daily history",
+   "source_url": "https://fastapi.muns.io/market_data",
+   "source_file": "https://fastapi.muns.io/market_data?ticker=STARHEALTH&start=2026-07-07&end=2026-07-08&country=India",
+   "fetched_at": "2026-07-07T07:59:00.960Z",
+   "confidence": "high",
+   "source_status": "available",
+   "source_layer": "official_snapshot",
+   "priority_rank": 3,
+   "conflict_status": "none",
+   "eligible_for_excel": true
+  },
   "star-health::market_cap::as_on_run_date": {
    "entity": "star-health",
    "metric": "market_cap",
    "period": "as_on_run_date",
    "unit": "INR_cr",
-   "raw_value": 34715.81,
-   "normalized_value": 34715.81,
+   "raw_value": 34657,
+   "normalized_value": 34657,
    "transformation_used": "identity (value used as-is)",
    "source_name": "Star Health valuation multiples (via muns agent)",
-   "source_url": "https://www.screener.in/company/STARHEALTH/",
-   "fetched_at": "2026-06-30T07:43:18.301Z",
+   "source_url": "https://www.tickertape.in/stocks/star-health-and-allied-insurance-company-STARH",
+   "fetched_at": "2026-07-07T07:30:21.460Z",
    "confidence": "medium",
    "source_status": "available",
    "source_layer": "official_snapshot",
@@ -257093,30 +257280,12 @@
    "metric": "market_cap",
    "period": "as_on_run_date",
    "unit": "INR_cr",
-   "raw_value": 15659.31,
-   "normalized_value": 15659.31,
+   "raw_value": 16116,
+   "normalized_value": 16116,
    "transformation_used": "identity (value used as-is)",
    "source_name": "Niva Bupa valuation multiples (via muns agent)",
    "source_url": "https://www.screener.in/company/NIVABUPA/",
-   "fetched_at": "2026-06-30T07:43:18.301Z",
-   "confidence": "medium",
-   "source_status": "available",
-   "source_layer": "official_snapshot",
-   "priority_rank": 3,
-   "conflict_status": "none",
-   "eligible_for_excel": true
-  },
-  "icici-lombard::market_cap::as_on_run_date": {
-   "entity": "icici-lombard",
-   "metric": "market_cap",
-   "period": "as_on_run_date",
-   "unit": "INR_cr",
-   "raw_value": 87307.72,
-   "normalized_value": 87307.72,
-   "transformation_used": "identity (value used as-is)",
-   "source_name": "ICICI Lombard valuation multiples (via muns agent)",
-   "source_url": "https://www.screener.in/company/ICICIGI/",
-   "fetched_at": "2026-06-30T07:43:18.301Z",
+   "fetched_at": "2026-07-07T07:30:21.460Z",
    "confidence": "medium",
    "source_status": "available",
    "source_layer": "official_snapshot",
@@ -257129,12 +257298,12 @@
    "metric": "market_cap",
    "period": "as_on_run_date",
    "unit": "INR_cr",
-   "raw_value": 29863.72,
-   "normalized_value": 29863.72,
+   "raw_value": 28658,
+   "normalized_value": 28658,
    "transformation_used": "identity (value used as-is)",
    "source_name": "Go Digit valuation multiples (via muns agent)",
-   "source_url": "https://www.screener.in/company/GODIGIT/",
-   "fetched_at": "2026-06-30T07:43:18.301Z",
+   "source_url": "https://www.tickertape.in/stocks/go-digit-general-insurance-GODIG",
+   "fetched_at": "2026-07-07T07:30:21.460Z",
    "confidence": "medium",
    "source_status": "available",
    "source_layer": "official_snapshot",
