@@ -323,11 +323,19 @@ export function SourceTag({
     )
   }
 
-  // Non-clickable variant — quiet pill (no URL on record yet).
+  // Non-clickable variant — quiet pill. Two honest reasons a tag lands here:
+  //   • auditRoute === false → a feed-level PROVENANCE NOTE (e.g. "Portfolio + AI
+  //     web"): it describes how a whole feed is sourced, not a single datum, so it
+  //     has no one cell/URL to open. The real per-item sources are the article
+  //     links in the feed itself. Marked `data-source-note` so verification treats
+  //     it as an intentional methodology label, never a missing-source gap.
+  //   • otherwise → a datum whose citable URL isn't on record yet (source pending).
+  const isProvenanceNote = auditRoute === false
   return (
     <span
       className={`${base} cursor-default border-transparent ${hasPopover ? 'hover:border-soft-border hover:bg-white/60' : ''} ${className}`}
       data-source-kind="none"
+      data-source-note={isProvenanceNote ? 'feed-provenance' : undefined}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
       onFocus={() => setHover(true)}

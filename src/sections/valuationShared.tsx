@@ -82,6 +82,30 @@ export function OpenSource({ id, url, title: providedTitle }: { id: string; url?
   if (auditNav.active) {
     const company = s?.company ? s.company.toLowerCase().replace(/\s+/g, '-') : auditNav.company
     const year = s?.period?.match(/FY\s?\d{2}/i)?.[0]?.replace(/\s/g, '')
+    const resolved = resolveAuditCell({ company, metric: s?.metric, year })
+    // Two-path source rule. When this number IS an extracted, audited figure
+    // (`resolved` maps to a cell or audit row) → deep-link to the exact cell.
+    // When it is NOT in the audit grid — a derived / estimated / broker-note value
+    // whose metric has no audit mapping (`status: 'pending'`) — but it carries its
+    // own document, OPEN that document (Path 2). A precise external source beats a
+    // vague "nearest section" landing; the audit hub has no cell to show here.
+    if (resolved.status === 'pending' && href) {
+      const extTitle = providedTitle ?? (url ? 'Moneycontrol' : s?.report_title ?? 'Source')
+      return (
+        <a
+          href={href}
+          target="_blank"
+          rel="noreferrer"
+          data-source-kind="external"
+          data-source-id={`ext::${id}`}
+          title={`${extTitle} — not an audited grid figure; opens the source document in a new tab`}
+          className="inline-flex items-center gap-1 rounded-full border border-soft-border bg-white/70 px-2 py-0.5 text-[10px] font-semibold text-navy-primary transition-all hover:border-muted-blue hover:bg-white hover:text-navy-deep hover:shadow-soft"
+        >
+          Open source
+          <ExternalLink className="h-2.5 w-2.5" />
+        </a>
+      )
+    }
     const target = [company, s?.metric, year].filter(Boolean).join('::') || undefined
     return (
       <button
@@ -89,7 +113,7 @@ export function OpenSource({ id, url, title: providedTitle }: { id: string; url?
         data-source-kind="internal"
         data-source-id={`audit::${target ?? id}`}
         data-source-target={target}
-        onClick={() => auditNav.goToAudit(resolveAuditCell({ company, metric: s?.metric, year }))}
+        onClick={() => auditNav.goToAudit(resolved)}
         title="View in Data Audit — the source-verification layer"
         className="inline-flex items-center gap-1 rounded-full border border-soft-border bg-white/70 px-2 py-0.5 text-[10px] font-semibold text-navy-primary transition-all hover:border-champagne hover:bg-champagne-soft/40 hover:text-navy-deep hover:shadow-soft"
       >

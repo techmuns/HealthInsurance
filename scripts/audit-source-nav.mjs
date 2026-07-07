@@ -59,12 +59,18 @@ async function sweep(page, s) {
   const count = await page.locator('[data-source-kind="internal"]').count()
   const ext = await page.locator('[data-source-kind="external"]').count()
   const none = await page.locator('[data-source-kind="none"]').count()
-  console.log(`${s.label}: internal ${count} · external ${ext} · silent ${none}`)
+  // A "none" pill is either a DOCUMENTED feed-level provenance note (marked
+  // data-source-note — describes how a whole feed is sourced, real sources are the
+  // per-item links) or a genuine silent gap (a datum with no citable URL yet).
+  const documented = await page.locator('[data-source-kind="none"][data-source-note]').count()
+  const silentGaps = none - documented
+  console.log(`${s.label}: internal ${count} · external ${ext} · silent ${silentGaps}${documented ? ` · documented-note ${documented}` : ''}`)
   for (let i = 0; i < ext; i++) {
     const href = await page.locator('[data-source-kind="external"]').nth(i).getAttribute('href')
     record({ surface: s.label, kind: 'external', verdict: href ? 'EXTERNAL_OK' : 'EXTERNAL_NO_HREF', id: await page.locator('[data-source-kind="external"]').nth(i).getAttribute('data-source-id') })
   }
-  if (none) record({ surface: s.label, kind: 'none', verdict: 'SILENT_PILL', detail: `${none} source note(s) with no URL/target`, count: none })
+  if (documented) record({ surface: s.label, kind: 'note', verdict: 'PROVENANCE_NOTE', detail: `${documented} feed-level provenance note(s) — real sources are the per-item article links`, count: documented })
+  if (silentGaps > 0) record({ surface: s.label, kind: 'none', verdict: 'SILENT_PILL', detail: `${silentGaps} source note(s) with no URL/target`, count: silentGaps })
   for (let i = 0; i < count; i++) {
     await gotoSurface(page, s) // re-navigate each time (the click leaves the page)
     const chip = page.locator('[data-source-kind="internal"]').nth(i)
@@ -99,6 +105,7 @@ async function main() {
   const external = results.filter((r) => r.kind === 'external')
   const extNoHref = external.filter((r) => r.verdict === 'EXTERNAL_NO_HREF')
   const silent = results.filter((r) => r.kind === 'none').reduce((n, r) => n + (r.count || 1), 0)
+  const notes = results.filter((r) => r.kind === 'note').reduce((n, r) => n + (r.count || 1), 0)
 
   const L = []
   L.push('# Source-navigation live audit', '')
@@ -110,8 +117,15 @@ async function main() {
   L.push(`| · FAIL (did not navigate) | ${fail.length} |`)
   L.push(`| External source chips (open a document) | ${external.length} |`)
   L.push(`| · without href | ${extNoHref.length} |`)
+  L.push(`| Documented feed provenance notes (intentional — per-item links carry the sources) | ${notes} |`)
   L.push(`| Silent source notes (no URL / no target) | ${silent} |`)
   L.push(`| Page errors | ${pageErrors.length} |`, '')
+  if (notes) {
+    L.push('## Documented provenance notes (not source gaps)', '')
+    L.push('_A feed-level provenance label describes how an entire feed is sourced — it has no single cell or URL because the real per-item sources are the article links inside the feed. Listed here so it is an explained, intentional note, never an unverified gap._', '')
+    for (const r of results.filter((x) => x.kind === 'note')) L.push(`- **${r.surface}** — ${r.detail}`)
+    L.push('')
+  }
   L.push('## Every source click', '', '| Surface | Kind | id / target | Verdict | Detail |', '| --- | --- | --- | --- | --- |')
   for (const r of results) L.push(`| ${r.surface} | ${r.kind} | ${r.id ?? ''}${r.target ? ` → ${r.target}` : ''} | ${r.verdict} | ${(r.detail || '').replace(/\|/g, '/')} |`)
   if (fail.length) { L.push('', '## ❌ Failures', ''); for (const r of fail) L.push(`- [${r.surface}] ${r.id ?? r.target}: ${r.detail}`) }
@@ -120,7 +134,7 @@ async function main() {
 
   console.log('\n── Source-navigation audit ───────────────────────────────────')
   console.log(`Internal chips:  ${internal.length}  (pass ${pass.length}, fallback ${fallback.length}, fail ${fail.length})`)
-  console.log(`External chips:  ${external.length}  (no-href ${extNoHref.length}) · silent notes ${silent}`)
+  console.log(`External chips:  ${external.length}  (no-href ${extNoHref.length}) · documented notes ${notes} · silent gaps ${silent}`)
   console.log(`Page errors:     ${pageErrors.length}`)
   console.log('Report:          docs/source-nav-audit.md')
   console.log('──────────────────────────────────────────────────────────────')
