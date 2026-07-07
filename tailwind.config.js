@@ -103,20 +103,36 @@ export default {
           '0%': { opacity: '0', transform: 'translateY(6px)' },
           '100%': { opacity: '1', transform: 'translateY(0)' },
         },
+        // Soft accordion / menu reveal: an opening panel or drop-down settles in
+        // with a quiet fade + a 3px unfold, never a hard pop. Pairs with the
+        // container's own height change (or a flip card's measured re-size).
+        'collapse-in': {
+          '0%': { opacity: '0', transform: 'translateY(-3px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
       },
       animation: {
         'fade-in': 'fade-in 0.4s ease-out both',
-        'drawer-in': 'drawer-in 0.28s ease-out both',
+        // Drawer panel eases in on the shared premium curve (250–320ms band).
+        'drawer-in': 'drawer-in 0.28s cubic-bezier(0.22, 1, 0.36, 1) both',
         'page-enter': 'page-enter 0.26s cubic-bezier(0.22, 1, 0.36, 1) both',
         'fade-soft': 'fade-soft 0.24s ease-out both',
+        'collapse-in': 'collapse-in 0.22s cubic-bezier(0.22, 1, 0.36, 1) both',
       },
-      // Shared premium motion tokens — one calm easing + a 160/240/320ms scale,
-      // used for opacity / transform / colour / shadow transitions across the
-      // tabs, toggles, pills and cards so motion reads consistently.
+      // Shared premium motion tokens — ONE calm ease-out is the app-wide default,
+      // so every `transition-*` utility (colours, transform, shadow, pills,
+      // toggles, chevrons) reads the same without per-element easing. The named
+      // 160/240/320ms scale covers small UI changes → drawer/accordion expansion.
       transitionTimingFunction: {
+        // DEFAULT drives the bare `transition-colors` / `transition-transform`
+        // utilities used across the app — one soft ease-out, no bounce.
+        DEFAULT: 'cubic-bezier(0.22, 1, 0.36, 1)',
         premium: 'cubic-bezier(0.22, 1, 0.36, 1)',
       },
       transitionDuration: {
+        // DEFAULT calms utility transitions to 200ms (was 150ms) so state
+        // changes feel deliberate, not twitchy — still inside the 180–240ms band.
+        DEFAULT: '200ms',
         fast: '160ms',
         normal: '240ms',
         slow: '320ms',

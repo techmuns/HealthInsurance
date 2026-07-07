@@ -86,7 +86,7 @@ function MethodStep({ step, tone, index, open, onToggle }: { step: MethodDescrip
       </button>
 
       {open && (
-        <div className="space-y-3 px-3 pb-3.5 pt-0.5">
+        <div className="animate-collapse-in space-y-3 px-3 pb-3.5 pt-0.5">
           <p className="font-editorial text-[12.5px] leading-relaxed text-ink-secondary">{step.gloss}</p>
           <div className="rounded-lg p-3" style={{ background: tone.soft, boxShadow: `inset 0 0 0 1px ${tone.ring}` }}>
             <p className="mb-1 text-[8.5px] font-bold uppercase tracking-[0.12em]" style={{ color: tone.fg }}>The formula</p>

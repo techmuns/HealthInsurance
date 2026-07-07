@@ -45,7 +45,7 @@ export function Drawer({ open, onClose, title, subtitle, children, footer, width
   return createPortal(
     <div className="fixed inset-0 z-50">
       <div
-        className="absolute inset-0 bg-navy-deep/25 backdrop-blur-[2px] animate-fade-in"
+        className="absolute inset-0 bg-navy-deep/25 backdrop-blur-[2px] animate-fade-soft"
         onClick={onClose}
         aria-hidden
       />

@@ -119,9 +119,9 @@ body {
       0 1px 2px rgba(23, 43, 77, 0.05),
       0 13px 30px rgba(23, 43, 77, 0.11);
     transition:
-      box-shadow 0.34s cubic-bezier(0.22, 0.61, 0.36, 1),
-      transform 0.34s cubic-bezier(0.22, 0.61, 0.36, 1),
-      border-color 0.34s cubic-bezier(0.22, 0.61, 0.36, 1);
+      box-shadow 0.24s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.24s cubic-bezier(0.22, 1, 0.36, 1),
+      border-color 0.24s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   /* Tone-coded card tints (apply alongside .card-surface) — visible enough to
@@ -158,9 +158,9 @@ body {
     background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.7), rgba(244, 247, 252, 0.6));
     border: 1px solid rgba(23, 43, 77, 0.06);
     transition:
-      box-shadow 0.34s cubic-bezier(0.22, 0.61, 0.36, 1),
-      border-color 0.34s cubic-bezier(0.22, 0.61, 0.36, 1),
-      background-color 0.34s cubic-bezier(0.22, 0.61, 0.36, 1);
+      box-shadow 0.24s cubic-bezier(0.22, 1, 0.36, 1),
+      border-color 0.24s cubic-bezier(0.22, 1, 0.36, 1),
+      background-color 0.24s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   /* Premium hover: a very slight lift + softer-but-deeper shadow. Opt-in so
@@ -177,9 +177,9 @@ body {
      rise and a deeper-but-soft shadow — premium, calm, never bouncy. */
   .hover-lift {
     transition:
-      transform 0.3s cubic-bezier(0.22, 0.61, 0.36, 1),
-      box-shadow 0.3s cubic-bezier(0.22, 0.61, 0.36, 1),
-      border-color 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
+      transform 0.24s cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 0.24s cubic-bezier(0.22, 1, 0.36, 1),
+      border-color 0.24s cubic-bezier(0.22, 1, 0.36, 1);
   }
   .hover-lift:hover {
     transform: translateY(-2px);
@@ -191,10 +191,10 @@ body {
   /* Soft tinted chip/badge: a calm pill that gains a faint focus halo on hover. */
   .chip-soft {
     transition:
-      background-color 0.2s ease,
-      box-shadow 0.2s ease,
-      color 0.2s ease,
-      border-color 0.2s ease;
+      background-color 0.2s cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 0.2s cubic-bezier(0.22, 1, 0.36, 1),
+      color 0.2s cubic-bezier(0.22, 1, 0.36, 1),
+      border-color 0.2s cubic-bezier(0.22, 1, 0.36, 1);
   }
   .chip-soft:hover {
     box-shadow: 0 0 0 3px rgba(39, 69, 126, 0.07);
@@ -395,7 +395,7 @@ body {
    page instead of the viewport, putting them far below the fold. */
 .section-pane--enter {
   will-change: opacity, transform;
-  animation: section-pane-enter 0.38s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation: section-pane-enter 0.28s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 .section-pane--exit {
   will-change: opacity, transform;
@@ -567,7 +567,7 @@ body {
 @keyframes insight-fade-in { from { opacity: 0; } to { opacity: 1; } }
 @keyframes insight-draw { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
 @keyframes insight-pop {
-  0% { opacity: 0; transform: translateY(5px) scale(0.9); }
+  0% { opacity: 0; transform: translateY(4px) scale(0.96); }
   100% { opacity: 1; transform: translateY(0) scale(1); }
 }
 @keyframes insight-arrival {
@@ -576,20 +576,22 @@ body {
   100% { box-shadow: 0 0 0 0 rgba(39, 69, 126, 0); }
 }
 
-.insight-spotlight { animation: insight-fade-in 0.55s ease both; }
+.insight-spotlight { animation: insight-fade-in 0.34s cubic-bezier(0.22, 1, 0.36, 1) both; }
 .insight-connector {
   stroke-dasharray: 1;
   stroke-dashoffset: 1;
-  animation: insight-draw 0.72s cubic-bezier(0.22, 1, 0.36, 1) 0.14s forwards;
+  animation: insight-draw 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.1s forwards;
 }
-.insight-anchor { animation: insight-fade-in 0.4s ease 0.28s both; }
+.insight-anchor { animation: insight-fade-in 0.3s cubic-bezier(0.22, 1, 0.36, 1) 0.22s both; }
 .insight-pill {
   transform-box: fill-box;
   transform-origin: center;
-  animation: insight-pop 0.42s cubic-bezier(0.34, 1.56, 0.64, 1) 0.56s both;
+  /* No overshoot — a calm settle into place, never a bounce. */
+  animation: insight-pop 0.32s cubic-bezier(0.22, 1, 0.36, 1) 0.42s both;
 }
-/* One-time soft ring on the chart card the reader is scrolled to. */
-.insight-arrival { animation: insight-arrival 2.4s cubic-bezier(0.22, 1, 0.36, 1) 1; }
+/* One-time soft ring on the chart card the reader is scrolled to — a brief, calm
+   glow that rises then fades, never a lingering or pulsing highlight. */
+.insight-arrival { animation: insight-arrival 1.4s cubic-bezier(0.22, 1, 0.36, 1) 1; }
 
 /* Locator blip — a small gold dot with a slow, soft halo that marks the exact
    row / card / event an insight points at (used where there's no metric to
@@ -613,7 +615,7 @@ body {
   18%  { box-shadow: 0 0 0 3px rgba(182, 139, 58, 0.5), 0 8px 22px rgba(182, 139, 58, 0.22); }
   100% { box-shadow: 0 0 0 0 rgba(182, 139, 58, 0); }
 }
-.audit-arrival-flash { animation: audit-arrival-flash 1.6s ease-out 1; }
+.audit-arrival-flash { animation: audit-arrival-flash 1.4s cubic-bezier(0.22, 1, 0.36, 1) 1; }
 
 @media (prefers-reduced-motion: reduce) {
   .insight-spotlight,

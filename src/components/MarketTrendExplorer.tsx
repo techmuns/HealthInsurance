@@ -295,7 +295,7 @@ function InsurerDropdown({
         <ChevronDown className={`h-3 w-3 text-ink-secondary transition-transform ${open ? 'rotate-180' : ''}`} />
       </button>
       {open && (
-        <div className="absolute left-0 z-30 mt-1 w-48 rounded-xl border border-soft-border bg-white p-1 shadow-card">
+        <div className="absolute left-0 z-30 mt-1 w-48 origin-top rounded-xl border border-soft-border bg-white p-1 shadow-card animate-collapse-in">
           {TREND_COMPANIES.map((c) => {
             const on = selected.has(c.id)
             return (

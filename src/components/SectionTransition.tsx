@@ -8,9 +8,9 @@ import { useCallback, useEffect, useRef, useState, type ReactNode } from 'react'
 //  the column could collapse for a frame before the new one painted. This
 //  wrapper makes the swap feel calm and deliberate:
 //
-//    • the outgoing content plays a short exit (fade + tiny lift),
-//    • then the incoming content plays an enter (fade + 10px rise + a whisper
-//      of scale, 0.987 → 1),
+//    • the outgoing content plays a short exit (a quick opacity fade),
+//    • then the incoming content plays an enter (fade + a 3px rise, no scale —
+//      a calm refresh in the shared premium ~280ms band, never a slide or pop),
 //    • and the column holds the outgoing height through the exit so it never
 //      collapses to a blank band mid-switch.
 //
@@ -25,7 +25,7 @@ import { useCallback, useEffect, useRef, useState, type ReactNode } from 'react'
 // ---------------------------------------------------------------------------
 
 const EXIT_MS = 200
-const ENTER_MS = 380
+const ENTER_MS = 280
 
 type Phase = 'idle' | 'exiting' | 'entering'
 
