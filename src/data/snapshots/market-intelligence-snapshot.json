@@ -4,8 +4,8 @@
     "description": "AI-generated market intelligence for the SAHI health insurers — investor meets, earnings/board dates, sector & regulatory news, share catalysts. Web-sourced; each item links its source. AI-generated, not audited.",
     "schema_version": "1.0.0",
     "dataset": "ai_generated",
-    "last_updated": "2026-07-06",
-    "last_successful_run": "2026-07-06T16:48:32.222Z",
+    "last_updated": "2026-07-07",
+    "last_successful_run": "2026-07-07T16:18:49.435Z",
     "upstream_sources": [
       "muns_agent_web"
     ],
@@ -116,19 +116,6 @@
       "first_seen": "2026-07-03T15:49:34.221Z"
     },
     {
-      "id": "14836d70c0",
-      "company_id": "sector",
-      "date": "2026-07-03",
-      "kind": "regulatory",
-      "horizon": "upcoming",
-      "impact": "negative",
-      "headline": "IRDAI plans overhaul of insurance commission rules",
-      "detail": "A draft expected within 4-6 weeks could stagger distributor commissions over policy life, potentially lowering upfront acquisition incentives/costs but disrupting health-insurance distribution economics and growth tactics.",
-      "source_name": "economictimes.indiatimes.com",
-      "source_url": "https://economictimes.indiatimes.com/industry/banking/finance/insure/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/articleshow/132155581.cms",
-      "first_seen": "2026-07-04T11:18:33.041Z"
-    },
-    {
       "id": "e7a14707ce",
       "company_id": "sector",
       "date": "2026-07-03",
@@ -142,19 +129,6 @@
       "first_seen": "2026-07-04T14:58:23.219Z"
     },
     {
-      "id": "96087d91b2",
-      "company_id": "sector",
-      "date": "2026-07-03",
-      "kind": "catalyst",
-      "horizon": "upcoming",
-      "impact": "watch",
-      "headline": "Distribution reform consultation paper expected by end-July",
-      "detail": "With the IRDAI chair signalling a consultation paper soon, the next formal draft is an imminent regulatory catalyst for valuations tied to growth quality and distribution-led profitability.",
-      "source_name": "livemint.com",
-      "source_url": "https://livemint.com/money/personal-finance/irdai-plans-insurance-commission-overhaul-to-curb-mis-selling-with-staggered-payouts-and-stricter-transparency-rules-11783065965488.html",
-      "first_seen": "2026-07-04T14:58:23.219Z"
-    },
-    {
       "id": "b04e0307b0",
       "company_id": "sector",
       "date": "2026-07-03",
@@ -165,21 +139,6 @@
       "detail": "A positive call on the largest listed standalone health insurer can lift sector sentiment and sharpen valuation comparison for Niva Bupa.",
       "source_name": "moneycontrol.com",
       "source_url": "https://www.moneycontrol.com/news/business/stocks/buy-star-health-target-of-rs-700-motilal-oswal-13959277.html",
-      "source_published_at": null,
-      "first_seen": "2026-07-05T08:43:25.282Z",
-      "discovered_at": "2026-07-05T08:43:25.282Z"
-    },
-    {
-      "id": "2b8887bcbe",
-      "company_id": "sector",
-      "date": "2026-07-03",
-      "kind": "board_meeting",
-      "horizon": "upcoming",
-      "impact": "watch",
-      "headline": "Star Health board to consider Q1 results on July 30",
-      "detail": "The result date is a near-term sector read-through on claims, growth and combined ratio that can influence Niva Bupa expectations too.",
-      "source_name": "thehindubusinessline.com",
-      "source_url": "https://thehindubusinessline.com/markets/why-tata-motors-tata-steel-varun-beverages-kothari-petrochemicals-coal-india-inox-clean-irb-infra-will-be-in-focus-today/article71177123.ece",
       "source_published_at": null,
       "first_seen": "2026-07-05T08:43:25.282Z",
       "discovered_at": "2026-07-05T08:43:25.282Z"
@@ -228,6 +187,21 @@
       "source_published_at": "2026-07-03",
       "first_seen": "2026-07-06T06:19:46.701Z",
       "discovered_at": "2026-07-06T06:19:46.701Z"
+    },
+    {
+      "id": "7a6fc7199f",
+      "company_id": "sector",
+      "date": "2026-07-03",
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "watch",
+      "headline": "RBI flags weak solvency at three state-run general insurers",
+      "detail": "Stress at public-sector non-life insurers raises the odds of tighter supervisory scrutiny, pricing discipline and capital focus across the broader general/health insurance ecosystem.",
+      "source_name": "livemint.com",
+      "source_url": "https://www.livemint.com/insurance/rbi-general-insurers-oriental-united-india-national-insurance-solvency-ratio-11782992284462.html",
+      "source_published_at": "2026-07-03",
+      "first_seen": "2026-07-07T16:18:49.435Z",
+      "discovered_at": "2026-07-07T16:18:49.435Z"
     },
     {
       "id": "c575ebb3dd",
@@ -779,6 +753,21 @@
       "discovered_at": "2026-07-06T13:38:39.332Z"
     },
     {
+      "id": "1232c6b7fc",
+      "company_id": "sector",
+      "date": "2026-06-26",
+      "kind": "rating",
+      "horizon": "recent",
+      "impact": "positive",
+      "headline": "Motilal Oswal starts/maintains Buy on Star Health with ₹700 target",
+      "detail": "A bullish call on the listed peer helps frame sector valuation and suggests investors still see rerating room in standalone health insurance despite competition.",
+      "source_name": "moneycontrol.com",
+      "source_url": "https://www.moneycontrol.com/news/business/stocks/buy-star-health-target-of-rs-700-motilal-oswal-13959277.html",
+      "source_published_at": "2026-06-26",
+      "first_seen": "2026-07-07T16:18:49.435Z",
+      "discovered_at": "2026-07-07T16:18:49.435Z"
+    },
+    {
       "id": "d4237e61e1",
       "company_id": "sector",
       "date": "2026-06-25",
@@ -846,6 +835,21 @@
       "source_name": "bfsi.economictimes.indiatimes.com",
       "source_url": "https://bfsi.economictimes.indiatimes.com/amp/articles/niva-bupa-forecasted-to-outpace-retail-health-insurance-market-amid-soaring-demand/131922688",
       "first_seen": "2026-07-04T08:24:33.011Z"
+    },
+    {
+      "id": "3cdbe06ce5",
+      "company_id": "niva-bupa",
+      "date": "2026-06-23",
+      "kind": "rating",
+      "horizon": "recent",
+      "impact": "positive",
+      "headline": "MOFSL keeps Buy on Niva Bupa with ₹100 target",
+      "detail": "A fresh positive target-price call matters because it backs above-industry growth, renewal-led profitability improvement and better resilience versus peers.",
+      "source_name": "bfsi.economictimes.indiatimes.com",
+      "source_url": "https://bfsi.economictimes.indiatimes.com/amp/articles/niva-bupa-forecasted-to-outpace-retail-health-insurance-market-amid-soaring-demand/131922688",
+      "source_published_at": "2026-06-23",
+      "first_seen": "2026-07-07T16:18:49.435Z",
+      "discovered_at": "2026-07-07T16:18:49.435Z"
     }
   ]
 }

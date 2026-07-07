@@ -2221,10 +2221,10 @@
         "company": "Niva Bupa",
         "companyId": "niva-bupa",
         "generatedAt": "2026-07-07T06:20:56.883Z",
-        "lastUpdatedAt": "2026-07-07T12:22:17.296Z",
+        "lastUpdatedAt": "2026-07-07T16:21:01.914Z",
         "status": "Watch",
         "sourceConfidence": "Low",
-        "itemCount": 55,
+        "itemCount": 58,
         "runs": [
           {
             "runTime": "2026-07-07T06:20:56.883Z",
@@ -2246,22 +2246,29 @@
             "sourceCount": 59,
             "ideas": 4,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-07-07T16:21:01.914Z",
+            "developments": 59,
+            "sourceCount": 59,
+            "ideas": 4,
+            "status": "ok"
           }
         ],
         "brief": {
           "greeting": "Good afternoon",
-          "narrative": "Regulatory pressure is the main watch item for health insurers today. Niva Bupa is under pressure on premium growth and demand, but claims-cost and conduct scrutiny and regulatory deadlines will decide whether the strength is sustainable.",
+          "narrative": "Regulatory pressure is the main watch item for health insurers today. Niva Bupa is under pressure on premium growth and demand, but claims-cost and conduct scrutiny will decide whether the strength is sustainable.",
           "attentionCount": 4,
           "developmentsCount": 59,
           "sourcesCount": 59,
-          "domainsCount": 14,
-          "confidencePct": 63,
+          "domainsCount": 13,
+          "confidencePct": 64,
           "confidenceTier": "Low",
           "readingMins": 2,
-          "lastUpdatedLabel": "6 Jul, 04:48 pm"
+          "lastUpdatedLabel": "7 Jul, 04:18 pm"
         },
         "message": {
-          "since": "No company-specific movement for Niva Bupa since the last brief — the read below is sector & regulatory context that applies across standalone health insurers.",
+          "since": "Niva Bupa had recently surfaced positive analyst coverage, alongside older regulatory items now in view. No fresh company-specific update was published since the last brief.",
           "keyThing": "Lower commissions and higher disclosure requirements would pressure distribution economics across health and general insurers, especially in commission-heavy retail health.",
           "why": "Growth is only as good as the claims and expense ratios behind it — that is the real question now.",
           "watch": "any fresh IRDAI clarification, and expense-ratio movement",
@@ -2547,25 +2554,25 @@
             "independentSources": 1
           },
           {
-            "id": "c409095fae",
+            "id": "3cdbe06ce5",
             "entity": "Niva Bupa",
             "stars": 5,
             "reasoning": [
-              "A fresh positive initiation on Niva Bupa can move sentiment and valuation expectations for a relatively newly listed insurer.",
-              "Solvency 3.03x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency."
+              "A fresh positive target-price call matters because it backs above-industry growth, renewal-led profitability improvement and better resilience versus peers.",
+              "Niva carries a 3x price-to-book while delivering a 5.7% ROE."
             ],
-            "whatToWatch": "Whether the sector move feeds through to premium growth and pricing.",
+            "whatToWatch": "P/GWP vs peers — Niva's premium multiple stays richer than Star's without faster growth.",
             "confidencePct": 78,
             "evidenceCount": 3,
             "status": "Constructive",
-            "category": "Sector Catalyst",
+            "category": "Analyst Action",
             "why": {
-              "whatHappened": "Nomura initiates with Buy on Niva Bupa",
-              "whyItMatters": "A fresh positive initiation on Niva Bupa can move sentiment and valuation expectations for a relatively newly listed insurer.",
-              "whoAffected": "Niva Bupa directly — its premium growth, margins and shareholders.",
-              "historicalContext": "Solvency 3.03x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency.",
-              "potentialImpact": "Solvency vs the 1.5x regulatory floor",
-              "whatToWatch": "Whether the sector move feeds through to premium growth and pricing."
+              "whatHappened": "MOFSL keeps Buy on Niva Bupa with ₹100 target",
+              "whyItMatters": "A fresh positive target-price call matters because it backs above-industry growth, renewal-led profitability improvement and better resilience versus peers.",
+              "whoAffected": "Niva Bupa shareholders and anyone tracking its re-rating.",
+              "historicalContext": "Niva carries a 3x price-to-book while delivering a 5.7% ROE.",
+              "potentialImpact": "Share gains only help the thesis if they are profitable share — watch the claims ratio as the book grows, not just the share number.",
+              "whatToWatch": "P/GWP vs peers — Niva's premium multiple stays richer than Star's without faster growth."
             },
             "action": {
               "id": "margins",
@@ -2593,46 +2600,42 @@
             },
             "isBreaking": false,
             "isNew": false,
-            "freshness": "existing",
-            "freshnessLabel": "Existing context",
-            "publishedLabel": "—",
-            "discoveredLabel": "3 Jul",
+            "freshLabel": "Newly surfaced",
+            "freshness": "newly-surfaced",
+            "freshnessLabel": "Newly surfaced",
+            "publishedLabel": "23 Jun",
+            "discoveredLabel": "7 Jul",
             "sources": [
               {
-                "kind": "News",
-                "name": "ndtvprofit.com",
-                "url": "https://www.ndtvprofit.com/markets/niva-bupa-star-health-get-buy-calls-as-nomura-initiates-on-four-insurers-check-target-prices"
-              },
-              {
-                "kind": "News",
-                "name": "transactions.nivabupa.com",
-                "url": "https://transactions.nivabupa.com/pages/investor-relations.aspx"
+                "kind": "Analyst report",
+                "name": "bfsi.economictimes.indiatimes.com",
+                "url": "https://bfsi.economictimes.indiatimes.com/amp/articles/niva-bupa-forecasted-to-outpace-retail-health-insurance-market-amid-soaring-demand/131922688"
               },
               {
                 "kind": "Market data",
                 "name": "Derived from insurer-annual-snapshot + industry-segment-premium",
                 "url": "https://transactions.nivabupa.com/pages/doc/investor-relations/other-fin-disclosures/Press-Release-Results-March-2025.pdf"
+              },
+              {
+                "kind": "Market data",
+                "name": "1 curated source-backed insight",
+                "url": ""
               }
             ],
             "impact": "Positive",
             "scope": "company",
             "companyId": "niva-bupa",
-            "sourceUrl": "https://www.ndtvprofit.com/markets/niva-bupa-star-health-get-buy-calls-as-nomura-initiates-on-four-insurers-check-target-prices",
-            "sourceConfidence": "Low",
+            "sourceUrl": "https://bfsi.economictimes.indiatimes.com/amp/articles/niva-bupa-forecasted-to-outpace-retail-health-insurance-market-amid-soaring-demand/131922688",
+            "sourceConfidence": "Medium",
             "clusterSize": 2,
             "clusterSources": [
               {
-                "kind": "News",
-                "name": "ndtvprofit.com",
-                "url": "https://www.ndtvprofit.com/markets/niva-bupa-star-health-get-buy-calls-as-nomura-initiates-on-four-insurers-check-target-prices"
-              },
-              {
                 "kind": "Analyst report",
-                "name": "cnbctv18.com",
-                "url": "https://cnbctv18.com/market/star-health-niva-bupa-pb-fintech-icici-lombard-shares-nomura-bets-on-non-life-insurance-players-upside-target-19933811.htm"
+                "name": "bfsi.economictimes.indiatimes.com",
+                "url": "https://bfsi.economictimes.indiatimes.com/amp/articles/niva-bupa-forecasted-to-outpace-retail-health-insurance-market-amid-soaring-demand/131922688"
               }
             ],
-            "independentSources": 2
+            "independentSources": 1
           }
         ],
         "sinceDeltas": [
@@ -2670,9 +2673,9 @@
           },
           {
             "id": "co",
-            "label": "company-specific updates",
-            "value": "0",
-            "direction": "flat",
+            "label": "newly surfaced relevant update",
+            "value": "1",
+            "direction": "up",
             "tone": "Neutral",
             "target": {
               "page": "sahi",
@@ -2688,12 +2691,13 @@
                 "companyLabel": "Niva Bupa",
                 "comparisonType": "trend",
                 "tone": "neutral",
-                "insightLabel": "No Niva Bupa-specific updates",
+                "insightLabel": "1 newly surfaced Niva Bupa update",
                 "unit": "",
                 "sahiTab": "companies",
                 "origin": "pulse"
               }
-            }
+            },
+            "href": "https://bfsi.economictimes.indiatimes.com/amp/articles/niva-bupa-forecasted-to-outpace-retail-health-insurance-market-amid-soaring-demand/131922688"
           },
           {
             "id": "moves",
@@ -2723,21 +2727,7 @@
             }
           }
         ],
-        "events": [
-          {
-            "id": "14836d70c0",
-            "day": "3",
-            "month": "Jul",
-            "dateLabel": "3 Jul 2026",
-            "kindLabel": "Regulatory",
-            "title": "IRDAI plans overhaul of insurance commission rules",
-            "context": "A draft expected within 4-6 weeks could stagger distributor commissions over…",
-            "url": "https://economictimes.indiatimes.com/industry/banking/finance/insure/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/articleshow/132155581.cms",
-            "whenLabel": "Active catalyst",
-            "isFirm": false,
-            "impact": "Risk"
-          }
-        ],
+        "events": [],
         "actions": [
           {
             "id": "ownership",
@@ -4935,10 +4925,10 @@
         "company": "Star Health",
         "companyId": "star-health",
         "generatedAt": "2026-07-07T06:20:56.883Z",
-        "lastUpdatedAt": "2026-07-07T12:22:17.296Z",
+        "lastUpdatedAt": "2026-07-07T16:21:01.914Z",
         "status": "Watch",
         "sourceConfidence": "Low",
-        "itemCount": 53,
+        "itemCount": 55,
         "runs": [
           {
             "runTime": "2026-07-07T06:20:56.883Z",
@@ -4960,19 +4950,26 @@
             "sourceCount": 57,
             "ideas": 4,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-07-07T16:21:01.914Z",
+            "developments": 56,
+            "sourceCount": 56,
+            "ideas": 4,
+            "status": "ok"
           }
         ],
         "brief": {
           "greeting": "Good afternoon",
-          "narrative": "Regulatory pressure is the main watch item for health insurers today. Star Health is under pressure on premium growth and demand, but claims-cost and conduct scrutiny and regulatory deadlines will decide whether the strength is sustainable.",
+          "narrative": "Regulatory pressure is the main watch item for health insurers today. Star Health is under pressure on premium growth and demand, but claims-cost and conduct scrutiny will decide whether the strength is sustainable.",
           "attentionCount": 4,
-          "developmentsCount": 57,
-          "sourcesCount": 57,
-          "domainsCount": 12,
+          "developmentsCount": 56,
+          "sourcesCount": 56,
+          "domainsCount": 11,
           "confidencePct": 64,
           "confidenceTier": "Low",
           "readingMins": 2,
-          "lastUpdatedLabel": "6 Jul, 04:48 pm"
+          "lastUpdatedLabel": "7 Jul, 04:18 pm"
         },
         "message": {
           "since": "Star Health had recently surfaced positive analyst coverage, alongside older regulatory items now in view. No fresh company-specific update was published since the last brief.",
@@ -5334,7 +5331,7 @@
             "companyId": "star-health",
             "sourceUrl": "https://www.moneycontrol.com/news/business/stocks/buy-star-health-target-of-rs-700-motilal-oswal-13959277.html",
             "sourceConfidence": "Medium",
-            "clusterSize": 2,
+            "clusterSize": 3,
             "clusterSources": [
               {
                 "kind": "Analyst report",
@@ -5434,21 +5431,7 @@
             }
           }
         ],
-        "events": [
-          {
-            "id": "14836d70c0",
-            "day": "3",
-            "month": "Jul",
-            "dateLabel": "3 Jul 2026",
-            "kindLabel": "Regulatory",
-            "title": "IRDAI plans overhaul of insurance commission rules",
-            "context": "A draft expected within 4-6 weeks could stagger distributor commissions over…",
-            "url": "https://economictimes.indiatimes.com/industry/banking/finance/insure/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/articleshow/132155581.cms",
-            "whenLabel": "Active catalyst",
-            "isFirm": false,
-            "impact": "Risk"
-          }
-        ],
+        "events": [],
         "actions": [
           {
             "id": "ownership",
@@ -7645,10 +7628,10 @@
         "company": "Care Health",
         "companyId": "care-health",
         "generatedAt": "2026-07-07T06:20:56.883Z",
-        "lastUpdatedAt": "2026-07-07T12:22:17.296Z",
+        "lastUpdatedAt": "2026-07-07T16:21:01.914Z",
         "status": "Watch",
         "sourceConfidence": "Low",
-        "itemCount": 52,
+        "itemCount": 54,
         "runs": [
           {
             "runTime": "2026-07-07T06:20:56.883Z",
@@ -7670,19 +7653,26 @@
             "sourceCount": 56,
             "ideas": 4,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-07-07T16:21:01.914Z",
+            "developments": 59,
+            "sourceCount": 55,
+            "ideas": 4,
+            "status": "ok"
           }
         ],
         "brief": {
           "greeting": "Good afternoon",
-          "narrative": "Regulatory pressure is the main watch item for health insurers today. Care Health is under pressure on premium growth and demand, but claims-cost and conduct scrutiny and regulatory deadlines will decide whether the strength is sustainable.",
+          "narrative": "Regulatory pressure is the main watch item for health insurers today. Care Health is under pressure on premium growth and demand, but claims-cost and conduct scrutiny will decide whether the strength is sustainable.",
           "attentionCount": 4,
-          "developmentsCount": 60,
-          "sourcesCount": 56,
-          "domainsCount": 12,
-          "confidencePct": 63,
+          "developmentsCount": 59,
+          "sourcesCount": 55,
+          "domainsCount": 11,
+          "confidencePct": 64,
           "confidenceTier": "Low",
           "readingMins": 2,
-          "lastUpdatedLabel": "6 Jul, 04:48 pm"
+          "lastUpdatedLabel": "7 Jul, 04:18 pm"
         },
         "message": {
           "since": "No company-specific movement for Care Health since the last brief — the read below is sector & regulatory context that applies across standalone health insurers.",
@@ -8138,21 +8128,7 @@
             }
           }
         ],
-        "events": [
-          {
-            "id": "14836d70c0",
-            "day": "3",
-            "month": "Jul",
-            "dateLabel": "3 Jul 2026",
-            "kindLabel": "Regulatory",
-            "title": "IRDAI plans overhaul of insurance commission rules",
-            "context": "A draft expected within 4-6 weeks could stagger distributor commissions over…",
-            "url": "https://economictimes.indiatimes.com/industry/banking/finance/insure/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/articleshow/132155581.cms",
-            "whenLabel": "Active catalyst",
-            "isFirm": false,
-            "impact": "Risk"
-          }
-        ],
+        "events": [],
         "actions": [
           {
             "id": "ownership",
@@ -10376,10 +10352,10 @@
         "company": "Aditya Birla",
         "companyId": "aditya-birla",
         "generatedAt": "2026-07-07T06:20:56.883Z",
-        "lastUpdatedAt": "2026-07-07T12:22:17.296Z",
+        "lastUpdatedAt": "2026-07-07T16:21:01.914Z",
         "status": "Watch",
         "sourceConfidence": "Low",
-        "itemCount": 52,
+        "itemCount": 54,
         "runs": [
           {
             "runTime": "2026-07-07T06:20:56.883Z",
@@ -10401,19 +10377,26 @@
             "sourceCount": 56,
             "ideas": 4,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-07-07T16:21:01.914Z",
+            "developments": 56,
+            "sourceCount": 55,
+            "ideas": 4,
+            "status": "ok"
           }
         ],
         "brief": {
           "greeting": "Good afternoon",
-          "narrative": "Regulatory pressure is the main watch item for health insurers today. Aditya Birla is under pressure on premium growth and demand, but claims-cost and conduct scrutiny and regulatory deadlines will decide whether the strength is sustainable.",
+          "narrative": "Regulatory pressure is the main watch item for health insurers today. Aditya Birla is under pressure on premium growth and demand, but claims-cost and conduct scrutiny will decide whether the strength is sustainable.",
           "attentionCount": 4,
-          "developmentsCount": 57,
-          "sourcesCount": 56,
-          "domainsCount": 12,
-          "confidencePct": 63,
+          "developmentsCount": 56,
+          "sourcesCount": 55,
+          "domainsCount": 11,
+          "confidencePct": 64,
           "confidenceTier": "Low",
           "readingMins": 2,
-          "lastUpdatedLabel": "6 Jul, 04:48 pm"
+          "lastUpdatedLabel": "7 Jul, 04:18 pm"
         },
         "message": {
           "since": "Since the last brief, there was a leadership change to note.",
@@ -10898,21 +10881,7 @@
             }
           }
         ],
-        "events": [
-          {
-            "id": "14836d70c0",
-            "day": "3",
-            "month": "Jul",
-            "dateLabel": "3 Jul 2026",
-            "kindLabel": "Regulatory",
-            "title": "IRDAI plans overhaul of insurance commission rules",
-            "context": "A draft expected within 4-6 weeks could stagger distributor commissions over…",
-            "url": "https://economictimes.indiatimes.com/industry/banking/finance/insure/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/articleshow/132155581.cms",
-            "whenLabel": "Active catalyst",
-            "isFirm": false,
-            "impact": "Risk"
-          }
-        ],
+        "events": [],
         "actions": [
           {
             "id": "ownership",
@@ -13109,10 +13078,10 @@
         "company": "ManipalCigna",
         "companyId": "manipalcigna",
         "generatedAt": "2026-07-07T06:20:56.883Z",
-        "lastUpdatedAt": "2026-07-07T12:22:17.296Z",
+        "lastUpdatedAt": "2026-07-07T16:21:01.914Z",
         "status": "Watch",
         "sourceConfidence": "Low",
-        "itemCount": 52,
+        "itemCount": 54,
         "runs": [
           {
             "runTime": "2026-07-07T06:20:56.883Z",
@@ -13134,19 +13103,26 @@
             "sourceCount": 56,
             "ideas": 4,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-07-07T16:21:01.914Z",
+            "developments": 62,
+            "sourceCount": 55,
+            "ideas": 4,
+            "status": "ok"
           }
         ],
         "brief": {
           "greeting": "Good afternoon",
-          "narrative": "Regulatory pressure is the main watch item for health insurers today. ManipalCigna is under pressure on premium growth and demand, but claims-cost and conduct scrutiny and regulatory deadlines will decide whether the strength is sustainable.",
+          "narrative": "Regulatory pressure is the main watch item for health insurers today. ManipalCigna is under pressure on premium growth and demand, but claims-cost and conduct scrutiny will decide whether the strength is sustainable.",
           "attentionCount": 4,
-          "developmentsCount": 63,
-          "sourcesCount": 56,
-          "domainsCount": 12,
-          "confidencePct": 63,
+          "developmentsCount": 62,
+          "sourcesCount": 55,
+          "domainsCount": 11,
+          "confidencePct": 64,
           "confidenceTier": "Low",
           "readingMins": 2,
-          "lastUpdatedLabel": "6 Jul, 04:48 pm"
+          "lastUpdatedLabel": "7 Jul, 04:18 pm"
         },
         "message": {
           "since": "No company-specific movement for ManipalCigna since the last brief — the read below is sector & regulatory context that applies across standalone health insurers.",
@@ -13602,21 +13578,7 @@
             }
           }
         ],
-        "events": [
-          {
-            "id": "14836d70c0",
-            "day": "3",
-            "month": "Jul",
-            "dateLabel": "3 Jul 2026",
-            "kindLabel": "Regulatory",
-            "title": "IRDAI plans overhaul of insurance commission rules",
-            "context": "A draft expected within 4-6 weeks could stagger distributor commissions over…",
-            "url": "https://economictimes.indiatimes.com/industry/banking/finance/insure/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/articleshow/132155581.cms",
-            "whenLabel": "Active catalyst",
-            "isFirm": false,
-            "impact": "Risk"
-          }
-        ],
+        "events": [],
         "actions": [
           {
             "id": "ownership",
@@ -13693,6 +13655,6 @@
     "snapshot_id": "pulse-brief-archive",
     "description": "Immutable per-calendar-day Pulse brief records (IST), one per company. Past days are frozen exactly as shown that day; the live Today view recomposes. Kept ~90 days per company.",
     "last_updated": "2026-07-07",
-    "last_successful_run": "2026-07-07T12:22:17.296Z"
+    "last_successful_run": "2026-07-07T16:21:01.914Z"
   }
 }
