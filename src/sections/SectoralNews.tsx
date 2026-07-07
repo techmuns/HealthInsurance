@@ -298,6 +298,7 @@ export function SectoralNews() {
           status="available"
           confidence="medium"
           provenance={{ source_name: 'Seed: investor portfolio pack · Updates: muns web agent (AI, web search)' }}
+          auditRoute={false}
         />
       </div>
     </div>

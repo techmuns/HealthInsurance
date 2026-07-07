@@ -80,6 +80,11 @@ export interface SourceTagProps {
   className?: string
   /** On SAHI Analysis / Industry Data, the exact audit cell this tag maps to. */
   audit?: SourceTagAuditRef
+  /** Opt out of Data-Audit routing for a source that has no audit-grid datum (e.g.
+   *  a news-feed provenance label whose real sources are per-item article links).
+   *  Such a tag stays a plain provenance note instead of routing to a "nearest
+   *  section" it can't precisely locate. Defaults to true. */
+  auditRoute?: boolean
 }
 
 const DOT_COLOUR: Record<SourceConfidence, string> = {
@@ -120,6 +125,7 @@ export function SourceTag({
   align = 'right',
   className = '',
   audit,
+  auditRoute = true,
 }: SourceTagProps) {
   const [hover, setHover] = useState(false)
   const auditNav = useAuditSource()
@@ -130,7 +136,7 @@ export function SourceTag({
   const url = health.href
   // On SAHI Analysis / Industry Data, source tags route to the Data Audit hub — the
   // single place that carries the raw PDF/PPT/URL — rather than opening it here.
-  const routeToAudit = auditNav.active
+  const routeToAudit = auditNav.active && auditRoute
   // In audit-routing mode the tag names the Data Audit TAB it verifies against
   // (e.g. "Industry Growth", "SAHIs comparison") instead of the far-upstream origin
   // ("GI Council"). Falls back to the plain source label when the metric doesn't map.

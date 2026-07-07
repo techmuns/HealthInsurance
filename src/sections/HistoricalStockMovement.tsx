@@ -165,10 +165,14 @@ export function HistoricalStockMovement({
   companyFilter = 'all',
   onClearCompany,
   verifyRow = null,
+  focusHl = null,
 }: {
   companyFilter?: string
   onClearCompany?: () => void
   verifyRow?: VerifyRow | null
+  /** A source-tag / insight jump highlights this daily cell (metric → column,
+   *  period → date) — same ring + scroll as a verifier row, no Excel flow. */
+  focusHl?: { metricLabel: string; period: string } | null
 } = {}) {
   const [gran, setGran] = useState<Granularity>('month')
   const view = useAuditView('historical-stock', DAILY_HIDEABLE.map((c) => c.key))
@@ -236,17 +240,21 @@ export function HistoricalStockMovement({
   // Verifier navigation → the exact cell in the daily table. Map the clicked
   // row's metric to a column and its period to a date; the matching cell is
   // ring-highlighted below and scrolled into view.
-  const hlCol = verifyRow ? histCol(verifyRow.metricLabel) : null
-  const hlDate = verifyRow?.period ?? null
-  const hlColor = verifyRow ? VERIFY_META[verifyRow.status].dot : undefined
-  const located = !!verifyRow && hlCol != null && vis(hlCol) && model.rows.some((r) => r.date === hlDate)
+  // A verifier row OR a source-tag focus supplies the highlight (metric → column,
+  // period → date). The focus path rings the cell navy; the verifier path uses its
+  // status colour.
+  const hlSrc = verifyRow ?? focusHl
+  const hlCol = hlSrc ? histCol(hlSrc.metricLabel) : null
+  const hlDate = hlSrc?.period ?? null
+  const hlColor = verifyRow ? VERIFY_META[verifyRow.status].dot : focusHl ? '#1E4079' : undefined
+  const located = !!hlSrc && hlCol != null && vis(hlCol) && model.rows.some((r) => r.date === hlDate)
   useEffect(() => {
-    if (!verifyRow) return
+    if (!hlSrc) return
     const t = setTimeout(() => {
       document.querySelector('[data-hl-cell="1"]')?.scrollIntoView({ behavior: 'smooth', block: 'center' })
     }, 90)
     return () => clearTimeout(t)
-  }, [verifyRow?.id])
+  }, [verifyRow?.id, focusHl?.metricLabel, focusHl?.period])
 
   // No NSE series for the chosen company — say so honestly (real data only,
   // never a fabricated stand-in). A listed name with no rows yet is still
@@ -626,6 +634,7 @@ function Td({ children, className = '', title, hl = false, hlColor }: { children
     <td
       title={title}
       data-hl-cell={hl ? '1' : undefined}
+      data-source-highlight={hl ? '1' : undefined}
       className={`border-b border-soft-border/60 px-2.5 py-[5px] text-[11px] ${hl ? 'relative z-[1] bg-gold-soft/60' : 'group-hover:bg-ice/50'} ${alignClass(className)} ${className}`}
       style={hl ? { boxShadow: `inset 0 0 0 2px ${hlColor ?? '#1E4079'}` } : undefined}
     >

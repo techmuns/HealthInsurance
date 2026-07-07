@@ -221,6 +221,7 @@ function ValueCell({ cell, selected, onSelect, verifyHl = false, hlColor }: { ce
       <button
         type="button"
         data-cell-id={cell.id}
+        data-source-highlight={verifyHl ? '1' : undefined}
         onClick={onSelect}
         title={`${cell.metricLabel} · ${cell.period} — ${STATUS_META[cell.status].label}. Click for source.`}
         className={`flex h-full min-h-[30px] w-full items-center justify-end px-2.5 tabular-nums transition-all ${verifyHl ? 'bg-gold-soft/60' : tone.cell} hover:brightness-95`}
@@ -234,6 +235,7 @@ function ValueCell({ cell, selected, onSelect, verifyHl = false, hlColor }: { ce
   return (
     <div
       data-cell-id={cell?.id}
+      data-source-highlight={verifyHl ? '1' : undefined}
       className={`flex h-full min-h-[30px] w-full items-center justify-center px-2 ${verifyHl ? 'bg-gold-soft/60' : ''}`}
       style={verifyHl ? { boxShadow: `inset 0 0 0 2px ${hlColor ?? '#1E4079'}` } : undefined}
       title="Not fetched yet — comes from the broker-research aggregator (low-confidence backup). Never shown as 0."
@@ -381,11 +383,15 @@ export function AnalystCoverage({
   companyFilter = 'all',
   onClearCompany,
   verifyRow = null,
+  focusCellId = null,
 }: {
   group: AuditGroup
   companyFilter?: string
   onClearCompany?: () => void
   verifyRow?: VerifyRow | null
+  /** A source-tag / insight jump highlights this exact broker value cell (its
+   *  audit id) — same ring + scroll as a verifier row, without the Excel flow. */
+  focusCellId?: string | null
 }) {
   const allBlocks = useMemo(() => buildBlocks(group), [group])
   const [selected, setSelected] = useState<AuditCell | null>(null)
@@ -405,8 +411,8 @@ export function AnalystCoverage({
 
   // Verifier navigation → highlight the exact value cell (price-at-reco / target)
   // and scroll it into view. These cells carry audit ids, so we match by id.
-  const verifyHlId = verifyRow?.id ?? null
-  const hlColor = verifyRow ? VERIFY_META[verifyRow.status].dot : undefined
+  const verifyHlId = verifyRow?.id ?? focusCellId ?? null
+  const hlColor = verifyRow ? VERIFY_META[verifyRow.status].dot : focusCellId ? '#1E4079' : undefined
   useEffect(() => {
     if (!verifyHlId) return
     const t = setTimeout(() => {

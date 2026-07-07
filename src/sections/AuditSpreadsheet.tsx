@@ -1122,8 +1122,13 @@ export function AuditSpreadsheet({ model, focus }: { model: AuditModel; focus?: 
     const cell = findAuditCell(sheets, focus.company, focus.metricKey, focus.year, focus.preferSheet)
     if (cell) {
       setActive(cell.sheet)
-      setCompany('all')
-      setPulseId(cell.id)
+      // Grid sheets: clear the company filter so the cell can't be hidden. Custom
+      // sheets (stock movement / analyst coverage) render their own tables and
+      // highlight via focusCellId / focusHl, so keep them filtered to the company.
+      const role = sheets.find((s) => s.sheet === cell.sheet)?.role
+      const custom = role === 'market_quote' || role === 'analyst_coverage'
+      setCompany(custom && focus.company ? focus.company : 'all')
+      setPulseId(cell.id) // no-op on custom sheets (their renderer draws the ring)
       const scrollT = setTimeout(() => {
         const el = document.querySelector<HTMLElement>(`[data-cell-id="${cell.id.replace(/(["\\])/g, '\\$1')}"]`)
         el?.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center' })
@@ -1252,6 +1257,25 @@ export function AuditSpreadsheet({ model, focus }: { model: AuditModel; focus?: 
     verifyResult && verifyView && verifyTarget?.sheet === active
       ? verifyMap.get(verifyTarget.cellId) ?? null
       : null
+
+  // Source-tag / insight focus → highlight on the CUSTOM sheets (which render their
+  // own tables, not the grid). Analyst coverage rings the exact broker value cell
+  // by its audit id; Historical Stock Movement rings the company's latest close.
+  const focusCell = useMemo(
+    () => (focus ? findAuditCell(sheets, focus.company, focus.metricKey, focus.year, focus.preferSheet) : null),
+    [focus, sheets],
+  )
+  const focusAnalystId =
+    focusCell && sheets.find((g) => g.sheet === focusCell.sheet)?.role === 'analyst_coverage' ? focusCell.id : null
+  const focusStockHl = useMemo<{ metricLabel: string; period: string } | null>(() => {
+    if (!focus?.company || !focusCell) return null
+    const g = sheets.find((s) => s.role === 'market_quote')
+    if (!g || focusCell.sheet !== g.sheet) return null
+    const latest = g.cells
+      .filter((c) => c.metricId === 'close_price' && c.entityId === focus.company && c.normalizedValue != null)
+      .sort((a, b) => b.period.localeCompare(a.period))[0]
+    return latest ? { metricLabel: 'Close', period: latest.period } : null
+  }, [focus, sheets, focusCell])
 
   if (!sheets.length) return null
 
@@ -1445,13 +1469,13 @@ export function AuditSpreadsheet({ model, focus }: { model: AuditModel; focus?: 
           // The Historical Stock Movement sheet is a transposed, date-by-row series
           // (Close / Total Qty / Deliverable Qty / % Delivered) the generic grid
           // can't represent — it gets a dedicated, workbook-faithful renderer.
-          <HistoricalStockMovement companyFilter={effectiveCompany} onClearCompany={() => { setCompany('all'); setSelected(null) }} verifyRow={customVerifyRow} />
+          <HistoricalStockMovement companyFilter={effectiveCompany} onClearCompany={() => { setCompany('all'); setSelected(null) }} verifyRow={customVerifyRow} focusHl={focusStockHl} />
         ) : group.role === 'analyst_coverage' ? (
           // Analyst coverage is a record list — each row a dated broker note with
           // nine attributes, not a period pivot — so it also gets a dedicated,
           // workbook-faithful renderer (Company/Broker/Date/Reco/CMP/Price/Target/
           // Upside×2, in company blocks closed by Average rows).
-          <AnalystCoverage key={effectiveCompany} group={group} companyFilter={effectiveCompany} onClearCompany={() => { setCompany('all'); setSelected(null) }} verifyRow={customVerifyRow} />
+          <AnalystCoverage key={effectiveCompany} group={group} companyFilter={effectiveCompany} onClearCompany={() => { setCompany('all'); setSelected(null) }} verifyRow={customVerifyRow} focusCellId={focusAnalystId} />
         ) : (
           <GridView
             key={`${group.sheet}::${effectiveCompany}`}
