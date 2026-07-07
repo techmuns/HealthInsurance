@@ -2,15 +2,17 @@ import { useState, type ReactNode } from 'react'
 import { PolarAngleAxis, PolarGrid, Radar, RadarChart, ResponsiveContainer } from 'recharts'
 import { ChevronDown, Info, Lightbulb } from 'lucide-react'
 import { insurers } from '@/data/mockData'
-import { FOCAL_VALUATION_ID, peerValuation, type PeerValuationRow } from '@/data/valuationData'
+import { FOCAL_VALUATION_ID, marketSnapshot, peerValuation, type PeerValuationRow } from '@/data/valuationData'
 import { getAnalystCoverage, getMarketQuote } from '@/lib/analystCoverage'
+import { srcTag } from '@/data/valuationSources'
 import { useActiveCompany } from '@/state/filters'
 import { InsightContextChip } from '@/components/insight/InsightContextChip'
 import { useSectionInsight } from '@/components/insight/useSectionInsight'
 import { NavValuationCard } from '@/components/NavValuationCard'
+import { type SourceTagProps } from '@/components/SourceTag'
 import type { Insurer } from '@/data/types'
 import { CORAL, Eyebrow, GOLD, GREEN, NAVY, PEER, TEAL, ValPill, clamp, fmtCr, px, ratingTone, upPct, xMult } from './valuationShared'
-import { ValuationDecisionLayer, type QualityLens } from './ValuationHero'
+import { ValuationDecisionLayer, type DecisionData, type QualityLens } from './ValuationHero'
 import { PeerValuationMatrix } from './PeerValuationMatrix'
 import { StreetView } from './StreetView'
 
@@ -50,15 +52,75 @@ export function ValuationMarketView() {
     drivers: compassData.map((d) => ({ axis: d.axis, delta: d.niva - d.peer, ahead: d.niva >= d.peer, niva: d.niva })),
   }
 
+  // ── Decision-layer data — derived from the ACTIVE company's OWN live sources,
+  //    so the three lens cards serve any listed name (Niva, Star, …) from its own
+  //    data, never one company's numbers under another's label. A name with no
+  //    live market price (the unlisted SAHIs) has no cheap/fair/expensive read, so
+  //    it keeps the honest per-company pending path below. ─────────────────────
+  const quote = getMarketQuote(company.id)
+  const coverage = getAnalystCoverage(company.id)
+  const peerRow = peerValuation.find((r) => r.companyId === company.id) ?? null
+  const decisionPrice = isFocal ? marketSnapshot.currentPrice : quote?.price ?? null
+  const listedWithPrice = decisionPrice != null && (peerRow?.listingStatus === 'Listed' || quote != null)
+
+  const ac = coverage?.consensus
+  const reports = coverage?.reports ?? []
+  const decisionPGwp = peerRow?.pGwp ?? quote?.pGwp ?? null
+  // Street fair value = the CONSENSUS (each covering broker's latest target),
+  // used coherently across the whole decision band (fair value, upside, verdict
+  // and the street signal), so the three cards never disagree. The evidence strip
+  // below carries its own average-of-all-dated-calls, labelled as such.
+  const fairValue = ac?.consensusTargetPrice ?? null
+  const decisionUpside = fairValue != null && decisionPrice != null && decisionPrice > 0 ? (fairValue / decisionPrice - 1) * 100 : null
+  const latestDate = reports.find((r) => (r.reportDate ?? '').trim().length > 0)?.reportDate ?? null
+
+  // Benchmark = the largest listed peer that ISN'T this company (Niva ↔ Star today).
+  const benchmark = peerValuation
+    .filter((r) => r.companyId !== company.id && r.listingStatus === 'Listed' && r.pGwp != null && r.gwp != null)
+    .sort((a, b) => (b.gwp ?? 0) - (a.gwp ?? 0))[0] ?? null
+  const premiumVsBench = decisionPGwp != null && benchmark?.pGwp ? ((decisionPGwp - benchmark.pGwp) / benchmark.pGwp) * 100 : null
+
+  const priceSource: SourceTagProps = isFocal
+    ? srcTag('niva-price')
+    : { source: 'Exchange', period: quote?.asOf ?? '—', confidence: 'medium', audit: { company: company.id, metric: 'Market price' }, provenance: { source_name: 'Daily listed-insurer market quote — price, market cap & multiples.', source_url: '', fetched_at: quote?.asOf ?? '' } }
+  const consensusSource: SourceTagProps = isFocal
+    ? srcTag('niva-consensus')
+    : { source: 'Broker research', period: ac?.lastUpdated ?? '—', confidence: 'medium', audit: { company: company.id, metric: 'Analyst consensus' }, provenance: { source_name: 'Dated broker reports (rating + target) via the Trendlyne research aggregator.', source_url: reports.find((r) => r.sourceUrl)?.sourceUrl ?? '', fetched_at: '' } }
+
+  const decisionData: DecisionData = {
+    price: decisionPrice,
+    fairValue,
+    upside: decisionUpside,
+    pGwp: decisionPGwp,
+    benchmarkName: benchmark?.companyName ?? null,
+    premiumVsBench,
+    lo: isFocal ? marketSnapshot.weekLow52 : null,
+    hi: isFocal ? marketSnapshot.weekHigh52 : null,
+    priceSource,
+    consensusSource,
+    quality,
+    street: {
+      hasCoverage: !!coverage,
+      buy: ac?.buyCount ?? 0,
+      hold: ac?.holdCount ?? 0,
+      sell: ac?.sellCount ?? 0,
+      n: ac?.analystCount ?? 0,
+      target: fairValue,
+      signalUpside: decisionUpside,
+      latestDate,
+    },
+  }
+
   return (
     <div ref={focusRef} className={`space-y-5 ${arrived ? 'insight-arrival rounded-2xl' : ''}`}>
       {focus && <InsightContextChip focus={focus} />}
-      {isFocal ? (
+      {listedWithPrice ? (
         <>
           {/* ═══ 1 · DECISION LAYER — cheap/fair/expensive · quality · street, in one
                    soft blue band, before any table. Owns the valuation & street
-                   numbers so they are not repeated in the evidence below. ═══════ */}
-          <ValuationDecisionLayer quality={quality} />
+                   numbers so they are not repeated in the evidence below. Works for
+                   every listed name from its own live data. ══════════════════════ */}
+          <ValuationDecisionLayer data={decisionData} />
 
           {/* ═══ 2 · PEER VALUATION MATRIX — the primary evidence table, given the
                    strongest visual priority right under the decision layer. Its

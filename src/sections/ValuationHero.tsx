@@ -1,8 +1,5 @@
 import type { ReactNode } from 'react'
-import { focalMultiples, FOCAL_VALUATION_ID, marketSnapshot, peerValuation } from '@/data/valuationData'
-import { getAnalystCoverage } from '@/lib/analystCoverage'
-import { srcTag } from '@/data/valuationSources'
-import { SourceTag } from '@/components/SourceTag'
+import { SourceTag, type SourceTagProps } from '@/components/SourceTag'
 import { GOLD, NAVY, TEAL, px, SIGNAL_TONE, streetSignal, upPct, ValPill, xMult } from './valuationShared'
 
 // ---------------------------------------------------------------------------
@@ -15,11 +12,12 @@ import { GOLD, NAVY, TEAL, px, SIGNAL_TONE, streetSignal, upPct, ValPill, xMult 
 //    2. Quality Lens   — does operating quality support the valuation?
 //    3. Street Verdict — what does the analyst street think?
 //
-//  It OWNS the repeated valuation / street numbers (price, fair value, upside,
-//  P/GWP, premium vs Star, Buy/Hold/Sell, target) so they appear once here and
-//  are not echoed across the cards below. NOTHING here changes the underlying
-//  data, sources or calculations — every figure is read live from valuationData
-//  and derived exactly as before. Layout + visual hierarchy only.
+//  It OWNS the repeated valuation / street numbers so they appear once here and
+//  are not echoed across the cards below. This component is PRESENTATIONAL: every
+//  figure is passed in (see `DecisionData`), derived by the section from the
+//  ACTIVE company's own live sources. That's what lets the same layer serve every
+//  listed name (Niva Bupa, Star Health, …) from its own data — never one
+//  company's numbers under another's label.
 //
 //  All three cards share ONE typography system (display verdict headline, sans
 //  tabular figures) and hide any metric that is unavailable rather than showing
@@ -45,27 +43,36 @@ export interface QualityLens {
   drivers: { axis: string; delta: number; ahead: boolean; niva: number }[]
 }
 
-export function ValuationDecisionLayer({ quality }: { quality: QualityLens }) {
-  // ── Valuation multiples — from the curated valuation feed (unchanged) ────────
-  const price = marketSnapshot.currentPrice
-  const pGwp = focalMultiples.pGwp
-  const star = peerValuation.find((r) => r.companyId === 'star-health')
-  const starPGwp = star?.pGwp ?? null
-  const premiumVsStar = pGwp != null && starPGwp ? ((pGwp - starPGwp) / starPGwp) * 100 : null
+/** Everything the three cards render — derived by the section from the ACTIVE
+ *  company's own live data, so the layer works for any listed name. */
+export interface DecisionData {
+  price: number | null
+  fairValue: number | null // consensus / Street fair value
+  upside: number | null
+  pGwp: number | null
+  /** Listed peer the P/GWP premium is measured against (dynamic per company). */
+  benchmarkName: string | null
+  premiumVsBench: number | null
+  /** 52-week range — shown only when both are known (focal today). */
+  lo: number | null
+  hi: number | null
+  priceSource: SourceTagProps
+  consensusSource: SourceTagProps
+  quality: QualityLens
+  street: {
+    hasCoverage: boolean
+    buy: number
+    hold: number
+    sell: number
+    n: number
+    /** Consensus target (each broker's latest) — same basis as the Valuation Lens. */
+    target: number | null
+    signalUpside: number | null
+    latestDate: string | null
+  }
+}
 
-  // ── Analyst read — from the SAME coverage the Street View evidence table below
-  //    uses (getAnalystCoverage for the focal name), so the summary card and the
-  //    table can never disagree on the target, split or latest date. ────────────
-  const coverage = getAnalystCoverage(FOCAL_VALUATION_ID)
-  const ac = coverage?.consensus
-  const reports = coverage?.reports ?? []
-  const target = ac?.consensusTargetPrice ?? null // Street fair value / consensus
-  const upside = target != null && price > 0 ? (target / price - 1) * 100 : null
-  const validTargets = reports.map((r) => r.targetPrice).filter((t): t is number => typeof t === 'number' && Number.isFinite(t) && t > 0)
-  const avgTarget = validTargets.length ? Math.round(validTargets.reduce((a, b) => a + b, 0) / validTargets.length) : null
-  const avgUpside = avgTarget != null && price > 0 ? (avgTarget / price - 1) * 100 : null
-  const latestDate = reports.find((r) => (r.reportDate ?? '').trim().length > 0)?.reportDate ?? null
-
+export function ValuationDecisionLayer({ data }: { data: DecisionData }) {
   return (
     <section
       className="relative overflow-hidden rounded-[1.4rem] p-3.5 shadow-[inset_0_1px_0_rgba(255,255,255,0.5)] sm:p-4"
@@ -78,27 +85,9 @@ export function ValuationDecisionLayer({ quality }: { quality: QualityLens }) {
       <span aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#B68B3A]/40 to-transparent" />
 
       <div className="relative grid gap-3 lg:grid-cols-3">
-        <ValuationLensCard
-          price={price}
-          target={target}
-          upside={upside}
-          pGwp={pGwp}
-          premiumVsStar={premiumVsStar}
-          lo={marketSnapshot.weekLow52}
-          hi={marketSnapshot.weekHigh52}
-        />
-        <QualityLensCard quality={quality} />
-        <StreetVerdictCard
-          buy={ac?.buyCount ?? 0}
-          hold={ac?.holdCount ?? 0}
-          sell={ac?.sellCount ?? 0}
-          n={ac?.analystCount ?? 0}
-          avgTarget={avgTarget}
-          avgUpside={avgUpside}
-          upside={upside}
-          latestDate={latestDate}
-          hasCoverage={!!coverage}
-        />
+        <ValuationLensCard data={data} />
+        <QualityLensCard quality={data.quality} />
+        <StreetVerdictCard street={data.street} consensusSource={data.consensusSource} />
       </div>
     </section>
   )
@@ -137,23 +126,9 @@ function Stat({ k, v, tone = 'navy' }: { k: string; v: string; tone?: ToneKey })
 }
 
 // ── 1 · Valuation Lens — cheap / fair / expensive ─────────────────────────────
-function ValuationLensCard({
-  price,
-  target,
-  upside,
-  pGwp,
-  premiumVsStar,
-  lo,
-  hi,
-}: {
-  price: number
-  target: number | null
-  upside: number | null
-  pGwp: number | null
-  premiumVsStar: number | null
-  lo: number
-  hi: number
-}) {
+function ValuationLensCard({ data }: { data: DecisionData }) {
+  const { price, fairValue, upside, pGwp, benchmarkName, premiumVsBench, lo, hi, priceSource } = data
+
   // Verdict from the upside band (unchanged thresholds), framed as cheap/fair/expensive.
   const v: { label: string; tone: ToneKey } =
     upside == null ? { label: 'Multiples in focus', tone: 'navy' }
@@ -161,51 +136,59 @@ function ValuationLensCard({
     : upside >= -3 ? { label: 'Near fair value', tone: 'gold' }
     : { label: 'Looks expensive', tone: 'coral' }
 
-  // Premium vs Star — neutral when within ±1pt, else signed.
+  // Premium vs the benchmark peer — neutral when within ±1pt, else signed.
+  const benchWord = benchmarkName ? benchmarkName.split(' ')[0] : ''
   const premLabel =
-    premiumVsStar == null ? null
-    : Math.abs(premiumVsStar) < 1 ? 'In line'
-    : `${premiumVsStar >= 0 ? '+' : ''}${premiumVsStar.toFixed(0)}%`
-  const premTone: ToneKey = premiumVsStar == null || Math.abs(premiumVsStar) < 5 ? 'gold' : premiumVsStar > 0 ? 'gold' : 'teal'
+    premiumVsBench == null ? null
+    : Math.abs(premiumVsBench) < 1 ? 'In line'
+    : `${premiumVsBench >= 0 ? '+' : ''}${premiumVsBench.toFixed(0)}%`
+  const premTone: ToneKey = premiumVsBench == null || Math.abs(premiumVsBench) < 5 ? 'gold' : premiumVsBench > 0 ? 'gold' : 'teal'
 
   const stats = [
-    { k: 'Current price', v: px(price), tone: 'navy' as ToneKey },
-    target != null && { k: 'Fair value', v: px(target), tone: 'navy' as ToneKey },
+    price != null && { k: 'Current price', v: px(price), tone: 'navy' as ToneKey },
+    fairValue != null && { k: 'Fair value', v: px(fairValue), tone: 'navy' as ToneKey },
     upside != null && { k: 'Upside', v: upPct(upside), tone: (upside >= 0 ? 'teal' : 'coral') as ToneKey },
     pGwp != null && { k: 'P / GWP', v: xMult(pGwp), tone: 'gold' as ToneKey },
-    premLabel && { k: 'Premium vs Star', v: premLabel, tone: premTone },
+    premLabel && benchWord && { k: `Premium vs ${benchWord}`, v: premLabel, tone: premTone },
   ].filter(Boolean) as { k: string; v: string; tone: ToneKey }[]
 
-  const pos52 = hi > lo ? Math.max(0, Math.min(100, ((price - lo) / (hi - lo)) * 100)) : 50
+  const has52 = lo != null && hi != null && hi > lo && price != null
+  const pos52 = has52 ? Math.max(0, Math.min(100, ((price! - lo!) / (hi! - lo!)) * 100)) : 0
 
   return (
     <LensCard eyebrow="Valuation Lens" accent={V_TONE[v.tone].bar} right={<ValPill c="secondary" />}>
       <Verdict label={v.label} tone={v.tone} />
       <p className="mt-1 text-[11.5px] leading-snug text-ink-secondary">
-        {target != null ? (
-          <>Trades at <b className="text-navy-deep">{px(price)}</b> vs the Street&rsquo;s <b className="text-navy-deep">{px(target)}</b> fair value.</>
-        ) : (
+        {price != null && fairValue != null ? (
+          <>Trades at <b className="text-navy-deep">{px(price)}</b> vs the Street&rsquo;s <b className="text-navy-deep">{px(fairValue)}</b> fair value.</>
+        ) : pGwp != null ? (
           <>Read on multiples — <b className="text-navy-deep">{xMult(pGwp)}</b> P/GWP; no live Street target yet.</>
+        ) : (
+          <>Live market read for this name.</>
         )}
       </p>
 
-      <div className="mt-2.5 grid grid-cols-2 gap-1.5">
-        {stats.map((s) => <Stat key={s.k} k={s.k} v={s.v} tone={s.tone} />)}
-      </div>
+      {stats.length > 0 && (
+        <div className="mt-2.5 grid grid-cols-2 gap-1.5">
+          {stats.map((s) => <Stat key={s.k} k={s.k} v={s.v} tone={s.tone} />)}
+        </div>
+      )}
 
       {/* 52-week position — a calm supporting visual (where price sits). */}
-      <div className="mt-2.5">
-        <div className="flex items-center justify-between text-[8.5px] font-semibold uppercase tracking-wide text-ink-secondary">
-          <span>52-week range</span>
-          <span className="tabular-nums text-navy-deep/80">{px(lo)} – {px(hi)}</span>
+      {has52 && (
+        <div className="mt-2.5">
+          <div className="flex items-center justify-between text-[8.5px] font-semibold uppercase tracking-wide text-ink-secondary">
+            <span>52-week range</span>
+            <span className="tabular-nums text-navy-deep/80">{px(lo)} – {px(hi)}</span>
+          </div>
+          <div className="relative mt-1.5 h-1.5 rounded-full" style={{ background: 'linear-gradient(90deg,#EEF1F6,#E6F4F1)' }}>
+            <span className="absolute top-1/2 h-2.5 w-2.5 -translate-x-1/2 -translate-y-1/2 rounded-full ring-2 ring-white" style={{ left: `${pos52}%`, background: TEAL }} title={`Now ${px(price)}`} />
+          </div>
         </div>
-        <div className="relative mt-1.5 h-1.5 rounded-full" style={{ background: 'linear-gradient(90deg,#EEF1F6,#E6F4F1)' }}>
-          <span className="absolute top-1/2 h-2.5 w-2.5 -translate-x-1/2 -translate-y-1/2 rounded-full ring-2 ring-white" style={{ left: `${pos52}%`, background: TEAL }} title={`Now ${px(price)}`} />
-        </div>
-      </div>
+      )}
 
       <div className="mt-2.5 flex flex-wrap items-center gap-1.5">
-        <SourceTag {...srcTag('niva-price')} />
+        <SourceTag {...priceSource} />
       </div>
     </LensCard>
   )
@@ -243,27 +226,8 @@ function QualityLensCard({ quality }: { quality: QualityLens }) {
 }
 
 // ── 3 · Street Verdict — the analyst read (with the signal meter as support) ──
-function StreetVerdictCard({
-  buy,
-  hold,
-  sell,
-  n,
-  avgTarget,
-  avgUpside,
-  upside,
-  latestDate,
-  hasCoverage,
-}: {
-  buy: number
-  hold: number
-  sell: number
-  n: number
-  avgTarget: number | null
-  avgUpside: number | null
-  upside: number | null
-  latestDate: string | null
-  hasCoverage: boolean
-}) {
+function StreetVerdictCard({ street, consensusSource }: { street: DecisionData['street']; consensusSource: SourceTagProps }) {
+  const { hasCoverage, buy, hold, sell, n, target, signalUpside, latestDate } = street
   if (!hasCoverage) {
     return (
       <LensCard eyebrow="Street Verdict" accent={V_TONE.navy.bar}>
@@ -272,7 +236,7 @@ function StreetVerdictCard({
       </LensCard>
     )
   }
-  const { score, kind } = streetSignal(buy, hold, sell, n, upside ?? 0)
+  const { score, kind } = streetSignal(buy, hold, sell, n, signalUpside ?? 0)
   const tone: ToneKey = kind === 'Bullish' ? 'teal' : kind === 'Bearish' ? 'coral' : 'gold'
 
   const chips: { r: string; c: number; tone: ToneKey }[] = [
@@ -302,13 +266,14 @@ function StreetVerdictCard({
         ))}
       </div>
 
-      <div className="mt-2.5 grid grid-cols-2 gap-1.5">
-        {avgTarget != null && <Stat k="Avg target" v={px(avgTarget)} tone="navy" />}
-        {avgUpside != null && <Stat k="Upside vs price" v={upPct(avgUpside)} tone={avgUpside >= 0 ? 'teal' : 'coral'} />}
-      </div>
+      {target != null && (
+        <div className="mt-2.5">
+          <Stat k="Consensus target" v={px(target)} tone="navy" />
+        </div>
+      )}
 
       <div className="mt-2.5 flex flex-wrap items-center gap-1.5">
-        <SourceTag {...srcTag('niva-consensus')} />
+        <SourceTag {...consensusSource} />
       </div>
     </LensCard>
   )
