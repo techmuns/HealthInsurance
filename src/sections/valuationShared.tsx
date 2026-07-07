@@ -34,6 +34,21 @@ export const ratingTone: Record<Rating, { fg: string; bg: string }> = {
   Sell: { fg: '#B0564A', bg: '#F8ECEC' },
 }
 
+// ── Street signal (Bull / Neutral / Bear) — one shared definition ────────────
+// Used by BOTH the Street Verdict decision card and the Street View evidence
+// section so the read never drifts between them. Logic is unchanged from the
+// original Street View: a 0–10 score from the rating skew and upside, mapped to
+// a stance. Pure — no data or thresholds changed, only relocated to be shared.
+export type SignalKind = 'Bullish' | 'Neutral' | 'Bearish'
+export const SIGNAL_TONE: Record<SignalKind, string> = { Bullish: TEAL, Neutral: GOLD, Bearish: '#B0564A' }
+export function streetSignal(buy: number, _hold: number, sell: number, n: number, upside: number) {
+  const ratingScore = n > 0 ? (buy - sell) / n : 0 // −1..1
+  const upsideScore = Math.max(-1, Math.min(1, upside / 20))
+  const score = Math.max(0, Math.min(10, 5.5 + ratingScore * 3 + upsideScore * 1.5))
+  const kind: SignalKind = score >= 6.5 && upside >= 0 ? 'Bullish' : score <= 4 || upside <= -5 ? 'Bearish' : 'Neutral'
+  return { score, kind }
+}
+
 const VAL_TONE: Record<ValConfidence, { label: string; fg: string; bg: string; dot: string }> = {
   verified: { label: 'Verified', fg: '#0E6F6D', bg: '#E2F4F1', dot: TEAL },
   secondary: { label: 'Secondary', fg: '#9A6B12', bg: '#FBF3E2', dot: GOLD },

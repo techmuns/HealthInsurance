@@ -1,6 +1,6 @@
-import type { ReactNode } from 'react'
+import { useState, type ReactNode } from 'react'
 import { PolarAngleAxis, PolarGrid, Radar, RadarChart, ResponsiveContainer } from 'recharts'
-import { Info, Lightbulb } from 'lucide-react'
+import { ChevronDown, Info, Lightbulb } from 'lucide-react'
 import { insurers } from '@/data/mockData'
 import { FOCAL_VALUATION_ID, peerValuation, type PeerValuationRow } from '@/data/valuationData'
 import { getAnalystCoverage, getMarketQuote } from '@/lib/analystCoverage'
@@ -10,7 +10,7 @@ import { useSectionInsight } from '@/components/insight/useSectionInsight'
 import { NavValuationCard } from '@/components/NavValuationCard'
 import type { Insurer } from '@/data/types'
 import { CORAL, Eyebrow, GOLD, GREEN, NAVY, PEER, TEAL, ValPill, clamp, fmtCr, px, ratingTone, upPct, xMult } from './valuationShared'
-import { ValuationHero } from './ValuationHero'
+import { ValuationDecisionLayer, type QualityLens } from './ValuationHero'
 import { PeerValuationMatrix } from './PeerValuationMatrix'
 import { StreetView } from './StreetView'
 
@@ -37,18 +37,41 @@ export function ValuationMarketView() {
         ? { tone: 'coral', text: <>Operating quality screens <b style={{ color: CORAL }}>below peers</b> — a premium is harder to justify on fundamentals alone.</> }
         : { tone: 'navy', text: <>Operating quality is <b className="text-navy-deep">broadly in line</b> with peers.</> }
 
+  // Compact quality read for the decision layer's Quality Lens card — the SAME
+  // relative score gaps, distilled to a verdict + the four drivers. Shares the
+  // computed compass so the card and the full radar breakdown never disagree.
+  const quality: QualityLens = {
+    verdict:
+      position === 'Above Average' ? 'Above peer average'
+      : position === 'Weak vs peers' ? 'Below peer average'
+      : 'In line with peers',
+    tone: position === 'Above Average' ? 'teal' : position === 'Weak vs peers' ? 'coral' : 'navy',
+    peerGroup: company.peerGroup,
+    drivers: compassData.map((d) => ({ axis: d.axis, delta: d.niva - d.peer, ahead: d.niva >= d.peer, niva: d.niva })),
+  }
+
   return (
     <div ref={focusRef} className={`space-y-5 ${arrived ? 'insight-arrival rounded-2xl' : ''}`}>
       {focus && <InsightContextChip focus={focus} />}
       {isFocal ? (
         <>
-          {/* ═══ 1. VALUATION HERO — gauge / journey infographic + lenses ════════ */}
-          <ValuationHero />
+          {/* ═══ 1 · DECISION LAYER — cheap/fair/expensive · quality · street, in one
+                   soft blue band, before any table. Owns the valuation & street
+                   numbers so they are not repeated in the evidence below. ═══════ */}
+          <ValuationDecisionLayer quality={quality} />
 
-          {/* ═══ 2. PEER VALUATION MATRIX — one clean comparable table; its
-                   Book-value view now carries the NAV / book-value valuation for
-                   EVERY peer, so the old standalone Niva-only card is gone here. ═ */}
+          {/* ═══ 2 · PEER VALUATION MATRIX — the primary evidence table, given the
+                   strongest visual priority right under the decision layer. Its
+                   Book-value view carries NAV / book value for every peer. ══════ */}
           <PeerValuationMatrix />
+
+          {/* ═══ 3 · STREET VIEW · ANALYST VIEWS — the consolidated analyst evidence:
+                   one summary strip + every dated broker call, one clean table. ═ */}
+          <StreetView embedded />
+
+          {/* ═══ 4 · FULL QUALITY BREAKDOWN — the radar + score gaps, one click away
+                   so the first view stays clean (the drivers are up top). ═══════ */}
+          <QualityBreakdown company={company} compassData={compassData} position={position} qualityRead={qualityRead} collapsible />
         </>
       ) : (
         <>
@@ -65,18 +88,61 @@ export function ValuationMarketView() {
             />
             <NavValuationCard companyId={company.id} companyName={company.shortName} />
           </section>
+
+          {/* Operating-quality breakdown — computed from the company's own metrics,
+              so it stays meaningful for every company (shown, not collapsed). */}
+          <QualityBreakdown company={company} compassData={compassData} position={position} qualityRead={qualityRead} />
+
+          {/* The live analyst market read (or an honest "coverage pending"). */}
+          <StreetView embedded />
         </>
       )}
+    </div>
+  )
+}
 
-      {/* ═══ 5. QUALITY LENS — supports whether the premium is earned ════════════ */}
-      <section>
-        <Eyebrow
-          label="Quality Lens"
-          title="Is the premium supported by operating quality?"
-          note={`Relative scores on the operating metrics behind the multiple · vs ${company.peerGroup} peer average.`}
-          right={<ValPill c="secondary" />}
-        />
-        <div className="card-surface card-tint-slate p-5">
+// ── Operating-quality breakdown — the full radar + relative score gaps ────────
+// The compact drivers live in the decision layer's Quality Lens card; this is the
+// full picture. On the focal view it is collapsible (so the first view stays
+// clean); on the per-company view it is shown, as that company's main quality read.
+function QualityBreakdown({
+  company,
+  compassData,
+  position,
+  qualityRead,
+  collapsible = false,
+}: {
+  company: Insurer
+  compassData: { axis: string; niva: number; peer: number }[]
+  position: string
+  qualityRead: { tone: WtmTone; text: ReactNode }
+  collapsible?: boolean
+}) {
+  const [open, setOpen] = useState(!collapsible)
+  return (
+    <section>
+      <Eyebrow
+        label="Quality Lens"
+        title={collapsible ? 'Full operating-quality breakdown' : 'Is the premium supported by operating quality?'}
+        note={`Relative scores on the operating metrics behind the multiple · vs ${company.peerGroup} peer average.`}
+        right={
+          collapsible ? (
+            <button
+              type="button"
+              onClick={() => setOpen((o) => !o)}
+              aria-expanded={open}
+              className="inline-flex items-center gap-1 rounded-full border border-soft-border bg-white/70 px-2.5 py-1 text-[10.5px] font-semibold text-navy-primary transition-colors hover:border-muted-blue hover:text-navy-deep"
+            >
+              {open ? 'Hide' : 'Show'} radar
+              <ChevronDown className={`h-3 w-3 transition-transform ${open ? 'rotate-180' : ''}`} />
+            </button>
+          ) : (
+            <ValPill c="secondary" />
+          )
+        }
+      />
+      {open && (
+        <div className="card-surface card-tint-slate animate-collapse-in p-5">
           <div className="grid grid-cols-1 items-center gap-4 sm:grid-cols-[1.1fr_1fr]">
             <div className="rounded-xl bg-gradient-to-br from-[#F6F9FD] to-[#ECF1F8] ring-1 ring-[rgba(39,69,126,0.06)]" style={{ width: '100%', height: 210 }}>
               <ResponsiveContainer width="100%" height="100%">
@@ -116,14 +182,8 @@ export function ValuationMarketView() {
           </div>
           <WhatThisMeans tone={qualityRead.tone}>{qualityRead.text}</WhatThisMeans>
         </div>
-      </section>
-
-      {/* ═══ 6. STREET VIEW — the live analyst market read, merged in from the
-               former standalone tab (data & calculations unchanged; its big hero
-               collapses to a calm section header so the verdict above isn't
-               repeated). ══════════════════════════════════════════════════════ */}
-      <StreetView embedded />
-    </div>
+      )}
+    </section>
   )
 }
 

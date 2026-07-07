@@ -1,395 +1,340 @@
 import type { ReactNode } from 'react'
-import { ArrowUpRight, TrendingDown, TrendingUp } from 'lucide-react'
-import {
-  analystConsensus,
-  focalGwpFy,
-  focalMultiples,
-  FOCAL_VALUATION_ID,
-  marketSnapshot,
-  peerValuation,
-} from '@/data/valuationData'
+import { focalMultiples, FOCAL_VALUATION_ID, marketSnapshot, peerValuation } from '@/data/valuationData'
+import { getAnalystCoverage } from '@/lib/analystCoverage'
 import { srcTag } from '@/data/valuationSources'
 import { SourceTag } from '@/components/SourceTag'
-import { GOLD, NAVY, PEER, TEAL, px, ratingTone, upPct, xMult } from './valuationShared'
+import { GOLD, NAVY, TEAL, px, SIGNAL_TONE, streetSignal, upPct, ValPill, xMult } from './valuationShared'
 
 // ---------------------------------------------------------------------------
-//  Valuation hero — a premium, infographic-style answer to "Is the valuation
-//  earned?". Three columns: an editorial intro + verdict (left), a valuation-
-//  position gauge that doubles as the IPO → Listed → Current → Fair-value
-//  journey (centre), and a compact "valuation lenses" card with the premium-to-
-//  listed-peer visual (right).
+//  Valuation Decision Layer — the FIRST view of the Valuation section.
 //
-//  NOTHING here changes the underlying data, sources or calculations — every
-//  figure is read live from valuationData and derived exactly as the previous
-//  view derived it (upside, return-since-listing, premium vs Star). This file is
-//  layout + visual storytelling only.
+//  One soft blue-tinted band holding three compact "lens" cards that answer the
+//  section's three questions before the reader reaches any table:
+//
+//    1. Valuation Lens — is the stock cheap / fair / expensive?
+//    2. Quality Lens   — does operating quality support the valuation?
+//    3. Street Verdict — what does the analyst street think?
+//
+//  It OWNS the repeated valuation / street numbers (price, fair value, upside,
+//  P/GWP, premium vs Star, Buy/Hold/Sell, target) so they appear once here and
+//  are not echoed across the cards below. NOTHING here changes the underlying
+//  data, sources or calculations — every figure is read live from valuationData
+//  and derived exactly as before. Layout + visual hierarchy only.
+//
+//  All three cards share ONE typography system (display verdict headline, sans
+//  tabular figures) and hide any metric that is unavailable rather than showing
+//  an "n/a" — so the band stays clean for every company, year and view.
 // ---------------------------------------------------------------------------
 
-export function ValuationHero() {
-  const ms = marketSnapshot
-  const ac = analystConsensus
-  const price = ms.currentPrice
-  const ipo = ms.ipoPrice
-  const listed = ms.listPrice
-  const lo = ms.weekLow52
-  const hi = ms.weekHigh52
-  const target = ac.consensusTargetPrice // street fair value
+// Verdict accent tones — kept in the section's navy / teal / gold / coral family.
+const V_TONE = {
+  teal: { fg: '#0E6F6D', soft: '#EAF5F1', ring: 'rgba(22,142,142,0.22)', bar: TEAL },
+  gold: { fg: '#8A6A1E', soft: '#F7F0DF', ring: 'rgba(182,139,58,0.26)', bar: GOLD },
+  navy: { fg: '#27457E', soft: '#EAF0FA', ring: 'rgba(39,69,126,0.18)', bar: NAVY },
+  coral: { fg: '#A8443B', soft: '#F7E9E7', ring: 'rgba(176,86,74,0.22)', bar: '#B0564A' },
+} as const
+type ToneKey = keyof typeof V_TONE
 
+/** Quality read passed in from the section (computed once, reused by the full
+ *  radar breakdown lower on the page so the two never drift). */
+export interface QualityLens {
+  verdict: string
+  tone: ToneKey
+  /** Peer-group label for the sub-line (dynamic, never hard-coded). */
+  peerGroup: string
+  drivers: { axis: string; delta: number; ahead: boolean; niva: number }[]
+}
+
+export function ValuationDecisionLayer({ quality }: { quality: QualityLens }) {
+  // ── Valuation multiples — from the curated valuation feed (unchanged) ────────
+  const price = marketSnapshot.currentPrice
   const pGwp = focalMultiples.pGwp
   const star = peerValuation.find((r) => r.companyId === 'star-health')
   const starPGwp = star?.pGwp ?? null
-  const niva = peerValuation.find((r) => r.companyId === FOCAL_VALUATION_ID)
   const premiumVsStar = pGwp != null && starPGwp ? ((pGwp - starPGwp) / starPGwp) * 100 : null
 
-  const upside = target != null ? (target / price - 1) * 100 : null
-  const ret = (price / ipo - 1) * 100
-
-  // Verdict headline + stance — identical thresholds to the prior view.
-  const verdictTitle =
-    upside == null ? 'Awaiting Street targets'
-    : upside >= 12 ? 'Upside to Street targets'
-    : upside >= -3 ? 'Near Street fair value'
-    : 'Above Street targets'
-  const stanceLabel =
-    premiumVsStar != null && premiumVsStar > 5 ? 'Premium to listed peers'
-    : premiumVsStar != null && premiumVsStar < -5 ? 'Discount to listed peer'
-    : 'In line with peer'
-  const verdictTone = ratingTone[ac.ratingLabel as keyof typeof ratingTone] ?? ratingTone.Buy
-  // "backed by faster growth" only reads when there's a MEANINGFUL premium to
-  // justify — gated on the same +5% band the "Premium to listed peers" stance
-  // uses, so it never appears alongside an "in line with peer" verdict.
-  const growthEdge =
-    premiumVsStar != null && premiumVsStar > 5 && niva?.growth != null && star?.growth != null && niva.growth > star.growth
-
-  // One-line takeaway built from the same numbers shown on the page (no new data).
-  const takeaway: ReactNode = (
-    <>
-      Trades at <b className="text-navy-deep">{px(price)}</b> versus the Street&rsquo;s <b className="text-navy-deep">{px(target)}</b> fair value
-      {upside != null && (
-        <> — about <b style={{ color: upside >= 0 ? '#0E6F6D' : '#A8443B' }}>{upPct(upside)}</b> {upside >= 0 ? 'upside' : 'downside'}</>
-      )}
-      {premiumVsStar != null && (
-        <>, a <b className="text-champagne-deep">~{Math.abs(premiumVsStar).toFixed(0)}% {premiumVsStar >= 0 ? 'premium' : 'discount'}</b> to Star on P/GWP</>
-      )}
-      {growthEdge ? ' backed by faster growth' : ''}.
-    </>
-  )
+  // ── Analyst read — from the SAME coverage the Street View evidence table below
+  //    uses (getAnalystCoverage for the focal name), so the summary card and the
+  //    table can never disagree on the target, split or latest date. ────────────
+  const coverage = getAnalystCoverage(FOCAL_VALUATION_ID)
+  const ac = coverage?.consensus
+  const reports = coverage?.reports ?? []
+  const target = ac?.consensusTargetPrice ?? null // Street fair value / consensus
+  const upside = target != null && price > 0 ? (target / price - 1) * 100 : null
+  const validTargets = reports.map((r) => r.targetPrice).filter((t): t is number => typeof t === 'number' && Number.isFinite(t) && t > 0)
+  const avgTarget = validTargets.length ? Math.round(validTargets.reduce((a, b) => a + b, 0) / validTargets.length) : null
+  const avgUpside = avgTarget != null && price > 0 ? (avgTarget / price - 1) * 100 : null
+  const latestDate = reports.find((r) => (r.reportDate ?? '').trim().length > 0)?.reportDate ?? null
 
   return (
     <section
-      className="relative overflow-hidden rounded-[1.5rem] p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.55),0_2px_4px_rgba(23,43,77,0.05),0_20px_46px_rgba(23,43,77,0.07)] sm:p-5"
-      style={{ background: 'linear-gradient(162deg, #E9F1FB 0%, #DBE7F7 55%, #E6EEFA 100%)' }}
+      className="relative overflow-hidden rounded-[1.4rem] p-3.5 shadow-[inset_0_1px_0_rgba(255,255,255,0.5)] sm:p-4"
+      style={{ background: 'linear-gradient(155deg,#EAF1FB 0%,#E1EAF7 52%,#EBF1FA 100%)' }}
     >
-      {/* soft blue wash — the Insights field — bound by a subtle navy + gold blob so
-          the three blocks read as one valuation story, never a flat white card */}
-      <span className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full opacity-60 blur-3xl" style={{ background: 'radial-gradient(circle,rgba(39,69,126,0.12),transparent 70%)' }} />
-      <span className="pointer-events-none absolute -bottom-28 -left-20 h-72 w-72 rounded-full opacity-50 blur-3xl" style={{ background: 'radial-gradient(circle,rgba(182,139,58,0.09),transparent 70%)' }} />
+      {/* Subtle tonal pools so the blue layer reads premium & soothing, not flat:
+          navy (trust) top-right, teal (growth) lower-left, a whisper of gold. */}
+      <span aria-hidden className="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full opacity-70 blur-3xl" style={{ background: 'radial-gradient(circle,rgba(39,69,126,0.10),transparent 70%)' }} />
+      <span aria-hidden className="pointer-events-none absolute -bottom-24 -left-16 h-64 w-64 rounded-full opacity-60 blur-3xl" style={{ background: 'radial-gradient(circle,rgba(22,142,142,0.08),transparent 70%)' }} />
+      <span aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#B68B3A]/40 to-transparent" />
 
-      <div className="relative grid items-stretch gap-4 lg:grid-cols-[0.92fr_1.16fr_0.96fr] lg:gap-5">
-        {/* ── LEFT · the verdict (answers the page's question) ──────────── */}
-        <div className="flex flex-col rounded-2xl border border-soft-border bg-white/65 p-4 shadow-soft backdrop-blur">
-          <div className="flex items-center gap-2">
-            <span className="h-2 w-2 rounded-full" style={{ background: verdictTone.fg }} />
-            <p className="text-[10.5px] font-bold uppercase tracking-[0.24em] text-champagne-deep">Street verdict</p>
-          </div>
-          <h2 className="mt-2 font-display text-[25px] leading-[1.08] tracking-tight text-navy-deep">{verdictTitle}</h2>
-          <p className="mt-2 max-w-[20rem] text-[12.5px] leading-relaxed text-ink-secondary">{takeaway}</p>
-
-          <div className="mt-3 flex flex-wrap gap-1.5">
-            <span className="inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[10.5px] font-semibold" style={{ color: verdictTone.fg, background: verdictTone.bg }}>
-              <span className="h-1.5 w-1.5 rounded-full" style={{ background: verdictTone.fg }} />
-              {ac.ratingLabel}-skewed · {ac.analystCount} analyst{ac.analystCount === 1 ? '' : 's'}
-            </span>
-            {premiumVsStar != null && (
-              <span className="inline-flex items-center gap-1 rounded-full border border-[#EAD9B6] bg-champagne-soft px-2.5 py-1 text-[10.5px] font-semibold text-champagne-deep">
-                {stanceLabel}
-              </span>
-            )}
-          </div>
-
-          {/* Source — directly under the verdict content (no pushed-down gap). */}
-          <div className="mt-3 flex flex-wrap items-center gap-2">
-            <SourceTag {...srcTag('niva-price')} />
-            <SourceTag {...srcTag('niva-consensus')} />
-          </div>
-        </div>
-
-        {/* ── CENTRE · valuation-position gauge / journey ───────────────── */}
-        <div className="flex flex-col items-center rounded-2xl border border-soft-border bg-white/65 px-4 pb-3 pt-3 shadow-soft backdrop-blur">
-          <div className="flex w-full items-center justify-between">
-            <p className="text-[9.5px] font-bold uppercase tracking-[0.18em] text-ink-secondary">Valuation position</p>
-            <p className="text-[9.5px] font-medium text-ink-secondary/80">vs IPO → fair value</p>
-          </div>
-
-          <ValuationGauge ipo={ipo} listed={listed} price={price} target={target} hi={hi} />
-
-          {/* Current price anchor */}
-          <div className="-mt-1 text-center">
-            <p className="font-display text-[30px] leading-none tracking-tight text-navy-deep tabular-nums">{px(price)}</p>
-            <p className="mt-0.5 text-[9.5px] font-semibold uppercase tracking-[0.14em] text-ink-secondary">Current price</p>
-            <p className="mt-0.5 text-[9.5px] text-ink-secondary/75">{cleanAsOf(ms.priceAsOf)}</p>
-          </div>
-
-          {/* Return + upside callouts — pulled close under the gauge/price */}
-          <div className="mt-2.5 grid w-full grid-cols-2 gap-2">
-            <Callout
-              label="Return since IPO"
-              value={upPct(ret)}
-              tone={ret >= 0 ? 'teal' : 'coral'}
-              icon={ret >= 0 ? <TrendingUp className="h-3.5 w-3.5" /> : <TrendingDown className="h-3.5 w-3.5" />}
-            />
-            <Callout
-              label="Upside to fair value"
-              value={upPct(upside)}
-              tone={upside == null ? 'navy' : upside >= 0 ? 'gold' : 'coral'}
-              icon={<ArrowUpRight className="h-3.5 w-3.5" />}
-            />
-          </div>
-        </div>
-
-        {/* ── RIGHT · valuation lenses ──────────────────────────────────── */}
-        <ValuationLensesCard
-          pGwp={pGwp}
-          starPGwp={starPGwp}
-          premiumVsStar={premiumVsStar}
-          upside={upside}
-          ret={ret}
-          lo={lo}
-          hi={hi}
+      <div className="relative grid gap-3 lg:grid-cols-3">
+        <ValuationLensCard
           price={price}
-          gwpFy={focalGwpFy}
-          growthEdge={growthEdge}
+          target={target}
+          upside={upside}
+          pGwp={pGwp}
+          premiumVsStar={premiumVsStar}
+          lo={marketSnapshot.weekLow52}
+          hi={marketSnapshot.weekHigh52}
+        />
+        <QualityLensCard quality={quality} />
+        <StreetVerdictCard
+          buy={ac?.buyCount ?? 0}
+          hold={ac?.holdCount ?? 0}
+          sell={ac?.sellCount ?? 0}
+          n={ac?.analystCount ?? 0}
+          avgTarget={avgTarget}
+          avgUpside={avgUpside}
+          upside={upside}
+          latestDate={latestDate}
+          hasCoverage={!!coverage}
         />
       </div>
     </section>
   )
 }
 
-// ── Gauge ─────────────────────────────────────────────────────────────────────
-// A 180° arc from the IPO issue price (left) to the Street's consensus fair value
-// (right). A teal segment fills the climb made since issue; a soft-gold segment
-// shows the remaining upside to fair value. Milestone dots mark IPO, listing and
-// the current price (the needle). Pure presentation over already-derived numbers.
-function ValuationGauge({ ipo, listed, price, target, hi }: { ipo: number; listed: number; price: number; target: number | null; hi: number }) {
-  const W = 300
-  const cx = 150
-  const cy = 150
-  const R = 124
-  const SW = 13
-  const gMin = ipo
-  const gMax = target ?? hi
-  const span = gMax - gMin
-  const frac = (v: number) => (span > 0 ? Math.max(0, Math.min(1, (v - gMin) / span)) : 0)
-  const polar = (f: number, r = R) => ({ x: cx - r * Math.cos(f * Math.PI), y: cy - r * Math.sin(f * Math.PI) })
+// ── Shared card shell — one typography + surface system for all three ─────────
+function LensCard({ eyebrow, accent, right, children }: { eyebrow: string; accent: string; right?: ReactNode; children: ReactNode }) {
+  return (
+    <div className="relative flex flex-col overflow-hidden rounded-2xl border border-[rgba(39,69,126,0.10)] bg-white/75 p-3.5 shadow-[0_1px_2px_rgba(23,43,77,0.03),0_6px_16px_rgba(23,43,77,0.05)] backdrop-blur">
+      <span aria-hidden className="absolute inset-x-0 top-0 h-[2.5px]" style={{ background: accent }} />
+      <div className="mb-1.5 flex items-center justify-between gap-2">
+        <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-champagne-deep">{eyebrow}</p>
+        {right}
+      </div>
+      {children}
+    </div>
+  )
+}
 
-  const cf = frac(price)
-  const L = Math.PI * R
-  const track = `M ${cx - R} ${cy} A ${R} ${R} 0 0 1 ${cx + R} ${cy}`
-  const valueDash = `${cf * L} ${L * 2}`
-  const upsideDash = `0 ${cf * L} ${(1 - cf) * L} ${L * 2}`
-  const tip = polar(cf, R - 1)
+function Verdict({ label, tone }: { label: string; tone: ToneKey }) {
+  return (
+    <h3 className="font-display text-[19px] leading-[1.12] tracking-tight" style={{ color: V_TONE[tone].fg }}>
+      {label}
+    </h3>
+  )
+}
 
-  const dots: { f: number; color: string; r: number; title: string }[] = [
-    { f: 0, color: GOLD, r: 3.6, title: `IPO issue ${px(ipo)}` },
-    { f: frac(listed), color: PEER, r: 3.6, title: `Listed ${px(listed)}` },
+// A compact tone-coded figure (label above, value below) — the shared stat unit.
+function Stat({ k, v, tone = 'navy' }: { k: string; v: string; tone?: ToneKey }) {
+  return (
+    <div className="rounded-lg px-2 py-1.5" style={{ background: V_TONE[tone].soft }}>
+      <p className="text-[8.5px] font-semibold uppercase tracking-[0.05em] text-ink-secondary">{k}</p>
+      <p className="mt-0.5 font-display text-[15px] leading-none tabular-nums" style={{ color: V_TONE[tone].fg }}>{v}</p>
+    </div>
+  )
+}
+
+// ── 1 · Valuation Lens — cheap / fair / expensive ─────────────────────────────
+function ValuationLensCard({
+  price,
+  target,
+  upside,
+  pGwp,
+  premiumVsStar,
+  lo,
+  hi,
+}: {
+  price: number
+  target: number | null
+  upside: number | null
+  pGwp: number | null
+  premiumVsStar: number | null
+  lo: number
+  hi: number
+}) {
+  // Verdict from the upside band (unchanged thresholds), framed as cheap/fair/expensive.
+  const v: { label: string; tone: ToneKey } =
+    upside == null ? { label: 'Multiples in focus', tone: 'navy' }
+    : upside >= 12 ? { label: 'Screens cheap', tone: 'teal' }
+    : upside >= -3 ? { label: 'Near fair value', tone: 'gold' }
+    : { label: 'Looks expensive', tone: 'coral' }
+
+  // Premium vs Star — neutral when within ±1pt, else signed.
+  const premLabel =
+    premiumVsStar == null ? null
+    : Math.abs(premiumVsStar) < 1 ? 'In line'
+    : `${premiumVsStar >= 0 ? '+' : ''}${premiumVsStar.toFixed(0)}%`
+  const premTone: ToneKey = premiumVsStar == null || Math.abs(premiumVsStar) < 5 ? 'gold' : premiumVsStar > 0 ? 'gold' : 'teal'
+
+  const stats = [
+    { k: 'Current price', v: px(price), tone: 'navy' as ToneKey },
+    target != null && { k: 'Fair value', v: px(target), tone: 'navy' as ToneKey },
+    upside != null && { k: 'Upside', v: upPct(upside), tone: (upside >= 0 ? 'teal' : 'coral') as ToneKey },
+    pGwp != null && { k: 'P / GWP', v: xMult(pGwp), tone: 'gold' as ToneKey },
+    premLabel && { k: 'Premium vs Star', v: premLabel, tone: premTone },
+  ].filter(Boolean) as { k: string; v: string; tone: ToneKey }[]
+
+  const pos52 = hi > lo ? Math.max(0, Math.min(100, ((price - lo) / (hi - lo)) * 100)) : 50
+
+  return (
+    <LensCard eyebrow="Valuation Lens" accent={V_TONE[v.tone].bar} right={<ValPill c="secondary" />}>
+      <Verdict label={v.label} tone={v.tone} />
+      <p className="mt-1 text-[11.5px] leading-snug text-ink-secondary">
+        {target != null ? (
+          <>Trades at <b className="text-navy-deep">{px(price)}</b> vs the Street&rsquo;s <b className="text-navy-deep">{px(target)}</b> fair value.</>
+        ) : (
+          <>Read on multiples — <b className="text-navy-deep">{xMult(pGwp)}</b> P/GWP; no live Street target yet.</>
+        )}
+      </p>
+
+      <div className="mt-2.5 grid grid-cols-2 gap-1.5">
+        {stats.map((s) => <Stat key={s.k} k={s.k} v={s.v} tone={s.tone} />)}
+      </div>
+
+      {/* 52-week position — a calm supporting visual (where price sits). */}
+      <div className="mt-2.5">
+        <div className="flex items-center justify-between text-[8.5px] font-semibold uppercase tracking-wide text-ink-secondary">
+          <span>52-week range</span>
+          <span className="tabular-nums text-navy-deep/80">{px(lo)} – {px(hi)}</span>
+        </div>
+        <div className="relative mt-1.5 h-1.5 rounded-full" style={{ background: 'linear-gradient(90deg,#EEF1F6,#E6F4F1)' }}>
+          <span className="absolute top-1/2 h-2.5 w-2.5 -translate-x-1/2 -translate-y-1/2 rounded-full ring-2 ring-white" style={{ left: `${pos52}%`, background: TEAL }} title={`Now ${px(price)}`} />
+        </div>
+      </div>
+
+      <div className="mt-2.5 flex flex-wrap items-center gap-1.5">
+        <SourceTag {...srcTag('niva-price')} />
+      </div>
+    </LensCard>
+  )
+}
+
+// ── 2 · Quality Lens — does operating quality support the valuation? ──────────
+function QualityLensCard({ quality }: { quality: QualityLens }) {
+  const maxAbs = Math.max(1, ...quality.drivers.map((d) => d.niva))
+  return (
+    <LensCard eyebrow="Quality Lens" accent={V_TONE[quality.tone].bar} right={<ValPill c="secondary" />}>
+      <Verdict label={quality.verdict} tone={quality.tone} />
+      <p className="mt-1 text-[11.5px] leading-snug text-ink-secondary">
+        Operating quality vs the <b className="text-navy-deep">{quality.peerGroup}</b> peer average.
+      </p>
+
+      <div className="mt-2.5 space-y-1.5">
+        {quality.drivers.map((d) => (
+          <div key={d.axis} className="flex items-center gap-2 text-[11px]">
+            <span className="w-[92px] shrink-0 text-ink-secondary">{d.axis}</span>
+            <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-[#E7ECF3]">
+              <span className="block h-full rounded-full" style={{ width: `${Math.max(6, Math.min(100, (d.niva / maxAbs) * 100))}%`, background: d.ahead ? TEAL : NAVY }} />
+            </div>
+            <span className="w-9 text-right font-semibold tabular-nums" style={{ color: d.ahead ? '#0E6F6D' : '#64748B' }}>
+              {d.delta >= 0 ? `+${d.delta}` : d.delta}
+            </span>
+          </div>
+        ))}
+      </div>
+
+      <p className="mt-2.5 text-[9px] leading-snug text-ink-secondary/80">
+        Relative score gap vs peers · operating quality, not valuation.
+      </p>
+    </LensCard>
+  )
+}
+
+// ── 3 · Street Verdict — the analyst read (with the signal meter as support) ──
+function StreetVerdictCard({
+  buy,
+  hold,
+  sell,
+  n,
+  avgTarget,
+  avgUpside,
+  upside,
+  latestDate,
+  hasCoverage,
+}: {
+  buy: number
+  hold: number
+  sell: number
+  n: number
+  avgTarget: number | null
+  avgUpside: number | null
+  upside: number | null
+  latestDate: string | null
+  hasCoverage: boolean
+}) {
+  if (!hasCoverage) {
+    return (
+      <LensCard eyebrow="Street Verdict" accent={V_TONE.navy.bar}>
+        <Verdict label="Coverage pending" tone="navy" />
+        <p className="mt-1 text-[11.5px] leading-snug text-ink-secondary">No tracked analyst coverage yet.</p>
+      </LensCard>
+    )
+  }
+  const { score, kind } = streetSignal(buy, hold, sell, n, upside ?? 0)
+  const tone: ToneKey = kind === 'Bullish' ? 'teal' : kind === 'Bearish' ? 'coral' : 'gold'
+
+  const chips: { r: string; c: number; tone: ToneKey }[] = [
+    { r: 'Buy', c: buy, tone: 'teal' },
+    { r: 'Hold', c: hold, tone: 'gold' },
+    { r: 'Sell', c: sell, tone: 'coral' },
   ]
 
   return (
-    <div className="relative mt-0.5 w-full" style={{ maxWidth: 252 }}>
-      {/* viewBox crops the dead space above the arc + below the hub so the gauge
-          reads compact without shrinking the arc itself. */}
-      <svg viewBox={`0 18 ${W} 144`} className="w-full" role="img" aria-label="Valuation position from IPO issue price to Street fair value">
-        <defs>
-          <linearGradient id="valGaugeGrad" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0" stopColor="#C9A24C" />
-            <stop offset="0.55" stopColor="#5FB0A6" />
-            <stop offset="1" stopColor={TEAL} />
-          </linearGradient>
-        </defs>
-        {/* track */}
-        <path d={track} fill="none" stroke="#E9EDF4" strokeWidth={SW} strokeLinecap="round" />
-        {/* upside-to-fair-value (soft gold) */}
-        <path d={track} fill="none" stroke={GOLD} strokeOpacity={0.34} strokeWidth={SW} strokeLinecap="round" strokeDasharray={upsideDash} />
-        {/* value created since IPO (teal gradient) */}
-        <path d={track} fill="none" stroke="url(#valGaugeGrad)" strokeWidth={SW} strokeLinecap="round" strokeDasharray={valueDash} />
-
-        {/* fair-value flag at the right end */}
-        {target != null && (
-          <g>
-            <circle cx={cx + R} cy={cy} r={5.5} fill="#FFFFFF" stroke={GOLD} strokeWidth={2} />
-          </g>
-        )}
-        {/* milestone dots */}
-        {dots.map((d) => {
-          const p = polar(d.f)
-          return <circle key={d.title} cx={p.x} cy={p.y} r={d.r} fill={d.color} stroke="#FFFFFF" strokeWidth={1.5}><title>{d.title}</title></circle>
-        })}
-
-        {/* needle → current price */}
-        <line x1={cx} y1={cy} x2={tip.x} y2={tip.y} stroke={NAVY} strokeWidth={2.8} strokeLinecap="round" />
-        <circle cx={tip.x} cy={tip.y} r={4.5} fill={TEAL} stroke="#FFFFFF" strokeWidth={1.6} />
-        <circle cx={cx} cy={cy} r={7} fill={NAVY} />
-        <circle cx={cx} cy={cy} r={2.6} fill="#FFFFFF" />
-      </svg>
-
-      {/* end anchors */}
-      <div className="-mt-2 flex items-start justify-between px-1">
-        <div className="text-left">
-          <p className="text-[8.5px] font-bold uppercase tracking-[0.12em] text-ink-secondary/80">IPO issue</p>
-          <p className="font-display text-[14px] leading-none text-navy-deep tabular-nums">{px(ipo)}</p>
+    <LensCard eyebrow="Street Verdict" accent={V_TONE[tone].bar} right={<ValPill c="secondary" />}>
+      <div className="flex items-start justify-between gap-2">
+        <div className="min-w-0">
+          <Verdict label={`${kind} street read`} tone={tone} />
+          <p className="mt-1 text-[11.5px] leading-snug text-ink-secondary">
+            {n} covering {n === 1 ? 'analyst' : 'analysts'}{latestDate ? <> · latest {latestDate}</> : null}.
+          </p>
         </div>
-        <div className="text-right">
-          <p className="text-[8.5px] font-bold uppercase tracking-[0.12em] text-champagne-deep">Fair value</p>
-          <p className="font-display text-[14px] leading-none tabular-nums" style={{ color: GOLD }}>{px(target)}</p>
-        </div>
-      </div>
-    </div>
-  )
-}
-
-// ── Right lenses card ──────────────────────────────────────────────────────────
-function ValuationLensesCard({
-  pGwp,
-  starPGwp,
-  premiumVsStar,
-  upside,
-  ret,
-  lo,
-  hi,
-  price,
-  gwpFy,
-  growthEdge,
-}: {
-  pGwp: number | null
-  starPGwp: number | null
-  premiumVsStar: number | null
-  upside: number | null
-  ret: number
-  lo: number
-  hi: number
-  price: number
-  gwpFy: string
-  growthEdge: boolean
-}) {
-  const maxV = Math.max(pGwp ?? 0, starPGwp ?? 0) || 1
-  const barH = (v: number | null) => (v == null ? 0 : Math.round(12 + 26 * (v / maxV)))
-  const pos52 = hi > lo ? Math.max(0, Math.min(100, ((price - lo) / (hi - lo)) * 100)) : 50
-  const premiumUp = premiumVsStar != null && premiumVsStar >= 0
-  // Header stance mirrors the verdict's ±5% band, so the card never says
-  // "Premium" when the focal name is actually in line with (or below) the peer.
-  const peerStanceWord =
-    premiumVsStar == null || premiumVsStar > 5 ? 'Premium to listed peer'
-    : premiumVsStar < -5 ? 'Discount to listed peer'
-    : 'In line with listed peer'
-
-  return (
-    <aside className="flex flex-col rounded-2xl border border-soft-border bg-white/70 p-3.5 shadow-soft backdrop-blur">
-      <div className="flex items-center justify-between">
-        <p className="text-[9.5px] font-bold uppercase tracking-[0.18em] text-ink-secondary">Valuation lenses</p>
-        <span className="rounded-full bg-soft-blue px-2 py-0.5 text-[9px] font-bold uppercase tracking-wide text-navy-primary">{gwpFy}</span>
+        <MiniMeter score={score} color={SIGNAL_TONE[kind]} />
       </div>
 
-      {/* Premium to listed peer — paired bars */}
-      {pGwp != null && starPGwp != null && (
-        <div className="mt-2.5 rounded-xl border border-[#EAD9B6] bg-gradient-to-b from-[#FBF7EE] to-white p-2.5">
-          <div className="flex items-center justify-between">
-            <p className="text-[9px] font-bold uppercase tracking-[0.12em] text-champagne-deep">{peerStanceWord}</p>
-            {premiumVsStar != null && (
-              <span className={`inline-flex items-center gap-0.5 rounded-full px-1.5 py-0.5 text-[9.5px] font-bold ${premiumUp ? 'bg-champagne-soft text-champagne-deep' : 'bg-[#F1FAF8] text-teal'}`}>
-                {premiumUp ? <TrendingUp className="h-2.5 w-2.5" /> : <TrendingDown className="h-2.5 w-2.5" />}
-                {premiumVsStar >= 0 ? '+' : ''}{premiumVsStar.toFixed(0)}%
-              </span>
-            )}
-          </div>
-          <div className="mt-2 flex items-end justify-center gap-6" style={{ height: 72 }}>
-            <PeerBar name="Niva Bupa" value={xMult(pGwp)} h={barH(pGwp)} color={TEAL} focal />
-            <PeerBar name="Star Health" value={xMult(starPGwp)} h={barH(starPGwp)} color={PEER} />
-          </div>
-          <p className="mt-1 text-center text-[9px] font-medium uppercase tracking-[0.1em] text-ink-secondary/80">P / GWP · {gwpFy}</p>
-        </div>
-      )}
-
-      {/* Lens rows */}
-      <div className="mt-2.5 space-y-1">
-        <LensRow label="P / GWP" value={xMult(pGwp)} tone="navy" hint={gwpFy} />
-        <LensRow label={premiumUp ? 'Premium vs Star' : 'Discount vs Star'} value={premiumVsStar == null ? 'n/a' : `${Math.abs(premiumVsStar).toFixed(0)}%`} tone={premiumUp ? 'gold' : 'teal'} hint="P/GWP" />
-        <LensRow label="Upside to fair value" value={upPct(upside)} tone={upside == null ? 'navy' : upside >= 0 ? 'gold' : 'coral'} hint="to consensus" />
-        <LensRow label="Return since IPO" value={upPct(ret)} tone={ret >= 0 ? 'teal' : 'coral'} hint="vs IPO ₹74" />
+      <div className="mt-2 flex flex-wrap items-center gap-1.5">
+        {chips.map((c) => (
+          <span key={c.r} className="inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[10px] font-semibold" style={{ color: V_TONE[c.tone].fg, background: V_TONE[c.tone].soft }}>
+            <span className="h-1.5 w-1.5 rounded-full" style={{ background: V_TONE[c.tone].fg }} />
+            {c.c} {c.r}
+          </span>
+        ))}
       </div>
 
-      {/* 52-week position */}
-      <div className="mt-2 rounded-xl border border-soft-border bg-ice/50 p-2">
-        <div className="flex items-center justify-between text-[9px] font-semibold uppercase tracking-wide text-ink-secondary">
-          <span>52-week range</span>
-          <span className="tabular-nums text-navy-deep">{px(lo)} – {px(hi)}</span>
-        </div>
-        <div className="relative mt-2 h-1.5 rounded-full" style={{ background: 'linear-gradient(90deg,#EEF1F6,#E6F4F1)' }}>
-          <span className="absolute top-1/2 h-3 w-3 -translate-x-1/2 -translate-y-1/2 rounded-full ring-2 ring-white" style={{ left: `${pos52}%`, background: TEAL }} title={`Now ${px(price)}`} />
-        </div>
+      <div className="mt-2.5 grid grid-cols-2 gap-1.5">
+        {avgTarget != null && <Stat k="Avg target" v={px(avgTarget)} tone="navy" />}
+        {avgUpside != null && <Stat k="Upside vs price" v={upPct(avgUpside)} tone={avgUpside >= 0 ? 'teal' : 'coral'} />}
       </div>
 
-      {growthEdge && (
-        <p className="mt-2.5 text-[10.5px] leading-snug text-ink-secondary">
-          The premium is <span className="font-semibold text-champagne-deep">backed by faster growth</span> than the listed peer.
-        </p>
-      )}
-    </aside>
+      <div className="mt-2.5 flex flex-wrap items-center gap-1.5">
+        <SourceTag {...srcTag('niva-consensus')} />
+      </div>
+    </LensCard>
   )
 }
 
-// ── Small building blocks ───────────────────────────────────────────────────────
-const TONE: Record<'teal' | 'gold' | 'navy' | 'coral', { fg: string; bg: string; ring: string }> = {
-  teal: { fg: '#0E6F6D', bg: '#F1FAF8', ring: '#CFE7E3' },
-  gold: { fg: '#8A6A1E', bg: '#FBF6EA', ring: '#EAD9A8' },
-  navy: { fg: '#27457E', bg: '#EEF3FB', ring: '#D6E2FA' },
-  coral: { fg: '#A8443B', bg: '#F8ECEC', ring: '#EAD2CD' },
-}
-
-function Callout({ label, value, tone, icon }: { label: string; value: string; tone: 'teal' | 'gold' | 'navy' | 'coral'; icon: ReactNode }) {
-  const t = TONE[tone]
+// Compact semicircular signal meter — the speedometer, kept small as a support
+// visual inside the Street Verdict card (never a dominant standalone card).
+function MiniMeter({ score, color }: { score: number; color: string }) {
+  const s = Math.max(0, Math.min(10, score))
+  const a = Math.PI * (1 - s / 10)
+  const cx = 44
+  const cy = 40
+  const r = 33
+  const mx = cx + r * Math.cos(a)
+  const my = cy - r * Math.sin(a)
+  const track = `M${cx - r},${cy} A${r},${r} 0 0 1 ${cx + r},${cy}`
+  const prog = `M${cx - r},${cy} A${r},${r} 0 0 1 ${mx.toFixed(1)},${my.toFixed(1)}`
   return (
-    <div className="rounded-xl border px-2.5 py-1.5" style={{ background: t.bg, borderColor: t.ring }}>
-      <p className="text-[8.5px] font-semibold uppercase tracking-wide text-ink-secondary">{label}</p>
-      <p className="mt-0.5 inline-flex items-center gap-1 font-display text-[18px] leading-none tabular-nums" style={{ color: t.fg }}>
-        <span style={{ color: t.fg }}>{icon}</span>
-        {value}
-      </p>
-    </div>
+    <svg viewBox="0 0 88 46" className="w-[84px] shrink-0" role="img" aria-label={`Street signal ${score.toFixed(1)} of 10`}>
+      <path d={track} fill="none" stroke="#E6EAF1" strokeWidth="6" strokeLinecap="round" />
+      <path d={prog} fill="none" stroke={color} strokeWidth="6" strokeLinecap="round" />
+      <circle cx={mx} cy={my} r="4.5" fill="#fff" />
+      <circle cx={mx} cy={my} r="2.8" fill={color} />
+      <text x="44" y="43" textAnchor="middle" style={{ fontSize: '11px', fontWeight: 700, fill: '#26303F' }}>
+        {score.toFixed(1)}
+      </text>
+    </svg>
   )
-}
-
-function LensRow({ label, value, tone, hint }: { label: string; value: string; tone: 'teal' | 'gold' | 'navy' | 'coral'; hint?: string }) {
-  const t = TONE[tone]
-  return (
-    <div className="flex items-center justify-between gap-2 rounded-lg px-2 py-1" style={{ background: t.bg }}>
-      <span className="text-[10.5px] font-medium text-ink-secondary">{label}</span>
-      <span className="inline-flex items-baseline gap-1">
-        <span className="font-display text-[14px] leading-none tabular-nums" style={{ color: t.fg }}>{value}</span>
-        {hint && <span className="text-[8.5px] uppercase tracking-wide text-ink-secondary/70">{hint}</span>}
-      </span>
-    </div>
-  )
-}
-
-function PeerBar({ name, value, h, color, focal = false }: { name: string; value: string; h: number; color: string; focal?: boolean }) {
-  return (
-    <div className="flex flex-col items-center justify-end" style={{ height: '100%' }}>
-      <span className="mb-1 font-display text-[14px] leading-none tabular-nums" style={{ color: focal ? '#0E6F6D' : '#64748B' }}>{value}</span>
-      <span
-        className="w-9 rounded-t-md"
-        style={{ height: Math.max(8, h), background: focal ? `linear-gradient(180deg,${color},#0E6F6D)` : `linear-gradient(180deg,${color},#8C97AB)`, boxShadow: focal ? '0 6px 14px rgba(22,142,142,0.22)' : 'none' }}
-      />
-      <span className={`mt-1 max-w-[4.5rem] truncate text-[9px] font-semibold ${focal ? 'text-navy-deep' : 'text-ink-secondary'}`} title={name}>{name}</span>
-    </div>
-  )
-}
-
-// Tidy the as-of stamp: the live feed stamps "2026-06-24 15:59:37"; show the date
-// (and time when present) in a calmer form. Pure formatting — no value change.
-function cleanAsOf(s: string): string {
-  const m = /^(\d{4})-(\d{2})-(\d{2})(?:[ T](\d{2}:\d{2}))?/.exec(s)
-  if (!m) return `As of ${s}`
-  const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-  const d = `${Number(m[3])} ${months[Number(m[2]) - 1]} ${m[1]}`
-  return `As of ${d}${m[4] ? `, ${m[4]}` : ''}`
 }

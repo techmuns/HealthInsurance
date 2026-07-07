@@ -5,7 +5,7 @@ import { useActiveCompany } from '@/state/filters'
 import { FOCAL_VALUATION_ID, marketSnapshot } from '@/data/valuationData'
 import { getAnalystCoverage, getMarketQuote } from '@/lib/analystCoverage'
 import { srcTag } from '@/data/valuationSources'
-import { OpenSource, px, ratingTone, upPct, ValPill } from './valuationShared'
+import { OpenSource, px, ratingTone, SIGNAL_TONE, streetSignal, upPct, ValPill, type SignalKind } from './valuationShared'
 
 // ── Soft premium palette ─────────────────────────────────────────────────────
 // Muted teal/emerald = bullish/positive · soft burgundy/coral = negative ·
@@ -25,16 +25,8 @@ const TINT = {
   slate: { from: '#FFFFFF', to: '#EEF2F8', ring: 'rgba(140,151,168,0.22)' },
 }
 
-// ── Street signal (Bull / Neutral / Bear) — logic unchanged ──────────────────
-type SignalKind = 'Bullish' | 'Neutral' | 'Bearish'
-function computeSignal(buy: number, _hold: number, sell: number, n: number, upside: number) {
-  const ratingScore = n > 0 ? (buy - sell) / n : 0 // −1..1
-  const upsideScore = Math.max(-1, Math.min(1, upside / 20))
-  const score = Math.max(0, Math.min(10, 5.5 + ratingScore * 3 + upsideScore * 1.5))
-  const kind: SignalKind = score >= 6.5 && upside >= 0 ? 'Bullish' : score <= 4 || upside <= -5 ? 'Bearish' : 'Neutral'
-  return { score, kind }
-}
-const SIGNAL_TONE: Record<SignalKind, string> = { Bullish: TEAL, Neutral: GOLD, Bearish: BURG }
+// Street signal (Bull / Neutral / Bear) now lives in valuationShared so the
+// Street Verdict decision card and this evidence view read the exact same stance.
 
 // A calm market-line for the hero background — trends up / flat / down with the
 // signal (data-driven ambiance, not a value chart).
@@ -124,7 +116,7 @@ export function StreetView({ embedded = false }: { embedded?: boolean } = {}) {
   const priceAsOf = isFocal ? marketSnapshot.priceAsOf : quote?.asOf ?? '—'
   const target = ac.consensusTargetPrice
   const upside = target != null && price != null && price > 0 ? (target / price - 1) * 100 : null
-  const { score, kind } = computeSignal(ac.buyCount, ac.holdCount, ac.sellCount, ac.analystCount, upside ?? 0)
+  const { score, kind } = streetSignal(ac.buyCount, ac.holdCount, ac.sellCount, ac.analystCount, upside ?? 0)
   const up = (t: number | null) => (t != null && price != null && price > 0 ? (t / price - 1) * 100 : null)
 
   // Dynamic "Average Analyst Target" — the mean of the valid (numeric, > 0)
@@ -140,25 +132,18 @@ export function StreetView({ embedded = false }: { embedded?: boolean } = {}) {
   // Only show the "Key view" column when at least one row carries a thesis — the
   // dated audit calls don't, so an empty column would read as missing data.
   const hasThesis = reports.some((r) => (r.thesis ?? '').trim().length > 0)
-
+  // Latest analyst view — the newest dated broker note (reports are newest-first);
+  // shown in the consolidated summary strip. Hidden cleanly if none are dated.
+  const latestDate = reports.find((r) => (r.reportDate ?? '').trim().length > 0)?.reportDate ?? null
 
   return (
     <div className="space-y-5">
-      {/* ── Hero + Street Signal ───────────────────────────────────────────── */}
-      <div className="grid grid-cols-1 gap-4 lg:grid-cols-[1.5fr_1fr]">
-        {embedded ? (
-          // Inside Valuation, the big hero would repeat the verdict above it — so the
-          // "live market read" collapses to a calm section header + the same three
-          // numbers (no redundant hero). Data and layout are otherwise unchanged.
-          <div className="card-surface flex flex-col justify-center gap-3 p-5">
-            <PanelHead title="Street View" note={`The live market read — price, targets and momentum as the market sees them today.${priceAsOf ? ` · as of ${priceAsOf}` : ''}`} />
-            <div className="flex flex-wrap items-end gap-x-5 gap-y-2">
-              <div><p className="text-[9px] font-semibold uppercase tracking-wide text-ink-secondary">Current price</p><p className="font-display text-[20px] leading-none text-navy-deep tabular-nums">{px(price)}</p></div>
-              <div><p className="text-[9px] font-semibold uppercase tracking-wide text-ink-secondary">Consensus</p><p className="font-display text-[20px] leading-none tabular-nums" style={{ color: NAVY }}>{px(target)}</p></div>
-              <div><p className="text-[9px] font-semibold uppercase tracking-wide text-ink-secondary">Upside</p><p className="font-display text-[20px] leading-none tabular-nums" style={{ color: upside == null ? SLATE : upside >= 0 ? TEAL : BURG }}>{upPct(upside)}</p></div>
-            </div>
-          </div>
-        ) : (
+      {/* Standalone (non-embedded) hero + signal gauge. Inside Valuation the
+          decision layer above already carries the verdict, price, target and the
+          signal — so the embedded view skips straight to the analyst evidence and
+          never repeats those numbers. */}
+      {!embedded && (
+        <div className="grid grid-cols-1 gap-4 lg:grid-cols-[1.5fr_1fr]">
           <HeroBanner
             company={company.shortName}
             subtitle="Price, targets and momentum as the market sees them today."
@@ -172,14 +157,16 @@ export function StreetView({ embedded = false }: { embedded?: boolean } = {}) {
             }
             asOf={priceAsOf}
           />
-        )}
-        <SignalGauge kind={kind} score={score} buy={ac.buyCount} hold={ac.holdCount} sell={ac.sellCount} upside={upside} />
-      </div>
+          <SignalGauge kind={kind} score={score} buy={ac.buyCount} hold={ac.holdCount} sell={ac.sellCount} upside={upside} />
+        </div>
+      )}
 
-      {/* ── All analyst views ──────────────────────────────────────────────── */}
+      {/* ── Street View · Analyst Views — the consolidated analyst evidence: one
+             summary strip (target · upside · Buy/Hold/Sell · latest) + every dated
+             broker call, in one clean table. ────────────────────────────────── */}
       <div className="card-surface p-5">
         <div className="mb-3 flex flex-wrap items-end justify-between gap-2">
-          <PanelHead title="All Analyst Views" note="Every dated broker call on record — newest first, each with a live source." />
+          <PanelHead title={embedded ? 'Street View · Analyst Views' : 'All Analyst Views'} note="Every dated broker call on record — newest first, each with a live source." />
           {isFocal ? (
             <SourceTag {...srcTag('niva-consensus')} />
           ) : (
@@ -187,24 +174,39 @@ export function StreetView({ embedded = false }: { embedded?: boolean } = {}) {
           )}
         </div>
 
-        {/* Average Analyst Target — a soft summary of the targets on the table
-            below; recalculates automatically as broker rows change. */}
-        <div className="mb-3 flex flex-wrap items-center justify-between gap-x-4 gap-y-2 rounded-xl border border-[#DCE6F4] bg-soft-blue/50 px-4 py-2.5">
-          <div className="flex flex-wrap items-baseline gap-x-2.5 gap-y-0.5">
-            <span className="text-[10px] font-semibold uppercase tracking-[0.07em] text-ink-secondary">Average Analyst Target</span>
+        {/* Consolidated summary strip — average target, upside vs current, the
+            Buy/Hold/Sell split and the latest dated view. Recalculates
+            automatically as the broker rows change; any missing part hides. */}
+        <div className="mb-3 flex flex-wrap items-center gap-x-5 gap-y-2 rounded-xl border border-[#DCE6F4] bg-soft-blue/50 px-4 py-2.5">
+          <div className="flex flex-wrap items-baseline gap-x-2 gap-y-0.5">
+            <span className="text-[10px] font-semibold uppercase tracking-[0.07em] text-ink-secondary">Average target</span>
             <span className="font-display text-[21px] leading-none tabular-nums text-navy-deep">{px(avgTarget)}</span>
             <span className="text-[11px] text-ink-secondary">
               {validTargets.length > 0 ? (
-                <>based on <span className="font-semibold text-navy-deep">{validTargets.length}</span> {validTargets.length === 1 ? 'report' : 'reports'}</>
+                <>· {validTargets.length} {validTargets.length === 1 ? 'report' : 'reports'}</>
               ) : (
                 'no numeric targets yet'
               )}
             </span>
           </div>
           {avgUpside != null && (
-            <span className="inline-flex items-center gap-1 rounded-full bg-white/80 px-2.5 py-1 text-[10.5px] font-semibold shadow-soft ring-1 ring-soft-border" style={{ color: avgUpside >= 0 ? TEAL : BURG }}>
-              {upPct(avgUpside)} vs current
-            </span>
+            <div className="flex items-baseline gap-1.5">
+              <span className="text-[10px] font-semibold uppercase tracking-[0.07em] text-ink-secondary">Upside vs current</span>
+              <span className="font-display text-[16px] leading-none tabular-nums" style={{ color: avgUpside >= 0 ? TEAL : BURG }}>{upPct(avgUpside)}</span>
+            </div>
+          )}
+          <div className="flex items-center gap-1.5">
+            {([['Buy', ac.buyCount], ['Hold', ac.holdCount], ['Sell', ac.sellCount]] as const).map(([r, c]) => (
+              <span key={r} className="inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[10px] font-semibold" style={{ color: ratingTone[r].fg, background: ratingTone[r].bg }}>
+                <span className="h-1.5 w-1.5 rounded-full" style={{ background: ratingTone[r].fg }} />{c} {r}
+              </span>
+            ))}
+          </div>
+          {latestDate && (
+            <div className="flex items-baseline gap-1.5">
+              <span className="text-[10px] font-semibold uppercase tracking-[0.07em] text-ink-secondary">Latest</span>
+              <span className="text-[12px] font-semibold text-navy-deep">{latestDate}</span>
+            </div>
           )}
         </div>
 
