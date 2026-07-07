@@ -125,31 +125,33 @@ function ImpactPage({ pe }: { pe: PeBriefItem }) {
     <div>
       <PageTitle icon={ShieldCheck} kicker="Impact" title="Why should I care?" />
       <div className="space-y-2">
-        <ChipRow icon={ShieldCheck} label="Impact">
+        <ChipRow icon={ShieldCheck} label="Impact metrics">
           <div className="flex flex-wrap gap-1">
             {pe.metrics.map((m) => (
               <MetricChip key={m} label={m} />
             ))}
           </div>
-          <p className="mt-1 text-[11px] leading-snug text-ink-primary">{pe.impactLine}</p>
         </ChipRow>
-        <ChipRow icon={Users} label="Company exposure">
+        <ChipRow icon={TrendingUp} label="Industry impact">
+          <p className="text-[11px] leading-snug text-ink-primary">{pe.impactLine}</p>
+        </ChipRow>
+        <ChipRow icon={Users} label="Insurer exposure">
           <span className="inline-flex items-center gap-1.5">
             <ExposureChip level={pe.exposure.level} basis={pe.exposure.basis} />
             <span className="text-[11px] leading-snug text-ink-primary">{pe.exposure.basis}</span>
           </span>
         </ChipRow>
-        <ChipRow icon={TrendingUp} label="PE read">
+        <ChipRow icon={Radar} label="Industry read">
           <p className="text-[11px] leading-snug text-ink-primary">{pe.peRead}</p>
         </ChipRow>
-        <ChipRow icon={Zap} label="Next action">
+        <ChipRow icon={Zap} label="Action">
           <span className="inline-flex items-center gap-1.5">
             <PeActionChip verb={pe.action.verb} label={pe.action.label} />
             <span className="text-[11px] leading-snug text-ink-primary">{pe.action.label}</span>
           </span>
         </ChipRow>
         {pe.watchNext.length > 0 && (
-          <ChipRow icon={Radar} label="Watch next">
+          <ChipRow icon={ShieldCheck} label="Watch next">
             <p className="text-[11px] leading-snug text-ink-secondary">{pe.watchNext.join(' · ')}</p>
           </ChipRow>
         )}

@@ -75,16 +75,16 @@ function sourceList(rows: Row[], events: PulseEvent[]): { name: string; url: str
 
 // ── section builders (return '' when empty, so nothing renders) ────────────────
 
-// Executive brief — EXACTLY three lines: what changed · why it matters · today's action.
+// Executive brief — EXACTLY three lines: what changed · why it matters · watch today.
 function execSection(rows: Row[], message: BriefMessage): string {
-  const exec = buildExecBrief(rows.map((r) => r.pe), message.nothing ? '' : message.since, message.why)
+  const exec = buildExecBrief(rows.map((r) => r.pe), message.nothing ? '' : message.since)
   const line = (k: string, v: string) => (v ? `<div class="exec-line"><span class="exec-k">${esc(k)}</span><span class="exec-v">${esc(v)}</span></div>` : '')
   return `
     <section class="block exec3">
       <h2>Executive brief</h2>
       ${line('What changed', exec.whatChanged)}
       ${line('Why it matters', exec.whyItMatters)}
-      ${line('Today’s action', exec.todaysAction)}
+      ${line('Watch today', exec.watchToday)}
     </section>`
 }
 
@@ -131,10 +131,11 @@ function peCard(row: Row, i: number): string {
         <span class="idea-conf conf-${pe.confidence.toLowerCase()}" title="${esc(pe.confidenceWhy)}">${esc(pe.confidence)} confidence</span>
       </div>
       <div class="idea-headline">${esc(pe.headline)}</div>
-      ${rowLine('Impact', `<span class="chips">${metricChips}</span><span class="impact-line">${esc(pe.impactLine)}</span>`)}
+      ${rowLine('Impact', `<span class="chips">${metricChips}</span>`)}
+      ${rowLine('Industry impact', esc(pe.impactLine))}
       ${rowLine('Exposure', `<span class="exp exp-${cls(pe.exposure.level)}">${esc(pe.exposure.level)}</span> <span class="muted">${esc(pe.exposure.basis)}</span>`)}
-      ${rowLine('PE read', esc(pe.peRead))}
-      ${rowLine('Action', `<span class="act">${esc(pe.action.verb)}</span> ${esc(pe.action.label)}`)}
+      ${rowLine('Industry read', esc(pe.peRead))}
+      ${rowLine('Action', `<span class="act">${esc(pe.action.verb)}</span> <span class="muted">${esc(pe.action.label)}</span>`)}
       ${watch}
       ${rowLine('Sources', `<span class="src-count">${esc(pe.sourceLabel)}</span>${srcNames ? ` <span class="muted">— ${srcNames}</span>` : ''}`)}
       <div class="idea-foot">Published ${esc(idea.publishedLabel)} · Discovered ${esc(idea.discoveredLabel)} · ${esc(idea.freshnessLabel)}</div>

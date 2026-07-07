@@ -321,11 +321,15 @@ function SinceYesterdayBlock({ deltas, onNavigate }: { deltas: SinceDelta[]; onN
 }
 
 function EventsBlock({ events }: { events: PulseEvent[] }) {
+  // Future events ONLY (#7 / validation #2): a past-dated "active catalyst" is not
+  // an event ahead, so it never shows under this heading.
+  const future = events.filter((e) => e.isFirm)
+  if (future.length === 0) return null
   return (
     <div className="px-4 py-3">
-      <SectionHead icon={Clock3} label="Events Ahead" note={`${events.length}`} />
+      <SectionHead icon={Clock3} label="Events Ahead" note={`${future.length}`} />
       <div className="space-y-1">
-        {events.slice(0, 3).map((e) => {
+        {future.slice(0, 3).map((e) => {
           const inner = (
             <>
               <div className="flex h-7 w-8 shrink-0 flex-col items-center justify-center rounded-md border border-soft-border bg-surface-tint">

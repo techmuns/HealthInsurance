@@ -81,7 +81,8 @@ const PE_STATUS_STYLE: Record<PeStatus, Swatch> = {
   Confirmed: { fg: '#2F855A', bg: 'rgba(47,133,90,0.10)', ring: 'rgba(47,133,90,0.24)' },
   'Draft expected': { fg: '#9C7430', bg: 'rgba(182,139,58,0.13)', ring: 'rgba(182,139,58,0.30)' },
   Reported: { fg: '#27457E', bg: 'rgba(39,69,126,0.08)', ring: 'rgba(39,69,126,0.22)' },
-  Rumour: { fg: '#8C7A55', bg: 'rgba(140,124,85,0.10)', ring: 'rgba(140,124,85,0.26)' },
+  'Low confidence': { fg: '#8C7A55', bg: 'rgba(140,124,85,0.10)', ring: 'rgba(140,124,85,0.26)' },
+  Stale: { fg: '#5B6573', bg: 'rgba(91,101,115,0.08)', ring: 'rgba(91,101,115,0.22)' },
 }
 export function PeStatusPill({ status, hint }: { status: PeStatus; hint?: string }) {
   const s = PE_STATUS_STYLE[status]

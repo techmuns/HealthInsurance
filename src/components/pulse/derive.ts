@@ -995,6 +995,18 @@ function categoryWeight(c: SignalCategory): number {
   return 0
 }
 
+// Health-industry relevance (#1 scope): a motor / crop / marine-only general-
+// insurance item that never touches a health book is off-scope and is pushed below
+// anything relevant, so the brief tracks HEALTH insurance — not general insurance.
+const OFF_HEALTH_RE = /\bmotor\b|third[-\s]?party|two[-\s]?wheeler|\bcrop\b|\bmarine\b|fire insurance|\bauto\b/i
+// HEALTH-SPECIFIC markers only — NOT generic words like "premium"/"insurer" that a
+// motor item also carries, else an off-scope item would dodge the downrank.
+const HEALTH_RELEVANT_RE = /health|medical|hospital|cashless|mediclaim|\bsahi\b|standalone health|retail health|group health|senior[-\s]?citizen/i
+function healthRelevanceWeight(s: PulseSignal): number {
+  const t = `${s.title} ${s.whyItMatters}`.toLowerCase()
+  return OFF_HEALTH_RE.test(t) && !HEALTH_RELEVANT_RE.test(t) ? -2.5 : 0
+}
+
 /** A conviction score built ONLY from real attributes: company relevance,
  *  DIRECTIONALITY (a positive/risk move far outweighs a "watch"), HOW FRESH it is,
  *  the structural weight of its category, source confidence and how many distinct
@@ -1010,6 +1022,7 @@ function convictionScore(s: PulseSignal, pulse: InvestorPulse): Conviction {
   score += s.impact === 'Positive' || s.impact === 'Risk' ? 1.4 : s.impact === 'Watch' ? 0.4 : 0.1
   score += recencyWeight(s.daysAgo)
   score += categoryWeight(s.category)
+  score += healthRelevanceWeight(s) // sink off-scope general-insurance items
   if (signalHasCorrelation(s, pulse)) score += 0.5
   // source quality — a tie-breaker (narrower spread than the value drivers above)
   score += { High: 1.1, Medium: 0.7, Low: 0.3 }[s.confidence]
@@ -1526,10 +1539,12 @@ export interface BriefMessage {
 
 function whyLine(recent: PulseSignal[], reg: number, companyPos: number): string {
   const risk = recent.filter((s) => s.impact === 'Risk').length
-  if (companyPos > 0 && reg > 0) return 'Demand still looks strong, but the real question is whether claims and expenses start eating into that strength.'
-  if (reg > 0) return 'The near-term read now turns on how the new rules land on pricing and cost.'
-  if (companyPos > 0) return 'The momentum is real; the test is whether it holds as the book scales.'
-  if (risk > 0) return 'The tone has softened a touch — worth watching before it hardens into a trend.'
+  // Metric-linked reads only — no vague "demand looks strong" copy (the brief bans
+  // unsupported demand claims; growth is only positive if claims/expense hold).
+  if (companyPos > 0 && reg > 0) return 'Growth is only as good as the claims and expense ratios behind it — that is the real question now.'
+  if (reg > 0) return 'The near-term read now turns on how the new rules land on pricing, commissions and cost.'
+  if (companyPos > 0) return 'Premium momentum is real; the test is whether margins hold as the book scales.'
+  if (risk > 0) return 'The tone has softened on margin and claims — worth watching before it hardens into a trend.'
   return 'The picture is steady rather than directional for now.'
 }
 

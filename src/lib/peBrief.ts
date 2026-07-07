@@ -14,7 +14,7 @@
 //  derive.ts) so BOTH the PDF brief and the Pulse can share one logic.
 // ---------------------------------------------------------------------------
 
-import type { ConvictionIdea } from '@/components/pulse/derive'
+import { isEvergreenReference, type ConvictionIdea } from '@/components/pulse/derive'
 import type { Confidence, SignalImpact } from '@/insights/investorPulse'
 import { getCompanyDistributionData } from '@/lib/distributionEngine'
 import { insurers } from '@/data/mockData'
@@ -34,11 +34,14 @@ type PeIdea = ConvictionIdea & {
 
 // ── Vocabulary ───────────────────────────────────────────────────────────────
 
-export type PeStatus = 'Confirmed' | 'Final rule' | 'Draft expected' | 'Reported' | 'Rumour'
+export type PeStatus = 'Confirmed' | 'Final rule' | 'Draft expected' | 'Reported' | 'Low confidence' | 'Stale'
 export type PeExposureLevel = 'High' | 'Medium' | 'Low' | 'Needs data'
+// Practical next steps — the industry-briefing verb set.
 export type PeActionVerb =
-  | 'Track' | 'Verify' | 'Model impact' | 'Call management' | 'Ignore'
-  | 'Watch pricing' | 'Watch distribution' | 'Watch claims' | 'Watch expense ratio'
+  | 'Verify official source'
+  | 'Watch commission ratio' | 'Watch expense ratio' | 'Watch claims' | 'Watch pricing' | 'Watch distribution'
+  | 'Track launch' | 'Check market share' | 'Check solvency' | 'Track management change'
+  | 'Ignore'
 
 export interface PeExposure { level: PeExposureLevel; basis: string }
 export interface PeAction { verb: PeActionVerb; label: string }
@@ -134,6 +137,17 @@ function topicOf(idea: PeIdea): Topic {
   return 'other'
 }
 
+// Health-industry relevance (#1 scope) — a motor / crop / marine-only general-
+// insurance item that never touches a health book is off-scope and gets the
+// "Ignore" action so it can be downranked, not dressed up as health news.
+const OFF_HEALTH_RE = /\bmotor\b|third[-\s]?party|two[-\s]?wheeler|\bcrop\b|\bmarine\b|fire insurance|\bauto\b/i
+// Health-SPECIFIC markers only (not "premium"/"insurer", which a motor item shares).
+const HEALTH_RE = /health|medical|hospital|cashless|mediclaim|\bsahi\b|standalone health|retail health|group health|senior[-\s]?citizen/i
+function isOffHealth(idea: PeIdea): boolean {
+  const t = itemText(idea)
+  return OFF_HEALTH_RE.test(t) && !HEALTH_RE.test(t)
+}
+
 // ── 1) Status (#2) — a media report is never a "confirmed" rule ────────────────
 
 // A finalized / in-force artefact — the strongest completion signal.
@@ -143,26 +157,31 @@ const FINAL_RE =
 const DRAFT_RE = /\bdraft\b|exposure draft|consultation (paper|process)|proposed (norm|rule|regulation|amendment|framework|guideline)|proposes to|invites comments/i
 // A completed non-rule corporate fact (results posted, appointment made, deal done).
 const CONFIRM_RE = /\bannounced\b|\bdeclared\b|has (launched|appointed|acquired|completed|approved)|completes|posted? (a )?(profit|loss|\bq[1-4]\b|\bfy)|reported (its )?(\bq[1-4]\b|\bfy|results)/i
-// Genuine speculation — the only thing that earns "Rumour". A credible analyst
-// note on a dead/low-health link is still a "Reported" item, never a rumour.
-const RUMOUR_RE = /rumou?r|speculat|unconfirmed|buzz|talk of|in talks|market chatter|could be|might be|said to be considering/i
+// Genuine speculation — the only thing that earns "Low confidence". A credible
+// analyst note on a dead link is still a "Reported" item, never low-confidence.
+const LOWCONF_RE = /rumou?r|speculat|unconfirmed|buzz|talk of|in talks|market chatter|could be|might be|said to be considering/i
 
 function statusOfItem(idea: PeIdea): { status: PeStatus; hint: string } {
   const text = `${idea.why.whatHappened} ${idea.why.whyItMatters}`
   const official = isOfficialSource(idea.sourceUrl)
   const primaryish = official || idea.sourceConfidence === 'High'
+  // A standing explainer / landing page discovered today is NOT news — it's stale
+  // context, never a dated development (honesty: found-now ≠ happened-now).
+  const evergreen = isEvergreenReference({ sourceUrl: idea.sourceUrl })
   let status: PeStatus
   if (FINAL_RE.test(text) && primaryish) status = idea.category === 'Regulatory' ? 'Final rule' : 'Confirmed'
   else if (DRAFT_RE.test(text)) status = 'Draft expected'
   else if (CONFIRM_RE.test(text) && (official || idea.sourceConfidence !== 'Low')) status = 'Confirmed'
-  else if (RUMOUR_RE.test(text) || (idea.sourceConfidence === 'Low' && !idea.sourceUrl)) status = 'Rumour'
+  else if (evergreen && idea.freshness === 'existing') status = 'Stale'
+  else if (LOWCONF_RE.test(text) || (idea.sourceConfidence === 'Low' && !idea.sourceUrl)) status = 'Low confidence'
   else status = 'Reported'
 
   const hint =
     status === 'Final rule' ? 'Notified / final — in force.'
     : status === 'Confirmed' ? (official ? 'Officially confirmed by a primary source.' : 'Reported as completed; not yet on the primary source.')
     : status === 'Draft expected' ? 'Draft / consultation stage — not yet final.'
-    : status === 'Rumour' ? 'Unverified / low-confidence sourcing.'
+    : status === 'Stale' ? 'Background / explainer page — discovered now, not new.'
+    : status === 'Low confidence' ? 'Unverified / weak sourcing.'
     : 'Media report — not officially confirmed.'
   return { status, hint }
 }
@@ -288,7 +307,18 @@ function exposureFor(idea: PeIdea, topic: Topic, companyId: string, companyLabel
     return { level: 'Needs data', basis: 'Varies with retail vs group mix' }
   }
 
-  // Company-direct news (analyst / management / company item about the target).
+  // Management change — exposure by ROLE criticality (#6), not company mix.
+  if (topic === 'management') {
+    const t = itemText(idea)
+    const level: PeExposureLevel =
+      /\bceo\b|chief executive|\bcfo\b|chief financial|\bcro\b|chief risk|appointed actuary|managing director|\bmd\b/.test(t) ? 'High'
+      : /\bcoo\b|chief (underwriting|distribution|sales|product|claims|operating)|head of (underwriting|distribution|sales|product|claims)/.test(t) ? 'Medium'
+      : 'Low'
+    const basis = level === 'High' ? 'Board / key management (CEO / CFO / CRO / Actuary)' : level === 'Medium' ? 'Senior functional leadership' : 'Non-critical role'
+    return { level, basis }
+  }
+
+  // Company-direct news (analyst / company item about the target).
   if (idea.scope === 'company' && (companyId === 'all' || idea.companyId === companyId)) {
     return { level: 'High', basis: `Directly concerns ${idea.entity}` }
   }
@@ -320,39 +350,42 @@ function peReadFor(idea: PeIdea, topic: Topic): string {
 
 // ── 6) PE action (#5) — one next step, specific ────────────────────────────────
 
-function actionFor(idea: PeIdea, topic: Topic, status: PeStatus, confidence: Confidence): PeAction {
-  const co = idea.scope === 'company' ? idea.entity : 'SAHIs'
-  // Genuinely low-value background → the honest "Ignore".
-  if (idea.impact === 'Neutral' && idea.freshness === 'existing' && idea.scope === 'sector') return { verb: 'Ignore', label: 'Low priority — background context' }
-  if (status === 'Rumour') return { verb: 'Verify', label: `Verify before acting on ${co}` }
+function actionFor(idea: PeIdea, topic: Topic, status: PeStatus): PeAction {
+  // Off-scope, low-value background, or a stale explainer → the honest "Ignore".
+  if (isOffHealth(idea)) return { verb: 'Ignore', label: 'Not health-insurance material — ignore' }
+  if (status === 'Stale' || (idea.impact === 'Neutral' && idea.freshness === 'existing' && idea.scope === 'sector' && topic === 'other')) {
+    return { verb: 'Ignore', label: 'Background context — low priority' }
+  }
+  if (status === 'Low confidence') return { verb: 'Verify official source', label: 'Verify against the official source before acting' }
   switch (topic) {
     case 'commission':
+      return { verb: 'Watch commission ratio', label: 'Watch commission ratio, expense ratio and channel mix' }
     case 'expense':
-      return { verb: 'Model impact', label: 'Model expense-ratio sensitivity across the book' }
+      return { verb: 'Watch expense ratio', label: 'Watch expense ratio and the combined ratio' }
     case 'claims':
-      return { verb: 'Watch claims', label: 'Watch claims ratio & cashless TAT' }
+      return { verb: 'Watch claims', label: 'Watch claims ratio, cashless TAT and combined ratio' }
     case 'pricing':
-      return { verb: 'Watch pricing', label: 'Watch repricing quantum & persistency' }
-    case 'solvency':
-      return { verb: 'Track', label: 'Track solvency & capital-raise plans' }
+      return { verb: 'Watch pricing', label: 'Watch repricing quantum and persistency' }
     case 'entry':
-      return { verb: 'Track', label: 'Track the new entrant’s launch & positioning' }
+      return { verb: 'Track launch', label: 'Track launch date, products, pricing and distribution partners' }
+    case 'solvency':
+      return { verb: 'Check solvency', label: 'Check the solvency ratio and any capital-raise need' }
     case 'listing':
-      return { verb: 'Track', label: 'Track final listing norms & capital plans' }
+      return { verb: 'Check solvency', label: 'Check capital-access and listing / IPO plans' }
     case 'premium':
-      return idea.impact === 'Positive' ? { verb: 'Model impact', label: `Model ${co} growth-vs-margin` } : { verb: 'Watch distribution', label: `Watch ${co} growth mix` }
-    case 'analyst':
-      return confidence === 'Low' || status !== 'Confirmed'
-        ? { verb: 'Verify', label: `Verify the ${co} call & price targets` }
-        : { verb: 'Track', label: `Track consensus & targets on ${co}` }
+      return idea.impact === 'Positive'
+        ? { verb: 'Check market share', label: 'Check whether GWP growth is backed by NEP and renewal quality' }
+        : { verb: 'Watch distribution', label: 'Watch the growth mix and channel economics' }
     case 'management':
-      return { verb: 'Call management', label: `Call ${co} on leadership continuity` }
+      return { verb: 'Track management change', label: 'Track the change vs role criticality and timing' }
+    case 'analyst':
+      return { verb: 'Verify official source', label: 'Verify the call and price targets' }
     case 'ownership':
-      return { verb: 'Verify', label: 'Verify deal size & counterparty' }
+      return { verb: 'Verify official source', label: 'Verify deal size and counterparty' }
     case 'market':
-      return { verb: 'Verify', label: 'Verify the price / volume trigger' }
+      return { verb: 'Verify official source', label: 'Verify the price / volume trigger' }
     default:
-      return { verb: 'Track', label: `Track ${co} for confirmation` }
+      return { verb: 'Check market share', label: 'Track for confirmation' }
   }
 }
 
@@ -386,7 +419,8 @@ function watchNextFor(idea: PeIdea, topic: Topic): string[] {
 function confidenceFor(idea: PeIdea, status: PeStatus): { tier: Confidence; why: string } {
   const official = isOfficialSource(idea.sourceUrl)
   const base = idea.sourceConfidence
-  if (status === 'Rumour') return { tier: 'Low', why: 'Unconfirmed / low-quality sourcing.' }
+  if (status === 'Low confidence') return { tier: 'Low', why: 'Unverified / weak sourcing.' }
+  if (status === 'Stale') return { tier: 'Low', why: 'Background / explainer — not a dated development.' }
   if (status === 'Final rule' || (status === 'Confirmed' && official)) {
     return { tier: base === 'Low' ? 'Medium' : 'High', why: 'Official / primary source.' }
   }
@@ -454,7 +488,7 @@ export function toPeBriefItem(raw: ConvictionIdea, companyId: string, companyLab
     impactLine: impactLineFor(idea, topic),
     exposure: exposureFor(idea, topic, companyId, companyLabel),
     peRead: peReadFor(idea, topic),
-    action: actionFor(idea, topic, status, tier),
+    action: actionFor(idea, topic, status),
     watchNext: watchNextFor(idea, topic),
     sources: sources.map((s) => ({ name: s.name, url: s.url })),
     sourceLabel: sourceLabelFor(idea),
@@ -472,7 +506,7 @@ export function toPeBriefItems(ideas: ConvictionIdea[], companyId: string, compa
 export interface PeExecBrief {
   whatChanged: string
   whyItMatters: string
-  todaysAction: string
+  watchToday: string
 }
 
 function joinNatural(items: string[]): string {
@@ -481,7 +515,6 @@ function joinNatural(items: string[]): string {
   if (xs.length === 2) return `${xs[0]} and ${xs[1]}`
   return `${xs.slice(0, -1).join(', ')}, and ${xs[xs.length - 1]}`
 }
-const lowerFirst = (s: string): string => (s ? s[0].toLowerCase() + s.slice(1) : s)
 const stripTrailingDot = (s: string): string => s.replace(/[.\s]+$/, '')
 
 // What each topic puts "in play" — the metric-linked stake for the why-line. Kept
@@ -521,16 +554,16 @@ export function buildExecBrief(items: PeBriefItem[], since: string, _why?: strin
     if (s && !stakes.includes(s)) stakes.push(s)
     if (stakes.length >= 2) break
   }
-  const whyItMatters = stakes.length ? `${capFirst(joinNatural(stakes))} may shift for standalone health insurers.` : (top[0]?.impactLine || 'Adds to the near-term read for the sector.')
-  // Today's action: distinct PE actions from the top items (one verb each, max two).
-  const seen = new Set<string>()
-  const acts: string[] = []
-  for (const i of top) {
-    if (seen.has(i.action.verb)) continue
-    seen.add(i.action.verb)
-    acts.push(lowerFirst(stripTrailingDot(i.action.label)))
-    if (acts.length >= 2) break
-  }
-  const todaysAction = acts.length ? `${joinNatural(acts.map((a, idx) => (idx === 0 ? capFirst(a) : a)))}.` : 'Track the feed; nothing needs action today.'
-  return { whatChanged, whyItMatters, todaysAction }
+  const whyItMatters = stakes.length ? `${capFirst(joinNatural(stakes))} may shift across health insurers.` : (top[0]?.impactLine || 'Adds to the near-term read for the sector.')
+  // Watch today: the concrete metric triggers to monitor — drawn from the top items'
+  // event-matched watch lists (not vague actions), deduped and capped.
+  const triggers: string[] = []
+  top.slice(0, 3).forEach((i, idx) => {
+    for (const w of i.watchNext.slice(0, idx === 0 ? 3 : 1)) {
+      const lw = w.toLowerCase()
+      if (!triggers.includes(lw)) triggers.push(lw)
+    }
+  })
+  const watchToday = triggers.length ? `${capFirst(joinNatural(triggers.slice(0, 4)))}.` : 'Nothing needs watching today; monitor the feed.'
+  return { whatChanged, whyItMatters, watchToday }
 }
