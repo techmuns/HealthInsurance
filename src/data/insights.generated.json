@@ -1,10 +1,10 @@
 {
   "meta": {
-    "generatedAt": "2026-07-06T12:06:27.404Z",
+    "generatedAt": "2026-07-07T07:10:40.472Z",
     "dataAsOf": "FY25",
     "model": "deterministic-keyless (no-AI synthesis; plain templated prose, live numbers)",
     "signalsComputed": 92,
-    "signalHash": "sig_4091f370",
+    "signalHash": "sig_f6a13545",
     "coverage": [
       {
         "insurer": "niva-bupa",
@@ -229,7 +229,7 @@
           }
         },
         "payloadHash": "sig_b25fc7a7",
-        "computedAt": "2026-07-06T12:06:27.404Z",
+        "computedAt": "2026-07-07T07:10:40.472Z",
         "isQuantitative": true
       },
       "application": {
@@ -539,7 +539,7 @@
           }
         },
         "payloadHash": "sig_32f11b60",
-        "computedAt": "2026-07-06T12:06:27.404Z",
+        "computedAt": "2026-07-07T07:10:40.472Z",
         "isQuantitative": true
       },
       "application": {
@@ -583,8 +583,8 @@
       "category": "valuation",
       "headline": "Niva trades at 3x book on a single-digit ROE — the multiple prices an ROE ramp not yet delivered",
       "shortHeadline": "Niva prices a return it has yet to earn",
-      "summary": "Niva carries a 3x price-to-book while delivering a 5.7% ROE. At a 12% cost of equity, that multiple only makes sense on a much higher steady-state return than the book currently earns. On premium, Niva's 1.69x P/GWP sits above Star's 1.7x — a richer multiple, not obviously faster growth.",
-      "thesis": "A 3x book multiple against a 5.7% delivered ROE embeds a steep return-on-equity expansion. Underwriting is still loss-making and coverage is thin, so there is little margin for a slip in the ROE path the price already assumes. The premium multiple (1.69x vs Star's 1.7x) says the same thing from the top line.",
+      "summary": "Niva carries a 3x price-to-book while delivering a 5.7% ROE. At a 12% cost of equity, that multiple only makes sense on a much higher steady-state return than the book currently earns. On premium, Niva's 1.7x P/GWP sits above Star's 1.7x — a richer multiple, not obviously faster growth.",
+      "thesis": "A 3x book multiple against a 5.7% delivered ROE embeds a steep return-on-equity expansion. Underwriting is still loss-making and coverage is thin, so there is little margin for a slip in the ROE path the price already assumes. The premium multiple (1.7x vs Star's 1.7x) says the same thing from the top line.",
       "whatConsensusMisses": "The multiple is a forward-ROE option: the price front-runs a return ramp the book has not yet delivered, on a still loss-making underwriting line.",
       "evidence": [
         {
@@ -615,7 +615,7 @@
         {
           "insurer": "niva-bupa",
           "metric": "P/GWP vs growth",
-          "value": 1.69,
+          "value": 1.7,
           "unit": "x",
           "context": "richer than Star on lower ROE",
           "layers": [
@@ -722,12 +722,12 @@
             "refTag": "PEG-style sanity check",
             "gloss": "Whether a richer premium multiple is actually buying faster growth.",
             "formulaTeX": "\\text{richness} = \\dfrac{P/GWP}{g_{\\text{GWP}}} \\quad (\\text{higher} \\Rightarrow \\text{paying more per point of growth})",
-            "instanceTeX": "1.69\\text{x} \\,@\\, 27\\% \\;\\;\\text{vs}\\;\\; 1.7\\text{x} \\,@\\, 11\\%",
+            "instanceTeX": "1.7\\text{x} \\,@\\, 27\\% \\;\\;\\text{vs}\\;\\; 1.7\\text{x} \\,@\\, 11\\%",
             "inputs": [
               {
                 "symbol": "P/GWP",
                 "label": "Niva Bupa · P/GWP @ ~27% GWP growth",
-                "value": 1.69,
+                "value": 1.7,
                 "unit": "x",
                 "insurer": "niva-bupa",
                 "period": "FY26",
@@ -745,10 +745,10 @@
             ],
             "statistic": {
               "symbol": "P/GWP",
-              "value": 1.69,
+              "value": 1.7,
               "unit": "x"
             },
-            "robustness": "Niva Bupa carries a lower 1.69x vs Star Health's 1.7x, on ~27% vs ~11% GWP growth — a lower multiple even on faster growth.",
+            "robustness": "Niva Bupa carries a similar 1.7x vs Star Health's 1.7x, on ~27% vs ~11% GWP growth.",
             "lens": "fundamental"
           }
         ],
@@ -775,8 +775,8 @@
             "stepKeys": []
           }
         },
-        "payloadHash": "sig_2902543e",
-        "computedAt": "2026-07-06T12:06:27.404Z",
+        "payloadHash": "sig_fe9c7b36",
+        "computedAt": "2026-07-07T07:10:40.472Z",
         "isQuantitative": true
       },
       "application": {
@@ -1022,7 +1022,7 @@
           }
         },
         "payloadHash": "sig_e30f2ed1",
-        "computedAt": "2026-07-06T12:06:27.404Z",
+        "computedAt": "2026-07-07T07:10:40.472Z",
         "isQuantitative": true
       },
       "application": {
@@ -1292,7 +1292,7 @@
           }
         },
         "payloadHash": "sig_a4beddb2",
-        "computedAt": "2026-07-06T12:06:27.404Z",
+        "computedAt": "2026-07-07T07:10:40.472Z",
         "isQuantitative": true
       },
       "application": {
@@ -1553,7 +1553,7 @@
           }
         },
         "payloadHash": "sig_882e7b5",
-        "computedAt": "2026-07-06T12:06:27.404Z",
+        "computedAt": "2026-07-07T07:10:40.472Z",
         "isQuantitative": true
       },
       "application": {
@@ -1597,8 +1597,8 @@
       "category": "management",
       "headline": "Niva has delivered 60% of tracked guidance with none missed — yet only a couple of analysts price it, in a tight 10.5% target band",
       "shortHeadline": "Niva delivers, yet few analysts watch",
-      "summary": "Management is keeping its word — a 60% guidance hit-rate with nothing missed. Yet coverage is thin and the target band is only 10.5% wide around a 11% consensus upside. That is light scrutiny for a name whose multiple already embeds a steep ROE ramp — a small surprise could move it more than the narrow band implies.",
-      "thesis": "A 60% delivered-guidance rate with zero misses is a decent credibility record. But with only a handful of analysts and a tight 10.5% dispersion around 11% upside, the forward-ROE thesis is lightly stress-tested. Thin coverage plus a demanding multiple is a volatility set-up, either way.",
+      "summary": "Management is keeping its word — a 60% guidance hit-rate with nothing missed. Yet coverage is thin and the target band is only 10.5% wide around a 10.2% consensus upside. That is light scrutiny for a name whose multiple already embeds a steep ROE ramp — a small surprise could move it more than the narrow band implies.",
+      "thesis": "A 60% delivered-guidance rate with zero misses is a decent credibility record. But with only a handful of analysts and a tight 10.5% dispersion around 10.2% upside, the forward-ROE thesis is lightly stress-tested. Thin coverage plus a demanding multiple is a volatility set-up, either way.",
       "whatConsensusMisses": "Management is executing, but shallow coverage means the market's forward-ROE thesis is barely tested — a modest surprise can move the stock more than the narrow consensus band implies.",
       "evidence": [
         {
@@ -1616,7 +1616,7 @@
         {
           "insurer": "niva-bupa",
           "metric": "Consensus upside to target",
-          "value": 11,
+          "value": 10.2,
           "unit": "%",
           "context": "2 buy / 0 hold / 0 sell, n=2",
           "layers": [
@@ -1710,12 +1710,12 @@
             "refTag": "Street view",
             "gloss": "How much upside the Street prices and how tightly analysts agree.",
             "formulaTeX": "\\text{upside} = \\dfrac{\\overline{tgt} - P}{P}, \\quad \\text{dispersion} = \\dfrac{\\text{high} - \\text{low}}{\\overline{tgt}}",
-            "instanceTeX": "\\text{upside } +11\\%,\\ \\text{dispersion } 10.5\\%,\\ n = 2",
+            "instanceTeX": "\\text{upside } +10.2\\%,\\ \\text{dispersion } 10.5\\%,\\ n = 2",
             "inputs": [
               {
                 "symbol": "\\text{upside}",
                 "label": "Niva Bupa · upside to target",
-                "value": 11,
+                "value": 10.2,
                 "unit": "%",
                 "insurer": "niva-bupa",
                 "period": "FY25",
@@ -1733,7 +1733,7 @@
             ],
             "statistic": {
               "symbol": "\\text{upside}",
-              "value": 11,
+              "value": 10.2,
               "unit": "%"
             },
             "threshold": {
@@ -1766,8 +1766,8 @@
             "stepKeys": []
           }
         },
-        "payloadHash": "sig_d33dfe8a",
-        "computedAt": "2026-07-06T12:06:27.404Z",
+        "payloadHash": "sig_a4ccab87",
+        "computedAt": "2026-07-07T07:10:40.472Z",
         "isQuantitative": true
       },
       "application": {
