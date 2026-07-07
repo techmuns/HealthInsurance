@@ -28,7 +28,7 @@ import {
 } from '@/insights/investorPulse'
 import type { NavTarget } from '@/insights/sourceMap'
 import { buildFocus, buildLocator, type InsightFocus } from '@/insights/insightFocus'
-import { recentRegulatory } from '@/insights/regulatoryFeed'
+import { recentRegulatory, regulatoryTargetFor } from '@/insights/regulatoryFeed'
 import intelSnapshot from '@/data/snapshots/market-intelligence-snapshot.json'
 import pulseArchive from '@/data/snapshots/pulse-brief-archive.json'
 
@@ -1389,7 +1389,22 @@ export function convictionIdeas(signals: PulseSignal[], pulse: InvestorPulse): C
 export function dashboardTargetFor(idea: ConvictionIdea, companyId: string): NavTarget {
   const text = `${idea.entity} ${idea.reasoning.join(' ')} ${idea.why.whatHappened} ${idea.whatToWatch}`.toLowerCase()
   const to = (sahiTab: string): NavTarget => ({ page: 'sahi', sahiTab, company: companyId })
-  if (idea.category === 'Regulatory' || /irdai|regulat|policy|reform|composite licen/.test(text)) return to('sector-news')
+  if (idea.category === 'Regulatory' || /irdai|regulat|policy|reform|composite licen/.test(text)) {
+    // Deep-link to the exact regulatory card (best keyword match, else newest) so the
+    // conviction note also opens an exact, highlighted item — never collapsed months.
+    const t = regulatoryTargetFor(text)
+    return {
+      ...to('sector-news'),
+      focus: buildLocator({
+        id: `conv-reg-${idea.id ?? 'x'}`,
+        locatorKind: 'regulatory',
+        company: companyId,
+        insightLabel: idea.headline ?? 'Regulatory update',
+        sahiTab: 'sector-news',
+        ...(t ? { targetItemId: t.itemId, targetMonth: t.month, sourceDate: t.sourceDate, surfacedAt: t.surfacedAt, reasonShownToday: t.reasonShownToday } : {}),
+      }),
+    }
+  }
   if (idea.category === 'Management' || /\bceo\b|\bcfo\b|appoint|resign|steps? down|leadership|managing director|\bmd\b|board of/.test(text)) return to('governance')
   if (/ownership|stake|shareholding|holding|promoter|pledge|block deal|bulk deal/.test(text)) return to('governance')
   if (/valuation|\bp\/b\b|\bp\/e\b|\broe\b|target price|re-rat|multiple|price target|market cap/.test(text)) return to('valuation')

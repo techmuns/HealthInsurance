@@ -123,3 +123,31 @@ export function recentRegulatory(refIso: string, lookbackDays = 1, items: Sector
   const rank = (t: RegTarget) => (t.surfacedAt && t.surfacedAt > t.sourceDate ? t.surfacedAt : t.sourceDate)
   return out.sort((a, b) => (rank(a) < rank(b) ? 1 : rank(a) > rank(b) ? -1 : 0))
 }
+
+/** A deep-link target for a regulatory reference with no recency window — the item
+ *  whose subject best matches `hint`, else the newest regulatory item. Used by the
+ *  conviction cards' "view in dashboard" so they also open an exact card. */
+export function regulatoryTargetFor(hint = '', items: SectoralNewsItem[] = buildSectoralItems()): RegTarget | null {
+  const reg = items.filter((i) => i.category === 'Regulatory').sort((a, b) => (a.date < b.date ? 1 : a.date > b.date ? -1 : 0))
+  if (!reg.length) return null
+  const words = hint.toLowerCase().match(/[a-z]{4,}/g) ?? []
+  const stop = new Set(['this', 'that', 'with', 'from', 'have', 'will', 'would', 'been', 'they', 'their', 'health', 'insurance', 'insurer', 'insurers', 'regulatory', 'update'])
+  const keys = words.filter((w) => !stop.has(w))
+  const score = (it: SectoralNewsItem) => {
+    const hay = `${it.subject} ${it.summary}`.toLowerCase()
+    return keys.reduce((n, w) => n + (hay.includes(w) ? 1 : 0), 0)
+  }
+  const best = keys.length ? reg.slice().sort((a, b) => score(b) - score(a))[0] : reg[0]
+  const it = keys.length && score(best) > 0 ? best : reg[0] // require a real keyword hit, else newest
+  return {
+    itemId: sectoralItemKey(it),
+    month: sectoralMonthKey(it.date),
+    subject: it.subject,
+    category: it.category,
+    sourceDate: it.date,
+    surfacedAt: it.added_at,
+    surfacing: 'new',
+    reasonShownToday: `Regulatory development — source dated ${fmtDate(it.date)}.`,
+    reference: it.reference,
+  }
+}
