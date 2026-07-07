@@ -12,6 +12,7 @@
     "check:retail-mix": "tsx --tsconfig tsconfig.app.json scripts/check-retail-mix.ts",
     "check:basis": "tsx --tsconfig tsconfig.app.json scripts/check-basis-toggle.ts",
     "check:links": "tsx scripts/check-source-links.ts",
+    "check:registry": "tsx --tsconfig tsconfig.app.json scripts/check-source-registry.ts",
     "audit:source-nav": "node scripts/audit-source-nav.mjs",
     "audit:brief": "node scripts/audit-daily-brief.mjs",
     "preview": "vite preview",
