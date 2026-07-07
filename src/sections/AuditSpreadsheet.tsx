@@ -739,6 +739,7 @@ function SheetGrid({ grid, raw, selected, onSelect, view, verify, aiMode = false
                           <button
                             type="button"
                             data-cell-id={cell.id}
+                            data-source-highlight={isPulsing ? '1' : undefined}
                             onClick={() => onSelect(cell)}
                             title={vrow ? `${cell.metricLabel} · ${cell.period} — ${V_OVERLAY[vrow.status].label}` : `${cell.metricLabel} · ${cell.period}`}
                             className={`relative flex h-full min-h-[34px] w-full items-center justify-end px-2 py-1 text-right tabular-nums transition-all ${isIssue && ov ? ov.cell : 'bg-white'} ${dimmed ? 'opacity-30' : ''} hover:brightness-95`}
@@ -791,6 +792,7 @@ function SheetGrid({ grid, raw, selected, onSelect, view, verify, aiMode = false
                         <button
                           type="button"
                           data-cell-id={cell.id}
+                          data-source-highlight={isPulsing ? '1' : undefined}
                           onClick={() => { if (!aiMode) onSelect(cell) }}
                           title={title}
                           className={`relative flex h-full min-h-[34px] w-full items-center ${fetched ? 'justify-end text-right' : 'justify-center'} px-2 py-1 tabular-nums transition-all ${q.cell} hover:brightness-95`}
@@ -1308,7 +1310,7 @@ export function AuditSpreadsheet({ model, focus }: { model: AuditModel; focus?: 
           original source opens on click. Honest about exact cell vs closest row vs
           nearest-section fallback. Reached from an insight OR a dashboard source tag. */}
       {focus && (
-        <div key={arrivalTick} className={`${arrivalTick > 0 ? 'audit-arrival-flash ' : ''}flex flex-wrap items-center gap-x-3 gap-y-1.5 rounded-xl border border-[#E4CE93] bg-gradient-to-r from-[#FBF6EA] to-card px-4 py-2.5 shadow-soft`}>
+        <div key={arrivalTick} data-source-focus-banner="1" className={`${arrivalTick > 0 ? 'audit-arrival-flash ' : ''}flex flex-wrap items-center gap-x-3 gap-y-1.5 rounded-xl border border-[#E4CE93] bg-gradient-to-r from-[#FBF6EA] to-card px-4 py-2.5 shadow-soft`}>
           <span className="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-[0.12em] text-champagne-deep">
             <CheckCircle2 className="h-3.5 w-3.5" /> Verify this source
           </span>

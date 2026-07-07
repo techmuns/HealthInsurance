@@ -136,6 +136,15 @@ export function SourceTag({
   // ("GI Council"). Falls back to the plain source label when the metric doesn't map.
   const tabInfo = routeToAudit ? auditTabForMetric(audit?.metric) : undefined
   const displaySource = tabInfo?.tab ?? source
+  // Stable, inspectable ids for the source-link audit + tests (traceability).
+  const sourceTarget = routeToAudit
+    ? [audit?.company ?? auditNav.company, audit?.metric, audit?.year].filter(Boolean).join('::') || undefined
+    : undefined
+  const sourceId = routeToAudit
+    ? `audit::${sourceTarget ?? String(audit?.metric ?? source)}`
+    : url
+      ? `ext::${(provenance?.source_name ?? String(source)).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')}`
+      : undefined
   // Drop the dot to a warning tone when the *link* is the problem, not the data.
   // In audit-routing mode we never open the link, so the dot reflects data confidence only.
   const dot = routeToAudit
@@ -252,6 +261,9 @@ export function SourceTag({
       <button
         type="button"
         onClick={onAuditClick}
+        data-source-kind="internal"
+        data-source-id={sourceId}
+        data-source-target={sourceTarget}
         title="View in Data Audit — the source-verification layer"
         className={`${base} border-soft-border bg-white/70 shadow-[0_1px_2px_rgba(23,43,77,0.04)] hover:border-champagne hover:bg-champagne-soft/40 hover:text-navy-deep hover:shadow-soft ${className}`}
         onMouseEnter={() => setHover(true)}
@@ -290,6 +302,8 @@ export function SourceTag({
         href={url}
         target="_blank"
         rel="noreferrer"
+        data-source-kind="external"
+        data-source-id={sourceId}
         title={provenance?.source_name ? `${provenance.source_name} — ${health.hint}` : health.hint}
         className={`${base} border-soft-border bg-white/70 shadow-[0_1px_2px_rgba(23,43,77,0.04)] hover:border-muted-blue hover:bg-white hover:text-navy-deep hover:shadow-soft ${className}`}
         onMouseEnter={() => setHover(true)}
@@ -307,6 +321,7 @@ export function SourceTag({
   return (
     <span
       className={`${base} cursor-default border-transparent ${hasPopover ? 'hover:border-soft-border hover:bg-white/60' : ''} ${className}`}
+      data-source-kind="none"
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
       onFocus={() => setHover(true)}
