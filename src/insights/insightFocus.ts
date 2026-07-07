@@ -62,6 +62,21 @@ export interface InsightFocus {
   sahiTab?: string
   /** Where it came from — drives the chip label + the return-button copy. */
   origin: 'pulse' | 'insight'
+
+  // ── locator item target (regulatory / news) ──────────────────────────────
+  //  When a locator focus points at a SPECIFIC feed item (not just the section),
+  //  these let the destination open the item's collapsed month, scroll to it and
+  //  blip the exact card — instead of landing on collapsed months.
+  /** Stable id of the exact item to open + highlight (SectoralNewsItem.id / sn). */
+  targetItemId?: string
+  /** The item's month key (yyyy-mm) so its accordion can be opened before scroll. */
+  targetMonth?: string
+  /** Original date of the source/filing/event (provenance shown at the item). */
+  sourceDate?: string
+  /** When the dashboard first surfaced/detected it (provenance shown at the item). */
+  surfacedAt?: string
+  /** Plain-English reason this appears today (e.g. "older source, newly surfaced"). */
+  reasonShownToday?: string
 }
 
 // ── canonical metric metadata ────────────────────────────────────────────────
@@ -383,6 +398,12 @@ export function buildLocator(args: {
   insightLabel: string
   tone?: FocusTone
   sahiTab?: string
+  /** Deep-link the locator to a SPECIFIC feed item (open its month, scroll, blip). */
+  targetItemId?: string
+  targetMonth?: string
+  sourceDate?: string
+  surfacedAt?: string
+  reasonShownToday?: string
 }): InsightFocus {
   const meta = LOCATOR_META[args.locatorKind]
   return {
@@ -399,6 +420,11 @@ export function buildLocator(args: {
     unit: '',
     sahiTab: args.sahiTab ?? meta?.sahiTab,
     origin: 'pulse',
+    targetItemId: args.targetItemId,
+    targetMonth: args.targetMonth,
+    sourceDate: args.sourceDate,
+    surfacedAt: args.surfacedAt,
+    reasonShownToday: args.reasonShownToday,
   }
 }
 

@@ -28,6 +28,7 @@ import {
 } from '@/insights/investorPulse'
 import type { NavTarget } from '@/insights/sourceMap'
 import { buildFocus, buildLocator, type InsightFocus } from '@/insights/insightFocus'
+import { recentRegulatory } from '@/insights/regulatoryFeed'
 import intelSnapshot from '@/data/snapshots/market-intelligence-snapshot.json'
 import pulseArchive from '@/data/snapshots/pulse-brief-archive.json'
 
@@ -1702,15 +1703,44 @@ export function sinceYesterday(pulse: InvestorPulse): SinceDelta[] {
   const soleHref = (items: PulseSignal[]): string | undefined => (items.length === 1 && items[0].sourceUrl ? items[0].sourceUrl : undefined)
   const freshestHref = (items: PulseSignal[]): string | undefined => items.filter((s) => s.sourceUrl).sort(byNewestSignal)[0]?.sourceUrl || undefined
 
-  // Regulatory — genuinely fresh first; else honestly "newly surfaced" (never "new").
-  const regFresh = fresh.filter((s) => s.category === 'Regulatory')
-  const regSurfaced = surfaced.filter((s) => s.category === 'Regulatory')
-  if (regFresh.length) {
-    const n = regFresh.length
-    out.push({ id: 'reg', label: n === 1 ? 'new regulatory update' : 'new regulatory updates', value: String(n), direction: 'up', tone: 'Watch', target: locTarget('sector-news', 'reg', 'regulatory', `${n} new regulatory ${n === 1 ? 'update' : 'updates'}`), href: soleHref(regFresh) })
-  } else if (regSurfaced.length) {
-    const n = regSurfaced.length
-    out.push({ id: 'reg', label: n === 1 ? 'newly surfaced regulatory update' : 'newly surfaced regulatory updates', value: String(n), direction: 'up', tone: 'Watch', target: locTarget('sector-news', 'reg', 'regulatory', `${n} newly surfaced regulatory ${n === 1 ? 'update' : 'updates'}`), href: soleHref(regSurfaced) })
+  // Regulatory — sourced from the SAME curated feed the "Key Sectoral News"
+  // (Regulatory) page shows, keyed the same way, so this row DEEP-LINKS to the
+  // exact card. 'new' = the source was published in the window; else honestly
+  // 'newly surfaced' (an older source we only just added). Items whose source AND
+  // surfaced dates are both older than the window are already known → excluded, so
+  // stale regulations no longer masquerade as "since yesterday" changes.
+  const regItems = recentRegulatory(todayIso(), 1)
+  if (regItems.length) {
+    const n = regItems.length
+    const top = regItems[0] // newest — the card the click opens + highlights
+    const allNew = regItems.every((r) => r.surfacing === 'new')
+    const noun = n === 1 ? 'update' : 'updates'
+    const label = allNew ? `new regulatory ${noun}` : `newly surfaced regulatory ${noun}`
+    out.push({
+      id: 'reg',
+      label,
+      value: String(n),
+      direction: 'up',
+      tone: 'Watch',
+      // In-app deep-link (Path 1) to the exact regulatory card; the card carries the
+      // original article link as its secondary action, so no external `href` here.
+      target: {
+        ...to('sector-news'),
+        focus: buildLocator({
+          id: 'pulse-since-reg',
+          locatorKind: 'regulatory',
+          company,
+          companyLabel: pulse.company,
+          insightLabel: `${n} ${label}`,
+          sahiTab: 'sector-news',
+          targetItemId: top.itemId,
+          targetMonth: top.month,
+          sourceDate: top.sourceDate,
+          surfacedAt: top.surfacedAt,
+          reasonShownToday: top.reasonShownToday,
+        }),
+      },
+    })
   }
 
   // Company — a "fresh update" ONLY when the source was published in the window; an

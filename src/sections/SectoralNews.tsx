@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { CalendarDays, ChevronDown, ExternalLink, Newspaper, RefreshCw, Search, Sparkles } from 'lucide-react'
 import { SourceTag } from '@/components/SourceTag'
 import { InsightContextChip } from '@/components/insight/InsightContextChip'
@@ -149,10 +149,38 @@ export function SectoralNews() {
     setOpenMonths((p) => ({ ...p, [key]: !isMonthOpen(key, idx) }))
   const toggleShowAll = (key: string) => setShowAll((p) => ({ ...p, [key]: !p[key] }))
 
+  // ── Deep-link from a source click (Daily Brief regulatory update / an insight) ─
+  // Open the exact item's month (even if collapsed), reveal it past the "show more"
+  // cap, scroll the card to centre and blip it — never landing on collapsed months.
+  const targetItemId = focus?.targetItemId ?? null
+  const [blipId, setBlipId] = useState<string | null>(null)
+  useEffect(() => {
+    if (!targetItemId) { setBlipId(null); return }
+    const item = ALL_ITEMS.find((n) => (n.id ?? String(n.sn)) === targetItemId)
+    const month = focus?.targetMonth ?? (item ? monthKey(item.date) : null)
+    if (month) {
+      setOpenMonths((p) => ({ ...p, [month]: true }))
+      setShowAll((p) => ({ ...p, [month]: true }))
+    }
+    setBlipId(targetItemId)
+    const scrollT = window.setTimeout(() => {
+      document
+        .querySelector<HTMLElement>(`[data-source-id="${targetItemId.replace(/(["\\])/g, '\\$1')}"]`)
+        ?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+    }, 140)
+    const clearT = window.setTimeout(() => setBlipId(null), 5200) // long enough to relate insight → evidence
+    return () => { window.clearTimeout(scrollT); window.clearTimeout(clearT) }
+  }, [targetItemId, focus?.targetMonth])
+
+  // The provenance shown at the highlighted card.
+  const targetInfo = targetItemId
+    ? { id: targetItemId, sourceDate: focus?.sourceDate, surfacedAt: focus?.surfacedAt, reason: focus?.reasonShownToday }
+    : null
+
   return (
     // Relative, isolated shell so the soft powder-blue field sits behind the whole
     // section (Option A) — a calm tint, never a flat white page.
-    <div ref={focusRef} className={`relative isolate space-y-4 ${arrived ? 'insight-arrival rounded-2xl' : ''}`}>
+    <div ref={focusRef} className={`relative isolate space-y-4 ${arrived && !targetItemId ? 'insight-arrival rounded-2xl' : ''}`}>
       <SectoralBackdrop />
       {focus && <InsightContextChip focus={focus} />}
 
@@ -236,6 +264,7 @@ export function SectoralNews() {
             return (
               <section
                 key={key}
+                data-source-section-id={key}
                 className="overflow-hidden rounded-2xl border border-[#D3E1F2] bg-gradient-to-b from-[#EFF5FD] to-[#F8FBFE] shadow-[0_1px_2px_rgba(23,43,77,0.04),0_10px_26px_rgba(23,43,77,0.06)]"
               >
                 {/* Header — calendar · month · count · chevron (collapses the body) */}
@@ -262,7 +291,12 @@ export function SectoralNews() {
                   <div className="px-3 pb-3.5 pt-0.5">
                     <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
                       {visible.map((n) => (
-                        <NewsCard key={n.id ?? n.sn} item={n} neu={isNew(n)} />
+                        <NewsCard
+                          key={n.id ?? n.sn}
+                          item={n}
+                          neu={isNew(n)}
+                          targeted={targetInfo && (n.id ?? String(n.sn)) === targetInfo.id ? { ...targetInfo, blip: blipId === (n.id ?? String(n.sn)) } : null}
+                        />
                       ))}
                     </div>
                     {items.length > INITIAL_CARDS && (
@@ -356,12 +390,36 @@ function LensChip({
 
 // ── Single update card — white with a slight blue tint; equal-height, with the
 //    source pinned to the bottom so every row of cards lines up. ───────────────
-function NewsCard({ item, neu }: { item: SectoralNewsItem; neu: boolean }) {
+interface TargetedInfo { sourceDate?: string; surfacedAt?: string; reason?: string; blip?: boolean }
+
+function NewsCard({ item, neu, targeted = null }: { item: SectoralNewsItem; neu: boolean; targeted?: TargetedInfo | null }) {
   const meta = SECTORAL_CATEGORY_META[item.category]
   const domain = domainOf(item.reference)
+  const rowKey = item.id ?? String(item.sn)
 
   return (
-    <article className="flex h-full flex-col rounded-xl border border-[#DCE7F4] bg-gradient-to-br from-white to-[#F4F9FE] p-3.5 shadow-[0_1px_2px_rgba(23,43,77,0.04)] transition-all duration-200 hover:-translate-y-0.5 hover:border-navy-primary/25 hover:shadow-[0_10px_26px_rgba(23,43,77,0.1)]">
+    <article
+      data-source-id={rowKey}
+      data-source-row-key={item.sn}
+      data-source-highlight={targeted ? '1' : undefined}
+      className={`flex h-full flex-col rounded-xl border p-3.5 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_10px_26px_rgba(23,43,77,0.1)] ${
+        targeted
+          ? `border-navy-primary/60 bg-soft-blue/60 shadow-[0_10px_26px_rgba(23,43,77,0.12)] ${targeted.blip ? 'insight-arrival' : ''}`
+          : 'border-[#DCE7F4] bg-gradient-to-br from-white to-[#F4F9FE] shadow-[0_1px_2px_rgba(23,43,77,0.04)] hover:border-navy-primary/25'
+      }`}
+    >
+      {/* Source-evidence label — shown when a source click opened this exact card.
+          `reason` carries the honest new-vs-newly-surfaced explanation. */}
+      {targeted && (
+        <div className="mb-2 rounded-lg border border-[#E4CE93] bg-[#FBF6EA] px-2 py-1.5 leading-snug">
+          <span className="text-[9px] font-bold uppercase tracking-[0.1em] text-champagne-deep">Source for: Regulatory Update</span>
+          {targeted.reason ? (
+            <span className="mt-0.5 block text-[10px] text-navy-deep">{targeted.reason}</span>
+          ) : (
+            targeted.sourceDate && <span className="mt-0.5 block text-[10px] text-ink-secondary">Original source date: {fmtFull(targeted.sourceDate)}</span>
+          )}
+        </div>
+      )}
       {/* Category (colored dot) · AI badge top-right */}
       <div className="flex items-center gap-2">
         <span className="inline-flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-wide" style={{ color: meta.color }}>
