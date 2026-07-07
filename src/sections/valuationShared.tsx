@@ -66,10 +66,15 @@ export function OpenSource({ id, url, title: providedTitle }: { id: string; url?
   // filing/URL lives) instead of opening it here.
   if (auditNav.active) {
     const company = s?.company ? s.company.toLowerCase().replace(/\s+/g, '-') : auditNav.company
+    const year = s?.period?.match(/FY\s?\d{2}/i)?.[0]?.replace(/\s/g, '')
+    const target = [company, s?.metric, year].filter(Boolean).join('::') || undefined
     return (
       <button
         type="button"
-        onClick={() => auditNav.goToAudit(resolveAuditCell({ company, metric: s?.metric, year: s?.period?.match(/FY\s?\d{2}/i)?.[0]?.replace(/\s/g, '') }))}
+        data-source-kind="internal"
+        data-source-id={`audit::${target ?? id}`}
+        data-source-target={target}
+        onClick={() => auditNav.goToAudit(resolveAuditCell({ company, metric: s?.metric, year }))}
         title="View in Data Audit — the source-verification layer"
         className="inline-flex items-center gap-1 rounded-full border border-soft-border bg-white/70 px-2 py-0.5 text-[10px] font-semibold text-navy-primary transition-all hover:border-champagne hover:bg-champagne-soft/40 hover:text-navy-deep hover:shadow-soft"
       >
@@ -81,7 +86,7 @@ export function OpenSource({ id, url, title: providedTitle }: { id: string; url?
 
   if (!href) {
     return (
-      <span className="inline-flex items-center gap-1 rounded-full bg-ice px-2 py-0.5 text-[10px] font-semibold text-ink-secondary ring-1 ring-soft-border" title="Source pending — locked until a citable note is ingested">
+      <span data-source-kind="none" className="inline-flex items-center gap-1 rounded-full bg-ice px-2 py-0.5 text-[10px] font-semibold text-ink-secondary ring-1 ring-soft-border" title="Source pending — locked until a citable note is ingested">
         <Lock className="h-2.5 w-2.5 text-champagne-deep" />
         Locked
       </span>
@@ -93,6 +98,8 @@ export function OpenSource({ id, url, title: providedTitle }: { id: string; url?
       href={href}
       target="_blank"
       rel="noreferrer"
+      data-source-kind="external"
+      data-source-id={`ext::${id}`}
       title={`${title} — opens in a new tab`}
       className="inline-flex items-center gap-1 rounded-full border border-soft-border bg-white/70 px-2 py-0.5 text-[10px] font-semibold text-navy-primary transition-all hover:border-muted-blue hover:bg-white hover:text-navy-deep hover:shadow-soft"
     >
