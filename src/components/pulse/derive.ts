@@ -1399,7 +1399,7 @@ export function dashboardTargetFor(idea: ConvictionIdea, companyId: string): Nav
         id: `conv-reg-${idea.id ?? 'x'}`,
         locatorKind: 'regulatory',
         company: companyId,
-        insightLabel: idea.headline ?? 'Regulatory update',
+        insightLabel: idea.why.whatHappened || 'Regulatory update',
         sahiTab: 'sector-news',
         ...(t ? { targetItemId: t.itemId, targetMonth: t.month, sourceDate: t.sourceDate, surfacedAt: t.surfacedAt, reasonShownToday: t.reasonShownToday } : {}),
       }),
