@@ -1,9 +1,11 @@
-import { Activity, Gauge, Percent, TrendingDown, TrendingUp } from 'lucide-react'
+import { useState } from 'react'
+import { Activity, ChevronDown, Gauge, Percent, TrendingDown, TrendingUp } from 'lucide-react'
 import { EmptyState } from '@/components/EmptyState'
 import { SourceTag } from '@/components/SourceTag'
-import { useActiveCompany } from '@/state/filters'
+import { insurers } from '@/data/mockData'
 import { FOCAL_VALUATION_ID, marketSnapshot } from '@/data/valuationData'
-import { getAnalystCoverage, getMarketQuote } from '@/lib/analystCoverage'
+import { getAnalystCoverage, getMarketQuote, type CoverageBundle, type MarketQuote } from '@/lib/analystCoverage'
+import { defaultStreetViewCompanyId, streetViewCompanies, streetViewCompanyById } from '@/lib/streetViewCompanies'
 import { srcTag } from '@/data/valuationSources'
 import { OpenSource, px, ratingTone, SIGNAL_TONE, streetSignal, upPct, ValPill, type SignalKind } from './valuationShared'
 
@@ -85,38 +87,145 @@ function SignalGauge({ kind, score, buy, hold, sell, upside }: { kind: SignalKin
   )
 }
 
+// ── Street-view company selector — compact, lives in the card header ──────────
+// The Valuation tab is peer-wide, so ONLY this card carries a company selector.
+// It offers just the listed / valid-listed-proxy peers that have analyst coverage
+// (see @/lib/streetViewCompanies) and drives ONLY this section's data.
+function StreetViewSelector({ value, onChange }: { value: string; onChange: (id: string) => void }) {
+  if (streetViewCompanies.length === 0) return null
+  return (
+    <label className="inline-flex items-center gap-1.5">
+      <span className="whitespace-nowrap text-[9.5px] font-semibold uppercase tracking-[0.08em] text-ink-secondary">Street view for</span>
+      <span className="relative">
+        <select
+          aria-label="Street view company"
+          value={value}
+          onChange={(e) => onChange(e.target.value)}
+          className="appearance-none rounded-lg border border-soft-border bg-white/85 py-1 pl-2.5 pr-6 text-[11px] font-semibold text-navy-deep outline-none transition-all duration-200 hover:border-muted-blue focus:border-navy-primary"
+        >
+          {streetViewCompanies.map((o) => (
+            <option key={o.id} value={o.id} title={o.viaProxy && o.proxyParentLabel ? `Coverage via ${o.proxyParentLabel} — listed parent` : undefined}>
+              {o.optionLabel}
+            </option>
+          ))}
+        </select>
+        <ChevronDown className="pointer-events-none absolute right-1.5 top-1/2 h-3 w-3 -translate-y-1/2 text-ink-secondary" />
+      </span>
+    </label>
+  )
+}
+
 export function StreetView({ embedded = false }: { embedded?: boolean } = {}) {
-  const company = useActiveCompany()
-  const coverage = getAnalystCoverage(company.id)
-  const isFocal = company.id === FOCAL_VALUATION_ID
+  // Street View owns its OWN listed-company selection — kept SEPARATE from the
+  // global company selector (hidden on the peer-wide Valuation tab) and from the
+  // peer table's row selection. Changing it updates ONLY this card; the peer
+  // matrix, quality lens and valuation summary are untouched.
+  const fallbackId = defaultStreetViewCompanyId ?? FOCAL_VALUATION_ID
+  const [selectedStreetViewCompanyId, setSelectedStreetViewCompanyId] = useState<string>(fallbackId)
+  // Guard against a stale / ineligible id (e.g. the data set changed) by snapping
+  // back to the default eligible company.
+  const activeId = streetViewCompanies.some((o) => o.id === selectedStreetViewCompanyId) ? selectedStreetViewCompanyId : fallbackId
+  const selected = streetViewCompanyById(activeId)
 
-  if (!coverage) {
-    return (
-      <div className="space-y-5">
-        {embedded ? (
-          <PanelHead title="Street View" note="Analyst targets, ratings, price trend, and key catalysts." />
-        ) : (
-          <HeroBanner company={company.shortName} subtitle="Analyst targets, ratings, price trend, and key catalysts." kind="Neutral" right={null} />
-        )}
-        <div className="card-surface p-5">
-          <EmptyState
-            title={`Analyst coverage not tracked for ${company.shortName}`}
-            body={`Broker targets and consensus are tracked for the listed insurers with citable analyst notes (Niva Bupa, Star Health, ICICI Lombard). ${company.shortName} populates here once such notes are ingested.`}
-            height={300}
-          />
-        </div>
-      </div>
+  // Coverage + market quote come from the actual listed security: the company
+  // itself when directly listed, or its listed parent when shown via a proxy.
+  const coverageId = selected?.coverageId ?? activeId
+  const isFocal = coverageId === FOCAL_VALUATION_ID
+  const shortName = selected?.shortName ?? insurers.find((i) => i.id === activeId)?.shortName ?? 'this company'
+  const coverage = getAnalystCoverage(coverageId)
+  const quote = getMarketQuote(coverageId)
+
+  // Header source chip — focal keeps its curated Moneycontrol tag; other listed
+  // names get the broker-research provenance. Routing/props are unchanged; only
+  // the company id is the selected security. Shown when coverage exists.
+  const sourceChip = coverage ? (
+    isFocal ? (
+      <SourceTag {...srcTag('niva-consensus')} />
+    ) : (
+      <SourceTag
+        source="Broker research"
+        period={coverage.consensus.lastUpdated}
+        confidence="medium"
+        audit={{ company: coverageId, metric: 'Analyst consensus' }}
+        provenance={{ source_name: 'Dated broker reports (rating + target + price-at-reco) via the Trendlyne research aggregator.', source_url: coverage.reports.find((r) => r.sourceUrl)?.sourceUrl ?? '', fetched_at: '' }}
+      />
     )
-  }
+  ) : null
 
-  const quote = getMarketQuote(company.id)
+  // Hero (non-embedded only) needs live coverage numbers, so it renders only when
+  // coverage exists. Inside Valuation (embedded) the decision layer above already
+  // carries the verdict/price/target/signal, so the hero is skipped entirely.
+  const heroValues = coverage ? deriveHero(coverage, quote, isFocal) : null
+
+  return (
+    <div className="space-y-5">
+      {!embedded && heroValues && (
+        <div className="grid grid-cols-1 gap-4 lg:grid-cols-[1.5fr_1fr]">
+          <HeroBanner
+            company={shortName}
+            subtitle="Price, targets and momentum as the market sees them today."
+            kind={heroValues.kind}
+            right={
+              <div className="flex flex-wrap items-end gap-x-5 gap-y-2">
+                <div><p className="text-[9px] font-semibold uppercase tracking-wide text-ink-secondary">Current price</p><p className="font-display text-[20px] leading-none text-navy-deep tabular-nums">{px(heroValues.price)}</p></div>
+                <div><p className="text-[9px] font-semibold uppercase tracking-wide text-ink-secondary">Consensus</p><p className="font-display text-[20px] leading-none tabular-nums" style={{ color: NAVY }}>{px(heroValues.target)}</p></div>
+                <div><p className="text-[9px] font-semibold uppercase tracking-wide text-ink-secondary">Upside</p><p className="font-display text-[20px] leading-none tabular-nums" style={{ color: heroValues.upside == null ? SLATE : heroValues.upside >= 0 ? TEAL : BURG }}>{upPct(heroValues.upside)}</p></div>
+              </div>
+            }
+            asOf={heroValues.priceAsOf}
+          />
+          <SignalGauge kind={heroValues.kind} score={heroValues.score} buy={heroValues.buy} hold={heroValues.hold} sell={heroValues.sell} upside={heroValues.upside} />
+        </div>
+      )}
+
+      {/* ── Street View · Analyst Views — its OWN listed-company selector in the
+             header (aligned with the source chip), then the consolidated evidence:
+             a summary strip + every dated broker call, one clean table. ───────── */}
+      <div className="card-surface p-5">
+        <div className="mb-3 flex flex-wrap items-center justify-between gap-x-3 gap-y-2">
+          <PanelHead title={embedded ? 'Street View · Analyst Views' : 'All Analyst Views'} note="Every dated broker call on record — newest first, each with a live source." />
+          <div className="flex flex-wrap items-center gap-2.5">
+            <StreetViewSelector value={activeId} onChange={setSelectedStreetViewCompanyId} />
+            {sourceChip}
+          </div>
+        </div>
+
+        {coverage && coverage.reports.length > 0 ? (
+          <AnalystEvidence coverage={coverage} quote={quote} shortName={shortName} isFocal={isFocal} />
+        ) : (
+          <div className="rounded-xl border border-dashed border-soft-border bg-ice/40 p-6">
+            <EmptyState
+              title={`No street-view records for ${shortName}`}
+              body="No street-view records available for this selected listed company."
+              height={240}
+            />
+          </div>
+        )}
+      </div>
+    </div>
+  )
+}
+
+// Hero + gauge inputs for the standalone (non-embedded) header, derived from the
+// selected company's coverage. Pure — no data or thresholds changed.
+function deriveHero(coverage: CoverageBundle, quote: MarketQuote | null, isFocal: boolean) {
   const ac = coverage.consensus
-  const reports = coverage.reports
   const price = ac.currentPrice ?? quote?.price ?? null
-  const priceAsOf = isFocal ? marketSnapshot.priceAsOf : quote?.asOf ?? '—'
   const target = ac.consensusTargetPrice
   const upside = target != null && price != null && price > 0 ? (target / price - 1) * 100 : null
   const { score, kind } = streetSignal(ac.buyCount, ac.holdCount, ac.sellCount, ac.analystCount, upside ?? 0)
+  return { price, target, upside, score, kind, buy: ac.buyCount, hold: ac.holdCount, sell: ac.sellCount, priceAsOf: isFocal ? marketSnapshot.priceAsOf : quote?.asOf ?? '—' }
+}
+
+// ── Consolidated analyst evidence — summary strip + every dated broker call ───
+// Driven entirely by the SELECTED street-view company's coverage bundle, so it
+// re-derives average target, upside vs current, the Buy/Hold/Sell split, the
+// latest view date and the table rows whenever the selector changes. Data &
+// formatting are unchanged from the original view; only the company is now local.
+function AnalystEvidence({ coverage, quote, shortName, isFocal }: { coverage: CoverageBundle; quote: MarketQuote | null; shortName: string; isFocal: boolean }) {
+  const ac = coverage.consensus
+  const reports = coverage.reports
+  const price = ac.currentPrice ?? quote?.price ?? null
   const up = (t: number | null) => (t != null && price != null && price > 0 ? (t / price - 1) * 100 : null)
 
   // Dynamic "Average Analyst Target" — the mean of the valid (numeric, > 0)
@@ -137,123 +246,87 @@ export function StreetView({ embedded = false }: { embedded?: boolean } = {}) {
   const latestDate = reports.find((r) => (r.reportDate ?? '').trim().length > 0)?.reportDate ?? null
 
   return (
-    <div className="space-y-5">
-      {/* Standalone (non-embedded) hero + signal gauge. Inside Valuation the
-          decision layer above already carries the verdict, price, target and the
-          signal — so the embedded view skips straight to the analyst evidence and
-          never repeats those numbers. */}
-      {!embedded && (
-        <div className="grid grid-cols-1 gap-4 lg:grid-cols-[1.5fr_1fr]">
-          <HeroBanner
-            company={company.shortName}
-            subtitle="Price, targets and momentum as the market sees them today."
-            kind={kind}
-            right={
-              <div className="flex flex-wrap items-end gap-x-5 gap-y-2">
-                <div><p className="text-[9px] font-semibold uppercase tracking-wide text-ink-secondary">Current price</p><p className="font-display text-[20px] leading-none text-navy-deep tabular-nums">{px(price)}</p></div>
-                <div><p className="text-[9px] font-semibold uppercase tracking-wide text-ink-secondary">Consensus</p><p className="font-display text-[20px] leading-none tabular-nums" style={{ color: NAVY }}>{px(target)}</p></div>
-                <div><p className="text-[9px] font-semibold uppercase tracking-wide text-ink-secondary">Upside</p><p className="font-display text-[20px] leading-none tabular-nums" style={{ color: upside == null ? SLATE : upside >= 0 ? TEAL : BURG }}>{upPct(upside)}</p></div>
-              </div>
-            }
-            asOf={priceAsOf}
-          />
-          <SignalGauge kind={kind} score={score} buy={ac.buyCount} hold={ac.holdCount} sell={ac.sellCount} upside={upside} />
+    <>
+      {/* Consolidated summary strip — average target, upside vs current, the
+          Buy/Hold/Sell split and the latest dated view. Recalculates
+          automatically as the broker rows change; any missing part hides. */}
+      <div className="mb-3 flex flex-wrap items-center gap-x-5 gap-y-2 rounded-xl border border-[#DCE6F4] bg-soft-blue/50 px-4 py-2.5">
+        <div className="flex flex-wrap items-baseline gap-x-2 gap-y-0.5">
+          <span className="text-[10px] font-semibold uppercase tracking-[0.07em] text-ink-secondary">Average target</span>
+          <span className="font-display text-[21px] leading-none tabular-nums text-navy-deep">{px(avgTarget)}</span>
+          <span className="text-[11px] text-ink-secondary">
+            {validTargets.length > 0 ? (
+              <>· {validTargets.length} {validTargets.length === 1 ? 'report' : 'reports'}</>
+            ) : (
+              'no numeric targets yet'
+            )}
+          </span>
         </div>
-      )}
-
-      {/* ── Street View · Analyst Views — the consolidated analyst evidence: one
-             summary strip (target · upside · Buy/Hold/Sell · latest) + every dated
-             broker call, in one clean table. ────────────────────────────────── */}
-      <div className="card-surface p-5">
-        <div className="mb-3 flex flex-wrap items-end justify-between gap-2">
-          <PanelHead title={embedded ? 'Street View · Analyst Views' : 'All Analyst Views'} note="Every dated broker call on record — newest first, each with a live source." />
-          {isFocal ? (
-            <SourceTag {...srcTag('niva-consensus')} />
-          ) : (
-            <SourceTag source="Broker research" period={ac.lastUpdated} confidence="medium" audit={{ company: company.id, metric: 'Analyst consensus' }} provenance={{ source_name: 'Dated broker reports (rating + target + price-at-reco) via the Trendlyne research aggregator.', source_url: reports.find((r) => r.sourceUrl)?.sourceUrl ?? '', fetched_at: '' }} />
-          )}
-        </div>
-
-        {/* Consolidated summary strip — average target, upside vs current, the
-            Buy/Hold/Sell split and the latest dated view. Recalculates
-            automatically as the broker rows change; any missing part hides. */}
-        <div className="mb-3 flex flex-wrap items-center gap-x-5 gap-y-2 rounded-xl border border-[#DCE6F4] bg-soft-blue/50 px-4 py-2.5">
-          <div className="flex flex-wrap items-baseline gap-x-2 gap-y-0.5">
-            <span className="text-[10px] font-semibold uppercase tracking-[0.07em] text-ink-secondary">Average target</span>
-            <span className="font-display text-[21px] leading-none tabular-nums text-navy-deep">{px(avgTarget)}</span>
-            <span className="text-[11px] text-ink-secondary">
-              {validTargets.length > 0 ? (
-                <>· {validTargets.length} {validTargets.length === 1 ? 'report' : 'reports'}</>
-              ) : (
-                'no numeric targets yet'
-              )}
+        {avgUpside != null && (
+          <div className="flex items-baseline gap-1.5">
+            <span className="text-[10px] font-semibold uppercase tracking-[0.07em] text-ink-secondary">Upside vs current</span>
+            <span className="font-display text-[16px] leading-none tabular-nums" style={{ color: avgUpside >= 0 ? TEAL : BURG }}>{upPct(avgUpside)}</span>
+          </div>
+        )}
+        <div className="flex items-center gap-1.5">
+          {([['Buy', ac.buyCount], ['Hold', ac.holdCount], ['Sell', ac.sellCount]] as const).map(([r, c]) => (
+            <span key={r} className="inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[10px] font-semibold" style={{ color: ratingTone[r].fg, background: ratingTone[r].bg }}>
+              <span className="h-1.5 w-1.5 rounded-full" style={{ background: ratingTone[r].fg }} />{c} {r}
             </span>
-          </div>
-          {avgUpside != null && (
-            <div className="flex items-baseline gap-1.5">
-              <span className="text-[10px] font-semibold uppercase tracking-[0.07em] text-ink-secondary">Upside vs current</span>
-              <span className="font-display text-[16px] leading-none tabular-nums" style={{ color: avgUpside >= 0 ? TEAL : BURG }}>{upPct(avgUpside)}</span>
-            </div>
-          )}
-          <div className="flex items-center gap-1.5">
-            {([['Buy', ac.buyCount], ['Hold', ac.holdCount], ['Sell', ac.sellCount]] as const).map(([r, c]) => (
-              <span key={r} className="inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[10px] font-semibold" style={{ color: ratingTone[r].fg, background: ratingTone[r].bg }}>
-                <span className="h-1.5 w-1.5 rounded-full" style={{ background: ratingTone[r].fg }} />{c} {r}
-              </span>
-            ))}
-          </div>
-          {latestDate && (
-            <div className="flex items-baseline gap-1.5">
-              <span className="text-[10px] font-semibold uppercase tracking-[0.07em] text-ink-secondary">Latest</span>
-              <span className="text-[12px] font-semibold text-navy-deep">{latestDate}</span>
-            </div>
-          )}
+          ))}
         </div>
-
-        <div className="overflow-x-auto">
-          <table className="w-full border-separate border-spacing-0 text-left text-[11.5px]">
-            <thead>
-              <tr className="text-[10px] uppercase tracking-wide text-navy-primary/80">
-                <th className="rounded-l-lg border-y border-l border-[#DCE6F4] bg-[#EBF1FB] py-2.5 pl-3 pr-3 font-semibold">Analyst / Broker</th>
-                <th className="border-y border-[#DCE6F4] bg-[#EBF1FB] py-2.5 pr-3 font-semibold">Rating</th>
-                <th className="border-y border-[#DCE6F4] bg-[#EBF1FB] py-2.5 pr-3 text-right font-semibold">Target</th>
-                <th className="border-y border-[#DCE6F4] bg-[#EBF1FB] py-2.5 pr-3 text-right font-semibold">Upside</th>
-                <th className="border-y border-[#DCE6F4] bg-[#EBF1FB] py-2.5 pr-3 font-semibold">Date</th>
-                {hasThesis && <th className="border-y border-[#DCE6F4] bg-[#EBF1FB] py-2.5 pr-3 font-semibold">Key view</th>}
-                <th className="border-y border-[#DCE6F4] bg-[#EBF1FB] py-2.5 pr-3 font-semibold">Source</th>
-                <th className="rounded-r-lg border-y border-r border-[#DCE6F4] bg-[#EBF1FB] py-2.5 pr-3 font-semibold">Confidence</th>
-              </tr>
-            </thead>
-            <tbody>
-              {reports.map((r, i) => {
-                const u = up(r.targetPrice)
-                return (
-                  <tr key={`${r.brokerage}-${r.reportDate}-${i}`} className="align-top transition-colors duration-200 hover:bg-[#F4F8FE]">
-                    <td className="border-b border-[#EEF1F7] py-2.5 pl-3 pr-3 font-semibold text-navy-deep">{r.brokerage}</td>
-                    <td className="border-b border-[#EEF1F7] py-2.5 pr-3">
-                      {r.rating ? (
-                        <span className="inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[9.5px] font-semibold" style={{ color: ratingTone[r.rating].fg, background: ratingTone[r.rating].bg }}><span className="h-1.5 w-1.5 rounded-full" style={{ background: ratingTone[r.rating].fg }} />{r.rating}</span>
-                      ) : (
-                        <span className="text-ink-secondary/40">—</span>
-                      )}
-                    </td>
-                    <td className="border-b border-[#EEF1F7] py-2.5 pr-3 text-right font-semibold tabular-nums text-navy-deep">{r.targetPrice != null ? px(r.targetPrice) : <span className="text-ink-secondary/40">—</span>}</td>
-                    <td className="border-b border-[#EEF1F7] py-2.5 pr-3 text-right font-semibold tabular-nums" style={{ color: u == null ? '#A6AEBC' : u >= 0 ? TEAL : BURG }}>{u == null ? '—' : upPct(u)}</td>
-                    <td className="whitespace-nowrap border-b border-[#EEF1F7] py-2.5 pr-3 text-ink-secondary">{r.reportDate}</td>
-                    {hasThesis && <td className="border-b border-[#EEF1F7] py-2.5 pr-3 text-ink-secondary">{r.thesis}</td>}
-                    <td className="border-b border-[#EEF1F7] py-2.5 pr-3"><OpenSource id={r.sourceId} url={r.sourceUrl} /></td>
-                    <td className="border-b border-[#EEF1F7] py-2.5 pr-3"><ValPill c={r.confidence} /></td>
-                  </tr>
-                )
-              })}
-            </tbody>
-          </table>
-        </div>
-        <p className="mt-3 text-[10.5px] text-ink-secondary">
-          {reports.length} broker {reports.length === 1 ? 'call' : 'calls'} on record for {company.shortName} — every dated note we hold; the consensus above reflects each broker’s latest view. Targets are sourced, never invented.
-        </p>
+        {latestDate && (
+          <div className="flex items-baseline gap-1.5">
+            <span className="text-[10px] font-semibold uppercase tracking-[0.07em] text-ink-secondary">Latest</span>
+            <span className="text-[12px] font-semibold text-navy-deep">{latestDate}</span>
+          </div>
+        )}
       </div>
-    </div>
+
+      <div className="overflow-x-auto">
+        <table className="w-full border-separate border-spacing-0 text-left text-[11.5px]">
+          <thead>
+            <tr className="text-[10px] uppercase tracking-wide text-navy-primary/80">
+              <th className="rounded-l-lg border-y border-l border-[#DCE6F4] bg-[#EBF1FB] py-2.5 pl-3 pr-3 font-semibold">Analyst / Broker</th>
+              <th className="border-y border-[#DCE6F4] bg-[#EBF1FB] py-2.5 pr-3 font-semibold">Rating</th>
+              <th className="border-y border-[#DCE6F4] bg-[#EBF1FB] py-2.5 pr-3 text-right font-semibold">Target</th>
+              <th className="border-y border-[#DCE6F4] bg-[#EBF1FB] py-2.5 pr-3 text-right font-semibold">Upside</th>
+              <th className="border-y border-[#DCE6F4] bg-[#EBF1FB] py-2.5 pr-3 font-semibold">Date</th>
+              {hasThesis && <th className="border-y border-[#DCE6F4] bg-[#EBF1FB] py-2.5 pr-3 font-semibold">Key view</th>}
+              <th className="border-y border-[#DCE6F4] bg-[#EBF1FB] py-2.5 pr-3 font-semibold">Source</th>
+              <th className="rounded-r-lg border-y border-r border-[#DCE6F4] bg-[#EBF1FB] py-2.5 pr-3 font-semibold">Confidence</th>
+            </tr>
+          </thead>
+          <tbody>
+            {reports.map((r, i) => {
+              const u = up(r.targetPrice)
+              return (
+                <tr key={`${r.brokerage}-${r.reportDate}-${i}`} className="align-top transition-colors duration-200 hover:bg-[#F4F8FE]">
+                  <td className="border-b border-[#EEF1F7] py-2.5 pl-3 pr-3 font-semibold text-navy-deep">{r.brokerage}</td>
+                  <td className="border-b border-[#EEF1F7] py-2.5 pr-3">
+                    {r.rating ? (
+                      <span className="inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[9.5px] font-semibold" style={{ color: ratingTone[r.rating].fg, background: ratingTone[r.rating].bg }}><span className="h-1.5 w-1.5 rounded-full" style={{ background: ratingTone[r.rating].fg }} />{r.rating}</span>
+                    ) : (
+                      <span className="text-ink-secondary/40">—</span>
+                    )}
+                  </td>
+                  <td className="border-b border-[#EEF1F7] py-2.5 pr-3 text-right font-semibold tabular-nums text-navy-deep">{r.targetPrice != null ? px(r.targetPrice) : <span className="text-ink-secondary/40">—</span>}</td>
+                  <td className="border-b border-[#EEF1F7] py-2.5 pr-3 text-right font-semibold tabular-nums" style={{ color: u == null ? '#A6AEBC' : u >= 0 ? TEAL : BURG }}>{u == null ? '—' : upPct(u)}</td>
+                  <td className="whitespace-nowrap border-b border-[#EEF1F7] py-2.5 pr-3 text-ink-secondary">{r.reportDate}</td>
+                  {hasThesis && <td className="border-b border-[#EEF1F7] py-2.5 pr-3 text-ink-secondary">{r.thesis}</td>}
+                  <td className="border-b border-[#EEF1F7] py-2.5 pr-3"><OpenSource id={r.sourceId} url={r.sourceUrl} /></td>
+                  <td className="border-b border-[#EEF1F7] py-2.5 pr-3"><ValPill c={r.confidence} /></td>
+                </tr>
+              )
+            })}
+          </tbody>
+        </table>
+      </div>
+      <p className="mt-3 text-[10.5px] text-ink-secondary">
+        {reports.length} broker {reports.length === 1 ? 'call' : 'calls'} on record for {shortName} — every dated note we hold; the consensus above reflects each broker’s latest view. Targets are sourced, never invented.
+        {isFocal ? '' : ' Coverage for the selected listed security.'}
+      </p>
+    </>
   )
 }
 

@@ -8,7 +8,7 @@
 // a true FY+Q range, clamped to the selected year range.
 
 import { useState } from 'react'
-import { ChevronDown } from 'lucide-react'
+import { ChevronDown, Layers } from 'lucide-react'
 import { type SectionTab } from './SectionTabs'
 import { useFilters } from '@/state/filters'
 import { insurers } from '@/data/mockData'
@@ -58,6 +58,13 @@ export function SahiAnalysisHeader({
   // rather than pretending it applies. Company selection still applies everywhere.
   const periodApplies = activeTab === 'distribution' || activeTab === 'profitability' || activeTab === 'governance'
   const offCls = periodApplies ? '' : 'pointer-events-none opacity-40'
+
+  // Valuation is a peer-WIDE comparison, not a single-company page: the global
+  // company selector is hidden here (a single picker at the top made the tab feel
+  // like it was only about one company). The peer table shows every peer, and the
+  // Street View card carries its own listed-company selector. Every other tab
+  // keeps the company selector.
+  const isValuation = activeTab === 'valuation'
 
   // Local source-of-truth so flipping Annual ↔ Quarterly keeps the chosen years.
   const [startFY, setStartFY] = useState(() => fyOfIdx(range.from))
@@ -140,20 +147,31 @@ export function SahiAnalysisHeader({
       {/* ROW 2 — Company · Year range · View · Quarter range, grouped with
           subtle separators and a touch more breathing room. */}
       <div className="flex flex-wrap items-center gap-x-3.5 gap-y-1.5">
-        {/* Company */}
-        <div className="flex items-center gap-1">
-          <L>Co.</L>
-          <span className="relative">
-            <select aria-label="Company" value={highlightedCompany} onChange={(e) => setHighlightedCompany(e.target.value)} className={SELECT_CLS}>
-              {companyOptions.map((c) => (
-                <option key={c.id} value={c.id}>
-                  {c.name}
-                </option>
-              ))}
-            </select>
-            <Caret />
+        {/* Company — hidden on Valuation (a peer-wide view); a compact marker keeps
+            the row's shape so switching tabs never jumps the header height. */}
+        {isValuation ? (
+          <span
+            className="inline-flex items-center gap-1.5 rounded-lg border border-soft-border bg-white/70 py-1 pl-2 pr-2.5 text-[11px] font-semibold text-navy-deep"
+            title="Valuation compares the full peer set — pick a company inside the Street View card"
+          >
+            <Layers className="h-3 w-3 text-champagne-deep" />
+            Peer-wide view
           </span>
-        </div>
+        ) : (
+          <div className="flex items-center gap-1">
+            <L>Co.</L>
+            <span className="relative">
+              <select aria-label="Company" value={highlightedCompany} onChange={(e) => setHighlightedCompany(e.target.value)} className={SELECT_CLS}>
+                {companyOptions.map((c) => (
+                  <option key={c.id} value={c.id}>
+                    {c.name}
+                  </option>
+                ))}
+              </select>
+              <Caret />
+            </span>
+          </div>
+        )}
 
         <Divider />
 

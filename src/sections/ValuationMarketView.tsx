@@ -1,8 +1,8 @@
 import { Info } from 'lucide-react'
+import { insurers } from '@/data/mockData'
 import { FOCAL_VALUATION_ID, marketSnapshot, peerValuation, type PeerValuationRow } from '@/data/valuationData'
 import { getAnalystCoverage, getMarketQuote } from '@/lib/analystCoverage'
 import { srcTag } from '@/data/valuationSources'
-import { useActiveCompany } from '@/state/filters'
 import { InsightContextChip } from '@/components/insight/InsightContextChip'
 import { useSectionInsight } from '@/components/insight/useSectionInsight'
 import { type SourceTagProps } from '@/components/SourceTag'
@@ -14,7 +14,12 @@ import { StreetView } from './StreetView'
 import { buildQuality } from './qualityCompass'
 
 export function ValuationMarketView() {
-  const company = useActiveCompany()
+  // The Valuation tab is a peer-WIDE comparison — it deliberately does NOT follow
+  // the global company selector (hidden on this tab). The consolidated top read
+  // anchors to the focal valuation name; the peer table's own row selection then
+  // drives the snapshot + quality lens, and the Street View card owns its own
+  // listed-company selector. So the global selection never leaks into this tab.
+  const company = insurers.find((c) => c.id === FOCAL_VALUATION_ID) ?? insurers[0]
   const isFocal = company.id === FOCAL_VALUATION_ID
   const { focus, ref: focusRef, arrived } = useSectionInsight('valuation')
 
