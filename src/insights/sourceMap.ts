@@ -97,19 +97,29 @@ export interface SourceLocation {
 
 // ── period ranking & freshness ───────────────────────────────────────────────
 
+const FISCAL_MONTHS = ['Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec', 'Jan', 'Feb', 'Mar']
+
 /** Numeric recency rank for a period label. Higher = more recent.
  *  FY26 → 26 ; FY25 → 25 ; a Q4 FYxx print ranks just under the full FYxx year
- *  (the audited annual is the canonical full-year figure). Unknown → -1. */
+ *  (the audited annual is the canonical full-year figure); a fiscal-month label
+ *  ('Nov FY26') ranks just under the quarter it sits in, chronologically —
+ *  Jun FY26 < Q1 FY26 < Jul FY26 < … < Q4 FY26 < FY26. Unknown → -1. */
 export function periodRank(period: string): number {
   const fy = period.match(/FY\s?(\d{2})/i)
   if (!fy) return -1
   const year = Number(fy[1])
   const q = period.match(/Q\s?([1-4])/i)
-  return q ? year - 0.5 + Number(q[1]) / 10 : year
+  if (q) return year - 0.5 + Number(q[1]) / 10
+  const mIdx = FISCAL_MONTHS.findIndex((m) => period.startsWith(m))
+  if (mIdx >= 0) return year - 0.5 + (mIdx + 1) / 31
+  return year
 }
 
-/** The most recent period the insight actually uses (across its evidence). */
+/** The most recent period the insight actually uses. The engine stamps an
+ *  explicit `period` (where the insight became observable) — that wins; the
+ *  evidence-derived fallback keeps legacy cards honest. */
 export function latestPeriodOf(ins: Insight): string {
+  if (ins.period) return ins.period
   const periods = ins.evidence.map((e) => e.period).filter(Boolean)
   if (periods.length === 0) return ins.chart?.period ?? ''
   return periods.reduce((best, p) => (periodRank(p) > periodRank(best) ? p : best), periods[0])

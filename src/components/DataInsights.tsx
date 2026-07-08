@@ -17,6 +17,16 @@ import { InsightCard, pretty, type Priority } from '@/components/InsightCard'
 const FILE = generated as unknown as InsightsFile
 const PANEL_LATEST = latestPeriodAcross(FILE.insights)
 
+// Landing period: the newest period that carries a real cluster of insights
+// (≥3), so the page opens on a substantive read rather than a lone monthly
+// footnote. The rail still badges the absolute newest period as "Latest".
+function defaultPeriodOf(rows: { period: string }[]): string {
+  const counts = new Map<string, number>()
+  for (const r of rows) counts.set(r.period, (counts.get(r.period) ?? 0) + 1)
+  const ordered = [...counts.keys()].sort((a, b) => periodRank(b) - periodRank(a))
+  return ordered.find((p) => (counts.get(p) ?? 0) >= 3) ?? ordered[0] ?? PANEL_LATEST
+}
+
 const NAVY = 'linear-gradient(168deg, #1C3A6E 0%, #15294C 60%, #102140 100%)'
 const GOLD_ON_NAVY = '#E4C67C'
 
@@ -76,15 +86,37 @@ const ROWS: Row[] = FILE.insights
 
 // ── Left reporting-period rail ────────────────────────────────────────────────
 // Mirrors the Pulse timeline (navy rail, gold accents) but steps through fiscal
-// PERIODS instead of dates. Newest sits at the top, badged "Latest". Only real
-// periods that carry insight data appear — quarters are never invented. Each row
-// shows how many insights exist in that period for the current company.
+// PERIODS instead of dates — now grouped by fiscal year, with the quarters and
+// months where insights became observable nested under each year. Newest sits
+// at the top, badged "Latest". Only real periods that carry insight data appear
+// — quarters and months are never invented. Each node shows how many insights
+// exist in that period for the current company.
+
+/** How a period label reads on the rail: the big text + a plain-English kind. */
+function railFace(p: string): { big: string; kind: string } {
+  if (/^FY\d{2}$/.test(p)) return { big: 'Full year', kind: 'annual' }
+  const q = p.match(/^(Q[1-4])\s?FY\d{2}$/)
+  if (q) return { big: q[1], kind: 'quarter' }
+  const m = p.match(/^([A-Z][a-z]{2})\s?FY\d{2}$/)
+  if (m) return { big: m[1], kind: 'month' }
+  return { big: p, kind: 'period' }
+}
+const fyOf = (p: string): string => (p.match(/FY\s?\d{2}/)?.[0] ?? p).replace(/\s/g, '')
+
 function PeriodRail({ periods, counts, selected, onSelect }: {
-  periods: string[]
+  periods: string[] // newest first
   counts: Record<string, number>
   selected: string
   onSelect: (p: string) => void
 }) {
+  // group by fiscal year, preserving the newest-first order inside and across groups
+  const groups: { fy: string; items: string[] }[] = []
+  for (const p of periods) {
+    const fy = fyOf(p)
+    const g = groups[groups.length - 1]
+    if (g && g.fy === fy) g.items.push(p)
+    else groups.push({ fy, items: [p] })
+  }
   return (
     <aside
       className="relative isolate overflow-hidden rounded-2xl px-3 py-3.5 shadow-card lg:sticky lg:top-2 lg:h-fit lg:w-[172px] lg:shrink-0"
@@ -96,51 +128,63 @@ function PeriodRail({ periods, counts, selected, onSelect }: {
       </p>
 
       {/* vertical rail (lg+) */}
-      <ol className="relative hidden lg:block">
-        <span className="absolute bottom-2 left-[10px] top-2 w-px" style={{ background: 'linear-gradient(180deg, rgba(228,198,124,0.4), rgba(228,198,124,0.08))' }} />
-        {periods.map((p, i) => {
-          const on = p === selected
-          const isLatest = i === 0
-          return (
-            <li key={p} className="relative">
-              <button
-                type="button"
-                onClick={() => onSelect(p)}
-                className="group flex w-full items-center gap-2.5 rounded-lg py-1.5 pr-1 text-left transition-colors hover:bg-white/5"
-              >
-                <span
-                  className="relative z-[1] grid h-[21px] w-[21px] shrink-0 place-items-center rounded-full"
-                  style={{ background: '#15294C', boxShadow: on ? `inset 0 0 0 1px ${GOLD_ON_NAVY}` : 'inset 0 0 0 1px rgba(255,255,255,0.14)' }}
-                >
-                  <span
-                    className="h-2.5 w-2.5 rounded-full transition-transform"
-                    style={{ background: isLatest ? GOLD_ON_NAVY : 'rgba(255,255,255,0.42)', boxShadow: isLatest ? '0 0 0 3px rgba(228,198,124,0.18)' : undefined, transform: on ? 'scale(1.05)' : 'scale(0.86)' }}
-                  />
-                </span>
-                <span className="min-w-0 flex-1">
-                  <span className="flex items-baseline gap-1.5">
-                    <span className="text-[12px] font-bold uppercase tracking-[0.06em]" style={{ color: isLatest ? GOLD_ON_NAVY : on ? '#EAF1FB' : 'rgba(233,241,251,0.74)' }}>
-                      {p}
-                    </span>
-                    {counts[p] > 0 && (
-                      <span className="rounded-full px-1 text-[8px] font-bold text-white/70" style={{ background: 'rgba(255,255,255,0.10)' }}>{counts[p]}</span>
-                    )}
-                  </span>
-                  <span className="block text-[8.5px] font-semibold uppercase tracking-[0.12em] text-white/40">
-                    {isLatest ? 'Latest reported' : 'Prior period'}
-                  </span>
-                </span>
-              </button>
-            </li>
-          )
-        })}
-      </ol>
+      <div className="hidden lg:block">
+        {groups.map((g, gi) => (
+          <div key={g.fy} className={gi > 0 ? 'mt-2.5' : ''}>
+            <p className="flex items-center gap-2 px-1 pb-1">
+              <span className="text-[10px] font-bold uppercase tracking-[0.14em]" style={{ color: gi === 0 ? GOLD_ON_NAVY : 'rgba(233,241,251,0.55)' }}>{g.fy}</span>
+              <span className="h-px flex-1" style={{ background: 'linear-gradient(90deg, rgba(228,198,124,0.28), transparent)' }} />
+            </p>
+            <ol className="relative">
+              <span className="absolute bottom-2 left-[10px] top-1 w-px" style={{ background: 'linear-gradient(180deg, rgba(228,198,124,0.35), rgba(228,198,124,0.06))' }} />
+              {g.items.map((p) => {
+                const on = p === selected
+                const isLatest = gi === 0 && p === groups[0].items[0]
+                const face = railFace(p)
+                return (
+                  <li key={p} className="relative">
+                    <button
+                      type="button"
+                      onClick={() => onSelect(p)}
+                      className="group flex w-full items-center gap-2.5 rounded-lg py-1.5 pr-1 text-left transition-colors hover:bg-white/5"
+                    >
+                      <span
+                        className="relative z-[1] grid h-[21px] w-[21px] shrink-0 place-items-center rounded-full"
+                        style={{ background: '#15294C', boxShadow: on ? `inset 0 0 0 1px ${GOLD_ON_NAVY}` : 'inset 0 0 0 1px rgba(255,255,255,0.14)' }}
+                      >
+                        <span
+                          className="h-2.5 w-2.5 rounded-full transition-transform"
+                          style={{ background: isLatest ? GOLD_ON_NAVY : 'rgba(255,255,255,0.42)', boxShadow: isLatest ? '0 0 0 3px rgba(228,198,124,0.18)' : undefined, transform: on ? 'scale(1.05)' : 'scale(0.86)' }}
+                        />
+                      </span>
+                      <span className="min-w-0 flex-1">
+                        <span className="flex items-baseline gap-1.5">
+                          <span className="text-[12px] font-bold" style={{ color: isLatest ? GOLD_ON_NAVY : on ? '#EAF1FB' : 'rgba(233,241,251,0.78)' }}>
+                            {face.big}
+                          </span>
+                          {counts[p] > 0 && (
+                            <span className="rounded-full px-1 text-[8px] font-bold text-white/70" style={{ background: 'rgba(255,255,255,0.10)' }}>{counts[p]}</span>
+                          )}
+                        </span>
+                        <span className="block text-[8.5px] font-semibold uppercase tracking-[0.12em] text-white/40">
+                          {isLatest ? 'Latest reported' : face.kind}
+                        </span>
+                      </span>
+                    </button>
+                  </li>
+                )
+              })}
+            </ol>
+          </div>
+        ))}
+      </div>
 
       {/* horizontal strip (< lg) */}
       <div className="flex gap-1.5 overflow-x-auto hide-scrollbar lg:hidden">
         {periods.map((p, i) => {
           const on = p === selected
           const isLatest = i === 0
+          const face = railFace(p)
           return (
             <button
               key={p}
@@ -150,8 +194,8 @@ function PeriodRail({ periods, counts, selected, onSelect }: {
               style={{ background: on ? 'rgba(255,255,255,0.08)' : 'transparent', boxShadow: on ? `inset 0 0 0 1px ${GOLD_ON_NAVY}55` : undefined }}
             >
               <span className="h-2 w-2 rounded-full" style={{ background: isLatest ? GOLD_ON_NAVY : 'rgba(255,255,255,0.42)' }} />
-              <span className="text-[11px] font-bold uppercase" style={{ color: isLatest ? GOLD_ON_NAVY : 'rgba(233,241,251,0.82)' }}>{p}</span>
-              <span className="text-[8px] font-semibold uppercase tracking-wide text-white/45">{isLatest ? 'Latest' : 'Prior'}</span>
+              <span className="text-[11px] font-bold" style={{ color: isLatest ? GOLD_ON_NAVY : 'rgba(233,241,251,0.82)' }}>{face.big === 'Full year' ? fyOf(p) : face.big}</span>
+              <span className="text-[8px] font-semibold uppercase tracking-wide text-white/45">{face.big === 'Full year' ? 'Year' : fyOf(p)}</span>
             </button>
           )
         })}
@@ -183,7 +227,7 @@ export function DataInsights({
 }) {
   // Returning from "Go to source → Back to Insight" opens on that insight's period.
   const reopenRow = reopenInsightId ? ROWS.find((r) => r.ins.id === reopenInsightId) : undefined
-  const [period, setPeriod] = useState<string>(reopenRow?.period ?? PANEL_LATEST)
+  const [period, setPeriod] = useState<string>(reopenRow?.period ?? defaultPeriodOf(ROWS))
 
   // Flip the reopened card exactly once — never re-flip when the reader later
   // changes company/period.

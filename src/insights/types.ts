@@ -183,6 +183,14 @@ export interface Insight {
   affectedInsurers: string[]
   chart: ChartSpec
   sourceNote: string
+  /** The reporting period where this insight BECAME OBSERVABLE — a quarter
+   *  ('Q3 FY26'), a fiscal month ('Nov FY26') or a fiscal year ('FY26'). The
+   *  engine sets it explicitly; when absent the UI falls back to the newest
+   *  evidence period. Never invented: it is always a period the underlying
+   *  data actually printed. */
+  period?: string
+  /** Cadence of the period above (annual | quarterly | monthly). */
+  cadence?: 'annual' | 'quarterly' | 'monthly'
   /** The deterministic "show the working" panel — assembled from signals, not the
    *  model (methods.ts). Optional only for backward-compat; every generated and
    *  backfilled insight carries it. */

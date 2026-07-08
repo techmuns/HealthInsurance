@@ -73,6 +73,27 @@ function recompute(step: MethodDescriptor): number | null {
       const cr = numOf(by(/CR/))
       return cr != null ? cr - 100 : null // float cost ≈ CR − 100 (NEP-as-float)
     }
+    // ── engine (detector-battery) keys — all recomputable from their inputs ──
+    case 'yoy_growth': {
+      const x1 = numOf(by(/x_1/)), x0 = numOf(by(/x_0/))
+      return x1 != null && x0 != null && x0 !== 0 ? (x1 / x0 - 1) * 100 : null
+    }
+    case 'pp_delta': {
+      const a = numOf(inputBy(step, (s) => s === 'a')), b = numOf(inputBy(step, (s) => s === 'b'))
+      return a != null && b != null ? a - b : null
+    }
+    case 'share_of': {
+      const p = numOf(inputBy(step, (s) => s === 'p')), t = numOf(inputBy(step, (s) => s === 'T'))
+      return p != null && t ? (p / t) * 100 : null
+    }
+    case 'window_return': {
+      const p1 = numOf(by(/P_1/)), p0 = numOf(by(/P_0/))
+      return p1 != null && p0 ? (p1 / p0 - 1) * 100 : null
+    }
+    case 'dispersion_pct': {
+      const hi = numOf(by(/T_\{hi\}/)), lo = numOf(by(/T_\{lo\}/)), mu = numOf(by(/bar\{T\}/))
+      return hi != null && lo != null && mu ? ((hi - lo) / mu) * 100 : null
+    }
     default:
       return null // ols_trend / mix_attrib / pgwp_growth / consensus / uw_identity: the statistic IS an input
   }
@@ -89,6 +110,10 @@ function directionErrors(id: string, step: MethodDescriptor): string[] {
   if (th) {
     if (step.key === 'zscore' && th.passed !== Math.abs(stat) >= th.value)
       e.push(`${id}/${step.key}: passed=${th.passed} disagrees with |z|=${stat.toFixed(2)} vs ${th.value}`)
+    if (step.key === 'pp_delta' && th.passed !== Math.abs(stat) >= th.value)
+      e.push(`${id}/${step.key}: passed=${th.passed} disagrees with |Δ|=${Math.abs(stat).toFixed(2)} vs ${th.value}`)
+    if (step.key === 'dispersion_pct' && th.passed !== stat >= th.value)
+      e.push(`${id}/${step.key}: passed=${th.passed} disagrees with D=${stat.toFixed(1)} vs ${th.value}`)
     if (step.key === 'solvency_headroom') {
       const S = numOf(inputBy(step, (s) => s === 'S'))
       if (S != null && th.passed !== S >= th.value) e.push(`${id}/${step.key}: passed=${th.passed} disagrees with S=${S} vs floor ${th.value}`)
@@ -146,8 +171,13 @@ export function auditMethodMath(file: InsightsFile): AuditResult {
 
 // ── Part 4 : uniqueness / anti-parroting ──────────────────────────────────────
 
-/** Signature of a single calculation: method × subject company × result symbol. */
-const calcSig = (step: MethodDescriptor): string => `${step.key}::${leadInsurer(step)}::${step.statistic.symbol}`
+/** Signature of a single calculation: method × subject company × result symbol
+ *  × the load-bearing input period. The period matters: the SAME calculation at
+ *  two different reporting periods is two genuinely different observations (the
+ *  engine intentionally tracks a story across prints); the same calculation at
+ *  the same period in two cards is parroting. */
+const calcSig = (step: MethodDescriptor): string =>
+  `${step.key}::${leadInsurer(step)}::${step.statistic.symbol}::${step.inputs[0]?.period ?? ''}`
 const stepKeys = (ins: Insight): Set<string> => new Set((ins.methodology?.steps ?? []).map((s) => s.key))
 
 /**

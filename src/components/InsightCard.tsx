@@ -18,10 +18,16 @@ import type { Freshness, SourceLocation } from '@/insights/sourceMap'
 //  proven mechanics reused across the dashboard's insight cards.
 // ───────────────────────────────────────────────────────────────────────────
 
-// Readable insurer names (the data uses lowercase ids).
+// Readable insurer names (the data uses lowercase ids). Covers the wide engine
+// universe — SAHIs, the big generalists the detectors track, and the printed
+// GI-Council aggregates — so a card subject never renders as a raw id.
 export const NAMES: Record<string, string> = {
   'niva-bupa': 'Niva Bupa', 'star-health': 'Star Health', 'care-health': 'Care Health',
   'aditya-birla': 'Aditya Birla', 'manipalcigna': 'ManipalCigna', panel: 'Across the panel',
+  'icici-lombard': 'ICICI Lombard', 'hdfc-ergo': 'HDFC Ergo', 'bajaj-general': 'Bajaj Allianz',
+  'new-india': 'New India', 'sbi-general': 'SBI General', 'reliance-general': 'Reliance General',
+  'galaxy-health': 'Galaxy Health', 'narayana-health': 'Narayana Health', 'reliance-health': 'Reliance Health',
+  godigit: 'Go Digit', 'religare-enterprises': 'Religare', SAHI: 'SAHIs (all)', INDUSTRY: 'Industry',
 }
 export const pretty = (id: string) => NAMES[id] ?? id
 const GOLD = '#C99736'

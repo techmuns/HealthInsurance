@@ -25,10 +25,12 @@ export function closeTo(a: number, b: number): boolean {
  *  stripped before extraction so "FY25"/"FY29" never read as orphan figures. */
 export const ALLOW_CONSTANTS = new Set<number>([100, 1.5, 150, 12, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
 
-/** Extract every numeric token from text (FY labels removed first). */
+/** Extract every numeric token from text (FY labels removed first). Comma-
+ *  grouped figures ("1,234" / "1,08,911") parse as ONE number — splitting them
+ *  into fragments would let an ungrounded "234" slip past as a small-int. */
 export function numbersIn(text: string): number[] {
-  return [...text.replace(/FY\d{2}/g, '').matchAll(/-?\d+(?:\.\d+)?/g)]
-    .map((m) => Number(m[0]))
+  return [...text.replace(/FY\d{2}/g, '').matchAll(/-?\d{1,3}(?:,\d{2,3})+(?:\.\d+)?|-?\d+(?:\.\d+)?/g)]
+    .map((m) => Number(m[0].replace(/,/g, '')))
     .filter((n) => Number.isFinite(n))
 }
 

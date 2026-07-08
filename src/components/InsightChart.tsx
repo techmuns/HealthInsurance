@@ -4,12 +4,17 @@ import {
 } from 'recharts'
 import type { ChartSpec } from '@/insights/types'
 import { buildPanel, type InsurerPanel } from '@/insights/panel'
+import { engineSeries, engineLatest, engineHas, engineLabel, isEngineKey, brokerTargets, quarterMix } from '@/insights/engine/chartSeries'
+import { periodRank } from '@/insights/sourceMap'
 
 // Charts are bound to the LIVE panel by key — they redraw as new data lands, no
 // code change. A missing series renders a calm "data pending" state, never a crash.
 
 const PANEL = buildPanel()
 const byId = new Map(PANEL.insurers.map((p) => [p.id, p]))
+// The engine's wide panel covers entities beyond the 5-SAHI annual panel
+// (generalists, new licences, printed aggregates) and quarterly/monthly keys.
+const knownId = (id: string) => byId.has(id) || engineHas(id)
 
 // Standalone charts sit in their own bordered card; "embedded" charts live
 // inside a larger insight card, in a soft slate-blue evidence panel with a thin
@@ -30,7 +35,7 @@ const PEER = '#9FB1C9'  // calm slate-blue — the supporting cast
 // protagonist stands out; with no single focus, fall back to the tone-coded cycle.
 const colorFor = (id: string, i: number, focal?: string) =>
   focal ? (id === focal ? FOCAL : PEER) : COLORS[i % COLORS.length] || '#27457E'
-const labelFor = (id: string) => byId.get(id)?.label ?? id
+const labelFor = (id: string) => byId.get(id)?.label ?? (engineHas(id) ? engineLabel(id) : id)
 
 // Plain-English axis labels — never show raw dataset keys to the viewer.
 const METRIC_LABEL: Record<string, string> = {
@@ -38,6 +43,14 @@ const METRIC_LABEL: Record<string, string> = {
   combined_ratio: 'Combined ratio %', solvency_ratio: 'Solvency (x)',
   claims_ratio: 'Claims ratio %', expense_ratio: 'Expense ratio %',
   retail: 'Retail', group: 'Group', health_retail_mix: 'Retail mix %',
+  'eq:total': 'Health GWP ₹ Cr (quarterly)', 'eq:retail': 'Retail health GWP ₹ Cr (quarterly)',
+  'eq:group': 'Group health GWP ₹ Cr (quarterly)', 'eq:share_retail': 'Retail market share %',
+  'eq:share_total': 'Share of industry health %', 'em:total': 'Health GWP ₹ Cr (monthly)',
+  'em:retail': 'Retail health GWP ₹ Cr (monthly)', 'ab:cr_igaap': 'Combined ratio % (IGAAP)',
+  'ab:cr_ifrs': 'Combined ratio % (IFRS)', 'ab:pat_igaap': 'PAT ₹ Cr (IGAAP)',
+  'ab:pat_ifrs': 'PAT ₹ Cr (IFRS)', 'ab:solvency': 'Solvency (x)',
+  'ind:health_share': 'Health share of GI %', 'eq:exgovt': 'Health GWP ex-govt ₹ Cr (quarterly)',
+  'em:exgovt': 'Health GWP ex-govt ₹ Cr (monthly)', 'val:pb': 'P/B statutory (x)', 'val:roe': 'ROE % (statutory)',
 }
 const axisLabel = (k: string) => METRIC_LABEL[k] ?? k
 
@@ -56,6 +69,21 @@ type Num = number | null
 const lastDefined = (xs: { fy: string; v: Num }[]): Num => {
   for (let i = xs.length - 1; i >= 0; i--) if (xs[i].v != null) return xs[i].v
   return null
+}
+
+/** A per-period series for one metric key on one insurer id. Engine keys
+ *  (eq:/em:/ab:/own:/ch:/ind:) resolve against the wide market panel; legacy
+ *  keys read the annual panel as before. */
+function seriesById(id: string, key: string): { fy: string; v: Num }[] {
+  if (isEngineKey(key)) return engineSeries(id, key) ?? []
+  const p = byId.get(id)
+  return p ? series(p, key) : []
+}
+
+function latestById(id: string, key: string): Num {
+  if (isEngineKey(key)) return engineLatest(id, key)
+  const p = byId.get(id)
+  return p ? latest(p, key) : null
 }
 
 /** A per-fiscal-year series for one metric key on one insurer. */
@@ -85,28 +113,36 @@ function Pending({ title, embedded = false }: { title: string; embedded?: boolea
 }
 
 export function InsightChart({ spec, focal, embedded = false, bare = false, fill = false }: { spec: ChartSpec; focal?: string; embedded?: boolean; bare?: boolean; fill?: boolean }) {
-  const insurers = spec.insurers.filter((id) => byId.has(id))
+  const insurers = spec.insurers.filter(knownId)
   const thresholds = (spec.annotations ?? []).filter((a) => a.kind === 'threshold' && typeof a.value === 'number')
 
   // ── timeseries: one line per insurer for seriesKeys[0] ────────────────────
   if (spec.type === 'timeseries') {
-    const key = spec.seriesKeys[0]
-    const fys = [...new Set(insurers.flatMap((id) => series(byId.get(id)!, key).map((s) => s.fy)))].sort()
+    // single-insurer multi-key charts (e.g. PAT on both accounting bases) plot
+    // one line PER KEY; multi-insurer charts plot seriesKeys[0] per insurer.
+    const multiKey = insurers.length === 1 && spec.seriesKeys.length > 1
+    const seriesDefs = multiKey
+      ? spec.seriesKeys.map((k) => ({ dataKey: k, resolve: () => seriesById(insurers[0], k), label: axisLabel(k) }))
+      : insurers.map((id) => ({ dataKey: id, resolve: () => seriesById(id, spec.seriesKeys[0]), label: labelFor(id) }))
+    // chronological order for FY / 'Qn FYxx' / 'Mmm FYxx' labels alike
+    const fys = [...new Set(seriesDefs.flatMap((d) => d.resolve().map((s) => s.fy)))]
+      .sort((a, b) => periodRank(a) - periodRank(b))
     if (!fys.length) return <Pending title={spec.title} embedded={embedded} />
     const rows = fys.map((fy) => {
       const row: Record<string, string | number | null> = { fy }
-      for (const id of insurers) row[id] = series(byId.get(id)!, key).find((s) => s.fy === fy)?.v ?? null
+      for (const d of seriesDefs) row[d.dataKey] = d.resolve().find((s) => s.fy === fy)?.v ?? null
       return row
     })
+    const nameOf = new Map(seriesDefs.map((d) => [d.dataKey, d.label]))
     return (
       <Wrap title={spec.title} embedded={embedded} bare={bare} fill={fill}>
         <LineChart data={rows} margin={{ top: 6, right: 10, left: 0, bottom: 4 }}>
           <CartesianGrid stroke={GRID} vertical={false} strokeDasharray="2 4" />
           <XAxis dataKey="fy" tick={{ fontSize: 11, fill: '#6B7280' }} tickLine={false} axisLine={{ stroke: GRID }} />
           <YAxis tick={{ fontSize: 10.5, fill: '#9AA3B2' }} tickLine={false} axisLine={false} width={36} />
-          <Tooltip contentStyle={TT} formatter={(v: number, n: string) => [v, labelFor(n)]} />
+          <Tooltip contentStyle={TT} formatter={(v: number, n: string) => [v, nameOf.get(n) ?? labelFor(n)]} />
           {thresholds.map((t, i) => <ReferenceLine key={i} y={t.value} stroke="#9C7430" strokeWidth={1.25} strokeDasharray="5 4" label={{ value: t.label, fontSize: 9, fill: '#7A5B16', position: 'insideTopRight', fontWeight: 700 }} />)}
-          {insurers.map((id, i) => <Line key={id} type="monotone" dataKey={id} name={id} stroke={colorFor(id, i, focal)} strokeWidth={focal && id === focal ? 2.6 : 1.6} dot={{ r: focal && id === focal ? 3 : 2 }} connectNulls={false} isAnimationActive={false} />)}
+          {seriesDefs.map((d, i) => <Line key={d.dataKey} type="monotone" dataKey={d.dataKey} name={d.dataKey} stroke={multiKey ? COLORS[i % COLORS.length] : colorFor(d.dataKey, i, focal)} strokeWidth={focal && d.dataKey === focal ? 2.6 : 1.6} dot={{ r: focal && d.dataKey === focal ? 3 : 2 }} connectNulls={false} isAnimationActive={false} />)}
         </LineChart>
       </Wrap>
     )
@@ -115,7 +151,10 @@ export function InsightChart({ spec, focal, embedded = false, bare = false, fill
   // ── ranking_bar: latest value per insurer for seriesKeys[0] ───────────────
   if (spec.type === 'ranking_bar') {
     const key = spec.seriesKeys[0]
-    const data = insurers.map((id, i) => ({ id, label: labelFor(id), v: latest(byId.get(id)!, key), color: colorFor(id, i, focal) })).filter((d) => d.v != null).sort((a, b) => (b.v as number) - (a.v as number))
+    // per-broker target ladder: bars are DESKS, not insurers (one company)
+    const data = key === 'an:targets_by_broker'
+      ? brokerTargets(insurers[0] ?? spec.insurers[0]).map((t, i) => ({ id: t.broker, label: t.broker, v: t.target as Num, color: colorFor(t.broker, i, undefined) }))
+      : insurers.map((id, i) => ({ id, label: labelFor(id), v: latestById(id, key), color: colorFor(id, i, focal) })).filter((d) => d.v != null).sort((a, b) => (b.v as number) - (a.v as number))
     if (!data.length) return <Pending title={spec.title} embedded={embedded} />
     // Faint danger zone on the bad side of a hard-line benchmark (visual only,
     // clipped to the existing scale — no value or domain is changed).
@@ -147,7 +186,7 @@ export function InsightChart({ spec, focal, embedded = false, bare = false, fill
   // ── scatter_dislocation: x=seriesKeys[0], y=seriesKeys[1] per insurer ──────
   if (spec.type === 'scatter_dislocation') {
     const [xk, yk] = spec.seriesKeys
-    const pts = insurers.map((id, i) => ({ id, label: labelFor(id), x: latest(byId.get(id)!, xk), y: latest(byId.get(id)!, yk), color: colorFor(id, i, focal) })).filter((p) => p.x != null && p.y != null)
+    const pts = insurers.map((id, i) => ({ id, label: labelFor(id), x: latestById(id, xk), y: latestById(id, yk), color: colorFor(id, i, focal) })).filter((p) => p.x != null && p.y != null)
     if (!pts.length) return <Pending title={spec.title} embedded={embedded} />
     return (
       <Wrap title={spec.title} embedded={embedded} bare={bare} fill={fill}>
@@ -167,11 +206,19 @@ export function InsightChart({ spec, focal, embedded = false, bare = false, fill
 
   // ── decomposition_stacked: retail vs group per insurer (latest) ───────────
   if (spec.type === 'decomposition_stacked') {
-    const data = insurers.map((id) => {
-      const hm = byId.get(id)!.healthMix
-      const last = hm[hm.length - 1]
-      return { label: labelFor(id), retail: last?.retail ?? null, group: last?.group ?? null }
-    }).filter((d) => d.retail != null || d.group != null)
+    // quarterly keys stack the EXACT quarter the card is about; legacy cards
+    // keep the latest-FY health-mix behaviour.
+    const quarterly = spec.seriesKeys[0]?.startsWith('eq:')
+    const data = quarterly
+      ? insurers.map((id) => {
+          const m = quarterMix(id, spec.period)
+          return m ? { label: labelFor(id), retail: m.retail, group: m.group } : null
+        }).filter((d): d is NonNullable<typeof d> => d != null && (d.retail != null || d.group != null))
+      : insurers.map((id) => {
+          const hm = byId.get(id)?.healthMix ?? []
+          const last = hm[hm.length - 1]
+          return { label: labelFor(id), retail: last?.retail ?? null, group: last?.group ?? null }
+        }).filter((d) => d.retail != null || d.group != null)
     if (!data.length) return <Pending title={spec.title} embedded={embedded} />
     return (
       <Wrap title={spec.title} embedded={embedded} bare={bare} fill={fill}>
@@ -190,7 +237,7 @@ export function InsightChart({ spec, focal, embedded = false, bare = false, fill
   // ── slope_dumbbell: first vs last period of seriesKeys[0] per insurer ─────
   const key = spec.seriesKeys[0]
   const rows = insurers.map((id, i) => {
-    const s = series(byId.get(id)!, key).filter((x) => x.v != null)
+    const s = seriesById(id, key).filter((x) => x.v != null)
     if (s.length < 2) return null
     return { id, label: labelFor(id), from: s[0], to: s[s.length - 1], color: colorFor(id, i, focal) }
   }).filter((r): r is NonNullable<typeof r> => r != null)

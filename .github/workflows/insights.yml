@@ -1,13 +1,13 @@
 name: insights generate
 
-# Regenerates the Insights tab's ranked feed. The deterministic signal layer is
-# recomputed from the live snapshots and handed to the Anthropic API, which
-# writes only what the numbers support (a code validator enforces numeric
-# grounding + the source firewall). A fresh filing -> fresh insights, no manual
-# authoring. The committed JSON auto-deploys via the existing Pages build.
-#
-# One-time setup: add repo secret ANTHROPIC_API_KEY (+ optional variable
-# INSIGHTS_MODEL). That is the entire manual surface.
+# Regenerates the Insights tab's ranked feed with the INSIGHT ENGINE — a
+# deterministic detector battery that scans the wide market panel (discrete
+# quarters, single months, fiscal years, ownership, analyst notes, prices,
+# valuation, channel mix) and writes the cards itself. No API key, no manual
+# authoring: a fresh filing -> new findings -> new cards, organised by the
+# quarter/month where each insight became observable. Two fail-closed gates
+# (numeric grounding + arithmetic/direction audit) run before anything is
+# written OR committed. The committed JSON auto-deploys via the Pages build.
 
 on:
   workflow_dispatch:
@@ -72,34 +72,24 @@ jobs:
         env:
           PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: '1'
 
-      # Regenerate FIRST, then validate the fresh output. Both generators are
-      # fail-closed (they write nothing unless every number is grounded in the live
-      # signals and the arithmetic/direction gate passes, and the methodology is
-      # deterministic-only), so the firewall is fully preserved. Running the check
-      # before regeneration used to deadlock: when the live data drifted, the
-      # committed cards went stale, the check failed on those stale numbers, and the
-      # job aborted *before* the regeneration step that would have fixed them — so
-      # the feed could never self-heal. Generate-then-validate removes that deadlock.
+      # Regenerate FIRST, then validate the fresh output. The engine is fail-closed
+      # (it writes nothing unless every number is grounded in the live signals and
+      # the arithmetic/direction gate passes), so the firewall is fully preserved.
+      # Running the check before regeneration used to deadlock: when the live data
+      # drifted, the committed cards went stale, the check failed on those stale
+      # numbers, and the job aborted *before* the regeneration step that would have
+      # fixed them — so the feed could never self-heal. Generate-then-validate
+      # removes that deadlock.
       #
-      # No API key? Fall back to the DETERMINISTIC keyless writer — it re-reads every
-      # number from the live signals and re-narrates the cards with plain templated
-      # prose (no AI, no secret). So the feed stays numerically fresh and honest
-      # whether or not ANTHROPIC_API_KEY is set; the key only upgrades the WORDING to
-      # the AI's variant-perception prose, never gates whether it refreshes.
-      - name: Generate insights
-        # A transient AI/API outage is not a failure: the last insights stay shown
+      # The engine is deterministic and keyless by design — same data, same cards,
+      # no secret to rotate, nothing to babysit. (The optional AI writer,
+      # scripts/generate-insights.ts, remains available for manual experiments but
+      # is no longer part of the automated path.)
+      - name: Generate insights (deterministic engine)
+        # A transient failure is not fatal: the last insights stay shown
         # (the grounding check below still guards honesty). Never red the run over it.
         continue-on-error: true
-        env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-          INSIGHTS_MODEL: ${{ vars.INSIGHTS_MODEL }}
-        run: |
-          if [ -z "$ANTHROPIC_API_KEY" ]; then
-            echo "ANTHROPIC_API_KEY not set — using the deterministic keyless writer (live numbers, plain prose)."
-            npm run insights:generate:keyless
-          else
-            npm run insights:generate
-          fi
+        run: npm run insights:generate:engine
 
       # Belt-and-suspenders: validate whatever is now on disk (the freshly generated
       # feed, or the committed one if regeneration was skipped). Fail-closed.

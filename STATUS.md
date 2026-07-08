@@ -1,12 +1,42 @@
 # Project Status — Official Filings → Excel Pipeline
 
-_Last updated: 2026-06-24. Branch: `main`._
+_Last updated: 2026-07-08. Branch: `main`._
 
 This is the handoff/status doc for the official-filings → Excel-fill work. The
 container is ephemeral, so this lives in the repo so the next session can pick up
 without re-deriving state.
 
 ## Where it stands
+- **Insight Engine v2 — the Data Insights tab now writes itself** (Neha, 2026-07-08):
+  the old 7-card keyless re-narrator is replaced by a deterministic **detector
+  battery** (`src/insights/engine/`) that scans the WIDE data surface — discrete
+  quarters derived honestly from the GI Council cumulative prints (Q2=H1−Q1,
+  Q3=9M−H1, Q4=FY−9M, both printed legs required, negatives → null), single
+  months, fiscal years, dual-basis (IGAAP/IFRS, never blended) profitability,
+  quarterly ownership filings, dated broker notes, daily prices, valuation and
+  channel mix. ~15 detector families (share shifts, growth inflections, mix
+  quality, seasonal surprise vs own same-quarter history, monthly momentum,
+  SAHI-vs-generalist structure, new-licence ramps, combined-ratio regime
+  changes, IGAAP-vs-IFRS divergence, solvency runway, reverse-Gordon valuation
+  dislocation, price-vs-fundamentals gaps, register rotation, analyst
+  repricing/dispersion, channel rewiring, industry tide) emit typed findings;
+  deterministic buy-side templates narrate them (consensus view → variant basis
+  → steelman → falsifier → watch items); scoring (magnitude + materiality +
+  persistence + recency) sets tier/priority and caps the feed (~58 cards). Every
+  card carries the exact PERIOD where it became observable — quarters and
+  months, not just fiscal years — and the period rail groups FY → quarters →
+  months. Charts bind to the same wide panel (quarterly/monthly series,
+  broker-target ladders, dual-basis PAT). BOTH fail-closed gates extended and
+  kept: the grounding firewall (now parses comma-grouped figures as one number)
+  and the arithmetic/direction/uniqueness audit (new recomputable method keys:
+  yoy_growth, pp_delta, share_of, window_return, dispersion_pct).
+  `npm run insights:generate:engine` (also wired as `insights:generate:keyless`,
+  so `insights.yml` regenerates on every data-refresh clock with **no API key**);
+  `npm run insights:check` = 16 assertions incl. determinism (byte-identical
+  reruns) and adversarial corruption tests. Superseded and removed:
+  `scripts/insights/generate-keyless.ts`, `backfill-methodology.ts`,
+  `src/insights/forwardSeeds.ts`. Default landing period = newest period with
+  ≥3 insights (so the page opens on a substantive cluster, announced to Neha).
 - **AI Mode in the Data Audit table** (Neha, 2026-06-24): a lightweight **AI Mode**
   toggle sits on the Data Audit page. With it on, the reviewer **drag-selects cells
   like Excel** (rectangular range; Esc / Clear to reset); a floating bar shows
