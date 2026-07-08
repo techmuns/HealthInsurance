@@ -93,6 +93,101 @@ function fmt(value: number | null, kind: MetricKind): string {
   return value.toLocaleString('en-IN')
 }
 
+// ── Single-basis fallback (insurers outside the dual-basis set) ───────────────
+// Companies without a hand-curated IFRS-vs-IGAAP comparison still have their own
+// filed IGAAP / Statutory figures in the annual snapshot (the Data Audit source).
+// We surface THOSE as one honest "as filed" table rather than a blank wall —
+// every present figure shows, every unfiled figure is a quiet "—" (never a 0).
+interface SnapshotProfitRow {
+  gwp: number | null
+  nep: number | null
+  pat: number | null
+  combinedRatio: number | null
+  expenseRatio: number | null
+  claimsRatio: number | null
+  solvency: number | null
+  roe: number | null
+}
+
+function useSnapshotProfit(companyId: string): Record<string, SnapshotProfitRow> {
+  return useMemo(() => {
+    const num = (v: unknown): number | null => (typeof v === 'number' ? v : null)
+    const m: Record<string, SnapshotProfitRow> = {}
+    ;(annualSnapshot.data as Array<Record<string, unknown>>)
+      .filter((r) => r.company_id === companyId)
+      .forEach((r) => {
+        m[String(r.fiscal_year)] = {
+          gwp: num(r.gwp),
+          nep: num(r.nep),
+          pat: num(r.pat),
+          combinedRatio: num(r.combined_ratio),
+          expenseRatio: num(r.expense_ratio),
+          claimsRatio: num(r.claims_ratio),
+          solvency: num(r.solvency_ratio),
+          roe: num(r.roe),
+        }
+      })
+    return m
+  }, [companyId])
+}
+
+// True when the snapshot carries at least one real PROFITABILITY figure (not just
+// premium) — the bar for showing a single-basis table instead of the empty state.
+function snapshotHasProfit(rows: Record<string, SnapshotProfitRow>): boolean {
+  return Object.values(rows).some(
+    (r) =>
+      r.pat != null ||
+      r.combinedRatio != null ||
+      r.claimsRatio != null ||
+      r.expenseRatio != null ||
+      r.nep != null ||
+      r.solvency != null ||
+      r.roe != null,
+  )
+}
+
+// The single IGAAP / Statutory metric stack, read straight from the snapshot.
+// Same row order & semantics as the dual IGAAP table; underwriting result is
+// derived only when BOTH net earned premium and combined ratio exist (never a
+// partial-basis number). No "statutory" mirror-pills here — there is no second
+// table to reconcile against.
+function snapshotIgaapMetrics(rows: Record<string, SnapshotProfitRow>): MetricDef[] {
+  const g = (p: BasisPeriod) => rows[p] ?? null
+  return [
+    { label: 'Gross Written Premium (₹ Cr)', kind: 'cr', goodWhenUp: true, get: (p) => g(p)?.gwp ?? null },
+    { label: 'Net Earned Premium (₹ Cr)', kind: 'cr', goodWhenUp: true, get: (p) => g(p)?.nep ?? null },
+    { label: 'Claims Ratio (%)', kind: 'pct', goodWhenUp: false, get: (p) => g(p)?.claimsRatio ?? null },
+    { label: 'Expense Ratio (%)', kind: 'pct', goodWhenUp: false, get: (p) => g(p)?.expenseRatio ?? null },
+    { label: 'Combined Ratio (%)', kind: 'pct', goodWhenUp: false, get: (p) => g(p)?.combinedRatio ?? null },
+    { label: 'Underwriting Result (₹ Cr)', kind: 'cr', goodWhenUp: true, get: (p) => uw(g(p)?.nep ?? null, g(p)?.combinedRatio ?? null) },
+    { label: 'PAT (₹ Cr)', kind: 'cr', goodWhenUp: true, get: (p) => g(p)?.pat ?? null },
+    { label: 'RoE (%)', kind: 'pct', goodWhenUp: true, get: (p) => g(p)?.roe ?? null },
+    { label: 'Solvency Ratio (x)', kind: 'x', goodWhenUp: true, get: (p) => g(p)?.solvency ?? null },
+  ]
+}
+
+// Up to four honest, period-labelled takeaways from the snapshot (single basis).
+function buildSnapshotTakeaways(rows: Record<string, SnapshotProfitRow>, years: BasisPeriod[]): string[] {
+  const latest = (sel: (r: SnapshotProfitRow) => number | null): { p: BasisPeriod; v: number } | null => {
+    for (let i = years.length - 1; i >= 0; i--) {
+      const r = rows[years[i]]
+      const v = r ? sel(r) : null
+      if (v != null) return { p: years[i], v }
+    }
+    return null
+  }
+  const out: string[] = []
+  const cr = latest((r) => r.combinedRatio)
+  if (cr) out.push(`Combined ratio ${cr.v.toFixed(1)}% · ${cr.p}`)
+  const pat = latest((r) => r.pat)
+  if (pat) out.push(`PAT ₹${pat.v.toLocaleString('en-IN')} Cr · ${pat.p}`)
+  const solv = latest((r) => r.solvency)
+  if (solv) out.push(`Solvency ${solv.v >= 1.5 ? 'comfortable' : 'tight'} at ${solv.v.toFixed(2)}x`)
+  const roe = latest((r) => r.roe)
+  if (roe) out.push(`RoE ${roe.v.toFixed(1)}% · ${roe.p}`)
+  return out.slice(0, 4)
+}
+
 // ── Trend sparkline — colour-coded by direction & whether that's good ─────────
 function Trend({ values, goodWhenUp }: { values: (number | null)[]; goodWhenUp: boolean }) {
   const gid = `spark-${useId().replace(/:/g, '')}`
@@ -389,16 +484,27 @@ function profitSeries(id: string, metricKey: string): { label: string; v: number
 
 export function ProfitabilityReview() {
   const company = useActiveCompany()
+  const { profitabilityFrequency } = useFilters()
   const [view, setView] = useState<'table' | 'chart'>('table')
   const gwpByFy = useGwpByFy(company.id)
   const id = company.id
   // Periods follow the header's Annual/Quarterly toggle + Data Range.
   const periods = useVisiblePeriods()
 
+  // Which view the page can honestly show for this insurer:
+  //   • dual   → hand-curated IFRS-vs-IGAAP comparison (two tables)
+  //   • single → the insurer's own filed IGAAP / Statutory figures (one table)
+  //   • empty  → no filed profitability figures exist yet (honest empty state)
+  const snapProfit = useSnapshotProfit(id)
+  const tracked = hasBasisData(id)
+  const mode: 'dual' | 'single' | 'empty' = tracked ? 'dual' : snapshotHasProfit(snapProfit) ? 'single' : 'empty'
+  const isQuarterly = profitabilityFrequency === 'Quarterly'
+
   // Insight-linked mode: when opened from a margin/profitability insight for THIS
   // company, spotlight the metric's row (and its chart) with a pinned comparison.
+  // Only the dual-basis tables carry the insight-linked series, so gate on that.
   const rawFocus = useSectionFocus('profitability')
-  const focusActive = !!rawFocus && (rawFocus.company == null || rawFocus.company === id) && PROFIT_METRIC_KEYS.has(rawFocus.metricKey)
+  const focusActive = tracked && !!rawFocus && (rawFocus.company == null || rawFocus.company === id) && PROFIT_METRIC_KEYS.has(rawFocus.metricKey)
   const focus = focusActive ? rawFocus : null
   const { ref: focusRef, arrived } = useScrollIntoFocus<HTMLDivElement>(focusActive)
   const resolved = focus
@@ -455,17 +561,24 @@ export function ProfitabilityReview() {
     return { ifrsMetrics: ifrs, igaapMetrics: igaap }
   }, [id, gwpByFy])
 
-  // Honest, data-driven key takeaways (IGAAP/Statutory series).
-  const takeaways = useMemo(() => buildTakeaways(id, periods), [id, periods])
+  // Single-basis (IGAAP / Statutory · as filed) stack for non-dual insurers.
+  const singleMetrics = useMemo(() => snapshotIgaapMetrics(snapProfit), [snapProfit])
 
-  if (!hasBasisData(id)) {
+  // Honest, data-driven key takeaways — dual series for tracked insurers, the
+  // filed snapshot series for single-basis insurers.
+  const takeaways = useMemo(
+    () => (tracked ? buildTakeaways(id, periods) : buildSnapshotTakeaways(snapProfit, periods)),
+    [tracked, id, periods, snapProfit],
+  )
+
+  if (mode === 'empty') {
     return (
       <div className="space-y-5">
         <ReviewToolbar name={company.shortName} span={periodSpan} view={view} onView={setView} />
         <DataEmptyState
           kind="pending"
-          title="Dual-framework profitability not yet tracked for this insurer"
-          body={`A full IND AS / IFRS-style vs IGAAP / Statutory comparison is curated for ${BASIS_TRACKED_COMPANIES.join(', ')}. Select one of those companies above to review both bases.`}
+          title="Profitability not yet available for this insurer"
+          body={`No filed profitability figures are in the data audit for ${company.shortName} yet. A full IND AS / IFRS-style vs IGAAP / Statutory comparison is curated for ${BASIS_TRACKED_COMPANIES.join(', ')}.`}
           height={260}
         />
       </div>
@@ -474,9 +587,17 @@ export function ProfitabilityReview() {
 
   return (
     <div className="space-y-5">
-      <ReviewToolbar name={company.shortName} span={periodSpan} view={view} onView={setView} />
+      <ReviewToolbar
+        name={company.shortName}
+        span={periodSpan}
+        view={view}
+        onView={setView}
+        descriptor={mode === 'single' ? 'IGAAP / Statutory · as filed' : undefined}
+      />
 
-      {dispFocus && <InsightFocusBanner focus={dispFocus} resolved={resolved} />}
+      {mode === 'dual' && dispFocus && <InsightFocusBanner focus={dispFocus} resolved={resolved} />}
+
+      {mode === 'single' && <SingleBasisNote />}
 
       {periods.length === 0 ? (
         <DataEmptyState
@@ -485,6 +606,21 @@ export function ProfitabilityReview() {
           body="Profitability is reported on annual (FY23–FY26) and Q4 standalone bases. Widen the Data Range — or switch the Annual/Quarterly toggle — to bring a reported period into view."
           height={240}
         />
+      ) : mode === 'single' && isQuarterly ? (
+        <DataEmptyState
+          kind="not-disclosed"
+          title="Quarterly profitability not filed for this insurer"
+          body={`${company.shortName} files these figures annually. Switch the Annual / Quarterly toggle to Annual to review FY23–FY26.`}
+          height={240}
+        />
+      ) : mode === 'single' ? (
+        <div className="mx-auto max-w-3xl animate-fade-in">
+          {view === 'table' ? (
+            <FrameworkTable theme={IGAAP_THEME} metrics={singleMetrics} years={periods} />
+          ) : (
+            <SnapshotCharts rows={snapProfit} years={periods} />
+          )}
+        </div>
       ) : view === 'table' ? (
         <div ref={focusRef} className={`space-y-5 animate-fade-in ${arrived ? 'insight-arrival rounded-2xl' : ''}`}>
           <div className="grid grid-cols-1 gap-5 lg:grid-cols-2 lg:items-start">
@@ -503,23 +639,29 @@ export function ProfitabilityReview() {
       <div className="flex flex-col gap-3 rounded-[18px] border border-soft-border bg-gradient-to-br from-white to-ice/50 p-4 sm:flex-row sm:items-center sm:justify-between">
         <div className="flex flex-wrap items-center gap-2">
           <span className="text-[10px] font-bold uppercase tracking-[0.16em] text-champagne-deep">Key takeaways</span>
-          {takeaways.map((t) => (
-            <span key={t} className="inline-flex items-center rounded-full bg-white px-2.5 py-1 text-[11px] font-medium text-navy-deep ring-1 ring-soft-border">
-              {t}
-            </span>
-          ))}
+          {takeaways.length ? (
+            takeaways.map((t) => (
+              <span key={t} className="inline-flex items-center rounded-full bg-white px-2.5 py-1 text-[11px] font-medium text-navy-deep ring-1 ring-soft-border">
+                {t}
+              </span>
+            ))
+          ) : (
+            <span className="text-[11px] text-ink-secondary">Filed figures shown above.</span>
+          )}
         </div>
         <SourceTag
-          source="Annual reports & filings"
+          source={mode === 'single' ? 'Company filings' : 'Annual reports & filings'}
           period={periodSpan}
           confidence="high"
           audit={{ company: company.id, metric: 'Combined ratio' }}
-          provenance={{ source_name: 'Company Annual Reports / Statutory Filings — IGAAP statutory accounts & IFRS / Ind AS accounts.' }}
+          provenance={{ source_name: mode === 'single' ? 'Company statutory filings / IRDAI disclosures — IGAAP / Statutory accounts.' : 'Company Annual Reports / Statutory Filings — IGAAP statutory accounts & IFRS / Ind AS accounts.' }}
         />
       </div>
 
       <p className="text-[10px] text-ink-secondary/70">
-        Net earned premium (NEP) and gross written premium (GWP) are premium measures, not profit — PAT, underwriting result and combined ratio are the profit measures. Underwriting result = net earned premium × (1 − combined ratio). Investment leverage = investment AUM ÷ net worth. RoE, solvency, net worth and the investment book are statutory measures (IFRS equity is not separately reported), shown for reference on both bases.
+        {mode === 'single'
+          ? 'Net earned premium (NEP) and gross written premium (GWP) are premium measures, not profit — PAT, underwriting result and combined ratio are the profit measures. Underwriting result = net earned premium × (1 − combined ratio). RoE and solvency are statutory measures. Figures are this insurer’s filed IGAAP / Statutory accounts; a full IFRS / Ind AS restatement is not yet tracked for this insurer.'
+          : 'Net earned premium (NEP) and gross written premium (GWP) are premium measures, not profit — PAT, underwriting result and combined ratio are the profit measures. Underwriting result = net earned premium × (1 − combined ratio). Investment leverage = investment AUM ÷ net worth. RoE, solvency, net worth and the investment book are statutory measures (IFRS equity is not separately reported), shown for reference on both bases.'}
       </p>
     </div>
   )
@@ -529,13 +671,13 @@ export function ProfitabilityReview() {
 // (the page headline above already carries the Profitability narrative). One
 // compact, horizontally-aligned strip: company · descriptor · period badge · the
 // Table/Chart view toggle. Premium, calm, no second big heading.
-function ReviewToolbar({ name, span, view, onView }: { name: string; span: string; view: 'table' | 'chart'; onView: (v: 'table' | 'chart') => void }) {
+function ReviewToolbar({ name, span, view, onView, descriptor }: { name: string; span: string; view: 'table' | 'chart'; onView: (v: 'table' | 'chart') => void; descriptor?: string }) {
   return (
     <div className="relative flex flex-wrap items-center gap-x-3 gap-y-2 overflow-hidden rounded-xl border border-soft-border bg-gradient-to-r from-[#F8F7F2] via-card to-[#EEF3F9] px-3.5 py-2 shadow-soft">
       {/* thin muted-gold accent line */}
       <span aria-hidden className="pointer-events-none absolute inset-y-0 left-0 w-[3px] bg-gradient-to-b from-champagne to-champagne-deep" />
       <span className="pl-1.5 font-display text-[14px] leading-none text-navy-deep">{name}</span>
-      <span className="hidden text-[11.5px] leading-none text-ink-secondary sm:inline">IND AS / IFRS-style and IGAAP / Statutory comparison</span>
+      <span className="hidden text-[11.5px] leading-none text-ink-secondary sm:inline">{descriptor ?? 'IND AS / IFRS-style and IGAAP / Statutory comparison'}</span>
       {span && span !== '—' && (
         <span className="inline-flex items-center rounded-full bg-soft-blue px-2 py-0.5 text-[10px] font-semibold tabular-nums text-navy-primary ring-1 ring-[#D6E2FA]">{span}</span>
       )}
@@ -555,6 +697,40 @@ function ReviewToolbar({ name, span, view, onView }: { name: string; span: strin
             {v}
           </button>
         ))}
+      </div>
+    </div>
+  )
+}
+
+// Honest one-basis banner — explains why only one table shows and reasserts the
+// missing-≠-zero rule. Gold-tinted to match the IGAAP / Statutory table it sits
+// above, so it reads as an intentional state rather than a degraded one.
+function SingleBasisNote() {
+  return (
+    <div className="mx-auto flex max-w-3xl items-start gap-2 rounded-xl border border-[#EFE2C3] bg-gold-soft/30 px-3.5 py-2 text-[11.5px] leading-relaxed text-ink-secondary">
+      <ShieldCheck className="mt-0.5 h-3.5 w-3.5 shrink-0 text-gold" />
+      <span>
+        Shown on <span className="font-semibold text-navy-deep">one basis — IGAAP / Statutory (as filed)</span>. A full IFRS / Ind AS restatement is curated for {BASIS_TRACKED_COMPANIES.join(', ')}. Any figure not yet filed shows a quiet “—”, never a zero.
+      </span>
+    </div>
+  )
+}
+
+// Single-basis chart view — combined ratio (underwriting quality) + solvency
+// (capital strength), the two figures most consistently filed across insurers.
+// Reads straight from the snapshot; missing years are skipped, never zeroed.
+function SnapshotCharts({ rows, years }: { rows: Record<string, SnapshotProfitRow>; years: BasisPeriod[] }) {
+  const cr = years.map((p) => ({ fy: p, v: rows[p]?.combinedRatio ?? null }))
+  const solv = years.map((p) => ({ fy: p, v: rows[p]?.solvency ?? null }))
+  return (
+    <div
+      className="overflow-hidden rounded-[18px] border bg-white shadow-[0_1px_2px_rgba(23,43,77,0.04),0_10px_26px_rgba(23,43,77,0.06)]"
+      style={{ borderColor: IGAAP_THEME.frameBorder }}
+    >
+      <FrameworkHeader theme={IGAAP_THEME} />
+      <div className="grid grid-cols-1 gap-3 p-4 sm:grid-cols-2">
+        <MiniSeriesChart title="Combined Ratio (%)" data={cr} unit="%" color="#9C7430" annotation={null} />
+        <MiniSeriesChart title="Solvency Ratio (x)" data={solv} unit="x" color="#9C7430" annotation={null} />
       </div>
     </div>
   )
