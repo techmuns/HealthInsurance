@@ -324,6 +324,33 @@ body {
   display: none;
 }
 
+/* Prominent, easy-to-grab scrollbars for the dense audit grid — a very wide table
+   where the default hair-thin bar is hard to find and drag. Chunky rounded thumb,
+   visible track, clear hover state; both axes. */
+.scroll-grid {
+  scrollbar-width: auto;
+  scrollbar-color: #9db0cd #eaeff7;
+}
+.scroll-grid::-webkit-scrollbar {
+  width: 15px;
+  height: 15px;
+}
+.scroll-grid::-webkit-scrollbar-thumb {
+  background: #a7b8d4;
+  border: 3px solid #eaeff7;
+  border-radius: 999px;
+}
+.scroll-grid::-webkit-scrollbar-thumb:hover {
+  background: #7c92b8;
+}
+.scroll-grid::-webkit-scrollbar-track {
+  background: #eaeff7;
+  border-radius: 999px;
+}
+.scroll-grid::-webkit-scrollbar-corner {
+  background: #eaeff7;
+}
+
 /* ── Insight "show the working" flip card ─────────────────────────────────
    A real 3D half-turn (front ⇄ methodology). The wrapper's height is animated
    in JS to whichever face is showing, so the back can be taller than the front

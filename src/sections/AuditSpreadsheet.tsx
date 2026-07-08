@@ -561,6 +561,27 @@ function SheetGrid({ grid, raw, selected, onSelect, view, verify, aiMode = false
     })
   }, [aiMode, b?.r0, b?.r1, b?.c0, b?.c1, raw])
 
+  // On a screen tall enough to show every row (nothing to scroll vertically), let a
+  // plain mouse wheel scroll this very wide grid HORIZONTALLY — so a mouse-only user
+  // isn't stuck hunting for the bottom scrollbar. Guarded to fire ONLY when there's no
+  // vertical scroll to preserve; normal vertical scrolling, trackpads and shift+wheel
+  // keep working everywhere else.
+  useEffect(() => {
+    const el = scrollRef.current
+    if (!el) return
+    const onWheel = (e: WheelEvent) => {
+      if (e.shiftKey || e.deltaX !== 0 || e.deltaY === 0) return
+      const canScrollV = el.scrollHeight > el.clientHeight + 1
+      const canScrollH = el.scrollWidth > el.clientWidth + 1
+      if (!canScrollV && canScrollH) {
+        el.scrollLeft += e.deltaY
+        e.preventDefault()
+      }
+    }
+    el.addEventListener('wheel', onWheel, { passive: false })
+    return () => el.removeEventListener('wheel', onWheel)
+  }, [])
+
   const aiCellProps = (r: number, c: number) =>
     aiMode
       ? {
@@ -620,7 +641,7 @@ function SheetGrid({ grid, raw, selected, onSelect, view, verify, aiMode = false
 
   let lastSection = ''
   return (
-    <div ref={scrollRef} className="relative overflow-auto rounded-xl2 border border-soft-border bg-card shadow-soft" style={{ maxHeight: '70vh', userSelect: aiMode ? 'none' : undefined }}>
+    <div ref={scrollRef} className="scroll-grid relative overflow-auto rounded-xl2 border border-soft-border bg-card shadow-soft" style={{ maxHeight: 'calc(100vh - 228px)', userSelect: aiMode ? 'none' : undefined }}>
       <table className="border-separate" style={{ borderSpacing: 0 }}>
         <thead className="sticky top-0 z-20">
           {entityByColumn && (
