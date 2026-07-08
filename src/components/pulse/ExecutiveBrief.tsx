@@ -8,7 +8,7 @@
 // Everything sits above the fold. Subtle motion only; all real, source-derived
 // data (see ./derive). Colour is used as signal, never decoration.
 
-import { useEffect, useState } from 'react'
+import { useEffect, useState, type ReactNode } from 'react'
 import {
   Sparkles,
   RefreshCw,
@@ -36,6 +36,34 @@ import { GOLD, GOLD_ON_NAVY, PeStatusPill, ExposureChip, PeActionChip } from './
 import { ConvictionOverlay } from './ConvictionPages'
 import { toPeBriefItem, type PeBriefItem } from '@/lib/peBrief'
 import { SS, readSS, writeSS, clearSS } from './pulseState'
+import { insurers } from '@/data/mockData'
+
+// ── auto-emphasis — bold the numbers, insurer names and key metric terms inside a
+// card's summary, so the eye lands on what matters without reading every word. Kept
+// tight (metrics + events + money), never so broad that everything bolds. ─────────
+const EMPH_KEYWORDS = [
+  'competitive intensity', 'market share', 'combined ratio', 'claims ratio', 'expense ratio',
+  'commissions', 'commission', 'solvency', 'persistency', 're-rating', 'valuation',
+  'capital', 'pricing', 'distribution', 'IPO', 'M&A', 'FDI',
+]
+const escapeRe = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+const EMPH_NAMES = (insurers as { shortName: string }[]).map((i) => i.shortName).filter(Boolean).sort((a, b) => b.length - a.length)
+const EMPH_RE = new RegExp(
+  '(' +
+    [
+      '₹\\s?[\\d,]+(?:\\.\\d+)?(?:\\s?(?:cr|crore|lakh|bn|mn|billion|million))?',
+      '\\d+(?:\\.\\d+)?\\s?%',
+      '\\d+(?:\\.\\d+)?\\s?(?:bps|ppt|pp|x)\\b',
+      ...EMPH_NAMES.map(escapeRe),
+      ...EMPH_KEYWORDS.map(escapeRe),
+    ].join('|') +
+    ')',
+  'gi',
+)
+function emphasize(text: string): ReactNode[] {
+  if (!text) return [text]
+  return text.split(EMPH_RE).map((part, i) => (i % 2 === 1 ? <strong key={i} className="font-bold text-navy-deep">{part}</strong> : part))
+}
 
 // Colour-psychology signal: regulatory = orange (caution); otherwise the status
 // colour (green constructive / gold watch / red risk / slate neutral).
@@ -144,21 +172,31 @@ function ConvictionCard({ idea, pe, active, onOpen }: { idea: ConvictionIdea; pe
       type="button"
       onClick={onOpen}
       aria-haspopup="dialog"
-      className={`group flex w-full items-start gap-2 rounded-lg border bg-white px-2.5 py-2 text-left shadow-soft transition-all ${active ? 'border-champagne shadow-card' : 'border-soft-border hover:border-champagne/60 hover:shadow-card'} ${idea.isNew ? 'glow-new' : ''}`}
+      className={`group flex w-full items-start gap-2.5 rounded-xl border bg-white px-3.5 py-3 text-left shadow-soft transition-all ${active ? 'border-champagne shadow-card' : 'border-soft-border hover:border-champagne/60 hover:shadow-card'} ${idea.isNew ? 'glow-new' : ''}`}
     >
-      <span className="mt-1 h-2 w-2 shrink-0 rounded-full" style={{ background: accent, boxShadow: `0 0 0 3px ${accent}1f` }} title={idea.category === 'Regulatory' ? 'Regulatory' : idea.status} />
+      <span className="mt-[6px] h-2.5 w-2.5 shrink-0 rounded-full" style={{ background: accent, boxShadow: `0 0 0 3px ${accent}22` }} title={idea.category === 'Regulatory' ? 'Regulatory' : idea.status} />
       <div className="min-w-0 flex-1">
-        <div className="flex flex-wrap items-center gap-x-1.5 gap-y-1">
-          <span className="truncate text-[12px] font-bold text-navy-deep">{idea.entity}</span>
-          <PeStatusPill status={pe.status} hint={pe.statusHint} />
+        {/* headline — full and bold: the thing the eye should land on first */}
+        <h4 className="text-[14.5px] font-bold leading-snug text-navy-deep">
+          {idea.entity}
           {idea.isBreaking && (
-            <span className="inline-flex shrink-0 items-center gap-1 rounded-full px-1 text-[7.5px] font-bold uppercase tracking-wide text-coral" style={{ background: 'rgba(192,88,79,0.10)' }}>
+            <span className="ml-1.5 inline-flex items-center gap-1 rounded-full px-1.5 py-[1px] align-middle text-[8px] font-bold uppercase tracking-wide text-coral" style={{ background: 'rgba(192,88,79,0.12)' }}>
               <span className="pulse-live h-1 w-1 rounded-full" style={{ background: '#C0584F' }} /> Live
             </span>
           )}
+        </h4>
+        {/* summary — the full read in darker, heavier text with key terms auto-bolded,
+            so the card alone tells you what happened and why it matters. One strong,
+            specific line (the deeper story + impact live one tap away in the note). */}
+        {idea.reasoning[0] && (
+          <p className="mt-1.5 text-[12.5px] font-medium leading-relaxed text-ink-primary">{emphasize(idea.reasoning[0])}</p>
+        )}
+        {/* signal row — status · freshness · exposure · next action */}
+        <div className="mt-2.5 flex flex-wrap items-center gap-1.5">
+          <PeStatusPill status={pe.status} hint={pe.statusHint} />
           {idea.freshLabel && (
             <span
-              className="inline-flex shrink-0 items-center rounded-full px-1.5 text-[7.5px] font-bold uppercase tracking-wide"
+              className="inline-flex shrink-0 items-center rounded-full px-1.5 py-[1px] text-[8px] font-bold uppercase tracking-wide"
               style={
                 idea.freshness === 'fresh'
                   ? { color: '#2F855A', background: 'rgba(47,133,90,0.10)', boxShadow: 'inset 0 0 0 1px rgba(47,133,90,0.22)' }
@@ -169,23 +207,20 @@ function ConvictionCard({ idea, pe, active, onOpen }: { idea: ConvictionIdea; pe
               {idea.freshLabel}
             </span>
           )}
-        </div>
-        <p className="mt-1 line-clamp-1 text-[11px] leading-snug text-ink-secondary">{idea.reasoning[0]}</p>
-        {/* PE tags — Exposure + next action, the "same logic" the printed brief shows. */}
-        <div className="mt-1.5 flex flex-wrap items-center gap-1">
           <ExposureChip level={pe.exposure.level} basis={pe.exposure.basis} />
           <PeActionChip verb={pe.action.verb} label={pe.action.label} />
         </div>
-        <div className="mt-1.5 flex items-center gap-1.5 text-[9px] font-semibold text-ink-secondary">
+        {/* footer — one confidence · sources · open for depth */}
+        <div className="mt-2 flex items-center gap-2 text-[9.5px] font-semibold text-ink-secondary">
           <span className="inline-flex items-center gap-1" title={pe.confidenceWhy}>
             <span className="h-1.5 w-1.5 rounded-full" style={{ background: CONF_TONE[pe.confidence] }} />
-            {pe.confidence}
+            {pe.confidence} confidence
           </span>
           <span className="h-2.5 w-px bg-soft-border" />
           <span title={pe.sourceLabel}>
             {idea.evidenceCount} source{idea.evidenceCount === 1 ? '' : 's'}
           </span>
-          <span className="ml-auto inline-flex items-center gap-1 text-[8.5px] font-bold uppercase tracking-[0.08em] text-champagne-deep">
+          <span className="ml-auto inline-flex items-center gap-1 text-[9px] font-bold uppercase tracking-[0.08em] text-champagne-deep">
             Open note <BookOpen className="h-3 w-3 transition-transform group-hover:translate-x-0.5" strokeWidth={2.2} />
           </span>
         </div>

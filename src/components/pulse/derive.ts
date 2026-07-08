@@ -253,11 +253,10 @@ const EVIDENCE_BY_CATEGORY: Record<SignalCategory, EvidenceKind> = {
 // look identical. Plain words, no jargon; the card truncates and the full headline
 // lives in the note. Falls back to the category label only if a title is missing.
 function sectorTopic(s: PulseSignal): string {
+  // The full headline (its first sentence) — the card wraps it, so the reader sees
+  // the whole story title without clicking; clicking is only for deeper detail.
   const raw = scrubCopy(firstSentence(s.title || '')).trim()
-  if (!raw) return SECTOR_TOPIC[s.category]
-  const words = raw.split(/\s+/)
-  if (words.length <= 9) return raw
-  return `${words.slice(0, 9).join(' ')}…`
+  return raw || SECTOR_TOPIC[s.category]
 }
 
 // A short, plain topic label for a sector-wide item (a company item shows the name).

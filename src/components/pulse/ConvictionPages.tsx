@@ -89,7 +89,7 @@ function StoryPage({ idea }: { idea: ConvictionIdea }) {
       <PageTitle icon={Zap} kicker="The story" title="What changed?" />
       <div className="space-y-1.5">
         {narrative.map((l, i) => (
-          <p key={i} className={`font-editorial leading-relaxed ${i === 0 ? 'text-[13.5px] text-navy-deep' : 'text-[13px] text-ink-primary'}`}>{l}</p>
+          <p key={i} className={`font-editorial leading-relaxed ${i === 0 ? 'text-[14.5px] font-medium text-navy-deep' : 'text-[13.5px] text-ink-primary'}`}>{l}</p>
         ))}
       </div>
       {hook && (
@@ -133,26 +133,26 @@ function ImpactPage({ pe }: { pe: PeBriefItem }) {
           </div>
         </ChipRow>
         <ChipRow icon={TrendingUp} label="Industry impact">
-          <p className="text-[11px] leading-snug text-ink-primary">{pe.impactLine}</p>
+          <p className="text-[12px] font-medium leading-relaxed text-ink-primary">{pe.impactLine}</p>
         </ChipRow>
         <ChipRow icon={Users} label="Insurer exposure">
           <span className="inline-flex items-center gap-1.5">
             <ExposureChip level={pe.exposure.level} basis={pe.exposure.basis} />
-            <span className="text-[11px] leading-snug text-ink-primary">{pe.exposure.basis}</span>
+            <span className="text-[12px] font-medium leading-relaxed text-ink-primary">{pe.exposure.basis}</span>
           </span>
         </ChipRow>
         <ChipRow icon={Radar} label="Industry read">
-          <p className="text-[11px] leading-snug text-ink-primary">{pe.peRead}</p>
+          <p className="text-[12px] font-medium leading-relaxed text-ink-primary">{pe.peRead}</p>
         </ChipRow>
         <ChipRow icon={Zap} label="Action">
           <span className="inline-flex items-center gap-1.5">
             <PeActionChip verb={pe.action.verb} label={pe.action.label} />
-            <span className="text-[11px] leading-snug text-ink-primary">{pe.action.label}</span>
+            <span className="text-[12px] font-medium leading-relaxed text-ink-primary">{pe.action.label}</span>
           </span>
         </ChipRow>
         {pe.watchNext.length > 0 && (
           <ChipRow icon={ShieldCheck} label="Watch next">
-            <p className="text-[11px] leading-snug text-ink-secondary">{pe.watchNext.join(' · ')}</p>
+            <p className="text-[12px] leading-relaxed text-ink-secondary">{pe.watchNext.join(' · ')}</p>
           </ChipRow>
         )}
       </div>
@@ -430,7 +430,7 @@ function NoteHeader({ idea, pe, onClose }: { idea: ConvictionIdea; pe: PeBriefIt
       <div className="pointer-events-none absolute inset-x-0 top-0 h-px" style={{ background: 'linear-gradient(90deg, transparent, rgba(228,198,124,0.5) 30%, rgba(228,198,124,0.5) 70%, transparent)' }} />
       <div className="min-w-0 flex-1">
         <div className="flex flex-wrap items-center gap-x-2 gap-y-0.5">
-          <span className="truncate font-display text-[14.5px] font-semibold leading-tight text-white">{idea.entity}</span>
+          <span className="font-display text-[15px] font-semibold leading-snug text-white">{idea.entity}</span>
           <PeStatusPill status={pe.status} hint={pe.statusHint} />
           {idea.isBreaking && (
             <span className="inline-flex items-center gap-1 rounded-full px-1.5 py-[1px] text-[7.5px] font-bold uppercase tracking-wide text-white" style={{ background: 'rgba(192,88,79,0.38)' }}>
