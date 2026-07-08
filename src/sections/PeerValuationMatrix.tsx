@@ -1,413 +1,346 @@
-import { useMemo, useState } from 'react'
-import { Calculator, ChevronDown, Info } from 'lucide-react'
-import { FOCAL_VALUATION_ID, peerValuation } from '@/data/valuationData'
+import { useEffect, useMemo, useState, type ReactNode } from 'react'
+import { Info, Lightbulb } from 'lucide-react'
+import { PolarAngleAxis, PolarGrid, Radar, RadarChart, ResponsiveContainer } from 'recharts'
+import { FOCAL_VALUATION_ID, peerValuation, type PeerValuationRow } from '@/data/valuationData'
 import { buildNavValuation, periodLabel, type NavValuation } from '@/lib/navValuation'
-import { Eyebrow, OpenSource, fmtCr, xMult } from './valuationShared'
+import { getMarketQuote, type MarketQuote } from '@/lib/analystCoverage'
+import { buildQuality, insurerById, qualityReadText, type QualityAnalysis } from './qualityCompass'
+import { CORAL, Eyebrow, GOLD, GREEN, NAVY, PEER, TEAL, fmtCr, xMult } from './valuationShared'
 
 // ---------------------------------------------------------------------------
-//  Peer valuation matrix — ONE clean comparable table with TWO views toggled in
-//  place (no new tab, no second table):
-//   • Market view — operating scale (GWP, growth) for every SAHI peer + the
-//     price-derived multiples (P/GWP, P/E, market value) where a live price
-//     exists. Unchanged from before.
-//   • Book-value view — each peer valued on its filed net worth (book value) at
-//     a comparable listed-peer P/BV: NAV/BV, applied P/BV, implied equity value,
-//     implied / share, premium-or-discount vs that implied value, and a per-row
-//     "Show calculation" that expands the full, source-backed working inline.
+//  Peer valuation & quality — an always-visible, side-by-side comparison.
 //
-//  Every number is real and source-backed via `buildNavValuation` (audit overlay
-//  net worth + listed-peer market P/BV). Missing inputs are shown honestly — a
-//  market-only metric that needs a live price reads as "—", a book-value metric
-//  that needs an un-filed input (shares, market price) says exactly what's
-//  missing in the calculation. Nothing is fabricated or coerced to zero.
+//  TOP: one wide table split into three grouped blocks so a reader takes in both
+//  valuation frameworks at a glance, no toggle:
+//     • Shared / Company (anchored left) — Company · Listing · GWP · Growth
+//     • Market Value View  — P/GWP · P/E · Market value        (Live price)
+//     • Book Value View    — Book value · BVPS · P/BV · Impl/sh · Vs NAV  (Latest FY)
+//  Shared company data appears ONCE; each framework has its own tinted block.
+//
+//  BOTTOM: the selected row drives two cards — a Selected Peer Snapshot and the
+//  always-on Quality Lens (radar + score bars + read). Clicking a row re-selects;
+//  the default is the active company. Works for every company and peer set.
+//
+//  UI only — data & calculations are unchanged (peerValuation, buildNavValuation,
+//  getMarketQuote, buildQuality). Missing inputs render a clean dash, never a
+//  fabricated number.
 // ---------------------------------------------------------------------------
 
 const GROWTH_GREEN = '#2E8B63'
-const CORAL = '#A8443B'
-const GOLD = '#B68B3A'
-const TEAL = '#168E8E'
+const RED = '#A8443B'
 
-type View = 'market' | 'book'
+// ── Formatters (display only; reuse the shared ones where they exist) ─────────
+const fmtGrowth = (v: number | null) => (v == null ? null : `${v >= 0 ? '+' : '−'}${Math.abs(Number.isInteger(v) ? v : +v.toFixed(1))}%`)
+const inr = (v: number | null) => (v == null ? null : `₹${v.toLocaleString('en-IN', { minimumFractionDigits: 0, maximumFractionDigits: v < 100 ? 1 : 0 })}`)
+const signPct = (v: number | null) => (v == null ? null : `${v >= 0 ? '+' : ''}${v.toFixed(1)}%`)
 
-function fmtGrowth(v: number | null) {
-  if (v == null) return null
-  const s = v >= 0 ? '+' : '−'
-  const a = Math.abs(v)
-  return `${s}${Number.isInteger(a) ? a.toFixed(0) : a.toFixed(1)}%`
+function Dash({ title }: { title?: string }) {
+  return <span className="text-ink-secondary/45" title={title}>—</span>
 }
 
-// Full-precision formatters for the expanded calculation (the compact columns
-// reuse the table's `fmtCr` / `xMult` so the grid stays Bloomberg-tight).
-const crFull = (v: number | null) => (v == null ? '—' : `₹${Math.round(v).toLocaleString('en-IN')} Cr`)
-const inr = (v: number | null) => (v == null ? '—' : `₹${v.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`)
-const mult2 = (v: number | null) => (v == null ? '—' : `${v.toFixed(2)}×`)
-const signPct = (v: number | null) => (v == null ? '—' : `${v >= 0 ? '+' : ''}${v.toFixed(1)}%`)
-const crShares = (v: number | null) => (v == null ? '—' : `${(v / 1e7).toFixed(2)} Cr`)
-
-// Short, honest per-row comment derived only from facts already in the row
-// (listing status, scale rank, premium/discount vs the listed benchmark).
-function noteFor(companyId: string, premiumVsStar: number | null): string {
-  if (companyId === FOCAL_VALUATION_ID) {
-    if (premiumVsStar == null) return 'Focal name · listed SAHI'
-    if (premiumVsStar > 5) return 'Trades at a premium to Star Health'
-    if (premiumVsStar < -5) return 'Trades at a discount to Star Health'
-    return 'In line with Star Health'
-  }
-  if (companyId === 'star-health') return 'Largest listed SAHI peer'
-  return 'Unlisted — no public market price'
-}
-
-function Dash() {
-  return <span className="text-ink-secondary/45">—</span>
-}
-
-function ViewToggle({ view, onChange }: { view: View; onChange: (v: View) => void }) {
-  const opts: { id: View; label: string }[] = [
-    { id: 'market', label: 'Market' },
-    { id: 'book', label: 'Book value' },
-  ]
-  return (
-    <div className="inline-flex items-center gap-0.5 rounded-full border border-soft-border bg-white/70 p-0.5 text-[10.5px] font-semibold shadow-soft">
-      {opts.map((o) => {
-        const active = o.id === view
-        return (
-          <button
-            key={o.id}
-            type="button"
-            onClick={() => onChange(o.id)}
-            aria-pressed={active}
-            className={`rounded-full px-3 py-1 transition-colors ${active ? 'bg-navy-deep text-white shadow-soft' : 'text-ink-secondary hover:text-navy-deep'}`}
-          >
-            {o.label}
-          </button>
-        )
-      })}
-    </div>
-  )
-}
-
-export function PeerValuationMatrix() {
+export function PeerValuationSection({ defaultCompanyId }: { defaultCompanyId: string }) {
   const rows = peerValuation
-  const [view, setView] = useState<View>('market')
-  const [openId, setOpenId] = useState<string | null>(null)
+  // Selected row drives the snapshot + quality lens; defaults to the active
+  // company and follows it when the top dropdown changes.
+  const [selectedId, setSelectedId] = useState(defaultCompanyId)
+  useEffect(() => setSelectedId(defaultCompanyId), [defaultCompanyId])
 
-  // One book-value calculation per peer, reused for the columns and the inline
-  // working. Pure + cheap; computed once for the (static) peer set.
   const navById = useMemo(
     () => Object.fromEntries(rows.map((r) => [r.companyId, buildNavValuation(r.companyId)])) as Record<string, NavValuation>,
     [rows],
   )
+  const quoteById = useMemo(
+    () => Object.fromEntries(rows.map((r) => [r.companyId, getMarketQuote(r.companyId)])) as Record<string, MarketQuote | null>,
+    [rows],
+  )
 
-  const niva = rows.find((r) => r.companyId === FOCAL_VALUATION_ID)
-  const star = rows.find((r) => r.companyId === 'star-health')
-  const premiumVsStar =
-    niva?.pGwp != null && star?.pGwp ? ((niva.pGwp - star.pGwp) / star.pGwp) * 100 : null
+  const selectedRow = rows.find((r) => r.companyId === selectedId) ?? rows[0]
+  const selectedInsurer = insurerById(selectedRow.companyId) ?? insurerById(defaultCompanyId)
+  const quality = selectedInsurer ? buildQuality(selectedInsurer) : null
 
-  const isBook = view === 'book'
-  const BOOK_COLS = 8 // colSpan for the expanded calculation row
+  const anyUnlisted = rows.some((r) => r.listingStatus === 'Unlisted')
 
   return (
     <section>
       <Eyebrow
         label="Peer Comparison"
-        title="Peer valuation matrix"
-        note={
-          isBook
-            ? 'Each peer valued on its filed net worth at a comparable listed-peer P/BV — implied equity value, per-share and premium/discount, with the full working one click away.'
-            : 'Operating scale for every SAHI peer; market-based multiples where a live price exists.'
-        }
-        right={<ViewToggle view={view} onChange={setView} />}
+        title="Peer valuation & quality"
+        note="Both valuation frameworks side by side — no toggle. Pick a peer to see its snapshot and operating-quality read."
       />
-      <div className="card-surface card-tint-slate overflow-hidden p-0">
+
+      {/* ── TOP · split valuation table ─────────────────────────────────────── */}
+      <div className="card-surface overflow-hidden p-0">
         <div className="overflow-x-auto">
-          <table className="w-full min-w-[680px] text-left text-[11.5px]">
+          <table className="w-full min-w-[940px] border-separate border-spacing-0 text-left text-[11.5px]">
             <thead>
-              <tr className="border-b border-soft-border bg-[#EEF2F9] text-[9.5px] uppercase tracking-[0.04em] text-ink-secondary">
-                <th className="py-2.5 pl-4 pr-3 font-semibold">Company</th>
-                <th className="py-2.5 pr-3 font-semibold">Listing</th>
-                {isBook ? (
-                  <>
-                    <th className="py-2.5 pr-3 text-right font-semibold">NAV / BV</th>
-                    <th className="py-2.5 pr-3 text-right font-semibold">P / BV</th>
-                    <th className="py-2.5 pr-3 text-right font-semibold">Implied Eq. Value</th>
-                    <th className="py-2.5 pr-3 text-right font-semibold">Implied / Sh</th>
-                    <th className="py-2.5 pr-3 text-right font-semibold">Vs Implied</th>
-                    <th className="py-2.5 pr-4 text-right font-semibold">Calc</th>
-                  </>
-                ) : (
-                  <>
-                    <th className="py-2.5 pr-3 text-right font-semibold">GWP · latest FY</th>
-                    <th className="py-2.5 pr-3 text-right font-semibold">GWP growth</th>
-                    <th className="py-2.5 pr-3 text-right font-semibold">P / GWP</th>
-                    <th className="py-2.5 pr-3 text-right font-semibold">P / E</th>
-                    <th className="py-2.5 pr-3 text-right font-semibold">Market value</th>
-                    <th className="py-2.5 pr-4 font-semibold">Notes</th>
-                  </>
-                )}
+              {/* Group header — three tinted blocks + a helper chip each. */}
+              <tr>
+                <th colSpan={4} className="sticky left-0 z-10 border-b border-r border-soft-border bg-[#EEF2F9] px-4 py-2 text-left">
+                  <span className="text-[9.5px] font-bold uppercase tracking-[0.12em] text-navy-primary/80">Shared · Company</span>
+                </th>
+                <th colSpan={3} className="border-b border-r border-soft-border bg-[#E7F0FB] px-3 py-2 text-left">
+                  <span className="inline-flex items-center gap-1.5">
+                    <span className="text-[9.5px] font-bold uppercase tracking-[0.12em] text-navy-primary/85">Market Value View</span>
+                    <span className="rounded-full bg-white/70 px-1.5 py-0.5 text-[8px] font-bold uppercase tracking-wide text-navy-primary ring-1 ring-[rgba(39,69,126,0.18)]">Live price</span>
+                  </span>
+                </th>
+                <th colSpan={5} className="border-b border-soft-border bg-[#E7F2EF] px-3 py-2 text-left">
+                  <span className="inline-flex items-center gap-1.5">
+                    <span className="text-[9.5px] font-bold uppercase tracking-[0.12em]" style={{ color: '#0E6F6D' }}>Book Value View</span>
+                    <span className="rounded-full bg-white/70 px-1.5 py-0.5 text-[8px] font-bold uppercase tracking-wide text-teal ring-1 ring-[rgba(22,142,142,0.22)]">Latest FY</span>
+                  </span>
+                </th>
+              </tr>
+              {/* Column header. */}
+              <tr className="text-[9px] uppercase tracking-[0.04em] text-ink-secondary">
+                <Th sticky className="pl-4">Company</Th>
+                <Th>Listing</Th>
+                <Th align="right">GWP · FY</Th>
+                <Th align="right" className="border-r border-soft-border pr-3">Growth</Th>
+                <Th align="right">P / GWP</Th>
+                <Th align="right">P / E</Th>
+                <Th align="right" className="border-r border-soft-border pr-3">Mkt value</Th>
+                <Th align="right">Book value</Th>
+                <Th align="right">BVPS</Th>
+                <Th align="right">P / BV</Th>
+                <Th align="right">Impl / sh</Th>
+                <Th align="right" className="pr-4">Vs NAV</Th>
               </tr>
             </thead>
             <tbody>
               {rows.map((r) => {
                 const focal = r.companyId === FOCAL_VALUATION_ID
+                const selected = r.companyId === selectedId
                 const unlisted = r.listingStatus === 'Unlisted'
+                const nav = navById[r.companyId]
+                const quote = quoteById[r.companyId]
                 const growth = fmtGrowth(r.growth)
-                const v = navById[r.companyId]
-                const open = openId === r.companyId
-
-                const companyCell = (
-                  <td className="py-2.5 pl-4 pr-3">
-                    <span className="inline-flex items-center gap-1.5">
-                      {focal && <span className="h-3.5 w-[3px] rounded-full bg-gradient-to-b from-champagne to-champagne-deep" />}
-                      <span className="font-semibold text-navy-deep">{r.companyName}</span>
-                      {focal && <span className="rounded-full bg-champagne-soft px-1.5 py-0.5 text-[8px] font-bold uppercase tracking-wide text-champagne-deep">Focal</span>}
-                    </span>
-                  </td>
-                )
-                const listingCell = (
-                  <td className="py-2.5 pr-3">
-                    <span className={`inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[9px] font-semibold ${unlisted ? 'border border-dashed border-[#CAD0DA] text-ink-secondary' : 'bg-emerald-soft text-emerald'}`}>
-                      <span className={`h-1.5 w-1.5 rounded-full ${unlisted ? 'bg-[#B7BECB]' : 'bg-emerald'}`} />
-                      {r.listingStatus}
-                    </span>
-                  </td>
-                )
+                // Sticky-cell + row background reflect selection (soft blue) / focal.
+                const rowBg = selected ? 'bg-soft-blue/60' : focal ? 'bg-soft-blue/25' : 'bg-white hover:bg-soft-blue/15'
+                const stickyBg = selected ? 'bg-[#E4ECF9]' : focal ? 'bg-[#EEF3FC]' : 'bg-white'
 
                 return (
-                  <RowFragment key={r.companyId}>
-                    <tr className={`border-b align-middle transition-colors ${open ? 'border-transparent' : 'border-[#EEF1F6]'} ${focal ? 'bg-soft-blue/45' : 'hover:bg-soft-blue/20'}`}>
-                      {companyCell}
-                      {listingCell}
+                  <tr
+                    key={r.companyId}
+                    onClick={() => setSelectedId(r.companyId)}
+                    aria-selected={selected}
+                    className={`cursor-pointer align-middle transition-colors ${rowBg}`}
+                  >
+                    {/* SHARED · Company (anchored) */}
+                    <td className={`sticky left-0 z-10 border-b border-soft-border/70 py-2.5 pl-4 pr-3 ${stickyBg}`}>
+                      <span className="inline-flex items-center gap-1.5">
+                        <span aria-hidden className="h-3.5 w-[3px] rounded-full" style={{ background: selected ? NAVY : 'transparent' }} />
+                        <span className="font-semibold text-navy-deep">{r.companyName}</span>
+                        {focal && <span className="rounded-full bg-champagne-soft px-1.5 py-0.5 text-[8px] font-bold uppercase tracking-wide text-champagne-deep">Focal</span>}
+                      </span>
+                    </td>
+                    <td className="border-b border-soft-border/70 py-2.5 pr-3">
+                      <span className={`inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[9px] font-semibold ${unlisted ? 'border border-dashed border-[#CAD0DA] text-ink-secondary' : 'bg-emerald-soft text-emerald'}`}>
+                        <span className={`h-1.5 w-1.5 rounded-full ${unlisted ? 'bg-[#B7BECB]' : 'bg-emerald'}`} />
+                        {r.listingStatus}
+                      </span>
+                    </td>
+                    <td className="border-b border-soft-border/70 py-2.5 pr-3 text-right tabular-nums">
+                      {r.gwp != null ? (
+                        <span className="inline-flex items-baseline gap-1">
+                          <span className="font-semibold text-navy-deep">{fmtCr(r.gwp)}</span>
+                          {r.gwpFy && <span className="text-[8.5px] font-semibold uppercase tracking-wide text-ink-secondary/70">{r.gwpFy}</span>}
+                        </span>
+                      ) : <Dash />}
+                    </td>
+                    <td className="border-b border-r border-soft-border/70 py-2.5 pr-3 text-right tabular-nums">
+                      {growth != null ? <span className="font-semibold" style={{ color: r.growth != null && r.growth >= 0 ? GROWTH_GREEN : RED }}>{growth}</span> : <Dash />}
+                    </td>
 
-                      {isBook ? (
-                        <>
-                          {/* NAV / Book value + its period tag */}
-                          <td className="py-2.5 pr-3 text-right tabular-nums">
-                            {v.netWorth ? (
-                              <span className="inline-flex items-baseline gap-1">
-                                <span className="font-semibold text-navy-deep">{fmtCr(v.netWorth.value)}</span>
-                                <span className="text-[8.5px] font-semibold uppercase tracking-wide text-ink-secondary/70">{periodLabel(v.netWorth.period)}</span>
-                              </span>
-                            ) : (
-                              <span title="Missing book value"><Dash /></span>
-                            )}
-                          </td>
-                          {/* Applied P/BV + benchmark hint */}
-                          <td className="py-2.5 pr-3 text-right tabular-nums">
-                            {v.benchmark ? (
-                              <span className="inline-flex items-baseline gap-1">
-                                <span className="font-semibold" style={{ color: GOLD }}>{xMult(v.benchmark.multiple)}</span>
-                                <span className="text-[8.5px] text-ink-secondary/70">{v.benchmark.peers.length === 1 ? `vs ${v.benchmark.label}` : `${v.benchmark.peers.length}-peer`}</span>
-                              </span>
-                            ) : (
-                              <span title="Benchmark P/BV unavailable"><Dash /></span>
-                            )}
-                          </td>
-                          {/* Implied equity value */}
-                          <td className="py-2.5 pr-3 text-right tabular-nums">
-                            {v.impliedEquityValue != null ? <span className="font-semibold text-navy-deep">{fmtCr(v.impliedEquityValue)}</span> : <span title="Needs net worth & benchmark"><Dash /></span>}
-                          </td>
-                          {/* Implied value / share */}
-                          <td className="py-2.5 pr-3 text-right tabular-nums text-navy-deep">
-                            {v.impliedPerShare != null ? inr(v.impliedPerShare) : <span title="Missing shares outstanding"><Dash /></span>}
-                          </td>
-                          {/* Premium / discount vs implied */}
-                          <td className="py-2.5 pr-3 text-right tabular-nums">
-                            {v.premiumDiscountPct != null ? (
-                              <span className="font-semibold" style={{ color: v.premiumDiscountPct >= 0 ? GOLD : TEAL }}>{signPct(v.premiumDiscountPct)}</span>
-                            ) : unlisted ? (
-                              <span className="text-[9.5px] text-ink-secondary/70">— no public price</span>
-                            ) : (
-                              <span title="Market price pending"><Dash /></span>
-                            )}
-                          </td>
-                          {/* Show calculation */}
-                          <td className="py-2.5 pr-4 text-right">
-                            <button
-                              type="button"
-                              onClick={() => setOpenId(open ? null : r.companyId)}
-                              aria-expanded={open}
-                              className={`inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-[10px] font-semibold transition-colors ${open ? 'border-[#D8C48F] bg-[#FBF7EE] text-[#9C7430]' : 'border-soft-border bg-white/70 text-navy-primary hover:border-muted-blue hover:bg-white hover:text-navy-deep'}`}
-                            >
-                              <Calculator className="h-3 w-3" />
-                              <span className="hidden sm:inline">{open ? 'Hide' : 'Show'}</span>
-                              <ChevronDown className={`h-3 w-3 transition-transform ${open ? 'rotate-180' : ''}`} />
-                            </button>
-                          </td>
-                        </>
-                      ) : (
-                        <>
-                          {/* GWP + FY */}
-                          <td className="py-2.5 pr-3 text-right tabular-nums">
-                            {r.gwp != null ? (
-                              <span className="inline-flex items-baseline gap-1">
-                                <span className="font-semibold text-navy-deep">{fmtCr(r.gwp)}</span>
-                                {r.gwpFy && <span className="text-[8.5px] font-semibold uppercase tracking-wide text-ink-secondary/70">{r.gwpFy}</span>}
-                              </span>
-                            ) : (
-                              <Dash />
-                            )}
-                          </td>
-                          {/* GWP growth */}
-                          <td className="py-2.5 pr-3 text-right tabular-nums">
-                            {growth != null ? (
-                              <span className="font-semibold" style={{ color: r.growth != null && r.growth >= 0 ? GROWTH_GREEN : CORAL }}>{growth}</span>
-                            ) : (
-                              <Dash />
-                            )}
-                          </td>
-                          {/* P/GWP */}
-                          <td className="py-2.5 pr-3 text-right tabular-nums">
-                            {r.pGwp != null ? <span className="font-semibold text-navy-deep">{xMult(r.pGwp)}</span> : <Dash />}
-                          </td>
-                          {/* P/E */}
-                          <td className="py-2.5 pr-3 text-right tabular-nums text-navy-deep">
-                            {r.pe != null ? xMult(r.pe, 1) : <Dash />}
-                          </td>
-                          {/* Market value */}
-                          <td className="py-2.5 pr-3 text-right tabular-nums text-navy-deep">
-                            {r.marketCap != null ? fmtCr(r.marketCap) : <Dash />}
-                          </td>
-                          {/* Notes + quiet source */}
-                          <td className="py-2.5 pr-4">
-                            <div className="flex items-center justify-between gap-2">
-                              <span className="text-[10.5px] leading-snug text-ink-secondary">{noteFor(r.companyId, premiumVsStar)}</span>
-                              <OpenSource id={r.sourceId} url={r.sourceUrl ?? undefined} title={r.sourceName ?? undefined} />
-                            </div>
-                          </td>
-                        </>
-                      )}
-                    </tr>
+                    {/* MARKET VALUE VIEW */}
+                    <td className="border-b border-soft-border/70 py-2.5 pr-3 text-right tabular-nums">
+                      {r.pGwp != null ? <span className="font-semibold text-navy-deep">{xMult(r.pGwp)}</span> : <Dash title={unlisted ? 'No public market price' : undefined} />}
+                    </td>
+                    <td className="border-b border-soft-border/70 py-2.5 pr-3 text-right tabular-nums text-navy-deep">
+                      {r.pe != null ? xMult(r.pe, 1) : <Dash title={unlisted ? 'No public market price' : undefined} />}
+                    </td>
+                    <td className="border-b border-r border-soft-border/70 py-2.5 pr-3 text-right tabular-nums text-navy-deep">
+                      {r.marketCap != null ? fmtCr(r.marketCap) : <Dash title={unlisted ? 'No public market price' : undefined} />}
+                    </td>
 
-                    {/* Inline calculation working — book-value view only */}
-                    {isBook && open && (
-                      <tr className="border-b border-[#EEF1F6]">
-                        <td colSpan={BOOK_COLS} className="p-0">
-                          <CalcDetail v={v} companyName={r.companyName} listing={r.listingStatus} />
-                        </td>
-                      </tr>
-                    )}
-                  </RowFragment>
+                    {/* BOOK VALUE VIEW */}
+                    <td className="border-b border-soft-border/70 py-2.5 pr-3 text-right tabular-nums">
+                      {nav?.netWorth ? (
+                        <span className="inline-flex items-baseline gap-1">
+                          <span className="font-semibold text-navy-deep">{fmtCr(nav.netWorth.value)}</span>
+                          <span className="text-[8.5px] font-semibold uppercase tracking-wide text-ink-secondary/70">{periodLabel(nav.netWorth.period)}</span>
+                        </span>
+                      ) : <Dash title="Book value pending" />}
+                    </td>
+                    <td className="border-b border-soft-border/70 py-2.5 pr-3 text-right tabular-nums text-navy-deep">
+                      {nav?.navPerShare != null ? inr(nav.navPerShare) : <Dash title="Needs shares outstanding" />}
+                    </td>
+                    <td className="border-b border-soft-border/70 py-2.5 pr-3 text-right tabular-nums">
+                      {quote?.pb != null ? <span className="font-semibold" style={{ color: GOLD }}>{xMult(quote.pb)}</span> : <Dash title={unlisted ? 'No public market price' : undefined} />}
+                    </td>
+                    <td className="border-b border-soft-border/70 py-2.5 pr-3 text-right tabular-nums text-navy-deep">
+                      {nav?.impliedPerShare != null ? inr(nav.impliedPerShare) : <Dash title="Needs shares & a peer P/BV" />}
+                    </td>
+                    <td className="border-b border-soft-border/70 py-2.5 pr-4 text-right tabular-nums">
+                      {nav?.premiumDiscountPct != null ? (
+                        <span className="font-semibold" style={{ color: nav.premiumDiscountPct >= 0 ? GOLD : TEAL }}>{signPct(nav.premiumDiscountPct)}</span>
+                      ) : <Dash title={unlisted ? 'No public market price' : undefined} />}
+                    </td>
+                  </tr>
                 )
               })}
             </tbody>
           </table>
         </div>
 
-        {/* One neat footer note — explains the missing-data convention once. */}
+        {/* Footer — the missing-data convention, once. */}
         <div className="flex items-start gap-1.5 border-t border-soft-border bg-[#FAFBFD] px-4 py-2.5 text-[10.5px] leading-snug text-ink-secondary">
           <Info className="mt-px h-3 w-3 shrink-0 text-ink-secondary/70" />
-          {isBook ? (
-            <span>
-              Book value × a comparable <b className="text-navy-deep/80">listed-peer P/BV</b> = implied equity value, for every peer with a filed net worth. <b className="text-navy-deep/80">Implied / share</b> needs filed shares outstanding (on record for Niva Bupa today); <b className="text-navy-deep/80">Vs Implied</b> needs a live market price, so the unlisted peers (Care Health, Aditya Birla Health, ManipalCigna) read “— no public price.” Net-worth period &amp; basis and the full working are in each row&rsquo;s <b className="text-navy-deep/80">Show calculation</b> — sourced from Data Audit, never estimated.
-            </span>
-          ) : (
-            <span>
-              <b className="text-navy-deep/80">“—”</b> marks a market-based metric (P/GWP, P/E, market value) that can&rsquo;t exist without a live share price — the unlisted peers (Care Health, Aditya Birla Health, ManipalCigna) have no public listing. Their GWP and growth are real filed figures.
-            </span>
-          )}
+          <span>
+            <b className="text-navy-deep/80">Market Value View</b> needs a live share price — the {anyUnlisted ? 'unlisted peers ' : ''}names with no public listing show a clean <b className="text-navy-deep/80">—</b>; their GWP &amp; growth are real filed figures.
+            {' '}<b className="text-navy-deep/80">Book Value View</b> values each peer on its filed net worth: <b className="text-navy-deep/80">BVPS</b> = book value ÷ shares, <b className="text-navy-deep/80">Impl / sh</b> applies a listed-peer P/BV, <b className="text-navy-deep/80">Vs NAV</b> is market vs that implied value. Nothing is estimated.
+          </span>
         </div>
+      </div>
+
+      {/* ── BOTTOM · selected snapshot + quality lens ───────────────────────── */}
+      <div className="mt-4 grid grid-cols-1 gap-4 lg:grid-cols-2">
+        <SelectedPeerSnapshot row={selectedRow} nav={navById[selectedRow.companyId]} quote={quoteById[selectedRow.companyId]} />
+        <QualityLensPanel quality={quality} companyName={selectedRow.companyName} />
       </div>
     </section>
   )
 }
 
-// Fragment wrapper that carries a key for the row + its (optional) detail row.
-function RowFragment({ children }: { children: React.ReactNode }) {
-  return <>{children}</>
+// ── Table header cell ─────────────────────────────────────────────────────────
+function Th({ children, align = 'left', sticky = false, className = '' }: { children: ReactNode; align?: 'left' | 'right'; sticky?: boolean; className?: string }) {
+  return (
+    <th className={`border-b border-soft-border bg-[#F4F7FC] py-2 pr-3 font-semibold ${align === 'right' ? 'text-right' : 'text-left'} ${sticky ? 'sticky left-0 z-10 bg-[#F4F7FC]' : ''} ${className}`}>
+      {children}
+    </th>
+  )
 }
 
-// ── Inline "Show calculation" working — audit-friendly, company-specific ──────
-function CalcDetail({ v, companyName, listing }: { v: NavValuation; companyName: string; listing: string }) {
-  const hasNw = v.netWorth != null
-  const hasBench = v.benchmark != null
-  const hasShares = v.shares != null
-  const hasMarket = v.marketCap != null
-
-  // Honest "what's missing, and what it blocks" — only the gaps that apply.
-  const missing: string[] = []
-  if (!hasNw) missing.push('Missing book value / net worth')
-  if (!hasBench) missing.push('Benchmark P/BV unavailable')
-  if (!hasShares) missing.push('Missing shares outstanding — implied per-share hidden')
-  if (!hasMarket) missing.push(listing === 'Unlisted' ? 'No public market price — premium / discount not shown' : 'Market price pending — premium / discount not shown')
-
+// ── Selected peer snapshot ────────────────────────────────────────────────────
+function SnapStat({ k, v, tone = 'navy' }: { k: string; v: string | null; tone?: 'navy' | 'teal' | 'coral' | 'gold' }) {
+  if (v == null) return null
+  const fg = tone === 'teal' ? '#0E6F6D' : tone === 'coral' ? RED : tone === 'gold' ? '#8A6A1E' : '#27457E'
+  const bg = tone === 'teal' ? '#F1FAF8' : tone === 'coral' ? '#F8ECEC' : tone === 'gold' ? '#FBF6EA' : '#EEF3FB'
   return (
-    <div className="border-l-2 border-[#E4D7B6] bg-[#FBFAF4] px-4 py-3.5">
+    <div className="rounded-lg px-2.5 py-1.5" style={{ background: bg }}>
+      <p className="text-[8.5px] font-semibold uppercase tracking-[0.05em] text-ink-secondary">{k}</p>
+      <p className="mt-0.5 font-display text-[15px] leading-none tabular-nums" style={{ color: fg }}>{v}</p>
+    </div>
+  )
+}
+
+function SelectedPeerSnapshot({ row, nav, quote }: { row: PeerValuationRow; nav: NavValuation | undefined; quote: MarketQuote | null }) {
+  const focal = row.companyId === FOCAL_VALUATION_ID
+  const unlisted = row.listingStatus === 'Unlisted'
+  const growth = fmtGrowth(row.growth)
+  return (
+    <div className="card-surface card-tint-slate p-4">
       <div className="flex flex-wrap items-center gap-2">
-        <span className="text-[9px] font-bold uppercase tracking-[0.14em]" style={{ color: '#9C7430' }}>Book-value calculation</span>
-        <span className="font-display text-[13px] text-navy-deep">{companyName}</span>
-        <span className={`rounded-full px-1.5 py-0.5 text-[8px] font-semibold uppercase tracking-wide ${listing === 'Unlisted' ? 'border border-dashed border-[#CAD0DA] text-ink-secondary' : 'bg-emerald-soft text-emerald'}`}>{listing}</span>
+        <p className="text-[9.5px] font-bold uppercase tracking-[0.16em] text-champagne-deep">Selected Peer Snapshot</p>
       </div>
-
-      {/* Inputs */}
-      <div className="mt-2.5 grid grid-cols-1 gap-x-6 gap-y-1.5 sm:grid-cols-2">
-        <InputLine label="Book value / NAV" value={hasNw ? crFull(v.netWorth!.value) : null}
-          sub={hasNw ? `${periodLabel(v.netWorth!.period)} · ${v.netWorth!.basis} · company filing (Data Audit)` : 'source pending'} />
-        <InputLine label="Applied P/BV" value={hasBench ? mult2(v.benchmark!.multiple) : null}
-          sub={hasBench ? `benchmark · ${v.benchmark!.peers.map((p) => `${p.name} ${mult2(p.pbv)}`).join(' · ')}` : 'no listed-peer P/BV on record'} />
-        <InputLine label="Shares outstanding" value={hasShares ? `${crShares(v.shares!.value)} sh` : null}
-          sub={hasShares ? v.shares!.source : 'not filed — per-share hidden'} />
-        <InputLine label="Current market value" value={hasMarket ? crFull(v.marketCap) : null}
-          sub={hasMarket ? `market data${v.marketAsOf ? ` · ${v.marketAsOf}` : ''}` : listing === 'Unlisted' ? 'unlisted — no public price' : 'pending'} />
-      </div>
-
-      {/* Formulae — generic rule + the substituted numbers for this company */}
-      <div className="mt-3 space-y-1.5 rounded-lg border border-[#E7DCBE] bg-white/70 px-3 py-2.5">
-        <Formula
-          rule="Book value × Applied P/BV = Implied equity value"
-          calc={hasNw && hasBench ? `${crFull(v.netWorth!.value)} × ${mult2(v.benchmark!.multiple)} = ${crFull(v.impliedEquityValue)}` : null}
-          note={!hasNw ? 'needs book value' : !hasBench ? 'needs a benchmark P/BV' : undefined}
-        />
-        <Formula
-          rule="Implied equity value ÷ shares outstanding = Implied value / share"
-          calc={v.impliedPerShare != null ? `${crFull(v.impliedEquityValue)} ÷ ${crShares(v.shares!.value)} sh = ${inr(v.impliedPerShare)}` : null}
-          note={v.impliedEquityValue == null ? 'needs implied equity value' : 'needs shares outstanding'}
-        />
-        <Formula
-          rule="Current market value ÷ implied equity value − 1 = Premium / discount"
-          calc={v.premiumDiscountPct != null ? `${crFull(v.marketCap)} ÷ ${crFull(v.impliedEquityValue)} − 1 = ${signPct(v.premiumDiscountPct)}` : null}
-          note={listing === 'Unlisted' ? 'no public market price' : v.impliedEquityValue == null ? 'needs implied equity value' : 'needs a current market price'}
-        />
-      </div>
-
-      {/* Source status + any missing-input warnings */}
-      <div className="mt-2.5 flex flex-wrap items-center gap-x-3 gap-y-1.5">
-        <span className="inline-flex items-center gap-1 text-[10px] text-ink-secondary">
-          <span className="h-1.5 w-1.5 rounded-full" style={{ background: hasNw && hasBench ? TEAL : GOLD }} />
-          {hasNw && hasBench ? 'Source-backed · net worth (Data Audit) × listed-peer P/BV' : 'Partial basis — see missing inputs'}
+      <div className="mt-1.5 flex flex-wrap items-center gap-2">
+        <h3 className="font-display text-[18px] leading-tight text-navy-deep">{row.companyName}</h3>
+        {focal && <span className="rounded-full bg-champagne-soft px-1.5 py-0.5 text-[8px] font-bold uppercase tracking-wide text-champagne-deep">Focal</span>}
+        <span className={`inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[9px] font-semibold ${unlisted ? 'border border-dashed border-[#CAD0DA] text-ink-secondary' : 'bg-emerald-soft text-emerald'}`}>
+          <span className={`h-1.5 w-1.5 rounded-full ${unlisted ? 'bg-[#B7BECB]' : 'bg-emerald'}`} />{row.listingStatus}
         </span>
-        {missing.map((m) => (
-          <span key={m} className="inline-flex items-center rounded-full border border-[#E7D6AE] bg-[#FBF3DE] px-2 py-0.5 text-[9.5px] font-medium text-[#8A6A1E]">{m}</span>
-        ))}
       </div>
 
-      <p className="mt-2.5 text-[10px] leading-snug text-ink-secondary">
-        Values <span className="font-medium text-ink-primary">{companyName}</span> on its net worth (book value) at a comparable listed-peer P/BV — a book-value cross-check, not a price target. Every figure is source-backed; any missing input is left blank, never estimated.
-      </p>
-    </div>
-  )
-}
+      <div className="mt-3 grid grid-cols-2 gap-1.5 sm:grid-cols-3">
+        <SnapStat k="Market value" v={row.marketCap != null ? fmtCr(row.marketCap) : null} />
+        <SnapStat k="Book value" v={nav?.netWorth ? fmtCr(nav.netWorth.value) : null} tone="teal" />
+        <SnapStat k="GWP · latest FY" v={row.gwp != null ? fmtCr(row.gwp) : null} />
+        <SnapStat k="P / GWP" v={row.pGwp != null ? xMult(row.pGwp) : null} tone="gold" />
+        <SnapStat k="P / BV" v={quote?.pb != null ? xMult(quote.pb) : null} tone="gold" />
+        <SnapStat k="P / E" v={row.pe != null ? xMult(row.pe, 1) : null} />
+        <SnapStat k="GWP growth" v={growth} tone={row.growth != null && row.growth >= 0 ? 'teal' : 'coral'} />
+        <SnapStat k="BVPS" v={nav?.navPerShare != null ? inr(nav.navPerShare) : null} tone="teal" />
+        <SnapStat k="Impl / share" v={nav?.impliedPerShare != null ? inr(nav.impliedPerShare) : null} tone="teal" />
+      </div>
 
-function InputLine({ label, value, sub }: { label: string; value: string | null; sub: string }) {
-  return (
-    <div className="flex items-baseline justify-between gap-3 border-b border-[#F0ECDD] pb-1.5">
-      <span className="text-[10px] text-ink-secondary">{label}</span>
-      <span className="text-right">
-        <span className={`text-[11.5px] font-semibold tabular-nums ${value == null ? 'italic text-ink-secondary/60' : 'text-navy-deep'}`}>{value ?? 'unavailable'}</span>
-        <span className="block text-[9px] leading-tight text-ink-secondary/80">{sub}</span>
-      </span>
-    </div>
-  )
-}
-
-function Formula({ rule, calc, note }: { rule: string; calc: string | null; note?: string }) {
-  return (
-    <div className="leading-snug">
-      <p className="font-mono text-[10.5px] text-ink-primary">{rule}</p>
-      {calc != null ? (
-        <p className="font-mono text-[11px] font-semibold" style={{ color: '#9C7430' }}>{calc}</p>
-      ) : (
-        <p className="font-mono text-[10px] italic text-ink-secondary/70">→ {note}</p>
+      {unlisted && (
+        <p className="mt-3 text-[10px] leading-snug text-ink-secondary">
+          Unlisted — no public market price, so market-based multiples read <b className="text-navy-deep/80">—</b>. Book value and GWP are real filed figures.
+        </p>
       )}
+    </div>
+  )
+}
+
+// ── Quality lens (always visible, driven by the selected row) ─────────────────
+function QualityLensPanel({ quality, companyName }: { quality: QualityAnalysis | null; companyName: string }) {
+  if (!quality) {
+    return (
+      <div className="card-surface card-tint-slate p-4">
+        <p className="text-[9.5px] font-bold uppercase tracking-[0.16em] text-champagne-deep">Quality Lens</p>
+        <p className="mt-2 text-[12px] text-ink-secondary">Operating-quality metrics aren’t tracked for {companyName}.</p>
+      </div>
+    )
+  }
+  const { compassData, drivers, position } = quality
+  const badge =
+    position === 'Above Average' ? { fg: GREEN, bg: '#EAF5EE', ring: '#C8E2DD', label: 'Above Average operating quality' }
+    : position === 'Weak vs peers' ? { fg: CORAL, bg: '#F8ECEC', ring: '#EAD2CD', label: 'Below-average operating quality' }
+    : { fg: NAVY, bg: '#EAF0FB', ring: '#D6E2FA', label: 'In-line operating quality' }
+  const readTone =
+    position === 'Above Average' ? { fg: '#0E6F6D', bg: '#F1FAF8', ring: '#CFE7E3' }
+    : position === 'Weak vs peers' ? { fg: '#A8443B', bg: '#F8ECEC', ring: '#EAD2CD' }
+    : { fg: '#27457E', bg: '#EEF3FB', ring: '#D6E2FA' }
+
+  return (
+    <div className="card-surface card-tint-slate p-4">
+      <div className="flex flex-wrap items-center justify-between gap-2">
+        <p className="text-[9.5px] font-bold uppercase tracking-[0.16em] text-champagne-deep">Quality Lens</p>
+        <span className="inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-[11px] font-semibold" style={{ color: badge.fg, background: badge.bg, borderColor: badge.ring }}>
+          <span className="h-1.5 w-1.5 rounded-full" style={{ background: badge.fg }} />{badge.label}
+        </span>
+      </div>
+
+      <div className="mt-3 grid grid-cols-1 items-center gap-3 sm:grid-cols-[1fr_1.05fr]">
+        {/* radar */}
+        <div className="rounded-xl bg-gradient-to-br from-[#F6F9FD] to-[#ECF1F8] ring-1 ring-[rgba(39,69,126,0.06)]" style={{ width: '100%', height: 188 }}>
+          <ResponsiveContainer width="100%" height="100%">
+            <RadarChart data={compassData} outerRadius="74%" margin={{ top: 8, right: 26, bottom: 8, left: 26 }}>
+              <PolarGrid stroke="#E3E8F0" />
+              <PolarAngleAxis dataKey="axis" tick={{ fontSize: 9, fill: '#64748B' }} />
+              <Radar name="Peer avg" dataKey="peer" stroke={PEER} fill={PEER} fillOpacity={0.16} strokeWidth={1.3} />
+              <Radar name={companyName} dataKey="self" stroke={NAVY} fill={NAVY} fillOpacity={0.26} strokeWidth={1.8} />
+            </RadarChart>
+          </ResponsiveContainer>
+        </div>
+        {/* score bars */}
+        <div className="space-y-1.5">
+          {drivers.map((d) => (
+            <div key={d.axis} className="flex items-center gap-2 text-[11px]">
+              <span className="w-[86px] shrink-0 text-ink-secondary">{d.axis}</span>
+              <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-soft-border">
+                <span className="block h-full rounded-full" style={{ width: `${Math.max(6, Math.min(100, d.self))}%`, background: d.ahead ? GREEN : NAVY }} />
+              </div>
+              <span className="w-8 text-right text-[10.5px] font-semibold tabular-nums" style={{ color: d.ahead ? GREEN : '#64748B' }}>{d.delta >= 0 ? `+${d.delta}` : d.delta}</span>
+            </div>
+          ))}
+          <p className="mt-1 flex flex-wrap items-center gap-2 text-[9px] text-ink-secondary">
+            <span className="inline-flex items-center gap-1"><span className="h-2 w-2 rounded-full" style={{ background: NAVY }} />{companyName}</span>
+            <span className="inline-flex items-center gap-1"><span className="h-2 w-2 rounded-full" style={{ background: PEER }} />Peer avg</span>
+          </p>
+        </div>
+      </div>
+
+      {/* what this means */}
+      <div className="mt-3 flex items-start gap-2.5 rounded-xl border px-3.5 py-2.5" style={{ background: readTone.bg, borderColor: readTone.ring }}>
+        <span className="mt-px grid h-6 w-6 shrink-0 place-items-center rounded-lg bg-white/80" style={{ color: readTone.fg, boxShadow: `inset 0 0 0 1px ${readTone.ring}` }}>
+          <Lightbulb className="h-3.5 w-3.5" strokeWidth={2} />
+        </span>
+        <div className="min-w-0">
+          <p className="text-[9px] font-bold uppercase tracking-[0.14em]" style={{ color: readTone.fg }}>What this means</p>
+          <p className="mt-0.5 text-[12px] leading-snug text-navy-deep">{qualityReadText(position)}</p>
+        </div>
+      </div>
     </div>
   )
 }

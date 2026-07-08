@@ -1,56 +1,28 @@
-import { useState, type ReactNode } from 'react'
-import { PolarAngleAxis, PolarGrid, Radar, RadarChart, ResponsiveContainer } from 'recharts'
-import { ChevronDown, Info, Lightbulb } from 'lucide-react'
-import { insurers } from '@/data/mockData'
+import { Info } from 'lucide-react'
 import { FOCAL_VALUATION_ID, marketSnapshot, peerValuation, type PeerValuationRow } from '@/data/valuationData'
 import { getAnalystCoverage, getMarketQuote } from '@/lib/analystCoverage'
 import { srcTag } from '@/data/valuationSources'
 import { useActiveCompany } from '@/state/filters'
 import { InsightContextChip } from '@/components/insight/InsightContextChip'
 import { useSectionInsight } from '@/components/insight/useSectionInsight'
-import { NavValuationCard } from '@/components/NavValuationCard'
 import { type SourceTagProps } from '@/components/SourceTag'
 import type { Insurer } from '@/data/types'
-import { CORAL, Eyebrow, GOLD, GREEN, NAVY, PEER, TEAL, ValPill, clamp, fmtCr, px, ratingTone, upPct, xMult } from './valuationShared'
+import { CORAL, Eyebrow, GOLD, NAVY, TEAL, ValPill, fmtCr, px, ratingTone, upPct, xMult } from './valuationShared'
 import { ValuationDecisionLayer, type DecisionData, type QualityLens } from './ValuationHero'
-import { PeerValuationMatrix } from './PeerValuationMatrix'
+import { PeerValuationSection } from './PeerValuationMatrix'
 import { StreetView } from './StreetView'
+import { buildQuality } from './qualityCompass'
 
 export function ValuationMarketView() {
   const company = useActiveCompany()
   const isFocal = company.id === FOCAL_VALUATION_ID
   const { focus, ref: focusRef, arrived } = useSectionInsight('valuation')
 
-  // ── Operating-quality compass (relative, from insurers[] headline metrics) ──
-  const peerGroup = insurers.filter((i) => i.peerGroup === company.peerGroup && i.id !== company.id)
-  const avg = (f: (p: (typeof insurers)[number]) => number) => (peerGroup.length ? peerGroup.reduce((s, p) => s + f(p), 0) / peerGroup.length : 0)
-  const sc = (g: number, mgn: number, ms: number, solv: number) => ({ Growth: clamp(g * 2.4), Profitability: clamp(48 + mgn * 3 + 12), 'Market Share': clamp(ms * 3.8), 'Balance Sheet': clamp(solv * 22) })
-  const nivaScores = sc(company.growth, company.margin, company.marketShare, company.solvency)
-  const peerScores = sc(avg((p) => p.growth), avg((p) => p.margin), avg((p) => p.marketShare), avg((p) => p.solvency))
-  const compassData = (['Growth', 'Profitability', 'Market Share', 'Balance Sheet'] as const).map((axis) => ({ axis, niva: Math.round(nivaScores[axis]), peer: Math.round(peerScores[axis]) }))
-  const compassDelta = compassData.reduce((s, d) => s + d.niva, 0) / 4 - compassData.reduce((s, d) => s + d.peer, 0) / 4
-  const position = compassDelta >= 8 ? 'Above Average' : compassDelta <= -8 ? 'Weak vs peers' : 'Average'
-
-  // "What this means" read for the quality lens — honest one-liner, no new numbers.
-  const qualityRead: { tone: WtmTone; text: ReactNode } =
-    position === 'Above Average'
-      ? { tone: 'teal', text: <>Operating quality screens <b className="text-teal">above the peer average</b> — supportive of a valuation premium.</> }
-      : position === 'Weak vs peers'
-        ? { tone: 'coral', text: <>Operating quality screens <b style={{ color: CORAL }}>below peers</b> — a premium is harder to justify on fundamentals alone.</> }
-        : { tone: 'navy', text: <>Operating quality is <b className="text-navy-deep">broadly in line</b> with peers.</> }
-
-  // Compact quality read for the decision layer's Quality Lens card — the SAME
-  // relative score gaps, distilled to a verdict + the four drivers. Shares the
-  // computed compass so the card and the full radar breakdown never disagree.
-  const quality: QualityLens = {
-    verdict:
-      position === 'Above Average' ? 'Above peer average'
-      : position === 'Weak vs peers' ? 'Below peer average'
-      : 'In line with peers',
-    tone: position === 'Above Average' ? 'teal' : position === 'Weak vs peers' ? 'coral' : 'navy',
-    peerGroup: company.peerGroup,
-    drivers: compassData.map((d) => ({ axis: d.axis, delta: d.niva - d.peer, ahead: d.niva >= d.peer, niva: d.niva })),
-  }
+  // Operating-quality compass for the ACTIVE company — feeds the decision-layer
+  // Quality Lens card. The peer section builds its own for the SELECTED row from
+  // the same shared helper, so the two never disagree.
+  const q = buildQuality(company)
+  const quality: QualityLens = { verdict: q.verdict, tone: q.tone, peerGroup: company.peerGroup, drivers: q.drivers }
 
   // ── Decision-layer data — derived from the ACTIVE company's OWN live sources,
   //    so the three lens cards serve any listed name (Niva, Star, …) from its own
@@ -114,138 +86,23 @@ export function ValuationMarketView() {
   return (
     <div ref={focusRef} className={`space-y-5 ${arrived ? 'insight-arrival rounded-2xl' : ''}`}>
       {focus && <InsightContextChip focus={focus} />}
+
+      {/* ═══ 1 · TOP READ — the decision layer for a fully-covered listed name, or
+               the honest per-company pending read for the rest. ═══════════════ */}
       {listedWithPrice ? (
-        <>
-          {/* ═══ 1 · DECISION LAYER — cheap/fair/expensive · quality · street, in one
-                   soft blue band, before any table. Owns the valuation & street
-                   numbers so they are not repeated in the evidence below. Works for
-                   every listed name from its own live data. ══════════════════════ */}
-          <ValuationDecisionLayer data={decisionData} />
-
-          {/* ═══ 2 · PEER VALUATION MATRIX — the primary evidence table, given the
-                   strongest visual priority right under the decision layer. Its
-                   Book-value view carries NAV / book value for every peer. ══════ */}
-          <PeerValuationMatrix />
-
-          {/* ═══ 3 · STREET VIEW · ANALYST VIEWS — the consolidated analyst evidence:
-                   one summary strip + every dated broker call, one clean table. ═ */}
-          <StreetView embedded />
-
-          {/* ═══ 4 · FULL QUALITY BREAKDOWN — the radar + score gaps, one click away
-                   so the first view stays clean (the drivers are up top). ═══════ */}
-          <QualityBreakdown company={company} compassData={compassData} position={position} qualityRead={qualityRead} collapsible />
-        </>
+        <ValuationDecisionLayer data={decisionData} />
       ) : (
-        <>
-          <ValuationPending company={company} peerRow={peerValuation.find((r) => r.companyId === company.id) ?? null} />
-
-          {/* ═══ NAV / BOOK-VALUE LENS — per-company, only on the non-focal pending
-                   view (the peer matrix, which carries book value for all peers,
-                   isn't shown here), so each company keeps its book-value cross-check. */}
-          <section>
-            <Eyebrow
-              label="Book-Value Lens"
-              title={`${company.shortName} · NAV / book-value valuation`}
-              note="Values the company on its net worth at a comparable listed-peer P/BV. The final number shows here; the full working is one click away."
-            />
-            <NavValuationCard companyId={company.id} companyName={company.shortName} />
-          </section>
-
-          {/* Operating-quality breakdown — computed from the company's own metrics,
-              so it stays meaningful for every company (shown, not collapsed). */}
-          <QualityBreakdown company={company} compassData={compassData} position={position} qualityRead={qualityRead} />
-
-          {/* The live analyst market read (or an honest "coverage pending"). */}
-          <StreetView embedded />
-        </>
+        <ValuationPending company={company} peerRow={peerRow} />
       )}
+
+      {/* ═══ 2 · PEER VALUATION & QUALITY — one always-visible split table (Shared ·
+               Market Value · Book Value, no toggle); the selected row drives a peer
+               snapshot + the quality lens. Peer-agnostic → works for every company. */}
+      <PeerValuationSection defaultCompanyId={company.id} />
+
+      {/* ═══ 3 · STREET VIEW · ANALYST VIEWS — the consolidated analyst evidence. */}
+      <StreetView embedded />
     </div>
-  )
-}
-
-// ── Operating-quality breakdown — the full radar + relative score gaps ────────
-// The compact drivers live in the decision layer's Quality Lens card; this is the
-// full picture. On the focal view it is collapsible (so the first view stays
-// clean); on the per-company view it is shown, as that company's main quality read.
-function QualityBreakdown({
-  company,
-  compassData,
-  position,
-  qualityRead,
-  collapsible = false,
-}: {
-  company: Insurer
-  compassData: { axis: string; niva: number; peer: number }[]
-  position: string
-  qualityRead: { tone: WtmTone; text: ReactNode }
-  collapsible?: boolean
-}) {
-  const [open, setOpen] = useState(!collapsible)
-  return (
-    <section>
-      <Eyebrow
-        label="Quality Lens"
-        title={collapsible ? 'Full operating-quality breakdown' : 'Is the premium supported by operating quality?'}
-        note={`Relative scores on the operating metrics behind the multiple · vs ${company.peerGroup} peer average.`}
-        right={
-          collapsible ? (
-            <button
-              type="button"
-              onClick={() => setOpen((o) => !o)}
-              aria-expanded={open}
-              className="inline-flex items-center gap-1 rounded-full border border-soft-border bg-white/70 px-2.5 py-1 text-[10.5px] font-semibold text-navy-primary transition-colors hover:border-muted-blue hover:text-navy-deep"
-            >
-              {open ? 'Hide' : 'Show'} radar
-              <ChevronDown className={`h-3 w-3 transition-transform ${open ? 'rotate-180' : ''}`} />
-            </button>
-          ) : (
-            <ValPill c="secondary" />
-          )
-        }
-      />
-      {open && (
-        <div className="card-surface card-tint-slate animate-collapse-in p-5">
-          <div className="grid grid-cols-1 items-center gap-4 sm:grid-cols-[1.1fr_1fr]">
-            <div className="rounded-xl bg-gradient-to-br from-[#F6F9FD] to-[#ECF1F8] ring-1 ring-[rgba(39,69,126,0.06)]" style={{ width: '100%', height: 210 }}>
-              <ResponsiveContainer width="100%" height="100%">
-                <RadarChart data={compassData} outerRadius="76%" margin={{ top: 8, right: 30, bottom: 8, left: 30 }}>
-                  <PolarGrid stroke="#E3E8F0" />
-                  <PolarAngleAxis dataKey="axis" tick={{ fontSize: 9.5, fill: '#64748B' }} />
-                  <Radar name="Peer avg" dataKey="peer" stroke={PEER} fill={PEER} fillOpacity={0.16} strokeWidth={1.3} />
-                  <Radar name={company.shortName} dataKey="niva" stroke={NAVY} fill={NAVY} fillOpacity={0.26} strokeWidth={1.8} />
-                </RadarChart>
-              </ResponsiveContainer>
-            </div>
-            <div>
-              <div className="inline-flex items-center gap-2 rounded-xl border px-3 py-2" style={{ borderColor: position === 'Above Average' ? '#C8E2DD' : position === 'Weak vs peers' ? '#EAD2CD' : '#D6E2FA', background: position === 'Above Average' ? '#EAF5EE' : position === 'Weak vs peers' ? '#F8ECEC' : '#EAF0FB' }}>
-                <span className="font-display text-[18px] leading-none" style={{ color: position === 'Above Average' ? GREEN : position === 'Weak vs peers' ? CORAL : NAVY }}>{position}</span>
-                <span className="text-[10px] text-ink-secondary">operating quality</span>
-              </div>
-              <div className="mt-3 grid grid-cols-1 gap-1.5">
-                {compassData.map((d) => {
-                  const ahead = d.niva >= d.peer
-                  return (
-                    <div key={d.axis} className="flex items-center gap-2 text-[11px]">
-                      <span className="w-[88px] shrink-0 text-ink-secondary">{d.axis}</span>
-                      <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-soft-border">
-                        <span className="block h-full rounded-full" style={{ width: `${d.niva}%`, background: ahead ? GREEN : NAVY }} />
-                      </div>
-                      <span className="w-8 text-right text-[10.5px] font-semibold" style={{ color: ahead ? GREEN : '#64748B' }}>{ahead ? `+${d.niva - d.peer}` : d.niva - d.peer}</span>
-                    </div>
-                  )
-                })}
-              </div>
-              <p className="mt-2 flex flex-wrap items-center gap-2 text-[9.5px] text-ink-secondary">
-                <span className="inline-flex items-center gap-1"><span className="h-2 w-2 rounded-full" style={{ background: NAVY }} />{company.shortName}</span>
-                <span className="inline-flex items-center gap-1"><span className="h-2 w-2 rounded-full" style={{ background: PEER }} />Peer avg</span>
-                <span className="ml-1">· operating quality, not valuation</span>
-              </p>
-            </div>
-          </div>
-          <WhatThisMeans tone={qualityRead.tone}>{qualityRead.text}</WhatThisMeans>
-        </div>
-      )}
-    </section>
   )
 }
 
@@ -322,7 +179,7 @@ function ValuationPending({ company, peerRow }: { company: Insurer; peerRow: Pee
             Live multiples are sourced for the listed insurers (Niva Bupa, Star Health, ICICI Lombard, Go Digit); analyst consensus for the names brokers cover. The fully curated valuation narrative is authored for <b>Niva Bupa (NSE: NIVABUPA)</b>. We never display one company&rsquo;s numbers under another&rsquo;s name.
           </p>
           <p className="mt-2 text-[10.5px] leading-relaxed opacity-90">
-            The operating-quality view below is computed from {company.shortName}&rsquo;s own reported metrics, so it stays meaningful for every company.
+            The peer comparison &amp; operating-quality view below is computed from {company.shortName}&rsquo;s own reported metrics, so it stays meaningful for every company.
           </p>
         </div>
       </div>
@@ -346,30 +203,6 @@ function Tile({ k, v, sub, tone = 'navy' }: { k: string; v: string; sub?: string
       <p className="whitespace-nowrap pl-1 text-[8.5px] font-semibold uppercase text-ink-secondary">{k}</p>
       <p className={`mt-0.5 pl-1 font-display text-[16px] leading-none ${t.text}`}>{v}</p>
       {sub && <p className="mt-0.5 pl-1 text-[8.5px] text-ink-secondary/80">{sub}</p>}
-    </div>
-  )
-}
-
-// ── "What this means" — a compact, tone-coded decision read that ties a section's
-//    numbers back to the valuation question (the so-what). Colour psychology:
-//    gold = premium / importance, teal = supportive / positive, coral = stretch /
-//    caution, navy = neutral peer context.
-type WtmTone = 'teal' | 'gold' | 'navy' | 'coral'
-function WhatThisMeans({ tone, children }: { tone: WtmTone; children: ReactNode }) {
-  const t =
-    tone === 'teal' ? { bg: '#F1FAF8', ring: '#CFE7E3', fg: '#0E6F6D', ic: TEAL }
-    : tone === 'gold' ? { bg: '#FBF6EA', ring: '#EAD9A8', fg: '#8A6A1E', ic: GOLD }
-    : tone === 'coral' ? { bg: '#F8ECEC', ring: '#EAD2CD', fg: '#A8443B', ic: CORAL }
-    : { bg: '#EEF3FB', ring: '#D6E2FA', fg: '#27457E', ic: NAVY }
-  return (
-    <div className="mt-4 flex items-start gap-2.5 rounded-xl border px-3.5 py-2.5" style={{ background: t.bg, borderColor: t.ring }}>
-      <span className="mt-px grid h-6 w-6 shrink-0 place-items-center rounded-lg bg-white/80" style={{ color: t.ic, boxShadow: `inset 0 0 0 1px ${t.ring}` }}>
-        <Lightbulb className="h-3.5 w-3.5" strokeWidth={2} />
-      </span>
-      <div className="min-w-0">
-        <p className="text-[9px] font-bold uppercase tracking-[0.14em]" style={{ color: t.fg }}>What this means</p>
-        <p className="mt-0.5 text-[12px] leading-snug text-navy-deep">{children}</p>
-      </div>
     </div>
   )
 }

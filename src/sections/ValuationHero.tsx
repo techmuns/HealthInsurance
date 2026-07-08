@@ -40,7 +40,7 @@ export interface QualityLens {
   tone: ToneKey
   /** Peer-group label for the sub-line (dynamic, never hard-coded). */
   peerGroup: string
-  drivers: { axis: string; delta: number; ahead: boolean; niva: number }[]
+  drivers: { axis: string; delta: number; ahead: boolean; self: number }[]
 }
 
 /** Everything the three cards render — derived by the section from the ACTIVE
@@ -196,7 +196,7 @@ function ValuationLensCard({ data }: { data: DecisionData }) {
 
 // ── 2 · Quality Lens — does operating quality support the valuation? ──────────
 function QualityLensCard({ quality }: { quality: QualityLens }) {
-  const maxAbs = Math.max(1, ...quality.drivers.map((d) => d.niva))
+  const maxAbs = Math.max(1, ...quality.drivers.map((d) => d.self))
   return (
     <LensCard eyebrow="Quality Lens" accent={V_TONE[quality.tone].bar} right={<ValPill c="secondary" />}>
       <Verdict label={quality.verdict} tone={quality.tone} />
@@ -209,7 +209,7 @@ function QualityLensCard({ quality }: { quality: QualityLens }) {
           <div key={d.axis} className="flex items-center gap-2 text-[11px]">
             <span className="w-[92px] shrink-0 text-ink-secondary">{d.axis}</span>
             <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-[#E7ECF3]">
-              <span className="block h-full rounded-full" style={{ width: `${Math.max(6, Math.min(100, (d.niva / maxAbs) * 100))}%`, background: d.ahead ? TEAL : NAVY }} />
+              <span className="block h-full rounded-full" style={{ width: `${Math.max(6, Math.min(100, (d.self / maxAbs) * 100))}%`, background: d.ahead ? TEAL : NAVY }} />
             </div>
             <span className="w-9 text-right font-semibold tabular-nums" style={{ color: d.ahead ? '#0E6F6D' : '#64748B' }}>
               {d.delta >= 0 ? `+${d.delta}` : d.delta}
