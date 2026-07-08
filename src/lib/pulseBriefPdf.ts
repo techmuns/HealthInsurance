@@ -21,7 +21,6 @@ import type {
   SinceDelta,
   ConvictionIdea,
   PulseEvent,
-  PulseAction,
   OneThing,
 } from '@/components/pulse/derive'
 import { toPeBriefItem, buildExecBrief, type PeBriefItem } from '@/lib/peBrief'
@@ -37,7 +36,6 @@ export interface DailyBriefPayload {
   sinceDeltas: SinceDelta[]
   ideas: ConvictionIdea[]
   events: PulseEvent[]
-  actions: PulseAction[]
   confidence: Confidence
 }
 

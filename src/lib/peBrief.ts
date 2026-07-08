@@ -231,20 +231,20 @@ function metricsFor(idea: PeIdea, topic: Topic): string[] {
 function impactLineFor(idea: PeIdea, topic: Topic): string {
   const s = signOf(idea.impact)
   const M: Partial<Record<Topic, string>> = {
-    commission: 'Pressure on acquisition cost, distributor economics and expense ratio; claims impact is indirect.',
-    expense: 'Direct pressure on the expense ratio and, through it, the combined ratio.',
-    claims: 'Bears on the claims ratio, cashless TAT and combined ratio; pricing is the offset.',
-    pricing: 'Narrows pricing flexibility; feeds claims ratio, persistency and the combined ratio.',
-    solvency: 'Keeps solvency and capital adequacy in focus; growth capacity is the swing factor.',
-    entry: 'Adds competitive intensity — pressure on pricing, distribution access and market share.',
-    listing: 'A capital-access / valuation signal, not an earnings one — shifts float and listing optionality.',
-    ownership: 'A float / ownership signal — read for overhang or conviction, not fundamentals.',
-    management: 'Execution continuity and strategy direction are the read; the numbers follow later.',
-    market: 'A reported price / volume move — verify the trigger before reading fundamentals into it.',
-    regulatory: 'Compliance and cost implications across SAHIs; magnitude turns on the final text.',
+    commission: 'Lower payouts to agents and brokers squeeze what insurers spend to win business (the expense ratio). Claims costs are barely touched.',
+    expense: 'Pushes running costs up, and with them the combined ratio — the number that shows whether the core business actually makes money.',
+    claims: 'Changes how much insurers pay out on claims and how fast cashless approvals go through; the only offset is charging higher premiums.',
+    pricing: 'Leaves less room to raise premiums, which feeds straight into claims cost, renewals and whether the core business is profitable.',
+    solvency: 'Puts the spotlight on capital strength; how much the insurer can keep growing is the swing factor.',
+    entry: 'A new rival means tougher competition — pressure on prices, on access to agents and branches, and on market share.',
+    listing: 'This is about raising money and valuation, not day-to-day profit — it changes an insurer’s options to list or raise capital.',
+    ownership: 'A change in who owns the shares — read it for a possible overhang or a vote of confidence, not for the fundamentals.',
+    management: 'The real question is whether strategy and delivery stay on track under the new person; the numbers follow later.',
+    market: 'A reported move in the share price or trading volume — check what caused it before reading anything into the business.',
+    regulatory: 'Adds compliance work and cost for health insurers; how big it is depends on the final wording of the rules.',
   }
-  if (topic === 'premium') return s === 'up' ? 'Supports GWP growth and share; the test is whether margins hold as the book scales.' : 'Growth quality in question — watch GWP mix, NWP retention and margins.'
-  if (topic === 'analyst') return s === 'up' ? 'Supportive for sentiment and the multiple; delivery on growth and margins decides durability.' : 'A more cautious Street stance; watch consensus, targets and the re-rating path.'
+  if (topic === 'premium') return s === 'up' ? 'Helps premium growth and market share; the test is whether profit margins hold as the book gets bigger.' : 'Growth quality is in doubt — watch the premium mix, how much premium is kept after reinsurance, and margins.'
+  if (topic === 'analyst') return s === 'up' ? 'Good for sentiment and the valuation; whether it lasts depends on actually delivering growth and margins.' : 'Analysts are turning more cautious; watch where their forecasts and price targets go next.'
   if (M[topic]) return M[topic]!
   // Fallback: prefer the source's own metric-anchored line over a generic phrase.
   const own = firstSentence(idea.why.potentialImpact || idea.why.whyItMatters || '')
@@ -286,13 +286,13 @@ function exposureFor(idea: PeIdea, topic: Topic, companyId: string, companyLabel
       const im = intermediaryShare(targetId)
       if (im) {
         const level: PeExposureLevel = im.pct >= 80 ? 'High' : im.pct >= 60 ? 'Medium' : 'Low'
-        return { level, basis: `${Math.round(im.pct)}% intermediary-led GWP (${im.period})` }
+        return { level, basis: `${Math.round(im.pct)}% of premium sold via agents & brokers (${im.period})` }
       }
-      return { level: 'Needs data', basis: `Channel mix not wired for ${targetLabel}` }
+      return { level: 'Needs data', basis: `Sales-channel data not available for ${targetLabel}` }
     }
     const wired = wiredIntermediary()
-    if (wired.length) return { level: 'High', basis: `Highest for intermediary-led books — e.g. ${wired[0].label} ${Math.round(wired[0].pct)}% (${wired[0].period})` }
-    return { level: 'Needs data', basis: 'Channel mix not wired' }
+    if (wired.length) return { level: 'High', basis: `Hits agent/broker-heavy insurers most — e.g. ${wired[0].label} ${Math.round(wired[0].pct)}% (${wired[0].period})` }
+    return { level: 'Needs data', basis: 'Sales-channel data not available' }
   }
 
   if (RETAIL_TOPICS.has(topic)) {
@@ -300,11 +300,11 @@ function exposureFor(idea: PeIdea, topic: Topic, companyId: string, companyLabel
       const rm = retailMixOf(targetId)
       if (rm != null) {
         const level: PeExposureLevel = rm >= 65 ? 'High' : rm >= 45 ? 'Medium' : 'Low'
-        return { level, basis: `${Math.round(rm)}% retail-health mix` }
+        return { level, basis: `${Math.round(rm)}% individual (retail) health book` }
       }
-      return { level: 'Needs data', basis: `Retail / group split not wired for ${targetLabel}` }
+      return { level: 'Needs data', basis: `Retail vs group split not available for ${targetLabel}` }
     }
-    return { level: 'Needs data', basis: 'Varies with retail vs group mix' }
+    return { level: 'Needs data', basis: 'Depends on the retail vs group mix' }
   }
 
   // Management change — exposure by ROLE criticality (#6), not company mix.
@@ -314,15 +314,15 @@ function exposureFor(idea: PeIdea, topic: Topic, companyId: string, companyLabel
       /\bceo\b|chief executive|\bcfo\b|chief financial|\bcro\b|chief risk|appointed actuary|managing director|\bmd\b/.test(t) ? 'High'
       : /\bcoo\b|chief (underwriting|distribution|sales|product|claims|operating)|head of (underwriting|distribution|sales|product|claims)/.test(t) ? 'Medium'
       : 'Low'
-    const basis = level === 'High' ? 'Board / key management (CEO / CFO / CRO / Actuary)' : level === 'Medium' ? 'Senior functional leadership' : 'Non-critical role'
+    const basis = level === 'High' ? 'Board or top management (CEO, CFO, Chief Risk, Actuary)' : level === 'Medium' ? 'Senior department head' : 'Non-critical role'
     return { level, basis }
   }
 
   // Company-direct news (analyst / company item about the target).
   if (idea.scope === 'company' && (companyId === 'all' || idea.companyId === companyId)) {
-    return { level: 'High', basis: `Directly concerns ${idea.entity}` }
+    return { level: 'High', basis: `Directly about ${idea.entity}` }
   }
-  return { level: 'Needs data', basis: 'No channel / mix basis for this event' }
+  return { level: 'Needs data', basis: 'No exposure data for this item' }
 }
 
 // ── 5) PE read — near-term vs longer-term, one line ────────────────────────────
@@ -330,20 +330,20 @@ function exposureFor(idea: PeIdea, topic: Topic, companyId: string, companyLabel
 function peReadFor(idea: PeIdea, topic: Topic): string {
   const s = signOf(idea.impact)
   const R: Partial<Record<Topic, string>> = {
-    commission: 'Margin / expense risk near term; cleaner, stickier distribution economics longer term.',
-    expense: 'Cost pressure near term; the efficiency gap becomes a competitive edge over time.',
-    claims: 'Near-term claims-cost and service pressure; better trust and persistency if executed well.',
-    pricing: 'Repricing headroom shrinks near term; demand and retention are the longer-term swing.',
-    solvency: 'Capital scrutiny near term; disciplined growth protects longer-term compounding.',
-    entry: 'Limited near-term P&L hit; watch share and distribution access as the entrant scales.',
-    listing: 'Capital-access / exit optionality shifts; limited near-term P&L impact.',
-    management: 'Continuity is the near-term watch; strategy direction the longer-term read.',
-    ownership: 'A technical / flow read near term; a governance signal only if it recurs.',
-    market: 'Noise until corroborated; a real trigger would reset the near-term read.',
-    regulatory: 'Cost / compliance drag near term; a cleaner, more trusted market longer term.',
+    commission: 'Near term: pressure on margins and costs. Longer term: a cleaner, more durable way of paying for sales.',
+    expense: 'Near term: cost pressure. Over time: the most efficient insurers pull ahead.',
+    claims: 'Near term: higher claims cost and service strain. Done well, it builds trust and keeps customers renewing.',
+    pricing: 'Near term: less room to raise premiums. Longer term: demand and how many customers stay decide it.',
+    solvency: 'Near term: a closer look at capital. Longer term: disciplined growth protects steady compounding.',
+    entry: 'Little near-term profit impact; watch market share and access to agents and branches as the new rival grows.',
+    listing: 'Changes an insurer’s options to list or raise money; little near-term profit impact.',
+    management: 'Near term: does the business stay steady? Longer term: does the strategy change direction?',
+    ownership: 'Near term: just a shift in who holds the shares. It only matters more if it keeps happening.',
+    market: 'Treat it as noise until confirmed; a real cause would change the near-term picture.',
+    regulatory: 'Near term: extra cost and compliance work. Longer term: a cleaner, more trusted market.',
   }
-  if (topic === 'premium') return s === 'up' ? 'Growth momentum supportive now; durability rests on margins holding as it scales.' : 'Growth optics strong; quality — mix, retention, margins — is the real near-term test.'
-  if (topic === 'analyst') return s === 'up' ? 'Supports the multiple near term; needs delivery on growth / margins to hold.' : 'Sentiment headwind near term; fundamentals decide whether it re-rates back.'
+  if (topic === 'premium') return s === 'up' ? 'Growth looks good now; whether it lasts depends on margins holding as it scales.' : 'Growth looks strong on the surface; the real test is quality — mix, retention and margins.'
+  if (topic === 'analyst') return s === 'up' ? 'Supports the valuation now; it needs real growth and margins to hold up.' : 'A near-term knock to sentiment; the actual results decide whether it recovers.'
   if (R[topic]) return R[topic]!
   return clampWords(firstSentence(idea.why.potentialImpact || idea.whatToWatch || ''), 150) || 'Watch the next disclosure to confirm the direction.'
 }
@@ -520,18 +520,18 @@ const stripTrailingDot = (s: string): string => s.replace(/[.\s]+$/, '')
 // What each topic puts "in play" — the metric-linked stake for the why-line. Kept
 // concrete and free of the banned soft phrases ("demand looks strong", etc.).
 const TOPIC_STAKE: Record<Topic, string> = {
-  commission: 'distribution economics',
-  expense: 'expense ratios',
+  commission: 'the cost of selling policies',
+  expense: 'running costs',
   claims: 'claims cost',
-  pricing: 'pricing flexibility',
-  solvency: 'capital adequacy',
-  entry: 'competitive intensity',
-  listing: 'capital access',
+  pricing: 'room to price',
+  solvency: 'capital strength',
+  entry: 'competition',
+  listing: 'access to capital',
   premium: 'growth quality',
-  ownership: 'the ownership picture',
-  management: 'execution continuity',
-  analyst: 'the equity multiple',
-  market: 'the near-term price read',
+  ownership: 'who owns the shares',
+  management: 'steady leadership',
+  analyst: 'the valuation',
+  market: 'the near-term share-price read',
   regulatory: 'compliance cost',
   other: 'the near-term read',
 }

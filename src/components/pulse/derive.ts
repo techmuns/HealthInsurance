@@ -163,11 +163,16 @@ function matchesFilter(s: PulseSignal, f: PulseFilter, pulse: InvestorPulse): bo
     case 'correlation':
       return signalHasCorrelation(s, pulse)
     case 'management':
-      return s.category === 'Management'
+      // Recent management DEVELOPMENTS only. A scheduled/upcoming management event is
+      // an Event, not a "since-yesterday" development — so it belongs to the Events
+      // filter, and the two can never collapse onto the same single item.
+      return s.category === 'Management' && s.horizon !== 'upcoming'
     case 'events':
       return s.horizon === 'upcoming'
     case 'sector':
-      return s.scope === 'sector'
+      // Market/sector catalysts (competition, demand, deals) — NOT rule changes, which
+      // have their own Regulatory lens. Keeps Sector and Regulatory visibly distinct.
+      return s.scope === 'sector' && s.category !== 'Regulatory'
     case 'regulatory':
       return s.category === 'Regulatory'
   }
@@ -179,12 +184,11 @@ export function availableFilters(pulse: InvestorPulse): Set<PulseFilter> {
   for (const s of pulse.signals) {
     if (isFreshToday(s)) set.add('fresh')
     if (signalHasCorrelation(s, pulse)) set.add('correlation')
-    if (s.category === 'Management') set.add('management')
+    if (s.category === 'Management' && s.horizon !== 'upcoming') set.add('management')
     if (s.horizon === 'upcoming') set.add('events')
-    if (s.scope === 'sector') set.add('sector')
+    if (s.scope === 'sector' && s.category !== 'Regulatory') set.add('sector')
     if (s.category === 'Regulatory') set.add('regulatory')
   }
-  if (selectManagementEvents(pulse.companyId, { recentOnly: true }).length) set.add('management')
   return set
 }
 
@@ -241,6 +245,19 @@ const EVIDENCE_BY_CATEGORY: Record<SignalCategory, EvidenceKind> = {
   Management: 'Filing',
   Filing: 'Filing',
   'Data Movement': 'Market data',
+}
+
+// A concise, SPECIFIC topic taken from a sector item's own headline — so each
+// conviction card names the actual story ("IRDAI to tighten commission norms")
+// instead of a generic "Regulatory Update" / "Sector Signal" that makes every card
+// look identical. Plain words, no jargon; the card truncates and the full headline
+// lives in the note. Falls back to the category label only if a title is missing.
+function sectorTopic(s: PulseSignal): string {
+  const raw = scrubCopy(firstSentence(s.title || '')).trim()
+  if (!raw) return SECTOR_TOPIC[s.category]
+  const words = raw.split(/\s+/)
+  if (words.length <= 9) return raw
+  return `${words.slice(0, 9).join(' ')}…`
 }
 
 // A short, plain topic label for a sector-wide item (a company item shows the name).
@@ -1341,14 +1358,14 @@ export function convictionIdeas(signals: PulseSignal[], pulse: InvestorPulse): C
   return clusters
     .map((cl) => ({ cl, c: convictionScore(cl.lead, pulse) }))
     .sort((a, b) => b.c.score - a.c.score)
-    .slice(0, 4)
+    .slice(0, 6)
     .map(({ cl, c }) => {
       const s = cl.lead
       const clusterSources = clusterSourceList(cl.members)
       const independentSources = new Set(cl.members.map((m) => domainOf(m.sourceUrl)).filter(Boolean)).size || (s.sourceUrl ? 1 : 0)
       return {
         id: s.id,
-        entity: s.scope === 'company' ? s.companyName ?? pulse.company : SECTOR_TOPIC[s.category],
+        entity: s.scope === 'company' ? s.companyName ?? pulse.company : sectorTopic(s),
         stars: c.stars,
         reasoning: reasoningLines(s, pulse),
         whatToWatch: whatToWatchFor(s, pulse),
@@ -1871,7 +1888,6 @@ export interface ResolvedDailyBrief {
   ideas: ConvictionIdea[]
   sinceDeltas: SinceDelta[]
   events: PulseEvent[]
-  actions: PulseAction[]
   frozen: boolean
 }
 
@@ -1884,7 +1900,7 @@ export function resolveDailyBrief(pulse: InvestorPulse, filter: PulseFilter, dat
   const isToday = dateKey === 'today'
   if (!isToday && filter === 'relevant') {
     const rec = frozenBriefFor(pulse.companyId, dateKey)
-    if (rec) return { brief: rec.brief, message: rec.message, one: rec.one, ideas: rec.ideas, sinceDeltas: rec.sinceDeltas, events: rec.events, actions: rec.actions, frozen: true }
+    if (rec) return { brief: rec.brief, message: rec.message, one: rec.one, ideas: rec.ideas, sinceDeltas: rec.sinceDeltas, events: rec.events, frozen: true }
   }
   const scoped = scopeSignals(pulse, filter, dateKey)
   const ideas = convictionIdeas(scoped, pulse)
@@ -1896,7 +1912,6 @@ export function resolveDailyBrief(pulse: InvestorPulse, filter: PulseFilter, dat
   // as-of-that-day values above.)
   const sinceDeltas = isToday ? sinceYesterday(pulse) : []
   const events = isToday ? upcomingEvents(pulse) : []
-  const actions = isToday ? actionsForBrief(pulse, scoped) : []
-  return { brief, message, one, ideas, sinceDeltas, events, actions, frozen: false }
+  return { brief, message, one, ideas, sinceDeltas, events, frozen: false }
 }
 

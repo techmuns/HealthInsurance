@@ -16,15 +16,9 @@ import {
   ArrowDown,
   Minus,
   BookOpen,
-  Zap,
-  ShieldCheck,
-  Users,
   Globe,
   Radar,
   Clock3,
-  Scale,
-  CalendarClock,
-  Landmark,
   ArrowUpRight,
   type LucideIcon,
 } from 'lucide-react'
@@ -37,8 +31,6 @@ import {
   type SinceDelta,
   type ConvictionIdea,
   type PulseEvent,
-  type PulseAction,
-  type ActionIcon,
 } from './derive'
 import { GOLD, GOLD_ON_NAVY, PeStatusPill, ExposureChip, PeActionChip } from './parts'
 import { ConvictionOverlay } from './ConvictionPages'
@@ -85,26 +77,26 @@ function CompactBrief({ brief, message, isToday, dateLabel }: { brief: MorningBr
         </span>
       </div>
 
-      <h2 className="mt-2 font-display text-[18px] font-semibold leading-tight" style={{ color: '#E9C46C' }}>
+      <h2 className="mt-2.5 font-display text-[20px] font-semibold leading-tight" style={{ color: '#E9C46C' }}>
         {isToday ? `${brief.greeting}.` : `${brief.greeting} · ${dateLabel}`}
       </h2>
 
       {/* the message — a sharp note, in the Insights editorial serif. Given a
           little more room to breathe now that the stats block has gone. */}
-      <div className="mt-2.5 animate-fade-in space-y-2.5">
+      <div className="mt-3.5 animate-fade-in space-y-4">
         {message.nothing ? (
-          <p className="font-editorial text-[13.5px] leading-relaxed text-white/85">No major new insight dropped today. The existing thesis remains live.</p>
+          <p className="font-editorial text-[14px] leading-loose text-white/85">No major new insight dropped today. The existing thesis remains live.</p>
         ) : (
           <>
-            <p className="font-editorial text-[13.5px] leading-relaxed text-white/90">{message.since}</p>
+            <p className="font-editorial text-[14px] leading-loose text-white/90">{message.since}</p>
             {message.keyThing && (
-              <div className="rounded-lg px-3 py-2" style={{ background: 'rgba(228,198,124,0.08)', boxShadow: 'inset 0 0 0 1px rgba(228,198,124,0.18)' }}>
+              <div className="rounded-lg px-3.5 py-2.5" style={{ background: 'rgba(228,198,124,0.08)', boxShadow: 'inset 0 0 0 1px rgba(228,198,124,0.18)' }}>
                 <p className="text-[8px] font-bold uppercase tracking-[0.14em]" style={{ color: GOLD_ON_NAVY }}>The one thing you can&rsquo;t miss</p>
-                <p className="mt-1 font-editorial text-[13.5px] leading-relaxed text-white">{message.keyThing}</p>
+                <p className="mt-1.5 font-editorial text-[14px] leading-loose text-white">{message.keyThing}</p>
               </div>
             )}
-            <p className="font-editorial text-[13px] leading-relaxed text-white/75">{message.why}</p>
-            <p className="font-editorial text-[13px] leading-relaxed text-white/75">
+            <p className="font-editorial text-[13.5px] leading-loose text-white/75">{message.why}</p>
+            <p className="font-editorial text-[13.5px] leading-loose text-white/75">
               <span className="align-[1px] text-[8px] font-sans font-bold uppercase not-italic tracking-[0.12em]" style={{ color: GOLD_ON_NAVY }}>Watch next&nbsp;·&nbsp;</span>
               {message.watch}
             </p>
@@ -203,7 +195,7 @@ function ConvictionCard({ idea, pe, active, onOpen }: { idea: ConvictionIdea; pe
 }
 
 function ConvictionList({ ideas, companyId, company, onNavigate }: { ideas: ConvictionIdea[]; companyId: string; company: string; onNavigate?: (t: NavTarget, id: string) => void }) {
-  const top = ideas.slice(0, 3)
+  const top = ideas.slice(0, 6)
   const peOf = (idea: ConvictionIdea): PeBriefItem => toPeBriefItem(idea, companyId, company)
 
   // Single open note (only one at a time), restored after a dashboard round-trip.
@@ -250,7 +242,7 @@ function ConvictionList({ ideas, companyId, company, onNavigate }: { ideas: Conv
       {top.length === 0 ? (
         <p className="rounded-lg border border-dashed border-soft-border bg-ice/40 px-3 py-4 text-center text-[11px] text-ink-secondary">Nothing meets the conviction bar under this filter.</p>
       ) : (
-        <div className="space-y-1.5">
+        <div className="flex-1 space-y-2 overflow-y-auto scroll-thin pr-0.5">
           {top.map((idea) => (
             <ConvictionCard key={idea.id} idea={idea} pe={peOf(idea)} active={idea.id === openId} onOpen={() => open(idea.id)} />
           ))}
@@ -265,120 +257,86 @@ function ConvictionList({ ideas, companyId, company, onNavigate }: { ideas: Conv
 
 // ── RIGHT · since yesterday + events + actions ────────────────────────────────
 
+// A compact, horizontal "since yesterday" strip for the full-width context band —
+// a small label then each real, computable delta as an inline, tappable pill.
 function SinceYesterdayBlock({ deltas, onNavigate }: { deltas: SinceDelta[]; onNavigate?: (t: NavTarget, id: string) => void }) {
   if (deltas.length === 0) return null
   return (
-    <div className="px-4 py-3">
-      <SectionHead icon={RefreshCw} label="Since Yesterday" note="tap to open" />
-      <div className="space-y-0.5">
-        {deltas.map((d) => {
-          const tone = IMPACT_META[d.tone]
-          const Icon = d.direction === 'down' ? ArrowDown : d.direction === 'flat' ? Minus : ArrowUp
-          // A delta with a source OPENS the real update (the actual article); otherwise
-          // it jumps to the nearest in-app section. A zero/flat row (e.g. "0 unusual
-          // market moves") is informational and not interactive.
-          const isLink = !!d.href
-          const canNav = !isLink && !!onNavigate && d.direction !== 'flat'
-          const affordance = (label: string) => (
-            <span className="ml-auto flex shrink-0 items-center gap-0.5 self-center text-[8.5px] font-semibold uppercase tracking-[0.08em] text-ink-secondary/45 transition-colors group-hover:text-champagne-deep">
-              <span className="max-w-0 overflow-hidden whitespace-nowrap opacity-0 transition-all duration-200 group-hover:max-w-[40px] group-hover:opacity-100">{label}</span>
-              <ArrowUpRight className="h-3 w-3" strokeWidth={2.2} />
-            </span>
-          )
-          const inner = (
-            <>
-              <Icon className="h-3 w-3 shrink-0 self-center" strokeWidth={2.4} style={{ color: tone.fg }} />
-              <span className="text-[12.5px] font-bold text-navy-deep">{d.value}</span>
-              <span className="text-[10.5px] text-ink-secondary">{d.label}</span>
-            </>
-          )
-          const base = 'group flex w-full items-baseline gap-1.5 rounded-md px-1 py-0.5 text-left transition-colors'
-          if (isLink) {
-            return (
-              <a key={d.id} href={d.href} target="_blank" rel="noreferrer" title="Open the update" className={`${base} cursor-pointer hover:bg-ice/70`}>
-                {inner}
-                {affordance('Open')}
-              </a>
-            )
-          }
+    <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5">
+      <span className="inline-flex shrink-0 items-center gap-1.5 text-[9px] font-bold uppercase tracking-[0.14em] text-navy-deep">
+        <RefreshCw className="h-3.5 w-3.5" strokeWidth={2.2} style={{ color: GOLD }} />
+        Since Yesterday
+      </span>
+      {deltas.map((d) => {
+        const tone = IMPACT_META[d.tone]
+        const Icon = d.direction === 'down' ? ArrowDown : d.direction === 'flat' ? Minus : ArrowUp
+        // A delta with a source OPENS the real update; otherwise it jumps to the nearest
+        // in-app section. A zero/flat row ("0 unusual moves") is informational, not tappable.
+        const isLink = !!d.href
+        const canNav = !isLink && !!onNavigate && d.direction !== 'flat'
+        const inner = (
+          <>
+            <Icon className="h-3 w-3 shrink-0" strokeWidth={2.4} style={{ color: tone.fg }} />
+            <span className="text-[12px] font-bold text-navy-deep">{d.value}</span>
+            <span className="text-[10.5px] text-ink-secondary">{d.label}</span>
+          </>
+        )
+        const chevron = <ArrowUpRight className="h-3 w-3 text-ink-secondary/45 transition-colors group-hover:text-champagne-deep" strokeWidth={2.2} />
+        const base = 'group inline-flex items-center gap-1.5 rounded-md px-1.5 py-0.5 transition-colors'
+        if (isLink) {
           return (
-            <button
-              key={d.id}
-              type="button"
-              disabled={!canNav}
-              onClick={() => canNav && onNavigate?.(d.target, `pulse-since-${d.id}`)}
-              title={canNav ? 'View in dashboard' : undefined}
-              className={`${base} ${canNav ? 'cursor-pointer hover:bg-ice/70' : 'cursor-default'}`}
-            >
+            <a key={d.id} href={d.href} target="_blank" rel="noreferrer" title="Open the update" className={`${base} cursor-pointer hover:bg-ice/70`}>
               {inner}
-              {canNav && affordance('View')}
-            </button>
+              {chevron}
+            </a>
           )
-        })}
-      </div>
+        }
+        return (
+          <button
+            key={d.id}
+            type="button"
+            disabled={!canNav}
+            onClick={() => canNav && onNavigate?.(d.target, `pulse-since-${d.id}`)}
+            title={canNav ? 'View in dashboard' : undefined}
+            className={`${base} ${canNav ? 'cursor-pointer hover:bg-ice/70' : 'cursor-default'}`}
+          >
+            {inner}
+            {canNav && chevron}
+          </button>
+        )
+      })}
     </div>
   )
 }
 
+// A compact, horizontal "events ahead" strip — future, firm-dated catalysts only.
 function EventsBlock({ events }: { events: PulseEvent[] }) {
-  // Future events ONLY (#7 / validation #2): a past-dated "active catalyst" is not
-  // an event ahead, so it never shows under this heading.
   const future = events.filter((e) => e.isFirm)
   if (future.length === 0) return null
   return (
-    <div className="px-4 py-3">
-      <SectionHead icon={Clock3} label="Events Ahead" note={`${future.length}`} />
-      <div className="space-y-1">
-        {future.slice(0, 3).map((e) => {
-          const inner = (
-            <>
-              <div className="flex h-7 w-8 shrink-0 flex-col items-center justify-center rounded-md border border-soft-border bg-surface-tint">
-                <span className="text-[6.5px] font-bold uppercase text-champagne-deep">{e.month}</span>
-                <span className="text-[11px] font-bold leading-none text-navy-deep">{e.day}</span>
-              </div>
-              <div className="min-w-0 flex-1">
-                <p className="truncate text-[10.5px] font-semibold text-navy-deep">{e.kindLabel}</p>
-                <p className="text-[9px] font-semibold" style={{ color: e.isFirm ? '#2F855A' : '#9C7430' }}>{e.whenLabel}</p>
-              </div>
-            </>
-          )
-          const cls = 'flex items-center gap-2 rounded-md px-1 py-0.5 transition-colors'
-          return e.url ? (
-            <a key={e.id} href={e.url} target="_blank" rel="noreferrer" className={`${cls} hover:bg-ice/70`} title={`Open source — ${e.title}`}>{inner}</a>
-          ) : (
-            <div key={e.id} className={cls} title={e.title}>{inner}</div>
-          )
-        })}
-      </div>
-    </div>
-  )
-}
-
-const ACTION_ICON: Record<ActionIcon, LucideIcon> = { ownership: Users, margins: Scale, source: ShieldCheck, agm: CalendarClock, regulation: Landmark }
-
-function ActionsBlock({ actions, onRun }: { actions: PulseAction[]; onRun: (a: PulseAction) => void }) {
-  return (
-    <div className="px-4 py-3">
-      <SectionHead icon={Zap} label="Action for Today" />
-      <div className="grid grid-cols-1 gap-1.5">
-        {actions.map((a) => {
-          const Icon = ACTION_ICON[a.icon]
-          return (
-            <button
-              key={a.id}
-              type="button"
-              onClick={() => onRun(a)}
-              className="group flex items-center gap-1.5 rounded-lg border border-soft-border bg-white px-2 py-1.5 text-left shadow-soft transition-colors hover:border-champagne hover:bg-champagne-soft/40"
-            >
-              <span className="grid h-6 w-6 shrink-0 place-items-center rounded-md" style={{ background: 'rgba(182,139,58,0.10)', boxShadow: 'inset 0 0 0 1px rgba(182,139,58,0.22)' }}>
-                <Icon className="h-3 w-3" strokeWidth={2} style={{ color: GOLD }} />
-              </span>
-              <span className="min-w-0 flex-1 truncate text-[10.5px] font-semibold text-navy-deep">{a.label}</span>
-              <ArrowUpRight className="h-3 w-3 shrink-0 text-ink-secondary transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" style={a.href ? { color: GOLD } : undefined} />
-            </button>
-          )
-        })}
-      </div>
+    <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5">
+      <span className="inline-flex shrink-0 items-center gap-1.5 text-[9px] font-bold uppercase tracking-[0.14em] text-navy-deep">
+        <Clock3 className="h-3.5 w-3.5" strokeWidth={2.2} style={{ color: GOLD }} />
+        Events Ahead
+      </span>
+      {future.slice(0, 3).map((e) => {
+        const inner = (
+          <>
+            <span className="flex h-6 w-7 shrink-0 flex-col items-center justify-center rounded-md border border-soft-border bg-white">
+              <span className="text-[6px] font-bold uppercase leading-none text-champagne-deep">{e.month}</span>
+              <span className="text-[10px] font-bold leading-none text-navy-deep">{e.day}</span>
+            </span>
+            <span className="text-[10.5px] font-semibold text-navy-deep">{e.kindLabel}</span>
+            <span className="text-[9px] font-semibold" style={{ color: e.isFirm ? '#2F855A' : '#9C7430' }}>{e.whenLabel}</span>
+          </>
+        )
+        const cls = 'inline-flex items-center gap-1.5 rounded-md px-1 py-0.5 transition-colors'
+        return e.url ? (
+          <a key={e.id} href={e.url} target="_blank" rel="noreferrer" className={`${cls} hover:bg-ice/70`} title={`Open source — ${e.title}`}>{inner}</a>
+        ) : (
+          <div key={e.id} className={cls} title={e.title}>{inner}</div>
+        )
+      })}
     </div>
   )
 }
@@ -409,10 +367,8 @@ export function ExecutiveBrief({
   sinceDeltas,
   ideas,
   events,
-  actions,
   isToday,
   dateLabel,
-  onRun,
   onNavigate,
 }: {
   pulse: InvestorPulse
@@ -421,32 +377,32 @@ export function ExecutiveBrief({
   sinceDeltas: SinceDelta[]
   ideas: ConvictionIdea[]
   events: PulseEvent[]
-  actions: PulseAction[]
   isToday: boolean
   dateLabel: string
-  onRun: (a: PulseAction) => void
   onNavigate?: (t: NavTarget, id: string) => void
 }) {
   return (
-    <section className="premium-panel overflow-hidden rounded-2xl">
-      <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.34fr)_minmax(0,0.92fr)]">
+    <section className="premium-panel flex flex-col overflow-hidden rounded-2xl lg:min-h-[calc(100vh-232px)]">
+      <div className="grid flex-1 grid-cols-1 lg:min-h-0 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,2fr)] lg:grid-rows-[minmax(0,1fr)]">
         {/* LEFT — the message brief */}
         <CompactBrief brief={brief} message={message} isToday={isToday} dateLabel={dateLabel} />
 
-        {/* CENTER — Highest Conviction Ideas */}
-        <div className="min-w-0 border-t border-soft-border lg:border-l lg:border-t-0">
+        {/* RIGHT — the day's insights, given full width to read */}
+        <div className="flex min-w-0 flex-col border-t border-soft-border lg:min-h-0 lg:border-l lg:border-t-0">
           <ConvictionList ideas={ideas} companyId={pulse.companyId} company={pulse.company} onNavigate={onNavigate} />
         </div>
+      </div>
 
-        {/* RIGHT — since yesterday · events · actions. Presence-driven: today's live
-            view populates them; a live past-date fallback passes them empty (hidden);
-            a FROZEN archived record carries the real as-of-that-day values (shown). */}
-        <div className="min-w-0 divide-y divide-soft-border/70 border-t border-soft-border lg:border-l lg:border-t-0">
+      {/* CONTEXT BAND — since yesterday · events ahead, as a slim full-width strip.
+          Presence-driven: today's live view populates it; a live past-date fallback
+          passes them empty (hidden); a FROZEN record carries the real as-of-that-day
+          values. */}
+      {(sinceDeltas.length > 0 || events.length > 0) && (
+        <div className="flex flex-wrap items-center gap-x-8 gap-y-2 border-t border-soft-border bg-surface-tint/40 px-4 py-2.5">
           <SinceYesterdayBlock deltas={sinceDeltas} onNavigate={onNavigate} />
           {events.length > 0 && <EventsBlock events={events} />}
-          {actions.length > 0 && <ActionsBlock actions={actions} onRun={onRun} />}
         </div>
-      </div>
+      )}
       <Footer brief={brief} />
     </section>
   )

@@ -17,7 +17,6 @@ import {
   availableFilters,
   resolveDailyBrief,
   timelineDays,
-  type PulseAction,
   type PulseFilter,
 } from './derive'
 import { PulseTimeline } from './PulseTimeline'
@@ -73,18 +72,10 @@ export function PulseView({
   // FROZEN archived record for a past date, or a live past-date fallback. Since-
   // Yesterday / Events / Actions come back empty for a live past date and populated
   // (as-of that day) for a frozen record.
-  const { brief, message, one, ideas, sinceDeltas, events, actions } = useMemo(
+  const { brief, message, one, ideas, sinceDeltas, events } = useMemo(
     () => resolveDailyBrief(pulse, effFilter, effDateKey, dateLabel),
     [pulse, effFilter, effDateKey, dateLabel],
   )
-
-  const runAction = (a: PulseAction) => {
-    if (a.href) {
-      window.open(a.href, '_blank', 'noopener,noreferrer')
-      return
-    }
-    if (a.target) onGoToSource?.(a.target, `pulse-action-${a.id}`)
-  }
 
   const handleDownload = () => {
     downloadDailyBrief({
@@ -100,7 +91,6 @@ export function PulseView({
       sinceDeltas,
       ideas,
       events,
-      actions,
       confidence: pulse.confidence,
     })
   }
@@ -141,10 +131,8 @@ export function PulseView({
             sinceDeltas={sinceDeltas}
             ideas={ideas}
             events={events}
-            actions={actions}
             isToday={isToday}
             dateLabel={dateLabel}
-            onRun={runAction}
             onNavigate={onGoToSource}
           />
         </div>
