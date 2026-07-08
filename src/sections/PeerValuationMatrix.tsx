@@ -3,7 +3,6 @@ import { Info, Lightbulb } from 'lucide-react'
 import { PolarAngleAxis, PolarGrid, Radar, RadarChart, ResponsiveContainer } from 'recharts'
 import { FOCAL_VALUATION_ID, peerValuation, type PeerValuationRow } from '@/data/valuationData'
 import { buildNavValuation, periodLabel, type NavValuation } from '@/lib/navValuation'
-import { getMarketQuote, type MarketQuote } from '@/lib/analystCoverage'
 import { buildQuality, insurerById, qualityReadText, type QualityAnalysis } from './qualityCompass'
 import { CORAL, Eyebrow, GOLD, GREEN, NAVY, PEER, TEAL, fmtCr, xMult } from './valuationShared'
 
@@ -34,6 +33,13 @@ const fmtGrowth = (v: number | null) => (v == null ? null : `${v >= 0 ? '+' : '�
 const inr = (v: number | null) => (v == null ? null : `₹${v.toLocaleString('en-IN', { minimumFractionDigits: 0, maximumFractionDigits: v < 100 ? 1 : 0 })}`)
 const signPct = (v: number | null) => (v == null ? null : `${v >= 0 ? '+' : ''}${v.toFixed(1)}%`)
 
+// P/BV on OUR book-value basis — market value ÷ filed net worth. Built from the
+// SAME net worth as the Book value / BVPS columns so the whole book block
+// reconciles: Market ÷ Book = P/BV = Price ÷ BVPS. (The market feed's own
+// price-to-book uses a different book basis and would not reconcile here.)
+const pbvFromNav = (nav: NavValuation | undefined) =>
+  nav?.netWorth && nav.marketCap != null && nav.netWorth.value > 0 ? nav.marketCap / nav.netWorth.value : null
+
 function Dash({ title }: { title?: string }) {
   return <span className="text-ink-secondary/45" title={title}>—</span>
 }
@@ -47,10 +53,6 @@ export function PeerValuationSection({ defaultCompanyId }: { defaultCompanyId: s
 
   const navById = useMemo(
     () => Object.fromEntries(rows.map((r) => [r.companyId, buildNavValuation(r.companyId)])) as Record<string, NavValuation>,
-    [rows],
-  )
-  const quoteById = useMemo(
-    () => Object.fromEntries(rows.map((r) => [r.companyId, getMarketQuote(r.companyId)])) as Record<string, MarketQuote | null>,
     [rows],
   )
 
@@ -104,7 +106,7 @@ export function PeerValuationSection({ defaultCompanyId }: { defaultCompanyId: s
                 <Th align="right">BVPS</Th>
                 <Th align="right">P / BV</Th>
                 <Th align="right">Impl / sh</Th>
-                <Th align="right" className="pr-4">Vs NAV</Th>
+                <Th align="right" className="pr-4">Vs impl</Th>
               </tr>
             </thead>
             <tbody>
@@ -113,7 +115,7 @@ export function PeerValuationSection({ defaultCompanyId }: { defaultCompanyId: s
                 const selected = r.companyId === selectedId
                 const unlisted = r.listingStatus === 'Unlisted'
                 const nav = navById[r.companyId]
-                const quote = quoteById[r.companyId]
+                const pbv = pbvFromNav(nav)
                 const growth = fmtGrowth(r.growth)
                 // Sticky-cell + row background reflect selection (soft blue) / focal.
                 const rowBg = selected ? 'bg-soft-blue/60' : focal ? 'bg-soft-blue/25' : 'bg-white hover:bg-soft-blue/15'
@@ -176,7 +178,7 @@ export function PeerValuationSection({ defaultCompanyId }: { defaultCompanyId: s
                       {nav?.navPerShare != null ? inr(nav.navPerShare) : <Dash title="Needs shares outstanding" />}
                     </td>
                     <td className="border-b border-soft-border/70 py-2.5 pr-3 text-right tabular-nums">
-                      {quote?.pb != null ? <span className="font-semibold" style={{ color: GOLD }}>{xMult(quote.pb)}</span> : <Dash title={unlisted ? 'No public market price' : undefined} />}
+                      {pbv != null ? <span className="font-semibold" style={{ color: GOLD }}>{xMult(pbv)}</span> : <Dash title={unlisted ? 'No public market price' : undefined} />}
                     </td>
                     <td className="border-b border-soft-border/70 py-2.5 pr-3 text-right tabular-nums text-navy-deep">
                       {nav?.impliedPerShare != null ? inr(nav.impliedPerShare) : <Dash title="Needs shares & a peer P/BV" />}
@@ -198,14 +200,14 @@ export function PeerValuationSection({ defaultCompanyId }: { defaultCompanyId: s
           <Info className="mt-px h-3 w-3 shrink-0 text-ink-secondary/70" />
           <span>
             <b className="text-navy-deep/80">Market Value View</b> needs a live share price — the {anyUnlisted ? 'unlisted peers ' : ''}names with no public listing show a clean <b className="text-navy-deep/80">—</b>; their GWP &amp; growth are real filed figures.
-            {' '}<b className="text-navy-deep/80">Book Value View</b> values each peer on its filed net worth: <b className="text-navy-deep/80">BVPS</b> = book value ÷ shares, <b className="text-navy-deep/80">Impl / sh</b> applies a listed-peer P/BV, <b className="text-navy-deep/80">Vs NAV</b> is market vs that implied value. Nothing is estimated.
+            {' '}<b className="text-navy-deep/80">Book Value View</b> values each peer on its filed net worth: <b className="text-navy-deep/80">P/BV</b> = market value ÷ book value, <b className="text-navy-deep/80">BVPS</b> = book value ÷ shares, <b className="text-navy-deep/80">Impl / sh</b> applies a listed-peer P/BV, <b className="text-navy-deep/80">Vs impl</b> is market vs that implied value (not vs book). Nothing is estimated.
           </span>
         </div>
       </div>
 
       {/* ── BOTTOM · selected snapshot + quality lens ───────────────────────── */}
       <div className="mt-4 grid grid-cols-1 gap-4 lg:grid-cols-2">
-        <SelectedPeerSnapshot row={selectedRow} nav={navById[selectedRow.companyId]} quote={quoteById[selectedRow.companyId]} />
+        <SelectedPeerSnapshot row={selectedRow} nav={navById[selectedRow.companyId]} />
         <QualityLensPanel quality={quality} companyName={selectedRow.companyName} />
       </div>
     </section>
@@ -234,10 +236,11 @@ function SnapStat({ k, v, tone = 'navy' }: { k: string; v: string | null; tone?:
   )
 }
 
-function SelectedPeerSnapshot({ row, nav, quote }: { row: PeerValuationRow; nav: NavValuation | undefined; quote: MarketQuote | null }) {
+function SelectedPeerSnapshot({ row, nav }: { row: PeerValuationRow; nav: NavValuation | undefined }) {
   const focal = row.companyId === FOCAL_VALUATION_ID
   const unlisted = row.listingStatus === 'Unlisted'
   const growth = fmtGrowth(row.growth)
+  const pbv = pbvFromNav(nav)
   return (
     <div className="card-surface card-tint-slate p-4">
       <div className="flex flex-wrap items-center gap-2">
@@ -256,7 +259,7 @@ function SelectedPeerSnapshot({ row, nav, quote }: { row: PeerValuationRow; nav:
         <SnapStat k="Book value" v={nav?.netWorth ? fmtCr(nav.netWorth.value) : null} tone="teal" />
         <SnapStat k="GWP · latest FY" v={row.gwp != null ? fmtCr(row.gwp) : null} />
         <SnapStat k="P / GWP" v={row.pGwp != null ? xMult(row.pGwp) : null} tone="gold" />
-        <SnapStat k="P / BV" v={quote?.pb != null ? xMult(quote.pb) : null} tone="gold" />
+        <SnapStat k="P / BV" v={pbv != null ? xMult(pbv) : null} tone="gold" />
         <SnapStat k="P / E" v={row.pe != null ? xMult(row.pe, 1) : null} />
         <SnapStat k="GWP growth" v={growth} tone={row.growth != null && row.growth >= 0 ? 'teal' : 'coral'} />
         <SnapStat k="BVPS" v={nav?.navPerShare != null ? inr(nav.navPerShare) : null} tone="teal" />
