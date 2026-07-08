@@ -1,7 +1,8 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
-import { Sparkles } from 'lucide-react'
+import { Sparkles, ThumbsDown, ChevronDown } from 'lucide-react'
 import generated from '@/data/insights.generated.json'
 import type { Insight, InsightsFile } from '@/insights/types'
+import { feedbackKeyOf, useFeedback } from '@/lib/insightFeedback'
 import {
   resolveSource,
   freshnessOf,
@@ -253,10 +254,33 @@ export function DataInsights({
   // Keep the selection if it still holds data for this company, else snap to newest.
   const effPeriod = availablePeriods.includes(period) ? period : (availablePeriods[0] ?? '')
 
-  // Cards for the current company + period, highest priority first.
-  const shown = companyRows
+  // Reader relevance votes reshape the feed live: 👍 float to the top, 👎 drop
+  // into a collapsible "Set aside" group. Votes are period-independent, so the
+  // same rating carries to every future card of the same kind.
+  const feedback = useFeedback()
+  const [showSetAside, setShowSetAside] = useState(false)
+  const periodRows = companyRows
     .filter((r) => r.period === effPeriod)
     .sort((a, b) => (PRIORITY_RANK[a.priority] - PRIORITY_RANK[b.priority]) || (a.ins.rank - b.ins.rank))
+  const voteOf = (r: Row) => feedback[feedbackKeyOf(r.ins)]
+  const upRows = periodRows.filter((r) => voteOf(r) === 'up')
+  const downRows = periodRows.filter((r) => voteOf(r) === 'down')
+  const neutralRows = periodRows.filter((r) => !voteOf(r))
+  const shown = [...upRows, ...neutralRows] // relevant first, set-aside pulled out
+  const total = periodRows.length
+
+  const renderCard = (r: Row) => (
+    <InsightCard
+      key={r.ins.id}
+      ins={r.ins}
+      section={r.section}
+      priority={r.priority}
+      source={r.source}
+      freshness={r.freshness}
+      onGoToSource={() => onGoToSource(r.source.target, r.ins.id)}
+      initialFlipped={!reopenConsumed.current && r.ins.id === reopenInsightId}
+    />
+  )
 
   return (
     <div className="flex flex-col gap-4 lg:flex-row lg:gap-5">
@@ -266,21 +290,27 @@ export function DataInsights({
       {/* Main: the full-width flip-card stack (company scope is the shared header
           selector; the period rail is on the left). */}
       <div className="min-w-0 flex-1 space-y-4">
-        {shown.length > 0 ? (
-          <div className="flex flex-col gap-4">
-            {shown.map((r) => (
-              <InsightCard
-                key={r.ins.id}
-                ins={r.ins}
-                section={r.section}
-                priority={r.priority}
-                source={r.source}
-                freshness={r.freshness}
-                onGoToSource={() => onGoToSource(r.source.target, r.ins.id)}
-                initialFlipped={!reopenConsumed.current && r.ins.id === reopenInsightId}
-              />
-            ))}
-          </div>
+        {total > 0 ? (
+          <>
+            <div className="flex flex-col gap-4">
+              {shown.map(renderCard)}
+            </div>
+            {downRows.length > 0 && (
+              <div className="rounded-2xl border border-dashed border-soft-border bg-ice/30">
+                <button
+                  type="button"
+                  onClick={() => setShowSetAside((v) => !v)}
+                  className="flex w-full items-center gap-2 px-4 py-2.5 text-left transition-colors hover:bg-ice/60"
+                >
+                  <ThumbsDown className="h-3.5 w-3.5 text-ink-secondary" strokeWidth={2.2} />
+                  <span className="text-[12px] font-semibold text-navy-deep">Set aside as less relevant</span>
+                  <span className="rounded-full bg-white px-1.5 text-[10px] font-bold text-ink-secondary ring-1 ring-soft-border">{downRows.length}</span>
+                  <ChevronDown className={`ml-auto h-4 w-4 text-ink-secondary transition-transform ${showSetAside ? 'rotate-180' : ''}`} strokeWidth={2.2} />
+                </button>
+                {showSetAside && <div className="flex flex-col gap-4 px-3 pb-3 pt-1 opacity-70">{downRows.map(renderCard)}</div>}
+              </div>
+            )}
+          </>
         ) : (
           <div className="rounded-2xl border border-dashed border-soft-border bg-ice/40 px-4 py-12 text-center">
             <Sparkles className="mx-auto h-5 w-5 text-champagne-deep" strokeWidth={1.8} />

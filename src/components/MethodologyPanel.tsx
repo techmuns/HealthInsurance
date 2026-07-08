@@ -7,6 +7,7 @@ import {
 import type { Application, Insight, Lens, LensBlock, MethodDescriptor, ProvenanceLayer, Watch, WatchItem } from '@/insights/types'
 import type { AuditMappingStatus, Freshness, SourceLocation, SourcePreview } from '@/insights/sourceMap'
 import { KaTeXFormula } from './KaTeXFormula'
+import { highlightFigures } from './highlightFigures'
 
 const LENS_ORDER: Lens[] = ['fundamental', 'technical', 'sentiment', 'macro']
 
@@ -266,8 +267,8 @@ function WhyThisMatters({ ins, tone }: { ins: Insight; tone: Tone }) {
     : 'Flagged from a filing or news event — a detection rule, not a computed statistic.'
   return (
     <SummaryCard label="Why this matters" Icon={Lightbulb} tone={tone}>
-      <p className="font-editorial text-[13px] leading-relaxed text-ink-primary">{ins.whatConsensusMisses}</p>
-      <p className="mt-1.5 text-[11px] leading-snug text-ink-secondary"><strong className="font-semibold text-navy-deep">Why it fired:</strong> {ins.summary}</p>
+      <p className="font-editorial text-[13px] leading-relaxed text-ink-primary">{highlightFigures(ins.whatConsensusMisses)}</p>
+      <p className="mt-1.5 text-[11px] leading-snug text-ink-secondary"><strong className="font-semibold text-navy-deep">Why it fired:</strong> {highlightFigures(ins.summary)}</p>
       <div className="mt-2.5 rounded-lg px-2.5 py-2" style={{ background: tone.soft, boxShadow: `inset 0 0 0 1px ${tone.ring}` }}>
         <span className="text-[9px] font-bold uppercase tracking-[0.08em]" style={{ color: tone.fg }}>Rule used</span>
         <p className="mt-0.5 text-[11px] leading-snug text-ink-primary">{rule}</p>

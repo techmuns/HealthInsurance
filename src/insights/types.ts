@@ -191,6 +191,10 @@ export interface Insight {
   period?: string
   /** Cadence of the period above (annual | quarterly | monthly). */
   cadence?: 'annual' | 'quarterly' | 'monthly'
+  /** The detector family that produced this card (e.g. 'monthly_momentum').
+   *  Period-independent, so reader feedback keyed on family+company applies to
+   *  every future card of the same kind — the training signal for what surfaces. */
+  family?: string
   /** The one move that makes the card instantly legible on the front:
    *  a plain-English label plus the from → to values (e.g. "Retail market
    *  share · 33.5% → 31.2%"). Values are grounded like all card numbers. */

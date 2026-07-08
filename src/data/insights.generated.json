@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generatedAt": "2026-07-08T17:40:17.629Z",
+    "generatedAt": "2026-07-08T17:57:59.571Z",
     "dataAsOf": "Q4 FY26",
     "model": "insight-engine v2 — deterministic detector battery (no AI, no key; quarterly + monthly + annual)",
     "signalsComputed": 301,
@@ -116,6 +116,7 @@
       "sourceNote": "The book multiple is the daily market cap over the newest reported statutory net worth, and the ROE is statutory PAT over that same net worth — the numerator and denominator never mix accounting bases. The IFRS multiple, where published, is shown as separate reference evidence.",
       "period": "FY26",
       "cadence": "annual",
+      "family": "valuation_dislocation",
       "keyMove": {
         "label": "Return on equity: delivered vs what the price needs",
         "from": 4.1,
@@ -205,7 +206,7 @@
           }
         },
         "payloadHash": "sig_41ed7b36",
-        "computedAt": "2026-07-08T17:40:17.629Z",
+        "computedAt": "2026-07-08T17:57:59.571Z",
         "isQuantitative": true
       },
       "application": {
@@ -316,6 +317,7 @@
       "sourceNote": "IGAAP figures from statutory disclosures; IFRS from the company's IFRS accounts. The divergence itself is the datum — the two bases are shown side by side, never blended.",
       "period": "FY26",
       "cadence": "annual",
+      "family": "basis_divergence",
       "keyMove": {
         "label": "FY26 profit growth — statutory vs IFRS",
         "from": -92.3,
@@ -387,7 +389,7 @@
           }
         },
         "payloadHash": "sig_6a47c527",
-        "computedAt": "2026-07-08T17:40:17.629Z",
+        "computedAt": "2026-07-08T17:57:59.571Z",
         "isQuantitative": true
       },
       "application": {
@@ -498,6 +500,7 @@
       "sourceNote": "IGAAP figures from statutory disclosures; IFRS from the company's IFRS accounts. The divergence itself is the datum — the two bases are shown side by side, never blended.",
       "period": "FY26",
       "cadence": "annual",
+      "family": "basis_divergence",
       "keyMove": {
         "label": "FY26 profit growth — statutory vs IFRS",
         "from": -38.8,
@@ -568,7 +571,7 @@
           }
         },
         "payloadHash": "sig_c8a9e93",
-        "computedAt": "2026-07-08T17:40:17.629Z",
+        "computedAt": "2026-07-08T17:57:59.571Z",
         "isQuantitative": true
       },
       "application": {
@@ -681,6 +684,7 @@
       "sourceNote": "The book multiple is the daily market cap over the newest reported statutory net worth, and the ROE is statutory PAT over that same net worth — the numerator and denominator never mix accounting bases. The IFRS multiple, where published, is shown as separate reference evidence.",
       "period": "FY26",
       "cadence": "annual",
+      "family": "valuation_dislocation",
       "keyMove": {
         "label": "Return on equity: delivered vs what the price needs",
         "from": 7.3,
@@ -770,7 +774,7 @@
           }
         },
         "payloadHash": "sig_f99c4ea6",
-        "computedAt": "2026-07-08T17:40:17.629Z",
+        "computedAt": "2026-07-08T17:57:59.571Z",
         "isQuantitative": true
       },
       "application": {
@@ -869,6 +873,7 @@
       "sourceNote": "Prices via Religare (the listed proxy for Care Health); premium from GI Council standalone-quarter prints. The two series cover the same calendar window.",
       "period": "Q4 FY26",
       "cadence": "quarterly",
+      "family": "price_fundamentals_gap",
       "keyMove": {
         "label": "Q4 FY26: share price vs retail premium growth",
         "from": -18.1,
@@ -970,7 +975,7 @@
           }
         },
         "payloadHash": "sig_f1d3e47b",
-        "computedAt": "2026-07-08T17:40:17.629Z",
+        "computedAt": "2026-07-08T17:57:59.571Z",
         "isQuantitative": true
       },
       "application": {
@@ -1081,6 +1086,7 @@
       "sourceNote": "IGAAP figures from statutory disclosures; IFRS from the company's IFRS accounts. The divergence itself is the datum — the two bases are shown side by side, never blended.",
       "period": "FY26",
       "cadence": "annual",
+      "family": "basis_divergence",
       "keyMove": {
         "label": "FY26 profit growth — statutory vs IFRS",
         "from": -13.8,
@@ -1151,7 +1157,7 @@
           }
         },
         "payloadHash": "sig_585adc2e",
-        "computedAt": "2026-07-08T17:40:17.629Z",
+        "computedAt": "2026-07-08T17:57:59.571Z",
         "isQuantitative": true
       },
       "application": {
@@ -1262,6 +1268,7 @@
       "sourceNote": "IGAAP figures from statutory disclosures; IFRS from the company's IFRS accounts. The divergence itself is the datum — the two bases are shown side by side, never blended.",
       "period": "FY24",
       "cadence": "annual",
+      "family": "basis_divergence",
       "keyMove": {
         "label": "FY24 profit growth — statutory vs IFRS",
         "from": 530.8,
@@ -1332,7 +1339,7 @@
           }
         },
         "payloadHash": "sig_32747194",
-        "computedAt": "2026-07-08T17:40:17.629Z",
+        "computedAt": "2026-07-08T17:57:59.571Z",
         "isQuantitative": true
       },
       "application": {
@@ -1431,6 +1438,7 @@
       "sourceNote": "Same-quarter YoY prints from GI Council standalone quarters, government schemes excluded; the surprise is measured against the insurer's own last available same-quarter prints on a like-for-like recognition basis (comparisons crossing the Oct-2024 1/n change are excluded).",
       "period": "Q1 FY25",
       "cadence": "quarterly",
+      "family": "seasonal_surprise_q",
       "keyMove": {
         "label": "Q1 growth vs its usual, Q1 FY25",
         "from": 32.27,
@@ -1509,7 +1517,7 @@
           }
         },
         "payloadHash": "sig_67ae5a8",
-        "computedAt": "2026-07-08T17:40:17.629Z",
+        "computedAt": "2026-07-08T17:57:59.571Z",
         "isQuantitative": true
       },
       "application": {
@@ -1610,6 +1618,7 @@
       "sourceNote": "Shares are computed from the GI Council quarter-end segment prints: the insurer's retail health premium over the printed industry retail total for the same standalone quarter — both legs from the same report family, so the recognition basis cancels within each period.",
       "period": "Q4 FY26",
       "cadence": "quarterly",
+      "family": "share_shift_q",
       "keyMove": {
         "label": "Retail market share, Q4 FY25 → Q4 FY26",
         "from": 33.49,
@@ -1714,7 +1723,7 @@
           }
         },
         "payloadHash": "sig_f039104a",
-        "computedAt": "2026-07-08T17:40:17.629Z",
+        "computedAt": "2026-07-08T17:57:59.571Z",
         "isQuantitative": true
       },
       "application": {
@@ -1820,6 +1829,7 @@
       "sourceNote": "Printed GI Council aggregates: the SAHI sub-total over the industry total for the same standalone quarter — both rows as printed, never re-summed from members.",
       "period": "Q3 FY26",
       "cadence": "quarterly",
+      "family": "sahi_structure",
       "keyMove": {
         "label": "SAHI share of health premium, Q3 FY25 → Q3 FY26",
         "from": 28.67,
@@ -1889,7 +1899,7 @@
           }
         },
         "payloadHash": "sig_cce71ded",
-        "computedAt": "2026-07-08T17:40:17.629Z",
+        "computedAt": "2026-07-08T17:57:59.571Z",
         "isQuantitative": true
       },
       "application": {
@@ -1988,6 +1998,7 @@
       "sourceNote": "Same-quarter YoY prints from GI Council standalone quarters, government schemes excluded; the surprise is measured against the insurer's own last available same-quarter prints on a like-for-like recognition basis (comparisons crossing the Oct-2024 1/n change are excluded).",
       "period": "Q4 FY26",
       "cadence": "quarterly",
+      "family": "seasonal_surprise_q",
       "keyMove": {
         "label": "Q4 growth vs its usual, Q4 FY26",
         "from": 34.5,
@@ -2067,7 +2078,7 @@
           }
         },
         "payloadHash": "sig_770d08ea",
-        "computedAt": "2026-07-08T17:40:17.629Z",
+        "computedAt": "2026-07-08T17:57:59.571Z",
         "isQuantitative": true
       },
       "application": {
@@ -2168,6 +2179,7 @@
       "sourceNote": "Shares are computed from the GI Council quarter-end segment prints: the insurer's retail health premium over the printed industry retail total for the same standalone quarter — both legs from the same report family, so the recognition basis cancels within each period.",
       "period": "Q3 FY26",
       "cadence": "quarterly",
+      "family": "share_shift_q",
       "keyMove": {
         "label": "Retail market share, Q3 FY25 → Q3 FY26",
         "from": 33.34,
@@ -2272,7 +2284,7 @@
           }
         },
         "payloadHash": "sig_5cd89c04",
-        "computedAt": "2026-07-08T17:40:17.629Z",
+        "computedAt": "2026-07-08T17:57:59.571Z",
         "isQuantitative": true
       },
       "application": {
@@ -2389,6 +2401,7 @@
       "sourceNote": "Solvency from the newest statutory print on record; the runway is a derived heuristic (headroom eroded at the trailing premium-growth rate), not a company forecast.",
       "period": "FY26",
       "cadence": "annual",
+      "family": "solvency_runway",
       "keyMove": {
         "label": "Solvency cushion vs the 1.5x floor",
         "from": null,
@@ -2468,7 +2481,7 @@
           }
         },
         "payloadHash": "sig_3bddbca",
-        "computedAt": "2026-07-08T17:40:17.629Z",
+        "computedAt": "2026-07-08T17:57:59.571Z",
         "isQuantitative": true
       },
       "application": {
@@ -2582,6 +2595,7 @@
       "sourceNote": "Retail and group legs from the GI Council standalone-quarter prints (government business excluded from the mix so a govt-scheme win never masquerades as retail quality).",
       "period": "Q4 FY26",
       "cadence": "quarterly",
+      "family": "mix_shift_q",
       "keyMove": {
         "label": "Retail share of the book, Q4 FY25 → Q4 FY26",
         "from": 29.28,
@@ -2687,7 +2701,7 @@
           }
         },
         "payloadHash": "sig_b3e86a7b",
-        "computedAt": "2026-07-08T17:40:17.629Z",
+        "computedAt": "2026-07-08T17:57:59.571Z",
         "isQuantitative": true
       },
       "application": {
@@ -2784,6 +2798,7 @@
       "sourceNote": "Printed GI Council aggregates: the SAHI sub-total over the industry total for the same standalone quarter — both rows as printed, never re-summed from members.",
       "period": "Q2 FY25",
       "cadence": "quarterly",
+      "family": "sahi_structure",
       "keyMove": {
         "label": "SAHI share of health premium, Q2 FY24 → Q2 FY25",
         "from": 26.74,
@@ -2853,7 +2868,7 @@
           }
         },
         "payloadHash": "sig_c8e8bcd3",
-        "computedAt": "2026-07-08T17:40:17.629Z",
+        "computedAt": "2026-07-08T17:57:59.571Z",
         "isQuantitative": true
       },
       "application": {
@@ -2950,6 +2965,7 @@
       "sourceNote": "Printed GI Council aggregates: the SAHI sub-total over the industry total for the same standalone quarter — both rows as printed, never re-summed from members. The year-earlier comparison spans the Oct-2024 1/n recognition change; carrier-type shares are ratios within one print so the effect largely cancels.",
       "period": "Q4 FY25",
       "cadence": "quarterly",
+      "family": "sahi_structure",
       "keyMove": {
         "label": "SAHI share of health premium, Q4 FY24 → Q4 FY25",
         "from": 35.39,
@@ -3019,7 +3035,7 @@
           }
         },
         "payloadHash": "sig_26c49fd7",
-        "computedAt": "2026-07-08T17:40:17.629Z",
+        "computedAt": "2026-07-08T17:57:59.571Z",
         "isQuantitative": true
       },
       "application": {
@@ -3118,6 +3134,7 @@
       "sourceNote": "Same-quarter YoY prints from GI Council standalone quarters, government schemes excluded; the surprise is measured against the insurer's own last available same-quarter prints on a like-for-like recognition basis (comparisons crossing the Oct-2024 1/n change are excluded).",
       "period": "Q4 FY26",
       "cadence": "quarterly",
+      "family": "seasonal_surprise_q",
       "keyMove": {
         "label": "Q4 growth vs its usual, Q4 FY26",
         "from": 47.13,
@@ -3197,7 +3214,7 @@
           }
         },
         "payloadHash": "sig_bb757477",
-        "computedAt": "2026-07-08T17:40:17.629Z",
+        "computedAt": "2026-07-08T17:57:59.571Z",
         "isQuantitative": true
       },
       "application": {
@@ -3311,6 +3328,7 @@
       "sourceNote": "Retail and group legs from the GI Council standalone-quarter prints (government business excluded from the mix so a govt-scheme win never masquerades as retail quality).",
       "period": "Q2 FY26",
       "cadence": "quarterly",
+      "family": "mix_shift_q",
       "keyMove": {
         "label": "Retail share of the book, Q2 FY25 → Q2 FY26",
         "from": 68.6,
@@ -3416,7 +3434,7 @@
           }
         },
         "payloadHash": "sig_7f0b8b58",
-        "computedAt": "2026-07-08T17:40:17.629Z",
+        "computedAt": "2026-07-08T17:57:59.571Z",
         "isQuantitative": true
       },
       "application": {
@@ -3530,6 +3548,7 @@
       "sourceNote": "Retail and group legs from the GI Council standalone-quarter prints (government business excluded from the mix so a govt-scheme win never masquerades as retail quality).",
       "period": "Q4 FY26",
       "cadence": "quarterly",
+      "family": "mix_shift_q",
       "keyMove": {
         "label": "Retail share of the book, Q4 FY25 → Q4 FY26",
         "from": 45.75,
@@ -3635,7 +3654,7 @@
           }
         },
         "payloadHash": "sig_3ababd56",
-        "computedAt": "2026-07-08T17:40:17.629Z",
+        "computedAt": "2026-07-08T17:57:59.571Z",
         "isQuantitative": true
       },
       "application": {
@@ -3734,6 +3753,7 @@
       "sourceNote": "Single-month premium from the GI Council monthly flash with government-scheme business excluded (each month's own print, YTD differences where the source prints only cumulatives). A 3-month window smooths single-month lumpiness, and every comparison stays on one side of the Oct-2024 1/n recognition change.",
       "period": "Apr FY27",
       "cadence": "monthly",
+      "family": "monthly_momentum",
       "keyMove": {
         "label": "3-month growth pace, vs a quarter earlier",
         "from": 13.9,
@@ -3839,7 +3859,7 @@
           }
         },
         "payloadHash": "sig_924192e",
-        "computedAt": "2026-07-08T17:40:17.629Z",
+        "computedAt": "2026-07-08T17:57:59.571Z",
         "isQuantitative": true
       },
       "application": {
@@ -3940,6 +3960,7 @@
       "sourceNote": "Shares are computed from the GI Council quarter-end segment prints: the insurer's retail health premium over the printed industry retail total for the same standalone quarter — both legs from the same report family, so the recognition basis cancels within each period.",
       "period": "Q4 FY26",
       "cadence": "quarterly",
+      "family": "share_shift_q",
       "keyMove": {
         "label": "Retail market share, Q4 FY25 → Q4 FY26",
         "from": 8.95,
@@ -4044,7 +4065,7 @@
           }
         },
         "payloadHash": "sig_8b1cafd0",
-        "computedAt": "2026-07-08T17:40:17.629Z",
+        "computedAt": "2026-07-08T17:57:59.571Z",
         "isQuantitative": true
       },
       "application": {
@@ -4167,6 +4188,7 @@
       "sourceNote": "Retail and group legs from the GI Council standalone-quarter prints (government business excluded from the mix so a govt-scheme win never masquerades as retail quality).",
       "period": "Q4 FY25",
       "cadence": "quarterly",
+      "family": "mix_shift_q",
       "keyMove": {
         "label": "Retail share of the book, Q4 FY24 → Q4 FY25",
         "from": 65.96,
@@ -4272,7 +4294,7 @@
           }
         },
         "payloadHash": "sig_1337b936",
-        "computedAt": "2026-07-08T17:40:17.629Z",
+        "computedAt": "2026-07-08T17:57:59.571Z",
         "isQuantitative": true
       },
       "application": {
@@ -4371,6 +4393,7 @@
       "sourceNote": "Same-quarter YoY prints from GI Council standalone quarters, government schemes excluded; the surprise is measured against the insurer's own last available same-quarter prints on a like-for-like recognition basis (comparisons crossing the Oct-2024 1/n change are excluded).",
       "period": "Q2 FY25",
       "cadence": "quarterly",
+      "family": "seasonal_surprise_q",
       "keyMove": {
         "label": "Q2 growth vs its usual, Q2 FY25",
         "from": 26.57,
@@ -4449,7 +4472,7 @@
           }
         },
         "payloadHash": "sig_2c091d21",
-        "computedAt": "2026-07-08T17:40:17.629Z",
+        "computedAt": "2026-07-08T17:57:59.571Z",
         "isQuantitative": true
       },
       "application": {
@@ -4561,6 +4584,7 @@
       "sourceNote": "Combined, claims and expense ratios on the IGAAP basis from the company's own disclosures — the two accounting bases are never mixed in one comparison.",
       "period": "FY25",
       "cadence": "annual",
+      "family": "uw_economics",
       "keyMove": {
         "label": "Combined ratio (IGAAP), FY24 → FY25",
         "from": 95,
@@ -4671,7 +4695,7 @@
           }
         },
         "payloadHash": "sig_817c4e85",
-        "computedAt": "2026-07-08T17:40:17.629Z",
+        "computedAt": "2026-07-08T17:57:59.571Z",
         "isQuantitative": true
       },
       "application": {
@@ -4785,6 +4809,7 @@
       "sourceNote": "Retail and group legs from the GI Council standalone-quarter prints (government business excluded from the mix so a govt-scheme win never masquerades as retail quality).",
       "period": "Q3 FY25",
       "cadence": "quarterly",
+      "family": "mix_shift_q",
       "keyMove": {
         "label": "Retail share of the book, Q3 FY24 → Q3 FY25",
         "from": 68.27,
@@ -4890,7 +4915,7 @@
           }
         },
         "payloadHash": "sig_bdb52384",
-        "computedAt": "2026-07-08T17:40:17.629Z",
+        "computedAt": "2026-07-08T17:57:59.571Z",
         "isQuantitative": true
       },
       "application": {
@@ -5004,6 +5029,7 @@
       "sourceNote": "Retail and group legs from the GI Council standalone-quarter prints (government business excluded from the mix so a govt-scheme win never masquerades as retail quality).",
       "period": "Q4 FY25",
       "cadence": "quarterly",
+      "family": "mix_shift_q",
       "keyMove": {
         "label": "Retail share of the book, Q4 FY24 → Q4 FY25",
         "from": 72.85,
@@ -5108,7 +5134,7 @@
           }
         },
         "payloadHash": "sig_c8fae22",
-        "computedAt": "2026-07-08T17:40:17.629Z",
+        "computedAt": "2026-07-08T17:57:59.571Z",
         "isQuantitative": true
       },
       "application": {
@@ -5209,6 +5235,7 @@
       "sourceNote": "Shares are computed from the GI Council quarter-end segment prints: the insurer's retail health premium over the printed industry retail total for the same standalone quarter — both legs from the same report family, so the recognition basis cancels within each period.",
       "period": "Q1 FY25",
       "cadence": "quarterly",
+      "family": "share_shift_q",
       "keyMove": {
         "label": "Retail market share, Q1 FY24 → Q1 FY25",
         "from": 8.93,
@@ -5314,7 +5341,7 @@
           }
         },
         "payloadHash": "sig_af817c39",
-        "computedAt": "2026-07-08T17:40:17.629Z",
+        "computedAt": "2026-07-08T17:57:59.571Z",
         "isQuantitative": true
       },
       "application": {
@@ -5435,6 +5462,7 @@
       "sourceNote": "Combined, claims and expense ratios on the IFRS basis from the company's own disclosures — the two accounting bases are never mixed in one comparison.",
       "period": "FY26",
       "cadence": "annual",
+      "family": "uw_economics",
       "keyMove": {
         "label": "Combined ratio (IFRS), FY25 → FY26",
         "from": 101.1,
@@ -5544,7 +5572,7 @@
           }
         },
         "payloadHash": "sig_cf288c18",
-        "computedAt": "2026-07-08T17:40:17.629Z",
+        "computedAt": "2026-07-08T17:57:59.571Z",
         "isQuantitative": true
       },
       "application": {
@@ -5656,6 +5684,7 @@
       "sourceNote": "Combined, claims and expense ratios on the IGAAP basis from the company's own disclosures — the two accounting bases are never mixed in one comparison.",
       "period": "FY25",
       "cadence": "annual",
+      "family": "uw_economics",
       "keyMove": {
         "label": "Combined ratio (IGAAP), FY24 → FY25",
         "from": 96.7,
@@ -5765,7 +5794,7 @@
           }
         },
         "payloadHash": "sig_31f285df",
-        "computedAt": "2026-07-08T17:40:17.629Z",
+        "computedAt": "2026-07-08T17:57:59.571Z",
         "isQuantitative": true
       },
       "application": {
@@ -5866,6 +5895,7 @@
       "sourceNote": "Shares are computed from the GI Council quarter-end segment prints: the insurer's retail health premium over the printed industry retail total for the same standalone quarter — both legs from the same report family, so the recognition basis cancels within each period.",
       "period": "Q2 FY25",
       "cadence": "quarterly",
+      "family": "share_shift_q",
       "keyMove": {
         "label": "Retail market share, Q2 FY24 → Q2 FY25",
         "from": 9.21,
@@ -5971,7 +6001,7 @@
           }
         },
         "payloadHash": "sig_739d1e8a",
-        "computedAt": "2026-07-08T17:40:17.629Z",
+        "computedAt": "2026-07-08T17:57:59.571Z",
         "isQuantitative": true
       },
       "application": {
@@ -6081,6 +6111,7 @@
       "sourceNote": "Shares are computed from the GI Council quarter-end segment prints: the insurer's retail health premium over the printed industry retail total for the same standalone quarter — both legs from the same report family, so the recognition basis cancels within each period.",
       "period": "Q3 FY26",
       "cadence": "quarterly",
+      "family": "share_shift_q",
       "keyMove": {
         "label": "Retail market share, Q3 FY25 → Q3 FY26",
         "from": 8.83,
@@ -6185,7 +6216,7 @@
           }
         },
         "payloadHash": "sig_f6028d36",
-        "computedAt": "2026-07-08T17:40:17.629Z",
+        "computedAt": "2026-07-08T17:57:59.571Z",
         "isQuantitative": true
       },
       "application": {
@@ -6296,6 +6327,7 @@
       "sourceNote": "Shares are computed from the GI Council quarter-end segment prints: the insurer's retail health premium over the printed industry retail total for the same standalone quarter — both legs from the same report family, so the recognition basis cancels within each period.",
       "period": "Q3 FY26",
       "cadence": "quarterly",
+      "family": "share_shift_q",
       "keyMove": {
         "label": "Retail market share, Q3 FY25 → Q3 FY26",
         "from": 7.48,
@@ -6400,7 +6432,7 @@
           }
         },
         "payloadHash": "sig_dd18e8e",
-        "computedAt": "2026-07-08T17:40:17.629Z",
+        "computedAt": "2026-07-08T17:57:59.571Z",
         "isQuantitative": true
       },
       "application": {
@@ -6508,6 +6540,7 @@
       "sourceNote": "Single-month premium from the GI Council monthly flash with government-scheme business excluded (each month's own print, YTD differences where the source prints only cumulatives). A 3-month window smooths single-month lumpiness, and every comparison stays on one side of the Oct-2024 1/n recognition change.",
       "period": "Apr FY27",
       "cadence": "monthly",
+      "family": "monthly_momentum",
       "keyMove": {
         "label": "3-month growth pace, vs a quarter earlier",
         "from": 41.7,
@@ -6613,7 +6646,7 @@
           }
         },
         "payloadHash": "sig_a8e27109",
-        "computedAt": "2026-07-08T17:40:17.629Z",
+        "computedAt": "2026-07-08T17:57:59.571Z",
         "isQuantitative": true
       },
       "application": {
@@ -6712,6 +6745,7 @@
       "sourceNote": "Single-month premium from the GI Council monthly flash with government-scheme business excluded (each month's own print, YTD differences where the source prints only cumulatives). A 3-month window smooths single-month lumpiness, and every comparison stays on one side of the Oct-2024 1/n recognition change.",
       "period": "May FY27",
       "cadence": "monthly",
+      "family": "monthly_momentum",
       "keyMove": {
         "label": "3-month growth pace, vs a quarter earlier",
         "from": 35.9,
@@ -6816,7 +6850,7 @@
           }
         },
         "payloadHash": "sig_6a511735",
-        "computedAt": "2026-07-08T17:40:17.629Z",
+        "computedAt": "2026-07-08T17:57:59.571Z",
         "isQuantitative": true
       },
       "application": {
@@ -6915,6 +6949,7 @@
       "sourceNote": "Single-month premium from the GI Council monthly flash with government-scheme business excluded (each month's own print, YTD differences where the source prints only cumulatives). A 3-month window smooths single-month lumpiness, and every comparison stays on one side of the Oct-2024 1/n recognition change.",
       "period": "May FY27",
       "cadence": "monthly",
+      "family": "monthly_momentum",
       "keyMove": {
         "label": "3-month growth pace, vs a quarter earlier",
         "from": 44.5,
@@ -7019,7 +7054,7 @@
           }
         },
         "payloadHash": "sig_61927dad",
-        "computedAt": "2026-07-08T17:40:17.629Z",
+        "computedAt": "2026-07-08T17:57:59.571Z",
         "isQuantitative": true
       },
       "application": {
@@ -7131,6 +7166,7 @@
       "sourceNote": "Combined, claims and expense ratios on the IGAAP basis from the company's own disclosures — the two accounting bases are never mixed in one comparison.",
       "period": "FY25",
       "cadence": "annual",
+      "family": "uw_economics",
       "keyMove": {
         "label": "Combined ratio (IGAAP), FY24 → FY25",
         "from": 98.8,
@@ -7240,7 +7276,7 @@
           }
         },
         "payloadHash": "sig_3a2a499f",
-        "computedAt": "2026-07-08T17:40:17.629Z",
+        "computedAt": "2026-07-08T17:57:59.571Z",
         "isQuantitative": true
       },
       "application": {
@@ -7339,6 +7375,7 @@
       "sourceNote": "Standalone-quarter premium from the GI Council quarter-end prints with government-scheme business excluded, so a scheme win or loss never reads as business momentum. Growth is same-quarter YoY on a like-for-like recognition basis (comparisons that cross the Oct-2024 1/n change are excluded).",
       "period": "Q3 FY26",
       "cadence": "quarterly",
+      "family": "growth_inflection_q",
       "keyMove": {
         "label": "Growth vs its usual pace, Q3 FY26",
         "from": 18.6,
@@ -7444,7 +7481,7 @@
           }
         },
         "payloadHash": "sig_cff66028",
-        "computedAt": "2026-07-08T17:40:17.629Z",
+        "computedAt": "2026-07-08T17:57:59.571Z",
         "isQuantitative": true
       },
       "application": {
@@ -7543,6 +7580,7 @@
       "sourceNote": "Standalone-quarter premium from the GI Council quarter-end prints with government-scheme business excluded, so a scheme win or loss never reads as business momentum. Growth is same-quarter YoY on a like-for-like recognition basis (comparisons that cross the Oct-2024 1/n change are excluded).",
       "period": "Q3 FY26",
       "cadence": "quarterly",
+      "family": "growth_inflection_q",
       "keyMove": {
         "label": "Growth vs its usual pace, Q3 FY26",
         "from": 46,
@@ -7648,7 +7686,7 @@
           }
         },
         "payloadHash": "sig_d0827e6c",
-        "computedAt": "2026-07-08T17:40:17.629Z",
+        "computedAt": "2026-07-08T17:57:59.571Z",
         "isQuantitative": true
       },
       "application": {
@@ -7747,6 +7785,7 @@
       "sourceNote": "Standalone-quarter premium from the GI Council quarter-end prints with government-scheme business excluded, so a scheme win or loss never reads as business momentum. Growth is same-quarter YoY on a like-for-like recognition basis (comparisons that cross the Oct-2024 1/n change are excluded).",
       "period": "Q3 FY26",
       "cadence": "quarterly",
+      "family": "growth_inflection_q",
       "keyMove": {
         "label": "Growth vs its usual pace, Q3 FY26",
         "from": 22.2,
@@ -7852,7 +7891,7 @@
           }
         },
         "payloadHash": "sig_a9c61d66",
-        "computedAt": "2026-07-08T17:40:17.629Z",
+        "computedAt": "2026-07-08T17:57:59.571Z",
         "isQuantitative": true
       },
       "application": {
@@ -7951,6 +7990,7 @@
       "sourceNote": "Quarterly shareholding pattern as filed with the exchanges (via the ownership snapshot); changes are filing-to-filing moves in each holder group's stake.",
       "period": "Q1 FY26",
       "cadence": "quarterly",
+      "family": "ownership_rotation",
       "keyMove": {
         "label": "Public stake in Niva Bupa, over Q1 FY26",
         "from": 25.42,
@@ -8060,7 +8100,7 @@
           }
         },
         "payloadHash": "sig_cc3b255d",
-        "computedAt": "2026-07-08T17:40:17.629Z",
+        "computedAt": "2026-07-08T17:57:59.571Z",
         "isQuantitative": true
       },
       "application": {
@@ -8159,6 +8199,7 @@
       "sourceNote": "Quarterly shareholding pattern as filed with the exchanges (via the ownership snapshot); changes are filing-to-filing moves in each holder group's stake.",
       "period": "Q1 FY26",
       "cadence": "quarterly",
+      "family": "ownership_rotation",
       "keyMove": {
         "label": "DIIs stake in Star Health, over Q1 FY26",
         "from": 15.44,
@@ -8268,7 +8309,7 @@
           }
         },
         "payloadHash": "sig_6c6b1248",
-        "computedAt": "2026-07-08T17:40:17.629Z",
+        "computedAt": "2026-07-08T17:57:59.571Z",
         "isQuantitative": true
       },
       "application": {
@@ -8380,6 +8421,7 @@
       "sourceNote": "Combined, claims and expense ratios on the IGAAP basis from the company's own disclosures — the two accounting bases are never mixed in one comparison.",
       "period": "FY24",
       "cadence": "annual",
+      "family": "uw_economics",
       "keyMove": {
         "label": "Combined ratio (IGAAP), FY23 → FY24",
         "from": 92,
@@ -8490,7 +8532,7 @@
           }
         },
         "payloadHash": "sig_e77b7707",
-        "computedAt": "2026-07-08T17:40:17.629Z",
+        "computedAt": "2026-07-08T17:57:59.571Z",
         "isQuantitative": true
       },
       "application": {
@@ -8600,6 +8642,7 @@
       "sourceNote": "Dated broker research from the coverage snapshot; each revision compares the same broker's consecutive notes, attributed as analyst opinion (never a house view).",
       "period": "Apr FY27",
       "cadence": "monthly",
+      "family": "analyst_reprice",
       "keyMove": {
         "label": "Emkay's Star Health target",
         "from": 525,
@@ -8699,7 +8742,7 @@
           }
         },
         "payloadHash": "sig_94959fa3",
-        "computedAt": "2026-07-08T17:40:17.629Z",
+        "computedAt": "2026-07-08T17:57:59.571Z",
         "isQuantitative": true
       },
       "application": {
@@ -8798,6 +8841,7 @@
       "sourceNote": "Channel mix from IRDAI business-acquisition disclosures (NL-36/NL-40); the comparison holds the basis fixed — full-year mix against the same window a year earlier.",
       "period": "FY25",
       "cadence": "annual",
+      "family": "channel_shift",
       "keyMove": {
         "label": "Premium sold via direct sales (no intermediary)",
         "from": 12.19,
@@ -8908,7 +8952,7 @@
           }
         },
         "payloadHash": "sig_98861e1f",
-        "computedAt": "2026-07-08T17:40:17.629Z",
+        "computedAt": "2026-07-08T17:57:59.571Z",
         "isQuantitative": true
       },
       "application": {
@@ -9007,6 +9051,7 @@
       "sourceNote": "Channel mix from IRDAI business-acquisition disclosures (NL-36/NL-40); the comparison holds the basis fixed — 6-month cumulative mix (H1FY26) against the same window a year earlier.",
       "period": "Q2 FY26",
       "cadence": "quarterly",
+      "family": "channel_shift",
       "keyMove": {
         "label": "Premium sold via bank branches (bancassurance)",
         "from": 12.18,
@@ -9117,7 +9162,7 @@
           }
         },
         "payloadHash": "sig_316a9f75",
-        "computedAt": "2026-07-08T17:40:17.629Z",
+        "computedAt": "2026-07-08T17:57:59.571Z",
         "isQuantitative": true
       },
       "application": {
@@ -9205,6 +9250,7 @@
       "sourceNote": "Dated broker research from the coverage snapshot; each revision compares the same broker's consecutive notes, attributed as analyst opinion (never a house view).",
       "period": "Jul FY26",
       "cadence": "monthly",
+      "family": "analyst_reprice",
       "keyMove": {
         "label": "Motilal Oswal's Star Health target",
         "from": 730,
@@ -9269,7 +9315,7 @@
           }
         },
         "payloadHash": "sig_ebf972f7",
-        "computedAt": "2026-07-08T17:40:17.629Z",
+        "computedAt": "2026-07-08T17:57:59.571Z",
         "isQuantitative": true
       },
       "application": {
@@ -9357,6 +9403,7 @@
       "sourceNote": "Dated broker research from the coverage snapshot; each revision compares the same broker's consecutive notes, attributed as analyst opinion (never a house view).",
       "period": "Jan FY26",
       "cadence": "monthly",
+      "family": "analyst_reprice",
       "keyMove": {
         "label": "Geojit BNP Paribas's Star Health target",
         "from": 421,
@@ -9421,7 +9468,7 @@
           }
         },
         "payloadHash": "sig_817f0498",
-        "computedAt": "2026-07-08T17:40:17.629Z",
+        "computedAt": "2026-07-08T17:57:59.571Z",
         "isQuantitative": true
       },
       "application": {
@@ -9531,6 +9578,7 @@
       "sourceNote": "Dated broker research from the coverage snapshot; each revision compares the same broker's consecutive notes, attributed as analyst opinion (never a house view).",
       "period": "Jul FY26",
       "cadence": "monthly",
+      "family": "analyst_reprice",
       "keyMove": {
         "label": "Geojit BNP Paribas's ICICI Lombard target",
         "from": 2030,
@@ -9630,7 +9678,7 @@
           }
         },
         "payloadHash": "sig_a8c57c06",
-        "computedAt": "2026-07-08T17:40:17.629Z",
+        "computedAt": "2026-07-08T17:57:59.571Z",
         "isQuantitative": true
       },
       "application": {

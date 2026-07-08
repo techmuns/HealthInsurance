@@ -31,6 +31,7 @@ import {
   type BasisPeriod,
 } from '@/data/accountingBasis'
 import { mean, stdev } from '@/insights/stats'
+import { preferenceWeight } from './preferences'
 
 // ── finding contract ─────────────────────────────────────────────────────────
 
@@ -1377,7 +1378,10 @@ export function runDetectors(panel?: MarketPanel, opts: RunOptions = {}): Findin
 
   const newestKey = Math.max(...all.map((f) => keyOfPeriod(f.period)), 0)
   for (const f of all) {
-    f.score = Math.round((FAMILY_BASE[f.detector] ?? 50) + magnitudeBonus(f) + materialityBonus(f.baseCr) + recencyBonus(f, newestKey))
+    const raw = (FAMILY_BASE[f.detector] ?? 50) + magnitudeBonus(f) + materialityBonus(f.baseCr) + recencyBonus(f, newestKey)
+    // Relevance preference (specialist feedback, committed): >1 surfaces a
+    // pattern more, <1 less. Neutral (1.0) until real ratings are folded in.
+    f.score = Math.round(raw * preferenceWeight(f.detector, f.insurers))
   }
 
   // per (detector, insurer): keep the strongest finding per fiscal year so one

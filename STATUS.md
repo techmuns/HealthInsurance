@@ -7,6 +7,25 @@ container is ephemeral, so this lives in the repo so the next session can pick u
 without re-deriving state.
 
 ## Where it stands
+- **Insights: instant-legibility copy + relevance feedback loop** (Neha, 2026-07-08):
+  every card front now leads with the concrete fact in plain words, carries a
+  from → to **key-move strip** (e.g. `Retail market share · 33.5% → 31.2%`), and
+  **bolds every figure and period** inline (`highlightFigures`, applied on the
+  front summary and the back's "Why this matters") so the numbers pop at a
+  glance. Jargon is defined in-line (combined ratio → "claims plus costs per
+  ₹100 of premium"; solvency → "the capital cushion"; channel names in plain
+  English). New: a **👍 / 👎 relevance vote on every card** — the sector
+  specialist marks a card relevant or not. Votes persist (localStorage,
+  `src/lib/insightFeedback.ts`), are **period-independent** (keyed on detector
+  family + company, so a rating trains every future card of the same kind as new
+  data lands), and reshape the feed live: 👍 floats to the top with a "Relevant"
+  chip, 👎 drops into a collapsible "Set aside" group (never deleted). The
+  durable/global path: `src/data/insight-preferences.json` holds per-pattern
+  weights the engine multiplies into scoring (`src/insights/engine/preferences.ts`
+  → `detect.ts`); `npm run insights:learn -- votes.json` folds exported ratings
+  into those weights so the whole generated feed re-surfaces on the next run
+  (verified: a down-vote moved a pattern rank 20 → 49). Seeded neutral — zero
+  behaviour change until real ratings land. Gates green (48 cards).
 - **Insight Engine v2 — the Data Insights tab now writes itself** (Neha, 2026-07-08):
   the old 7-card keyless re-narrator is replaced by a deterministic **detector
   battery** (`src/insights/engine/`) that scans the WIDE data surface — discrete

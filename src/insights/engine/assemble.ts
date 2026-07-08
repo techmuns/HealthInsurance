@@ -142,6 +142,7 @@ export function assembleInsight(f: Finding, rank: number, listed: Set<string>, c
     sourceNote: f.sourceNote,
     period: f.period,
     cadence: f.cadence,
+    family: f.detector,
     keyMove: copy.keyMove,
     methodology: methodologyFor(f, listed, computedAt),
     application: copy.application,

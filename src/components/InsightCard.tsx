@@ -1,8 +1,10 @@
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
-import { ShieldAlert, AlertTriangle, Scale, TrendingUp, Gauge, Users, Landmark, Share2, CalendarClock, RotateCw, type LucideIcon } from 'lucide-react'
+import { ShieldAlert, AlertTriangle, Scale, TrendingUp, Gauge, Users, Landmark, Share2, CalendarClock, RotateCw, ThumbsUp, ThumbsDown, type LucideIcon } from 'lucide-react'
 import type { Insight, InsightCategory } from '@/insights/types'
 import { InsightChart } from '@/components/InsightChart'
 import { MethodologyPanel } from '@/components/MethodologyPanel'
+import { highlightFigures } from '@/components/highlightFigures'
+import { feedbackKeyOf, setVote, useVote } from '@/lib/insightFeedback'
 import { getPromises, type PromiseStatus } from '@/lib/promiseTracker'
 import { classifySource, sourceHref, isLinkable } from '@/lib/sourceHealth'
 import type { Freshness, SourceLocation } from '@/insights/sourceMap'
@@ -79,6 +81,7 @@ const fmtMove = (v: number, unit: string): string => {
   return `${s} ${unit}`
 }
 
+
 // The concrete company subject of the insight, in plain English. A single name
 // spotlights that insurer; two names read as a pair; a broader set (or an
 // explicit `panel` tag) reads as "Across the panel".
@@ -87,6 +90,45 @@ function companyLabelOf(ins: Insight): string {
   if (ins.affectedInsurers.includes('panel') || cos.length >= 3 || cos.length === 0) return 'Across the panel'
   if (cos.length === 2) return `${pretty(cos[0])} & ${pretty(cos[1])}`
   return pretty(cos[0])
+}
+
+// Relevance vote — the sector specialist marks a card 👍 relevant / 👎 not.
+// Clicks stop propagation so they never flip the card. The vote is period-
+// independent, so it trains every future card of the same kind.
+const OPP = '#0E6F6D' // teal — relevant
+const RISK = '#A8443B' // terracotta — set aside
+function RelevanceButtons({ vote, onVote }: { vote?: 'up' | 'down'; onVote: (v: 'up' | 'down' | null) => void }) {
+  const stop = (e: React.SyntheticEvent) => e.stopPropagation()
+  const btn = 'grid h-6 w-6 place-items-center rounded-md transition-colors outline-none focus-visible:ring-2 focus-visible:ring-champagne/60'
+  return (
+    <span className="inline-flex items-center gap-1" onClick={stop} onKeyDown={stop} title="Mark relevant or not — trains what surfaces here as new data lands">
+      {vote && (
+        <span className="mr-0.5 text-[9.5px] font-bold uppercase tracking-[0.06em]" style={{ color: vote === 'up' ? OPP : RISK }}>
+          {vote === 'up' ? 'Relevant' : 'Set aside'}
+        </span>
+      )}
+      <button
+        type="button"
+        aria-label="Mark relevant — surface more like this"
+        aria-pressed={vote === 'up'}
+        className={`${btn} ${vote === 'up' ? '' : 'text-ink-secondary hover:text-teal'}`}
+        style={vote === 'up' ? { background: 'rgba(14,111,109,0.12)', color: OPP } : undefined}
+        onClick={(e) => { stop(e); onVote(vote === 'up' ? null : 'up') }}
+      >
+        <ThumbsUp className="h-3.5 w-3.5" strokeWidth={2.2} fill={vote === 'up' ? 'currentColor' : 'none'} />
+      </button>
+      <button
+        type="button"
+        aria-label="Mark not relevant — surface less like this"
+        aria-pressed={vote === 'down'}
+        className={`${btn} ${vote === 'down' ? '' : 'text-ink-secondary hover:text-[#A8443B]'}`}
+        style={vote === 'down' ? { background: 'rgba(168,68,59,0.12)', color: RISK } : undefined}
+        onClick={(e) => { stop(e); onVote(vote === 'down' ? null : 'down') }}
+      >
+        <ThumbsDown className="h-3.5 w-3.5" strokeWidth={2.2} fill={vote === 'down' ? 'currentColor' : 'none'} />
+      </button>
+    </span>
+  )
 }
 
 function usePrefersReducedMotion(): boolean {
@@ -173,6 +215,10 @@ export function InsightCard({
   const Icon = cat.Icon
   const high = priority === 'high'
   const companyLabel = companyLabelOf(ins)
+  // Relevance feedback — period-independent key, so a rating trains every future
+  // card of the same kind (see src/lib/insightFeedback.ts).
+  const fk = feedbackKeyOf(ins)
+  const vote = useVote(fk)
 
   // Single-subject insight → spotlight that company in gold; comparisons stay multi-tone.
   const focal = ins.affectedInsurers.length === 1 ? ins.affectedInsurers[0] : undefined
@@ -317,20 +363,25 @@ export function InsightCard({
               </div>
             )}
 
-            {/* the plain-English read — what happened, in words anyone gets fast */}
-            <p className="relative mt-2 line-clamp-3 font-editorial text-[14px] leading-relaxed text-ink-primary">{ins.summary}</p>
+            {/* the plain-English read — what happened, in words anyone gets fast.
+                Figures + periods are bolded so the eye lands on them instantly. */}
+            <p className="relative mt-2 line-clamp-4 font-editorial text-[14px] leading-relaxed text-ink-primary">{highlightFigures(ins.summary)}</p>
 
-            {/* footer — company (left) · flip affordance (right). Sits right under
-                the read so a full-width card stays compact, never a tall void. */}
+            {/* footer — company (left) · relevance vote + flip affordance (right).
+                Sits right under the read so a full-width card stays compact. */}
             <div className="relative mt-4 flex items-center gap-2 border-t border-soft-border pt-3">
               <span className="inline-flex items-center gap-1.5 text-[12px] font-semibold text-navy-deep">
                 <span className="h-1.5 w-1.5 rounded-full" style={{ background: tone.fg }} />
                 {companyLabel}
               </span>
-              <span className="ml-auto inline-flex items-center gap-1 text-[10.5px] font-semibold text-ink-secondary transition-colors group-hover:text-navy-primary">
-                <RotateCw className="h-3 w-3 transition-transform group-hover:rotate-90" strokeWidth={2.4} style={{ color: tone.fg }} />
-                Click to view basis
-              </span>
+              <div className="ml-auto flex items-center gap-3">
+                <RelevanceButtons vote={vote} onVote={(v) => setVote(fk, v)} />
+                <span aria-hidden className="h-3.5 w-px bg-soft-border" />
+                <span className="inline-flex items-center gap-1 text-[10.5px] font-semibold text-ink-secondary transition-colors group-hover:text-navy-primary">
+                  <RotateCw className="h-3 w-3 transition-transform group-hover:rotate-90" strokeWidth={2.4} style={{ color: tone.fg }} />
+                  Click to view basis
+                </span>
+              </div>
             </div>
            </div>
           </div>

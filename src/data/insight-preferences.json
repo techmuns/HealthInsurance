@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "artifact": "insight-preferences",
+    "schema_version": "1.0.0",
+    "description": "Sector-specialist relevance feedback, folded into a per-pattern weight the engine applies at scoring time. Key = '<detector_family>::<company_ids>' (period-independent, so a rating trains every future card of the same kind); '<detector_family>::*' sets a family-wide default. Weight > 1 surfaces the pattern more, < 1 less; 1.0 is neutral. Seeded empty — every pattern neutral — so the feed is unchanged until real feedback lands. The reader's thumbs-up/down re-ranks their own feed instantly (localStorage); scripts/insights/learn-from-feedback.ts folds exported ratings into this committed file so the whole generated feed improves as new data is added.",
+    "clamp": [0.2, 2.5],
+    "updated_at": null
+  },
+  "weights": {}
+}
