@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react'
-import { ArrowUpRight, Info, Landmark, Minus, ShieldCheck, TrendingDown, TrendingUp, Users, Waves } from 'lucide-react'
+import { ArrowLeftRight, ArrowUpRight, Info, Landmark, Minus, RefreshCw, ShieldCheck, TrendingDown, TrendingUp, Users, Waves, type LucideIcon } from 'lucide-react'
 import { Bar, BarChart, CartesianGrid, Line, LineChart, ReferenceLine, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts'
 import { ModuleCard } from '@/components/ModuleCard'
 import { LockedPanel } from '@/components/LockedPanel'
@@ -1195,28 +1195,94 @@ export function Ownership() {
             position). Handles its own empty / pending / populated states. */}
       <BulkBlockTimeline key={company.id} view={trades} companyName={company.shortName} />
 
-      {/* 5 — Source / audit footer — two clearly-separated sources (PART 10 + Task 7) */}
-      <div className="rounded-xl border border-soft-border bg-ice/40 px-4 py-3 text-[10.5px] leading-relaxed text-ink-secondary">
-        <p className="flex items-start gap-1.5">
-          <span className="mt-px shrink-0 font-semibold text-ink-primary">Ownership trend source:</span>
-          <span>Screener → Investors / Shareholding Pattern · based on company filings · classifications may change due to XBRL format updates (Screener notes classifications might have changed from Sep 2022 onwards as the new XBRL format added more detail).</span>
-        </p>
-        <p className="mt-1 flex items-start gap-1.5">
-          <span className="mt-px shrink-0 font-semibold text-ink-primary">Bulk/block deals source:</span>
-          <span>
-            {trades.moneycontrolUsed
-              ? 'Screener → Trades + a daily research agent that pulls Moneycontrol (NBH large deals) / NSE / BSE via live web search, merged and de-duped'
-              : 'Screener → Trades, with a daily research agent (Moneycontrol NBH / NSE / BSE) + direct Moneycontrol fetch as fallback sources'}{' '}· underlying exchange disclosures: NSE / BSE.
-          </span>
-        </p>
-        <p className="mt-1.5 flex flex-wrap items-center gap-x-3 gap-y-1 border-t border-soft-border/70 pt-1.5">
-          <span>Last updated from Screener — shareholding pattern: <span className="font-semibold text-ink-primary">{lastUpdated ?? '—'}</span></span>
-          <span aria-hidden>·</span>
-          <span>trades: <span className="font-semibold text-ink-primary">{trades.lastUpdated ?? '—'}</span></span>
-          <span aria-hidden>·</span>
-          <span>Named-holder breakdown: latest exchange filing ({periodLabel})</span>
-        </p>
+      {/* 5 — Source & freshness — a compact source bar (two short source rows +
+            dynamic freshness chips) replacing the old dense disclaimer block. The
+            source logic is unchanged; any missing date/period hides its chip. */}
+      <SourceFreshnessBar
+        shareholdingUpdated={lastUpdated}
+        tradesUpdated={trades.lastUpdated ?? null}
+        namedHolderPeriod={periodLabel}
+        moneycontrolUsed={trades.moneycontrolUsed}
+      />
+    </div>
+  )
+}
+
+// ── Source & freshness bar ───────────────────────────────────────────────────
+// A compact, premium source note for the Ownership tab: two short source rows +
+// a dynamic freshness chip row, on a soft white / pale-blue card. It deliberately
+// reads as a quiet source bar (muted grey values, navy labels, small icons) — not
+// a disclaimer box or an alert. Every date/period is dynamic; a missing one drops
+// its chip cleanly rather than showing "NA". Source wording only — no source logic.
+const MONTHS_SHORT = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+/** Prettify an ISO date (2026-06-24 → 24 Jun 2026); pass through anything else. */
+function fmtDay(iso: string): string {
+  const m = /^(\d{4})-(\d{2})-(\d{2})/.exec(iso.trim())
+  return m ? `${Number(m[3])} ${MONTHS_SHORT[Number(m[2]) - 1]} ${m[1]}` : iso.trim()
+}
+
+function SrcRow({ icon: Icon, label, children }: { icon: LucideIcon; label: string; children: ReactNode }) {
+  return (
+    <div className="flex items-start gap-1.5 text-[10.5px] leading-snug">
+      <Icon className="mt-[1.5px] h-3 w-3 shrink-0 text-navy-primary/55" strokeWidth={2} />
+      <span className="shrink-0 font-semibold text-navy-deep">{label}</span>
+      <span className="text-ink-secondary">{children}</span>
+    </div>
+  )
+}
+
+function SourceFreshnessBar({
+  shareholdingUpdated,
+  tradesUpdated,
+  namedHolderPeriod,
+  moneycontrolUsed,
+}: {
+  shareholdingUpdated: string | null
+  tradesUpdated: string | null
+  namedHolderPeriod: string
+  moneycontrolUsed: boolean
+}) {
+  // Dynamic freshness — a missing date/period is omitted, never shown as "NA".
+  const freshness = [
+    shareholdingUpdated ? { k: 'Shareholding pattern', v: fmtDay(shareholdingUpdated) } : null,
+    tradesUpdated ? { k: 'Trades', v: fmtDay(tradesUpdated) } : null,
+    namedHolderPeriod?.trim() ? { k: 'Named holders', v: namedHolderPeriod.trim(), title: 'Latest exchange shareholding filing' } : null,
+  ].filter((x): x is { k: string; v: string; title?: string } => x != null)
+
+  return (
+    <div className="rounded-xl border border-[#E4EAF3] bg-gradient-to-br from-white to-[#F3F7FC] px-4 py-2.5 shadow-[0_1px_2px_rgba(23,43,77,0.04)]">
+      <div className="mb-2 flex items-center gap-1.5">
+        <span aria-hidden className="h-2.5 w-[3px] rounded-full bg-gradient-to-b from-champagne to-champagne-deep" />
+        <span className="text-[9px] font-bold uppercase tracking-[0.14em] text-navy-primary/75">Source &amp; freshness</span>
       </div>
+
+      <div className="space-y-1">
+        <SrcRow icon={Landmark} label="Ownership trend:">Screener shareholder pattern, based on company filings</SrcRow>
+        <SrcRow icon={ArrowLeftRight} label="Bulk / block deals:">
+          {moneycontrolUsed
+            ? 'Screener trades + Moneycontrol / NSE / BSE checks, merged and de-duplicated'
+            : 'Screener trades · Moneycontrol / NSE / BSE agent as fallback'}
+        </SrcRow>
+      </div>
+
+      {freshness.length > 0 && (
+        <div className="mt-2 flex flex-wrap items-center gap-x-1.5 gap-y-1 border-t border-soft-border/60 pt-2">
+          <span className="inline-flex items-center gap-1 text-[9.5px] font-semibold uppercase tracking-[0.08em] text-navy-primary/70">
+            <RefreshCw className="h-3 w-3 text-champagne-deep" strokeWidth={2} /> Last updated
+          </span>
+          {freshness.map((f) => (
+            <span key={f.k} title={f.title} className="inline-flex items-center gap-1 rounded-full border border-[#E1E8F2] bg-white/70 px-2 py-0.5 text-[10px]">
+              <span className="text-ink-secondary">{f.k}</span>
+              <span className="font-semibold text-navy-deep tabular-nums">{f.v}</span>
+            </span>
+          ))}
+        </div>
+      )}
+
+      <p className="mt-2 flex items-center gap-1 text-[9.5px] text-ink-secondary/80">
+        <ShieldCheck className="h-3 w-3 shrink-0 text-teal/60" strokeWidth={2} />
+        AI-gathered items are clearly labelled. Exchange filings remain the source of truth.
+      </p>
     </div>
   )
 }
