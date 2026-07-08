@@ -67,6 +67,18 @@ const PRIORITY_TAG: Record<Priority, { label: string; fg: string; bg: string; ri
 
 const fmtVal = (v: number | null, unit: string) => (v == null ? 'n/a' : unit === 'x' ? `${v}x` : unit === '%' || unit === 'pp' ? `${v}${unit}` : `${v} ${unit}`)
 
+/** keyMove strip values: compact, unit-aware, sign-honest (−18.4%, ₹1570 cr, 1.68x). */
+const fmtMove = (v: number, unit: string): string => {
+  const n = Math.round(v * 100) / 100
+  const s = n < 0 ? `−${Math.abs(n)}` : `${n}`
+  if (unit === '%' || unit === 'pp') return `${s}${unit}`
+  if (unit === 'x') return `${s}x`
+  if (unit === '₹') return `₹${s}`
+  if (unit === '₹ Cr') return n < 0 ? `−₹${Math.round(Math.abs(n))} cr` : `₹${Math.round(n)} cr`
+  if (unit === 'yrs') return `~${s} yrs`
+  return `${s} ${unit}`
+}
+
 // The concrete company subject of the insight, in plain English. A single name
 // spotlights that insurer; two names read as a pair; a broader set (or an
 // explicit `panel` tag) reads as "Across the panel".
@@ -288,8 +300,25 @@ export function InsightCard({
             {/* headline — the one sharp, catchy line */}
             <h3 className="relative mt-3 font-editorial text-[22px] font-bold leading-[1.16] tracking-[-0.01em] text-navy-deep lg:text-[23px]">{ins.shortHeadline}</h3>
 
-            {/* 1–2 line plain-English read — no numbers, no jargon */}
-            <p className="relative mt-2 line-clamp-3 font-editorial text-[14px] leading-relaxed text-ink-primary">{ins.whatConsensusMisses}</p>
+            {/* the key move — one from → to line that makes the card legible at
+                a glance (plain-English label left, the numbers right) */}
+            {ins.keyMove && (
+              <div className="relative mt-2.5 flex flex-wrap items-baseline justify-between gap-x-3 gap-y-0.5 rounded-lg px-3 py-1.5" style={{ background: tone.soft, boxShadow: `inset 0 0 0 1px ${tone.ring}` }}>
+                <span className="text-[10px] font-bold uppercase tracking-[0.08em]" style={{ color: tone.fg }}>{ins.keyMove.label}</span>
+                <span className="tabular-nums text-[13.5px] font-bold text-navy-deep">
+                  {ins.keyMove.from != null && (
+                    <>
+                      <span className="font-semibold text-ink-secondary">{fmtMove(ins.keyMove.from, ins.keyMove.unit)}</span>
+                      <span className="mx-1.5 font-semibold" style={{ color: tone.fg }}>{ins.keyMove.divider ?? '→'}</span>
+                    </>
+                  )}
+                  {fmtMove(ins.keyMove.to, ins.keyMove.unit)}
+                </span>
+              </div>
+            )}
+
+            {/* the plain-English read — what happened, in words anyone gets fast */}
+            <p className="relative mt-2 line-clamp-3 font-editorial text-[14px] leading-relaxed text-ink-primary">{ins.summary}</p>
 
             {/* footer — company (left) · flip affordance (right). Sits right under
                 the read so a full-width card stays compact, never a tall void. */}

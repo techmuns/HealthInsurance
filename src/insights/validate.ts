@@ -59,6 +59,13 @@ export function validateInsightsFile(file: InsightsFile, run: SignalRun): Valida
     for (const text of [ins.headline, ins.shortHeadline, ins.summary, ins.thesis, ins.whatConsensusMisses]) {
       for (const n of numbersIn(text)) if (!isGrounded(n)) errors.push(`${id}: orphan number ${n} in prose ("${text.slice(0, 40)}…")`)
     }
+    // keyMove (the front-of-card from→to strip) is prose too — same firewall.
+    if (ins.keyMove) {
+      for (const n of [ins.keyMove.from, ins.keyMove.to]) {
+        if (n != null && !isGrounded(n)) errors.push(`${id}: keyMove number ${n} not grounded in signals`)
+      }
+      for (const n of numbersIn(ins.keyMove.label)) if (!isGrounded(n)) errors.push(`${id}: keyMove label number ${n} not grounded`)
+    }
     // chart series must reference keys, not inlined values (sanity).
     if (!ins.chart || !Array.isArray(ins.chart.seriesKeys) || ins.chart.seriesKeys.length === 0) errors.push(`${id}: chart has no seriesKeys`)
 

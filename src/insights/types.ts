@@ -191,6 +191,16 @@ export interface Insight {
   period?: string
   /** Cadence of the period above (annual | quarterly | monthly). */
   cadence?: 'annual' | 'quarterly' | 'monthly'
+  /** The one move that makes the card instantly legible on the front:
+   *  a plain-English label plus the from → to values (e.g. "Retail market
+   *  share · 33.5% → 31.2%"). Values are grounded like all card numbers. */
+  keyMove?: {
+    label: string
+    from: number | null // null = a single-level read (no prior leg)
+    to: number
+    unit: string // '%' | 'x' | '₹ Cr' | '₹' | 'yrs' | 'pp'
+    divider?: string // '→' by default; 'vs' for two-quantity comparisons
+  }
   /** The deterministic "show the working" panel — assembled from signals, not the
    *  model (methods.ts). Optional only for backward-compat; every generated and
    *  backfilled insight carries it. */
