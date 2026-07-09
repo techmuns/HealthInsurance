@@ -2,7 +2,7 @@
  "_meta": {
   "artifact": "ifrs-valuation-multiples",
   "schema_version": "1.0.0",
-  "generated_at": "2026-07-08T10:17:13.287885+00:00",
+  "generated_at": "2026-07-09T07:04:18.453761+00:00",
   "description": "Per-company IFRS valuation multiples (P/E = market cap / IFRS PAT; P/B = market cap / IFRS net worth), projected from the Extracted Data Audit's own resolved cells. The Competitive Positioning card and Analysis Builder read these so every valuation surface shows ONE IFRS figure per company — matching the audit grid and the Valuation tab — never the third-party screener multiple, which sits on a different, lower (statutory / TTM) earnings base. A company with no IFRS profit / net worth is absent -> honest n/a.",
   "source_artifact": "extracted-data-audit.json",
   "basis": "IFRS / listed-reporting"
