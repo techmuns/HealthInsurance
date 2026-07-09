@@ -4,8 +4,8 @@
     "description": "AI-generated market intelligence for the SAHI health insurers — investor meets, earnings/board dates, sector & regulatory news, share catalysts. Web-sourced; each item links its source. AI-generated, not audited.",
     "schema_version": "1.0.0",
     "dataset": "ai_generated",
-    "last_updated": "2026-07-07",
-    "last_successful_run": "2026-07-07T16:18:49.435Z",
+    "last_updated": "2026-07-09",
+    "last_successful_run": "2026-07-09T09:25:23.765Z",
     "upstream_sources": [
       "muns_agent_web"
     ],
@@ -26,6 +26,21 @@
       "source_name": "moneycontrol.com",
       "source_url": "https://www.moneycontrol.com/company-notices/starhealthalliedinsurancecompany/notices/SHA/",
       "first_seen": "2026-07-04T14:58:23.219Z"
+    },
+    {
+      "id": "d54b4f9ef9",
+      "company_id": "sector",
+      "date": "2026-07-09",
+      "kind": "earnings",
+      "horizon": "recent",
+      "impact": "positive",
+      "headline": "Q1 FY27 preview sees Niva Bupa profit up 50%+ and Star Health outperforming",
+      "detail": "A bullish quarter preview can move both listed health insurers because it frames June-quarter premium growth, claims trends and Ind AS reporting as supportive for earnings sentiment.",
+      "source_name": "bfsi.economictimes.indiatimes.com",
+      "source_url": "https://bfsi.economictimes.indiatimes.com/articles/star-health-sbi-life-and-max-financial-set-for-robust-fy27-growth/132272405",
+      "source_published_at": "2026-07-09",
+      "first_seen": "2026-07-09T09:25:23.765Z",
+      "discovered_at": "2026-07-09T09:25:23.765Z"
     },
     {
       "id": "23fb9e20b0",
@@ -473,6 +488,21 @@
       "discovered_at": "2026-07-05T11:23:57.879Z"
     },
     {
+      "id": "00333bf560",
+      "company_id": "sector",
+      "date": "2026-06-30",
+      "kind": "catalyst",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "Care Health completes rights issue allotment of 74.8 lakh shares",
+      "detail": "The capital infusion supports Care Health’s expansion and solvency, relevant because a better-funded unlisted peer can intensify competition in standalone health insurance.",
+      "source_name": "investywise.com",
+      "source_url": "https://www.investywise.com/religare-enterprises-chil-rights-issue-allotment-completed/",
+      "source_published_at": "2026-07-08",
+      "first_seen": "2026-07-09T09:25:23.765Z",
+      "discovered_at": "2026-07-09T09:25:23.765Z"
+    },
+    {
       "id": "0855aa1650",
       "company_id": "sector",
       "date": "2026-06-29",
@@ -794,6 +824,21 @@
       "first_seen": "2026-07-04T05:38:27.228Z"
     },
     {
+      "id": "fcd5f66844",
+      "company_id": "sector",
+      "date": "2026-06-25",
+      "kind": "rating",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "Motilal Oswal reiterates Buy on Star Health, target Rs 700",
+      "detail": "Positive sell-side action on the closest listed peer matters for Niva Bupa because relative valuation, claims experience and retail-health growth expectations are often read across the two names.",
+      "source_name": "moneycontrol.com",
+      "source_url": "https://www.moneycontrol.com/news/business/stocks/buy-star-health-target-of-rs-700-motilal-oswal-13959277.html",
+      "source_published_at": "2026-06-26",
+      "first_seen": "2026-07-09T09:25:23.765Z",
+      "discovered_at": "2026-07-09T09:25:23.765Z"
+    },
+    {
       "id": "12a73c494c",
       "company_id": "sector",
       "date": "2026-06-24",
@@ -807,49 +852,6 @@
       "source_published_at": "2026-06-24",
       "first_seen": "2026-07-05T11:23:57.879Z",
       "discovered_at": "2026-07-05T11:23:57.879Z"
-    },
-    {
-      "id": "b91dea4965",
-      "company_id": "star-health",
-      "date": "2026-06-24",
-      "kind": "rating",
-      "horizon": "recent",
-      "impact": "positive",
-      "headline": "Motilal Oswal reiterates Buy on Star Health with Rs 700 target",
-      "detail": "A positive target-price action on the closest listed peer can influence sentiment and valuation benchmarks for Niva Bupa.",
-      "source_name": "moneycontrol.com",
-      "source_url": "https://www.moneycontrol.com/news/business/stocks/buy-star-health-target-of-rs-700-motilal-oswal-13959277.html",
-      "source_published_at": null,
-      "first_seen": "2026-07-06T13:38:39.332Z",
-      "discovered_at": "2026-07-06T13:38:39.332Z"
-    },
-    {
-      "id": "1bc05289a7",
-      "company_id": "niva-bupa",
-      "date": "2026-06-23",
-      "kind": "rating",
-      "horizon": "recent",
-      "impact": "positive",
-      "headline": "MOFSL reiterates Buy, ₹100 target on Niva Bupa",
-      "detail": "A fresh bullish target-price action matters because the note argues Niva can keep gaining retail-health market share and compound insurance revenue strongly, supporting sentiment on the listed name.",
-      "source_name": "bfsi.economictimes.indiatimes.com",
-      "source_url": "https://bfsi.economictimes.indiatimes.com/amp/articles/niva-bupa-forecasted-to-outpace-retail-health-insurance-market-amid-soaring-demand/131922688",
-      "first_seen": "2026-07-04T08:24:33.011Z"
-    },
-    {
-      "id": "3cdbe06ce5",
-      "company_id": "niva-bupa",
-      "date": "2026-06-23",
-      "kind": "rating",
-      "horizon": "recent",
-      "impact": "positive",
-      "headline": "MOFSL keeps Buy on Niva Bupa with ₹100 target",
-      "detail": "A fresh positive target-price call matters because it backs above-industry growth, renewal-led profitability improvement and better resilience versus peers.",
-      "source_name": "bfsi.economictimes.indiatimes.com",
-      "source_url": "https://bfsi.economictimes.indiatimes.com/amp/articles/niva-bupa-forecasted-to-outpace-retail-health-insurance-market-amid-soaring-demand/131922688",
-      "source_published_at": "2026-06-23",
-      "first_seen": "2026-07-07T16:18:49.435Z",
-      "discovered_at": "2026-07-07T16:18:49.435Z"
     }
   ]
 }
