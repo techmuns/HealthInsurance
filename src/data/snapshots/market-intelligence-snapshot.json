@@ -5,7 +5,7 @@
     "schema_version": "1.0.0",
     "dataset": "ai_generated",
     "last_updated": "2026-07-09",
-    "last_successful_run": "2026-07-09T09:25:23.765Z",
+    "last_successful_run": "2026-07-09T16:22:46.308Z",
     "upstream_sources": [
       "muns_agent_web"
     ],
@@ -28,6 +28,21 @@
       "first_seen": "2026-07-04T14:58:23.219Z"
     },
     {
+      "id": "011c293779",
+      "company_id": "sector",
+      "date": "2026-07-29",
+      "kind": "board_meeting",
+      "horizon": "upcoming",
+      "impact": "watch",
+      "headline": "Star Health board to consider Q1 FY27 results on 29 July",
+      "detail": "Star Health’s Q1 print is a near-term sector read-across on health-insurance growth, claims experience and margins that could move Niva Bupa by comparison.",
+      "source_name": "screener.in",
+      "source_url": "https://www.screener.in/company/STARHEALTH/",
+      "source_published_at": null,
+      "first_seen": "2026-07-09T16:22:46.308Z",
+      "discovered_at": "2026-07-09T16:22:46.308Z"
+    },
+    {
       "id": "d54b4f9ef9",
       "company_id": "sector",
       "date": "2026-07-09",
@@ -41,6 +56,36 @@
       "source_published_at": "2026-07-09",
       "first_seen": "2026-07-09T09:25:23.765Z",
       "discovered_at": "2026-07-09T09:25:23.765Z"
+    },
+    {
+      "id": "ca208ce135",
+      "company_id": "sector",
+      "date": "2026-07-09",
+      "kind": "regulatory",
+      "horizon": "recent",
+      "impact": "watch",
+      "headline": "IRDAI readies insurance commission overhaul paper",
+      "detail": "A shift from upfront to staggered distributor commissions could reduce mis-selling and alter growth economics, channel incentives and acquisition costs across health insurers.",
+      "source_name": "businesstoday.in",
+      "source_url": "https://businesstoday.in/personal-finance/insurance/story/insurance-commission-overhaul-irdais-proposal-can-boost-customer-trust-curb-mis-selling-experts-541797-2026-07-09",
+      "source_published_at": "2026-07-09",
+      "first_seen": "2026-07-09T16:22:46.308Z",
+      "discovered_at": "2026-07-09T16:22:46.308Z"
+    },
+    {
+      "id": "33f929f540",
+      "company_id": "sector",
+      "date": "2026-07-08",
+      "kind": "regulatory",
+      "horizon": "recent",
+      "impact": "watch",
+      "headline": "IRDAI consultation window closes on regulation-making framework",
+      "detail": "The draft would formalise 21-day public consultation, cost-benefit review and 3-year regulation review cycles, affecting how quickly sector rules on pricing, distribution and conduct can change.",
+      "source_name": "business-standard.com",
+      "source_url": "https://www.business-standard.com/amp/finance/insurance/irdai-proposes-framework-for-regulation-making-public-consultations-126061701305_1.html",
+      "source_published_at": "2026-06-17",
+      "first_seen": "2026-07-09T16:22:46.308Z",
+      "discovered_at": "2026-07-09T16:22:46.308Z"
     },
     {
       "id": "23fb9e20b0",
@@ -262,6 +307,21 @@
       "discovered_at": "2026-07-06T06:19:46.701Z"
     },
     {
+      "id": "f4e7589a3a",
+      "company_id": "sector",
+      "date": "2026-07-02",
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "positive",
+      "headline": "Health insurers lead June premium growth, says YES Securities",
+      "detail": "Strong industry premium momentum is a read-through positive for listed health insurers, especially players with retail-health exposure such as Niva Bupa and Star Health.",
+      "source_name": "bfsi.economictimes.indiatimes.com",
+      "source_url": "https://bfsi.economictimes.indiatimes.com/articles/general-insurance-premiums-soar-16-in-june-with-health-insurers-leading-growth-yes-securities-report/132283360",
+      "source_published_at": null,
+      "first_seen": "2026-07-09T16:22:46.308Z",
+      "discovered_at": "2026-07-09T16:22:46.308Z"
+    },
+    {
       "id": "b60cfb639c",
       "company_id": "sector",
       "date": "2026-07-01",
@@ -419,6 +479,21 @@
       "discovered_at": "2026-07-06T16:48:32.222Z"
     },
     {
+      "id": "f687974955",
+      "company_id": "sector",
+      "date": "2026-07-01",
+      "kind": "rating",
+      "horizon": "recent",
+      "impact": "positive",
+      "headline": "ETBFSI flags Star Health, SBI Life and Max Financial for robust FY27 growth",
+      "detail": "Positive sell-side framing around insurance growth and profitability can support sentiment toward the broader listed insurance pack and sets a comparative bar for Niva Bupa.",
+      "source_name": "bfsi.economictimes.indiatimes.com",
+      "source_url": "https://bfsi.economictimes.indiatimes.com/articles/star-health-sbi-life-and-max-financial-set-for-robust-fy27-growth/132272405",
+      "source_published_at": null,
+      "first_seen": "2026-07-09T16:22:46.308Z",
+      "discovered_at": "2026-07-09T16:22:46.308Z"
+    },
+    {
       "id": "f3ce300c4e",
       "company_id": "sector",
       "date": "2026-06-30",
@@ -501,6 +576,21 @@
       "source_published_at": "2026-07-08",
       "first_seen": "2026-07-09T09:25:23.765Z",
       "discovered_at": "2026-07-09T09:25:23.765Z"
+    },
+    {
+      "id": "a2f7a4a375",
+      "company_id": "sector",
+      "date": "2026-06-30",
+      "kind": "catalyst",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "PFRDA plans tie-ups with health insurers for top-up cover under NPS Swasthya",
+      "detail": "While not company-specific, potential distribution tie-ups could create partnership optionality for standalone health insurers and may benefit players with strong retail-health product engines.",
+      "source_name": "moneycontrol.com",
+      "source_url": "https://www.moneycontrol.com/news/business/personal-finance/pfrda-to-launch-nps-swasthya-in-60-70-days-with-top-up-health-insurance-13962144.html",
+      "source_published_at": "2026-06-30",
+      "first_seen": "2026-07-09T16:22:46.308Z",
+      "discovered_at": "2026-07-09T16:22:46.308Z"
     },
     {
       "id": "0855aa1650",
@@ -764,92 +854,6 @@
       "source_name": "moneycontrol.com",
       "source_url": "https://www.moneycontrol.com/news/business/banks/religare-enterprises-likely-to-announce-demerger-and-listing-of-care-health-insurance-13808399.html",
       "source_published_at": "2026-06-26",
-      "first_seen": "2026-07-05T11:23:57.879Z",
-      "discovered_at": "2026-07-05T11:23:57.879Z"
-    },
-    {
-      "id": "5d00640f70",
-      "company_id": "sector",
-      "date": "2026-06-26",
-      "kind": "catalyst",
-      "horizon": "recent",
-      "impact": "watch",
-      "headline": "PFRDA plans NPS Swasthya with top-up health-insurance tie-ups",
-      "detail": "New distribution tie-ups can alter lead generation and partnership opportunities across health insurers including unlisted peers.",
-      "source_name": "moneycontrol.com",
-      "source_url": "https://www.moneycontrol.com/news/business/personal-finance/pfrda-to-launch-nps-swasthya-in-60-70-days-with-top-up-health-insurance-13962144.html",
-      "source_published_at": null,
-      "first_seen": "2026-07-06T13:38:39.332Z",
-      "discovered_at": "2026-07-06T13:38:39.332Z"
-    },
-    {
-      "id": "1232c6b7fc",
-      "company_id": "sector",
-      "date": "2026-06-26",
-      "kind": "rating",
-      "horizon": "recent",
-      "impact": "positive",
-      "headline": "Motilal Oswal starts/maintains Buy on Star Health with ₹700 target",
-      "detail": "A bullish call on the listed peer helps frame sector valuation and suggests investors still see rerating room in standalone health insurance despite competition.",
-      "source_name": "moneycontrol.com",
-      "source_url": "https://www.moneycontrol.com/news/business/stocks/buy-star-health-target-of-rs-700-motilal-oswal-13959277.html",
-      "source_published_at": "2026-06-26",
-      "first_seen": "2026-07-07T16:18:49.435Z",
-      "discovered_at": "2026-07-07T16:18:49.435Z"
-    },
-    {
-      "id": "d4237e61e1",
-      "company_id": "sector",
-      "date": "2026-06-25",
-      "kind": "sector_news",
-      "horizon": "recent",
-      "impact": "watch",
-      "headline": "Aditya Birla Health says preventive-health model is becoming central",
-      "detail": "Peer commentary on business mix and product strategy matters because it indicates where competitive intensity and customer acquisition spending may shift for Niva Bupa.",
-      "source_name": "moneycontrol.com",
-      "source_url": "https://www.moneycontrol.com/banking/health-insurance-moving-from-hospitalization-cover-to-preventive-healthcare-aditya-birla-health-ceo-article-13929893.html",
-      "first_seen": "2026-07-04T05:38:27.228Z"
-    },
-    {
-      "id": "e314bc72b8",
-      "company_id": "sector",
-      "date": "2026-06-25",
-      "kind": "sector_news",
-      "horizon": "recent",
-      "impact": "negative",
-      "headline": "RBI flags rising claims and costs as insurance-sector risks",
-      "detail": "Rising claims ratios, surrenders and operating costs are sector-level warning signs that can weigh on profitability, solvency comfort and valuation multiples for health insurers.",
-      "source_name": "bfsi.economictimes.indiatimes.com",
-      "source_url": "https://bfsi.economictimes.indiatimes.com/articles/rbi-highlights-risks-to-indias-insurance-sector-rising-claims-surrenders-and-costs/132104375",
-      "first_seen": "2026-07-04T05:38:27.228Z"
-    },
-    {
-      "id": "fcd5f66844",
-      "company_id": "sector",
-      "date": "2026-06-25",
-      "kind": "rating",
-      "horizon": "recent",
-      "impact": "neutral",
-      "headline": "Motilal Oswal reiterates Buy on Star Health, target Rs 700",
-      "detail": "Positive sell-side action on the closest listed peer matters for Niva Bupa because relative valuation, claims experience and retail-health growth expectations are often read across the two names.",
-      "source_name": "moneycontrol.com",
-      "source_url": "https://www.moneycontrol.com/news/business/stocks/buy-star-health-target-of-rs-700-motilal-oswal-13959277.html",
-      "source_published_at": "2026-06-26",
-      "first_seen": "2026-07-09T09:25:23.765Z",
-      "discovered_at": "2026-07-09T09:25:23.765Z"
-    },
-    {
-      "id": "12a73c494c",
-      "company_id": "sector",
-      "date": "2026-06-24",
-      "kind": "catalyst",
-      "horizon": "recent",
-      "impact": "positive",
-      "headline": "Star Health partners Amplify Health on AI-led claims intelligence",
-      "detail": "Claims automation at the largest listed health insurer raises the competitive bar on operating efficiency and fraud/claims management across the sector.",
-      "source_name": "prnewswire.com",
-      "source_url": "https://www.prnewswire.com/in/news-releases/star-health-and-amplify-health-partner-to-scale-ai-led-claims-intelligence-across-indias-largest-private-health-insurance-operations-302814509.html",
-      "source_published_at": "2026-06-24",
       "first_seen": "2026-07-05T11:23:57.879Z",
       "discovered_at": "2026-07-05T11:23:57.879Z"
     }

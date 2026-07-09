@@ -3351,10 +3351,10 @@
         "company": "Niva Bupa",
         "companyId": "niva-bupa",
         "generatedAt": "2026-07-09T06:01:32.532Z",
-        "lastUpdatedAt": "2026-07-09T09:26:47.630Z",
+        "lastUpdatedAt": "2026-07-09T16:24:02.654Z",
         "status": "Watch",
         "sourceConfidence": "Low",
-        "itemCount": 59,
+        "itemCount": 58,
         "runs": [
           {
             "runTime": "2026-07-09T06:01:32.532Z",
@@ -3369,30 +3369,37 @@
             "sourceCount": 60,
             "ideas": 6,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-07-09T16:24:02.654Z",
+            "developments": 60,
+            "sourceCount": 60,
+            "ideas": 6,
+            "status": "ok"
           }
         ],
         "brief": {
-          "greeting": "Good morning",
+          "greeting": "Good afternoon",
           "narrative": "Regulatory pressure is the main watch item for health insurers today. Niva Bupa is under pressure on premium growth and demand, but claims-cost and conduct scrutiny will decide whether the strength is sustainable.",
           "attentionCount": 6,
           "developmentsCount": 60,
           "sourcesCount": 60,
-          "domainsCount": 14,
-          "confidencePct": 64,
+          "domainsCount": 16,
+          "confidencePct": 65,
           "confidenceTier": "Low",
           "readingMins": 3,
-          "lastUpdatedLabel": "9 Jul, 09:25 am"
+          "lastUpdatedLabel": "9 Jul, 04:22 pm"
         },
         "message": {
-          "since": "No company-specific movement for Niva Bupa since the last brief — the read below is sector & regulatory context that applies across standalone health insurers.",
-          "keyThing": "Lower commissions and higher disclosure requirements would pressure distribution economics across health and general insurers, especially in commission-heavy retail health.",
+          "since": "No Niva Bupa-specific movement since the last brief; one regulatory update moved into focus across the sector.",
+          "keyThing": "A shift from upfront to staggered distributor commissions could reduce mis-selling and alter growth economics, channel incentives and acquisition costs across health…",
           "why": "Growth is only as good as the claims and expense ratios behind it — that is the real question now.",
           "watch": "any fresh IRDAI clarification, and expense-ratio movement",
           "nothing": false
         },
         "one": {
-          "sentence": "Lower commissions and higher disclosure requirements would pressure distribution economics across health and general insurers, especially in commission-heavy retail health.",
-          "status": "Risk"
+          "sentence": "A shift from upfront to staggered distributor commissions could reduce mis-selling and alter growth economics, channel incentives and acquisition costs across health insurers.",
+          "status": "Watch"
         },
         "ideas": [
           {
@@ -3440,6 +3447,16 @@
               },
               {
                 "kind": "Regulatory",
+                "name": "businesstoday.in",
+                "url": "https://businesstoday.in/personal-finance/insurance/story/insurance-commission-overhaul-irdais-proposal-can-boost-customer-trust-curb-mis-selling-experts-541797-2026-07-09"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "business-standard.com",
+                "url": "https://www.business-standard.com/amp/finance/insurance/irdai-proposes-framework-for-regulation-making-public-consultations-126061701305_1.html"
+              },
+              {
+                "kind": "Regulatory",
                 "name": "legal.economictimes.indiatimes.com",
                 "url": "https://legal.economictimes.indiatimes.com/news/regulators/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132160041"
               },
@@ -3447,16 +3464,6 @@
                 "kind": "Regulatory",
                 "name": "bfsi.economictimes.indiatimes.com",
                 "url": "https://bfsi.economictimes.indiatimes.com/news/insurance/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132156228"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "economictimes.indiatimes.com",
-                "url": "https://economictimes.indiatimes.com/markets/stocks/news/prudential-hcl-health-insurance-gets-irdai-nod/articleshow/132126831.cms"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "nivabupa.com",
-                "url": "https://www.nivabupa.com/health-insurance-articles/new-irdai-rules-what-has-changed-for-policyholders.html"
               }
             ],
             "impact": "Risk",
@@ -3464,8 +3471,13 @@
             "companyId": null,
             "sourceUrl": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494",
             "sourceConfidence": "Medium",
-            "clusterSize": 8,
+            "clusterSize": 9,
             "clusterSources": [
+              {
+                "kind": "Regulatory",
+                "name": "businesstoday.in",
+                "url": "https://businesstoday.in/personal-finance/insurance/story/insurance-commission-overhaul-irdais-proposal-can-boost-customer-trust-curb-mis-selling-experts-541797-2026-07-09"
+              },
               {
                 "kind": "Regulatory",
                 "name": "indianexpress.com",
@@ -3492,7 +3504,7 @@
                 "url": "https://economictimes.indiatimes.com/industry/banking/finance/insure/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/articleshow/132155581.cms"
               }
             ],
-            "independentSources": 5
+            "independentSources": 6
           },
           {
             "id": "8bf3cdceab",
@@ -3539,6 +3551,16 @@
               },
               {
                 "kind": "Regulatory",
+                "name": "businesstoday.in",
+                "url": "https://businesstoday.in/personal-finance/insurance/story/insurance-commission-overhaul-irdais-proposal-can-boost-customer-trust-curb-mis-selling-experts-541797-2026-07-09"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "business-standard.com",
+                "url": "https://www.business-standard.com/amp/finance/insurance/irdai-proposes-framework-for-regulation-making-public-consultations-126061701305_1.html"
+              },
+              {
+                "kind": "Regulatory",
                 "name": "indianexpress.com",
                 "url": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494"
               },
@@ -3546,16 +3568,6 @@
                 "kind": "Regulatory",
                 "name": "legal.economictimes.indiatimes.com",
                 "url": "https://legal.economictimes.indiatimes.com/news/regulators/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132160041"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "bfsi.economictimes.indiatimes.com",
-                "url": "https://bfsi.economictimes.indiatimes.com/news/insurance/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132156228"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "nivabupa.com",
-                "url": "https://www.nivabupa.com/health-insurance-articles/new-irdai-rules-what-has-changed-for-policyholders.html"
               }
             ],
             "impact": "Risk",
@@ -3721,6 +3733,16 @@
               },
               {
                 "kind": "Regulatory",
+                "name": "businesstoday.in",
+                "url": "https://businesstoday.in/personal-finance/insurance/story/insurance-commission-overhaul-irdais-proposal-can-boost-customer-trust-curb-mis-selling-experts-541797-2026-07-09"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "business-standard.com",
+                "url": "https://www.business-standard.com/amp/finance/insurance/irdai-proposes-framework-for-regulation-making-public-consultations-126061701305_1.html"
+              },
+              {
+                "kind": "Regulatory",
                 "name": "indianexpress.com",
                 "url": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494"
               },
@@ -3728,16 +3750,6 @@
                 "kind": "Regulatory",
                 "name": "legal.economictimes.indiatimes.com",
                 "url": "https://legal.economictimes.indiatimes.com/news/regulators/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132160041"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "bfsi.economictimes.indiatimes.com",
-                "url": "https://bfsi.economictimes.indiatimes.com/news/insurance/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132156228"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "economictimes.indiatimes.com",
-                "url": "https://economictimes.indiatimes.com/markets/stocks/news/prudential-hcl-health-insurance-gets-irdai-nod/articleshow/132126831.cms"
               }
             ],
             "impact": "Positive",
@@ -3800,6 +3812,16 @@
               },
               {
                 "kind": "Regulatory",
+                "name": "businesstoday.in",
+                "url": "https://businesstoday.in/personal-finance/insurance/story/insurance-commission-overhaul-irdais-proposal-can-boost-customer-trust-curb-mis-selling-experts-541797-2026-07-09"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "business-standard.com",
+                "url": "https://www.business-standard.com/amp/finance/insurance/irdai-proposes-framework-for-regulation-making-public-consultations-126061701305_1.html"
+              },
+              {
+                "kind": "Regulatory",
                 "name": "indianexpress.com",
                 "url": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494"
               },
@@ -3807,16 +3829,6 @@
                 "kind": "Regulatory",
                 "name": "legal.economictimes.indiatimes.com",
                 "url": "https://legal.economictimes.indiatimes.com/news/regulators/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132160041"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "bfsi.economictimes.indiatimes.com",
-                "url": "https://bfsi.economictimes.indiatimes.com/news/insurance/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132156228"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "economictimes.indiatimes.com",
-                "url": "https://economictimes.indiatimes.com/markets/stocks/news/prudential-hcl-health-insurance-gets-irdai-nod/articleshow/132126831.cms"
               }
             ],
             "impact": "Positive",
@@ -3835,90 +3847,119 @@
             "independentSources": 1
           },
           {
-            "id": "6d3875a803",
-            "entity": "Niva Bupa",
+            "id": "33f929f540",
+            "entity": "IRDAI consultation window closes on regulation-making framework",
             "stars": 4,
             "reasoning": [
-              "The IR page showing FY26 quarterly and Q4 materials suggests the market should monitor for the next scheduled company communication, results pack or meeting update.",
+              "The draft would formalise 21-day public consultation, cost-benefit review and 3-year regulation review cycles, affecting how quickly sector rules on pricing, distribution and conduct can change.",
               "Solvency 3.03x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency."
             ],
-            "whatToWatch": "Whether the sector move feeds through to premium growth and pricing.",
+            "whatToWatch": "IRDAI mis-selling / distribution-conduct rules",
             "confidencePct": 78,
-            "evidenceCount": 3,
+            "evidenceCount": 5,
             "status": "Watch",
-            "category": "Sector Catalyst",
+            "category": "Regulatory",
             "why": {
-              "whatHappened": "the market-relations page flags FY26 earnings materials availability",
-              "whyItMatters": "The IR page showing FY26 quarterly and Q4 materials suggests the market should monitor for the next scheduled company communication, results pack or meeting update.",
-              "whoAffected": "Niva Bupa directly — its premium growth, margins and shareholders.",
+              "whatHappened": "IRDAI consultation window closes on regulation-making framework",
+              "whyItMatters": "The draft would formalise 21-day public consultation, cost-benefit review and 3-year regulation review cycles, affecting how quickly sector rules on pricing, distribution and conduct can change.",
+              "whoAffected": "Every standalone health insurer (SAHI) — pricing, product design and compliance cost.",
               "historicalContext": "Solvency 3.03x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency.",
               "potentialImpact": "Solvency vs the 1.5x regulatory floor",
-              "whatToWatch": "Whether the sector move feeds through to premium growth and pricing."
+              "whatToWatch": "IRDAI mis-selling / distribution-conduct rules"
             },
             "action": {
-              "id": "margins",
-              "label": "Compare Niva Bupa margin",
-              "icon": "margins",
+              "id": "regulation",
+              "label": "Check IRDAI on claims cost",
+              "icon": "regulation",
               "target": {
                 "page": "sahi",
-                "sahiTab": "profitability",
-                "company": "niva-bupa",
-                "focus": {
-                  "id": "pulse-margins",
-                  "metricKey": "combined_ratio",
-                  "metricLabel": "Combined ratio",
-                  "company": "niva-bupa",
-                  "companyLabel": "Niva Bupa",
-                  "comparisonType": "YoY",
-                  "tone": "neutral",
-                  "insightLabel": "Underwriting margin — combined ratio",
-                  "unit": "%",
-                  "higherIsBetter": false,
-                  "sahiTab": "profitability",
-                  "origin": "pulse"
-                }
+                "sahiTab": "governance",
+                "company": "niva-bupa"
               }
             },
             "isBreaking": false,
             "isNew": false,
-            "freshness": "existing",
-            "freshnessLabel": "Existing context",
-            "publishedLabel": "—",
-            "discoveredLabel": "3 Jul",
+            "freshLabel": "Newly surfaced",
+            "freshness": "newly-surfaced",
+            "freshnessLabel": "Newly surfaced",
+            "publishedLabel": "17 Jun",
+            "discoveredLabel": "9 Jul",
             "sources": [
               {
-                "kind": "News",
-                "name": "transactions.nivabupa.com",
-                "url": "https://transactions.nivabupa.com/pages/investor-relations.aspx"
+                "kind": "Regulatory",
+                "name": "business-standard.com",
+                "url": "https://www.business-standard.com/amp/finance/insurance/irdai-proposes-framework-for-regulation-making-public-consultations-126061701305_1.html"
               },
               {
-                "kind": "News",
-                "name": "ndtvprofit.com",
-                "url": "https://www.ndtvprofit.com/markets/niva-bupa-star-health-get-buy-calls-as-nomura-initiates-on-four-insurers-check-target-prices"
+                "kind": "Regulatory",
+                "name": "businesstoday.in",
+                "url": "https://businesstoday.in/personal-finance/insurance/story/insurance-commission-overhaul-irdais-proposal-can-boost-customer-trust-curb-mis-selling-experts-541797-2026-07-09"
               },
               {
-                "kind": "Market data",
-                "name": "Derived from insurer-annual-snapshot + industry-segment-premium",
-                "url": "https://transactions.nivabupa.com/pages/doc/investor-relations/other-fin-disclosures/Press-Release-Results-March-2025.pdf"
+                "kind": "Regulatory",
+                "name": "indianexpress.com",
+                "url": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "legal.economictimes.indiatimes.com",
+                "url": "https://legal.economictimes.indiatimes.com/news/regulators/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132160041"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "bfsi.economictimes.indiatimes.com",
+                "url": "https://bfsi.economictimes.indiatimes.com/news/insurance/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132156228"
               }
             ],
             "impact": "Watch",
-            "scope": "company",
-            "companyId": "niva-bupa",
-            "sourceUrl": "https://transactions.nivabupa.com/pages/investor-relations.aspx",
+            "scope": "sector",
+            "companyId": null,
+            "sourceUrl": "https://www.business-standard.com/amp/finance/insurance/irdai-proposes-framework-for-regulation-making-public-consultations-126061701305_1.html",
             "sourceConfidence": "Medium",
             "clusterSize": 1,
             "clusterSources": [
               {
-                "kind": "News",
-                "name": "transactions.nivabupa.com",
-                "url": "https://transactions.nivabupa.com/pages/investor-relations.aspx"
+                "kind": "Regulatory",
+                "name": "business-standard.com",
+                "url": "https://www.business-standard.com/amp/finance/insurance/irdai-proposes-framework-for-regulation-making-public-consultations-126061701305_1.html"
               }
             ],
             "independentSources": 1
           }
         ],
         "sinceDeltas": [
+          {
+            "id": "reg",
+            "label": "newly surfaced regulatory updates",
+            "value": "2",
+            "direction": "up",
+            "tone": "Watch",
+            "target": {
+              "page": "sahi",
+              "sahiTab": "sector-news",
+              "company": "niva-bupa",
+              "focus": {
+                "id": "pulse-since-reg",
+                "kind": "locator",
+                "locatorKind": "regulatory",
+                "metricKey": "regulatory",
+                "metricLabel": "Regulatory updates",
+                "company": "niva-bupa",
+                "companyLabel": "Niva Bupa",
+                "comparisonType": "trend",
+                "tone": "neutral",
+                "insightLabel": "2 newly surfaced regulatory updates",
+                "unit": "",
+                "sahiTab": "sector-news",
+                "origin": "pulse",
+                "targetItemId": "1581a084435c15",
+                "targetMonth": "2026-06",
+                "sourceDate": "2026-06-01",
+                "surfacedAt": "2026-07-09",
+                "reasonShownToday": "Older source (dated 01 Jun 2026) — first added to the feed 09 Jul 2026, so it's newly surfaced, not newly published."
+              }
+            }
+          },
           {
             "id": "co",
             "label": "company-specific updates",
@@ -7296,10 +7337,10 @@
         "company": "Star Health",
         "companyId": "star-health",
         "generatedAt": "2026-07-09T06:01:32.532Z",
-        "lastUpdatedAt": "2026-07-09T09:26:47.630Z",
+        "lastUpdatedAt": "2026-07-09T16:24:02.654Z",
         "status": "Watch",
         "sourceConfidence": "Low",
-        "itemCount": 57,
+        "itemCount": 56,
         "runs": [
           {
             "runTime": "2026-07-09T06:01:32.532Z",
@@ -7314,30 +7355,37 @@
             "sourceCount": 58,
             "ideas": 6,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-07-09T16:24:02.654Z",
+            "developments": 58,
+            "sourceCount": 58,
+            "ideas": 6,
+            "status": "ok"
           }
         ],
         "brief": {
-          "greeting": "Good morning",
+          "greeting": "Good afternoon",
           "narrative": "Regulatory pressure is the main watch item for health insurers today. Star Health is under pressure on premium growth and demand, but claims-cost and conduct scrutiny will decide whether the strength is sustainable.",
           "attentionCount": 6,
           "developmentsCount": 58,
           "sourcesCount": 58,
-          "domainsCount": 12,
-          "confidencePct": 64,
+          "domainsCount": 14,
+          "confidencePct": 65,
           "confidenceTier": "Low",
           "readingMins": 3,
-          "lastUpdatedLabel": "9 Jul, 09:25 am"
+          "lastUpdatedLabel": "9 Jul, 04:22 pm"
         },
         "message": {
-          "since": "No company-specific movement for Star Health since the last brief — the read below is sector & regulatory context that applies across standalone health insurers.",
-          "keyThing": "Lower commissions and higher disclosure requirements would pressure distribution economics across health and general insurers, especially in commission-heavy retail health.",
+          "since": "No Star Health-specific movement since the last brief; one regulatory update moved into focus across the sector.",
+          "keyThing": "A shift from upfront to staggered distributor commissions could reduce mis-selling and alter growth economics, channel incentives and acquisition costs across health…",
           "why": "The near-term read now turns on how the new rules land on pricing, commissions and cost.",
           "watch": "any fresh IRDAI clarification, and expense-ratio movement",
           "nothing": false
         },
         "one": {
-          "sentence": "Lower commissions and higher disclosure requirements would pressure distribution economics across health and general insurers, especially in commission-heavy retail health.",
-          "status": "Risk"
+          "sentence": "A shift from upfront to staggered distributor commissions could reduce mis-selling and alter growth economics, channel incentives and acquisition costs across health insurers.",
+          "status": "Watch"
         },
         "ideas": [
           {
@@ -7385,6 +7433,16 @@
               },
               {
                 "kind": "Regulatory",
+                "name": "businesstoday.in",
+                "url": "https://businesstoday.in/personal-finance/insurance/story/insurance-commission-overhaul-irdais-proposal-can-boost-customer-trust-curb-mis-selling-experts-541797-2026-07-09"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "business-standard.com",
+                "url": "https://www.business-standard.com/amp/finance/insurance/irdai-proposes-framework-for-regulation-making-public-consultations-126061701305_1.html"
+              },
+              {
+                "kind": "Regulatory",
                 "name": "legal.economictimes.indiatimes.com",
                 "url": "https://legal.economictimes.indiatimes.com/news/regulators/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132160041"
               },
@@ -7392,16 +7450,6 @@
                 "kind": "Regulatory",
                 "name": "bfsi.economictimes.indiatimes.com",
                 "url": "https://bfsi.economictimes.indiatimes.com/news/insurance/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132156228"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "economictimes.indiatimes.com",
-                "url": "https://economictimes.indiatimes.com/markets/stocks/news/prudential-hcl-health-insurance-gets-irdai-nod/articleshow/132126831.cms"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "nivabupa.com",
-                "url": "https://www.nivabupa.com/health-insurance-articles/new-irdai-rules-what-has-changed-for-policyholders.html"
               }
             ],
             "impact": "Risk",
@@ -7409,8 +7457,13 @@
             "companyId": null,
             "sourceUrl": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494",
             "sourceConfidence": "Medium",
-            "clusterSize": 8,
+            "clusterSize": 9,
             "clusterSources": [
+              {
+                "kind": "Regulatory",
+                "name": "businesstoday.in",
+                "url": "https://businesstoday.in/personal-finance/insurance/story/insurance-commission-overhaul-irdais-proposal-can-boost-customer-trust-curb-mis-selling-experts-541797-2026-07-09"
+              },
               {
                 "kind": "Regulatory",
                 "name": "indianexpress.com",
@@ -7437,7 +7490,7 @@
                 "url": "https://economictimes.indiatimes.com/industry/banking/finance/insure/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/articleshow/132155581.cms"
               }
             ],
-            "independentSources": 5
+            "independentSources": 6
           },
           {
             "id": "8bf3cdceab",
@@ -7484,6 +7537,16 @@
               },
               {
                 "kind": "Regulatory",
+                "name": "businesstoday.in",
+                "url": "https://businesstoday.in/personal-finance/insurance/story/insurance-commission-overhaul-irdais-proposal-can-boost-customer-trust-curb-mis-selling-experts-541797-2026-07-09"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "business-standard.com",
+                "url": "https://www.business-standard.com/amp/finance/insurance/irdai-proposes-framework-for-regulation-making-public-consultations-126061701305_1.html"
+              },
+              {
+                "kind": "Regulatory",
                 "name": "indianexpress.com",
                 "url": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494"
               },
@@ -7491,16 +7554,6 @@
                 "kind": "Regulatory",
                 "name": "legal.economictimes.indiatimes.com",
                 "url": "https://legal.economictimes.indiatimes.com/news/regulators/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132160041"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "bfsi.economictimes.indiatimes.com",
-                "url": "https://bfsi.economictimes.indiatimes.com/news/insurance/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132156228"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "nivabupa.com",
-                "url": "https://www.nivabupa.com/health-insurance-articles/new-irdai-rules-what-has-changed-for-policyholders.html"
               }
             ],
             "impact": "Risk",
@@ -7578,6 +7631,16 @@
               },
               {
                 "kind": "Regulatory",
+                "name": "businesstoday.in",
+                "url": "https://businesstoday.in/personal-finance/insurance/story/insurance-commission-overhaul-irdais-proposal-can-boost-customer-trust-curb-mis-selling-experts-541797-2026-07-09"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "business-standard.com",
+                "url": "https://www.business-standard.com/amp/finance/insurance/irdai-proposes-framework-for-regulation-making-public-consultations-126061701305_1.html"
+              },
+              {
+                "kind": "Regulatory",
                 "name": "indianexpress.com",
                 "url": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494"
               },
@@ -7585,16 +7648,6 @@
                 "kind": "Regulatory",
                 "name": "legal.economictimes.indiatimes.com",
                 "url": "https://legal.economictimes.indiatimes.com/news/regulators/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132160041"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "bfsi.economictimes.indiatimes.com",
-                "url": "https://bfsi.economictimes.indiatimes.com/news/insurance/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132156228"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "economictimes.indiatimes.com",
-                "url": "https://economictimes.indiatimes.com/markets/stocks/news/prudential-hcl-health-insurance-gets-irdai-nod/articleshow/132126831.cms"
               }
             ],
             "impact": "Positive",
@@ -7657,6 +7710,16 @@
               },
               {
                 "kind": "Regulatory",
+                "name": "businesstoday.in",
+                "url": "https://businesstoday.in/personal-finance/insurance/story/insurance-commission-overhaul-irdais-proposal-can-boost-customer-trust-curb-mis-selling-experts-541797-2026-07-09"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "business-standard.com",
+                "url": "https://www.business-standard.com/amp/finance/insurance/irdai-proposes-framework-for-regulation-making-public-consultations-126061701305_1.html"
+              },
+              {
+                "kind": "Regulatory",
                 "name": "indianexpress.com",
                 "url": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494"
               },
@@ -7664,16 +7727,6 @@
                 "kind": "Regulatory",
                 "name": "legal.economictimes.indiatimes.com",
                 "url": "https://legal.economictimes.indiatimes.com/news/regulators/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132160041"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "bfsi.economictimes.indiatimes.com",
-                "url": "https://bfsi.economictimes.indiatimes.com/news/insurance/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132156228"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "economictimes.indiatimes.com",
-                "url": "https://economictimes.indiatimes.com/markets/stocks/news/prudential-hcl-health-insurance-gets-irdai-nod/articleshow/132126831.cms"
               }
             ],
             "impact": "Positive",
@@ -7687,6 +7740,86 @@
                 "kind": "Regulatory",
                 "name": "bfsi.economictimes.indiatimes.com",
                 "url": "https://bfsi.economictimes.indiatimes.com/articles/prudential-hcl-health-insurance-receives-irdai-license-a-milestone-in-indias-health-insurance-market/132118031"
+              }
+            ],
+            "independentSources": 1
+          },
+          {
+            "id": "33f929f540",
+            "entity": "IRDAI consultation window closes on regulation-making framework",
+            "stars": 4,
+            "reasoning": [
+              "The draft would formalise 21-day public consultation, cost-benefit review and 3-year regulation review cycles, affecting how quickly sector rules on pricing, distribution and conduct can change.",
+              "Solvency 2.2x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency."
+            ],
+            "whatToWatch": "IRDAI mis-selling / distribution-conduct rules",
+            "confidencePct": 78,
+            "evidenceCount": 5,
+            "status": "Watch",
+            "category": "Regulatory",
+            "why": {
+              "whatHappened": "IRDAI consultation window closes on regulation-making framework",
+              "whyItMatters": "The draft would formalise 21-day public consultation, cost-benefit review and 3-year regulation review cycles, affecting how quickly sector rules on pricing, distribution and conduct can change.",
+              "whoAffected": "Every standalone health insurer (SAHI) — pricing, product design and compliance cost.",
+              "historicalContext": "Solvency 2.2x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency.",
+              "potentialImpact": "Solvency vs the 1.5x regulatory floor",
+              "whatToWatch": "IRDAI mis-selling / distribution-conduct rules"
+            },
+            "action": {
+              "id": "regulation",
+              "label": "Check IRDAI on claims cost",
+              "icon": "regulation",
+              "target": {
+                "page": "sahi",
+                "sahiTab": "governance",
+                "company": "star-health"
+              }
+            },
+            "isBreaking": false,
+            "isNew": false,
+            "freshLabel": "Newly surfaced",
+            "freshness": "newly-surfaced",
+            "freshnessLabel": "Newly surfaced",
+            "publishedLabel": "17 Jun",
+            "discoveredLabel": "9 Jul",
+            "sources": [
+              {
+                "kind": "Regulatory",
+                "name": "business-standard.com",
+                "url": "https://www.business-standard.com/amp/finance/insurance/irdai-proposes-framework-for-regulation-making-public-consultations-126061701305_1.html"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "businesstoday.in",
+                "url": "https://businesstoday.in/personal-finance/insurance/story/insurance-commission-overhaul-irdais-proposal-can-boost-customer-trust-curb-mis-selling-experts-541797-2026-07-09"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "indianexpress.com",
+                "url": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "legal.economictimes.indiatimes.com",
+                "url": "https://legal.economictimes.indiatimes.com/news/regulators/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132160041"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "bfsi.economictimes.indiatimes.com",
+                "url": "https://bfsi.economictimes.indiatimes.com/news/insurance/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132156228"
+              }
+            ],
+            "impact": "Watch",
+            "scope": "sector",
+            "companyId": null,
+            "sourceUrl": "https://www.business-standard.com/amp/finance/insurance/irdai-proposes-framework-for-regulation-making-public-consultations-126061701305_1.html",
+            "sourceConfidence": "Medium",
+            "clusterSize": 1,
+            "clusterSources": [
+              {
+                "kind": "Regulatory",
+                "name": "business-standard.com",
+                "url": "https://www.business-standard.com/amp/finance/insurance/irdai-proposes-framework-for-regulation-making-public-consultations-126061701305_1.html"
               }
             ],
             "independentSources": 1
@@ -7755,6 +7888,11 @@
               },
               {
                 "kind": "News",
+                "name": "bfsi.economictimes.indiatimes.com",
+                "url": "https://bfsi.economictimes.indiatimes.com/articles/general-insurance-premiums-soar-16-in-june-with-health-insurers-leading-growth-yes-securities-report/132283360"
+              },
+              {
+                "kind": "News",
                 "name": "economictimes.indiatimes.com",
                 "url": "https://economictimes.indiatimes.com/markets/stocks/news/prudential-hcl-health-insurance-gets-irdai-nod/articleshow/132126831.cms"
               },
@@ -7762,11 +7900,6 @@
                 "kind": "News",
                 "name": "moneycontrol.com",
                 "url": "https://www.moneycontrol.com/news/business/irdai-grants-final-r3-licence-to-prudential-hcl-health-insurance-venture-13963822.html"
-              },
-              {
-                "kind": "News",
-                "name": "bfsi.economictimes.indiatimes.com",
-                "url": "https://bfsi.economictimes.indiatimes.com/articles/rbi-highlights-risks-to-indias-insurance-sector-rising-claims-surrenders-and-costs/132104375"
               }
             ],
             "impact": "Positive",
@@ -7783,88 +7916,41 @@
               }
             ],
             "independentSources": 1
-          },
-          {
-            "id": "5b0452ccb8",
-            "entity": "New health-insurance rules tighten service and premium practices",
-            "stars": 4,
-            "reasoning": [
-              "Reported rule changes such as tighter cashless timelines and limits on sharp senior-citizen premium hikes could pressure execution and pricing but may aid demand and trust.",
-              "Solvency 2.2x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency."
-            ],
-            "whatToWatch": "The impact on claims cost, expense ratio and pricing as rules tighten.",
-            "confidencePct": 78,
-            "evidenceCount": 5,
-            "status": "Watch",
-            "category": "Regulatory",
-            "why": {
-              "whatHappened": "New health-insurance rules tighten service and premium practices",
-              "whyItMatters": "Reported rule changes such as tighter cashless timelines and limits on sharp senior-citizen premium hikes could pressure execution and pricing but may aid demand and trust.",
-              "whoAffected": "Every standalone health insurer (SAHI) — pricing, product design and compliance cost.",
-              "historicalContext": "Solvency 2.2x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency.",
-              "potentialImpact": "Solvency vs the 1.5x regulatory floor",
-              "whatToWatch": "The impact on claims cost, expense ratio and pricing as rules tighten."
-            },
-            "action": {
-              "id": "regulation",
-              "label": "Check IRDAI on claims cost",
-              "icon": "regulation",
-              "target": {
-                "page": "sahi",
-                "sahiTab": "governance",
-                "company": "star-health"
-              }
-            },
-            "isBreaking": false,
-            "isNew": false,
-            "freshness": "existing",
-            "freshnessLabel": "Existing context",
-            "publishedLabel": "—",
-            "discoveredLabel": "3 Jul",
-            "sources": [
-              {
-                "kind": "Regulatory",
-                "name": "nivabupa.com",
-                "url": "https://www.nivabupa.com/health-insurance-articles/new-irdai-rules-what-has-changed-for-policyholders.html"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "indianexpress.com",
-                "url": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "legal.economictimes.indiatimes.com",
-                "url": "https://legal.economictimes.indiatimes.com/news/regulators/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132160041"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "bfsi.economictimes.indiatimes.com",
-                "url": "https://bfsi.economictimes.indiatimes.com/news/insurance/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132156228"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "economictimes.indiatimes.com",
-                "url": "https://economictimes.indiatimes.com/markets/stocks/news/prudential-hcl-health-insurance-gets-irdai-nod/articleshow/132126831.cms"
-              }
-            ],
-            "impact": "Watch",
-            "scope": "sector",
-            "companyId": null,
-            "sourceUrl": "https://www.nivabupa.com/health-insurance-articles/new-irdai-rules-what-has-changed-for-policyholders.html",
-            "sourceConfidence": "Medium",
-            "clusterSize": 1,
-            "clusterSources": [
-              {
-                "kind": "Regulatory",
-                "name": "nivabupa.com",
-                "url": "https://www.nivabupa.com/health-insurance-articles/new-irdai-rules-what-has-changed-for-policyholders.html"
-              }
-            ],
-            "independentSources": 1
           }
         ],
         "sinceDeltas": [
+          {
+            "id": "reg",
+            "label": "newly surfaced regulatory updates",
+            "value": "2",
+            "direction": "up",
+            "tone": "Watch",
+            "target": {
+              "page": "sahi",
+              "sahiTab": "sector-news",
+              "company": "star-health",
+              "focus": {
+                "id": "pulse-since-reg",
+                "kind": "locator",
+                "locatorKind": "regulatory",
+                "metricKey": "regulatory",
+                "metricLabel": "Regulatory updates",
+                "company": "star-health",
+                "companyLabel": "Star Health",
+                "comparisonType": "trend",
+                "tone": "neutral",
+                "insightLabel": "2 newly surfaced regulatory updates",
+                "unit": "",
+                "sahiTab": "sector-news",
+                "origin": "pulse",
+                "targetItemId": "1581a084435c15",
+                "targetMonth": "2026-06",
+                "sourceDate": "2026-06-01",
+                "surfacedAt": "2026-07-09",
+                "reasonShownToday": "Older source (dated 01 Jun 2026) — first added to the feed 09 Jul 2026, so it's newly surfaced, not newly published."
+              }
+            }
+          },
           {
             "id": "co",
             "label": "company-specific updates",
@@ -11235,10 +11321,10 @@
         "company": "Care Health",
         "companyId": "care-health",
         "generatedAt": "2026-07-09T06:01:32.532Z",
-        "lastUpdatedAt": "2026-07-09T09:26:47.630Z",
+        "lastUpdatedAt": "2026-07-09T16:24:02.654Z",
         "status": "Watch",
         "sourceConfidence": "Low",
-        "itemCount": 57,
+        "itemCount": 56,
         "runs": [
           {
             "runTime": "2026-07-09T06:01:32.532Z",
@@ -11253,30 +11339,37 @@
             "sourceCount": 58,
             "ideas": 6,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-07-09T16:24:02.654Z",
+            "developments": 62,
+            "sourceCount": 58,
+            "ideas": 6,
+            "status": "ok"
           }
         ],
         "brief": {
-          "greeting": "Good morning",
+          "greeting": "Good afternoon",
           "narrative": "Regulatory pressure is the main watch item for health insurers today. Care Health is under pressure on premium growth and demand, but claims-cost and conduct scrutiny will decide whether the strength is sustainable.",
           "attentionCount": 6,
           "developmentsCount": 62,
           "sourcesCount": 58,
-          "domainsCount": 12,
-          "confidencePct": 64,
+          "domainsCount": 14,
+          "confidencePct": 65,
           "confidenceTier": "Low",
           "readingMins": 4,
-          "lastUpdatedLabel": "9 Jul, 09:25 am"
+          "lastUpdatedLabel": "9 Jul, 04:22 pm"
         },
         "message": {
-          "since": "No company-specific movement for Care Health since the last brief — the read below is sector & regulatory context that applies across standalone health insurers.",
-          "keyThing": "Lower commissions and higher disclosure requirements would pressure distribution economics across health and general insurers, especially in commission-heavy retail health.",
+          "since": "No Care Health-specific movement since the last brief; one regulatory update moved into focus across the sector.",
+          "keyThing": "A shift from upfront to staggered distributor commissions could reduce mis-selling and alter growth economics, channel incentives and acquisition costs across health…",
           "why": "The near-term read now turns on how the new rules land on pricing, commissions and cost.",
           "watch": "any fresh IRDAI clarification, and expense-ratio movement",
           "nothing": false
         },
         "one": {
-          "sentence": "Lower commissions and higher disclosure requirements would pressure distribution economics across health and general insurers, especially in commission-heavy retail health.",
-          "status": "Risk"
+          "sentence": "A shift from upfront to staggered distributor commissions could reduce mis-selling and alter growth economics, channel incentives and acquisition costs across health insurers.",
+          "status": "Watch"
         },
         "ideas": [
           {
@@ -11324,6 +11417,16 @@
               },
               {
                 "kind": "Regulatory",
+                "name": "businesstoday.in",
+                "url": "https://businesstoday.in/personal-finance/insurance/story/insurance-commission-overhaul-irdais-proposal-can-boost-customer-trust-curb-mis-selling-experts-541797-2026-07-09"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "business-standard.com",
+                "url": "https://www.business-standard.com/amp/finance/insurance/irdai-proposes-framework-for-regulation-making-public-consultations-126061701305_1.html"
+              },
+              {
+                "kind": "Regulatory",
                 "name": "legal.economictimes.indiatimes.com",
                 "url": "https://legal.economictimes.indiatimes.com/news/regulators/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132160041"
               },
@@ -11331,16 +11434,6 @@
                 "kind": "Regulatory",
                 "name": "bfsi.economictimes.indiatimes.com",
                 "url": "https://bfsi.economictimes.indiatimes.com/news/insurance/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132156228"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "economictimes.indiatimes.com",
-                "url": "https://economictimes.indiatimes.com/markets/stocks/news/prudential-hcl-health-insurance-gets-irdai-nod/articleshow/132126831.cms"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "nivabupa.com",
-                "url": "https://www.nivabupa.com/health-insurance-articles/new-irdai-rules-what-has-changed-for-policyholders.html"
               }
             ],
             "impact": "Risk",
@@ -11348,8 +11441,13 @@
             "companyId": null,
             "sourceUrl": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494",
             "sourceConfidence": "Medium",
-            "clusterSize": 8,
+            "clusterSize": 9,
             "clusterSources": [
+              {
+                "kind": "Regulatory",
+                "name": "businesstoday.in",
+                "url": "https://businesstoday.in/personal-finance/insurance/story/insurance-commission-overhaul-irdais-proposal-can-boost-customer-trust-curb-mis-selling-experts-541797-2026-07-09"
+              },
               {
                 "kind": "Regulatory",
                 "name": "indianexpress.com",
@@ -11376,7 +11474,7 @@
                 "url": "https://economictimes.indiatimes.com/industry/banking/finance/insure/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/articleshow/132155581.cms"
               }
             ],
-            "independentSources": 5
+            "independentSources": 6
           },
           {
             "id": "8bf3cdceab",
@@ -11423,6 +11521,16 @@
               },
               {
                 "kind": "Regulatory",
+                "name": "businesstoday.in",
+                "url": "https://businesstoday.in/personal-finance/insurance/story/insurance-commission-overhaul-irdais-proposal-can-boost-customer-trust-curb-mis-selling-experts-541797-2026-07-09"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "business-standard.com",
+                "url": "https://www.business-standard.com/amp/finance/insurance/irdai-proposes-framework-for-regulation-making-public-consultations-126061701305_1.html"
+              },
+              {
+                "kind": "Regulatory",
                 "name": "indianexpress.com",
                 "url": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494"
               },
@@ -11430,16 +11538,6 @@
                 "kind": "Regulatory",
                 "name": "legal.economictimes.indiatimes.com",
                 "url": "https://legal.economictimes.indiatimes.com/news/regulators/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132160041"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "bfsi.economictimes.indiatimes.com",
-                "url": "https://bfsi.economictimes.indiatimes.com/news/insurance/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132156228"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "nivabupa.com",
-                "url": "https://www.nivabupa.com/health-insurance-articles/new-irdai-rules-what-has-changed-for-policyholders.html"
               }
             ],
             "impact": "Risk",
@@ -11517,6 +11615,16 @@
               },
               {
                 "kind": "Regulatory",
+                "name": "businesstoday.in",
+                "url": "https://businesstoday.in/personal-finance/insurance/story/insurance-commission-overhaul-irdais-proposal-can-boost-customer-trust-curb-mis-selling-experts-541797-2026-07-09"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "business-standard.com",
+                "url": "https://www.business-standard.com/amp/finance/insurance/irdai-proposes-framework-for-regulation-making-public-consultations-126061701305_1.html"
+              },
+              {
+                "kind": "Regulatory",
                 "name": "indianexpress.com",
                 "url": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494"
               },
@@ -11524,16 +11632,6 @@
                 "kind": "Regulatory",
                 "name": "legal.economictimes.indiatimes.com",
                 "url": "https://legal.economictimes.indiatimes.com/news/regulators/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132160041"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "bfsi.economictimes.indiatimes.com",
-                "url": "https://bfsi.economictimes.indiatimes.com/news/insurance/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132156228"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "economictimes.indiatimes.com",
-                "url": "https://economictimes.indiatimes.com/markets/stocks/news/prudential-hcl-health-insurance-gets-irdai-nod/articleshow/132126831.cms"
               }
             ],
             "impact": "Positive",
@@ -11596,6 +11694,16 @@
               },
               {
                 "kind": "Regulatory",
+                "name": "businesstoday.in",
+                "url": "https://businesstoday.in/personal-finance/insurance/story/insurance-commission-overhaul-irdais-proposal-can-boost-customer-trust-curb-mis-selling-experts-541797-2026-07-09"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "business-standard.com",
+                "url": "https://www.business-standard.com/amp/finance/insurance/irdai-proposes-framework-for-regulation-making-public-consultations-126061701305_1.html"
+              },
+              {
+                "kind": "Regulatory",
                 "name": "indianexpress.com",
                 "url": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494"
               },
@@ -11603,16 +11711,6 @@
                 "kind": "Regulatory",
                 "name": "legal.economictimes.indiatimes.com",
                 "url": "https://legal.economictimes.indiatimes.com/news/regulators/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132160041"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "bfsi.economictimes.indiatimes.com",
-                "url": "https://bfsi.economictimes.indiatimes.com/news/insurance/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132156228"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "economictimes.indiatimes.com",
-                "url": "https://economictimes.indiatimes.com/markets/stocks/news/prudential-hcl-health-insurance-gets-irdai-nod/articleshow/132126831.cms"
               }
             ],
             "impact": "Positive",
@@ -11626,6 +11724,86 @@
                 "kind": "Regulatory",
                 "name": "bfsi.economictimes.indiatimes.com",
                 "url": "https://bfsi.economictimes.indiatimes.com/articles/prudential-hcl-health-insurance-receives-irdai-license-a-milestone-in-indias-health-insurance-market/132118031"
+              }
+            ],
+            "independentSources": 1
+          },
+          {
+            "id": "33f929f540",
+            "entity": "IRDAI consultation window closes on regulation-making framework",
+            "stars": 4,
+            "reasoning": [
+              "The draft would formalise 21-day public consultation, cost-benefit review and 3-year regulation review cycles, affecting how quickly sector rules on pricing, distribution and conduct can change.",
+              "Care Health's capital cushion (solvency ratio) stands at 1.68x against the regulator's 1.5x minimum — that sounds safe, but growing premium at 20.4% a year consumes capital mechanically."
+            ],
+            "whatToWatch": "The impact on claims cost, expense ratio and pricing as rules tighten.",
+            "confidencePct": 78,
+            "evidenceCount": 5,
+            "status": "Watch",
+            "category": "Regulatory",
+            "why": {
+              "whatHappened": "IRDAI consultation window closes on regulation-making framework",
+              "whyItMatters": "The draft would formalise 21-day public consultation, cost-benefit review and 3-year regulation review cycles, affecting how quickly sector rules on pricing, distribution and conduct can change.",
+              "whoAffected": "Every standalone health insurer (SAHI) — pricing, product design and compliance cost.",
+              "historicalContext": "Care Health's capital cushion (solvency ratio) stands at 1.68x against the regulator's 1.5x minimum — that sounds safe, but growing premium at 20.4% a year consumes capital mechanically.",
+              "potentialImpact": "Solvency sits close enough to the floor that a capital raise or slower growth is a live possibility.",
+              "whatToWatch": "The impact on claims cost, expense ratio and pricing as rules tighten."
+            },
+            "action": {
+              "id": "regulation",
+              "label": "Check IRDAI on claims cost",
+              "icon": "regulation",
+              "target": {
+                "page": "sahi",
+                "sahiTab": "governance",
+                "company": "care-health"
+              }
+            },
+            "isBreaking": false,
+            "isNew": false,
+            "freshLabel": "Newly surfaced",
+            "freshness": "newly-surfaced",
+            "freshnessLabel": "Newly surfaced",
+            "publishedLabel": "17 Jun",
+            "discoveredLabel": "9 Jul",
+            "sources": [
+              {
+                "kind": "Regulatory",
+                "name": "business-standard.com",
+                "url": "https://www.business-standard.com/amp/finance/insurance/irdai-proposes-framework-for-regulation-making-public-consultations-126061701305_1.html"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "businesstoday.in",
+                "url": "https://businesstoday.in/personal-finance/insurance/story/insurance-commission-overhaul-irdais-proposal-can-boost-customer-trust-curb-mis-selling-experts-541797-2026-07-09"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "indianexpress.com",
+                "url": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "legal.economictimes.indiatimes.com",
+                "url": "https://legal.economictimes.indiatimes.com/news/regulators/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132160041"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "bfsi.economictimes.indiatimes.com",
+                "url": "https://bfsi.economictimes.indiatimes.com/news/insurance/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132156228"
+              }
+            ],
+            "impact": "Watch",
+            "scope": "sector",
+            "companyId": null,
+            "sourceUrl": "https://www.business-standard.com/amp/finance/insurance/irdai-proposes-framework-for-regulation-making-public-consultations-126061701305_1.html",
+            "sourceConfidence": "Medium",
+            "clusterSize": 1,
+            "clusterSources": [
+              {
+                "kind": "Regulatory",
+                "name": "business-standard.com",
+                "url": "https://www.business-standard.com/amp/finance/insurance/irdai-proposes-framework-for-regulation-making-public-consultations-126061701305_1.html"
               }
             ],
             "independentSources": 1
@@ -11694,6 +11872,11 @@
               },
               {
                 "kind": "News",
+                "name": "bfsi.economictimes.indiatimes.com",
+                "url": "https://bfsi.economictimes.indiatimes.com/articles/general-insurance-premiums-soar-16-in-june-with-health-insurers-leading-growth-yes-securities-report/132283360"
+              },
+              {
+                "kind": "News",
                 "name": "economictimes.indiatimes.com",
                 "url": "https://economictimes.indiatimes.com/markets/stocks/news/prudential-hcl-health-insurance-gets-irdai-nod/articleshow/132126831.cms"
               },
@@ -11701,11 +11884,6 @@
                 "kind": "News",
                 "name": "moneycontrol.com",
                 "url": "https://www.moneycontrol.com/news/business/irdai-grants-final-r3-licence-to-prudential-hcl-health-insurance-venture-13963822.html"
-              },
-              {
-                "kind": "News",
-                "name": "bfsi.economictimes.indiatimes.com",
-                "url": "https://bfsi.economictimes.indiatimes.com/articles/rbi-highlights-risks-to-indias-insurance-sector-rising-claims-surrenders-and-costs/132104375"
               }
             ],
             "impact": "Positive",
@@ -11722,88 +11900,41 @@
               }
             ],
             "independentSources": 1
-          },
-          {
-            "id": "5b0452ccb8",
-            "entity": "New health-insurance rules tighten service and premium practices",
-            "stars": 4,
-            "reasoning": [
-              "Reported rule changes such as tighter cashless timelines and limits on sharp senior-citizen premium hikes could pressure execution and pricing but may aid demand and trust.",
-              "Care Health's capital cushion (solvency ratio) stands at 1.68x against the regulator's 1.5x minimum — that sounds safe, but growing premium at 20.4% a year consumes capital mechanically."
-            ],
-            "whatToWatch": "The impact on claims cost, expense ratio and pricing as rules tighten.",
-            "confidencePct": 78,
-            "evidenceCount": 5,
-            "status": "Watch",
-            "category": "Regulatory",
-            "why": {
-              "whatHappened": "New health-insurance rules tighten service and premium practices",
-              "whyItMatters": "Reported rule changes such as tighter cashless timelines and limits on sharp senior-citizen premium hikes could pressure execution and pricing but may aid demand and trust.",
-              "whoAffected": "Every standalone health insurer (SAHI) — pricing, product design and compliance cost.",
-              "historicalContext": "Care Health's capital cushion (solvency ratio) stands at 1.68x against the regulator's 1.5x minimum — that sounds safe, but growing premium at 20.4% a year consumes capital mechanically.",
-              "potentialImpact": "Solvency sits close enough to the floor that a capital raise or slower growth is a live possibility.",
-              "whatToWatch": "The impact on claims cost, expense ratio and pricing as rules tighten."
-            },
-            "action": {
-              "id": "regulation",
-              "label": "Check IRDAI on claims cost",
-              "icon": "regulation",
-              "target": {
-                "page": "sahi",
-                "sahiTab": "governance",
-                "company": "care-health"
-              }
-            },
-            "isBreaking": false,
-            "isNew": false,
-            "freshness": "existing",
-            "freshnessLabel": "Existing context",
-            "publishedLabel": "—",
-            "discoveredLabel": "3 Jul",
-            "sources": [
-              {
-                "kind": "Regulatory",
-                "name": "nivabupa.com",
-                "url": "https://www.nivabupa.com/health-insurance-articles/new-irdai-rules-what-has-changed-for-policyholders.html"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "indianexpress.com",
-                "url": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "legal.economictimes.indiatimes.com",
-                "url": "https://legal.economictimes.indiatimes.com/news/regulators/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132160041"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "bfsi.economictimes.indiatimes.com",
-                "url": "https://bfsi.economictimes.indiatimes.com/news/insurance/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132156228"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "economictimes.indiatimes.com",
-                "url": "https://economictimes.indiatimes.com/markets/stocks/news/prudential-hcl-health-insurance-gets-irdai-nod/articleshow/132126831.cms"
-              }
-            ],
-            "impact": "Watch",
-            "scope": "sector",
-            "companyId": null,
-            "sourceUrl": "https://www.nivabupa.com/health-insurance-articles/new-irdai-rules-what-has-changed-for-policyholders.html",
-            "sourceConfidence": "Medium",
-            "clusterSize": 1,
-            "clusterSources": [
-              {
-                "kind": "Regulatory",
-                "name": "nivabupa.com",
-                "url": "https://www.nivabupa.com/health-insurance-articles/new-irdai-rules-what-has-changed-for-policyholders.html"
-              }
-            ],
-            "independentSources": 1
           }
         ],
         "sinceDeltas": [
+          {
+            "id": "reg",
+            "label": "newly surfaced regulatory updates",
+            "value": "2",
+            "direction": "up",
+            "tone": "Watch",
+            "target": {
+              "page": "sahi",
+              "sahiTab": "sector-news",
+              "company": "care-health",
+              "focus": {
+                "id": "pulse-since-reg",
+                "kind": "locator",
+                "locatorKind": "regulatory",
+                "metricKey": "regulatory",
+                "metricLabel": "Regulatory updates",
+                "company": "care-health",
+                "companyLabel": "Care Health",
+                "comparisonType": "trend",
+                "tone": "neutral",
+                "insightLabel": "2 newly surfaced regulatory updates",
+                "unit": "",
+                "sahiTab": "sector-news",
+                "origin": "pulse",
+                "targetItemId": "1581a084435c15",
+                "targetMonth": "2026-06",
+                "sourceDate": "2026-06-01",
+                "surfacedAt": "2026-07-09",
+                "reasonShownToday": "Older source (dated 01 Jun 2026) — first added to the feed 09 Jul 2026, so it's newly surfaced, not newly published."
+              }
+            }
+          },
           {
             "id": "co",
             "label": "company-specific updates",
@@ -15230,10 +15361,10 @@
         "company": "Aditya Birla",
         "companyId": "aditya-birla",
         "generatedAt": "2026-07-09T06:01:32.532Z",
-        "lastUpdatedAt": "2026-07-09T09:26:47.630Z",
+        "lastUpdatedAt": "2026-07-09T16:24:02.654Z",
         "status": "Watch",
         "sourceConfidence": "Low",
-        "itemCount": 57,
+        "itemCount": 56,
         "runs": [
           {
             "runTime": "2026-07-09T06:01:32.532Z",
@@ -15248,30 +15379,37 @@
             "sourceCount": 58,
             "ideas": 6,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-07-09T16:24:02.654Z",
+            "developments": 59,
+            "sourceCount": 58,
+            "ideas": 6,
+            "status": "ok"
           }
         ],
         "brief": {
-          "greeting": "Good morning",
+          "greeting": "Good afternoon",
           "narrative": "Regulatory pressure is the main watch item for health insurers today. Aditya Birla is under pressure on premium growth and demand, but claims-cost and conduct scrutiny will decide whether the strength is sustainable.",
           "attentionCount": 6,
           "developmentsCount": 59,
           "sourcesCount": 58,
-          "domainsCount": 12,
-          "confidencePct": 64,
+          "domainsCount": 14,
+          "confidencePct": 65,
           "confidenceTier": "Low",
           "readingMins": 3,
-          "lastUpdatedLabel": "9 Jul, 09:25 am"
+          "lastUpdatedLabel": "9 Jul, 04:22 pm"
         },
         "message": {
-          "since": "No company-specific movement for Aditya Birla since the last brief — the read below is sector & regulatory context that applies across standalone health insurers.",
-          "keyThing": "Lower commissions and higher disclosure requirements would pressure distribution economics across health and general insurers, especially in commission-heavy retail health.",
+          "since": "No Aditya Birla-specific movement since the last brief; one regulatory update moved into focus across the sector.",
+          "keyThing": "A shift from upfront to staggered distributor commissions could reduce mis-selling and alter growth economics, channel incentives and acquisition costs across health…",
           "why": "The near-term read now turns on how the new rules land on pricing, commissions and cost.",
           "watch": "any fresh IRDAI clarification, and expense-ratio movement",
           "nothing": false
         },
         "one": {
-          "sentence": "Lower commissions and higher disclosure requirements would pressure distribution economics across health and general insurers, especially in commission-heavy retail health.",
-          "status": "Risk"
+          "sentence": "A shift from upfront to staggered distributor commissions could reduce mis-selling and alter growth economics, channel incentives and acquisition costs across health insurers.",
+          "status": "Watch"
         },
         "ideas": [
           {
@@ -15319,6 +15457,16 @@
               },
               {
                 "kind": "Regulatory",
+                "name": "businesstoday.in",
+                "url": "https://businesstoday.in/personal-finance/insurance/story/insurance-commission-overhaul-irdais-proposal-can-boost-customer-trust-curb-mis-selling-experts-541797-2026-07-09"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "business-standard.com",
+                "url": "https://www.business-standard.com/amp/finance/insurance/irdai-proposes-framework-for-regulation-making-public-consultations-126061701305_1.html"
+              },
+              {
+                "kind": "Regulatory",
                 "name": "legal.economictimes.indiatimes.com",
                 "url": "https://legal.economictimes.indiatimes.com/news/regulators/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132160041"
               },
@@ -15326,16 +15474,6 @@
                 "kind": "Regulatory",
                 "name": "bfsi.economictimes.indiatimes.com",
                 "url": "https://bfsi.economictimes.indiatimes.com/news/insurance/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132156228"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "economictimes.indiatimes.com",
-                "url": "https://economictimes.indiatimes.com/markets/stocks/news/prudential-hcl-health-insurance-gets-irdai-nod/articleshow/132126831.cms"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "nivabupa.com",
-                "url": "https://www.nivabupa.com/health-insurance-articles/new-irdai-rules-what-has-changed-for-policyholders.html"
               }
             ],
             "impact": "Risk",
@@ -15343,8 +15481,13 @@
             "companyId": null,
             "sourceUrl": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494",
             "sourceConfidence": "Medium",
-            "clusterSize": 8,
+            "clusterSize": 9,
             "clusterSources": [
+              {
+                "kind": "Regulatory",
+                "name": "businesstoday.in",
+                "url": "https://businesstoday.in/personal-finance/insurance/story/insurance-commission-overhaul-irdais-proposal-can-boost-customer-trust-curb-mis-selling-experts-541797-2026-07-09"
+              },
               {
                 "kind": "Regulatory",
                 "name": "indianexpress.com",
@@ -15371,7 +15514,7 @@
                 "url": "https://economictimes.indiatimes.com/industry/banking/finance/insure/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/articleshow/132155581.cms"
               }
             ],
-            "independentSources": 5
+            "independentSources": 6
           },
           {
             "id": "8bf3cdceab",
@@ -15418,6 +15561,16 @@
               },
               {
                 "kind": "Regulatory",
+                "name": "businesstoday.in",
+                "url": "https://businesstoday.in/personal-finance/insurance/story/insurance-commission-overhaul-irdais-proposal-can-boost-customer-trust-curb-mis-selling-experts-541797-2026-07-09"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "business-standard.com",
+                "url": "https://www.business-standard.com/amp/finance/insurance/irdai-proposes-framework-for-regulation-making-public-consultations-126061701305_1.html"
+              },
+              {
+                "kind": "Regulatory",
                 "name": "indianexpress.com",
                 "url": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494"
               },
@@ -15425,16 +15578,6 @@
                 "kind": "Regulatory",
                 "name": "legal.economictimes.indiatimes.com",
                 "url": "https://legal.economictimes.indiatimes.com/news/regulators/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132160041"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "bfsi.economictimes.indiatimes.com",
-                "url": "https://bfsi.economictimes.indiatimes.com/news/insurance/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132156228"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "nivabupa.com",
-                "url": "https://www.nivabupa.com/health-insurance-articles/new-irdai-rules-what-has-changed-for-policyholders.html"
               }
             ],
             "impact": "Risk",
@@ -15512,6 +15655,16 @@
               },
               {
                 "kind": "Regulatory",
+                "name": "businesstoday.in",
+                "url": "https://businesstoday.in/personal-finance/insurance/story/insurance-commission-overhaul-irdais-proposal-can-boost-customer-trust-curb-mis-selling-experts-541797-2026-07-09"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "business-standard.com",
+                "url": "https://www.business-standard.com/amp/finance/insurance/irdai-proposes-framework-for-regulation-making-public-consultations-126061701305_1.html"
+              },
+              {
+                "kind": "Regulatory",
                 "name": "indianexpress.com",
                 "url": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494"
               },
@@ -15519,16 +15672,6 @@
                 "kind": "Regulatory",
                 "name": "legal.economictimes.indiatimes.com",
                 "url": "https://legal.economictimes.indiatimes.com/news/regulators/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132160041"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "bfsi.economictimes.indiatimes.com",
-                "url": "https://bfsi.economictimes.indiatimes.com/news/insurance/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132156228"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "economictimes.indiatimes.com",
-                "url": "https://economictimes.indiatimes.com/markets/stocks/news/prudential-hcl-health-insurance-gets-irdai-nod/articleshow/132126831.cms"
               }
             ],
             "impact": "Positive",
@@ -15591,6 +15734,16 @@
               },
               {
                 "kind": "Regulatory",
+                "name": "businesstoday.in",
+                "url": "https://businesstoday.in/personal-finance/insurance/story/insurance-commission-overhaul-irdais-proposal-can-boost-customer-trust-curb-mis-selling-experts-541797-2026-07-09"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "business-standard.com",
+                "url": "https://www.business-standard.com/amp/finance/insurance/irdai-proposes-framework-for-regulation-making-public-consultations-126061701305_1.html"
+              },
+              {
+                "kind": "Regulatory",
                 "name": "indianexpress.com",
                 "url": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494"
               },
@@ -15598,16 +15751,6 @@
                 "kind": "Regulatory",
                 "name": "legal.economictimes.indiatimes.com",
                 "url": "https://legal.economictimes.indiatimes.com/news/regulators/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132160041"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "bfsi.economictimes.indiatimes.com",
-                "url": "https://bfsi.economictimes.indiatimes.com/news/insurance/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132156228"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "economictimes.indiatimes.com",
-                "url": "https://economictimes.indiatimes.com/markets/stocks/news/prudential-hcl-health-insurance-gets-irdai-nod/articleshow/132126831.cms"
               }
             ],
             "impact": "Positive",
@@ -15621,6 +15764,86 @@
                 "kind": "Regulatory",
                 "name": "bfsi.economictimes.indiatimes.com",
                 "url": "https://bfsi.economictimes.indiatimes.com/articles/prudential-hcl-health-insurance-receives-irdai-license-a-milestone-in-indias-health-insurance-market/132118031"
+              }
+            ],
+            "independentSources": 1
+          },
+          {
+            "id": "33f929f540",
+            "entity": "IRDAI consultation window closes on regulation-making framework",
+            "stars": 4,
+            "reasoning": [
+              "The draft would formalise 21-day public consultation, cost-benefit review and 3-year regulation review cycles, affecting how quickly sector rules on pricing, distribution and conduct can change.",
+              "Solvency 1.84x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency."
+            ],
+            "whatToWatch": "IRDAI mis-selling / distribution-conduct rules",
+            "confidencePct": 78,
+            "evidenceCount": 5,
+            "status": "Watch",
+            "category": "Regulatory",
+            "why": {
+              "whatHappened": "IRDAI consultation window closes on regulation-making framework",
+              "whyItMatters": "The draft would formalise 21-day public consultation, cost-benefit review and 3-year regulation review cycles, affecting how quickly sector rules on pricing, distribution and conduct can change.",
+              "whoAffected": "Every standalone health insurer (SAHI) — pricing, product design and compliance cost.",
+              "historicalContext": "Solvency 1.84x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency.",
+              "potentialImpact": "Solvency vs the 1.5x regulatory floor",
+              "whatToWatch": "IRDAI mis-selling / distribution-conduct rules"
+            },
+            "action": {
+              "id": "regulation",
+              "label": "Check IRDAI on claims cost",
+              "icon": "regulation",
+              "target": {
+                "page": "sahi",
+                "sahiTab": "governance",
+                "company": "aditya-birla"
+              }
+            },
+            "isBreaking": false,
+            "isNew": false,
+            "freshLabel": "Newly surfaced",
+            "freshness": "newly-surfaced",
+            "freshnessLabel": "Newly surfaced",
+            "publishedLabel": "17 Jun",
+            "discoveredLabel": "9 Jul",
+            "sources": [
+              {
+                "kind": "Regulatory",
+                "name": "business-standard.com",
+                "url": "https://www.business-standard.com/amp/finance/insurance/irdai-proposes-framework-for-regulation-making-public-consultations-126061701305_1.html"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "businesstoday.in",
+                "url": "https://businesstoday.in/personal-finance/insurance/story/insurance-commission-overhaul-irdais-proposal-can-boost-customer-trust-curb-mis-selling-experts-541797-2026-07-09"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "indianexpress.com",
+                "url": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "legal.economictimes.indiatimes.com",
+                "url": "https://legal.economictimes.indiatimes.com/news/regulators/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132160041"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "bfsi.economictimes.indiatimes.com",
+                "url": "https://bfsi.economictimes.indiatimes.com/news/insurance/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132156228"
+              }
+            ],
+            "impact": "Watch",
+            "scope": "sector",
+            "companyId": null,
+            "sourceUrl": "https://www.business-standard.com/amp/finance/insurance/irdai-proposes-framework-for-regulation-making-public-consultations-126061701305_1.html",
+            "sourceConfidence": "Medium",
+            "clusterSize": 1,
+            "clusterSources": [
+              {
+                "kind": "Regulatory",
+                "name": "business-standard.com",
+                "url": "https://www.business-standard.com/amp/finance/insurance/irdai-proposes-framework-for-regulation-making-public-consultations-126061701305_1.html"
               }
             ],
             "independentSources": 1
@@ -15689,6 +15912,11 @@
               },
               {
                 "kind": "News",
+                "name": "bfsi.economictimes.indiatimes.com",
+                "url": "https://bfsi.economictimes.indiatimes.com/articles/general-insurance-premiums-soar-16-in-june-with-health-insurers-leading-growth-yes-securities-report/132283360"
+              },
+              {
+                "kind": "News",
                 "name": "economictimes.indiatimes.com",
                 "url": "https://economictimes.indiatimes.com/markets/stocks/news/prudential-hcl-health-insurance-gets-irdai-nod/articleshow/132126831.cms"
               },
@@ -15696,11 +15924,6 @@
                 "kind": "News",
                 "name": "moneycontrol.com",
                 "url": "https://www.moneycontrol.com/news/business/irdai-grants-final-r3-licence-to-prudential-hcl-health-insurance-venture-13963822.html"
-              },
-              {
-                "kind": "News",
-                "name": "bfsi.economictimes.indiatimes.com",
-                "url": "https://bfsi.economictimes.indiatimes.com/articles/rbi-highlights-risks-to-indias-insurance-sector-rising-claims-surrenders-and-costs/132104375"
               }
             ],
             "impact": "Positive",
@@ -15717,88 +15940,41 @@
               }
             ],
             "independentSources": 1
-          },
-          {
-            "id": "5b0452ccb8",
-            "entity": "New health-insurance rules tighten service and premium practices",
-            "stars": 4,
-            "reasoning": [
-              "Reported rule changes such as tighter cashless timelines and limits on sharp senior-citizen premium hikes could pressure execution and pricing but may aid demand and trust.",
-              "Solvency 1.84x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency."
-            ],
-            "whatToWatch": "The impact on claims cost, expense ratio and pricing as rules tighten.",
-            "confidencePct": 78,
-            "evidenceCount": 5,
-            "status": "Watch",
-            "category": "Regulatory",
-            "why": {
-              "whatHappened": "New health-insurance rules tighten service and premium practices",
-              "whyItMatters": "Reported rule changes such as tighter cashless timelines and limits on sharp senior-citizen premium hikes could pressure execution and pricing but may aid demand and trust.",
-              "whoAffected": "Every standalone health insurer (SAHI) — pricing, product design and compliance cost.",
-              "historicalContext": "Solvency 1.84x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency.",
-              "potentialImpact": "Solvency vs the 1.5x regulatory floor",
-              "whatToWatch": "The impact on claims cost, expense ratio and pricing as rules tighten."
-            },
-            "action": {
-              "id": "regulation",
-              "label": "Check IRDAI on claims cost",
-              "icon": "regulation",
-              "target": {
-                "page": "sahi",
-                "sahiTab": "governance",
-                "company": "aditya-birla"
-              }
-            },
-            "isBreaking": false,
-            "isNew": false,
-            "freshness": "existing",
-            "freshnessLabel": "Existing context",
-            "publishedLabel": "—",
-            "discoveredLabel": "3 Jul",
-            "sources": [
-              {
-                "kind": "Regulatory",
-                "name": "nivabupa.com",
-                "url": "https://www.nivabupa.com/health-insurance-articles/new-irdai-rules-what-has-changed-for-policyholders.html"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "indianexpress.com",
-                "url": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "legal.economictimes.indiatimes.com",
-                "url": "https://legal.economictimes.indiatimes.com/news/regulators/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132160041"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "bfsi.economictimes.indiatimes.com",
-                "url": "https://bfsi.economictimes.indiatimes.com/news/insurance/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132156228"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "economictimes.indiatimes.com",
-                "url": "https://economictimes.indiatimes.com/markets/stocks/news/prudential-hcl-health-insurance-gets-irdai-nod/articleshow/132126831.cms"
-              }
-            ],
-            "impact": "Watch",
-            "scope": "sector",
-            "companyId": null,
-            "sourceUrl": "https://www.nivabupa.com/health-insurance-articles/new-irdai-rules-what-has-changed-for-policyholders.html",
-            "sourceConfidence": "Medium",
-            "clusterSize": 1,
-            "clusterSources": [
-              {
-                "kind": "Regulatory",
-                "name": "nivabupa.com",
-                "url": "https://www.nivabupa.com/health-insurance-articles/new-irdai-rules-what-has-changed-for-policyholders.html"
-              }
-            ],
-            "independentSources": 1
           }
         ],
         "sinceDeltas": [
+          {
+            "id": "reg",
+            "label": "newly surfaced regulatory updates",
+            "value": "2",
+            "direction": "up",
+            "tone": "Watch",
+            "target": {
+              "page": "sahi",
+              "sahiTab": "sector-news",
+              "company": "aditya-birla",
+              "focus": {
+                "id": "pulse-since-reg",
+                "kind": "locator",
+                "locatorKind": "regulatory",
+                "metricKey": "regulatory",
+                "metricLabel": "Regulatory updates",
+                "company": "aditya-birla",
+                "companyLabel": "Aditya Birla",
+                "comparisonType": "trend",
+                "tone": "neutral",
+                "insightLabel": "2 newly surfaced regulatory updates",
+                "unit": "",
+                "sahiTab": "sector-news",
+                "origin": "pulse",
+                "targetItemId": "1581a084435c15",
+                "targetMonth": "2026-06",
+                "sourceDate": "2026-06-01",
+                "surfacedAt": "2026-07-09",
+                "reasonShownToday": "Older source (dated 01 Jun 2026) — first added to the feed 09 Jul 2026, so it's newly surfaced, not newly published."
+              }
+            }
+          },
           {
             "id": "co",
             "label": "company-specific updates",
@@ -19169,10 +19345,10 @@
         "company": "ManipalCigna",
         "companyId": "manipalcigna",
         "generatedAt": "2026-07-09T06:01:32.532Z",
-        "lastUpdatedAt": "2026-07-09T09:26:47.630Z",
+        "lastUpdatedAt": "2026-07-09T16:24:02.654Z",
         "status": "Watch",
         "sourceConfidence": "Low",
-        "itemCount": 57,
+        "itemCount": 56,
         "runs": [
           {
             "runTime": "2026-07-09T06:01:32.532Z",
@@ -19187,30 +19363,37 @@
             "sourceCount": 58,
             "ideas": 6,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-07-09T16:24:02.654Z",
+            "developments": 65,
+            "sourceCount": 58,
+            "ideas": 6,
+            "status": "ok"
           }
         ],
         "brief": {
-          "greeting": "Good morning",
+          "greeting": "Good afternoon",
           "narrative": "Regulatory pressure is the main watch item for health insurers today. ManipalCigna is under pressure on premium growth and demand, but claims-cost and conduct scrutiny will decide whether the strength is sustainable.",
           "attentionCount": 6,
           "developmentsCount": 65,
           "sourcesCount": 58,
-          "domainsCount": 12,
-          "confidencePct": 64,
+          "domainsCount": 14,
+          "confidencePct": 65,
           "confidenceTier": "Low",
           "readingMins": 3,
-          "lastUpdatedLabel": "9 Jul, 09:25 am"
+          "lastUpdatedLabel": "9 Jul, 04:22 pm"
         },
         "message": {
-          "since": "No company-specific movement for ManipalCigna since the last brief — the read below is sector & regulatory context that applies across standalone health insurers.",
-          "keyThing": "Lower commissions and higher disclosure requirements would pressure distribution economics across health and general insurers, especially in commission-heavy retail health.",
+          "since": "No ManipalCigna-specific movement since the last brief; one regulatory update moved into focus across the sector.",
+          "keyThing": "A shift from upfront to staggered distributor commissions could reduce mis-selling and alter growth economics, channel incentives and acquisition costs across health…",
           "why": "The near-term read now turns on how the new rules land on pricing, commissions and cost.",
           "watch": "any fresh IRDAI clarification, and expense-ratio movement",
           "nothing": false
         },
         "one": {
-          "sentence": "Lower commissions and higher disclosure requirements would pressure distribution economics across health and general insurers, especially in commission-heavy retail health.",
-          "status": "Risk"
+          "sentence": "A shift from upfront to staggered distributor commissions could reduce mis-selling and alter growth economics, channel incentives and acquisition costs across health insurers.",
+          "status": "Watch"
         },
         "ideas": [
           {
@@ -19258,6 +19441,16 @@
               },
               {
                 "kind": "Regulatory",
+                "name": "businesstoday.in",
+                "url": "https://businesstoday.in/personal-finance/insurance/story/insurance-commission-overhaul-irdais-proposal-can-boost-customer-trust-curb-mis-selling-experts-541797-2026-07-09"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "business-standard.com",
+                "url": "https://www.business-standard.com/amp/finance/insurance/irdai-proposes-framework-for-regulation-making-public-consultations-126061701305_1.html"
+              },
+              {
+                "kind": "Regulatory",
                 "name": "legal.economictimes.indiatimes.com",
                 "url": "https://legal.economictimes.indiatimes.com/news/regulators/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132160041"
               },
@@ -19265,16 +19458,6 @@
                 "kind": "Regulatory",
                 "name": "bfsi.economictimes.indiatimes.com",
                 "url": "https://bfsi.economictimes.indiatimes.com/news/insurance/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132156228"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "economictimes.indiatimes.com",
-                "url": "https://economictimes.indiatimes.com/markets/stocks/news/prudential-hcl-health-insurance-gets-irdai-nod/articleshow/132126831.cms"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "nivabupa.com",
-                "url": "https://www.nivabupa.com/health-insurance-articles/new-irdai-rules-what-has-changed-for-policyholders.html"
               }
             ],
             "impact": "Risk",
@@ -19282,8 +19465,13 @@
             "companyId": null,
             "sourceUrl": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494",
             "sourceConfidence": "Medium",
-            "clusterSize": 8,
+            "clusterSize": 9,
             "clusterSources": [
+              {
+                "kind": "Regulatory",
+                "name": "businesstoday.in",
+                "url": "https://businesstoday.in/personal-finance/insurance/story/insurance-commission-overhaul-irdais-proposal-can-boost-customer-trust-curb-mis-selling-experts-541797-2026-07-09"
+              },
               {
                 "kind": "Regulatory",
                 "name": "indianexpress.com",
@@ -19310,7 +19498,7 @@
                 "url": "https://economictimes.indiatimes.com/industry/banking/finance/insure/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/articleshow/132155581.cms"
               }
             ],
-            "independentSources": 5
+            "independentSources": 6
           },
           {
             "id": "8bf3cdceab",
@@ -19357,6 +19545,16 @@
               },
               {
                 "kind": "Regulatory",
+                "name": "businesstoday.in",
+                "url": "https://businesstoday.in/personal-finance/insurance/story/insurance-commission-overhaul-irdais-proposal-can-boost-customer-trust-curb-mis-selling-experts-541797-2026-07-09"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "business-standard.com",
+                "url": "https://www.business-standard.com/amp/finance/insurance/irdai-proposes-framework-for-regulation-making-public-consultations-126061701305_1.html"
+              },
+              {
+                "kind": "Regulatory",
                 "name": "indianexpress.com",
                 "url": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494"
               },
@@ -19364,16 +19562,6 @@
                 "kind": "Regulatory",
                 "name": "legal.economictimes.indiatimes.com",
                 "url": "https://legal.economictimes.indiatimes.com/news/regulators/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132160041"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "bfsi.economictimes.indiatimes.com",
-                "url": "https://bfsi.economictimes.indiatimes.com/news/insurance/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132156228"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "nivabupa.com",
-                "url": "https://www.nivabupa.com/health-insurance-articles/new-irdai-rules-what-has-changed-for-policyholders.html"
               }
             ],
             "impact": "Risk",
@@ -19451,6 +19639,16 @@
               },
               {
                 "kind": "Regulatory",
+                "name": "businesstoday.in",
+                "url": "https://businesstoday.in/personal-finance/insurance/story/insurance-commission-overhaul-irdais-proposal-can-boost-customer-trust-curb-mis-selling-experts-541797-2026-07-09"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "business-standard.com",
+                "url": "https://www.business-standard.com/amp/finance/insurance/irdai-proposes-framework-for-regulation-making-public-consultations-126061701305_1.html"
+              },
+              {
+                "kind": "Regulatory",
                 "name": "indianexpress.com",
                 "url": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494"
               },
@@ -19458,16 +19656,6 @@
                 "kind": "Regulatory",
                 "name": "legal.economictimes.indiatimes.com",
                 "url": "https://legal.economictimes.indiatimes.com/news/regulators/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132160041"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "bfsi.economictimes.indiatimes.com",
-                "url": "https://bfsi.economictimes.indiatimes.com/news/insurance/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132156228"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "economictimes.indiatimes.com",
-                "url": "https://economictimes.indiatimes.com/markets/stocks/news/prudential-hcl-health-insurance-gets-irdai-nod/articleshow/132126831.cms"
               }
             ],
             "impact": "Positive",
@@ -19530,6 +19718,16 @@
               },
               {
                 "kind": "Regulatory",
+                "name": "businesstoday.in",
+                "url": "https://businesstoday.in/personal-finance/insurance/story/insurance-commission-overhaul-irdais-proposal-can-boost-customer-trust-curb-mis-selling-experts-541797-2026-07-09"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "business-standard.com",
+                "url": "https://www.business-standard.com/amp/finance/insurance/irdai-proposes-framework-for-regulation-making-public-consultations-126061701305_1.html"
+              },
+              {
+                "kind": "Regulatory",
                 "name": "indianexpress.com",
                 "url": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494"
               },
@@ -19537,16 +19735,6 @@
                 "kind": "Regulatory",
                 "name": "legal.economictimes.indiatimes.com",
                 "url": "https://legal.economictimes.indiatimes.com/news/regulators/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132160041"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "bfsi.economictimes.indiatimes.com",
-                "url": "https://bfsi.economictimes.indiatimes.com/news/insurance/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132156228"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "economictimes.indiatimes.com",
-                "url": "https://economictimes.indiatimes.com/markets/stocks/news/prudential-hcl-health-insurance-gets-irdai-nod/articleshow/132126831.cms"
               }
             ],
             "impact": "Positive",
@@ -19560,6 +19748,86 @@
                 "kind": "Regulatory",
                 "name": "bfsi.economictimes.indiatimes.com",
                 "url": "https://bfsi.economictimes.indiatimes.com/articles/prudential-hcl-health-insurance-receives-irdai-license-a-milestone-in-indias-health-insurance-market/132118031"
+              }
+            ],
+            "independentSources": 1
+          },
+          {
+            "id": "33f929f540",
+            "entity": "IRDAI consultation window closes on regulation-making framework",
+            "stars": 4,
+            "reasoning": [
+              "The draft would formalise 21-day public consultation, cost-benefit review and 3-year regulation review cycles, affecting how quickly sector rules on pricing, distribution and conduct can change.",
+              "Solvency 1.7x vs the 1.5x floor — headroom is thinner; watch solvency alongside regulation."
+            ],
+            "whatToWatch": "IRDAI mis-selling / distribution-conduct rules",
+            "confidencePct": 78,
+            "evidenceCount": 5,
+            "status": "Watch",
+            "category": "Regulatory",
+            "why": {
+              "whatHappened": "IRDAI consultation window closes on regulation-making framework",
+              "whyItMatters": "The draft would formalise 21-day public consultation, cost-benefit review and 3-year regulation review cycles, affecting how quickly sector rules on pricing, distribution and conduct can change.",
+              "whoAffected": "Every standalone health insurer (SAHI) — pricing, product design and compliance cost.",
+              "historicalContext": "Solvency 1.7x vs the 1.5x floor — headroom is thinner; watch solvency alongside regulation.",
+              "potentialImpact": "Solvency sits close enough to the floor that a capital raise or slower growth is a live possibility.",
+              "whatToWatch": "IRDAI mis-selling / distribution-conduct rules"
+            },
+            "action": {
+              "id": "regulation",
+              "label": "Check IRDAI on claims cost",
+              "icon": "regulation",
+              "target": {
+                "page": "sahi",
+                "sahiTab": "governance",
+                "company": "manipalcigna"
+              }
+            },
+            "isBreaking": false,
+            "isNew": false,
+            "freshLabel": "Newly surfaced",
+            "freshness": "newly-surfaced",
+            "freshnessLabel": "Newly surfaced",
+            "publishedLabel": "17 Jun",
+            "discoveredLabel": "9 Jul",
+            "sources": [
+              {
+                "kind": "Regulatory",
+                "name": "business-standard.com",
+                "url": "https://www.business-standard.com/amp/finance/insurance/irdai-proposes-framework-for-regulation-making-public-consultations-126061701305_1.html"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "businesstoday.in",
+                "url": "https://businesstoday.in/personal-finance/insurance/story/insurance-commission-overhaul-irdais-proposal-can-boost-customer-trust-curb-mis-selling-experts-541797-2026-07-09"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "indianexpress.com",
+                "url": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "legal.economictimes.indiatimes.com",
+                "url": "https://legal.economictimes.indiatimes.com/news/regulators/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132160041"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "bfsi.economictimes.indiatimes.com",
+                "url": "https://bfsi.economictimes.indiatimes.com/news/insurance/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132156228"
+              }
+            ],
+            "impact": "Watch",
+            "scope": "sector",
+            "companyId": null,
+            "sourceUrl": "https://www.business-standard.com/amp/finance/insurance/irdai-proposes-framework-for-regulation-making-public-consultations-126061701305_1.html",
+            "sourceConfidence": "Medium",
+            "clusterSize": 1,
+            "clusterSources": [
+              {
+                "kind": "Regulatory",
+                "name": "business-standard.com",
+                "url": "https://www.business-standard.com/amp/finance/insurance/irdai-proposes-framework-for-regulation-making-public-consultations-126061701305_1.html"
               }
             ],
             "independentSources": 1
@@ -19628,6 +19896,11 @@
               },
               {
                 "kind": "News",
+                "name": "bfsi.economictimes.indiatimes.com",
+                "url": "https://bfsi.economictimes.indiatimes.com/articles/general-insurance-premiums-soar-16-in-june-with-health-insurers-leading-growth-yes-securities-report/132283360"
+              },
+              {
+                "kind": "News",
                 "name": "economictimes.indiatimes.com",
                 "url": "https://economictimes.indiatimes.com/markets/stocks/news/prudential-hcl-health-insurance-gets-irdai-nod/articleshow/132126831.cms"
               },
@@ -19635,11 +19908,6 @@
                 "kind": "News",
                 "name": "moneycontrol.com",
                 "url": "https://www.moneycontrol.com/news/business/irdai-grants-final-r3-licence-to-prudential-hcl-health-insurance-venture-13963822.html"
-              },
-              {
-                "kind": "News",
-                "name": "bfsi.economictimes.indiatimes.com",
-                "url": "https://bfsi.economictimes.indiatimes.com/articles/rbi-highlights-risks-to-indias-insurance-sector-rising-claims-surrenders-and-costs/132104375"
               }
             ],
             "impact": "Positive",
@@ -19656,88 +19924,41 @@
               }
             ],
             "independentSources": 1
-          },
-          {
-            "id": "5b0452ccb8",
-            "entity": "New health-insurance rules tighten service and premium practices",
-            "stars": 4,
-            "reasoning": [
-              "Reported rule changes such as tighter cashless timelines and limits on sharp senior-citizen premium hikes could pressure execution and pricing but may aid demand and trust.",
-              "Solvency 1.7x vs the 1.5x floor — headroom is thinner; watch solvency alongside regulation."
-            ],
-            "whatToWatch": "The impact on claims cost, expense ratio and pricing as rules tighten.",
-            "confidencePct": 78,
-            "evidenceCount": 5,
-            "status": "Watch",
-            "category": "Regulatory",
-            "why": {
-              "whatHappened": "New health-insurance rules tighten service and premium practices",
-              "whyItMatters": "Reported rule changes such as tighter cashless timelines and limits on sharp senior-citizen premium hikes could pressure execution and pricing but may aid demand and trust.",
-              "whoAffected": "Every standalone health insurer (SAHI) — pricing, product design and compliance cost.",
-              "historicalContext": "Solvency 1.7x vs the 1.5x floor — headroom is thinner; watch solvency alongside regulation.",
-              "potentialImpact": "Solvency sits close enough to the floor that a capital raise or slower growth is a live possibility.",
-              "whatToWatch": "The impact on claims cost, expense ratio and pricing as rules tighten."
-            },
-            "action": {
-              "id": "regulation",
-              "label": "Check IRDAI on claims cost",
-              "icon": "regulation",
-              "target": {
-                "page": "sahi",
-                "sahiTab": "governance",
-                "company": "manipalcigna"
-              }
-            },
-            "isBreaking": false,
-            "isNew": false,
-            "freshness": "existing",
-            "freshnessLabel": "Existing context",
-            "publishedLabel": "—",
-            "discoveredLabel": "3 Jul",
-            "sources": [
-              {
-                "kind": "Regulatory",
-                "name": "nivabupa.com",
-                "url": "https://www.nivabupa.com/health-insurance-articles/new-irdai-rules-what-has-changed-for-policyholders.html"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "indianexpress.com",
-                "url": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "legal.economictimes.indiatimes.com",
-                "url": "https://legal.economictimes.indiatimes.com/news/regulators/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132160041"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "bfsi.economictimes.indiatimes.com",
-                "url": "https://bfsi.economictimes.indiatimes.com/news/insurance/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132156228"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "economictimes.indiatimes.com",
-                "url": "https://economictimes.indiatimes.com/markets/stocks/news/prudential-hcl-health-insurance-gets-irdai-nod/articleshow/132126831.cms"
-              }
-            ],
-            "impact": "Watch",
-            "scope": "sector",
-            "companyId": null,
-            "sourceUrl": "https://www.nivabupa.com/health-insurance-articles/new-irdai-rules-what-has-changed-for-policyholders.html",
-            "sourceConfidence": "Medium",
-            "clusterSize": 1,
-            "clusterSources": [
-              {
-                "kind": "Regulatory",
-                "name": "nivabupa.com",
-                "url": "https://www.nivabupa.com/health-insurance-articles/new-irdai-rules-what-has-changed-for-policyholders.html"
-              }
-            ],
-            "independentSources": 1
           }
         ],
         "sinceDeltas": [
+          {
+            "id": "reg",
+            "label": "newly surfaced regulatory updates",
+            "value": "2",
+            "direction": "up",
+            "tone": "Watch",
+            "target": {
+              "page": "sahi",
+              "sahiTab": "sector-news",
+              "company": "manipalcigna",
+              "focus": {
+                "id": "pulse-since-reg",
+                "kind": "locator",
+                "locatorKind": "regulatory",
+                "metricKey": "regulatory",
+                "metricLabel": "Regulatory updates",
+                "company": "manipalcigna",
+                "companyLabel": "ManipalCigna",
+                "comparisonType": "trend",
+                "tone": "neutral",
+                "insightLabel": "2 newly surfaced regulatory updates",
+                "unit": "",
+                "sahiTab": "sector-news",
+                "origin": "pulse",
+                "targetItemId": "1581a084435c15",
+                "targetMonth": "2026-06",
+                "sourceDate": "2026-06-01",
+                "surfacedAt": "2026-07-09",
+                "reasonShownToday": "Older source (dated 01 Jun 2026) — first added to the feed 09 Jul 2026, so it's newly surfaced, not newly published."
+              }
+            }
+          },
           {
             "id": "co",
             "label": "company-specific updates",
@@ -19870,6 +20091,6 @@
     "snapshot_id": "pulse-brief-archive",
     "description": "Immutable per-calendar-day Pulse brief records (IST), one per company. Past days are frozen exactly as shown that day; the live Today view recomposes. Kept ~90 days per company.",
     "last_updated": "2026-07-09",
-    "last_successful_run": "2026-07-09T09:26:47.630Z"
+    "last_successful_run": "2026-07-09T16:24:02.654Z"
   }
 }
