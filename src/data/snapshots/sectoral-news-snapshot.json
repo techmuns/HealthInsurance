@@ -3,10 +3,10 @@
     "snapshot_id": "sectoral-news-snapshot",
     "description": "Key Sectoral News feed — a permanent seed of 31 curated portfolio-pack updates, kept current by a scheduled muns web-search agent. Each item links its source. Seed items are curated; agent items are AI-gathered (web), clearly labelled and not audited.",
     "schema_version": "1.0.0",
-    "last_updated": "2026-07-06",
-    "last_successful_run": "2026-07-06T10:23:17.995Z",
+    "last_updated": "2026-07-09",
+    "last_successful_run": "2026-07-09T09:40:43.572Z",
     "seed_count": 31,
-    "agent_count": 80,
+    "agent_count": 89,
     "generated_by": "Seed: investor portfolio pack. Updates: AI (muns agent, web search).",
     "notes": "Seed floor can never be lost. Agent items are de-duped by subject+date and verified-before-acting."
   },
@@ -45,6 +45,50 @@
       "added_at": "2026-07-06"
     },
     {
+      "sn": 115,
+      "category": "Profitability",
+      "date": "2026-07-01",
+      "subject": "Senior-health affordability remains a live sector issue",
+      "summary": "Public comparisons of senior-focused plans in 2026 show high sensitivity around premiums for older insureds across products from Niva Bupa and ManipalCigna. This is relevant for profitability because senior-citizen business often faces elevated claims frequency and severity, making pricing adequacy and regulator scrutiny central.",
+      "reference": "https://www.beshak.org/insurance/health-insurance/best-health-insurance-plans/star-women-care/",
+      "id": "1a79867b47825b",
+      "origin": "agent",
+      "added_at": "2026-07-09"
+    },
+    {
+      "sn": 114,
+      "category": "General",
+      "date": "2026-07-01",
+      "subject": "Retail health-insurance comparison activity stays elevated",
+      "summary": "Updated 2026 plan-comparison content suggests continued consumer search and product evaluation activity in the retail health-insurance market. For investors, this supports the case that awareness and demand remain healthy, particularly for individual and family-floater products, though conversion quality still depends on pricing and claims reputation.",
+      "reference": "https://joinditto.in/health-insurance/best-health-plans-in-india/",
+      "id": "14d4135351eb08",
+      "origin": "agent",
+      "added_at": "2026-07-09"
+    },
+    {
+      "sn": 113,
+      "category": "Competition / Peers",
+      "date": "2026-07-01",
+      "subject": "Distributor-led ranking content keeps customer acquisition competitive",
+      "summary": "Updated 2026 comparison pages from insurance distribution platforms continued highlighting Star Health, Niva Bupa, Care Health and Aditya Birla Health among top retail options. Persistent visibility battles across online channels matter because retail health insurance is increasingly won through brand, digital funnel efficiency and advisor/distributor reach.",
+      "reference": "https://joinditto.in/health-insurance/companies/",
+      "id": "06a8295dbddd2c",
+      "origin": "agent",
+      "added_at": "2026-07-09"
+    },
+    {
+      "sn": 112,
+      "category": "Competition / Peers",
+      "date": "2026-07-01",
+      "subject": "Product competition intensifies in women-focused health cover",
+      "summary": "Publicly visible 2026 product pages and comparisons indicate active competition in differentiated retail products such as women-focused plans, with Star Health and peers including Niva Bupa and ManipalCigna compared on benefits and pricing. Product innovation in niche retail segments can support growth, but it may also pressure acquisition costs and underwriting quality.",
+      "reference": "https://www.beshak.org/insurance/health-insurance/best-health-insurance-plans/star-women-care/",
+      "id": "0c23d31289ef94",
+      "origin": "agent",
+      "added_at": "2026-07-09"
+    },
+    {
       "sn": 106,
       "category": "Regulatory",
       "date": "2026-07-01",
@@ -54,6 +98,17 @@
       "id": "00c24beee42375",
       "origin": "agent",
       "added_at": "2026-07-06"
+    },
+    {
+      "sn": 116,
+      "category": "General",
+      "date": "2026-06-30",
+      "subject": "Non-life industry premium growth stays strong in June",
+      "summary": "Industry data cited by Informist showed non-life insurers’ gross premium rose 16.37% YoY in June; the same report said Star Health’s June premium grew 19.2% YoY and Niva Bupa’s rose 34.3% YoY. Strong top-line growth supports market expansion, but investors should weigh whether growth is coming with adequate pricing discipline.",
+      "reference": "https://www.informistmedia.com/MoneyWire/54182/Data-Alert-Non-life-insurers-gross-premium-up-16-37-on-year-in-June",
+      "id": "080907f028cb6e",
+      "origin": "agent",
+      "added_at": "2026-07-09"
     },
     {
       "sn": 107,
@@ -353,6 +408,39 @@
       "added_at": "2026-06-11"
     },
     {
+      "sn": 119,
+      "category": "GST",
+      "date": "2026-06-01",
+      "subject": "Unofficial 0% GST claims highlight policy confusion",
+      "summary": "Some 2026 web articles claimed the 56th GST Council reduced GST on individual health and life insurance premiums to 0%, but this was not corroborated by the official search results shown here. Investors should treat such claims cautiously until backed by an official GST Council notification, because a real cut would materially alter affordability and near-term demand.",
+      "reference": "https://www.dmifinance.in/gst/gst-on-insurance-premiums/",
+      "id": "039bf34830cdca",
+      "origin": "agent",
+      "added_at": "2026-07-09"
+    },
+    {
+      "sn": 118,
+      "category": "GST",
+      "date": "2026-06-01",
+      "subject": "GST debate on health-insurance premiums remains active",
+      "summary": "Multiple 2026 explainer articles continued to track the policy debate over GST on health-insurance premiums, reflecting sustained attention on possible relief for consumers. Even without a confirmed sector-wide rule change in the cited official results, the issue remains material because any GST cut could improve affordability and demand elasticity.",
+      "reference": "https://cleartax.in/s/gst-on-health-insurance",
+      "id": "0fef99fe8518b5",
+      "origin": "agent",
+      "added_at": "2026-07-09"
+    },
+    {
+      "sn": 117,
+      "category": "Regulatory",
+      "date": "2026-06-01",
+      "subject": "IRDAI flags review of senior-citizen premium revisions",
+      "summary": "The IRDAI health department page highlights a press release on review of revision in premium rates under health insurance policies for senior citizens. This matters because senior-citizen portfolios are claims-heavy, so scrutiny of repricing can directly affect margin recovery and pricing freedom.",
+      "reference": "https://irdai.gov.in/en/department/health",
+      "id": "1581a084435c15",
+      "origin": "agent",
+      "added_at": "2026-07-09"
+    },
+    {
       "sn": 94,
       "category": "Regulatory",
       "date": "2026-06-01",
@@ -571,6 +659,17 @@
       "id": "1771b0d9c68125",
       "origin": "agent",
       "added_at": "2026-06-11"
+    },
+    {
+      "sn": 120,
+      "category": "Regulatory",
+      "date": "2026-04-01",
+      "subject": "General insurance master circular remains an active compliance backdrop",
+      "summary": "The IRDAI’s general-insurance master circular page surfaced with 2026 notices, reinforcing the broader compliance framework governing product filing, operations and conduct for non-life and health insurers. Even absent a single headline rule in the snippet, this matters because operational and reporting obligations can shift expense ratios and execution priorities.",
+      "reference": "https://irdai.gov.in/documents/37343/365525/%E0%A4%B8%E0%A4%BE%E0%A4%A7%E0%A4%BE%E0%A4%B0%E0%A4%A3+%E0%A4%AC%E0%A5%80%E0%A4%AE%E0%A4%BE+%E0%A4%B5%E0%A5%8D%E0%A4%AF%E0%A4%B5%E0%A4%B8%E0%A4%BE%E0%A4%AF+%E0%A4%AA%E0%A4%B0+%E0%A4%AE%E0%A4%BE%E0%A4%B8%E0%A5%8D%E0%A4%9F%E0%A4%B0+%E0%A4%AA%E0%A4%B0%E0%A4%BF%E0%A4%AA%E0%A4%A4%E0%A5%8D%E0%A4%B0+_+Master+Circular+on+General+Insurance+Business.pdf/2ce8ba9e-7774-ae28-8b4b-a038fafa9aea?version=1.0&t=1718096241357&download=true",
+      "id": "108813d2e04921",
+      "origin": "agent",
+      "added_at": "2026-07-09"
     },
     {
       "sn": 99,
