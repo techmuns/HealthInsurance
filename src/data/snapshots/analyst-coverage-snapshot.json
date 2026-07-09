@@ -4,7 +4,7 @@
     "description": "Dated broker research reports (target price + price at recommendation) for the Analyst coverage sheet. Aggregator-sourced: a headless Trendlyne scrape (ScraperAPI India IP) primary, the muns agent — the sanctioned low-confidence backup for broker targets (no official feed exists). Rows without a public source URL are never written. Missing is never zero.",
     "schema_version": "1.0.0",
     "dataset": "backup_aggregator",
-    "last_updated": "2026-07-08",
+    "last_updated": "2026-07-09",
     "upstream_sources": [
       "trendlyne_scrape",
       "muns_agent_web"
@@ -14,14 +14,58 @@
   "data": [
     {
       "company_id": "icici-lombard",
+      "broker": "IDBI Capital",
+      "report_date": "2024-06-14",
+      "aggregator_date": null,
+      "rating": "Buy",
+      "target_price": 2100,
+      "price_at_reco": 1730.9,
+      "source_url": "https://trendlyne.com/posts/4613693/technical-pick-icici-lombard-general",
+      "fetched_at": "2026-07-09T09:36:39.835Z"
+    },
+    {
+      "company_id": "icici-lombard",
+      "broker": "Geojit BNP Paribas",
+      "report_date": "2024-08-01",
+      "aggregator_date": null,
+      "rating": "Buy",
+      "target_price": 2331,
+      "price_at_reco": 2004.35,
+      "source_url": "https://trendlyne.com/posts/4683206/icici-lombard-general-insurance-company-limited",
+      "fetched_at": "2026-07-09T09:36:39.835Z"
+    },
+    {
+      "company_id": "icici-lombard",
+      "broker": "Sharekhan",
+      "report_date": "2024-08-23",
+      "aggregator_date": null,
+      "rating": "Buy",
+      "target_price": 2550,
+      "price_at_reco": 2096.8,
+      "source_url": "https://trendlyne.com/posts/4728307/poised-to-outperform",
+      "fetched_at": "2026-07-09T09:36:39.835Z"
+    },
+    {
+      "company_id": "icici-lombard",
+      "broker": "Motilal Oswal",
+      "report_date": "2024-10-18",
+      "aggregator_date": null,
+      "rating": "Buy",
+      "target_price": 2400,
+      "price_at_reco": 2020.95,
+      "source_url": "https://trendlyne.com/posts/4819735/combined-ratio-higher-than-estimates-by-200bp",
+      "fetched_at": "2026-07-09T09:36:39.835Z"
+    },
+    {
+      "company_id": "icici-lombard",
       "broker": "Emkay",
       "report_date": "2024-10-20",
       "aggregator_date": null,
       "rating": "Sell",
       "target_price": 1900,
       "price_at_reco": 2020.95,
-      "source_url": "https://trendlyne.com/research-reports/stock/61147/ICICIGI/icici-lombard-general-insurance-company-ltd/",
-      "fetched_at": "2026-06-11T14:13:47.963Z"
+      "source_url": "https://trendlyne.com/posts/4818317/operating-environment-remains-challenging-reiterate-reduce",
+      "fetched_at": "2026-07-09T09:36:39.835Z"
     },
     {
       "company_id": "icici-lombard",
@@ -31,8 +75,8 @@
       "rating": "Hold",
       "target_price": 2100,
       "price_at_reco": 1958.95,
-      "source_url": "https://trendlyne.com/research-reports/stock/61147/ICICIGI/icici-lombard-general-insurance-company-ltd/",
-      "fetched_at": "2026-06-11T14:13:47.963Z"
+      "source_url": "https://trendlyne.com/posts/4822744/icici-lombard-general-insurance",
+      "fetched_at": "2026-07-09T09:36:39.835Z"
     },
     {
       "company_id": "icici-lombard",
@@ -42,8 +86,8 @@
       "rating": "Buy",
       "target_price": 2550,
       "price_at_reco": 1948.75,
-      "source_url": "https://trendlyne.com/research-reports/stock/61147/ICICIGI/icici-lombard-general-insurance-company-ltd/",
-      "fetched_at": "2026-06-11T14:13:47.963Z"
+      "source_url": "https://trendlyne.com/posts/4945894/good-q3",
+      "fetched_at": "2026-07-09T09:36:39.835Z"
     },
     {
       "company_id": "icici-lombard",
@@ -53,8 +97,8 @@
       "rating": "Buy",
       "target_price": 2300,
       "price_at_reco": 1948.75,
-      "source_url": "https://trendlyne.com/research-reports/stock/61147/ICICIGI/icici-lombard-general-insurance-company-ltd/",
-      "fetched_at": "2026-06-11T14:13:47.963Z"
+      "source_url": "https://trendlyne.com/posts/4947776/strong-beat-in-profitability-premium-growth-in-line",
+      "fetched_at": "2026-07-09T09:36:39.835Z"
     },
     {
       "company_id": "icici-lombard",
@@ -64,8 +108,8 @@
       "rating": "Sell",
       "target_price": 2000,
       "price_at_reco": 1948.75,
-      "source_url": "https://trendlyne.com/research-reports/stock/61147/ICICIGI/icici-lombard-general-insurance-company-ltd/",
-      "fetched_at": "2026-06-11T14:13:47.963Z"
+      "source_url": "https://trendlyne.com/posts/4945929/as-good-as-it-gets",
+      "fetched_at": "2026-07-09T09:36:39.835Z"
     },
     {
       "company_id": "icici-lombard",
@@ -75,8 +119,8 @@
       "rating": "Hold",
       "target_price": 2030,
       "price_at_reco": 1858.5,
-      "source_url": "https://trendlyne.com/research-reports/stock/61147/ICICIGI/icici-lombard-general-insurance-company-ltd/",
-      "fetched_at": "2026-06-11T14:13:47.963Z"
+      "source_url": "https://trendlyne.com/posts/4967554/icici-lombard-general-insurance-company-limited",
+      "fetched_at": "2026-07-09T09:36:39.835Z"
     },
     {
       "company_id": "icici-lombard",
@@ -86,8 +130,8 @@
       "rating": "Buy",
       "target_price": 2200,
       "price_at_reco": 1822.6,
-      "source_url": "https://trendlyne.com/research-reports/stock/61147/ICICIGI/icici-lombard-general-insurance-company-ltd/",
-      "fetched_at": "2026-06-11T14:13:47.963Z"
+      "source_url": "https://trendlyne.com/posts/5074046/beat-on-combined-ratio-pat-miss-due-to-investment-income",
+      "fetched_at": "2026-07-09T09:36:39.835Z"
     },
     {
       "company_id": "icici-lombard",
@@ -97,8 +141,8 @@
       "rating": "Buy",
       "target_price": 2300,
       "price_at_reco": 1811.8,
-      "source_url": "https://trendlyne.com/research-reports/stock/61147/ICICIGI/icici-lombard-general-insurance-company-ltd/",
-      "fetched_at": "2026-06-11T14:13:47.963Z"
+      "source_url": "https://trendlyne.com/posts/5074063/q4-misses-mark-on-lower-investment-income",
+      "fetched_at": "2026-07-09T09:36:39.835Z"
     },
     {
       "company_id": "icici-lombard",
@@ -108,8 +152,8 @@
       "rating": "Buy",
       "target_price": 2400,
       "price_at_reco": 2002.7,
-      "source_url": "https://trendlyne.com/research-reports/stock/61147/ICICIGI/icici-lombard-general-insurance-company-ltd/",
-      "fetched_at": "2026-06-11T14:13:47.963Z"
+      "source_url": "https://trendlyne.com/posts/5209003/investment-income-boosts-pat-miss-in-combined-ratio",
+      "fetched_at": "2026-07-09T09:36:39.835Z"
     },
     {
       "company_id": "icici-lombard",
@@ -119,8 +163,8 @@
       "rating": "Buy",
       "target_price": 2244,
       "price_at_reco": 1962.3,
-      "source_url": "https://trendlyne.com/research-reports/stock/61147/ICICIGI/icici-lombard-general-insurance-company-ltd/",
-      "fetched_at": "2026-06-11T14:13:47.963Z"
+      "source_url": "https://trendlyne.com/posts/5216494/icici-lombard-general-insurance-company-limited",
+      "fetched_at": "2026-07-09T09:36:39.835Z"
     },
     {
       "company_id": "icici-lombard",
@@ -130,8 +174,8 @@
       "rating": "Buy",
       "target_price": 2300,
       "price_at_reco": 1854.8,
-      "source_url": "https://trendlyne.com/research-reports/stock/61147/ICICIGI/icici-lombard-general-insurance-company-ltd/",
-      "fetched_at": "2026-06-11T14:13:47.963Z"
+      "source_url": "https://trendlyne.com/posts/5367504/strong-nep-growth-leads-to-a-beat-on-combined-ratio",
+      "fetched_at": "2026-07-09T09:36:39.835Z"
     },
     {
       "company_id": "icici-lombard",
@@ -141,8 +185,8 @@
       "rating": "Buy",
       "target_price": 2250,
       "price_at_reco": 2020.3,
-      "source_url": "https://trendlyne.com/research-reports/stock/61147/ICICIGI/icici-lombard-general-insurance-company-ltd/",
-      "fetched_at": "2026-06-11T14:13:47.963Z"
+      "source_url": "https://trendlyne.com/posts/5365953/improvement-in-business-outlook-amidst-already-strong-earnings-growth-in-h1fy26-leads-to-an-upgrade",
+      "fetched_at": "2026-07-09T09:36:39.835Z"
     },
     {
       "company_id": "icici-lombard",
@@ -152,8 +196,8 @@
       "rating": "Buy",
       "target_price": 2260,
       "price_at_reco": 1885.5,
-      "source_url": "https://trendlyne.com/research-reports/stock/61147/ICICIGI/icici-lombard-general-insurance-company-ltd/",
-      "fetched_at": "2026-06-11T14:13:47.963Z"
+      "source_url": "https://trendlyne.com/posts/5483741/nep-miss-and-one-off-drive-combined-ratio-and-pat-miss",
+      "fetched_at": "2026-07-09T09:36:39.835Z"
     },
     {
       "company_id": "icici-lombard",
@@ -163,8 +207,8 @@
       "rating": "Buy",
       "target_price": 2250,
       "price_at_reco": 1857.7,
-      "source_url": "https://trendlyne.com/research-reports/stock/61147/ICICIGI/icici-lombard-general-insurance-company-ltd/",
-      "fetched_at": "2026-06-11T14:13:47.963Z"
+      "source_url": "https://trendlyne.com/posts/5488377/better-growth-outlook-to-accrue-to-earnings-with-a-lag-overall-risk-reward-favourable",
+      "fetched_at": "2026-07-09T09:36:39.835Z"
     },
     {
       "company_id": "icici-lombard",
@@ -174,8 +218,8 @@
       "rating": "Buy",
       "target_price": 2080,
       "price_at_reco": 1822.2,
-      "source_url": "https://trendlyne.com/research-reports/stock/61147/ICICIGI/icici-lombard-general-insurance-company-ltd/",
-      "fetched_at": "2026-06-11T14:13:47.963Z"
+      "source_url": "https://trendlyne.com/posts/5500122/icici-lombard-general-insurance-company-limited",
+      "fetched_at": "2026-07-09T09:36:39.835Z"
     },
     {
       "company_id": "icici-lombard",
@@ -185,8 +229,8 @@
       "rating": "Buy",
       "target_price": 2250,
       "price_at_reco": 1850.5,
-      "source_url": "https://trendlyne.com/research-reports/stock/61147/ICICIGI/icici-lombard-general-insurance-company-ltd/",
-      "fetched_at": "2026-06-11T14:13:47.963Z"
+      "source_url": "https://trendlyne.com/posts/5563437/valuations-in-an-improving-growth-profitability-balance-make-risk-reward-favourable",
+      "fetched_at": "2026-07-09T09:36:39.835Z"
     },
     {
       "company_id": "icici-lombard",
@@ -196,8 +240,8 @@
       "rating": "Buy",
       "target_price": 2230,
       "price_at_reco": 1858,
-      "source_url": "https://trendlyne.com/research-reports/stock/61147/ICICIGI/icici-lombard-general-insurance-company-ltd/",
-      "fetched_at": "2026-06-11T14:13:47.963Z"
+      "source_url": "https://trendlyne.com/posts/5603828/beat-on-combined-ratio-tepid-investment-income-drag-earnings",
+      "fetched_at": "2026-07-09T09:36:39.835Z"
     },
     {
       "company_id": "icici-lombard",
@@ -207,8 +251,8 @@
       "rating": "Buy",
       "target_price": 2250,
       "price_at_reco": 1891.6,
-      "source_url": "https://trendlyne.com/research-reports/stock/61147/ICICIGI/icici-lombard-general-insurance-company-ltd/",
-      "fetched_at": "2026-06-11T14:13:47.963Z"
+      "source_url": "https://trendlyne.com/posts/5605948/balanced-execution-on-growth-and-margins-to-help-compound-returns-underwriting-outlook-better",
+      "fetched_at": "2026-07-09T09:36:39.835Z"
     },
     {
       "company_id": "icici-lombard",
@@ -218,8 +262,8 @@
       "rating": "Buy",
       "target_price": 2230,
       "price_at_reco": 1776.9,
-      "source_url": "https://trendlyne.com/research-reports/stock/61147/ICICIGI/icici-lombard-general-insurance-company-ltd/",
-      "fetched_at": "2026-06-11T14:13:47.963Z"
+      "source_url": "https://trendlyne.com/posts/5627191/all-engines-on-fire-for-profitable-growth",
+      "fetched_at": "2026-07-09T09:36:39.835Z"
     },
     {
       "company_id": "niva-bupa",
@@ -229,8 +273,8 @@
       "rating": "Buy",
       "target_price": 90,
       "price_at_reco": 74.57,
-      "source_url": "https://trendlyne.com/research-reports/stock/2768807/NIVABUPA/niva-bupa-health-insurance-company-ltd/",
-      "fetched_at": "2026-06-11T14:13:47.963Z"
+      "source_url": "https://trendlyne.com/posts/5072603/strong-execution-delivering-sector-leading-performance",
+      "fetched_at": "2026-07-09T09:36:39.835Z"
     },
     {
       "company_id": "niva-bupa",
@@ -240,8 +284,8 @@
       "rating": "Buy",
       "target_price": 100,
       "price_at_reco": 77.62,
-      "source_url": "https://trendlyne.com/research-reports/stock/2768807/NIVABUPA/niva-bupa-health-insurance-company-ltd/",
-      "fetched_at": "2026-06-11T14:13:47.963Z"
+      "source_url": "https://trendlyne.com/posts/5080108/citius-altius-fortius",
+      "fetched_at": "2026-07-09T09:36:39.835Z"
     },
     {
       "company_id": "niva-bupa",
@@ -251,8 +295,8 @@
       "rating": "Buy",
       "target_price": 101,
       "price_at_reco": 87.55,
-      "source_url": "https://trendlyne.com/research-reports/stock/2768807/NIVABUPA/niva-bupa-health-insurance-company-ltd/",
-      "fetched_at": "2026-06-11T14:13:47.963Z"
+      "source_url": "https://trendlyne.com/posts/5239942/elevated-claims-ratio-hits-profitability",
+      "fetched_at": "2026-07-09T09:36:39.835Z"
     },
     {
       "company_id": "niva-bupa",
@@ -262,8 +306,8 @@
       "rating": "Buy",
       "target_price": 101,
       "price_at_reco": 80.37,
-      "source_url": "https://trendlyne.com/research-reports/stock/2768807/NIVABUPA/niva-bupa-health-insurance-company-ltd/",
-      "fetched_at": "2026-06-11T14:13:47.963Z"
+      "source_url": "https://trendlyne.com/posts/5253046/sharpening-the-moat",
+      "fetched_at": "2026-07-09T09:36:39.835Z"
     },
     {
       "company_id": "niva-bupa",
@@ -273,8 +317,8 @@
       "rating": "Buy",
       "target_price": 92,
       "price_at_reco": 79.65,
-      "source_url": "https://trendlyne.com/research-reports/stock/2768807/NIVABUPA/niva-bupa-health-insurance-company-ltd/",
-      "fetched_at": "2026-06-11T14:13:47.963Z"
+      "source_url": "https://trendlyne.com/posts/5269619/premium-and-earnings-growth-remain-strong-under-ifrs",
+      "fetched_at": "2026-07-09T09:36:39.835Z"
     },
     {
       "company_id": "niva-bupa",
@@ -284,8 +328,8 @@
       "rating": "Buy",
       "target_price": 92,
       "price_at_reco": 74.06,
-      "source_url": "https://trendlyne.com/research-reports/stock/2768807/NIVABUPA/niva-bupa-health-insurance-company-ltd/",
-      "fetched_at": "2026-06-11T14:13:47.963Z"
+      "source_url": "https://trendlyne.com/posts/5389258/combined-ratio-hit-by-higher-opex-and-claims",
+      "fetched_at": "2026-07-09T09:36:39.835Z"
     },
     {
       "company_id": "niva-bupa",
@@ -295,8 +339,8 @@
       "rating": "Buy",
       "target_price": 90,
       "price_at_reco": 75.43,
-      "source_url": "https://trendlyne.com/research-reports/stock/2768807/NIVABUPA/niva-bupa-health-insurance-company-ltd/",
-      "fetched_at": "2026-06-11T14:13:47.963Z"
+      "source_url": "https://trendlyne.com/posts/5398016/accelerated-volume-growth-a-positive-managing-gst-cost-impact-key-earnings-determinant",
+      "fetched_at": "2026-07-09T09:36:39.835Z"
     },
     {
       "company_id": "niva-bupa",
@@ -306,8 +350,8 @@
       "rating": "Buy",
       "target_price": 92,
       "price_at_reco": 78.08,
-      "source_url": "https://trendlyne.com/research-reports/stock/2768807/NIVABUPA/niva-bupa-health-insurance-company-ltd/",
-      "fetched_at": "2026-06-11T14:13:47.963Z"
+      "source_url": "https://trendlyne.com/posts/5508840/elevated-claims-operating-efficiency-drives-a-beat-on-combined-ratio",
+      "fetched_at": "2026-07-09T09:36:39.835Z"
     },
     {
       "company_id": "star-health",
@@ -317,8 +361,8 @@
       "rating": "Sell",
       "target_price": 525,
       "price_at_reco": 571.6,
-      "source_url": "https://trendlyne.com/research-reports/stock/746520/STARHEALTH/star-health-and-allied-insurance-company-ltd/",
-      "fetched_at": "2026-06-11T14:13:47.963Z"
+      "source_url": "https://trendlyne.com/posts/4550746/a-status-quo-quarter-reiterate-reduce",
+      "fetched_at": "2026-07-09T09:36:39.835Z"
     },
     {
       "company_id": "star-health",
@@ -328,8 +372,8 @@
       "rating": "Buy",
       "target_price": 730,
       "price_at_reco": 558.65,
-      "source_url": "https://trendlyne.com/research-reports/stock/746520/STARHEALTH/star-health-and-allied-insurance-company-ltd/",
-      "fetched_at": "2026-06-11T14:13:47.963Z"
+      "source_url": "https://trendlyne.com/posts/4632923/focusing-on-profitable-growth",
+      "fetched_at": "2026-07-09T09:36:39.835Z"
     },
     {
       "company_id": "star-health",
@@ -339,8 +383,8 @@
       "rating": "Buy",
       "target_price": 738,
       "price_at_reco": 630.25,
-      "source_url": "https://trendlyne.com/research-reports/stock/746520/STARHEALTH/star-health-and-allied-insurance-company-ltd/",
-      "fetched_at": "2026-06-11T14:13:47.963Z"
+      "source_url": "https://trendlyne.com/posts/4770285/star-health-and-allied-insurance-company-limited",
+      "fetched_at": "2026-07-09T09:36:39.835Z"
     },
     {
       "company_id": "star-health",
@@ -350,8 +394,8 @@
       "rating": "Buy",
       "target_price": 600,
       "price_at_reco": 479.2,
-      "source_url": "https://trendlyne.com/research-reports/stock/746520/STARHEALTH/star-health-and-allied-insurance-company-ltd/",
-      "fetched_at": "2026-06-11T14:13:47.963Z"
+      "source_url": "https://trendlyne.com/posts/4851795/star-health-allied-ins-co",
+      "fetched_at": "2026-07-09T09:36:39.835Z"
     },
     {
       "company_id": "star-health",
@@ -361,8 +405,8 @@
       "rating": "Buy",
       "target_price": 525,
       "price_at_reco": 434.95,
-      "source_url": "https://trendlyne.com/research-reports/stock/746520/STARHEALTH/star-health-and-allied-insurance-company-ltd/",
-      "fetched_at": "2026-06-11T14:13:47.963Z"
+      "source_url": "https://trendlyne.com/posts/4970412/arduous-journey-toward-gradual-recovery-in-claims-ratio",
+      "fetched_at": "2026-07-09T09:36:39.835Z"
     },
     {
       "company_id": "star-health",
@@ -372,8 +416,8 @@
       "rating": "Hold",
       "target_price": 430,
       "price_at_reco": 397.15,
-      "source_url": "https://trendlyne.com/research-reports/stock/746520/STARHEALTH/star-health-and-allied-insurance-company-ltd/",
-      "fetched_at": "2026-06-11T14:13:47.963Z"
+      "source_url": "https://trendlyne.com/posts/4994774/star-health-and-allied-insurance-company-limited",
+      "fetched_at": "2026-07-09T09:36:39.835Z"
     },
     {
       "company_id": "star-health",
@@ -383,8 +427,8 @@
       "rating": "Hold",
       "target_price": 421,
       "price_at_reco": 403.6,
-      "source_url": "https://trendlyne.com/research-reports/stock/746520/STARHEALTH/star-health-and-allied-insurance-company-ltd/",
-      "fetched_at": "2026-06-11T14:13:47.963Z"
+      "source_url": "https://trendlyne.com/posts/5141910/star-health-and-allied-insurance-company-limited",
+      "fetched_at": "2026-07-09T09:36:39.835Z"
     },
     {
       "company_id": "star-health",
@@ -394,8 +438,8 @@
       "rating": "Buy",
       "target_price": 520,
       "price_at_reco": 447.8,
-      "source_url": "https://trendlyne.com/research-reports/stock/746520/STARHEALTH/star-health-and-allied-insurance-company-ltd/",
-      "fetched_at": "2026-06-11T14:13:47.963Z"
+      "source_url": "https://trendlyne.com/posts/5233505/in-line-underwriting-performance",
+      "fetched_at": "2026-07-09T09:36:39.835Z"
     },
     {
       "company_id": "star-health",
@@ -405,8 +449,8 @@
       "rating": "Buy",
       "target_price": 520,
       "price_at_reco": 443.5,
-      "source_url": "https://trendlyne.com/research-reports/stock/746520/STARHEALTH/star-health-and-allied-insurance-company-ltd/",
-      "fetched_at": "2026-06-11T14:13:47.963Z"
+      "source_url": "https://trendlyne.com/posts/5284531/navigating-growth-with-caution",
+      "fetched_at": "2026-07-09T09:36:39.835Z"
     },
     {
       "company_id": "star-health",
@@ -416,8 +460,8 @@
       "rating": "Buy",
       "target_price": 512,
       "price_at_reco": 452.05,
-      "source_url": "https://trendlyne.com/research-reports/stock/746520/STARHEALTH/star-health-and-allied-insurance-company-ltd/",
-      "fetched_at": "2026-06-11T14:13:47.963Z"
+      "source_url": "https://trendlyne.com/posts/5299175/available-earning-levers-make-risk-reward-attractive",
+      "fetched_at": "2026-07-09T09:36:39.835Z"
     },
     {
       "company_id": "star-health",
@@ -427,8 +471,8 @@
       "rating": "Buy",
       "target_price": 570,
       "price_at_reco": 480.45,
-      "source_url": "https://trendlyne.com/research-reports/stock/746520/STARHEALTH/star-health-and-allied-insurance-company-ltd/",
-      "fetched_at": "2026-06-11T14:13:47.963Z"
+      "source_url": "https://trendlyne.com/posts/5382078/loss-ratio-improves-strong-growth-in-fresh-business",
+      "fetched_at": "2026-07-09T09:36:39.835Z"
     },
     {
       "company_id": "star-health",
@@ -438,8 +482,8 @@
       "rating": "Buy",
       "target_price": 570,
       "price_at_reco": 486.7,
-      "source_url": "https://trendlyne.com/research-reports/stock/746520/STARHEALTH/star-health-and-allied-insurance-company-ltd/",
-      "fetched_at": "2026-06-11T14:13:47.963Z"
+      "source_url": "https://trendlyne.com/posts/5398044/volume-loss-ratio-improvement-key-positives-managing-gst-cost-impact-will-be-vital",
+      "fetched_at": "2026-07-09T09:36:39.835Z"
     },
     {
       "company_id": "star-health",
@@ -449,8 +493,8 @@
       "rating": "Accumulate",
       "target_price": 510,
       "price_at_reco": 451.85,
-      "source_url": "https://trendlyne.com/research-reports/stock/746520/STARHEALTH/star-health-and-allied-insurance-company-ltd/",
-      "fetched_at": "2026-06-11T14:13:47.963Z"
+      "source_url": "https://trendlyne.com/posts/5472136/star-health-and-allied-insurance-company-limited",
+      "fetched_at": "2026-07-09T09:36:39.835Z"
     },
     {
       "company_id": "star-health",
@@ -460,8 +504,8 @@
       "rating": "Buy",
       "target_price": 560,
       "price_at_reco": 450.5,
-      "source_url": "https://trendlyne.com/research-reports/stock/746520/STARHEALTH/star-health-and-allied-insurance-company-ltd/",
-      "fetched_at": "2026-06-11T14:13:47.963Z"
+      "source_url": "https://trendlyne.com/posts/5508847/robust-underwriting-performance",
+      "fetched_at": "2026-07-09T09:36:39.835Z"
     },
     {
       "company_id": "star-health",
@@ -471,8 +515,8 @@
       "rating": "Buy",
       "target_price": 650,
       "price_at_reco": 533.25,
-      "source_url": "https://trendlyne.com/research-reports/stock/746520/STARHEALTH/star-health-and-allied-insurance-company-ltd/",
-      "fetched_at": "2026-06-11T14:13:47.963Z"
+      "source_url": "https://trendlyne.com/posts/5622528/continued-improvement-in-claims-ratio-to-drive-stock-re-rating",
+      "fetched_at": "2026-07-09T09:36:39.835Z"
     },
     {
       "company_id": "star-health",
@@ -482,8 +526,8 @@
       "rating": "Buy",
       "target_price": 640,
       "price_at_reco": 533.25,
-      "source_url": "https://trendlyne.com/research-reports/stock/746520/STARHEALTH/star-health-and-allied-insurance-company-ltd/",
-      "fetched_at": "2026-06-11T14:13:47.963Z"
+      "source_url": "https://trendlyne.com/posts/5622623/underwriting-performance-strengthens",
+      "fetched_at": "2026-07-09T09:36:39.835Z"
     },
     {
       "company_id": "star-health",
@@ -493,8 +537,8 @@
       "rating": "Buy",
       "target_price": 644,
       "price_at_reco": 525.65,
-      "source_url": "https://trendlyne.com/research-reports/stock/746520/STARHEALTH/star-health-and-allied-insurance-company-ltd/",
-      "fetched_at": "2026-06-11T14:13:47.963Z"
+      "source_url": "https://trendlyne.com/posts/5625417/strong-improvement-in-underwriting-results-coupled-with-volume-tailwinds-boosts-earnings-growth-outlook",
+      "fetched_at": "2026-07-09T09:36:39.835Z"
     }
   ]
 }
