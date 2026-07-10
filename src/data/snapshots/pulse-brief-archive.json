@@ -4091,10 +4091,10 @@
         "company": "Niva Bupa",
         "companyId": "niva-bupa",
         "generatedAt": "2026-07-10T05:56:50.463Z",
-        "lastUpdatedAt": "2026-07-10T09:20:19.720Z",
+        "lastUpdatedAt": "2026-07-10T12:21:31.069Z",
         "status": "Watch",
-        "sourceConfidence": "Low",
-        "itemCount": 58,
+        "sourceConfidence": "Medium",
+        "itemCount": 56,
         "runs": [
           {
             "runTime": "2026-07-10T05:56:50.463Z",
@@ -4109,19 +4109,26 @@
             "sourceCount": 60,
             "ideas": 6,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-07-10T12:21:31.069Z",
+            "developments": 62,
+            "sourceCount": 60,
+            "ideas": 6,
+            "status": "ok"
           }
         ],
         "brief": {
-          "greeting": "Good morning",
-          "narrative": "Regulatory pressure is the main watch item for health insurers today. Niva Bupa is under pressure on premium growth and demand, but claims-cost and conduct scrutiny will decide whether the strength is sustainable.",
+          "greeting": "Good afternoon",
+          "narrative": "Regulatory pressure is the main watch item for health insurers today. Niva Bupa is under pressure on premium growth and demand, but claims-cost and conduct scrutiny and regulatory deadlines will decide whether the strength is sustainable.",
           "attentionCount": 6,
-          "developmentsCount": 60,
+          "developmentsCount": 62,
           "sourcesCount": 60,
-          "domainsCount": 18,
-          "confidencePct": 67,
+          "domainsCount": 19,
+          "confidencePct": 69,
           "confidenceTier": "Medium",
           "readingMins": 3,
-          "lastUpdatedLabel": "10 Jul, 09:19 am"
+          "lastUpdatedLabel": "10 Jul, 12:20 pm"
         },
         "message": {
           "since": "No Niva Bupa-specific movement since the last brief; one regulatory update moved into focus across the sector.",
@@ -4190,13 +4197,13 @@
               },
               {
                 "kind": "Regulatory",
-                "name": "legal.economictimes.indiatimes.com",
-                "url": "https://legal.economictimes.indiatimes.com/news/regulators/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132160041"
+                "name": "thehindubusinessline.com",
+                "url": "https://www.thehindubusinessline.com/money-and-banking/bima-sugam-to-go-live-by-september-end-irdai-chief/article71166098.ece"
               },
               {
                 "kind": "Regulatory",
-                "name": "bfsi.economictimes.indiatimes.com",
-                "url": "https://bfsi.economictimes.indiatimes.com/news/insurance/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132156228"
+                "name": "legal.economictimes.indiatimes.com",
+                "url": "https://legal.economictimes.indiatimes.com/news/regulators/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132160041"
               }
             ],
             "impact": "Risk",
@@ -4204,7 +4211,7 @@
             "companyId": null,
             "sourceUrl": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494",
             "sourceConfidence": "Medium",
-            "clusterSize": 9,
+            "clusterSize": 8,
             "clusterSources": [
               {
                 "kind": "Regulatory",
@@ -4382,13 +4389,13 @@
               },
               {
                 "kind": "Regulatory",
-                "name": "indianexpress.com",
-                "url": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494"
+                "name": "thehindubusinessline.com",
+                "url": "https://www.thehindubusinessline.com/money-and-banking/bima-sugam-to-go-live-by-september-end-irdai-chief/article71166098.ece"
               },
               {
                 "kind": "Regulatory",
-                "name": "legal.economictimes.indiatimes.com",
-                "url": "https://legal.economictimes.indiatimes.com/news/regulators/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132160041"
+                "name": "indianexpress.com",
+                "url": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494"
               }
             ],
             "impact": "Risk",
@@ -4396,7 +4403,7 @@
             "companyId": null,
             "sourceUrl": "https://economictimes.indiatimes.com/markets/stocks/news/prudential-hcl-health-insurance-gets-irdai-nod/articleshow/132126831.cms",
             "sourceConfidence": "Medium",
-            "clusterSize": 14,
+            "clusterSize": 13,
             "clusterSources": [
               {
                 "kind": "Regulatory",
@@ -4476,13 +4483,13 @@
               },
               {
                 "kind": "Regulatory",
-                "name": "indianexpress.com",
-                "url": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494"
+                "name": "thehindubusinessline.com",
+                "url": "https://www.thehindubusinessline.com/money-and-banking/bima-sugam-to-go-live-by-september-end-irdai-chief/article71166098.ece"
               },
               {
                 "kind": "Regulatory",
-                "name": "legal.economictimes.indiatimes.com",
-                "url": "https://legal.economictimes.indiatimes.com/news/regulators/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132160041"
+                "name": "indianexpress.com",
+                "url": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494"
               }
             ],
             "impact": "Positive",
@@ -4555,13 +4562,13 @@
               },
               {
                 "kind": "Regulatory",
-                "name": "indianexpress.com",
-                "url": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494"
+                "name": "thehindubusinessline.com",
+                "url": "https://www.thehindubusinessline.com/money-and-banking/bima-sugam-to-go-live-by-september-end-irdai-chief/article71166098.ece"
               },
               {
                 "kind": "Regulatory",
-                "name": "legal.economictimes.indiatimes.com",
-                "url": "https://legal.economictimes.indiatimes.com/news/regulators/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132160041"
+                "name": "indianexpress.com",
+                "url": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494"
               }
             ],
             "impact": "Positive",
@@ -4649,13 +4656,13 @@
               },
               {
                 "kind": "News",
-                "name": "livemint.com",
-                "url": "https://www.livemint.com/insurance/rbi-general-insurers-oriental-united-india-national-insurance-solvency-ratio-11782992284462.html"
+                "name": "thehindubusinessline.com",
+                "url": "https://www.thehindubusinessline.com/money-and-banking/bima-sugam-to-go-live-by-september-end-irdai-chief/article71166098.ece"
               },
               {
                 "kind": "News",
-                "name": "moneycontrol.com",
-                "url": "https://www.moneycontrol.com/news/business/irdai-grants-final-r3-licence-to-prudential-hcl-health-insurance-venture-13963822.html"
+                "name": "livemint.com",
+                "url": "https://www.livemint.com/insurance/rbi-general-insurers-oriental-united-india-national-insurance-solvency-ratio-11782992284462.html"
               }
             ],
             "impact": "Positive",
@@ -4762,7 +4769,21 @@
             }
           }
         ],
-        "events": [],
+        "events": [
+          {
+            "id": "f150384f0b",
+            "day": "8",
+            "month": "Jul",
+            "dateLabel": "8 Jul 2026",
+            "kindLabel": "Regulatory",
+            "title": "IRDAI signals distribution reform consultation paper by end-July",
+            "context": "Proposed distribution changes could alter commissions, channel mix and…",
+            "url": "https://www.thehindubusinessline.com/money-and-banking/bima-sugam-to-go-live-by-september-end-irdai-chief/article71166098.ece",
+            "whenLabel": "Active catalyst",
+            "isFirm": false,
+            "impact": "Watch"
+          }
+        ],
         "actions": [
           {
             "id": "ownership",
@@ -8829,10 +8850,10 @@
         "company": "Star Health",
         "companyId": "star-health",
         "generatedAt": "2026-07-10T05:56:50.463Z",
-        "lastUpdatedAt": "2026-07-10T09:20:19.720Z",
+        "lastUpdatedAt": "2026-07-10T12:21:31.069Z",
         "status": "Watch",
-        "sourceConfidence": "Low",
-        "itemCount": 56,
+        "sourceConfidence": "Medium",
+        "itemCount": 54,
         "runs": [
           {
             "runTime": "2026-07-10T05:56:50.463Z",
@@ -8847,19 +8868,26 @@
             "sourceCount": 58,
             "ideas": 6,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-07-10T12:21:31.069Z",
+            "developments": 59,
+            "sourceCount": 58,
+            "ideas": 6,
+            "status": "ok"
           }
         ],
         "brief": {
-          "greeting": "Good morning",
-          "narrative": "Regulatory pressure is the main watch item for health insurers today. Star Health is under pressure on premium growth and demand, but claims-cost and conduct scrutiny will decide whether the strength is sustainable.",
+          "greeting": "Good afternoon",
+          "narrative": "Regulatory pressure is the main watch item for health insurers today. Star Health is under pressure on premium growth and demand, but claims-cost and conduct scrutiny and regulatory deadlines will decide whether the strength is sustainable.",
           "attentionCount": 6,
-          "developmentsCount": 58,
+          "developmentsCount": 59,
           "sourcesCount": 58,
-          "domainsCount": 16,
-          "confidencePct": 67,
+          "domainsCount": 17,
+          "confidencePct": 69,
           "confidenceTier": "Medium",
           "readingMins": 3,
-          "lastUpdatedLabel": "10 Jul, 09:19 am"
+          "lastUpdatedLabel": "10 Jul, 12:20 pm"
         },
         "message": {
           "since": "No Star Health-specific movement since the last brief; one regulatory update moved into focus across the sector.",
@@ -8928,13 +8956,13 @@
               },
               {
                 "kind": "Regulatory",
-                "name": "legal.economictimes.indiatimes.com",
-                "url": "https://legal.economictimes.indiatimes.com/news/regulators/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132160041"
+                "name": "thehindubusinessline.com",
+                "url": "https://www.thehindubusinessline.com/money-and-banking/bima-sugam-to-go-live-by-september-end-irdai-chief/article71166098.ece"
               },
               {
                 "kind": "Regulatory",
-                "name": "bfsi.economictimes.indiatimes.com",
-                "url": "https://bfsi.economictimes.indiatimes.com/news/insurance/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132156228"
+                "name": "legal.economictimes.indiatimes.com",
+                "url": "https://legal.economictimes.indiatimes.com/news/regulators/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132160041"
               }
             ],
             "impact": "Risk",
@@ -8942,7 +8970,7 @@
             "companyId": null,
             "sourceUrl": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494",
             "sourceConfidence": "Medium",
-            "clusterSize": 9,
+            "clusterSize": 8,
             "clusterSources": [
               {
                 "kind": "Regulatory",
@@ -9032,13 +9060,13 @@
               },
               {
                 "kind": "Regulatory",
-                "name": "indianexpress.com",
-                "url": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494"
+                "name": "thehindubusinessline.com",
+                "url": "https://www.thehindubusinessline.com/money-and-banking/bima-sugam-to-go-live-by-september-end-irdai-chief/article71166098.ece"
               },
               {
                 "kind": "Regulatory",
-                "name": "legal.economictimes.indiatimes.com",
-                "url": "https://legal.economictimes.indiatimes.com/news/regulators/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132160041"
+                "name": "indianexpress.com",
+                "url": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494"
               }
             ],
             "impact": "Risk",
@@ -9046,7 +9074,7 @@
             "companyId": null,
             "sourceUrl": "https://economictimes.indiatimes.com/markets/stocks/news/prudential-hcl-health-insurance-gets-irdai-nod/articleshow/132126831.cms",
             "sourceConfidence": "Medium",
-            "clusterSize": 14,
+            "clusterSize": 13,
             "clusterSources": [
               {
                 "kind": "Regulatory",
@@ -9126,13 +9154,13 @@
               },
               {
                 "kind": "Regulatory",
-                "name": "indianexpress.com",
-                "url": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494"
+                "name": "thehindubusinessline.com",
+                "url": "https://www.thehindubusinessline.com/money-and-banking/bima-sugam-to-go-live-by-september-end-irdai-chief/article71166098.ece"
               },
               {
                 "kind": "Regulatory",
-                "name": "legal.economictimes.indiatimes.com",
-                "url": "https://legal.economictimes.indiatimes.com/news/regulators/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132160041"
+                "name": "indianexpress.com",
+                "url": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494"
               }
             ],
             "impact": "Positive",
@@ -9205,13 +9233,13 @@
               },
               {
                 "kind": "Regulatory",
-                "name": "indianexpress.com",
-                "url": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494"
+                "name": "thehindubusinessline.com",
+                "url": "https://www.thehindubusinessline.com/money-and-banking/bima-sugam-to-go-live-by-september-end-irdai-chief/article71166098.ece"
               },
               {
                 "kind": "Regulatory",
-                "name": "legal.economictimes.indiatimes.com",
-                "url": "https://legal.economictimes.indiatimes.com/news/regulators/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132160041"
+                "name": "indianexpress.com",
+                "url": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494"
               }
             ],
             "impact": "Positive",
@@ -9299,13 +9327,13 @@
               },
               {
                 "kind": "News",
-                "name": "livemint.com",
-                "url": "https://www.livemint.com/insurance/rbi-general-insurers-oriental-united-india-national-insurance-solvency-ratio-11782992284462.html"
+                "name": "thehindubusinessline.com",
+                "url": "https://www.thehindubusinessline.com/money-and-banking/bima-sugam-to-go-live-by-september-end-irdai-chief/article71166098.ece"
               },
               {
                 "kind": "News",
-                "name": "moneycontrol.com",
-                "url": "https://www.moneycontrol.com/news/business/irdai-grants-final-r3-licence-to-prudential-hcl-health-insurance-venture-13963822.html"
+                "name": "livemint.com",
+                "url": "https://www.livemint.com/insurance/rbi-general-insurers-oriental-united-india-national-insurance-solvency-ratio-11782992284462.html"
               }
             ],
             "impact": "Positive",
@@ -9393,13 +9421,13 @@
               },
               {
                 "kind": "News",
-                "name": "livemint.com",
-                "url": "https://www.livemint.com/insurance/rbi-general-insurers-oriental-united-india-national-insurance-solvency-ratio-11782992284462.html"
+                "name": "thehindubusinessline.com",
+                "url": "https://www.thehindubusinessline.com/money-and-banking/bima-sugam-to-go-live-by-september-end-irdai-chief/article71166098.ece"
               },
               {
                 "kind": "News",
-                "name": "moneycontrol.com",
-                "url": "https://www.moneycontrol.com/news/business/irdai-grants-final-r3-licence-to-prudential-hcl-health-insurance-venture-13963822.html"
+                "name": "livemint.com",
+                "url": "https://www.livemint.com/insurance/rbi-general-insurers-oriental-united-india-national-insurance-solvency-ratio-11782992284462.html"
               }
             ],
             "impact": "Positive",
@@ -9506,7 +9534,21 @@
             }
           }
         ],
-        "events": [],
+        "events": [
+          {
+            "id": "f150384f0b",
+            "day": "8",
+            "month": "Jul",
+            "dateLabel": "8 Jul 2026",
+            "kindLabel": "Regulatory",
+            "title": "IRDAI signals distribution reform consultation paper by end-July",
+            "context": "Proposed distribution changes could alter commissions, channel mix and…",
+            "url": "https://www.thehindubusinessline.com/money-and-banking/bima-sugam-to-go-live-by-september-end-irdai-chief/article71166098.ece",
+            "whenLabel": "Active catalyst",
+            "isFirm": false,
+            "impact": "Watch"
+          }
+        ],
         "actions": [
           {
             "id": "ownership",
@@ -13566,10 +13608,10 @@
         "company": "Care Health",
         "companyId": "care-health",
         "generatedAt": "2026-07-10T05:56:50.463Z",
-        "lastUpdatedAt": "2026-07-10T09:20:19.720Z",
+        "lastUpdatedAt": "2026-07-10T12:21:31.069Z",
         "status": "Watch",
-        "sourceConfidence": "Low",
-        "itemCount": 56,
+        "sourceConfidence": "Medium",
+        "itemCount": 54,
         "runs": [
           {
             "runTime": "2026-07-10T05:56:50.463Z",
@@ -13584,19 +13626,26 @@
             "sourceCount": 58,
             "ideas": 6,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-07-10T12:21:31.069Z",
+            "developments": 58,
+            "sourceCount": 58,
+            "ideas": 6,
+            "status": "ok"
           }
         ],
         "brief": {
-          "greeting": "Good morning",
-          "narrative": "Regulatory pressure is the main watch item for health insurers today. Care Health is under pressure on premium growth and demand, but claims-cost and conduct scrutiny will decide whether the strength is sustainable.",
+          "greeting": "Good afternoon",
+          "narrative": "Regulatory pressure is the main watch item for health insurers today. Care Health is under pressure on premium growth and demand, but claims-cost and conduct scrutiny and regulatory deadlines will decide whether the strength is sustainable.",
           "attentionCount": 6,
-          "developmentsCount": 62,
+          "developmentsCount": 58,
           "sourcesCount": 58,
-          "domainsCount": 16,
-          "confidencePct": 67,
+          "domainsCount": 17,
+          "confidencePct": 69,
           "confidenceTier": "Medium",
           "readingMins": 4,
-          "lastUpdatedLabel": "10 Jul, 09:19 am"
+          "lastUpdatedLabel": "10 Jul, 12:20 pm"
         },
         "message": {
           "since": "No Care Health-specific movement since the last brief; one regulatory update moved into focus across the sector.",
@@ -13665,13 +13714,13 @@
               },
               {
                 "kind": "Regulatory",
-                "name": "legal.economictimes.indiatimes.com",
-                "url": "https://legal.economictimes.indiatimes.com/news/regulators/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132160041"
+                "name": "thehindubusinessline.com",
+                "url": "https://www.thehindubusinessline.com/money-and-banking/bima-sugam-to-go-live-by-september-end-irdai-chief/article71166098.ece"
               },
               {
                 "kind": "Regulatory",
-                "name": "bfsi.economictimes.indiatimes.com",
-                "url": "https://bfsi.economictimes.indiatimes.com/news/insurance/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132156228"
+                "name": "legal.economictimes.indiatimes.com",
+                "url": "https://legal.economictimes.indiatimes.com/news/regulators/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132160041"
               }
             ],
             "impact": "Risk",
@@ -13679,7 +13728,7 @@
             "companyId": null,
             "sourceUrl": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494",
             "sourceConfidence": "Medium",
-            "clusterSize": 9,
+            "clusterSize": 8,
             "clusterSources": [
               {
                 "kind": "Regulatory",
@@ -13769,13 +13818,13 @@
               },
               {
                 "kind": "Regulatory",
-                "name": "indianexpress.com",
-                "url": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494"
+                "name": "thehindubusinessline.com",
+                "url": "https://www.thehindubusinessline.com/money-and-banking/bima-sugam-to-go-live-by-september-end-irdai-chief/article71166098.ece"
               },
               {
                 "kind": "Regulatory",
-                "name": "legal.economictimes.indiatimes.com",
-                "url": "https://legal.economictimes.indiatimes.com/news/regulators/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132160041"
+                "name": "indianexpress.com",
+                "url": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494"
               }
             ],
             "impact": "Risk",
@@ -13783,7 +13832,7 @@
             "companyId": null,
             "sourceUrl": "https://economictimes.indiatimes.com/markets/stocks/news/prudential-hcl-health-insurance-gets-irdai-nod/articleshow/132126831.cms",
             "sourceConfidence": "Medium",
-            "clusterSize": 14,
+            "clusterSize": 13,
             "clusterSources": [
               {
                 "kind": "Regulatory",
@@ -13863,13 +13912,13 @@
               },
               {
                 "kind": "Regulatory",
-                "name": "indianexpress.com",
-                "url": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494"
+                "name": "thehindubusinessline.com",
+                "url": "https://www.thehindubusinessline.com/money-and-banking/bima-sugam-to-go-live-by-september-end-irdai-chief/article71166098.ece"
               },
               {
                 "kind": "Regulatory",
-                "name": "legal.economictimes.indiatimes.com",
-                "url": "https://legal.economictimes.indiatimes.com/news/regulators/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132160041"
+                "name": "indianexpress.com",
+                "url": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494"
               }
             ],
             "impact": "Positive",
@@ -13942,13 +13991,13 @@
               },
               {
                 "kind": "Regulatory",
-                "name": "indianexpress.com",
-                "url": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494"
+                "name": "thehindubusinessline.com",
+                "url": "https://www.thehindubusinessline.com/money-and-banking/bima-sugam-to-go-live-by-september-end-irdai-chief/article71166098.ece"
               },
               {
                 "kind": "Regulatory",
-                "name": "legal.economictimes.indiatimes.com",
-                "url": "https://legal.economictimes.indiatimes.com/news/regulators/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132160041"
+                "name": "indianexpress.com",
+                "url": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494"
               }
             ],
             "impact": "Positive",
@@ -14036,13 +14085,13 @@
               },
               {
                 "kind": "News",
-                "name": "livemint.com",
-                "url": "https://www.livemint.com/insurance/rbi-general-insurers-oriental-united-india-national-insurance-solvency-ratio-11782992284462.html"
+                "name": "thehindubusinessline.com",
+                "url": "https://www.thehindubusinessline.com/money-and-banking/bima-sugam-to-go-live-by-september-end-irdai-chief/article71166098.ece"
               },
               {
                 "kind": "News",
-                "name": "moneycontrol.com",
-                "url": "https://www.moneycontrol.com/news/business/irdai-grants-final-r3-licence-to-prudential-hcl-health-insurance-venture-13963822.html"
+                "name": "livemint.com",
+                "url": "https://www.livemint.com/insurance/rbi-general-insurers-oriental-united-india-national-insurance-solvency-ratio-11782992284462.html"
               }
             ],
             "impact": "Positive",
@@ -14130,13 +14179,13 @@
               },
               {
                 "kind": "News",
-                "name": "livemint.com",
-                "url": "https://www.livemint.com/insurance/rbi-general-insurers-oriental-united-india-national-insurance-solvency-ratio-11782992284462.html"
+                "name": "thehindubusinessline.com",
+                "url": "https://www.thehindubusinessline.com/money-and-banking/bima-sugam-to-go-live-by-september-end-irdai-chief/article71166098.ece"
               },
               {
                 "kind": "News",
-                "name": "moneycontrol.com",
-                "url": "https://www.moneycontrol.com/news/business/irdai-grants-final-r3-licence-to-prudential-hcl-health-insurance-venture-13963822.html"
+                "name": "livemint.com",
+                "url": "https://www.livemint.com/insurance/rbi-general-insurers-oriental-united-india-national-insurance-solvency-ratio-11782992284462.html"
               }
             ],
             "impact": "Positive",
@@ -14243,7 +14292,21 @@
             }
           }
         ],
-        "events": [],
+        "events": [
+          {
+            "id": "f150384f0b",
+            "day": "8",
+            "month": "Jul",
+            "dateLabel": "8 Jul 2026",
+            "kindLabel": "Regulatory",
+            "title": "IRDAI signals distribution reform consultation paper by end-July",
+            "context": "Proposed distribution changes could alter commissions, channel mix and…",
+            "url": "https://www.thehindubusinessline.com/money-and-banking/bima-sugam-to-go-live-by-september-end-irdai-chief/article71166098.ece",
+            "whenLabel": "Active catalyst",
+            "isFirm": false,
+            "impact": "Watch"
+          }
+        ],
         "actions": [
           {
             "id": "ownership",
@@ -18359,10 +18422,10 @@
         "company": "Aditya Birla",
         "companyId": "aditya-birla",
         "generatedAt": "2026-07-10T05:56:50.463Z",
-        "lastUpdatedAt": "2026-07-10T09:20:19.720Z",
+        "lastUpdatedAt": "2026-07-10T12:21:31.069Z",
         "status": "Watch",
-        "sourceConfidence": "Low",
-        "itemCount": 56,
+        "sourceConfidence": "Medium",
+        "itemCount": 54,
         "runs": [
           {
             "runTime": "2026-07-10T05:56:50.463Z",
@@ -18377,19 +18440,26 @@
             "sourceCount": 58,
             "ideas": 6,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-07-10T12:21:31.069Z",
+            "developments": 59,
+            "sourceCount": 58,
+            "ideas": 6,
+            "status": "ok"
           }
         ],
         "brief": {
-          "greeting": "Good morning",
-          "narrative": "Regulatory pressure is the main watch item for health insurers today. Aditya Birla is under pressure on premium growth and demand, but claims-cost and conduct scrutiny will decide whether the strength is sustainable.",
+          "greeting": "Good afternoon",
+          "narrative": "Regulatory pressure is the main watch item for health insurers today. Aditya Birla is under pressure on premium growth and demand, but claims-cost and conduct scrutiny and regulatory deadlines will decide whether the strength is sustainable.",
           "attentionCount": 6,
           "developmentsCount": 59,
           "sourcesCount": 58,
-          "domainsCount": 16,
-          "confidencePct": 67,
+          "domainsCount": 17,
+          "confidencePct": 69,
           "confidenceTier": "Medium",
           "readingMins": 3,
-          "lastUpdatedLabel": "10 Jul, 09:19 am"
+          "lastUpdatedLabel": "10 Jul, 12:20 pm"
         },
         "message": {
           "since": "No Aditya Birla-specific movement since the last brief; one regulatory update moved into focus across the sector.",
@@ -18458,13 +18528,13 @@
               },
               {
                 "kind": "Regulatory",
-                "name": "legal.economictimes.indiatimes.com",
-                "url": "https://legal.economictimes.indiatimes.com/news/regulators/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132160041"
+                "name": "thehindubusinessline.com",
+                "url": "https://www.thehindubusinessline.com/money-and-banking/bima-sugam-to-go-live-by-september-end-irdai-chief/article71166098.ece"
               },
               {
                 "kind": "Regulatory",
-                "name": "bfsi.economictimes.indiatimes.com",
-                "url": "https://bfsi.economictimes.indiatimes.com/news/insurance/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132156228"
+                "name": "legal.economictimes.indiatimes.com",
+                "url": "https://legal.economictimes.indiatimes.com/news/regulators/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132160041"
               }
             ],
             "impact": "Risk",
@@ -18472,7 +18542,7 @@
             "companyId": null,
             "sourceUrl": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494",
             "sourceConfidence": "Medium",
-            "clusterSize": 9,
+            "clusterSize": 8,
             "clusterSources": [
               {
                 "kind": "Regulatory",
@@ -18562,13 +18632,13 @@
               },
               {
                 "kind": "Regulatory",
-                "name": "indianexpress.com",
-                "url": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494"
+                "name": "thehindubusinessline.com",
+                "url": "https://www.thehindubusinessline.com/money-and-banking/bima-sugam-to-go-live-by-september-end-irdai-chief/article71166098.ece"
               },
               {
                 "kind": "Regulatory",
-                "name": "legal.economictimes.indiatimes.com",
-                "url": "https://legal.economictimes.indiatimes.com/news/regulators/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132160041"
+                "name": "indianexpress.com",
+                "url": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494"
               }
             ],
             "impact": "Risk",
@@ -18576,7 +18646,7 @@
             "companyId": null,
             "sourceUrl": "https://economictimes.indiatimes.com/markets/stocks/news/prudential-hcl-health-insurance-gets-irdai-nod/articleshow/132126831.cms",
             "sourceConfidence": "Medium",
-            "clusterSize": 14,
+            "clusterSize": 13,
             "clusterSources": [
               {
                 "kind": "Regulatory",
@@ -18656,13 +18726,13 @@
               },
               {
                 "kind": "Regulatory",
-                "name": "indianexpress.com",
-                "url": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494"
+                "name": "thehindubusinessline.com",
+                "url": "https://www.thehindubusinessline.com/money-and-banking/bima-sugam-to-go-live-by-september-end-irdai-chief/article71166098.ece"
               },
               {
                 "kind": "Regulatory",
-                "name": "legal.economictimes.indiatimes.com",
-                "url": "https://legal.economictimes.indiatimes.com/news/regulators/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132160041"
+                "name": "indianexpress.com",
+                "url": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494"
               }
             ],
             "impact": "Positive",
@@ -18735,13 +18805,13 @@
               },
               {
                 "kind": "Regulatory",
-                "name": "indianexpress.com",
-                "url": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494"
+                "name": "thehindubusinessline.com",
+                "url": "https://www.thehindubusinessline.com/money-and-banking/bima-sugam-to-go-live-by-september-end-irdai-chief/article71166098.ece"
               },
               {
                 "kind": "Regulatory",
-                "name": "legal.economictimes.indiatimes.com",
-                "url": "https://legal.economictimes.indiatimes.com/news/regulators/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132160041"
+                "name": "indianexpress.com",
+                "url": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494"
               }
             ],
             "impact": "Positive",
@@ -18829,13 +18899,13 @@
               },
               {
                 "kind": "News",
-                "name": "livemint.com",
-                "url": "https://www.livemint.com/insurance/rbi-general-insurers-oriental-united-india-national-insurance-solvency-ratio-11782992284462.html"
+                "name": "thehindubusinessline.com",
+                "url": "https://www.thehindubusinessline.com/money-and-banking/bima-sugam-to-go-live-by-september-end-irdai-chief/article71166098.ece"
               },
               {
                 "kind": "News",
-                "name": "moneycontrol.com",
-                "url": "https://www.moneycontrol.com/news/business/irdai-grants-final-r3-licence-to-prudential-hcl-health-insurance-venture-13963822.html"
+                "name": "livemint.com",
+                "url": "https://www.livemint.com/insurance/rbi-general-insurers-oriental-united-india-national-insurance-solvency-ratio-11782992284462.html"
               }
             ],
             "impact": "Positive",
@@ -18923,13 +18993,13 @@
               },
               {
                 "kind": "News",
-                "name": "livemint.com",
-                "url": "https://www.livemint.com/insurance/rbi-general-insurers-oriental-united-india-national-insurance-solvency-ratio-11782992284462.html"
+                "name": "thehindubusinessline.com",
+                "url": "https://www.thehindubusinessline.com/money-and-banking/bima-sugam-to-go-live-by-september-end-irdai-chief/article71166098.ece"
               },
               {
                 "kind": "News",
-                "name": "moneycontrol.com",
-                "url": "https://www.moneycontrol.com/news/business/irdai-grants-final-r3-licence-to-prudential-hcl-health-insurance-venture-13963822.html"
+                "name": "livemint.com",
+                "url": "https://www.livemint.com/insurance/rbi-general-insurers-oriental-united-india-national-insurance-solvency-ratio-11782992284462.html"
               }
             ],
             "impact": "Positive",
@@ -19036,7 +19106,21 @@
             }
           }
         ],
-        "events": [],
+        "events": [
+          {
+            "id": "f150384f0b",
+            "day": "8",
+            "month": "Jul",
+            "dateLabel": "8 Jul 2026",
+            "kindLabel": "Regulatory",
+            "title": "IRDAI signals distribution reform consultation paper by end-July",
+            "context": "Proposed distribution changes could alter commissions, channel mix and…",
+            "url": "https://www.thehindubusinessline.com/money-and-banking/bima-sugam-to-go-live-by-september-end-irdai-chief/article71166098.ece",
+            "whenLabel": "Active catalyst",
+            "isFirm": false,
+            "impact": "Watch"
+          }
+        ],
         "actions": [
           {
             "id": "ownership",
@@ -23096,10 +23180,10 @@
         "company": "ManipalCigna",
         "companyId": "manipalcigna",
         "generatedAt": "2026-07-10T05:56:50.463Z",
-        "lastUpdatedAt": "2026-07-10T09:20:19.720Z",
+        "lastUpdatedAt": "2026-07-10T12:21:31.069Z",
         "status": "Watch",
-        "sourceConfidence": "Low",
-        "itemCount": 56,
+        "sourceConfidence": "Medium",
+        "itemCount": 54,
         "runs": [
           {
             "runTime": "2026-07-10T05:56:50.463Z",
@@ -23114,19 +23198,26 @@
             "sourceCount": 58,
             "ideas": 6,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-07-10T12:21:31.069Z",
+            "developments": 61,
+            "sourceCount": 58,
+            "ideas": 6,
+            "status": "ok"
           }
         ],
         "brief": {
-          "greeting": "Good morning",
-          "narrative": "Regulatory pressure is the main watch item for health insurers today. ManipalCigna is under pressure on premium growth and demand, but claims-cost and conduct scrutiny will decide whether the strength is sustainable.",
+          "greeting": "Good afternoon",
+          "narrative": "Regulatory pressure is the main watch item for health insurers today. ManipalCigna is under pressure on premium growth and demand, but claims-cost and conduct scrutiny and regulatory deadlines will decide whether the strength is sustainable.",
           "attentionCount": 6,
-          "developmentsCount": 65,
+          "developmentsCount": 61,
           "sourcesCount": 58,
-          "domainsCount": 16,
-          "confidencePct": 67,
+          "domainsCount": 17,
+          "confidencePct": 69,
           "confidenceTier": "Medium",
           "readingMins": 3,
-          "lastUpdatedLabel": "10 Jul, 09:19 am"
+          "lastUpdatedLabel": "10 Jul, 12:20 pm"
         },
         "message": {
           "since": "No ManipalCigna-specific movement since the last brief; one regulatory update moved into focus across the sector.",
@@ -23195,13 +23286,13 @@
               },
               {
                 "kind": "Regulatory",
-                "name": "legal.economictimes.indiatimes.com",
-                "url": "https://legal.economictimes.indiatimes.com/news/regulators/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132160041"
+                "name": "thehindubusinessline.com",
+                "url": "https://www.thehindubusinessline.com/money-and-banking/bima-sugam-to-go-live-by-september-end-irdai-chief/article71166098.ece"
               },
               {
                 "kind": "Regulatory",
-                "name": "bfsi.economictimes.indiatimes.com",
-                "url": "https://bfsi.economictimes.indiatimes.com/news/insurance/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132156228"
+                "name": "legal.economictimes.indiatimes.com",
+                "url": "https://legal.economictimes.indiatimes.com/news/regulators/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132160041"
               }
             ],
             "impact": "Risk",
@@ -23209,7 +23300,7 @@
             "companyId": null,
             "sourceUrl": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494",
             "sourceConfidence": "Medium",
-            "clusterSize": 9,
+            "clusterSize": 8,
             "clusterSources": [
               {
                 "kind": "Regulatory",
@@ -23299,13 +23390,13 @@
               },
               {
                 "kind": "Regulatory",
-                "name": "indianexpress.com",
-                "url": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494"
+                "name": "thehindubusinessline.com",
+                "url": "https://www.thehindubusinessline.com/money-and-banking/bima-sugam-to-go-live-by-september-end-irdai-chief/article71166098.ece"
               },
               {
                 "kind": "Regulatory",
-                "name": "legal.economictimes.indiatimes.com",
-                "url": "https://legal.economictimes.indiatimes.com/news/regulators/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132160041"
+                "name": "indianexpress.com",
+                "url": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494"
               }
             ],
             "impact": "Risk",
@@ -23313,7 +23404,7 @@
             "companyId": null,
             "sourceUrl": "https://economictimes.indiatimes.com/markets/stocks/news/prudential-hcl-health-insurance-gets-irdai-nod/articleshow/132126831.cms",
             "sourceConfidence": "Medium",
-            "clusterSize": 14,
+            "clusterSize": 13,
             "clusterSources": [
               {
                 "kind": "Regulatory",
@@ -23393,13 +23484,13 @@
               },
               {
                 "kind": "Regulatory",
-                "name": "indianexpress.com",
-                "url": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494"
+                "name": "thehindubusinessline.com",
+                "url": "https://www.thehindubusinessline.com/money-and-banking/bima-sugam-to-go-live-by-september-end-irdai-chief/article71166098.ece"
               },
               {
                 "kind": "Regulatory",
-                "name": "legal.economictimes.indiatimes.com",
-                "url": "https://legal.economictimes.indiatimes.com/news/regulators/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132160041"
+                "name": "indianexpress.com",
+                "url": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494"
               }
             ],
             "impact": "Positive",
@@ -23472,13 +23563,13 @@
               },
               {
                 "kind": "Regulatory",
-                "name": "indianexpress.com",
-                "url": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494"
+                "name": "thehindubusinessline.com",
+                "url": "https://www.thehindubusinessline.com/money-and-banking/bima-sugam-to-go-live-by-september-end-irdai-chief/article71166098.ece"
               },
               {
                 "kind": "Regulatory",
-                "name": "legal.economictimes.indiatimes.com",
-                "url": "https://legal.economictimes.indiatimes.com/news/regulators/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132160041"
+                "name": "indianexpress.com",
+                "url": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494"
               }
             ],
             "impact": "Positive",
@@ -23566,13 +23657,13 @@
               },
               {
                 "kind": "News",
-                "name": "livemint.com",
-                "url": "https://www.livemint.com/insurance/rbi-general-insurers-oriental-united-india-national-insurance-solvency-ratio-11782992284462.html"
+                "name": "thehindubusinessline.com",
+                "url": "https://www.thehindubusinessline.com/money-and-banking/bima-sugam-to-go-live-by-september-end-irdai-chief/article71166098.ece"
               },
               {
                 "kind": "News",
-                "name": "moneycontrol.com",
-                "url": "https://www.moneycontrol.com/news/business/irdai-grants-final-r3-licence-to-prudential-hcl-health-insurance-venture-13963822.html"
+                "name": "livemint.com",
+                "url": "https://www.livemint.com/insurance/rbi-general-insurers-oriental-united-india-national-insurance-solvency-ratio-11782992284462.html"
               }
             ],
             "impact": "Positive",
@@ -23660,13 +23751,13 @@
               },
               {
                 "kind": "News",
-                "name": "livemint.com",
-                "url": "https://www.livemint.com/insurance/rbi-general-insurers-oriental-united-india-national-insurance-solvency-ratio-11782992284462.html"
+                "name": "thehindubusinessline.com",
+                "url": "https://www.thehindubusinessline.com/money-and-banking/bima-sugam-to-go-live-by-september-end-irdai-chief/article71166098.ece"
               },
               {
                 "kind": "News",
-                "name": "moneycontrol.com",
-                "url": "https://www.moneycontrol.com/news/business/irdai-grants-final-r3-licence-to-prudential-hcl-health-insurance-venture-13963822.html"
+                "name": "livemint.com",
+                "url": "https://www.livemint.com/insurance/rbi-general-insurers-oriental-united-india-national-insurance-solvency-ratio-11782992284462.html"
               }
             ],
             "impact": "Positive",
@@ -23773,7 +23864,21 @@
             }
           }
         ],
-        "events": [],
+        "events": [
+          {
+            "id": "f150384f0b",
+            "day": "8",
+            "month": "Jul",
+            "dateLabel": "8 Jul 2026",
+            "kindLabel": "Regulatory",
+            "title": "IRDAI signals distribution reform consultation paper by end-July",
+            "context": "Proposed distribution changes could alter commissions, channel mix and…",
+            "url": "https://www.thehindubusinessline.com/money-and-banking/bima-sugam-to-go-live-by-september-end-irdai-chief/article71166098.ece",
+            "whenLabel": "Active catalyst",
+            "isFirm": false,
+            "impact": "Watch"
+          }
+        ],
         "actions": [
           {
             "id": "ownership",
@@ -23850,6 +23955,6 @@
     "snapshot_id": "pulse-brief-archive",
     "description": "Immutable per-calendar-day Pulse brief records (IST), one per company. Past days are frozen exactly as shown that day; the live Today view recomposes. Kept ~90 days per company.",
     "last_updated": "2026-07-10",
-    "last_successful_run": "2026-07-10T09:20:19.720Z"
+    "last_successful_run": "2026-07-10T12:21:31.069Z"
   }
 }
