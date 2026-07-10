@@ -4,18 +4,54 @@
     "description": "Exchange-reported BULK and BLOCK deals per LISTED insurer (date, client, buy/sell side, quantity, price), from the NSE/BSE bulk & block deal disclosures (the authentic source; aggregated by Screener). Drives the Bulk / Block Deal Timeline on the Governance tab. Listed names only; missing = no deal on record, never fabricated.",
     "schema_version": "1.0.0",
     "dataset": "official",
-    "last_updated": "2026-06-19",
+    "last_updated": "2026-07-10",
     "refresh_cadence": "daily/weekly — NSE & BSE publish bulk and block deals each trading day. The agent pulls the latest deals per listed insurer and appends new ones (add-only, de-duped by date+client+side+qty).",
     "source": {
       "source_name": "NSE / BSE bulk & block deals (via Screener)",
       "source_url": "https://www.nseindia.com/get-quotes/equity?symbol=NIVABUPA",
       "aggregator_url": "https://www.screener.in/company/NIVABUPA/#shareholding"
     },
-    "last_successful_run": "2026-07-09T17:58:02.462Z",
+    "last_successful_run": "2026-07-10T17:49:12.325Z",
     "notes": "Quantity in shares; price in Rs/share. side = buy | sell. deal_kind = bulk | block.",
     "moneycontrol_checked": true
   },
   "data": [
+    {
+      "company_id": "niva-bupa",
+      "deal_kind": "block",
+      "date": "2026-06-15",
+      "client": "KRISHNAN RAMACHANDRAN",
+      "side": "sell",
+      "quantity": 4000000,
+      "price": 83
+    },
+    {
+      "company_id": "niva-bupa",
+      "deal_kind": "block",
+      "date": "2026-06-15",
+      "client": "HSBC GLOBAL INVESTMENT FUNDS INDIAN EQUITY",
+      "side": "buy",
+      "quantity": 2135355,
+      "price": 83
+    },
+    {
+      "company_id": "niva-bupa",
+      "deal_kind": "block",
+      "date": "2026-06-15",
+      "client": "HSBC INDIEN",
+      "side": "buy",
+      "quantity": 1313743,
+      "price": 83
+    },
+    {
+      "company_id": "niva-bupa",
+      "deal_kind": "block",
+      "date": "2026-06-15",
+      "client": "HSBC INDIAN EQUITY MOTHER FUND",
+      "side": "buy",
+      "quantity": 550902,
+      "price": 83
+    },
     {
       "company_id": "star-health",
       "deal_kind": "bulk",
