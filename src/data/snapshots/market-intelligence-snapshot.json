@@ -5,7 +5,7 @@
     "schema_version": "1.0.0",
     "dataset": "ai_generated",
     "last_updated": "2026-07-10",
-    "last_successful_run": "2026-07-10T05:55:44.792Z",
+    "last_successful_run": "2026-07-10T09:19:20.154Z",
     "upstream_sources": [
       "muns_agent_web"
     ],
@@ -116,6 +116,21 @@
       "source_published_at": "2026-06-17",
       "first_seen": "2026-07-09T16:22:46.308Z",
       "discovered_at": "2026-07-09T16:22:46.308Z"
+    },
+    {
+      "id": "5440c51d35",
+      "company_id": "sector",
+      "date": "2026-07-08",
+      "kind": "catalyst",
+      "horizon": "recent",
+      "impact": "watch",
+      "headline": "LIC reportedly preparing to acquire 40-49% stake in ManipalCigna",
+      "detail": "A strategic stake sale or capital infusion into ManipalCigna could intensify competition and reshape ownership dynamics in standalone health insurance.",
+      "source_name": "economictimes.indiatimes.com",
+      "source_url": "https://economictimes.indiatimes.com/topic/manipalcigna",
+      "source_published_at": null,
+      "first_seen": "2026-07-10T09:19:20.154Z",
+      "discovered_at": "2026-07-10T09:19:20.154Z"
     },
     {
       "id": "23fb9e20b0",
@@ -307,6 +322,21 @@
       "source_published_at": null,
       "first_seen": "2026-07-10T05:55:44.792Z",
       "discovered_at": "2026-07-10T05:55:44.792Z"
+    },
+    {
+      "id": "50c4a6f00f",
+      "company_id": "sector",
+      "date": "2026-07-03",
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "positive",
+      "headline": "Health insurers lead June non-life premium growth",
+      "detail": "Strong June premium growth indicates category demand remains healthy for standalone health insurers, supporting sentiment on growth visibility even if underwriting discipline remains key.",
+      "source_name": "bfsi.economictimes.indiatimes.com",
+      "source_url": "https://bfsi.economictimes.indiatimes.com/articles/general-insurance-premiums-soar-16-in-june-with-health-insurers-leading-growth-yes-securities-report/132283360",
+      "source_published_at": "2026-07-03",
+      "first_seen": "2026-07-10T09:19:20.154Z",
+      "discovered_at": "2026-07-10T09:19:20.154Z"
     },
     {
       "id": "c575ebb3dd",
@@ -638,6 +668,36 @@
       "discovered_at": "2026-07-09T16:22:46.308Z"
     },
     {
+      "id": "6c4a22b1cc",
+      "company_id": "sector",
+      "date": "2026-06-30",
+      "kind": "catalyst",
+      "horizon": "recent",
+      "impact": "positive",
+      "headline": "Aditya Birla Health says wellness incentives are helping claims ratio and profitability",
+      "detail": "Evidence that wellness-linked engagement can improve claims and profitability is an important sector signal on margin levers beyond pricing.",
+      "source_name": "livemint.com",
+      "source_url": "https://www.livemint.com/companies/aditya-birla-health-wellness-incentives-claims-ratio-profitability-customer-engagement/amp-11778595636571.html",
+      "source_published_at": null,
+      "first_seen": "2026-07-10T09:19:20.154Z",
+      "discovered_at": "2026-07-10T09:19:20.154Z"
+    },
+    {
+      "id": "02166bfc09",
+      "company_id": "sector",
+      "date": "2026-06-30",
+      "kind": "catalyst",
+      "horizon": "recent",
+      "impact": "watch",
+      "headline": "Aditya Birla Health pushes preventive-health model to improve claims economics",
+      "detail": "CEO Mayank Bathwal’s remarks matter because lower claims ratio and better wellness-led retention would raise competitive pressure on standalone health insurers.",
+      "source_name": "moneycontrol.com",
+      "source_url": "https://www.moneycontrol.com/banking/health-insurance-moving-from-hospitalization-cover-to-preventive-healthcare-aditya-birla-health-ceo-article-13929893.html",
+      "source_published_at": null,
+      "first_seen": "2026-07-10T09:19:20.154Z",
+      "discovered_at": "2026-07-10T09:19:20.154Z"
+    },
+    {
       "id": "0855aa1650",
       "company_id": "sector",
       "date": "2026-06-29",
@@ -804,62 +864,6 @@
       "source_published_at": null,
       "first_seen": "2026-07-05T08:43:25.282Z",
       "discovered_at": "2026-07-05T08:43:25.282Z"
-    },
-    {
-      "id": "2806e8f09f",
-      "company_id": "sector",
-      "date": "2026-06-27",
-      "kind": "sector_news",
-      "horizon": "recent",
-      "impact": "watch",
-      "headline": "Motor third-party premium hike under government review after IRDAI proposal",
-      "detail": "Though motor-focused, any tariff action signals broader non-life pricing discipline and capital/profitability conditions that influence investor sentiment toward general and health insurers.",
-      "source_name": "moneycontrol.com",
-      "source_url": "https://www.moneycontrol.com/banking/govt-reviews-18-hike-in-motor-tp-premiums-amid-widening-losses-and-years-of-tariff-freeze-article-13107561.html",
-      "source_published_at": null,
-      "first_seen": "2026-07-05T15:06:16.710Z",
-      "discovered_at": "2026-07-05T15:06:16.710Z"
-    },
-    {
-      "id": "060b05fa3a",
-      "company_id": "sector",
-      "date": "2026-06-27",
-      "kind": "sector_news",
-      "horizon": "recent",
-      "impact": "watch",
-      "headline": "Significant hike in motor third-party premiums expected soon",
-      "detail": "A sector-wide move to restore loss-making non-life lines would be read as supportive for industry underwriting discipline, even if health insurers benefit only indirectly.",
-      "source_name": "bfsi.economictimes.indiatimes.com",
-      "source_url": "https://bfsi.economictimes.indiatimes.com/articles/significant-hike-in-third-party-motor-insurance-premiums-expected-soon/122123110",
-      "source_published_at": null,
-      "first_seen": "2026-07-05T15:06:16.710Z",
-      "discovered_at": "2026-07-05T15:06:16.710Z"
-    },
-    {
-      "id": "6851b32f81",
-      "company_id": "sector",
-      "date": "2026-06-26",
-      "kind": "regulatory",
-      "horizon": "recent",
-      "impact": "negative",
-      "headline": "IRDAI grants final licence to Prudential-HCL health insurer",
-      "detail": "A new standalone health insurer raises competitive intensity in pricing, distribution and hiring, which matters for incumbents such as Niva Bupa, Star Health, Care and ManipalCigna.",
-      "source_name": "moneycontrol.com",
-      "source_url": "https://www.moneycontrol.com/news/business/irdai-grants-final-r3-licence-to-prudential-hcl-health-insurance-venture-13963822.html",
-      "first_seen": "2026-07-04T05:38:27.228Z"
-    },
-    {
-      "id": "4adf317004",
-      "company_id": "sector",
-      "date": "2026-06-26",
-      "kind": "rating",
-      "horizon": "recent",
-      "impact": "watch",
-      "headline": "MOFSL upgrades tone on Star Health with ₹700 target",
-      "detail": "Star Health is Niva Bupa’s closest listed standalone health-insurance comp, so a positive re-rating on underwriting recovery and price hikes helps benchmark sector multiples and competitive expectations.",
-      "source_name": "moneycontrol.com",
-      "source_url": "https://www.moneycontrol.com/news/business/stocks/buy-star-health-target-of-rs-700-motilal-oswal-13959277.html",
-      "first_seen": "2026-07-04T08:24:33.011Z"
     }
   ]
 }

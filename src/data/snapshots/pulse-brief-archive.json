@@ -4091,13 +4091,20 @@
         "company": "Niva Bupa",
         "companyId": "niva-bupa",
         "generatedAt": "2026-07-10T05:56:50.463Z",
-        "lastUpdatedAt": "2026-07-10T05:56:50.463Z",
+        "lastUpdatedAt": "2026-07-10T09:20:19.720Z",
         "status": "Watch",
         "sourceConfidence": "Low",
         "itemCount": 58,
         "runs": [
           {
             "runTime": "2026-07-10T05:56:50.463Z",
+            "developments": 60,
+            "sourceCount": 60,
+            "ideas": 6,
+            "status": "ok"
+          },
+          {
+            "runTime": "2026-07-10T09:20:19.720Z",
             "developments": 60,
             "sourceCount": 60,
             "ideas": 6,
@@ -4111,10 +4118,10 @@
           "developmentsCount": 60,
           "sourcesCount": 60,
           "domainsCount": 18,
-          "confidencePct": 66,
+          "confidencePct": 67,
           "confidenceTier": "Medium",
           "readingMins": 3,
-          "lastUpdatedLabel": "10 Jul, 05:55 am"
+          "lastUpdatedLabel": "10 Jul, 09:19 am"
         },
         "message": {
           "since": "No Niva Bupa-specific movement since the last brief; one regulatory update moved into focus across the sector.",
@@ -4389,7 +4396,7 @@
             "companyId": null,
             "sourceUrl": "https://economictimes.indiatimes.com/markets/stocks/news/prudential-hcl-health-insurance-gets-irdai-nod/articleshow/132126831.cms",
             "sourceConfidence": "Medium",
-            "clusterSize": 15,
+            "clusterSize": 14,
             "clusterSources": [
               {
                 "kind": "Regulatory",
@@ -4637,6 +4644,11 @@
               },
               {
                 "kind": "News",
+                "name": "economictimes.indiatimes.com",
+                "url": "https://economictimes.indiatimes.com/topic/manipalcigna"
+              },
+              {
+                "kind": "News",
                 "name": "livemint.com",
                 "url": "https://www.livemint.com/insurance/rbi-general-insurers-oriental-united-india-national-insurance-solvency-ratio-11782992284462.html"
               },
@@ -4644,11 +4656,6 @@
                 "kind": "News",
                 "name": "moneycontrol.com",
                 "url": "https://www.moneycontrol.com/news/business/irdai-grants-final-r3-licence-to-prudential-hcl-health-insurance-venture-13963822.html"
-              },
-              {
-                "kind": "News",
-                "name": "economictimes.indiatimes.com",
-                "url": "https://economictimes.indiatimes.com/markets/stocks/news/prudential-hcl-health-insurance-gets-irdai-nod/articleshow/132126831.cms"
               }
             ],
             "impact": "Positive",
@@ -8822,13 +8829,20 @@
         "company": "Star Health",
         "companyId": "star-health",
         "generatedAt": "2026-07-10T05:56:50.463Z",
-        "lastUpdatedAt": "2026-07-10T05:56:50.463Z",
+        "lastUpdatedAt": "2026-07-10T09:20:19.720Z",
         "status": "Watch",
         "sourceConfidence": "Low",
         "itemCount": 56,
         "runs": [
           {
             "runTime": "2026-07-10T05:56:50.463Z",
+            "developments": 58,
+            "sourceCount": 58,
+            "ideas": 6,
+            "status": "ok"
+          },
+          {
+            "runTime": "2026-07-10T09:20:19.720Z",
             "developments": 58,
             "sourceCount": 58,
             "ideas": 6,
@@ -8842,10 +8856,10 @@
           "developmentsCount": 58,
           "sourcesCount": 58,
           "domainsCount": 16,
-          "confidencePct": 66,
+          "confidencePct": 67,
           "confidenceTier": "Medium",
           "readingMins": 3,
-          "lastUpdatedLabel": "10 Jul, 05:55 am"
+          "lastUpdatedLabel": "10 Jul, 09:19 am"
         },
         "message": {
           "since": "No Star Health-specific movement since the last brief; one regulatory update moved into focus across the sector.",
@@ -9032,7 +9046,7 @@
             "companyId": null,
             "sourceUrl": "https://economictimes.indiatimes.com/markets/stocks/news/prudential-hcl-health-insurance-gets-irdai-nod/articleshow/132126831.cms",
             "sourceConfidence": "Medium",
-            "clusterSize": 15,
+            "clusterSize": 14,
             "clusterSources": [
               {
                 "kind": "Regulatory",
@@ -9280,6 +9294,11 @@
               },
               {
                 "kind": "News",
+                "name": "economictimes.indiatimes.com",
+                "url": "https://economictimes.indiatimes.com/topic/manipalcigna"
+              },
+              {
+                "kind": "News",
                 "name": "livemint.com",
                 "url": "https://www.livemint.com/insurance/rbi-general-insurers-oriental-united-india-national-insurance-solvency-ratio-11782992284462.html"
               },
@@ -9287,11 +9306,6 @@
                 "kind": "News",
                 "name": "moneycontrol.com",
                 "url": "https://www.moneycontrol.com/news/business/irdai-grants-final-r3-licence-to-prudential-hcl-health-insurance-venture-13963822.html"
-              },
-              {
-                "kind": "News",
-                "name": "economictimes.indiatimes.com",
-                "url": "https://economictimes.indiatimes.com/markets/stocks/news/prudential-hcl-health-insurance-gets-irdai-nod/articleshow/132126831.cms"
               }
             ],
             "impact": "Positive",
@@ -9374,6 +9388,11 @@
               },
               {
                 "kind": "News",
+                "name": "economictimes.indiatimes.com",
+                "url": "https://economictimes.indiatimes.com/topic/manipalcigna"
+              },
+              {
+                "kind": "News",
                 "name": "livemint.com",
                 "url": "https://www.livemint.com/insurance/rbi-general-insurers-oriental-united-india-national-insurance-solvency-ratio-11782992284462.html"
               },
@@ -9381,11 +9400,6 @@
                 "kind": "News",
                 "name": "moneycontrol.com",
                 "url": "https://www.moneycontrol.com/news/business/irdai-grants-final-r3-licence-to-prudential-hcl-health-insurance-venture-13963822.html"
-              },
-              {
-                "kind": "News",
-                "name": "economictimes.indiatimes.com",
-                "url": "https://economictimes.indiatimes.com/markets/stocks/news/prudential-hcl-health-insurance-gets-irdai-nod/articleshow/132126831.cms"
               }
             ],
             "impact": "Positive",
@@ -9393,7 +9407,7 @@
             "companyId": null,
             "sourceUrl": "https://bfsi.economictimes.indiatimes.com/articles/general-insurance-premiums-soar-16-in-june-with-health-insurers-leading-growth-yes-securities-report/132283360",
             "sourceConfidence": "Medium",
-            "clusterSize": 1,
+            "clusterSize": 3,
             "clusterSources": [
               {
                 "kind": "News",
@@ -13552,13 +13566,20 @@
         "company": "Care Health",
         "companyId": "care-health",
         "generatedAt": "2026-07-10T05:56:50.463Z",
-        "lastUpdatedAt": "2026-07-10T05:56:50.463Z",
+        "lastUpdatedAt": "2026-07-10T09:20:19.720Z",
         "status": "Watch",
         "sourceConfidence": "Low",
         "itemCount": 56,
         "runs": [
           {
             "runTime": "2026-07-10T05:56:50.463Z",
+            "developments": 62,
+            "sourceCount": 58,
+            "ideas": 6,
+            "status": "ok"
+          },
+          {
+            "runTime": "2026-07-10T09:20:19.720Z",
             "developments": 62,
             "sourceCount": 58,
             "ideas": 6,
@@ -13572,10 +13593,10 @@
           "developmentsCount": 62,
           "sourcesCount": 58,
           "domainsCount": 16,
-          "confidencePct": 66,
+          "confidencePct": 67,
           "confidenceTier": "Medium",
           "readingMins": 4,
-          "lastUpdatedLabel": "10 Jul, 05:55 am"
+          "lastUpdatedLabel": "10 Jul, 09:19 am"
         },
         "message": {
           "since": "No Care Health-specific movement since the last brief; one regulatory update moved into focus across the sector.",
@@ -13762,7 +13783,7 @@
             "companyId": null,
             "sourceUrl": "https://economictimes.indiatimes.com/markets/stocks/news/prudential-hcl-health-insurance-gets-irdai-nod/articleshow/132126831.cms",
             "sourceConfidence": "Medium",
-            "clusterSize": 15,
+            "clusterSize": 14,
             "clusterSources": [
               {
                 "kind": "Regulatory",
@@ -14010,6 +14031,11 @@
               },
               {
                 "kind": "News",
+                "name": "economictimes.indiatimes.com",
+                "url": "https://economictimes.indiatimes.com/topic/manipalcigna"
+              },
+              {
+                "kind": "News",
                 "name": "livemint.com",
                 "url": "https://www.livemint.com/insurance/rbi-general-insurers-oriental-united-india-national-insurance-solvency-ratio-11782992284462.html"
               },
@@ -14017,11 +14043,6 @@
                 "kind": "News",
                 "name": "moneycontrol.com",
                 "url": "https://www.moneycontrol.com/news/business/irdai-grants-final-r3-licence-to-prudential-hcl-health-insurance-venture-13963822.html"
-              },
-              {
-                "kind": "News",
-                "name": "economictimes.indiatimes.com",
-                "url": "https://economictimes.indiatimes.com/markets/stocks/news/prudential-hcl-health-insurance-gets-irdai-nod/articleshow/132126831.cms"
               }
             ],
             "impact": "Positive",
@@ -14104,6 +14125,11 @@
               },
               {
                 "kind": "News",
+                "name": "economictimes.indiatimes.com",
+                "url": "https://economictimes.indiatimes.com/topic/manipalcigna"
+              },
+              {
+                "kind": "News",
                 "name": "livemint.com",
                 "url": "https://www.livemint.com/insurance/rbi-general-insurers-oriental-united-india-national-insurance-solvency-ratio-11782992284462.html"
               },
@@ -14111,11 +14137,6 @@
                 "kind": "News",
                 "name": "moneycontrol.com",
                 "url": "https://www.moneycontrol.com/news/business/irdai-grants-final-r3-licence-to-prudential-hcl-health-insurance-venture-13963822.html"
-              },
-              {
-                "kind": "News",
-                "name": "economictimes.indiatimes.com",
-                "url": "https://economictimes.indiatimes.com/markets/stocks/news/prudential-hcl-health-insurance-gets-irdai-nod/articleshow/132126831.cms"
               }
             ],
             "impact": "Positive",
@@ -14123,7 +14144,7 @@
             "companyId": null,
             "sourceUrl": "https://bfsi.economictimes.indiatimes.com/articles/general-insurance-premiums-soar-16-in-june-with-health-insurers-leading-growth-yes-securities-report/132283360",
             "sourceConfidence": "Medium",
-            "clusterSize": 1,
+            "clusterSize": 3,
             "clusterSources": [
               {
                 "kind": "News",
@@ -18338,13 +18359,20 @@
         "company": "Aditya Birla",
         "companyId": "aditya-birla",
         "generatedAt": "2026-07-10T05:56:50.463Z",
-        "lastUpdatedAt": "2026-07-10T05:56:50.463Z",
+        "lastUpdatedAt": "2026-07-10T09:20:19.720Z",
         "status": "Watch",
         "sourceConfidence": "Low",
         "itemCount": 56,
         "runs": [
           {
             "runTime": "2026-07-10T05:56:50.463Z",
+            "developments": 59,
+            "sourceCount": 58,
+            "ideas": 6,
+            "status": "ok"
+          },
+          {
+            "runTime": "2026-07-10T09:20:19.720Z",
             "developments": 59,
             "sourceCount": 58,
             "ideas": 6,
@@ -18358,10 +18386,10 @@
           "developmentsCount": 59,
           "sourcesCount": 58,
           "domainsCount": 16,
-          "confidencePct": 66,
+          "confidencePct": 67,
           "confidenceTier": "Medium",
           "readingMins": 3,
-          "lastUpdatedLabel": "10 Jul, 05:55 am"
+          "lastUpdatedLabel": "10 Jul, 09:19 am"
         },
         "message": {
           "since": "No Aditya Birla-specific movement since the last brief; one regulatory update moved into focus across the sector.",
@@ -18548,7 +18576,7 @@
             "companyId": null,
             "sourceUrl": "https://economictimes.indiatimes.com/markets/stocks/news/prudential-hcl-health-insurance-gets-irdai-nod/articleshow/132126831.cms",
             "sourceConfidence": "Medium",
-            "clusterSize": 15,
+            "clusterSize": 14,
             "clusterSources": [
               {
                 "kind": "Regulatory",
@@ -18796,6 +18824,11 @@
               },
               {
                 "kind": "News",
+                "name": "economictimes.indiatimes.com",
+                "url": "https://economictimes.indiatimes.com/topic/manipalcigna"
+              },
+              {
+                "kind": "News",
                 "name": "livemint.com",
                 "url": "https://www.livemint.com/insurance/rbi-general-insurers-oriental-united-india-national-insurance-solvency-ratio-11782992284462.html"
               },
@@ -18803,11 +18836,6 @@
                 "kind": "News",
                 "name": "moneycontrol.com",
                 "url": "https://www.moneycontrol.com/news/business/irdai-grants-final-r3-licence-to-prudential-hcl-health-insurance-venture-13963822.html"
-              },
-              {
-                "kind": "News",
-                "name": "economictimes.indiatimes.com",
-                "url": "https://economictimes.indiatimes.com/markets/stocks/news/prudential-hcl-health-insurance-gets-irdai-nod/articleshow/132126831.cms"
               }
             ],
             "impact": "Positive",
@@ -18890,6 +18918,11 @@
               },
               {
                 "kind": "News",
+                "name": "economictimes.indiatimes.com",
+                "url": "https://economictimes.indiatimes.com/topic/manipalcigna"
+              },
+              {
+                "kind": "News",
                 "name": "livemint.com",
                 "url": "https://www.livemint.com/insurance/rbi-general-insurers-oriental-united-india-national-insurance-solvency-ratio-11782992284462.html"
               },
@@ -18897,11 +18930,6 @@
                 "kind": "News",
                 "name": "moneycontrol.com",
                 "url": "https://www.moneycontrol.com/news/business/irdai-grants-final-r3-licence-to-prudential-hcl-health-insurance-venture-13963822.html"
-              },
-              {
-                "kind": "News",
-                "name": "economictimes.indiatimes.com",
-                "url": "https://economictimes.indiatimes.com/markets/stocks/news/prudential-hcl-health-insurance-gets-irdai-nod/articleshow/132126831.cms"
               }
             ],
             "impact": "Positive",
@@ -18909,7 +18937,7 @@
             "companyId": null,
             "sourceUrl": "https://bfsi.economictimes.indiatimes.com/articles/general-insurance-premiums-soar-16-in-june-with-health-insurers-leading-growth-yes-securities-report/132283360",
             "sourceConfidence": "Medium",
-            "clusterSize": 1,
+            "clusterSize": 3,
             "clusterSources": [
               {
                 "kind": "News",
@@ -23068,13 +23096,20 @@
         "company": "ManipalCigna",
         "companyId": "manipalcigna",
         "generatedAt": "2026-07-10T05:56:50.463Z",
-        "lastUpdatedAt": "2026-07-10T05:56:50.463Z",
+        "lastUpdatedAt": "2026-07-10T09:20:19.720Z",
         "status": "Watch",
         "sourceConfidence": "Low",
         "itemCount": 56,
         "runs": [
           {
             "runTime": "2026-07-10T05:56:50.463Z",
+            "developments": 65,
+            "sourceCount": 58,
+            "ideas": 6,
+            "status": "ok"
+          },
+          {
+            "runTime": "2026-07-10T09:20:19.720Z",
             "developments": 65,
             "sourceCount": 58,
             "ideas": 6,
@@ -23088,10 +23123,10 @@
           "developmentsCount": 65,
           "sourcesCount": 58,
           "domainsCount": 16,
-          "confidencePct": 66,
+          "confidencePct": 67,
           "confidenceTier": "Medium",
           "readingMins": 3,
-          "lastUpdatedLabel": "10 Jul, 05:55 am"
+          "lastUpdatedLabel": "10 Jul, 09:19 am"
         },
         "message": {
           "since": "No ManipalCigna-specific movement since the last brief; one regulatory update moved into focus across the sector.",
@@ -23278,7 +23313,7 @@
             "companyId": null,
             "sourceUrl": "https://economictimes.indiatimes.com/markets/stocks/news/prudential-hcl-health-insurance-gets-irdai-nod/articleshow/132126831.cms",
             "sourceConfidence": "Medium",
-            "clusterSize": 15,
+            "clusterSize": 14,
             "clusterSources": [
               {
                 "kind": "Regulatory",
@@ -23526,6 +23561,11 @@
               },
               {
                 "kind": "News",
+                "name": "economictimes.indiatimes.com",
+                "url": "https://economictimes.indiatimes.com/topic/manipalcigna"
+              },
+              {
+                "kind": "News",
                 "name": "livemint.com",
                 "url": "https://www.livemint.com/insurance/rbi-general-insurers-oriental-united-india-national-insurance-solvency-ratio-11782992284462.html"
               },
@@ -23533,11 +23573,6 @@
                 "kind": "News",
                 "name": "moneycontrol.com",
                 "url": "https://www.moneycontrol.com/news/business/irdai-grants-final-r3-licence-to-prudential-hcl-health-insurance-venture-13963822.html"
-              },
-              {
-                "kind": "News",
-                "name": "economictimes.indiatimes.com",
-                "url": "https://economictimes.indiatimes.com/markets/stocks/news/prudential-hcl-health-insurance-gets-irdai-nod/articleshow/132126831.cms"
               }
             ],
             "impact": "Positive",
@@ -23620,6 +23655,11 @@
               },
               {
                 "kind": "News",
+                "name": "economictimes.indiatimes.com",
+                "url": "https://economictimes.indiatimes.com/topic/manipalcigna"
+              },
+              {
+                "kind": "News",
                 "name": "livemint.com",
                 "url": "https://www.livemint.com/insurance/rbi-general-insurers-oriental-united-india-national-insurance-solvency-ratio-11782992284462.html"
               },
@@ -23627,11 +23667,6 @@
                 "kind": "News",
                 "name": "moneycontrol.com",
                 "url": "https://www.moneycontrol.com/news/business/irdai-grants-final-r3-licence-to-prudential-hcl-health-insurance-venture-13963822.html"
-              },
-              {
-                "kind": "News",
-                "name": "economictimes.indiatimes.com",
-                "url": "https://economictimes.indiatimes.com/markets/stocks/news/prudential-hcl-health-insurance-gets-irdai-nod/articleshow/132126831.cms"
               }
             ],
             "impact": "Positive",
@@ -23639,7 +23674,7 @@
             "companyId": null,
             "sourceUrl": "https://bfsi.economictimes.indiatimes.com/articles/general-insurance-premiums-soar-16-in-june-with-health-insurers-leading-growth-yes-securities-report/132283360",
             "sourceConfidence": "Medium",
-            "clusterSize": 1,
+            "clusterSize": 3,
             "clusterSources": [
               {
                 "kind": "News",
@@ -23815,6 +23850,6 @@
     "snapshot_id": "pulse-brief-archive",
     "description": "Immutable per-calendar-day Pulse brief records (IST), one per company. Past days are frozen exactly as shown that day; the live Today view recomposes. Kept ~90 days per company.",
     "last_updated": "2026-07-10",
-    "last_successful_run": "2026-07-10T05:56:50.463Z"
+    "last_successful_run": "2026-07-10T09:20:19.720Z"
   }
 }
