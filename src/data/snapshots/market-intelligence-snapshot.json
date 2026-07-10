@@ -4,8 +4,8 @@
     "description": "AI-generated market intelligence for the SAHI health insurers — investor meets, earnings/board dates, sector & regulatory news, share catalysts. Web-sourced; each item links its source. AI-generated, not audited.",
     "schema_version": "1.0.0",
     "dataset": "ai_generated",
-    "last_updated": "2026-07-09",
-    "last_successful_run": "2026-07-09T16:22:46.308Z",
+    "last_updated": "2026-07-10",
+    "last_successful_run": "2026-07-10T05:55:44.792Z",
     "upstream_sources": [
       "muns_agent_web"
     ],
@@ -41,6 +41,36 @@
       "source_published_at": null,
       "first_seen": "2026-07-09T16:22:46.308Z",
       "discovered_at": "2026-07-09T16:22:46.308Z"
+    },
+    {
+      "id": "d0f45d8397",
+      "company_id": "sector",
+      "date": "2026-07-10",
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "positive",
+      "headline": "Risk-based capital regime seen from April 2027",
+      "detail": "Proposed market-value based solvency assessment could improve balance-sheet flexibility across general insurers and support sector capital formation, a meaningful read-through for standalone health insurers as solvency rules evolve.",
+      "source_name": "livemint.com",
+      "source_url": "https://www.livemint.com/industry/banking/psu-general-insurers-india-solvency-equities-irdai-new-india-assurance-oriental-insurance-united-india-11783588869859.html",
+      "source_published_at": "2026-07-10",
+      "first_seen": "2026-07-10T05:55:44.792Z",
+      "discovered_at": "2026-07-10T05:55:44.792Z"
+    },
+    {
+      "id": "7ac5d1c2e8",
+      "company_id": "sector",
+      "date": "2026-07-10",
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "positive",
+      "headline": "Health insurers lead June non-life premium growth",
+      "detail": "Faster health-insurance premium growth versus the broader general-insurance market is a direct read-through for listed and unlisted standalone health insurers, supporting sentiment if growth is not offset by claims pressure.",
+      "source_name": "bfsi.economictimes.indiatimes.com",
+      "source_url": "https://bfsi.economictimes.indiatimes.com/articles/general-insurance-premiums-soar-16-in-june-with-health-insurers-leading-growth-yes-securities-report/132283360",
+      "source_published_at": null,
+      "first_seen": "2026-07-10T05:55:44.792Z",
+      "discovered_at": "2026-07-10T05:55:44.792Z"
     },
     {
       "id": "d54b4f9ef9",
@@ -262,6 +292,21 @@
       "source_published_at": "2026-07-03",
       "first_seen": "2026-07-07T16:18:49.435Z",
       "discovered_at": "2026-07-07T16:18:49.435Z"
+    },
+    {
+      "id": "b25b62f677",
+      "company_id": "sector",
+      "date": "2026-07-03",
+      "kind": "regulatory",
+      "horizon": "recent",
+      "impact": "watch",
+      "headline": "IRDAI guidelines page shows latest 2026 rulemaking cadence",
+      "detail": "The regulator’s updated legal repository underscores an active pipeline of 2026 guidelines and consultation-led rule changes, keeping compliance, product design and operating-model risk elevated for all standalone health insurers.",
+      "source_name": "irdai.gov.in",
+      "source_url": "https://irdai.gov.in/guidelines",
+      "source_published_at": null,
+      "first_seen": "2026-07-10T05:55:44.792Z",
+      "discovered_at": "2026-07-10T05:55:44.792Z"
     },
     {
       "id": "c575ebb3dd",
@@ -653,6 +698,21 @@
       "discovered_at": "2026-07-06T16:48:32.222Z"
     },
     {
+      "id": "656dc85580",
+      "company_id": "sector",
+      "date": "2026-06-29",
+      "kind": "investor_meet",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "Star Health hosted investor meet in London on June 29",
+      "detail": "Investor meetings can reset expectations on growth, claims and margins across listed health insurers, with read-through for Niva Bupa valuation and sector positioning.",
+      "source_name": "scanx.trade",
+      "source_url": "https://scanx.trade/stock-market-news/companies/star-health-to-host-investor-meet-in-london-on-june-29/43919263",
+      "source_published_at": null,
+      "first_seen": "2026-07-10T05:55:44.792Z",
+      "discovered_at": "2026-07-10T05:55:44.792Z"
+    },
+    {
       "id": "fef56d0db2",
       "company_id": "sector",
       "date": "2026-06-28",
@@ -800,62 +860,6 @@
       "source_name": "moneycontrol.com",
       "source_url": "https://www.moneycontrol.com/news/business/stocks/buy-star-health-target-of-rs-700-motilal-oswal-13959277.html",
       "first_seen": "2026-07-04T08:24:33.011Z"
-    },
-    {
-      "id": "451d2aaa91",
-      "company_id": "sector",
-      "date": "2026-06-26",
-      "kind": "regulatory",
-      "horizon": "recent",
-      "impact": "watch",
-      "headline": "IRDAI softens stance on insurer listings",
-      "detail": "Easing listing norms could reopen capital-market options for insurers and improve strategic flexibility for private-sector players, while also signaling a more accommodative regulatory posture.",
-      "source_name": "moneycontrol.com",
-      "source_url": "https://moneycontrol.com/news/business/banks/irdai-softens-stance-on-insurer-listings-13963096.html",
-      "first_seen": "2026-07-04T08:24:33.011Z"
-    },
-    {
-      "id": "e4abbac79d",
-      "company_id": "sector",
-      "date": "2026-06-26",
-      "kind": "rating",
-      "horizon": "recent",
-      "impact": "neutral",
-      "headline": "Motilal Oswal raises bullish case on Star Health, target ₹700",
-      "detail": "Another positive Star Health note matters because peer re-ratings can influence valuation expectations across listed standalone health insurers, including Niva Bupa.",
-      "source_name": "moneycontrol.com",
-      "source_url": "https://www.moneycontrol.com/news/business/stocks/buy-star-health-target-of-rs-700-motilal-oswal-13959277.html",
-      "first_seen": "2026-07-04T11:18:33.041Z"
-    },
-    {
-      "id": "74b6041431",
-      "company_id": "sector",
-      "date": "2026-06-26",
-      "kind": "rating",
-      "horizon": "recent",
-      "impact": "neutral",
-      "headline": "Motilal Oswal raises positive call on Star Health, TP ₹700",
-      "detail": "A stronger Street stance on the listed peer supports sector multiples, though it also raises the competitive benchmark for Niva Bupa on growth and underwriting.",
-      "source_name": "moneycontrol.com",
-      "source_url": "https://moneycontrol.com/news/business/stocks/buy-star-health-target-of-rs-700-motilal-oswal-13959277.html",
-      "source_published_at": "2026-06-26",
-      "first_seen": "2026-07-05T05:56:21.373Z",
-      "discovered_at": "2026-07-05T05:56:21.373Z"
-    },
-    {
-      "id": "4d3958f49b",
-      "company_id": "sector",
-      "date": "2026-06-26",
-      "kind": "catalyst",
-      "horizon": "recent",
-      "impact": "neutral",
-      "headline": "Care Health demerger/listing plans reported at Religare",
-      "detail": "A potential separate listing of Care Health would create a new pure-play benchmark for standalone health insurance valuations in India.",
-      "source_name": "moneycontrol.com",
-      "source_url": "https://www.moneycontrol.com/news/business/banks/religare-enterprises-likely-to-announce-demerger-and-listing-of-care-health-insurance-13808399.html",
-      "source_published_at": "2026-06-26",
-      "first_seen": "2026-07-05T11:23:57.879Z",
-      "discovered_at": "2026-07-05T11:23:57.879Z"
     }
   ]
 }
