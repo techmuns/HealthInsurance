@@ -5,10 +5,10 @@
     "schema_version": "1.1.0",
     "dataset": "official",
     "source_policy": "official-first (NSE). Investing.com is login-free backup only, tagged low-confidence.",
-    "last_successful_run": "2026-07-10T07:02:53.951Z",
+    "last_successful_run": "2026-07-11T05:59:07.561Z",
     "parser_status": "ready",
     "notes": "Daily close / traded / deliverable quantity per listed insurer. Workbook seed (NSE via S&P Capital IQ) for niva-bupa listing→Jul-2025; Yahoo Finance keeps it current (close + volume). Deliverable quantity is NSE-only — null where only Yahoo covers a day, until an NSE delivery file is staged.",
-    "last_updated": "2026-07-10T15:14:07.385Z",
+    "last_updated": "2026-07-11T05:59:13.957Z",
     "row_count": 2089,
     "companies": [
       "godigit",
@@ -22,7 +22,7 @@
       "to": "2026-07-10"
     },
     "seeded_from_workbook": "data/raw/exchanges/niva-bupa/niva-bupa-historical-stock-movement.xlsx",
-    "muns_last_run": "2026-07-10T07:02:53.951Z",
+    "muns_last_run": "2026-07-11T05:59:07.561Z",
     "nse_delivery_last_run": "2026-07-10T15:14:06.754Z"
   },
   "data": [
@@ -7152,8 +7152,8 @@
     {
       "company_id": "godigit",
       "date": "2026-07-10",
-      "close": 306.05,
-      "traded_qty": 367345,
+      "close": 312,
+      "traded_qty": 367340,
       "deliverable_qty": 155046,
       "provenance": {
         "source_name": "muns market-data API — NSE daily history",
@@ -14292,8 +14292,8 @@
     {
       "company_id": "icici-lombard",
       "date": "2026-07-10",
-      "close": 1803.7,
-      "traded_qty": 504410,
+      "close": 1826.2,
+      "traded_qty": 504397,
       "deliverable_qty": 303995,
       "provenance": {
         "source_name": "muns market-data API — NSE daily history",
@@ -21279,7 +21279,7 @@
     {
       "company_id": "niva-bupa",
       "date": "2026-07-10",
-      "close": 86.62,
+      "close": 86.51,
       "traded_qty": 1664154,
       "deliverable_qty": 1301501,
       "provenance": {
@@ -28369,7 +28369,7 @@
       "company_id": "religare-enterprises",
       "date": "2026-07-09",
       "close": 271.5,
-      "traded_qty": 1357431,
+      "traded_qty": 1357741,
       "deliverable_qty": null,
       "provenance": {
         "source_name": "muns market-data API — NSE daily history",
@@ -28385,8 +28385,8 @@
     {
       "company_id": "religare-enterprises",
       "date": "2026-07-10",
-      "close": 272.5,
-      "traded_qty": 321801,
+      "close": 270.45,
+      "traded_qty": 553448,
       "deliverable_qty": null,
       "provenance": {
         "source_name": "muns market-data API — NSE daily history",
@@ -35525,8 +35525,8 @@
     {
       "company_id": "star-health",
       "date": "2026-07-10",
-      "close": 607.05,
-      "traded_qty": 427835,
+      "close": 603.25,
+      "traded_qty": 427535,
       "deliverable_qty": 191948,
       "provenance": {
         "source_name": "muns market-data API — NSE daily history",
