@@ -5,7 +5,7 @@
     "schema_version": "1.0.0",
     "dataset": "ai_generated",
     "last_updated": "2026-07-11",
-    "last_successful_run": "2026-07-11T10:54:55.103Z",
+    "last_successful_run": "2026-07-11T14:44:40.977Z",
     "upstream_sources": [
       "muns_agent_web"
     ],
@@ -101,6 +101,21 @@
       "source_published_at": "2026-07-09",
       "first_seen": "2026-07-09T16:22:46.308Z",
       "discovered_at": "2026-07-09T16:22:46.308Z"
+    },
+    {
+      "id": "1cd894b96b",
+      "company_id": "sector",
+      "date": "2026-07-09",
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "positive",
+      "headline": "Brokerage (JM Financial) sees Niva Bupa, Star Health, ICICI Lombard as FY27 outperformers",
+      "detail": "JM Financial projects Niva Bupa net profit growth of **>50% YoY** in Q1 FY27 (vs ~5% for Star Health), citing resilient premium growth and improving underwriting; Ind AS transition from Q1 FY27 to improve earnings transparency for health insurers.",
+      "source_name": "bfsi.economictimes.indiatimes.com",
+      "source_url": "https://bfsi.economictimes.indiatimes.com/articles/star-health-sbi-life-and-max-financial-set-for-robust-fy27-growth/132272405",
+      "source_published_at": "2026-07-09",
+      "first_seen": "2026-07-11T14:44:40.977Z",
+      "discovered_at": "2026-07-11T14:44:40.977Z"
     },
     {
       "id": "33f929f540",
@@ -743,6 +758,36 @@
       "discovered_at": "2026-07-10T12:20:20.346Z"
     },
     {
+      "id": "e402d8dcdb",
+      "company_id": "niva-bupa",
+      "date": "2026-06-30",
+      "kind": "catalyst",
+      "horizon": "recent",
+      "impact": "positive",
+      "headline": "Leadership expansion: Ankur Kharbanda named Executive Director & Deputy CEO",
+      "detail": "New deputy-CEO appointment is flagged by analysts as a factor to watch for operational strategy execution as the company scales its multi-channel retail growth engine.",
+      "source_name": "whalesbook.com",
+      "source_url": "https://www.whalesbook.com/news/English/brokerage-reports/Niva-Bupa-Motilal-Oswal-Sets-indian-rupee97-Target-After-Q4-Profit-Jump/6a38cbe8a1c5bf08432882dd",
+      "source_published_at": "2026-06-22",
+      "first_seen": "2026-07-11T14:44:40.977Z",
+      "discovered_at": "2026-07-11T14:44:40.977Z"
+    },
+    {
+      "id": "e800c29461",
+      "company_id": "care-health",
+      "date": "2026-06-30",
+      "kind": "catalyst",
+      "horizon": "recent",
+      "impact": "watch",
+      "headline": "Care Health Insurance completes ₹119.7cr rights issue allotment to parent Religare",
+      "detail": "CHIL allotted **74.8 lakh shares** at ₹160 (₹10 FV + ₹150 premium) to shore up solvency and fund expansion — signals capital strain/growth funding needs at a key peer, relevant as a competitive capital-raising benchmark for Niva Bupa.",
+      "source_name": "investywise.com",
+      "source_url": "https://www.investywise.com/religare-enterprises-chil-rights-issue-allotment-completed",
+      "source_published_at": "2026-07-08",
+      "first_seen": "2026-07-11T14:44:40.977Z",
+      "discovered_at": "2026-07-11T14:44:40.977Z"
+    },
+    {
       "id": "0855aa1650",
       "company_id": "sector",
       "date": "2026-06-29",
@@ -831,45 +876,6 @@
       "source_published_at": "2026-06-29",
       "first_seen": "2026-07-10T12:20:20.346Z",
       "discovered_at": "2026-07-10T12:20:20.346Z"
-    },
-    {
-      "id": "fef56d0db2",
-      "company_id": "sector",
-      "date": "2026-06-28",
-      "kind": "regulatory",
-      "horizon": "recent",
-      "impact": "watch",
-      "headline": "IRDAI may tighten commission rules to curb mis-selling",
-      "detail": "Any overhaul of commissions can reshape distributor economics, product mix and growth costs across health insurers, with near-term uncertainty but possible medium-term quality benefits.",
-      "source_name": "economictimes.indiatimes.com",
-      "source_url": "https://economictimes.indiatimes.com/industry/banking/finance/insure/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/articleshow/132155581.cms",
-      "first_seen": "2026-07-04T08:24:33.011Z"
-    },
-    {
-      "id": "930c383096",
-      "company_id": "sector",
-      "date": "2026-06-27",
-      "kind": "regulatory",
-      "horizon": "recent",
-      "impact": "negative",
-      "headline": "IRDAI grants final licence to Prudential-HCL health insurer",
-      "detail": "A new standalone health insurer raises competitive intensity in retail health, distribution and pricing, which matters for Niva Bupa and peers.",
-      "source_name": "moneycontrol.com",
-      "source_url": "https://www.moneycontrol.com/news/business/irdai-grants-final-r3-licence-to-prudential-hcl-health-insurance-venture-13963822.html",
-      "first_seen": "2026-07-03T05:30:20.868Z"
-    },
-    {
-      "id": "b4cfffad3c",
-      "company_id": "sector",
-      "date": "2026-06-27",
-      "kind": "sector_news",
-      "horizon": "recent",
-      "impact": "watch",
-      "headline": "IRDAI softens stance on insurer listings",
-      "detail": "Easier listing norms could reopen capital-raising and listing optionality across insurers, affecting valuation frameworks and funding flexibility for the sector.",
-      "source_name": "moneycontrol.com",
-      "source_url": "https://www.moneycontrol.com/news/business/banks/irdai-softens-stance-on-insurer-listings-13963096.html",
-      "first_seen": "2026-07-03T05:30:20.868Z"
     }
   ]
 }

@@ -4866,10 +4866,10 @@
         "company": "Niva Bupa",
         "companyId": "niva-bupa",
         "generatedAt": "2026-07-11T04:57:40.931Z",
-        "lastUpdatedAt": "2026-07-11T10:57:33.009Z",
+        "lastUpdatedAt": "2026-07-11T14:47:05.199Z",
         "status": "Watch",
-        "sourceConfidence": "Low",
-        "itemCount": 56,
+        "sourceConfidence": "Medium",
+        "itemCount": 55,
         "runs": [
           {
             "runTime": "2026-07-11T04:57:40.931Z",
@@ -4891,22 +4891,29 @@
             "sourceCount": 60,
             "ideas": 6,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-07-11T14:47:05.199Z",
+            "developments": 61,
+            "sourceCount": 59,
+            "ideas": 6,
+            "status": "ok"
           }
         ],
         "brief": {
-          "greeting": "Good morning",
+          "greeting": "Good afternoon",
           "narrative": "Regulatory pressure is the main watch item for health insurers today. Niva Bupa is under pressure on premium growth and demand, but claims-cost and conduct scrutiny and regulatory deadlines will decide whether the strength is sustainable.",
           "attentionCount": 6,
-          "developmentsCount": 62,
-          "sourcesCount": 60,
-          "domainsCount": 19,
-          "confidencePct": 68,
+          "developmentsCount": 61,
+          "sourcesCount": 59,
+          "domainsCount": 20,
+          "confidencePct": 69,
           "confidenceTier": "Medium",
           "readingMins": 3,
-          "lastUpdatedLabel": "11 Jul, 10:54 am"
+          "lastUpdatedLabel": "11 Jul, 02:44 pm"
         },
         "message": {
-          "since": "No company-specific movement for Niva Bupa since the last brief — the read below is sector & regulatory context that applies across standalone health insurers.",
+          "since": "Niva Bupa had recently surfaced positive analyst coverage, alongside older regulatory items now in view. No fresh company-specific update was published since the last brief.",
           "keyThing": "A shift from upfront to staggered distributor commissions could reduce mis-selling and alter growth economics, channel incentives and acquisition costs across health…",
           "why": "Growth is only as good as the claims and expense ratios behind it — that is the real question now.",
           "watch": "any fresh IRDAI clarification, and expense-ratio movement",
@@ -4986,7 +4993,7 @@
             "companyId": null,
             "sourceUrl": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494",
             "sourceConfidence": "Medium",
-            "clusterSize": 8,
+            "clusterSize": 7,
             "clusterSources": [
               {
                 "kind": "Regulatory",
@@ -5012,14 +5019,93 @@
                 "kind": "Regulatory",
                 "name": "livemint.com",
                 "url": "https://www.livemint.com/money/personal-finance/irdai-plans-insurance-commission-overhaul-to-curb-mis-selling-with-staggered-payouts-and-stricter-transparency-rules-11783065965488.html"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "economictimes.indiatimes.com",
-                "url": "https://economictimes.indiatimes.com/industry/banking/finance/insure/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/articleshow/132155581.cms"
               }
             ],
-            "independentSources": 6
+            "independentSources": 5
+          },
+          {
+            "id": "e402d8dcdb",
+            "entity": "Niva Bupa",
+            "stars": 5,
+            "reasoning": [
+              "New deputy-CEO appointment is flagged by analysts as a factor to watch for operational strategy execution as the company scales its multi-channel retail growth engine.",
+              "Retail and public the market cut their stake in Niva Bupa from 25.4% to 18.7% during Q1 FY26."
+            ],
+            "whatToWatch": "Execution and continuity after the leadership change.",
+            "confidencePct": 78,
+            "evidenceCount": 3,
+            "status": "Constructive",
+            "category": "Management",
+            "why": {
+              "whatHappened": "Leadership expansion: Ankur Kharbanda named Executive Director & Deputy CEO",
+              "whyItMatters": "New deputy-CEO appointment is flagged by analysts as a factor to watch for operational strategy execution as the company scales its multi-channel retail growth engine.",
+              "whoAffected": "Niva Bupa's board, leadership continuity and its shareholders.",
+              "historicalContext": "Retail and public the market cut their stake in Niva Bupa from 25.4% to 18.7% during Q1 FY26.",
+              "potentialImpact": "Next shareholding filing — Public reverting toward 25.4%.",
+              "whatToWatch": "Execution and continuity after the leadership change."
+            },
+            "action": {
+              "id": "ownership",
+              "label": "Review Niva Bupa ownership",
+              "icon": "ownership",
+              "target": {
+                "page": "sahi",
+                "sahiTab": "governance",
+                "company": "niva-bupa",
+                "focus": {
+                  "id": "pulse-ownership",
+                  "metricKey": "promoter_holding",
+                  "metricLabel": "Promoter holding",
+                  "company": "niva-bupa",
+                  "companyLabel": "Niva Bupa",
+                  "comparisonType": "sequential",
+                  "tone": "neutral",
+                  "insightLabel": "Ownership — promoter holding trend",
+                  "unit": "%",
+                  "higherIsBetter": true,
+                  "sahiTab": "governance",
+                  "origin": "pulse"
+                }
+              }
+            },
+            "isBreaking": false,
+            "isNew": false,
+            "freshLabel": "Newly surfaced",
+            "freshness": "newly-surfaced",
+            "freshnessLabel": "Newly surfaced",
+            "publishedLabel": "22 Jun",
+            "discoveredLabel": "11 Jul",
+            "sources": [
+              {
+                "kind": "Filing",
+                "name": "whalesbook.com",
+                "url": "https://www.whalesbook.com/news/English/brokerage-reports/Niva-Bupa-Motilal-Oswal-Sets-indian-rupee97-Target-After-Q4-Profit-Jump/6a38cbe8a1c5bf08432882dd"
+              },
+              {
+                "kind": "Market data",
+                "name": "Q4 FY25 earnings call",
+                "url": "https://transactions.nivabupa.com/pages/doc/investor-relations/Earnings-Calls/2024-2025/Earnings-Call-Transcript-Q4-FY-2025.pdf"
+              },
+              {
+                "kind": "Market data",
+                "name": "1 curated source-backed insight",
+                "url": ""
+              }
+            ],
+            "impact": "Positive",
+            "scope": "company",
+            "companyId": "niva-bupa",
+            "sourceUrl": "https://www.whalesbook.com/news/English/brokerage-reports/Niva-Bupa-Motilal-Oswal-Sets-indian-rupee97-Target-After-Q4-Profit-Jump/6a38cbe8a1c5bf08432882dd",
+            "sourceConfidence": "Medium",
+            "clusterSize": 1,
+            "clusterSources": [
+              {
+                "kind": "Filing",
+                "name": "whalesbook.com",
+                "url": "https://www.whalesbook.com/news/English/brokerage-reports/Niva-Bupa-Motilal-Oswal-Sets-indian-rupee97-Target-After-Q4-Profit-Jump/6a38cbe8a1c5bf08432882dd"
+              }
+            ],
+            "independentSources": 1
           },
           {
             "id": "8bf3cdceab",
@@ -5090,7 +5176,7 @@
             "companyId": null,
             "sourceUrl": "https://economictimes.indiatimes.com/markets/stocks/news/prudential-hcl-health-insurance-gets-irdai-nod/articleshow/132126831.cms",
             "sourceConfidence": "Medium",
-            "clusterSize": 13,
+            "clusterSize": 12,
             "clusterSources": [
               {
                 "kind": "Regulatory",
@@ -5184,7 +5270,7 @@
             "companyId": null,
             "sourceUrl": "https://moneycontrol.com/news/business/banks/irdai-softens-stance-on-insurer-listings-13963096.html",
             "sourceConfidence": "Medium",
-            "clusterSize": 5,
+            "clusterSize": 4,
             "clusterSources": [
               {
                 "kind": "Regulatory",
@@ -5338,6 +5424,11 @@
               },
               {
                 "kind": "News",
+                "name": "bfsi.economictimes.indiatimes.com",
+                "url": "https://bfsi.economictimes.indiatimes.com/articles/star-health-sbi-life-and-max-financial-set-for-robust-fy27-growth/132272405"
+              },
+              {
+                "kind": "News",
                 "name": "economictimes.indiatimes.com",
                 "url": "https://economictimes.indiatimes.com/topic/manipalcigna"
               },
@@ -5345,11 +5436,6 @@
                 "kind": "News",
                 "name": "thehindubusinessline.com",
                 "url": "https://www.thehindubusinessline.com/money-and-banking/bima-sugam-to-go-live-by-september-end-irdai-chief/article71166098.ece"
-              },
-              {
-                "kind": "News",
-                "name": "moneycontrol.com",
-                "url": "https://www.moneycontrol.com/news/business/irdai-grants-final-r3-licence-to-prudential-hcl-health-insurance-venture-13963822.html"
               }
             ],
             "impact": "Positive",
@@ -5366,108 +5452,14 @@
               }
             ],
             "independentSources": 1
-          },
-          {
-            "id": "7ac5d1c2e8",
-            "entity": "Health insurers lead June non-life premium growth",
-            "stars": 4,
-            "reasoning": [
-              "Faster health-insurance premium growth versus the broader general-insurance market is a direct read-through for listed and unlisted standalone health insurers, supporting sentiment if growth is not offset by claims…",
-              "Solvency 3.03x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency."
-            ],
-            "whatToWatch": "Whether the sector move feeds through to premium growth and pricing.",
-            "confidencePct": 78,
-            "evidenceCount": 5,
-            "status": "Constructive",
-            "category": "Sector Catalyst",
-            "why": {
-              "whatHappened": "Health insurers lead June non-life premium growth",
-              "whyItMatters": "Faster health-insurance premium growth versus the broader general-insurance market is a direct read-through for listed and unlisted standalone health insurers, supporting sentiment if growth is not…",
-              "whoAffected": "The broader health-insurance sector and its listed players.",
-              "historicalContext": "Solvency 3.03x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency.",
-              "potentialImpact": "Solvency vs the 1.5x regulatory floor",
-              "whatToWatch": "Whether the sector move feeds through to premium growth and pricing."
-            },
-            "action": {
-              "id": "margins",
-              "label": "Compare Niva Bupa margin",
-              "icon": "margins",
-              "target": {
-                "page": "sahi",
-                "sahiTab": "profitability",
-                "company": "niva-bupa",
-                "focus": {
-                  "id": "pulse-margins",
-                  "metricKey": "combined_ratio",
-                  "metricLabel": "Combined ratio",
-                  "company": "niva-bupa",
-                  "companyLabel": "Niva Bupa",
-                  "comparisonType": "YoY",
-                  "tone": "neutral",
-                  "insightLabel": "Underwriting margin — combined ratio",
-                  "unit": "%",
-                  "higherIsBetter": false,
-                  "sahiTab": "profitability",
-                  "origin": "pulse"
-                }
-              }
-            },
-            "isBreaking": false,
-            "isNew": false,
-            "freshLabel": "Newly surfaced",
-            "freshness": "newly-surfaced",
-            "freshnessLabel": "Newly surfaced",
-            "publishedLabel": "—",
-            "discoveredLabel": "10 Jul",
-            "sources": [
-              {
-                "kind": "News",
-                "name": "bfsi.economictimes.indiatimes.com",
-                "url": "https://bfsi.economictimes.indiatimes.com/articles/general-insurance-premiums-soar-16-in-june-with-health-insurers-leading-growth-yes-securities-report/132283360"
-              },
-              {
-                "kind": "News",
-                "name": "livemint.com",
-                "url": "https://www.livemint.com/industry/banking/psu-general-insurers-india-solvency-equities-irdai-new-india-assurance-oriental-insurance-united-india-11783588869859.html"
-              },
-              {
-                "kind": "News",
-                "name": "economictimes.indiatimes.com",
-                "url": "https://economictimes.indiatimes.com/topic/manipalcigna"
-              },
-              {
-                "kind": "News",
-                "name": "thehindubusinessline.com",
-                "url": "https://www.thehindubusinessline.com/money-and-banking/bima-sugam-to-go-live-by-september-end-irdai-chief/article71166098.ece"
-              },
-              {
-                "kind": "News",
-                "name": "moneycontrol.com",
-                "url": "https://www.moneycontrol.com/news/business/irdai-grants-final-r3-licence-to-prudential-hcl-health-insurance-venture-13963822.html"
-              }
-            ],
-            "impact": "Positive",
-            "scope": "sector",
-            "companyId": null,
-            "sourceUrl": "https://bfsi.economictimes.indiatimes.com/articles/general-insurance-premiums-soar-16-in-june-with-health-insurers-leading-growth-yes-securities-report/132283360",
-            "sourceConfidence": "Medium",
-            "clusterSize": 3,
-            "clusterSources": [
-              {
-                "kind": "News",
-                "name": "bfsi.economictimes.indiatimes.com",
-                "url": "https://bfsi.economictimes.indiatimes.com/articles/general-insurance-premiums-soar-16-in-june-with-health-insurers-leading-growth-yes-securities-report/132283360"
-              }
-            ],
-            "independentSources": 1
           }
         ],
         "sinceDeltas": [
           {
             "id": "co",
-            "label": "company-specific updates",
-            "value": "0",
-            "direction": "flat",
+            "label": "newly surfaced relevant update",
+            "value": "1",
+            "direction": "up",
             "tone": "Neutral",
             "target": {
               "page": "sahi",
@@ -5483,12 +5475,13 @@
                 "companyLabel": "Niva Bupa",
                 "comparisonType": "trend",
                 "tone": "neutral",
-                "insightLabel": "No Niva Bupa-specific updates",
+                "insightLabel": "1 newly surfaced Niva Bupa update",
                 "unit": "",
                 "sahiTab": "companies",
                 "origin": "pulse"
               }
-            }
+            },
+            "href": "https://www.whalesbook.com/news/English/brokerage-reports/Niva-Bupa-Motilal-Oswal-Sets-indian-rupee97-Target-After-Q4-Profit-Jump/6a38cbe8a1c5bf08432882dd"
           },
           {
             "id": "moves",
@@ -10380,10 +10373,10 @@
         "company": "Star Health",
         "companyId": "star-health",
         "generatedAt": "2026-07-11T04:57:40.931Z",
-        "lastUpdatedAt": "2026-07-11T10:57:33.009Z",
+        "lastUpdatedAt": "2026-07-11T14:47:05.199Z",
         "status": "Watch",
-        "sourceConfidence": "Low",
-        "itemCount": 54,
+        "sourceConfidence": "Medium",
+        "itemCount": 52,
         "runs": [
           {
             "runTime": "2026-07-11T04:57:40.931Z",
@@ -10405,19 +10398,26 @@
             "sourceCount": 58,
             "ideas": 6,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-07-11T14:47:05.199Z",
+            "developments": 57,
+            "sourceCount": 56,
+            "ideas": 6,
+            "status": "ok"
           }
         ],
         "brief": {
-          "greeting": "Good morning",
+          "greeting": "Good afternoon",
           "narrative": "Regulatory pressure is the main watch item for health insurers today. Star Health is under pressure on premium growth and demand, but claims-cost and conduct scrutiny and regulatory deadlines will decide whether the strength is sustainable.",
           "attentionCount": 6,
-          "developmentsCount": 59,
-          "sourcesCount": 58,
+          "developmentsCount": 57,
+          "sourcesCount": 56,
           "domainsCount": 17,
-          "confidencePct": 68,
+          "confidencePct": 69,
           "confidenceTier": "Medium",
           "readingMins": 3,
-          "lastUpdatedLabel": "11 Jul, 10:54 am"
+          "lastUpdatedLabel": "11 Jul, 02:44 pm"
         },
         "message": {
           "since": "No company-specific movement for Star Health since the last brief — the read below is sector & regulatory context that applies across standalone health insurers.",
@@ -10500,7 +10500,7 @@
             "companyId": null,
             "sourceUrl": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494",
             "sourceConfidence": "Medium",
-            "clusterSize": 8,
+            "clusterSize": 7,
             "clusterSources": [
               {
                 "kind": "Regulatory",
@@ -10526,14 +10526,9 @@
                 "kind": "Regulatory",
                 "name": "livemint.com",
                 "url": "https://www.livemint.com/money/personal-finance/irdai-plans-insurance-commission-overhaul-to-curb-mis-selling-with-staggered-payouts-and-stricter-transparency-rules-11783065965488.html"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "economictimes.indiatimes.com",
-                "url": "https://economictimes.indiatimes.com/industry/banking/finance/insure/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/articleshow/132155581.cms"
               }
             ],
-            "independentSources": 6
+            "independentSources": 5
           },
           {
             "id": "8bf3cdceab",
@@ -10604,7 +10599,7 @@
             "companyId": null,
             "sourceUrl": "https://economictimes.indiatimes.com/markets/stocks/news/prudential-hcl-health-insurance-gets-irdai-nod/articleshow/132126831.cms",
             "sourceConfidence": "Medium",
-            "clusterSize": 13,
+            "clusterSize": 12,
             "clusterSources": [
               {
                 "kind": "Regulatory",
@@ -10698,7 +10693,7 @@
             "companyId": null,
             "sourceUrl": "https://moneycontrol.com/news/business/banks/irdai-softens-stance-on-insurer-listings-13963096.html",
             "sourceConfidence": "Medium",
-            "clusterSize": 5,
+            "clusterSize": 4,
             "clusterSources": [
               {
                 "kind": "Regulatory",
@@ -10852,6 +10847,11 @@
               },
               {
                 "kind": "News",
+                "name": "bfsi.economictimes.indiatimes.com",
+                "url": "https://bfsi.economictimes.indiatimes.com/articles/star-health-sbi-life-and-max-financial-set-for-robust-fy27-growth/132272405"
+              },
+              {
+                "kind": "News",
                 "name": "economictimes.indiatimes.com",
                 "url": "https://economictimes.indiatimes.com/topic/manipalcigna"
               },
@@ -10859,11 +10859,6 @@
                 "kind": "News",
                 "name": "thehindubusinessline.com",
                 "url": "https://www.thehindubusinessline.com/money-and-banking/bima-sugam-to-go-live-by-september-end-irdai-chief/article71166098.ece"
-              },
-              {
-                "kind": "News",
-                "name": "moneycontrol.com",
-                "url": "https://www.moneycontrol.com/news/business/irdai-grants-final-r3-licence-to-prudential-hcl-health-insurance-venture-13963822.html"
               }
             ],
             "impact": "Positive",
@@ -10946,6 +10941,11 @@
               },
               {
                 "kind": "News",
+                "name": "bfsi.economictimes.indiatimes.com",
+                "url": "https://bfsi.economictimes.indiatimes.com/articles/star-health-sbi-life-and-max-financial-set-for-robust-fy27-growth/132272405"
+              },
+              {
+                "kind": "News",
                 "name": "economictimes.indiatimes.com",
                 "url": "https://economictimes.indiatimes.com/topic/manipalcigna"
               },
@@ -10953,11 +10953,6 @@
                 "kind": "News",
                 "name": "thehindubusinessline.com",
                 "url": "https://www.thehindubusinessline.com/money-and-banking/bima-sugam-to-go-live-by-september-end-irdai-chief/article71166098.ece"
-              },
-              {
-                "kind": "News",
-                "name": "moneycontrol.com",
-                "url": "https://www.moneycontrol.com/news/business/irdai-grants-final-r3-licence-to-prudential-hcl-health-insurance-venture-13963822.html"
               }
             ],
             "impact": "Positive",
@@ -15887,10 +15882,10 @@
         "company": "Care Health",
         "companyId": "care-health",
         "generatedAt": "2026-07-11T04:57:40.931Z",
-        "lastUpdatedAt": "2026-07-11T10:57:33.009Z",
+        "lastUpdatedAt": "2026-07-11T14:47:05.199Z",
         "status": "Watch",
-        "sourceConfidence": "Low",
-        "itemCount": 54,
+        "sourceConfidence": "Medium",
+        "itemCount": 53,
         "runs": [
           {
             "runTime": "2026-07-11T04:57:40.931Z",
@@ -15912,22 +15907,29 @@
             "sourceCount": 58,
             "ideas": 6,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-07-11T14:47:05.199Z",
+            "developments": 57,
+            "sourceCount": 57,
+            "ideas": 6,
+            "status": "ok"
           }
         ],
         "brief": {
-          "greeting": "Good morning",
+          "greeting": "Good afternoon",
           "narrative": "Regulatory pressure is the main watch item for health insurers today. Care Health is under pressure on premium growth and demand, but claims-cost and conduct scrutiny and regulatory deadlines will decide whether the strength is sustainable.",
           "attentionCount": 6,
-          "developmentsCount": 58,
-          "sourcesCount": 58,
+          "developmentsCount": 57,
+          "sourcesCount": 57,
           "domainsCount": 17,
-          "confidencePct": 68,
+          "confidencePct": 69,
           "confidenceTier": "Medium",
           "readingMins": 4,
-          "lastUpdatedLabel": "11 Jul, 10:54 am"
+          "lastUpdatedLabel": "11 Jul, 02:44 pm"
         },
         "message": {
-          "since": "No company-specific movement for Care Health since the last brief — the read below is sector & regulatory context that applies across standalone health insurers.",
+          "since": "Care Health had recently surfaced relevant coverage, alongside older regulatory items now in view. No fresh company-specific update was published since the last brief.",
           "keyThing": "A shift from upfront to staggered distributor commissions could reduce mis-selling and alter growth economics, channel incentives and acquisition costs across health…",
           "why": "The near-term read now turns on how the new rules land on pricing, commissions and cost.",
           "watch": "any fresh IRDAI clarification, and expense-ratio movement",
@@ -16007,7 +16009,7 @@
             "companyId": null,
             "sourceUrl": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494",
             "sourceConfidence": "Medium",
-            "clusterSize": 8,
+            "clusterSize": 7,
             "clusterSources": [
               {
                 "kind": "Regulatory",
@@ -16033,14 +16035,9 @@
                 "kind": "Regulatory",
                 "name": "livemint.com",
                 "url": "https://www.livemint.com/money/personal-finance/irdai-plans-insurance-commission-overhaul-to-curb-mis-selling-with-staggered-payouts-and-stricter-transparency-rules-11783065965488.html"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "economictimes.indiatimes.com",
-                "url": "https://economictimes.indiatimes.com/industry/banking/finance/insure/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/articleshow/132155581.cms"
               }
             ],
-            "independentSources": 6
+            "independentSources": 5
           },
           {
             "id": "8bf3cdceab",
@@ -16111,7 +16108,7 @@
             "companyId": null,
             "sourceUrl": "https://economictimes.indiatimes.com/markets/stocks/news/prudential-hcl-health-insurance-gets-irdai-nod/articleshow/132126831.cms",
             "sourceConfidence": "Medium",
-            "clusterSize": 13,
+            "clusterSize": 12,
             "clusterSources": [
               {
                 "kind": "Regulatory",
@@ -16205,7 +16202,7 @@
             "companyId": null,
             "sourceUrl": "https://moneycontrol.com/news/business/banks/irdai-softens-stance-on-insurer-listings-13963096.html",
             "sourceConfidence": "Medium",
-            "clusterSize": 5,
+            "clusterSize": 4,
             "clusterSources": [
               {
                 "kind": "Regulatory",
@@ -16359,6 +16356,11 @@
               },
               {
                 "kind": "News",
+                "name": "bfsi.economictimes.indiatimes.com",
+                "url": "https://bfsi.economictimes.indiatimes.com/articles/star-health-sbi-life-and-max-financial-set-for-robust-fy27-growth/132272405"
+              },
+              {
+                "kind": "News",
                 "name": "economictimes.indiatimes.com",
                 "url": "https://economictimes.indiatimes.com/topic/manipalcigna"
               },
@@ -16366,11 +16368,6 @@
                 "kind": "News",
                 "name": "thehindubusinessline.com",
                 "url": "https://www.thehindubusinessline.com/money-and-banking/bima-sugam-to-go-live-by-september-end-irdai-chief/article71166098.ece"
-              },
-              {
-                "kind": "News",
-                "name": "moneycontrol.com",
-                "url": "https://www.moneycontrol.com/news/business/irdai-grants-final-r3-licence-to-prudential-hcl-health-insurance-venture-13963822.html"
               }
             ],
             "impact": "Positive",
@@ -16453,6 +16450,11 @@
               },
               {
                 "kind": "News",
+                "name": "bfsi.economictimes.indiatimes.com",
+                "url": "https://bfsi.economictimes.indiatimes.com/articles/star-health-sbi-life-and-max-financial-set-for-robust-fy27-growth/132272405"
+              },
+              {
+                "kind": "News",
                 "name": "economictimes.indiatimes.com",
                 "url": "https://economictimes.indiatimes.com/topic/manipalcigna"
               },
@@ -16460,11 +16462,6 @@
                 "kind": "News",
                 "name": "thehindubusinessline.com",
                 "url": "https://www.thehindubusinessline.com/money-and-banking/bima-sugam-to-go-live-by-september-end-irdai-chief/article71166098.ece"
-              },
-              {
-                "kind": "News",
-                "name": "moneycontrol.com",
-                "url": "https://www.moneycontrol.com/news/business/irdai-grants-final-r3-licence-to-prudential-hcl-health-insurance-venture-13963822.html"
               }
             ],
             "impact": "Positive",
@@ -16486,9 +16483,9 @@
         "sinceDeltas": [
           {
             "id": "co",
-            "label": "company-specific updates",
-            "value": "0",
-            "direction": "flat",
+            "label": "newly surfaced relevant update",
+            "value": "1",
+            "direction": "up",
             "tone": "Neutral",
             "target": {
               "page": "sahi",
@@ -16504,12 +16501,13 @@
                 "companyLabel": "Care Health",
                 "comparisonType": "trend",
                 "tone": "neutral",
-                "insightLabel": "No Care Health-specific updates",
+                "insightLabel": "1 newly surfaced Care Health update",
                 "unit": "",
                 "sahiTab": "companies",
                 "origin": "pulse"
               }
-            }
+            },
+            "href": "https://www.investywise.com/religare-enterprises-chil-rights-issue-allotment-completed"
           },
           {
             "id": "moves",
@@ -21450,10 +21448,10 @@
         "company": "Aditya Birla",
         "companyId": "aditya-birla",
         "generatedAt": "2026-07-11T04:57:40.931Z",
-        "lastUpdatedAt": "2026-07-11T10:57:33.009Z",
+        "lastUpdatedAt": "2026-07-11T14:47:05.199Z",
         "status": "Watch",
-        "sourceConfidence": "Low",
-        "itemCount": 54,
+        "sourceConfidence": "Medium",
+        "itemCount": 52,
         "runs": [
           {
             "runTime": "2026-07-11T04:57:40.931Z",
@@ -21475,19 +21473,26 @@
             "sourceCount": 58,
             "ideas": 6,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-07-11T14:47:05.199Z",
+            "developments": 57,
+            "sourceCount": 56,
+            "ideas": 6,
+            "status": "ok"
           }
         ],
         "brief": {
-          "greeting": "Good morning",
+          "greeting": "Good afternoon",
           "narrative": "Regulatory pressure is the main watch item for health insurers today. Aditya Birla is under pressure on premium growth and demand, but claims-cost and conduct scrutiny and regulatory deadlines will decide whether the strength is sustainable.",
           "attentionCount": 6,
-          "developmentsCount": 59,
-          "sourcesCount": 58,
+          "developmentsCount": 57,
+          "sourcesCount": 56,
           "domainsCount": 17,
-          "confidencePct": 68,
+          "confidencePct": 69,
           "confidenceTier": "Medium",
           "readingMins": 3,
-          "lastUpdatedLabel": "11 Jul, 10:54 am"
+          "lastUpdatedLabel": "11 Jul, 02:44 pm"
         },
         "message": {
           "since": "No company-specific movement for Aditya Birla since the last brief — the read below is sector & regulatory context that applies across standalone health insurers.",
@@ -21570,7 +21575,7 @@
             "companyId": null,
             "sourceUrl": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494",
             "sourceConfidence": "Medium",
-            "clusterSize": 8,
+            "clusterSize": 7,
             "clusterSources": [
               {
                 "kind": "Regulatory",
@@ -21596,14 +21601,9 @@
                 "kind": "Regulatory",
                 "name": "livemint.com",
                 "url": "https://www.livemint.com/money/personal-finance/irdai-plans-insurance-commission-overhaul-to-curb-mis-selling-with-staggered-payouts-and-stricter-transparency-rules-11783065965488.html"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "economictimes.indiatimes.com",
-                "url": "https://economictimes.indiatimes.com/industry/banking/finance/insure/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/articleshow/132155581.cms"
               }
             ],
-            "independentSources": 6
+            "independentSources": 5
           },
           {
             "id": "8bf3cdceab",
@@ -21674,7 +21674,7 @@
             "companyId": null,
             "sourceUrl": "https://economictimes.indiatimes.com/markets/stocks/news/prudential-hcl-health-insurance-gets-irdai-nod/articleshow/132126831.cms",
             "sourceConfidence": "Medium",
-            "clusterSize": 13,
+            "clusterSize": 12,
             "clusterSources": [
               {
                 "kind": "Regulatory",
@@ -21768,7 +21768,7 @@
             "companyId": null,
             "sourceUrl": "https://moneycontrol.com/news/business/banks/irdai-softens-stance-on-insurer-listings-13963096.html",
             "sourceConfidence": "Medium",
-            "clusterSize": 5,
+            "clusterSize": 4,
             "clusterSources": [
               {
                 "kind": "Regulatory",
@@ -21922,6 +21922,11 @@
               },
               {
                 "kind": "News",
+                "name": "bfsi.economictimes.indiatimes.com",
+                "url": "https://bfsi.economictimes.indiatimes.com/articles/star-health-sbi-life-and-max-financial-set-for-robust-fy27-growth/132272405"
+              },
+              {
+                "kind": "News",
                 "name": "economictimes.indiatimes.com",
                 "url": "https://economictimes.indiatimes.com/topic/manipalcigna"
               },
@@ -21929,11 +21934,6 @@
                 "kind": "News",
                 "name": "thehindubusinessline.com",
                 "url": "https://www.thehindubusinessline.com/money-and-banking/bima-sugam-to-go-live-by-september-end-irdai-chief/article71166098.ece"
-              },
-              {
-                "kind": "News",
-                "name": "moneycontrol.com",
-                "url": "https://www.moneycontrol.com/news/business/irdai-grants-final-r3-licence-to-prudential-hcl-health-insurance-venture-13963822.html"
               }
             ],
             "impact": "Positive",
@@ -22016,6 +22016,11 @@
               },
               {
                 "kind": "News",
+                "name": "bfsi.economictimes.indiatimes.com",
+                "url": "https://bfsi.economictimes.indiatimes.com/articles/star-health-sbi-life-and-max-financial-set-for-robust-fy27-growth/132272405"
+              },
+              {
+                "kind": "News",
                 "name": "economictimes.indiatimes.com",
                 "url": "https://economictimes.indiatimes.com/topic/manipalcigna"
               },
@@ -22023,11 +22028,6 @@
                 "kind": "News",
                 "name": "thehindubusinessline.com",
                 "url": "https://www.thehindubusinessline.com/money-and-banking/bima-sugam-to-go-live-by-september-end-irdai-chief/article71166098.ece"
-              },
-              {
-                "kind": "News",
-                "name": "moneycontrol.com",
-                "url": "https://www.moneycontrol.com/news/business/irdai-grants-final-r3-licence-to-prudential-hcl-health-insurance-venture-13963822.html"
               }
             ],
             "impact": "Positive",
@@ -26957,10 +26957,10 @@
         "company": "ManipalCigna",
         "companyId": "manipalcigna",
         "generatedAt": "2026-07-11T04:57:40.931Z",
-        "lastUpdatedAt": "2026-07-11T10:57:33.009Z",
+        "lastUpdatedAt": "2026-07-11T14:47:05.199Z",
         "status": "Watch",
-        "sourceConfidence": "Low",
-        "itemCount": 54,
+        "sourceConfidence": "Medium",
+        "itemCount": 52,
         "runs": [
           {
             "runTime": "2026-07-11T04:57:40.931Z",
@@ -26982,19 +26982,26 @@
             "sourceCount": 58,
             "ideas": 6,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-07-11T14:47:05.199Z",
+            "developments": 59,
+            "sourceCount": 56,
+            "ideas": 6,
+            "status": "ok"
           }
         ],
         "brief": {
-          "greeting": "Good morning",
+          "greeting": "Good afternoon",
           "narrative": "Regulatory pressure is the main watch item for health insurers today. ManipalCigna is under pressure on premium growth and demand, but claims-cost and conduct scrutiny and regulatory deadlines will decide whether the strength is sustainable.",
           "attentionCount": 6,
-          "developmentsCount": 61,
-          "sourcesCount": 58,
+          "developmentsCount": 59,
+          "sourcesCount": 56,
           "domainsCount": 17,
-          "confidencePct": 68,
+          "confidencePct": 69,
           "confidenceTier": "Medium",
           "readingMins": 3,
-          "lastUpdatedLabel": "11 Jul, 10:54 am"
+          "lastUpdatedLabel": "11 Jul, 02:44 pm"
         },
         "message": {
           "since": "No company-specific movement for ManipalCigna since the last brief — the read below is sector & regulatory context that applies across standalone health insurers.",
@@ -27077,7 +27084,7 @@
             "companyId": null,
             "sourceUrl": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494",
             "sourceConfidence": "Medium",
-            "clusterSize": 8,
+            "clusterSize": 7,
             "clusterSources": [
               {
                 "kind": "Regulatory",
@@ -27103,14 +27110,9 @@
                 "kind": "Regulatory",
                 "name": "livemint.com",
                 "url": "https://www.livemint.com/money/personal-finance/irdai-plans-insurance-commission-overhaul-to-curb-mis-selling-with-staggered-payouts-and-stricter-transparency-rules-11783065965488.html"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "economictimes.indiatimes.com",
-                "url": "https://economictimes.indiatimes.com/industry/banking/finance/insure/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/articleshow/132155581.cms"
               }
             ],
-            "independentSources": 6
+            "independentSources": 5
           },
           {
             "id": "8bf3cdceab",
@@ -27181,7 +27183,7 @@
             "companyId": null,
             "sourceUrl": "https://economictimes.indiatimes.com/markets/stocks/news/prudential-hcl-health-insurance-gets-irdai-nod/articleshow/132126831.cms",
             "sourceConfidence": "Medium",
-            "clusterSize": 13,
+            "clusterSize": 12,
             "clusterSources": [
               {
                 "kind": "Regulatory",
@@ -27275,7 +27277,7 @@
             "companyId": null,
             "sourceUrl": "https://moneycontrol.com/news/business/banks/irdai-softens-stance-on-insurer-listings-13963096.html",
             "sourceConfidence": "Medium",
-            "clusterSize": 5,
+            "clusterSize": 4,
             "clusterSources": [
               {
                 "kind": "Regulatory",
@@ -27429,6 +27431,11 @@
               },
               {
                 "kind": "News",
+                "name": "bfsi.economictimes.indiatimes.com",
+                "url": "https://bfsi.economictimes.indiatimes.com/articles/star-health-sbi-life-and-max-financial-set-for-robust-fy27-growth/132272405"
+              },
+              {
+                "kind": "News",
                 "name": "economictimes.indiatimes.com",
                 "url": "https://economictimes.indiatimes.com/topic/manipalcigna"
               },
@@ -27436,11 +27443,6 @@
                 "kind": "News",
                 "name": "thehindubusinessline.com",
                 "url": "https://www.thehindubusinessline.com/money-and-banking/bima-sugam-to-go-live-by-september-end-irdai-chief/article71166098.ece"
-              },
-              {
-                "kind": "News",
-                "name": "moneycontrol.com",
-                "url": "https://www.moneycontrol.com/news/business/irdai-grants-final-r3-licence-to-prudential-hcl-health-insurance-venture-13963822.html"
               }
             ],
             "impact": "Positive",
@@ -27523,6 +27525,11 @@
               },
               {
                 "kind": "News",
+                "name": "bfsi.economictimes.indiatimes.com",
+                "url": "https://bfsi.economictimes.indiatimes.com/articles/star-health-sbi-life-and-max-financial-set-for-robust-fy27-growth/132272405"
+              },
+              {
+                "kind": "News",
                 "name": "economictimes.indiatimes.com",
                 "url": "https://economictimes.indiatimes.com/topic/manipalcigna"
               },
@@ -27530,11 +27537,6 @@
                 "kind": "News",
                 "name": "thehindubusinessline.com",
                 "url": "https://www.thehindubusinessline.com/money-and-banking/bima-sugam-to-go-live-by-september-end-irdai-chief/article71166098.ece"
-              },
-              {
-                "kind": "News",
-                "name": "moneycontrol.com",
-                "url": "https://www.moneycontrol.com/news/business/irdai-grants-final-r3-licence-to-prudential-hcl-health-insurance-venture-13963822.html"
               }
             ],
             "impact": "Positive",
@@ -27700,6 +27702,6 @@
     "snapshot_id": "pulse-brief-archive",
     "description": "Immutable per-calendar-day Pulse brief records (IST), one per company. Past days are frozen exactly as shown that day; the live Today view recomposes. Kept ~90 days per company.",
     "last_updated": "2026-07-11",
-    "last_successful_run": "2026-07-11T10:57:33.009Z"
+    "last_successful_run": "2026-07-11T14:47:05.199Z"
   }
 }
