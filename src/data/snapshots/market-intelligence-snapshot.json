@@ -5,7 +5,7 @@
     "schema_version": "1.0.0",
     "dataset": "ai_generated",
     "last_updated": "2026-07-12",
-    "last_successful_run": "2026-07-12T11:05:25.759Z",
+    "last_successful_run": "2026-07-12T14:48:05.967Z",
     "upstream_sources": [
       "muns_agent_web"
     ],
@@ -41,6 +41,36 @@
       "source_published_at": null,
       "first_seen": "2026-07-09T16:22:46.308Z",
       "discovered_at": "2026-07-09T16:22:46.308Z"
+    },
+    {
+      "id": "b1bcd59eb3",
+      "company_id": "sector",
+      "date": "2026-07-12",
+      "kind": "catalyst",
+      "horizon": "recent",
+      "impact": "watch",
+      "headline": "LIC said to prepare acquisition of 40-49% stake in ManipalCigna",
+      "detail": "A potential strategic deal in ManipalCigna would reshape competitive intensity and valuation benchmarks across standalone health insurers.",
+      "source_name": "economictimes.indiatimes.com",
+      "source_url": "https://economictimes.indiatimes.com/topic/manipalcigna",
+      "source_published_at": null,
+      "first_seen": "2026-07-12T14:48:05.967Z",
+      "discovered_at": "2026-07-12T14:48:05.967Z"
+    },
+    {
+      "id": "947ca4c9ed",
+      "company_id": "sector",
+      "date": "2026-07-12",
+      "kind": "catalyst",
+      "horizon": "recent",
+      "impact": "positive",
+      "headline": "Aditya Birla Health CEO signals growth ahead of industry in FY27",
+      "detail": "Aggressive growth ambitions at Aditya Birla Health point to competition for market share, distribution and partnerships across the sector.",
+      "source_name": "moneycontrol.com",
+      "source_url": "https://www.moneycontrol.com/banking/health-insurance-moving-from-hospitalization-cover-to-preventive-healthcare-aditya-birla-health-ceo-article-13929893.html",
+      "source_published_at": null,
+      "first_seen": "2026-07-12T14:48:05.967Z",
+      "discovered_at": "2026-07-12T14:48:05.967Z"
     },
     {
       "id": "d0f45d8397",
@@ -116,6 +146,21 @@
       "source_published_at": "2026-07-09",
       "first_seen": "2026-07-11T14:44:40.977Z",
       "discovered_at": "2026-07-11T14:44:40.977Z"
+    },
+    {
+      "id": "65793d5c18",
+      "company_id": "sector",
+      "date": "2026-07-09",
+      "kind": "rating",
+      "horizon": "recent",
+      "impact": "positive",
+      "headline": "Nomura initiates with Buy on Niva Bupa and Star Health",
+      "detail": "New coverage on listed health insurers is relevant for sector rerating and relative-positioning between Niva Bupa and Star Health.",
+      "source_name": "ndtvprofit.com",
+      "source_url": "https://www.ndtvprofit.com/markets/niva-bupa-star-health-get-buy-calls-as-nomura-initiates-on-four-insurers-check-target-prices-11700967",
+      "source_published_at": null,
+      "first_seen": "2026-07-12T14:48:05.967Z",
+      "discovered_at": "2026-07-12T14:48:05.967Z"
     },
     {
       "id": "33f929f540",
@@ -831,51 +876,6 @@
       "source_published_at": null,
       "first_seen": "2026-07-10T05:55:44.792Z",
       "discovered_at": "2026-07-10T05:55:44.792Z"
-    },
-    {
-      "id": "ff0539204c",
-      "company_id": "sector",
-      "date": "2026-06-29",
-      "kind": "regulatory",
-      "horizon": "recent",
-      "impact": "negative",
-      "headline": "IRDAI grants final licence to Prudential-HCL health insurer",
-      "detail": "A new standalone health insurer increases competitive intensity in retail health, agent hiring and pricing, which can pressure incumbents’ growth and margins.",
-      "source_name": "moneycontrol.com",
-      "source_url": "https://www.moneycontrol.com/news/business/irdai-grants-final-r3-licence-to-prudential-hcl-health-insurance-venture-13963822.html",
-      "source_published_at": "2026-06-29",
-      "first_seen": "2026-07-10T12:20:20.346Z",
-      "discovered_at": "2026-07-10T12:20:20.346Z"
-    },
-    {
-      "id": "df50fe2ae7",
-      "company_id": "sector",
-      "date": "2026-06-24",
-      "kind": "sector_news",
-      "horizon": "recent",
-      "impact": "neutral",
-      "headline": "Aditya Birla Health says preventive-health model is improving customer engagement and claims quality",
-      "detail": "Commentary from another standalone health insurer matters because product mix and wellness-led underwriting trends can influence sector profitability benchmarks.",
-      "source_name": "moneycontrol.com",
-      "source_url": "https://www.moneycontrol.com/banking/health-insurance-moving-from-hospitalization-cover-to-preventive-healthcare-aditya-birla-health-ceo-article-13929893.html",
-      "source_published_at": "2026-06-24",
-      "first_seen": "2026-07-12T11:05:25.759Z",
-      "discovered_at": "2026-07-12T11:05:25.759Z"
-    },
-    {
-      "id": "33e7b9a94a",
-      "company_id": "niva-bupa",
-      "date": "2026-06-16",
-      "kind": "rating",
-      "horizon": "recent",
-      "impact": "positive",
-      "headline": "ET BFSI flags market-share gains and stronger growth outlook for Niva Bupa",
-      "detail": "Positive analyst-style coverage highlighting outperformance versus the retail health-insurance market can support rerating expectations for Niva Bupa.",
-      "source_name": "bfsi.economictimes.indiatimes.com",
-      "source_url": "https://bfsi.economictimes.indiatimes.com/amp/articles/niva-bupa-forecasted-to-outpace-retail-health-insurance-market-amid-soaring-demand/131922688",
-      "source_published_at": "2026-06-16",
-      "first_seen": "2026-07-12T11:05:25.759Z",
-      "discovered_at": "2026-07-12T11:05:25.759Z"
     }
   ]
 }
