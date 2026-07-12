@@ -5,7 +5,7 @@
     "schema_version": "1.0.0",
     "dataset": "ai_generated",
     "last_updated": "2026-07-12",
-    "last_successful_run": "2026-07-12T08:00:15.333Z",
+    "last_successful_run": "2026-07-12T11:05:25.759Z",
     "upstream_sources": [
       "muns_agent_web"
     ],
@@ -848,34 +848,34 @@
       "discovered_at": "2026-07-10T12:20:20.346Z"
     },
     {
-      "id": "a9a581005e",
+      "id": "df50fe2ae7",
       "company_id": "sector",
-      "date": null,
+      "date": "2026-06-24",
       "kind": "sector_news",
       "horizon": "recent",
       "impact": "neutral",
-      "headline": "impact",
-      "detail": "headline",
-      "source_name": null,
-      "source_url": null,
-      "source_published_at": null,
-      "first_seen": "2026-07-12T05:18:02.349Z",
-      "discovered_at": "2026-07-12T05:18:02.349Z"
+      "headline": "Aditya Birla Health says preventive-health model is improving customer engagement and claims quality",
+      "detail": "Commentary from another standalone health insurer matters because product mix and wellness-led underwriting trends can influence sector profitability benchmarks.",
+      "source_name": "moneycontrol.com",
+      "source_url": "https://www.moneycontrol.com/banking/health-insurance-moving-from-hospitalization-cover-to-preventive-healthcare-aditya-birla-health-ceo-article-13929893.html",
+      "source_published_at": "2026-06-24",
+      "first_seen": "2026-07-12T11:05:25.759Z",
+      "discovered_at": "2026-07-12T11:05:25.759Z"
     },
     {
-      "id": "c4c6c57253",
-      "company_id": "sector",
-      "date": null,
-      "kind": "sector_news",
+      "id": "33e7b9a94a",
+      "company_id": "niva-bupa",
+      "date": "2026-06-16",
+      "kind": "rating",
       "horizon": "recent",
-      "impact": "neutral",
-      "headline": "positive",
-      "detail": "Star Health, SBI Life, Max Financial flagged for \"strong FY27 growth",
-      "source_name": null,
-      "source_url": null,
-      "source_published_at": null,
-      "first_seen": "2026-07-12T05:18:02.349Z",
-      "discovered_at": "2026-07-12T05:18:02.349Z"
+      "impact": "positive",
+      "headline": "ET BFSI flags market-share gains and stronger growth outlook for Niva Bupa",
+      "detail": "Positive analyst-style coverage highlighting outperformance versus the retail health-insurance market can support rerating expectations for Niva Bupa.",
+      "source_name": "bfsi.economictimes.indiatimes.com",
+      "source_url": "https://bfsi.economictimes.indiatimes.com/amp/articles/niva-bupa-forecasted-to-outpace-retail-health-insurance-market-amid-soaring-demand/131922688",
+      "source_published_at": "2026-06-16",
+      "first_seen": "2026-07-12T11:05:25.759Z",
+      "discovered_at": "2026-07-12T11:05:25.759Z"
     }
   ]
 }
