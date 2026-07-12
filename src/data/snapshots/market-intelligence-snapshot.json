@@ -4,8 +4,8 @@
     "description": "AI-generated market intelligence for the SAHI health insurers — investor meets, earnings/board dates, sector & regulatory news, share catalysts. Web-sourced; each item links its source. AI-generated, not audited.",
     "schema_version": "1.0.0",
     "dataset": "ai_generated",
-    "last_updated": "2026-07-11",
-    "last_successful_run": "2026-07-11T14:44:40.977Z",
+    "last_updated": "2026-07-12",
+    "last_successful_run": "2026-07-12T05:18:02.349Z",
     "upstream_sources": [
       "muns_agent_web"
     ],
@@ -146,36 +146,6 @@
       "source_published_at": null,
       "first_seen": "2026-07-10T09:19:20.154Z",
       "discovered_at": "2026-07-10T09:19:20.154Z"
-    },
-    {
-      "id": "beb4fe33b4",
-      "company_id": "sector",
-      "date": "2026-07-08",
-      "kind": "catalyst",
-      "horizon": "upcoming",
-      "impact": "watch",
-      "headline": "Bima Sugam platform targeted to go live by September-end",
-      "detail": "A common digital marketplace could reshape distribution, product discovery and servicing economics across standalone health insurers, so execution and participation terms matter for valuations.",
-      "source_name": "thehindubusinessline.com",
-      "source_url": "https://www.thehindubusinessline.com/money-and-banking/bima-sugam-to-go-live-by-september-end-irdai-chief/article71166098.ece",
-      "source_published_at": "2026-07-08",
-      "first_seen": "2026-07-10T12:20:20.346Z",
-      "discovered_at": "2026-07-10T12:20:20.346Z"
-    },
-    {
-      "id": "f150384f0b",
-      "company_id": "sector",
-      "date": "2026-07-08",
-      "kind": "regulatory",
-      "horizon": "upcoming",
-      "impact": "watch",
-      "headline": "IRDAI signals distribution reform consultation paper by end-July",
-      "detail": "Proposed distribution changes could alter commissions, channel mix and customer-acquisition economics for health insurers, a key swing factor for profitability.",
-      "source_name": "thehindubusinessline.com",
-      "source_url": "https://www.thehindubusinessline.com/money-and-banking/bima-sugam-to-go-live-by-september-end-irdai-chief/article71166098.ece",
-      "source_published_at": "2026-07-08",
-      "first_seen": "2026-07-10T12:20:20.346Z",
-      "discovered_at": "2026-07-10T12:20:20.346Z"
     },
     {
       "id": "23fb9e20b0",
@@ -876,6 +846,36 @@
       "source_published_at": "2026-06-29",
       "first_seen": "2026-07-10T12:20:20.346Z",
       "discovered_at": "2026-07-10T12:20:20.346Z"
+    },
+    {
+      "id": "a9a581005e",
+      "company_id": "sector",
+      "date": null,
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "impact",
+      "detail": "headline",
+      "source_name": null,
+      "source_url": null,
+      "source_published_at": null,
+      "first_seen": "2026-07-12T05:18:02.349Z",
+      "discovered_at": "2026-07-12T05:18:02.349Z"
+    },
+    {
+      "id": "c4c6c57253",
+      "company_id": "sector",
+      "date": null,
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "positive",
+      "detail": "Star Health, SBI Life, Max Financial flagged for \"strong FY27 growth",
+      "source_name": null,
+      "source_url": null,
+      "source_published_at": null,
+      "first_seen": "2026-07-12T05:18:02.349Z",
+      "discovered_at": "2026-07-12T05:18:02.349Z"
     }
   ]
 }
