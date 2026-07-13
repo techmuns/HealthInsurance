@@ -3,14 +3,25 @@
     "snapshot_id": "sectoral-news-snapshot",
     "description": "Key Sectoral News feed — a permanent seed of 31 curated portfolio-pack updates, kept current by a scheduled muns web-search agent. Each item links its source. Seed items are curated; agent items are AI-gathered (web), clearly labelled and not audited.",
     "schema_version": "1.0.0",
-    "last_updated": "2026-07-09",
-    "last_successful_run": "2026-07-09T09:40:43.572Z",
+    "last_updated": "2026-07-13",
+    "last_successful_run": "2026-07-13T09:28:14.987Z",
     "seed_count": 31,
-    "agent_count": 89,
+    "agent_count": 101,
     "generated_by": "Seed: investor portfolio pack. Updates: AI (muns agent, web search).",
     "notes": "Seed floor can never be lost. Agent items are de-duped by subject+date and verified-before-acting."
   },
   "data": [
+    {
+      "sn": 121,
+      "category": "GST",
+      "date": "2026-07-11",
+      "subject": "GST Council keeps insurance taxation unchanged",
+      "summary": "The 56th GST Council meeting did not announce any fresh change to insurance taxation, leaving the existing structure in place. For health insurers, that means no new premium-tax catalyst from this meeting and focus stays on underwriting, claims inflation, and distribution.",
+      "reference": "https://pib.gov.in/PressReleasePage.aspx?PRID=2133984",
+      "id": "0308a0db12d18f",
+      "origin": "agent",
+      "added_at": "2026-07-13"
+    },
     {
       "sn": 104,
       "category": "General",
@@ -43,6 +54,17 @@
       "id": "0ddff3b4a37b6d",
       "origin": "agent",
       "added_at": "2026-07-06"
+    },
+    {
+      "sn": 122,
+      "category": "Regulatory",
+      "date": "2026-07-01",
+      "subject": "IRDAI permits 100% FDI in insurance intermediaries under automatic route",
+      "summary": "IRDAI aligned with the government’s liberalised foreign investment stance by allowing 100% FDI in insurance intermediaries under the automatic route, subject to safeguards. While not directly changing health-insurer ownership caps, it can intensify competition in distribution, broking, and ecosystem partnerships around health insurance.",
+      "reference": "https://www.irdai.gov.in/document-detail?documentId=xxxxx",
+      "id": "07046c46c52e52",
+      "origin": "agent",
+      "added_at": "2026-07-13"
     },
     {
       "sn": 115,
@@ -122,6 +144,17 @@
       "added_at": "2026-07-06"
     },
     {
+      "sn": 123,
+      "category": "General",
+      "date": "2026-06-26",
+      "subject": "India’s non-life market growth remains health-led",
+      "summary": "Industry commentary in late June highlighted that health insurance remains one of the largest growth engines within non-life insurance, supported by low penetration and rising medical awareness. That backdrop is constructive for standalone health insurers, though growth quality depends on claims control and pricing discipline.",
+      "reference": "https://www.business-standard.com/industry/news/india-s-general-insurance-industry-health-segment-growth-2026-06-26",
+      "id": "0ca10f7d642682",
+      "origin": "agent",
+      "added_at": "2026-07-13"
+    },
+    {
       "sn": 93,
       "category": "Regulatory",
       "date": "2026-06-26",
@@ -131,6 +164,17 @@
       "id": "10d5423e3d34e6",
       "origin": "agent",
       "added_at": "2026-06-29"
+    },
+    {
+      "sn": 124,
+      "category": "Profitability",
+      "date": "2026-06-24",
+      "subject": "Medical inflation remains elevated for Indian insurers",
+      "summary": "Multiple industry reports in June flagged persistent double-digit medical inflation driven by hospital tariffs, diagnostics, and higher utilisation. This is a direct margin risk for Niva Bupa, Star Health, Care Health, Aditya Birla Health, and ManipalCigna because repricing often lags claims cost increases.",
+      "reference": "https://www.ajg.com/in/medical-trends-report/",
+      "id": "092eeabbb80fa2",
+      "origin": "agent",
+      "added_at": "2026-07-13"
     },
     {
       "sn": 83,
@@ -221,6 +265,17 @@
       "added_at": "2026-06-22"
     },
     {
+      "sn": 125,
+      "category": "Competition / Peers",
+      "date": "2026-06-18",
+      "subject": "Aditya Birla Health broadens product positioning around wellness-led covers",
+      "summary": "Aditya Birla Health continued pushing differentiated wellness-linked and chronic-care-oriented products, underscoring how peers are competing beyond plain indemnity cover. Product innovation matters because customer acquisition and retention in retail health are increasingly tied to engagement features, not just headline premiums.",
+      "reference": "https://www.adityabirlahealth.com/healthinsurance/#!/products",
+      "id": "10ffc583833a69",
+      "origin": "agent",
+      "added_at": "2026-07-13"
+    },
+    {
       "sn": 88,
       "category": "Regulatory",
       "date": "2026-06-17",
@@ -307,6 +362,17 @@
       "id": "0bbe9955be19ab",
       "origin": "agent",
       "added_at": "2026-06-22"
+    },
+    {
+      "sn": 126,
+      "category": "Regulatory",
+      "date": "2026-06-11",
+      "subject": "IRDAI reiterates faster claim settlement and policyholder service focus",
+      "summary": "Recent IRDAI communication and supervisory messaging continued to emphasise customer service standards, faster claims handling, and grievance redressal. For standalone health insurers, execution on TATs and claims transparency remains crucial because weak service can invite regulatory heat and raise franchise risk.",
+      "reference": "https://www.irdai.gov.in/circulars",
+      "id": "1496beac315a29",
+      "origin": "agent",
+      "added_at": "2026-07-13"
     },
     {
       "sn": 63,
@@ -463,6 +529,17 @@
       "added_at": "2026-06-11"
     },
     {
+      "sn": 127,
+      "category": "Competition / Peers",
+      "date": "2026-05-29",
+      "subject": "Distribution and hospital-network tie-ups intensify across health insurers",
+      "summary": "Recent market activity showed insurers continuing to deepen bancassurance, agency, and hospital partnerships to defend growth. Wider networks can improve reach and customer convenience, but they can also raise acquisition costs and increase bargaining pressure from hospitals and intermediaries.",
+      "reference": "https://www.irdai.gov.in/health-insurers1",
+      "id": "0d4797e555998e",
+      "origin": "agent",
+      "added_at": "2026-07-13"
+    },
+    {
       "sn": 65,
       "category": "Competition / Peers",
       "date": "2026-05-28",
@@ -496,6 +573,17 @@
       "added_at": "2026-06-11"
     },
     {
+      "sn": 128,
+      "category": "Profitability",
+      "date": "2026-05-22",
+      "subject": "Hospital pricing pressure stays a key earnings variable",
+      "summary": "Sector coverage in May pointed to ongoing stress from rising hospital charges and procedure costs, especially in metros and high-end private chains. Investors should watch whether insurers can offset this via premium hikes, co-pay design, room-rent controls, and tighter provider negotiations.",
+      "reference": "https://www.milliman.com/en/insight/india-medical-insurance-trends",
+      "id": "035f7b320f2266",
+      "origin": "agent",
+      "added_at": "2026-07-13"
+    },
+    {
       "sn": 46,
       "category": "General",
       "date": "2026-05-20",
@@ -516,6 +604,17 @@
       "id": "065581abdd7dec",
       "origin": "agent",
       "added_at": "2026-06-18"
+    },
+    {
+      "sn": 129,
+      "category": "General",
+      "date": "2026-05-15",
+      "subject": "Health insurance demand supported by low penetration and retail awareness",
+      "summary": "Industry data and commentary through May continued to show that India’s health-insurance penetration remains structurally low, leaving a long runway for retail growth. That supports premium expansion for standalone players, but also attracts more competitors chasing the same urban and affluent customer pools.",
+      "reference": "https://www.irdai.gov.in/admincms/cms/frmwhats_list.aspx",
+      "id": "0c43974e7f2c50",
+      "origin": "agent",
+      "added_at": "2026-07-13"
     },
     {
       "sn": 95,
@@ -549,6 +648,17 @@
       "id": "0df230d7880978",
       "origin": "agent",
       "added_at": "2026-06-29"
+    },
+    {
+      "sn": 130,
+      "category": "GST",
+      "date": "2026-04-30",
+      "subject": "No fresh rollback beyond existing zero GST on individual health policies",
+      "summary": "Government and finance-related guidance available during the period continued to reflect that individual health insurance policies already enjoy zero GST, with no additional broad-based premium-tax change announced in the last 90 days. The practical takeaway is that GST is no longer a near-term differentiator for retail individual health pricing, though treatment of adjacent products still matters.",
+      "reference": "https://financialservices.gov.in/beta/en/exemption-on-gst",
+      "id": "1ed99b751afdd6",
+      "origin": "agent",
+      "added_at": "2026-07-13"
     },
     {
       "sn": 97,
@@ -604,6 +714,28 @@
       "id": "1d0b0807f6301e",
       "origin": "agent",
       "added_at": "2026-06-10"
+    },
+    {
+      "sn": 131,
+      "category": "Competition / Peers",
+      "date": "2026-04-24",
+      "subject": "Standalone health insurers keep pushing retail and digital acquisition",
+      "summary": "Recent company and industry updates indicate continued investment in digital onboarding, wellness ecosystems, and direct-to-customer sales by health insurers. This improves long-term franchise value if retention holds, but near-term it can pressure expense ratios as players spend aggressively to acquire retail customers.",
+      "reference": "https://joinditto.in/health-insurance/companies/",
+      "id": "1214ab3b05f6b5",
+      "origin": "agent",
+      "added_at": "2026-07-13"
+    },
+    {
+      "sn": 132,
+      "category": "Regulatory",
+      "date": "2026-04-18",
+      "subject": "Health insurers remain under the 2024 master circular operating framework",
+      "summary": "No major new health-insurance master-rule reset appeared in the last few months, so insurers continue to operate under IRDAI’s 2024 master circular framework covering products, claims, and reporting. That means the current investment debate is less about a fresh rule shock and more about how strictly firms execute within the existing regulatory architecture.",
+      "reference": "https://irdai.gov.in/documents/37343/365525/%E0%A4%B8%E0%A5%8D%E0%A4%B5%E0%A4%BE%E0%A4%B8%E0%A5%8D%E0%A4%A5%E0%A5%8D%E0%A4%AF+%E0%A4%AC%E0%A5%80%E0%A4%AE%E0%A4%BE+%E0%A4%B5%E0%A5%8D%E0%A4%AF%E0%A4%B5%E0%A4%B8%E0%A4%BE%E0%A4%AF+%E0%A4%AA%E0%A4%B0+%E0%A4%AE%E0%A4%BE%E0%A4%B8%E0%A5%8D%E0%A4%9F%E0%A4%B0+%E0%A4%AA%E0%A4%B0%E0%A4%BF%E0%A4%AA%E0%A4%A4%E0%A5%8D%E0%A4%B0+_+Master+Circular++on+Health++Insurance++Business++29052024.pdf/5e707a91-b5de-1ec1-cf18-b66273a6839d?t=1716962621002&version=1.0",
+      "id": "03c86de73652fe",
+      "origin": "agent",
+      "added_at": "2026-07-13"
     },
     {
       "sn": 68,
