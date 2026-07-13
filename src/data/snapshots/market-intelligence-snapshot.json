@@ -4,8 +4,8 @@
     "description": "AI-generated market intelligence for the SAHI health insurers — investor meets, earnings/board dates, sector & regulatory news, share catalysts. Web-sourced; each item links its source. AI-generated, not audited.",
     "schema_version": "1.0.0",
     "dataset": "ai_generated",
-    "last_updated": "2026-07-12",
-    "last_successful_run": "2026-07-12T14:48:05.967Z",
+    "last_updated": "2026-07-13",
+    "last_successful_run": "2026-07-13T05:27:27.029Z",
     "upstream_sources": [
       "muns_agent_web"
     ],
@@ -191,6 +191,21 @@
       "source_published_at": null,
       "first_seen": "2026-07-10T09:19:20.154Z",
       "discovered_at": "2026-07-10T09:19:20.154Z"
+    },
+    {
+      "id": "4a44463d1b",
+      "company_id": "sector",
+      "date": "2026-07-08",
+      "kind": "catalyst",
+      "horizon": "recent",
+      "impact": "watch",
+      "headline": "Star Health hits 52-week high",
+      "detail": "Star Health’s move to a new high signals strong investor appetite for retail-health insurers, which can help sector rerating but also raise valuation expectations for peers.",
+      "source_name": "marketsmojo.com",
+      "source_url": "https://www.marketsmojo.com/news/stocks-in-action/star-health-allied-insurance-company-ltd-hits-new-52-week-high-at-rs60595-4095427",
+      "source_published_at": null,
+      "first_seen": "2026-07-13T05:27:27.029Z",
+      "discovered_at": "2026-07-13T05:27:27.029Z"
     },
     {
       "id": "23fb9e20b0",
@@ -629,6 +644,36 @@
       "discovered_at": "2026-07-09T16:22:46.308Z"
     },
     {
+      "id": "4f7a02d295",
+      "company_id": "sector",
+      "date": "2026-07-01",
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "negative",
+      "headline": "Prudential-HCL gets final licence, raising standalone health insurers to eight",
+      "detail": "A new well-capitalised entrant increases pricing, distribution and claims-service competition for incumbents such as Niva Bupa, Star Health and Care.",
+      "source_name": "moneycontrol.com",
+      "source_url": "https://www.moneycontrol.com/news/business/irdai-grants-final-r3-licence-to-prudential-hcl-health-insurance-venture-13963822.html",
+      "source_published_at": "2026-07-01",
+      "first_seen": "2026-07-13T05:27:27.029Z",
+      "discovered_at": "2026-07-13T05:27:27.029Z"
+    },
+    {
+      "id": "b9223aead8",
+      "company_id": "sector",
+      "date": "2026-07-01",
+      "kind": "catalyst",
+      "horizon": "recent",
+      "impact": "positive",
+      "headline": "100% FDI regime is drawing fresh insurance capital and deal interest",
+      "detail": "Liberalised foreign ownership is attracting new capital and strategic interest into insurance, a medium-term positive for sector growth but also a driver of competition and consolidation.",
+      "source_name": "livemint.com",
+      "source_url": "https://www.livemint.com/companies/news/prudential-hcl-health-irdai-approval-11782915502104.html",
+      "source_published_at": "2026-07-01",
+      "first_seen": "2026-07-13T05:27:27.029Z",
+      "discovered_at": "2026-07-13T05:27:27.029Z"
+    },
+    {
       "id": "f3ce300c4e",
       "company_id": "sector",
       "date": "2026-06-30",
@@ -803,6 +848,21 @@
       "discovered_at": "2026-07-11T14:44:40.977Z"
     },
     {
+      "id": "feb75752b6",
+      "company_id": "sector",
+      "date": "2026-06-30",
+      "kind": "regulatory",
+      "horizon": "recent",
+      "impact": "watch",
+      "headline": "IRDAI chief signals another general insurance licence amid rising foreign-investor interest",
+      "detail": "The regulator’s stance points to easier market entry/capital formation and a more competitive sector structure, relevant for all standalone health insurers.",
+      "source_name": "bfsi.economictimes.indiatimes.com",
+      "source_url": "https://bfsi.economictimes.indiatimes.com/articles/irdai-approves-new-general-insurance-license-amid-increased-foreign-investment-interest/132087704",
+      "source_published_at": "2026-06-30",
+      "first_seen": "2026-07-13T05:27:27.029Z",
+      "discovered_at": "2026-07-13T05:27:27.029Z"
+    },
+    {
       "id": "0855aa1650",
       "company_id": "sector",
       "date": "2026-06-29",
@@ -816,66 +876,6 @@
       "source_published_at": "2026-07-01",
       "first_seen": "2026-07-05T08:43:25.282Z",
       "discovered_at": "2026-07-05T08:43:25.282Z"
-    },
-    {
-      "id": "7a30d79ee3",
-      "company_id": "sector",
-      "date": "2026-06-29",
-      "kind": "regulatory",
-      "horizon": "recent",
-      "impact": "negative",
-      "headline": "IRDAI clears Prudential-HCL health JV, taking standalone health insurers to eight",
-      "detail": "A new well-capitalised entrant raises competitive intensity in retail health, distribution and pricing, which matters for Niva Bupa and listed peer Star Health.",
-      "source_name": "moneycontrol.com",
-      "source_url": "https://www.moneycontrol.com/news/business/irdai-grants-final-r3-licence-to-prudential-hcl-health-insurance-venture-13963822.html",
-      "source_published_at": null,
-      "first_seen": "2026-07-05T11:23:57.879Z",
-      "discovered_at": "2026-07-05T11:23:57.879Z"
-    },
-    {
-      "id": "1e09dd7b2d",
-      "company_id": "sector",
-      "date": "2026-06-29",
-      "kind": "regulatory",
-      "horizon": "recent",
-      "impact": "watch",
-      "headline": "IRDAI clears Prudential-HCL health venture as 8th standalone health insurer",
-      "detail": "A new standalone health insurer raises competitive intensity in pricing, distribution and hiring across the listed and unlisted health-insurance peer set.",
-      "source_name": "livemint.com",
-      "source_url": "https://www.livemint.com/companies/news/prudential-hcl-health-irdai-approval-11782915502104.html",
-      "source_published_at": null,
-      "first_seen": "2026-07-05T15:06:16.710Z",
-      "discovered_at": "2026-07-05T15:06:16.710Z"
-    },
-    {
-      "id": "b84328aa40",
-      "company_id": "sector",
-      "date": "2026-06-29",
-      "kind": "regulatory",
-      "horizon": "recent",
-      "impact": "negative",
-      "headline": "IRDAI approval adds another health-insurance licence in 2026",
-      "detail": "The regulator’s 136th Authority meeting approval signals a pro-entry stance and more sector capacity, which matters for market-share assumptions across listed and private health insurers.",
-      "source_name": "livemint.com",
-      "source_url": "https://www.livemint.com/companies/news/prudential-hcl-health-irdai-approval-11782915502104.html",
-      "source_published_at": "2026-07-01",
-      "first_seen": "2026-07-06T16:48:32.222Z",
-      "discovered_at": "2026-07-06T16:48:32.222Z"
-    },
-    {
-      "id": "656dc85580",
-      "company_id": "sector",
-      "date": "2026-06-29",
-      "kind": "investor_meet",
-      "horizon": "recent",
-      "impact": "neutral",
-      "headline": "Star Health hosted investor meet in London on June 29",
-      "detail": "Investor meetings can reset expectations on growth, claims and margins across listed health insurers, with read-through for Niva Bupa valuation and sector positioning.",
-      "source_name": "scanx.trade",
-      "source_url": "https://scanx.trade/stock-market-news/companies/star-health-to-host-investor-meet-in-london-on-june-29/43919263",
-      "source_published_at": null,
-      "first_seen": "2026-07-10T05:55:44.792Z",
-      "discovered_at": "2026-07-10T05:55:44.792Z"
     }
   ]
 }
