@@ -4,8 +4,8 @@
     "description": "Management / governance events (appointments, resignations, board & KMP changes) for the SAHI health insurers — web-sourced via the muns agent, each item source-linked. Medium confidence; verify against the underlying filing.",
     "schema_version": "1.1.0",
     "dataset": "ai_generated",
-    "last_updated": "2026-07-10",
-    "last_successful_run": "2026-07-10T09:43:03.754Z",
+    "last_updated": "2026-07-13",
+    "last_successful_run": "2026-07-13T09:36:08.022Z",
     "upstream_sources": [
       "muns_agent_web"
     ],
@@ -16,111 +16,75 @@
   "data": [
     {
       "company_id": "niva-bupa",
-      "event_date": "2026-04-24",
-      "event_type": "appointment",
-      "person_name": "Ashwani Bhatia",
-      "designation": "Non-Executive Independent Director",
-      "event_summary": "Niva Bupa announced the appointment of Ashwani Bhatia as a non-executive independent director.",
-      "source_name": "scanx.trade",
-      "source_url": "https://scanx.trade/stock-market-news/companies/niva-bupa-appoints-ashwani-bhatia-as-non-executive-independent-director/42026112",
-      "confidence": "medium",
-      "fetched_at": "2026-07-10T09:43:03.754Z"
-    },
-    {
-      "company_id": "niva-bupa",
       "event_date": "2026-01-01",
       "event_type": "kmp_change",
-      "person_name": "Christopher J. Carroll",
-      "designation": "CEO, Bupa Global, India & UK / board-level leadership context",
-      "event_summary": "Niva Bupa’s board page says Christopher J. Carroll became CEO of Bupa Global, India & UK effective 1 Jan 2026, a material group-leadership change relevant to Niva Bupa oversight.",
+      "person_name": "Christopher",
+      "designation": "CEO of Bupa Global, India & UK",
+      "event_summary": "Niva Bupa’s board page states Christopher became CEO of Bupa Global, India & UK from 1 Jan 2026, a relevant parent/group leadership change for the insurer.",
       "source_name": "transactions.nivabupa.com",
       "source_url": "https://transactions.nivabupa.com/pages/board-of-directors.aspx",
       "confidence": "medium",
-      "fetched_at": "2026-07-10T09:43:03.754Z"
-    },
-    {
-      "company_id": "manipalcigna",
-      "event_date": "2026-01-01",
-      "event_type": "appointment",
-      "person_name": "Joydeep Roy",
-      "designation": "Managing Director & CEO",
-      "event_summary": "ManipalCigna’s management disclosures describe Joydeep Roy as MD & CEO, reflecting the leadership transition into the top role.",
-      "source_name": "manipalcigna.com",
-      "source_url": "https://www.manipalcigna.com/management-team",
-      "confidence": "medium",
-      "fetched_at": "2026-07-10T09:43:03.754Z"
-    },
-    {
-      "company_id": "manipalcigna",
-      "event_date": "2026-01-01",
-      "event_type": "kmp_change",
-      "person_name": "Joydeep Roy",
-      "designation": "Former Appointed Actuary / MD & CEO",
-      "event_summary": "ManipalCigna’s disclosed profile says Joydeep Roy previously served as Appointed Actuary before becoming MD & CEO, highlighting an actuarial-to-CEO transition.",
-      "source_name": "manipalcigna.com",
-      "source_url": "https://www.manipalcigna.com/key-persons",
-      "confidence": "medium",
-      "fetched_at": "2026-07-10T09:43:03.754Z"
-    },
-    {
-      "company_id": "aditya-birla",
-      "event_date": "2025-12-06",
-      "event_type": "kmp_change",
-      "person_name": "Mayank Bathwal",
-      "designation": "CEO",
-      "event_summary": "Coverage in Dec 2025 identifies Mayank Bathwal as CEO of Aditya Birla Health Insurance, confirming current leadership context.",
-      "source_name": "m.economictimes.com",
-      "source_url": "https://m.economictimes.com/wealth/insure/health-insurance/why-more-competition-may-benefit-policyholders-aditya-birla-health-insurance-ceo-mayank-bathwal/articleshow/126088316.cms",
-      "confidence": "medium",
-      "fetched_at": "2026-07-10T09:43:03.754Z"
+      "fetched_at": "2026-07-13T09:36:08.022Z"
     },
     {
       "company_id": "star-health",
       "event_date": "2025-07-29",
-      "event_type": "reappointment",
+      "event_type": "kmp_change",
       "person_name": "Jayashree Sethuraman",
-      "designation": "MD & CEO",
-      "event_summary": "Star Health’s shareholder notice indicates Jayashree Sethuraman was proposed/approved as Chief Executive Officer (MD & CEO) for FY 2025-26.",
+      "designation": "Company Secretary",
+      "event_summary": "Star Health’s exchange notice identifies Jayashree Sethuraman as Company Secretary and KMP for FY2025-26.",
       "source_name": "nsearchives.nseindia.com",
       "source_url": "https://nsearchives.nseindia.com/corporate/STARHEALTH_31072025125336_SEPBNotice290725.pdf",
       "confidence": "medium",
-      "fetched_at": "2026-07-10T09:43:03.754Z"
+      "fetched_at": "2026-07-13T09:36:08.022Z"
     },
     {
       "company_id": "manipalcigna",
-      "event_date": "2025-07-16",
+      "event_date": "2025-01-08",
       "event_type": "appointment",
       "person_name": "Anjan Kumar Ganguly",
       "designation": "Chief Financial Officer",
-      "event_summary": "ManipalCigna appointed Anjan Kumar Ganguly as CFO, according to industry coverage.",
+      "event_summary": "ManipalCigna appointed Anjan Kumar Ganguly as CFO.",
       "source_name": "impactonnet.com",
       "source_url": "https://www.impactonnet.com/more-from-impact/manipalcigna-health-insurance-appoints-anjan-kumar-ganguly-as-cfo-14856.html",
       "confidence": "medium",
-      "fetched_at": "2026-07-10T09:43:03.754Z"
+      "fetched_at": "2026-07-13T09:36:08.022Z"
+    },
+    {
+      "company_id": "manipalcigna",
+      "event_date": "2024-01-04",
+      "event_type": "appointment",
+      "person_name": "Joydeep Saha",
+      "designation": "MD & CEO",
+      "event_summary": "ManipalCigna appointed Joydeep Saha as Managing Director and CEO.",
+      "source_name": "peoplematters.in",
+      "source_url": "https://www.peoplematters.in/news/appointments/manipalcigna-health-insurance-appoints-joydeep-saha-as-md-and-ceo-42371",
+      "confidence": "medium",
+      "fetched_at": "2026-07-13T09:36:08.022Z"
     },
     {
       "company_id": "niva-bupa",
-      "event_date": "2025-01-09",
-      "event_type": "resignation",
-      "person_name": "C. Anil Kumar",
-      "designation": "Chief Financial Officer",
-      "event_summary": "Niva Bupa annual report notes that C. Anil Kumar resigned from the position of CFO with effect from 9 Jan 2025.",
-      "source_name": "transactions.nivabupa.com",
-      "source_url": "https://transactions.nivabupa.com/pages/doc/investor-relations/other-fin-disclosures/NivaBupaAnnualReport2023.pdf",
+      "event_date": null,
+      "event_type": "board_change",
+      "person_name": "Ashwani Bhatia",
+      "designation": "Non-Executive Independent Director",
+      "event_summary": "Credible coverage reports Niva Bupa appointed Ashwani Bhatia as a Non-Executive Independent Director.",
+      "source_name": "scanx.trade",
+      "source_url": "https://scanx.trade/stock-market-news/companies/niva-bupa-appoints-ashwani-bhatia-as-non-executive-independent-director/42026112",
       "confidence": "medium",
-      "fetched_at": "2026-07-10T09:43:03.754Z"
+      "fetched_at": "2026-07-13T09:36:08.022Z"
     },
     {
-      "company_id": "niva-bupa",
-      "event_date": "2025-01-01",
-      "event_type": "kmp_change",
-      "person_name": "Krishnan Ramachandran",
-      "designation": "Managing Director & CEO",
-      "event_summary": "Niva Bupa’s board page states Krishnan Ramachandran has been Managing Director & CEO since Jan 2025.",
-      "source_name": "transactions.nivabupa.com",
-      "source_url": "https://transactions.nivabupa.com/pages/board-of-directors.aspx",
+      "company_id": "star-health",
+      "event_date": null,
+      "event_type": "board_change",
+      "person_name": "Utpal Sheth",
+      "designation": "Additional Director",
+      "event_summary": "Credible coverage reports Star Health accepted Utpal Sheth’s resignation and appointed him as an Additional Director.",
+      "source_name": "scanx.trade",
+      "source_url": "https://scanx.trade/stock-market-news/companies/star-health-accepts-resignation-of-utpal-sheth-and-appoints-him-as-additional-director/44022323",
       "confidence": "medium",
-      "fetched_at": "2026-07-10T09:43:03.754Z"
+      "fetched_at": "2026-07-13T09:36:08.022Z"
     }
   ]
 }
