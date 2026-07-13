@@ -5,7 +5,7 @@
     "schema_version": "1.0.0",
     "dataset": "ai_generated",
     "last_updated": "2026-07-13",
-    "last_successful_run": "2026-07-13T05:27:27.029Z",
+    "last_successful_run": "2026-07-13T08:49:12.049Z",
     "upstream_sources": [
       "muns_agent_web"
     ],
@@ -41,6 +41,21 @@
       "source_published_at": null,
       "first_seen": "2026-07-09T16:22:46.308Z",
       "discovered_at": "2026-07-09T16:22:46.308Z"
+    },
+    {
+      "id": "3d8e8f3345",
+      "company_id": "sector",
+      "date": "2026-07-13",
+      "kind": "regulatory",
+      "horizon": "recent",
+      "impact": "watch",
+      "headline": "Cashless-facility enforcement remains a live policyholder-protection risk area",
+      "detail": "IRDAI’s circular requiring empanelled hospitals to honour notified cashless treatment underscores ongoing operational and reputational risk around cashless denial, a core monitorable for all health insurers’ claims experience.",
+      "source_name": "irdai.gov.in",
+      "source_url": "https://irdai.gov.in/web/guest/document-detail?documentId=394937",
+      "source_published_at": "2020-07-14",
+      "first_seen": "2026-07-13T08:49:12.049Z",
+      "discovered_at": "2026-07-13T08:49:12.049Z"
     },
     {
       "id": "b1bcd59eb3",
@@ -163,6 +178,21 @@
       "discovered_at": "2026-07-12T14:48:05.967Z"
     },
     {
+      "id": "1c833e638e",
+      "company_id": "sector",
+      "date": "2026-07-09",
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "positive",
+      "headline": "JM Financial sees strong FY27 growth for Star Health and Niva Bupa",
+      "detail": "A current sector note is market-moving for Niva Bupa because it frames June-quarter profit growth, underwriting improvement and resilient premium growth across standalone health insurers.",
+      "source_name": "bfsi.economictimes.indiatimes.com",
+      "source_url": "https://bfsi.economictimes.indiatimes.com/articles/star-health-sbi-life-and-max-financial-set-for-robust-fy27-growth/132272405",
+      "source_published_at": "2026-07-09",
+      "first_seen": "2026-07-13T08:49:12.049Z",
+      "discovered_at": "2026-07-13T08:49:12.049Z"
+    },
+    {
       "id": "33f929f540",
       "company_id": "sector",
       "date": "2026-07-08",
@@ -206,6 +236,21 @@
       "source_published_at": null,
       "first_seen": "2026-07-13T05:27:27.029Z",
       "discovered_at": "2026-07-13T05:27:27.029Z"
+    },
+    {
+      "id": "eb6648d24a",
+      "company_id": "sector",
+      "date": "2026-07-06",
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "Manipal Health gets SEBI nod for Rs 10,000-crore IPO",
+      "detail": "While this is a hospital-chain IPO rather than ManipalCigna, it is relevant sector context because large healthcare capital-market activity can redirect investor attention to healthcare and insurance adjacencies.",
+      "source_name": "moneycontrol.com",
+      "source_url": "https://www.moneycontrol.com/news/business/ipo/manipal-health-gets-sebi-nod-for-rs-10-000-crore-ipo-paves-way-for-one-of-india-s-biggest-healthcare-listings-13967334.html",
+      "source_published_at": "2026-07-06",
+      "first_seen": "2026-07-13T08:49:12.049Z",
+      "discovered_at": "2026-07-13T08:49:12.049Z"
     },
     {
       "id": "23fb9e20b0",
@@ -674,6 +719,36 @@
       "discovered_at": "2026-07-13T05:27:27.029Z"
     },
     {
+      "id": "8f673a3f63",
+      "company_id": "sector",
+      "date": "2026-07-01",
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "watch",
+      "headline": "Standalone health insurers’ market share cited at 13.6% in FY26",
+      "detail": "Reported share gains for standalone health insurers versus last year reinforce category tailwinds, but also imply incumbents must defend share as new entrants pursue a growing market.",
+      "source_name": "moneycontrol.com",
+      "source_url": "https://www.moneycontrol.com/news/business/irdai-grants-final-r3-licence-to-prudential-hcl-health-insurance-venture-13963822.html",
+      "source_published_at": "2026-07-01",
+      "first_seen": "2026-07-13T08:49:12.049Z",
+      "discovered_at": "2026-07-13T08:49:12.049Z"
+    },
+    {
+      "id": "28b56052d2",
+      "company_id": "sector",
+      "date": "2026-07-01",
+      "kind": "catalyst",
+      "horizon": "recent",
+      "impact": "positive",
+      "headline": "100% FDI liberalisation remains a live capital tailwind for insurance",
+      "detail": "The latest licence approval is being linked to India’s more liberal foreign-investment stance, supporting future capital raising, partnerships and valuation support across insurers.",
+      "source_name": "moneycontrol.com",
+      "source_url": "https://www.moneycontrol.com/news/business/irdai-grants-final-r3-licence-to-prudential-hcl-health-insurance-venture-13963822.html",
+      "source_published_at": "2026-07-01",
+      "first_seen": "2026-07-13T08:49:12.049Z",
+      "discovered_at": "2026-07-13T08:49:12.049Z"
+    },
+    {
       "id": "f3ce300c4e",
       "company_id": "sector",
       "date": "2026-06-30",
@@ -801,81 +876,6 @@
       "source_published_at": null,
       "first_seen": "2026-07-10T09:19:20.154Z",
       "discovered_at": "2026-07-10T09:19:20.154Z"
-    },
-    {
-      "id": "d3c58c18e3",
-      "company_id": "sector",
-      "date": "2026-06-30",
-      "kind": "sector_news",
-      "horizon": "recent",
-      "impact": "watch",
-      "headline": "Industry flags health-policy compliance deadline as premium repricing nears completion",
-      "detail": "Product alignment with IRDAI health norms and reported premium hikes at many insurers can affect demand elasticity, retention and claims-cost recovery across the sector.",
-      "source_name": "moneycontrol.com",
-      "source_url": "https://www.moneycontrol.com/news/business/personal-finance/deadline-for-health-policies-to-comply-with-irdai-norms-draws-closer-heres-how-policyholders-will-benefit-12817828.html",
-      "source_published_at": "2026-06-30",
-      "first_seen": "2026-07-10T12:20:20.346Z",
-      "discovered_at": "2026-07-10T12:20:20.346Z"
-    },
-    {
-      "id": "e402d8dcdb",
-      "company_id": "niva-bupa",
-      "date": "2026-06-30",
-      "kind": "catalyst",
-      "horizon": "recent",
-      "impact": "positive",
-      "headline": "Leadership expansion: Ankur Kharbanda named Executive Director & Deputy CEO",
-      "detail": "New deputy-CEO appointment is flagged by analysts as a factor to watch for operational strategy execution as the company scales its multi-channel retail growth engine.",
-      "source_name": "whalesbook.com",
-      "source_url": "https://www.whalesbook.com/news/English/brokerage-reports/Niva-Bupa-Motilal-Oswal-Sets-indian-rupee97-Target-After-Q4-Profit-Jump/6a38cbe8a1c5bf08432882dd",
-      "source_published_at": "2026-06-22",
-      "first_seen": "2026-07-11T14:44:40.977Z",
-      "discovered_at": "2026-07-11T14:44:40.977Z"
-    },
-    {
-      "id": "e800c29461",
-      "company_id": "care-health",
-      "date": "2026-06-30",
-      "kind": "catalyst",
-      "horizon": "recent",
-      "impact": "watch",
-      "headline": "Care Health Insurance completes ₹119.7cr rights issue allotment to parent Religare",
-      "detail": "CHIL allotted **74.8 lakh shares** at ₹160 (₹10 FV + ₹150 premium) to shore up solvency and fund expansion — signals capital strain/growth funding needs at a key peer, relevant as a competitive capital-raising benchmark for Niva Bupa.",
-      "source_name": "investywise.com",
-      "source_url": "https://www.investywise.com/religare-enterprises-chil-rights-issue-allotment-completed",
-      "source_published_at": "2026-07-08",
-      "first_seen": "2026-07-11T14:44:40.977Z",
-      "discovered_at": "2026-07-11T14:44:40.977Z"
-    },
-    {
-      "id": "feb75752b6",
-      "company_id": "sector",
-      "date": "2026-06-30",
-      "kind": "regulatory",
-      "horizon": "recent",
-      "impact": "watch",
-      "headline": "IRDAI chief signals another general insurance licence amid rising foreign-investor interest",
-      "detail": "The regulator’s stance points to easier market entry/capital formation and a more competitive sector structure, relevant for all standalone health insurers.",
-      "source_name": "bfsi.economictimes.indiatimes.com",
-      "source_url": "https://bfsi.economictimes.indiatimes.com/articles/irdai-approves-new-general-insurance-license-amid-increased-foreign-investment-interest/132087704",
-      "source_published_at": "2026-06-30",
-      "first_seen": "2026-07-13T05:27:27.029Z",
-      "discovered_at": "2026-07-13T05:27:27.029Z"
-    },
-    {
-      "id": "0855aa1650",
-      "company_id": "sector",
-      "date": "2026-06-29",
-      "kind": "regulatory",
-      "horizon": "recent",
-      "impact": "positive",
-      "headline": "IRDAI signalled another insurer licence as part of expansion push",
-      "detail": "The regulator’s continued issuance of licences reinforces a pro-expansion stance and Insurance for All agenda, supportive for penetration but also a cue for rising competition.",
-      "source_name": "bfsi.economictimes.indiatimes.com",
-      "source_url": "https://bfsi.economictimes.indiatimes.com/articles/prudential-hcl-health-insurance-receives-irdai-license-a-milestone-in-indias-health-insurance-market/132118031",
-      "source_published_at": "2026-07-01",
-      "first_seen": "2026-07-05T08:43:25.282Z",
-      "discovered_at": "2026-07-05T08:43:25.282Z"
     }
   ]
 }
