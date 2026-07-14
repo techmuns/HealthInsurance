@@ -5,7 +5,7 @@
     "schema_version": "1.0.0",
     "dataset": "ai_generated",
     "last_updated": "2026-07-14",
-    "last_successful_run": "2026-07-14T04:41:41.661Z",
+    "last_successful_run": "2026-07-14T07:47:25.436Z",
     "upstream_sources": [
       "muns_agent_web"
     ],
@@ -749,6 +749,21 @@
       "discovered_at": "2026-07-13T08:49:12.049Z"
     },
     {
+      "id": "78275860ca",
+      "company_id": "sector",
+      "date": "2026-07-01",
+      "kind": "regulatory",
+      "horizon": "recent",
+      "impact": "negative",
+      "headline": "IRDAI licenses 8th standalone health insurer (Prudential-HCL)",
+      "detail": "New entrant Prudential HCL Health Insurance raises the standalone health insurer count to eight, intensifying pricing/distribution competition for incumbents like Niva Bupa, Star Health and Care Health.",
+      "source_name": "bfsi.economictimes.indiatimes.com",
+      "source_url": "https://bfsi.economictimes.indiatimes.com/articles/prudential-hcl-health-insurance-receives-irdai-license-a-milestone-in-indias-health-insurance-market/132118031",
+      "source_published_at": "2026-07-01",
+      "first_seen": "2026-07-14T07:47:25.436Z",
+      "discovered_at": "2026-07-14T07:47:25.436Z"
+    },
+    {
       "id": "f3ce300c4e",
       "company_id": "sector",
       "date": "2026-06-30",
@@ -858,21 +873,6 @@
       "detail": "Evidence that wellness-linked engagement can improve claims and profitability is an important sector signal on margin levers beyond pricing.",
       "source_name": "livemint.com",
       "source_url": "https://www.livemint.com/companies/aditya-birla-health-wellness-incentives-claims-ratio-profitability-customer-engagement/amp-11778595636571.html",
-      "source_published_at": null,
-      "first_seen": "2026-07-10T09:19:20.154Z",
-      "discovered_at": "2026-07-10T09:19:20.154Z"
-    },
-    {
-      "id": "02166bfc09",
-      "company_id": "sector",
-      "date": "2026-06-30",
-      "kind": "catalyst",
-      "horizon": "recent",
-      "impact": "watch",
-      "headline": "Aditya Birla Health pushes preventive-health model to improve claims economics",
-      "detail": "CEO Mayank Bathwal’s remarks matter because lower claims ratio and better wellness-led retention would raise competitive pressure on standalone health insurers.",
-      "source_name": "moneycontrol.com",
-      "source_url": "https://www.moneycontrol.com/banking/health-insurance-moving-from-hospitalization-cover-to-preventive-healthcare-aditya-birla-health-ceo-article-13929893.html",
       "source_published_at": null,
       "first_seen": "2026-07-10T09:19:20.154Z",
       "discovered_at": "2026-07-10T09:19:20.154Z"
