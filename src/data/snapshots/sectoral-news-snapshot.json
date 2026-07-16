@@ -3,14 +3,36 @@
     "snapshot_id": "sectoral-news-snapshot",
     "description": "Key Sectoral News feed — a permanent seed of 31 curated portfolio-pack updates, kept current by a scheduled muns web-search agent. Each item links its source. Seed items are curated; agent items are AI-gathered (web), clearly labelled and not audited.",
     "schema_version": "1.0.0",
-    "last_updated": "2026-07-13",
-    "last_successful_run": "2026-07-13T09:28:14.987Z",
+    "last_updated": "2026-07-16",
+    "last_successful_run": "2026-07-16T08:13:59.478Z",
     "seed_count": 31,
-    "agent_count": 101,
+    "agent_count": 113,
     "generated_by": "Seed: investor portfolio pack. Updates: AI (muns agent, web search).",
     "notes": "Seed floor can never be lost. Agent items are de-duped by subject+date and verified-before-acting."
   },
   "data": [
+    {
+      "sn": 133,
+      "category": "Profitability",
+      "date": "2026-07-16",
+      "subject": "ICICI Lombard Q1 FY27 profit slumps 46%, shares hit 2-year low",
+      "summary": "Net profit fell to **₹403 crore** YoY as two large fire claims (₹63 cr) and a Supreme Court ruling on Motor Third-Party reserves (₹165 cr) pushed the combined ratio to **107.2%** from 102.9%; RoAE dropped to **9.6%** from 20.5%, and shares fell ~15% intraday — a read-through on rising claims severity relevant to health insurer peers.",
+      "reference": "https://www.ndtvprofit.com/markets/icici-lombard-q1-review-weak-quarter-keeps-street-cautious-citi-warns-of-multi-year-de-rating-11777519",
+      "id": "0c74548eb60dc9",
+      "origin": "agent",
+      "added_at": "2026-07-16"
+    },
+    {
+      "sn": 136,
+      "category": "General",
+      "date": "2026-07-13",
+      "subject": "Old health covers risk under-insurance as medical costs rise",
+      "summary": "Legacy policies with static sum-insured amounts are increasingly inadequate given rising treatment costs, prompting calls for policyholders to enhance covers or add top-ups — a demand-side tailwind for insurers offering higher-ticket and super top-up products.",
+      "reference": "https://business-standard.com/amp/finance/personal-finance/old-health-cover-may-leave-you-underinsured-as-medical-costs-rise-126071301270_1.html",
+      "id": "170badd89bcc64",
+      "origin": "agent",
+      "added_at": "2026-07-16"
+    },
     {
       "sn": 121,
       "category": "GST",
@@ -21,6 +43,17 @@
       "id": "0308a0db12d18f",
       "origin": "agent",
       "added_at": "2026-07-13"
+    },
+    {
+      "sn": 134,
+      "category": "Regulatory",
+      "date": "2026-07-03",
+      "subject": "IRDAI plans to shift insurance commissions to a staggered, retention-linked model",
+      "summary": "The regulator is drafting a framework to move away from large upfront agent/bank commissions toward payouts spread over a policy's life, aligning India with UK/US norms; a draft is expected shortly, with potential near-term margin impact on bancassurance-heavy players.",
+      "reference": "https://www.whalesbook.com/news/English/insurance/IRDAI-Plans-Insurance-Commission-Reform-to-Curb-Mis-selling/6a476ccf003e8c7640ef9c09",
+      "id": "139b6057877ee5",
+      "origin": "agent",
+      "added_at": "2026-07-16"
     },
     {
       "sn": 104,
@@ -54,6 +87,17 @@
       "id": "0ddff3b4a37b6d",
       "origin": "agent",
       "added_at": "2026-07-06"
+    },
+    {
+      "sn": 135,
+      "category": "Regulatory",
+      "date": "2026-07-01",
+      "subject": "IRDAI grants licence to Prudential-HCL Health Insurance, 8th standalone health insurer",
+      "summary": "IRDAI issued a Certificate of Registration to the Prudential (UK)-HCL (India) JV at its 136th Authority meeting (June 29), taking the standalone health insurer count in India to **eight** — the regulator's third licence approval in CY2026, signalling accelerating new-entrant risk for Niva Bupa and Star Health.",
+      "reference": "https://bfsi.economictimes.indiatimes.com/articles/prudential-hcl-health-insurance-receives-irdai-license-a-milestone-in-indias-health-insurance-market/132118031",
+      "id": "10a114879ea924",
+      "origin": "agent",
+      "added_at": "2026-07-16"
     },
     {
       "sn": 122,
@@ -122,6 +166,17 @@
       "added_at": "2026-07-06"
     },
     {
+      "sn": 137,
+      "category": "Regulatory",
+      "date": "2026-06-30",
+      "subject": "IRDAI Chairman confirms one foreign insurance licence approved, another pending",
+      "summary": "Chairman Ajay Seth stated in Mumbai that one new licence under the liberalized FDI regime had already been approved and another awaited sign-off, reinforcing the regulator's intent to fast-track new entrants — a structural competitive risk for existing health insurers.",
+      "reference": "https://bfsi.economictimes.indiatimes.com/articles/irdai-approves-new-general-insurance-license-amid-increased-foreign-investment-interest/132087704",
+      "id": "0a68b08580bdfe",
+      "origin": "agent",
+      "added_at": "2026-07-16"
+    },
+    {
       "sn": 116,
       "category": "General",
       "date": "2026-06-30",
@@ -144,6 +199,17 @@
       "added_at": "2026-07-06"
     },
     {
+      "sn": 138,
+      "category": "Competition / Peers",
+      "date": "2026-06-29",
+      "subject": "Nomura initiates coverage on non-life insurers, Buy on Star Health and Niva Bupa",
+      "summary": "Nomura started coverage with **Buy** ratings and target prices of **₹675** (Star Health) and **₹105** (Niva Bupa), citing health insurance as the fastest-growing non-life segment (41% of FY26 premium mix, 19% CAGR over a decade) versus a Neutral stance on ICICI Lombard (₹1,820 TP) and PB Fintech (₹1,590 TP).",
+      "reference": "https://www.cnbctv18.com/market/star-health-niva-bupa-pb-fintech-icici-lombard-shares-nomura-bets-on-non-life-insurance-players-upside-target-19933811.htm",
+      "id": "0b402738a0670a",
+      "origin": "agent",
+      "added_at": "2026-07-16"
+    },
+    {
       "sn": 123,
       "category": "General",
       "date": "2026-06-26",
@@ -164,6 +230,28 @@
       "id": "10d5423e3d34e6",
       "origin": "agent",
       "added_at": "2026-06-29"
+    },
+    {
+      "sn": 140,
+      "category": "Regulatory",
+      "date": "2026-06-24",
+      "subject": "IRDAI receives first 3-4 applications under 100% insurance FDI regime",
+      "summary": "Following removal of the 74% FDI cap, global insurers have filed initial JV/full-ownership applications; Prudential Plc must cut its ~22% stake in ICICI Prudential Life below 10% before its Bharti Life deal can clear. Analysts expect a wave of fresh JVs, capital infusions and M&A across insurance, including health, in coming quarters.",
+      "reference": "https://www.ndtvprofit.com/business/profit-exclusive-irdai-receives-first-3-4-applications-under-100-insurance-fdi-regime-sources-11679099",
+      "id": "1ac51a1b0547da",
+      "origin": "agent",
+      "added_at": "2026-07-16"
+    },
+    {
+      "sn": 139,
+      "category": "Competition / Peers",
+      "date": "2026-06-24",
+      "subject": "Nomura/NDTV Profit: Niva Bupa and Star Health get Buy calls in four-insurer initiation",
+      "summary": "Both standalone health insurers were flagged as Nomura's preferred plays, citing superior structural growth versus multi-line general insurers reliant on motor/fire lines that face reserving and pricing volatility.",
+      "reference": "https://www.ndtvprofit.com/markets/niva-bupa-star-health-get-buy-calls-as-nomura-initiates-on-four-insurers-check-target-prices-11700967",
+      "id": "1322fe3b7cb9e9",
+      "origin": "agent",
+      "added_at": "2026-07-16"
     },
     {
       "sn": 124,
@@ -474,6 +562,39 @@
       "added_at": "2026-06-11"
     },
     {
+      "sn": 143,
+      "category": "General",
+      "date": "2026-06-01",
+      "subject": "India's health insurance segment now 41% of non-life premium, growing at 19% CAGR",
+      "summary": "Per Nomura's sector initiation, health has overtaken motor as the largest and fastest-growing non-life insurance segment in India over the FY16–FY26 decade, underscoring the structural runway supporting standalone health insurers even amid near-term profitability noise at multi-line peers.",
+      "reference": "https://www.cnbctv18.com/market/star-health-niva-bupa-pb-fintech-icici-lombard-shares-nomura-bets-on-non-life-insurance-players-upside-target-19933811.htm",
+      "id": "0b0437662ac73c",
+      "origin": "agent",
+      "added_at": "2026-07-16"
+    },
+    {
+      "sn": 142,
+      "category": "Regulatory",
+      "date": "2026-06-01",
+      "subject": "IRDAI examining linking insurer payouts/commissions to policy retention and product complexity",
+      "summary": "Alongside the staggered-commission proposal, IRDAI is separately considering tying commercial payout structures to how long a policy stays in force and product complexity, aiming to discourage churn-driven mis-selling — a chronic health/life insurance industry problem.",
+      "reference": "https://moneycontrol.com/banking/irdai-plans-to-link-insurance-commissions-to-product-complexity-policy-retention-article-13966816.html",
+      "id": "05ef67719cb454",
+      "origin": "agent",
+      "added_at": "2026-07-16"
+    },
+    {
+      "sn": 141,
+      "category": "Competition / Peers",
+      "date": "2026-06-01",
+      "subject": "Niva Bupa upgraded to \"Buy\" on technical and financial strength",
+      "summary": "MarketsMojo upgraded its rating on Niva Bupa citing improving technical momentum alongside a strengthening financial performance trend, adding to a string of brokerage upgrades on the stock through mid-2026.",
+      "reference": "https://www.marketsmojo.com/news/stock-recommendation/niva-bupa-health-insurance-upgraded-to-buy-on-strong-technical-and-financial-performance-4084360",
+      "id": "07869c4f8a3d13",
+      "origin": "agent",
+      "added_at": "2026-07-16"
+    },
+    {
       "sn": 119,
       "category": "GST",
       "date": "2026-06-01",
@@ -626,6 +747,17 @@
       "id": "17f40c867c57fd",
       "origin": "agent",
       "added_at": "2026-06-29"
+    },
+    {
+      "sn": 144,
+      "category": "Profitability",
+      "date": "2026-05-09",
+      "subject": "Niva Bupa Q4 FY26 net profit up 67.5% YoY, but FY26 full-year profit down 39%",
+      "summary": "Quarterly net profit rose to **₹345.13 crore** (vs ₹206.08 crore) on 29.1% sales growth to ₹1,971.95 crore; however, full-year FY26 net profit fell **38.75%** to ₹130.78 crore despite 24% revenue growth to ₹6,067.57 crore — highlighting margin/combined-ratio pressure despite strong topline momentum.",
+      "reference": "https://www.business-standard.com/amp/markets/capital-market-news/niva-bupa-health-insurance-company-standalone-net-profit-rises-67-47-in-the-march-2026-quarter-126050900095_1.html",
+      "id": "1837ced350e863",
+      "origin": "agent",
+      "added_at": "2026-07-16"
     },
     {
       "sn": 109,
