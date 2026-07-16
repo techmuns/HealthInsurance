@@ -8566,7 +8566,7 @@
         "company": "Niva Bupa",
         "companyId": "niva-bupa",
         "generatedAt": "2026-07-16T04:55:02.621Z",
-        "lastUpdatedAt": "2026-07-16T07:58:49.369Z",
+        "lastUpdatedAt": "2026-07-16T11:30:02.489Z",
         "status": "Watch",
         "sourceConfidence": "Low",
         "itemCount": 58,
@@ -8584,6 +8584,13 @@
             "sourceCount": 60,
             "ideas": 6,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-07-16T11:30:02.489Z",
+            "developments": 67,
+            "sourceCount": 60,
+            "ideas": 6,
+            "status": "ok"
           }
         ],
         "brief": {
@@ -8596,7 +8603,7 @@
           "confidencePct": 68,
           "confidenceTier": "Medium",
           "readingMins": 3,
-          "lastUpdatedLabel": "16 Jul, 07:56 am"
+          "lastUpdatedLabel": "16 Jul, 11:27 am"
         },
         "message": {
           "since": "Niva Bupa had recently surfaced relevant coverage, alongside older regulatory items now in view. No fresh company-specific update was published since the last brief.",
@@ -9145,6 +9152,38 @@
           }
         ],
         "sinceDeltas": [
+          {
+            "id": "reg",
+            "label": "newly surfaced regulatory updates",
+            "value": "5",
+            "direction": "up",
+            "tone": "Watch",
+            "target": {
+              "page": "sahi",
+              "sahiTab": "sector-news",
+              "company": "niva-bupa",
+              "focus": {
+                "id": "pulse-since-reg",
+                "kind": "locator",
+                "locatorKind": "regulatory",
+                "metricKey": "regulatory",
+                "metricLabel": "Regulatory updates",
+                "company": "niva-bupa",
+                "companyLabel": "Niva Bupa",
+                "comparisonType": "trend",
+                "tone": "neutral",
+                "insightLabel": "5 newly surfaced regulatory updates",
+                "unit": "",
+                "sahiTab": "sector-news",
+                "origin": "pulse",
+                "targetItemId": "139b6057877ee5",
+                "targetMonth": "2026-07",
+                "sourceDate": "2026-07-03",
+                "surfacedAt": "2026-07-16",
+                "reasonShownToday": "Older source (dated 03 Jul 2026) — first added to the feed 16 Jul 2026, so it's newly surfaced, not newly published."
+              }
+            }
+          },
           {
             "id": "co",
             "label": "newly surfaced relevant updates",
@@ -17796,7 +17835,7 @@
         "company": "Star Health",
         "companyId": "star-health",
         "generatedAt": "2026-07-16T04:55:02.621Z",
-        "lastUpdatedAt": "2026-07-16T07:58:49.369Z",
+        "lastUpdatedAt": "2026-07-16T11:30:02.489Z",
         "status": "Watch",
         "sourceConfidence": "Low",
         "itemCount": 54,
@@ -17814,6 +17853,13 @@
             "sourceCount": 56,
             "ideas": 6,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-07-16T11:30:02.489Z",
+            "developments": 60,
+            "sourceCount": 56,
+            "ideas": 6,
+            "status": "ok"
           }
         ],
         "brief": {
@@ -17826,7 +17872,7 @@
           "confidencePct": 68,
           "confidenceTier": "Medium",
           "readingMins": 3,
-          "lastUpdatedLabel": "16 Jul, 07:56 am"
+          "lastUpdatedLabel": "16 Jul, 11:27 am"
         },
         "message": {
           "since": "Since the last brief, there were leadership changes to note.",
@@ -18389,6 +18435,38 @@
           }
         ],
         "sinceDeltas": [
+          {
+            "id": "reg",
+            "label": "newly surfaced regulatory updates",
+            "value": "5",
+            "direction": "up",
+            "tone": "Watch",
+            "target": {
+              "page": "sahi",
+              "sahiTab": "sector-news",
+              "company": "star-health",
+              "focus": {
+                "id": "pulse-since-reg",
+                "kind": "locator",
+                "locatorKind": "regulatory",
+                "metricKey": "regulatory",
+                "metricLabel": "Regulatory updates",
+                "company": "star-health",
+                "companyLabel": "Star Health",
+                "comparisonType": "trend",
+                "tone": "neutral",
+                "insightLabel": "5 newly surfaced regulatory updates",
+                "unit": "",
+                "sahiTab": "sector-news",
+                "origin": "pulse",
+                "targetItemId": "139b6057877ee5",
+                "targetMonth": "2026-07",
+                "sourceDate": "2026-07-03",
+                "surfacedAt": "2026-07-16",
+                "reasonShownToday": "Older source (dated 03 Jul 2026) — first added to the feed 16 Jul 2026, so it's newly surfaced, not newly published."
+              }
+            }
+          },
           {
             "id": "co",
             "label": "company-specific updates",
@@ -27078,7 +27156,7 @@
         "company": "Care Health",
         "companyId": "care-health",
         "generatedAt": "2026-07-16T04:55:02.621Z",
-        "lastUpdatedAt": "2026-07-16T07:58:49.369Z",
+        "lastUpdatedAt": "2026-07-16T11:30:02.489Z",
         "status": "Watch",
         "sourceConfidence": "Low",
         "itemCount": 54,
@@ -27096,6 +27174,13 @@
             "sourceCount": 56,
             "ideas": 6,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-07-16T11:30:02.489Z",
+            "developments": 57,
+            "sourceCount": 56,
+            "ideas": 6,
+            "status": "ok"
           }
         ],
         "brief": {
@@ -27108,7 +27193,7 @@
           "confidencePct": 68,
           "confidenceTier": "Medium",
           "readingMins": 4,
-          "lastUpdatedLabel": "16 Jul, 07:56 am"
+          "lastUpdatedLabel": "16 Jul, 11:27 am"
         },
         "message": {
           "since": "No company-specific movement for Care Health since the last brief — the read below is sector & regulatory context that applies across standalone health insurers.",
@@ -27671,6 +27756,38 @@
           }
         ],
         "sinceDeltas": [
+          {
+            "id": "reg",
+            "label": "newly surfaced regulatory updates",
+            "value": "5",
+            "direction": "up",
+            "tone": "Watch",
+            "target": {
+              "page": "sahi",
+              "sahiTab": "sector-news",
+              "company": "care-health",
+              "focus": {
+                "id": "pulse-since-reg",
+                "kind": "locator",
+                "locatorKind": "regulatory",
+                "metricKey": "regulatory",
+                "metricLabel": "Regulatory updates",
+                "company": "care-health",
+                "companyLabel": "Care Health",
+                "comparisonType": "trend",
+                "tone": "neutral",
+                "insightLabel": "5 newly surfaced regulatory updates",
+                "unit": "",
+                "sahiTab": "sector-news",
+                "origin": "pulse",
+                "targetItemId": "139b6057877ee5",
+                "targetMonth": "2026-07",
+                "sourceDate": "2026-07-03",
+                "surfacedAt": "2026-07-16",
+                "reasonShownToday": "Older source (dated 03 Jul 2026) — first added to the feed 16 Jul 2026, so it's newly surfaced, not newly published."
+              }
+            }
+          },
           {
             "id": "co",
             "label": "company-specific updates",
@@ -36385,7 +36502,7 @@
         "company": "Aditya Birla",
         "companyId": "aditya-birla",
         "generatedAt": "2026-07-16T04:55:02.621Z",
-        "lastUpdatedAt": "2026-07-16T07:58:49.369Z",
+        "lastUpdatedAt": "2026-07-16T11:30:02.489Z",
         "status": "Watch",
         "sourceConfidence": "Low",
         "itemCount": 54,
@@ -36403,6 +36520,13 @@
             "sourceCount": 56,
             "ideas": 6,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-07-16T11:30:02.489Z",
+            "developments": 56,
+            "sourceCount": 56,
+            "ideas": 6,
+            "status": "ok"
           }
         ],
         "brief": {
@@ -36415,7 +36539,7 @@
           "confidencePct": 68,
           "confidenceTier": "Medium",
           "readingMins": 3,
-          "lastUpdatedLabel": "16 Jul, 07:56 am"
+          "lastUpdatedLabel": "16 Jul, 11:27 am"
         },
         "message": {
           "since": "No company-specific movement for Aditya Birla since the last brief — the read below is sector & regulatory context that applies across standalone health insurers.",
@@ -36978,6 +37102,38 @@
           }
         ],
         "sinceDeltas": [
+          {
+            "id": "reg",
+            "label": "newly surfaced regulatory updates",
+            "value": "5",
+            "direction": "up",
+            "tone": "Watch",
+            "target": {
+              "page": "sahi",
+              "sahiTab": "sector-news",
+              "company": "aditya-birla",
+              "focus": {
+                "id": "pulse-since-reg",
+                "kind": "locator",
+                "locatorKind": "regulatory",
+                "metricKey": "regulatory",
+                "metricLabel": "Regulatory updates",
+                "company": "aditya-birla",
+                "companyLabel": "Aditya Birla",
+                "comparisonType": "trend",
+                "tone": "neutral",
+                "insightLabel": "5 newly surfaced regulatory updates",
+                "unit": "",
+                "sahiTab": "sector-news",
+                "origin": "pulse",
+                "targetItemId": "139b6057877ee5",
+                "targetMonth": "2026-07",
+                "sourceDate": "2026-07-03",
+                "surfacedAt": "2026-07-16",
+                "reasonShownToday": "Older source (dated 03 Jul 2026) — first added to the feed 16 Jul 2026, so it's newly surfaced, not newly published."
+              }
+            }
+          },
           {
             "id": "co",
             "label": "company-specific updates",
@@ -45635,7 +45791,7 @@
         "company": "ManipalCigna",
         "companyId": "manipalcigna",
         "generatedAt": "2026-07-16T04:55:02.621Z",
-        "lastUpdatedAt": "2026-07-16T07:58:49.369Z",
+        "lastUpdatedAt": "2026-07-16T11:30:02.489Z",
         "status": "Watch",
         "sourceConfidence": "Low",
         "itemCount": 54,
@@ -45653,6 +45809,13 @@
             "sourceCount": 56,
             "ideas": 6,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-07-16T11:30:02.489Z",
+            "developments": 57,
+            "sourceCount": 56,
+            "ideas": 6,
+            "status": "ok"
           }
         ],
         "brief": {
@@ -45665,7 +45828,7 @@
           "confidencePct": 68,
           "confidenceTier": "Medium",
           "readingMins": 3,
-          "lastUpdatedLabel": "16 Jul, 07:56 am"
+          "lastUpdatedLabel": "16 Jul, 11:27 am"
         },
         "message": {
           "since": "No company-specific movement for ManipalCigna since the last brief — the read below is sector & regulatory context that applies across standalone health insurers.",
@@ -46229,6 +46392,38 @@
         ],
         "sinceDeltas": [
           {
+            "id": "reg",
+            "label": "newly surfaced regulatory updates",
+            "value": "5",
+            "direction": "up",
+            "tone": "Watch",
+            "target": {
+              "page": "sahi",
+              "sahiTab": "sector-news",
+              "company": "manipalcigna",
+              "focus": {
+                "id": "pulse-since-reg",
+                "kind": "locator",
+                "locatorKind": "regulatory",
+                "metricKey": "regulatory",
+                "metricLabel": "Regulatory updates",
+                "company": "manipalcigna",
+                "companyLabel": "ManipalCigna",
+                "comparisonType": "trend",
+                "tone": "neutral",
+                "insightLabel": "5 newly surfaced regulatory updates",
+                "unit": "",
+                "sahiTab": "sector-news",
+                "origin": "pulse",
+                "targetItemId": "139b6057877ee5",
+                "targetMonth": "2026-07",
+                "sourceDate": "2026-07-03",
+                "surfacedAt": "2026-07-16",
+                "reasonShownToday": "Older source (dated 03 Jul 2026) — first added to the feed 16 Jul 2026, so it's newly surfaced, not newly published."
+              }
+            }
+          },
+          {
             "id": "co",
             "label": "company-specific updates",
             "value": "0",
@@ -46360,6 +46555,6 @@
     "snapshot_id": "pulse-brief-archive",
     "description": "Immutable per-calendar-day Pulse brief records (IST), one per company. Past days are frozen exactly as shown that day; the live Today view recomposes. Kept ~90 days per company.",
     "last_updated": "2026-07-16",
-    "last_successful_run": "2026-07-16T07:58:49.369Z"
+    "last_successful_run": "2026-07-16T11:30:02.489Z"
   }
 }
