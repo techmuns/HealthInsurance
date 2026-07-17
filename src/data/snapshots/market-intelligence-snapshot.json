@@ -5,7 +5,7 @@
     "schema_version": "1.0.0",
     "dataset": "ai_generated",
     "last_updated": "2026-07-17",
-    "last_successful_run": "2026-07-17T07:53:08.443Z",
+    "last_successful_run": "2026-07-17T15:06:18.400Z",
     "upstream_sources": [
       "muns_agent_web"
     ],
@@ -824,6 +824,21 @@
       "discovered_at": "2026-07-16T07:56:07.024Z"
     },
     {
+      "id": "1f62fc9fc4",
+      "company_id": "sector",
+      "date": "2026-07-01",
+      "kind": "regulatory",
+      "horizon": "recent",
+      "impact": "negative",
+      "headline": "IRDAI grants 8th standalone health licence (Prudential-HCL)",
+      "detail": "New JV entrant raises competitive intensity in standalone health, a headwind for incumbents' pricing power and market-share economics",
+      "source_name": "bfsi.economictimes.indiatimes.com",
+      "source_url": "https://bfsi.economictimes.indiatimes.com/articles/prudential-hcl-health-insurance-receives-irdai-license-a-milestone-in-indias-health-insurance-market/132118031",
+      "source_published_at": "2026-07-01",
+      "first_seen": "2026-07-17T15:06:18.400Z",
+      "discovered_at": "2026-07-17T15:06:18.400Z"
+    },
+    {
       "id": "f3ce300c4e",
       "company_id": "sector",
       "date": "2026-06-30",
@@ -861,21 +876,6 @@
       "source_published_at": null,
       "first_seen": "2026-07-05T05:56:21.373Z",
       "discovered_at": "2026-07-05T05:56:21.373Z"
-    },
-    {
-      "id": "4534832478",
-      "company_id": "sector",
-      "date": "2026-06-30",
-      "kind": "catalyst",
-      "horizon": "recent",
-      "impact": "neutral",
-      "headline": "LIC shelves own health-insurance plan, prioritises distribution tie-ups",
-      "detail": "LIC stepping back from building an in-house health insurer reduces one potential competitive threat and may benefit existing private health insurers’ distribution opportunities.",
-      "source_name": "moneycontrol.com",
-      "source_url": "https://www.moneycontrol.com/banking/lic-pivots-to-fintech-shelves-health-insurance-plan-to-expand-distribution-article-13937723.html",
-      "source_published_at": null,
-      "first_seen": "2026-07-05T08:43:25.282Z",
-      "discovered_at": "2026-07-05T08:43:25.282Z"
     }
   ]
 }
