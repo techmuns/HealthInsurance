@@ -11526,7 +11526,7 @@
         "company": "Niva Bupa",
         "companyId": "niva-bupa",
         "generatedAt": "2026-07-20T05:35:13.677Z",
-        "lastUpdatedAt": "2026-07-20T08:43:45.680Z",
+        "lastUpdatedAt": "2026-07-20T12:11:52.310Z",
         "status": "Watch",
         "sourceConfidence": "Low",
         "itemCount": 58,
@@ -11544,10 +11544,17 @@
             "sourceCount": 60,
             "ideas": 6,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-07-20T12:11:52.310Z",
+            "developments": 67,
+            "sourceCount": 60,
+            "ideas": 6,
+            "status": "ok"
           }
         ],
         "brief": {
-          "greeting": "Good morning",
+          "greeting": "Good afternoon",
           "narrative": "Regulatory pressure is the main watch item for health insurers today. Niva Bupa is under pressure on premium growth and demand, but claims-cost and conduct scrutiny will decide whether the strength is sustainable.",
           "attentionCount": 6,
           "developmentsCount": 67,
@@ -11556,7 +11563,7 @@
           "confidencePct": 68,
           "confidenceTier": "Medium",
           "readingMins": 3,
-          "lastUpdatedLabel": "20 Jul, 08:41 am"
+          "lastUpdatedLabel": "20 Jul, 12:09 pm"
         },
         "message": {
           "since": "No company-specific movement for Niva Bupa since the last brief — the read below is sector & regulatory context that applies across standalone health insurers.",
@@ -12104,6 +12111,38 @@
           }
         ],
         "sinceDeltas": [
+          {
+            "id": "reg",
+            "label": "newly surfaced regulatory update",
+            "value": "1",
+            "direction": "up",
+            "tone": "Watch",
+            "target": {
+              "page": "sahi",
+              "sahiTab": "sector-news",
+              "company": "niva-bupa",
+              "focus": {
+                "id": "pulse-since-reg",
+                "kind": "locator",
+                "locatorKind": "regulatory",
+                "metricKey": "regulatory",
+                "metricLabel": "Regulatory updates",
+                "company": "niva-bupa",
+                "companyLabel": "Niva Bupa",
+                "comparisonType": "trend",
+                "tone": "neutral",
+                "insightLabel": "1 newly surfaced regulatory update",
+                "unit": "",
+                "sahiTab": "sector-news",
+                "origin": "pulse",
+                "targetItemId": "18773e65874440",
+                "targetMonth": "2026-06",
+                "sourceDate": "2026-06-30",
+                "surfacedAt": "2026-07-20",
+                "reasonShownToday": "Older source (dated 30 Jun 2026) — first added to the feed 20 Jul 2026, so it's newly surfaced, not newly published."
+              }
+            }
+          },
           {
             "id": "co",
             "label": "company-specific updates",
@@ -23702,7 +23741,7 @@
         "company": "Star Health",
         "companyId": "star-health",
         "generatedAt": "2026-07-20T05:35:13.677Z",
-        "lastUpdatedAt": "2026-07-20T08:43:45.680Z",
+        "lastUpdatedAt": "2026-07-20T12:11:52.310Z",
         "status": "Watch",
         "sourceConfidence": "Low",
         "itemCount": 54,
@@ -23720,10 +23759,17 @@
             "sourceCount": 56,
             "ideas": 6,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-07-20T12:11:52.310Z",
+            "developments": 60,
+            "sourceCount": 56,
+            "ideas": 6,
+            "status": "ok"
           }
         ],
         "brief": {
-          "greeting": "Good morning",
+          "greeting": "Good afternoon",
           "narrative": "Regulatory pressure is the main watch item for health insurers today. Star Health is under pressure on premium growth and demand, but claims-cost and conduct scrutiny will decide whether the strength is sustainable.",
           "attentionCount": 6,
           "developmentsCount": 60,
@@ -23732,7 +23778,7 @@
           "confidencePct": 68,
           "confidenceTier": "Medium",
           "readingMins": 3,
-          "lastUpdatedLabel": "20 Jul, 08:41 am"
+          "lastUpdatedLabel": "20 Jul, 12:09 pm"
         },
         "message": {
           "since": "No company-specific movement for Star Health since the last brief — the read below is sector & regulatory context that applies across standalone health insurers.",
@@ -24266,6 +24312,38 @@
           }
         ],
         "sinceDeltas": [
+          {
+            "id": "reg",
+            "label": "newly surfaced regulatory update",
+            "value": "1",
+            "direction": "up",
+            "tone": "Watch",
+            "target": {
+              "page": "sahi",
+              "sahiTab": "sector-news",
+              "company": "star-health",
+              "focus": {
+                "id": "pulse-since-reg",
+                "kind": "locator",
+                "locatorKind": "regulatory",
+                "metricKey": "regulatory",
+                "metricLabel": "Regulatory updates",
+                "company": "star-health",
+                "companyLabel": "Star Health",
+                "comparisonType": "trend",
+                "tone": "neutral",
+                "insightLabel": "1 newly surfaced regulatory update",
+                "unit": "",
+                "sahiTab": "sector-news",
+                "origin": "pulse",
+                "targetItemId": "18773e65874440",
+                "targetMonth": "2026-06",
+                "sourceDate": "2026-06-30",
+                "surfacedAt": "2026-07-20",
+                "reasonShownToday": "Older source (dated 30 Jun 2026) — first added to the feed 20 Jul 2026, so it's newly surfaced, not newly published."
+              }
+            }
+          },
           {
             "id": "co",
             "label": "company-specific updates",
@@ -35855,7 +35933,7 @@
         "company": "Care Health",
         "companyId": "care-health",
         "generatedAt": "2026-07-20T05:35:13.677Z",
-        "lastUpdatedAt": "2026-07-20T08:43:45.680Z",
+        "lastUpdatedAt": "2026-07-20T12:11:52.310Z",
         "status": "Watch",
         "sourceConfidence": "Low",
         "itemCount": 54,
@@ -35873,10 +35951,17 @@
             "sourceCount": 56,
             "ideas": 6,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-07-20T12:11:52.310Z",
+            "developments": 57,
+            "sourceCount": 56,
+            "ideas": 6,
+            "status": "ok"
           }
         ],
         "brief": {
-          "greeting": "Good morning",
+          "greeting": "Good afternoon",
           "narrative": "Regulatory pressure is the main watch item for health insurers today. Care Health is under pressure on premium growth and demand, but claims-cost and conduct scrutiny will decide whether the strength is sustainable.",
           "attentionCount": 6,
           "developmentsCount": 57,
@@ -35885,7 +35970,7 @@
           "confidencePct": 68,
           "confidenceTier": "Medium",
           "readingMins": 4,
-          "lastUpdatedLabel": "20 Jul, 08:41 am"
+          "lastUpdatedLabel": "20 Jul, 12:09 pm"
         },
         "message": {
           "since": "No company-specific movement for Care Health since the last brief — the read below is sector & regulatory context that applies across standalone health insurers.",
@@ -36419,6 +36504,38 @@
           }
         ],
         "sinceDeltas": [
+          {
+            "id": "reg",
+            "label": "newly surfaced regulatory update",
+            "value": "1",
+            "direction": "up",
+            "tone": "Watch",
+            "target": {
+              "page": "sahi",
+              "sahiTab": "sector-news",
+              "company": "care-health",
+              "focus": {
+                "id": "pulse-since-reg",
+                "kind": "locator",
+                "locatorKind": "regulatory",
+                "metricKey": "regulatory",
+                "metricLabel": "Regulatory updates",
+                "company": "care-health",
+                "companyLabel": "Care Health",
+                "comparisonType": "trend",
+                "tone": "neutral",
+                "insightLabel": "1 newly surfaced regulatory update",
+                "unit": "",
+                "sahiTab": "sector-news",
+                "origin": "pulse",
+                "targetItemId": "18773e65874440",
+                "targetMonth": "2026-06",
+                "sourceDate": "2026-06-30",
+                "surfacedAt": "2026-07-20",
+                "reasonShownToday": "Older source (dated 30 Jun 2026) — first added to the feed 20 Jul 2026, so it's newly surfaced, not newly published."
+              }
+            }
+          },
           {
             "id": "co",
             "label": "company-specific updates",
@@ -48062,7 +48179,7 @@
         "company": "Aditya Birla",
         "companyId": "aditya-birla",
         "generatedAt": "2026-07-20T05:35:13.677Z",
-        "lastUpdatedAt": "2026-07-20T08:43:45.680Z",
+        "lastUpdatedAt": "2026-07-20T12:11:52.310Z",
         "status": "Watch",
         "sourceConfidence": "Low",
         "itemCount": 54,
@@ -48080,10 +48197,17 @@
             "sourceCount": 56,
             "ideas": 6,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-07-20T12:11:52.310Z",
+            "developments": 56,
+            "sourceCount": 56,
+            "ideas": 6,
+            "status": "ok"
           }
         ],
         "brief": {
-          "greeting": "Good morning",
+          "greeting": "Good afternoon",
           "narrative": "Regulatory pressure is the main watch item for health insurers today. Aditya Birla is under pressure on premium growth and demand, but claims-cost and conduct scrutiny will decide whether the strength is sustainable.",
           "attentionCount": 6,
           "developmentsCount": 56,
@@ -48092,7 +48216,7 @@
           "confidencePct": 68,
           "confidenceTier": "Medium",
           "readingMins": 3,
-          "lastUpdatedLabel": "20 Jul, 08:41 am"
+          "lastUpdatedLabel": "20 Jul, 12:09 pm"
         },
         "message": {
           "since": "No company-specific movement for Aditya Birla since the last brief — the read below is sector & regulatory context that applies across standalone health insurers.",
@@ -48626,6 +48750,38 @@
           }
         ],
         "sinceDeltas": [
+          {
+            "id": "reg",
+            "label": "newly surfaced regulatory update",
+            "value": "1",
+            "direction": "up",
+            "tone": "Watch",
+            "target": {
+              "page": "sahi",
+              "sahiTab": "sector-news",
+              "company": "aditya-birla",
+              "focus": {
+                "id": "pulse-since-reg",
+                "kind": "locator",
+                "locatorKind": "regulatory",
+                "metricKey": "regulatory",
+                "metricLabel": "Regulatory updates",
+                "company": "aditya-birla",
+                "companyLabel": "Aditya Birla",
+                "comparisonType": "trend",
+                "tone": "neutral",
+                "insightLabel": "1 newly surfaced regulatory update",
+                "unit": "",
+                "sahiTab": "sector-news",
+                "origin": "pulse",
+                "targetItemId": "18773e65874440",
+                "targetMonth": "2026-06",
+                "sourceDate": "2026-06-30",
+                "surfacedAt": "2026-07-20",
+                "reasonShownToday": "Older source (dated 30 Jun 2026) — first added to the feed 20 Jul 2026, so it's newly surfaced, not newly published."
+              }
+            }
+          },
           {
             "id": "co",
             "label": "company-specific updates",
@@ -60212,7 +60368,7 @@
         "company": "ManipalCigna",
         "companyId": "manipalcigna",
         "generatedAt": "2026-07-20T05:35:13.677Z",
-        "lastUpdatedAt": "2026-07-20T08:43:45.680Z",
+        "lastUpdatedAt": "2026-07-20T12:11:52.310Z",
         "status": "Watch",
         "sourceConfidence": "Low",
         "itemCount": 54,
@@ -60230,10 +60386,17 @@
             "sourceCount": 56,
             "ideas": 6,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-07-20T12:11:52.310Z",
+            "developments": 57,
+            "sourceCount": 56,
+            "ideas": 6,
+            "status": "ok"
           }
         ],
         "brief": {
-          "greeting": "Good morning",
+          "greeting": "Good afternoon",
           "narrative": "Regulatory pressure is the main watch item for health insurers today. ManipalCigna is under pressure on premium growth and demand, but claims-cost and conduct scrutiny will decide whether the strength is sustainable.",
           "attentionCount": 6,
           "developmentsCount": 57,
@@ -60242,7 +60405,7 @@
           "confidencePct": 68,
           "confidenceTier": "Medium",
           "readingMins": 3,
-          "lastUpdatedLabel": "20 Jul, 08:41 am"
+          "lastUpdatedLabel": "20 Jul, 12:09 pm"
         },
         "message": {
           "since": "No company-specific movement for ManipalCigna since the last brief — the read below is sector & regulatory context that applies across standalone health insurers.",
@@ -60777,6 +60940,38 @@
         ],
         "sinceDeltas": [
           {
+            "id": "reg",
+            "label": "newly surfaced regulatory update",
+            "value": "1",
+            "direction": "up",
+            "tone": "Watch",
+            "target": {
+              "page": "sahi",
+              "sahiTab": "sector-news",
+              "company": "manipalcigna",
+              "focus": {
+                "id": "pulse-since-reg",
+                "kind": "locator",
+                "locatorKind": "regulatory",
+                "metricKey": "regulatory",
+                "metricLabel": "Regulatory updates",
+                "company": "manipalcigna",
+                "companyLabel": "ManipalCigna",
+                "comparisonType": "trend",
+                "tone": "neutral",
+                "insightLabel": "1 newly surfaced regulatory update",
+                "unit": "",
+                "sahiTab": "sector-news",
+                "origin": "pulse",
+                "targetItemId": "18773e65874440",
+                "targetMonth": "2026-06",
+                "sourceDate": "2026-06-30",
+                "surfacedAt": "2026-07-20",
+                "reasonShownToday": "Older source (dated 30 Jun 2026) — first added to the feed 20 Jul 2026, so it's newly surfaced, not newly published."
+              }
+            }
+          },
+          {
             "id": "co",
             "label": "company-specific updates",
             "value": "0",
@@ -60908,6 +61103,6 @@
     "snapshot_id": "pulse-brief-archive",
     "description": "Immutable per-calendar-day Pulse brief records (IST), one per company. Past days are frozen exactly as shown that day; the live Today view recomposes. Kept ~90 days per company.",
     "last_updated": "2026-07-20",
-    "last_successful_run": "2026-07-20T08:43:45.680Z"
+    "last_successful_run": "2026-07-20T12:11:52.310Z"
   }
 }
