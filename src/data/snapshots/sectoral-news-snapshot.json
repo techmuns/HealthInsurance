@@ -3,14 +3,58 @@
     "snapshot_id": "sectoral-news-snapshot",
     "description": "Key Sectoral News feed — a permanent seed of 31 curated portfolio-pack updates, kept current by a scheduled muns web-search agent. Each item links its source. Seed items are curated; agent items are AI-gathered (web), clearly labelled and not audited.",
     "schema_version": "1.0.0",
-    "last_updated": "2026-07-16",
-    "last_successful_run": "2026-07-16T08:13:59.478Z",
+    "last_updated": "2026-07-20",
+    "last_successful_run": "2026-07-20T08:58:57.552Z",
     "seed_count": 31,
-    "agent_count": 113,
+    "agent_count": 124,
     "generated_by": "Seed: investor portfolio pack. Updates: AI (muns agent, web search).",
     "notes": "Seed floor can never be lost. Agent items are de-duped by subject+date and verified-before-acting."
   },
   "data": [
+    {
+      "sn": 145,
+      "category": "Competition / Peers",
+      "date": "2026-07-30",
+      "subject": "Star Health Insurance to host Q1 FY27 earnings call",
+      "summary": "Star Health has scheduled its Q1 FY27 earnings call for July 30, 2026; investors will watch GWP growth, claims ratio and margin trends after a mixed FY26.",
+      "reference": "https://scanx.trade/stock-market-news/companies/star-health-insurance-to-host-q1-fy27-earnings-call-on-july-30/45813841",
+      "id": "0dcf716bcfc58a",
+      "origin": "agent",
+      "added_at": "2026-07-20"
+    },
+    {
+      "sn": 150,
+      "category": "General",
+      "date": "2026-07-18",
+      "subject": "Study: health insurance shoppers save up to 20% by comparing plans",
+      "summary": "A BusinessToday-cited study found consumers can save materially by comparing multiple health plans before buying, reflecting rising price-consciousness and growing distribution competition (aggregators/brokers) that could pressure insurer pricing power and acquisition costs.",
+      "reference": "https://www.businesstoday.in/personal-finance/insurance/story/compare-before-you-buy-health-insurance-shoppers-save-up-to-20-by-evaluating-multiple-plans-says-study-543756-2026-07-18",
+      "id": "185438023c21a9",
+      "origin": "agent",
+      "added_at": "2026-07-20"
+    },
+    {
+      "sn": 147,
+      "category": "Competition / Peers",
+      "date": "2026-07-17",
+      "subject": "Aditya Birla Capital infuses ₹484.5 Cr into insurance arm via rights issue",
+      "summary": "ABCL invested **₹484.50 Cr** in Aditya Birla Sun Life Insurance through a rights issue to fund growth and shore up the solvency margin; ABCL's 51% stake stays unchanged, signalling continued parent support for the insurance business's capital needs.",
+      "reference": "https://www.freepressjournal.in/business/aditya-birla-capital-invests-48450-crore-in-insurance-arm-rights-issue-funding-to-support-growth-strengthen-solvency",
+      "id": "11962495698b9f",
+      "origin": "agent",
+      "added_at": "2026-07-20"
+    },
+    {
+      "sn": 146,
+      "category": "Profitability",
+      "date": "2026-07-17",
+      "subject": "Niva Bupa posts 80% PAT jump to ₹366 Cr in FY2026",
+      "summary": "Niva Bupa's IFRS PAT rose **80.4% YoY** to **₹366.1 Cr** on **27.4% GWP growth** to **₹9,432.9 Cr**; claims settlement ratio improved to **94.4%**, though the Retail Health Claims Cost Index stood at **162**, flagging continued claims-cost inflation risk, and transition to Ind AS from FY2027 could affect comparability.",
+      "reference": "https://www.whalesbook.com/corporate-news/English/bankingfinance/Niva-Bupa-Health-Insurance-Posts-80percent-PAT-Jump-to-indian-rupee366-Cr-on-Strong-GWP-Growth/6a5a0f600037f071726402b8",
+      "id": "1fc55928bf6b51",
+      "origin": "agent",
+      "added_at": "2026-07-20"
+    },
     {
       "sn": 133,
       "category": "Profitability",
@@ -89,6 +133,39 @@
       "added_at": "2026-07-06"
     },
     {
+      "sn": 152,
+      "category": "General",
+      "date": "2026-07-01",
+      "subject": "Best health insurance plans in India 2026 roundup highlights market crowding",
+      "summary": "Consumer-facing comparison content shows an increasingly crowded field of plans/insurers competing on features (OPD cover, no-claim bonus, restoration benefits), indicative of product-level competitive intensity across Niva Bupa, Star Health, Care Health and others.",
+      "reference": "https://joinditto.in/health-insurance/best-health-plans-in-india",
+      "id": "02f28f334aa28e",
+      "origin": "agent",
+      "added_at": "2026-07-20"
+    },
+    {
+      "sn": 151,
+      "category": "Profitability",
+      "date": "2026-07-01",
+      "subject": "Medical inflation continues to push up hospital treatment bills across India",
+      "summary": "Reporting shows treatment/hospitalisation costs have risen sharply over the past five years across India's top 10 cities, a key structural driver of rising claims costs and loss ratios for health insurers, reinforcing the need for repricing and tighter network/hospital-tariff management.",
+      "reference": "https://statemirror.com/india/medical-inflation-india-terrible-hospital-treatment-bill-cost-rise-5-years-10-big-cities-170233",
+      "id": "0fe49099d80c86",
+      "origin": "agent",
+      "added_at": "2026-07-20"
+    },
+    {
+      "sn": 148,
+      "category": "Competition / Peers",
+      "date": "2026-07-01",
+      "subject": "IRDAI licenses Prudential-HCL Health Insurance, 8th standalone health insurer",
+      "summary": "IRDAI granted a Certificate of Registration to Prudential HCL Health Insurance (JV of UK's Prudential Group and HCL Group), taking the number of standalone health insurers in India to **eight**; it is the regulator's third insurance licence of CY2026, intensifying competition for incumbents like Niva Bupa, Star Health and Care Health.",
+      "reference": "https://bfsi.economictimes.indiatimes.com/articles/prudential-hcl-health-insurance-receives-irdai-license-a-milestone-in-indias-health-insurance-market/132118031",
+      "id": "0ba3038ec9ba4c",
+      "origin": "agent",
+      "added_at": "2026-07-20"
+    },
+    {
       "sn": 135,
       "category": "Regulatory",
       "date": "2026-07-01",
@@ -164,6 +241,17 @@
       "id": "00c24beee42375",
       "origin": "agent",
       "added_at": "2026-07-06"
+    },
+    {
+      "sn": 149,
+      "category": "Regulatory",
+      "date": "2026-06-30",
+      "subject": "IRDAI approves new general insurance licence amid rising FDI interest",
+      "summary": "A day before the Prudential-HCL approval, IRDAI Chairman Ajay Seth confirmed another general insurance licence had been granted, underscoring the regulator's push to widen the insurer base and attract foreign capital into India's insurance market.",
+      "reference": "https://bfsi.economictimes.indiatimes.com/articles/irdai-approves-new-general-insurance-license-amid-increased-foreign-investment-interest/132087704",
+      "id": "18773e65874440",
+      "origin": "agent",
+      "added_at": "2026-07-20"
     },
     {
       "sn": 137,
@@ -560,6 +648,39 @@
       "id": "023266cfed762e",
       "origin": "agent",
       "added_at": "2026-06-11"
+    },
+    {
+      "sn": 155,
+      "category": "Competition / Peers",
+      "date": "2026-06-01",
+      "subject": "Star Health Insurance claim settlement ratio update (June 2026)",
+      "summary": "Updated claim-settlement-ratio data for Star Health was published, a metric increasingly used by consumers/brokers to compare insurers and a proxy investors track for service quality versus peers like Care and Niva Bupa.",
+      "reference": "https://joinditto.in/articles/health-insurance/star-health-insurance-claim-settlement-ratio/",
+      "id": "0b9d382235f9e2",
+      "origin": "agent",
+      "added_at": "2026-07-20"
+    },
+    {
+      "sn": 154,
+      "category": "GST",
+      "date": "2026-06-01",
+      "subject": "Group health insurance GST rules clarified for 2026",
+      "summary": "Updated guidance details how GST applies differently to group/employer-sponsored health covers versus individual policies post the rate overhaul, relevant for insurers' product-mix economics (retail vs. group heavy players like Niva Bupa vs. Care/ManipalCigna).",
+      "reference": "https://www.acko.com/group-health-insurance/blogs/group-health-insurance-gst-2026/",
+      "id": "16588e301a275e",
+      "origin": "agent",
+      "added_at": "2026-07-20"
+    },
+    {
+      "sn": 153,
+      "category": "GST",
+      "date": "2026-06-01",
+      "subject": "GST on individual health insurance premiums cut to 0%",
+      "summary": "Following GST Council decisions, individual (retail) health insurance premiums now attract **0% GST** versus the earlier **18%**, while group health insurance retains a different treatment; this is a structural positive for affordability/demand but raises questions on input-tax-credit loss for insurers, a margin offset investors should track.",
+      "reference": "https://myrupia.in/current-health-insurance-gst-rate-in-india-and-its-impact-on-premiums/",
+      "id": "14e1fabba02f3c",
+      "origin": "agent",
+      "added_at": "2026-07-20"
     },
     {
       "sn": 143,
