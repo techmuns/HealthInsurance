@@ -5,7 +5,7 @@
     "schema_version": "1.0.0",
     "dataset": "ai_generated",
     "last_updated": "2026-07-21",
-    "last_successful_run": "2026-07-21T05:00:03.469Z",
+    "last_successful_run": "2026-07-21T08:08:09.008Z",
     "upstream_sources": [
       "muns_agent_web"
     ],
@@ -41,6 +41,21 @@
       "source_published_at": null,
       "first_seen": "2026-07-09T16:22:46.308Z",
       "discovered_at": "2026-07-09T16:22:46.308Z"
+    },
+    {
+      "id": "a5da5aaf50",
+      "company_id": "sector",
+      "date": "2026-07-20",
+      "kind": "regulatory",
+      "horizon": "recent",
+      "impact": "watch",
+      "headline": "Supreme Court asks IRDAI to consider master circular on cross-border motor cover clauses",
+      "detail": "Currently motor-focused, but signals continued judicial pressure on IRDAI to standardise policy wording and claims clarity — a template that could extend to health policy drafting and cashless practices sector-wide.",
+      "source_name": "legal.economictimes.indiatimes.com",
+      "source_url": "https://legal.economictimes.indiatimes.com/news/litigation/motor-insurance-consider-issuing-circular-standardising-cross-border-coverage-clauses-sc-to-irdai/132519178",
+      "source_published_at": "2026-07-20",
+      "first_seen": "2026-07-21T08:08:09.008Z",
+      "discovered_at": "2026-07-21T08:08:09.008Z"
     },
     {
       "id": "3d8e8f3345",
@@ -839,43 +854,34 @@
       "discovered_at": "2026-07-17T15:06:18.400Z"
     },
     {
-      "id": "f3ce300c4e",
+      "id": "fd10486701",
       "company_id": "sector",
-      "date": "2026-06-30",
+      "date": "2026-07-01",
       "kind": "regulatory",
       "horizon": "recent",
-      "impact": "positive",
-      "headline": "IRDAI softens stance on insurer listings",
-      "detail": "A friendlier listing stance can improve capital-raising and exit optionality across insurance, supporting sector sentiment and private-player valuations.",
+      "impact": "negative",
+      "headline": "IRDAI grants 8th standalone health licence to Prudential-HCL",
+      "detail": "New entrant backed by UK Prudential (70%) and HCL (30%) intensifies competition for Star Health, Niva Bupa and Care Health in an already crowded standalone health segment.",
       "source_name": "moneycontrol.com",
-      "source_url": "https://moneycontrol.com/news/business/banks/irdai-softens-stance-on-insurer-listings-13963096.html"
+      "source_url": "https://www.moneycontrol.com/news/business/irdai-grants-final-r3-licence-to-prudential-hcl-health-insurance-venture-13963822.html",
+      "source_published_at": "2026-07-01",
+      "first_seen": "2026-07-21T08:08:09.008Z",
+      "discovered_at": "2026-07-21T08:08:09.008Z"
     },
     {
-      "id": "5147687c5b",
+      "id": "89b9d6ebe7",
       "company_id": "sector",
-      "date": "2026-06-30",
+      "date": "2026-07-01",
       "kind": "regulatory",
       "horizon": "recent",
       "impact": "watch",
-      "headline": "IRDAI grants final R3 licence to Prudential-HCL health insurer JV",
-      "detail": "A new health insurer entering the market raises medium-term competition risk in retail health products, distribution and pricing.",
-      "source_name": "moneycontrol.com",
-      "source_url": "https://moneycontrol.com/news/business/irdai-grants-final-r3-licence-to-prudential-hcl-health-insurance-venture-13963822.html"
-    },
-    {
-      "id": "5b4cfb4f31",
-      "company_id": "sector",
-      "date": "2026-06-30",
-      "kind": "regulatory",
-      "horizon": "recent",
-      "impact": "watch",
-      "headline": "IRDAI plans commission-rule overhaul to curb mis-selling",
-      "detail": "Proposed staggered commissions and tighter disclosure could alter channel economics, especially for retail health products sold through agents, brokers and banks.",
+      "headline": "Third new insurance licence of CY2026 signals IRDAI's facilitative regulatory stance",
+      "detail": "Regulator has now approved three new entrants this calendar year following 100% FDI liberalisation, pointing to a structurally more competitive multi-year landscape for incumbents.",
       "source_name": "bfsi.economictimes.indiatimes.com",
-      "source_url": "https://bfsi.economictimes.indiatimes.com/news/insurance/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132156228",
-      "source_published_at": null,
-      "first_seen": "2026-07-05T05:56:21.373Z",
-      "discovered_at": "2026-07-05T05:56:21.373Z"
+      "source_url": "https://bfsi.economictimes.indiatimes.com/articles/prudential-hcl-health-insurance-receives-irdai-license-a-milestone-in-indias-health-insurance-market/132118031",
+      "source_published_at": "2026-07-01",
+      "first_seen": "2026-07-21T08:08:09.008Z",
+      "discovered_at": "2026-07-21T08:08:09.008Z"
     }
   ]
 }

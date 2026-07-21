@@ -12281,13 +12281,20 @@
         "company": "Niva Bupa",
         "companyId": "niva-bupa",
         "generatedAt": "2026-07-21T05:02:51.164Z",
-        "lastUpdatedAt": "2026-07-21T05:02:51.164Z",
+        "lastUpdatedAt": "2026-07-21T08:10:56.393Z",
         "status": "Watch",
-        "sourceConfidence": "Low",
+        "sourceConfidence": "Medium",
         "itemCount": 58,
         "runs": [
           {
             "runTime": "2026-07-21T05:02:51.164Z",
+            "developments": 67,
+            "sourceCount": 60,
+            "ideas": 6,
+            "status": "ok"
+          },
+          {
+            "runTime": "2026-07-21T08:10:56.393Z",
             "developments": 67,
             "sourceCount": 60,
             "ideas": 6,
@@ -12301,21 +12308,21 @@
           "developmentsCount": 67,
           "sourcesCount": 60,
           "domainsCount": 16,
-          "confidencePct": 68,
+          "confidencePct": 69,
           "confidenceTier": "Medium",
           "readingMins": 3,
-          "lastUpdatedLabel": "21 Jul, 05:00 am"
+          "lastUpdatedLabel": "21 Jul, 08:08 am"
         },
         "message": {
-          "since": "No company-specific movement for Niva Bupa since the last brief — the read below is sector & regulatory context that applies across standalone health insurers.",
-          "keyThing": "Lower commissions and higher disclosure requirements would pressure distribution economics across health and general insurers, especially in commission-heavy retail health.",
+          "since": "No Niva Bupa-specific movement since the last brief; one regulatory update moved into focus across the sector.",
+          "keyThing": "Currently motor-focused, but signals continued judicial pressure on IRDAI to standardise policy wording and claims clarity — a template that could extend to health policy…",
           "why": "Growth is only as good as the claims and expense ratios behind it — that is the real question now.",
           "watch": "any fresh IRDAI clarification, and expense-ratio movement",
           "nothing": false
         },
         "one": {
-          "sentence": "Lower commissions and higher disclosure requirements would pressure distribution economics across health and general insurers, especially in commission-heavy retail health.",
-          "status": "Risk"
+          "sentence": "Currently motor-focused, but signals continued judicial pressure on IRDAI to standardise policy wording and claims clarity — a template that could extend to health policy…",
+          "status": "Watch"
         },
         "ideas": [
           {
@@ -12447,6 +12454,11 @@
               {
                 "kind": "Regulatory",
                 "name": "legal.economictimes.indiatimes.com",
+                "url": "https://legal.economictimes.indiatimes.com/news/litigation/motor-insurance-consider-issuing-circular-standardising-cross-border-coverage-clauses-sc-to-irdai/132519178"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "legal.economictimes.indiatimes.com",
                 "url": "https://legal.economictimes.indiatimes.com/news/regulators/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132160041"
               },
               {
@@ -12458,11 +12470,6 @@
                 "kind": "Regulatory",
                 "name": "economictimes.indiatimes.com",
                 "url": "https://economictimes.indiatimes.com/markets/stocks/news/prudential-hcl-health-insurance-gets-irdai-nod/articleshow/132126831.cms"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "moneycontrol.com",
-                "url": "https://www.moneycontrol.com/news/business/irdai-grants-final-r3-licence-to-prudential-hcl-health-insurance-venture-13963822.html"
               }
             ],
             "impact": "Risk",
@@ -12470,7 +12477,7 @@
             "companyId": null,
             "sourceUrl": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494",
             "sourceConfidence": "Medium",
-            "clusterSize": 7,
+            "clusterSize": 6,
             "clusterSources": [
               {
                 "kind": "Regulatory",
@@ -12545,6 +12552,11 @@
               },
               {
                 "kind": "Regulatory",
+                "name": "legal.economictimes.indiatimes.com",
+                "url": "https://legal.economictimes.indiatimes.com/news/litigation/motor-insurance-consider-issuing-circular-standardising-cross-border-coverage-clauses-sc-to-irdai/132519178"
+              },
+              {
+                "kind": "Regulatory",
                 "name": "indianexpress.com",
                 "url": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494"
               },
@@ -12557,11 +12569,6 @@
                 "kind": "Regulatory",
                 "name": "bfsi.economictimes.indiatimes.com",
                 "url": "https://bfsi.economictimes.indiatimes.com/news/insurance/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132156228"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "moneycontrol.com",
-                "url": "https://www.moneycontrol.com/news/business/irdai-grants-final-r3-licence-to-prudential-hcl-health-insurance-venture-13963822.html"
               }
             ],
             "impact": "Risk",
@@ -12569,7 +12576,7 @@
             "companyId": null,
             "sourceUrl": "https://economictimes.indiatimes.com/markets/stocks/news/prudential-hcl-health-insurance-gets-irdai-nod/articleshow/132126831.cms",
             "sourceConfidence": "Medium",
-            "clusterSize": 11,
+            "clusterSize": 13,
             "clusterSources": [
               {
                 "kind": "Regulatory",
@@ -12634,6 +12641,11 @@
               },
               {
                 "kind": "Regulatory",
+                "name": "legal.economictimes.indiatimes.com",
+                "url": "https://legal.economictimes.indiatimes.com/news/litigation/motor-insurance-consider-issuing-circular-standardising-cross-border-coverage-clauses-sc-to-irdai/132519178"
+              },
+              {
+                "kind": "Regulatory",
                 "name": "indianexpress.com",
                 "url": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494"
               },
@@ -12646,11 +12658,6 @@
                 "kind": "Regulatory",
                 "name": "bfsi.economictimes.indiatimes.com",
                 "url": "https://bfsi.economictimes.indiatimes.com/news/insurance/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132156228"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "economictimes.indiatimes.com",
-                "url": "https://economictimes.indiatimes.com/markets/stocks/news/prudential-hcl-health-insurance-gets-irdai-nod/articleshow/132126831.cms"
               }
             ],
             "impact": "Positive",
@@ -12658,7 +12665,7 @@
             "companyId": null,
             "sourceUrl": "https://moneycontrol.com/news/business/banks/irdai-softens-stance-on-insurer-listings-13963096.html",
             "sourceConfidence": "Medium",
-            "clusterSize": 4,
+            "clusterSize": 3,
             "clusterSources": [
               {
                 "kind": "Regulatory",
@@ -12772,21 +12779,21 @@
             "independentSources": 4
           },
           {
-            "id": "3d8e8f3345",
-            "entity": "Cashless-facility enforcement remains a live policyholder-protection risk area",
+            "id": "a5da5aaf50",
+            "entity": "Supreme Court asks IRDAI to consider master circular on cross-border motor cover clauses",
             "stars": 4,
             "reasoning": [
-              "IRDAI’s circular requiring empanelled hospitals to honour notified cashless treatment underscores ongoing operational and reputational risk around cashless denial, a core monitorable for all health insurers’ claims…",
+              "Currently motor-focused, but signals continued judicial pressure on IRDAI to standardise policy wording and claims clarity — a template that could extend to health policy drafting and cashless practices sector-wide.",
               "Solvency 3.03x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency."
             ],
             "whatToWatch": "The impact on claims cost, expense ratio and pricing as rules tighten.",
-            "confidencePct": 83,
+            "confidencePct": 87,
             "evidenceCount": 5,
             "status": "Watch",
             "category": "Regulatory",
             "why": {
-              "whatHappened": "Cashless-facility enforcement remains a live policyholder-protection risk area",
-              "whyItMatters": "IRDAI’s circular requiring empanelled hospitals to honour notified cashless treatment underscores ongoing operational and reputational risk around cashless denial, a core monitorable for all health…",
+              "whatHappened": "Supreme Court asks IRDAI to consider master circular on cross-border motor cover clauses",
+              "whyItMatters": "Currently motor-focused, but signals continued judicial pressure on IRDAI to standardise policy wording and claims clarity — a template that could extend to health policy drafting and cashless…",
               "whoAffected": "Every standalone health insurer (SAHI) — pricing, product design and compliance cost.",
               "historicalContext": "Solvency 3.03x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency.",
               "potentialImpact": "Solvency vs the 1.5x regulatory floor",
@@ -12802,17 +12809,18 @@
                 "company": "niva-bupa"
               }
             },
-            "isBreaking": false,
-            "isNew": false,
-            "freshness": "existing",
-            "freshnessLabel": "Existing context",
-            "publishedLabel": "14 Jul",
-            "discoveredLabel": "13 Jul",
+            "isBreaking": true,
+            "isNew": true,
+            "freshLabel": "New at 1:38 pm",
+            "freshness": "fresh",
+            "freshnessLabel": "Fresh update",
+            "publishedLabel": "20 Jul",
+            "discoveredLabel": "21 Jul",
             "sources": [
               {
                 "kind": "Regulatory",
-                "name": "irdai.gov.in",
-                "url": "https://irdai.gov.in/web/guest/document-detail?documentId=394937"
+                "name": "legal.economictimes.indiatimes.com",
+                "url": "https://legal.economictimes.indiatimes.com/news/litigation/motor-insurance-consider-issuing-circular-standardising-cross-border-coverage-clauses-sc-to-irdai/132519178"
               },
               {
                 "kind": "Regulatory",
@@ -12838,14 +12846,14 @@
             "impact": "Watch",
             "scope": "sector",
             "companyId": null,
-            "sourceUrl": "https://irdai.gov.in/web/guest/document-detail?documentId=394937",
-            "sourceConfidence": "High",
+            "sourceUrl": "https://legal.economictimes.indiatimes.com/news/litigation/motor-insurance-consider-issuing-circular-standardising-cross-border-coverage-clauses-sc-to-irdai/132519178",
+            "sourceConfidence": "Medium",
             "clusterSize": 1,
             "clusterSources": [
               {
                 "kind": "Regulatory",
-                "name": "irdai.gov.in",
-                "url": "https://irdai.gov.in/web/guest/document-detail?documentId=394937"
+                "name": "legal.economictimes.indiatimes.com",
+                "url": "https://legal.economictimes.indiatimes.com/news/litigation/motor-insurance-consider-issuing-circular-standardising-cross-border-coverage-clauses-sc-to-irdai/132519178"
               }
             ],
             "independentSources": 1
@@ -25223,13 +25231,20 @@
         "company": "Star Health",
         "companyId": "star-health",
         "generatedAt": "2026-07-21T05:02:51.164Z",
-        "lastUpdatedAt": "2026-07-21T05:02:51.164Z",
+        "lastUpdatedAt": "2026-07-21T08:10:56.393Z",
         "status": "Watch",
-        "sourceConfidence": "Low",
+        "sourceConfidence": "Medium",
         "itemCount": 54,
         "runs": [
           {
             "runTime": "2026-07-21T05:02:51.164Z",
+            "developments": 60,
+            "sourceCount": 56,
+            "ideas": 6,
+            "status": "ok"
+          },
+          {
+            "runTime": "2026-07-21T08:10:56.393Z",
             "developments": 60,
             "sourceCount": 56,
             "ideas": 6,
@@ -25243,21 +25258,21 @@
           "developmentsCount": 60,
           "sourcesCount": 56,
           "domainsCount": 15,
-          "confidencePct": 68,
+          "confidencePct": 69,
           "confidenceTier": "Medium",
           "readingMins": 3,
-          "lastUpdatedLabel": "21 Jul, 05:00 am"
+          "lastUpdatedLabel": "21 Jul, 08:08 am"
         },
         "message": {
-          "since": "No company-specific movement for Star Health since the last brief — the read below is sector & regulatory context that applies across standalone health insurers.",
-          "keyThing": "Lower commissions and higher disclosure requirements would pressure distribution economics across health and general insurers, especially in commission-heavy retail health.",
+          "since": "No Star Health-specific movement since the last brief; one regulatory update moved into focus across the sector.",
+          "keyThing": "Currently motor-focused, but signals continued judicial pressure on IRDAI to standardise policy wording and claims clarity — a template that could extend to health policy…",
           "why": "The near-term read now turns on how the new rules land on pricing, commissions and cost.",
           "watch": "any fresh IRDAI clarification, and expense-ratio movement",
           "nothing": false
         },
         "one": {
-          "sentence": "Lower commissions and higher disclosure requirements would pressure distribution economics across health and general insurers, especially in commission-heavy retail health.",
-          "status": "Risk"
+          "sentence": "Currently motor-focused, but signals continued judicial pressure on IRDAI to standardise policy wording and claims clarity — a template that could extend to health policy…",
+          "status": "Watch"
         },
         "ideas": [
           {
@@ -25306,6 +25321,11 @@
               {
                 "kind": "Regulatory",
                 "name": "legal.economictimes.indiatimes.com",
+                "url": "https://legal.economictimes.indiatimes.com/news/litigation/motor-insurance-consider-issuing-circular-standardising-cross-border-coverage-clauses-sc-to-irdai/132519178"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "legal.economictimes.indiatimes.com",
                 "url": "https://legal.economictimes.indiatimes.com/news/regulators/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132160041"
               },
               {
@@ -25317,11 +25337,6 @@
                 "kind": "Regulatory",
                 "name": "economictimes.indiatimes.com",
                 "url": "https://economictimes.indiatimes.com/markets/stocks/news/prudential-hcl-health-insurance-gets-irdai-nod/articleshow/132126831.cms"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "moneycontrol.com",
-                "url": "https://www.moneycontrol.com/news/business/irdai-grants-final-r3-licence-to-prudential-hcl-health-insurance-venture-13963822.html"
               }
             ],
             "impact": "Risk",
@@ -25329,7 +25344,7 @@
             "companyId": null,
             "sourceUrl": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494",
             "sourceConfidence": "Medium",
-            "clusterSize": 7,
+            "clusterSize": 6,
             "clusterSources": [
               {
                 "kind": "Regulatory",
@@ -25404,6 +25419,11 @@
               },
               {
                 "kind": "Regulatory",
+                "name": "legal.economictimes.indiatimes.com",
+                "url": "https://legal.economictimes.indiatimes.com/news/litigation/motor-insurance-consider-issuing-circular-standardising-cross-border-coverage-clauses-sc-to-irdai/132519178"
+              },
+              {
+                "kind": "Regulatory",
                 "name": "indianexpress.com",
                 "url": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494"
               },
@@ -25416,11 +25436,6 @@
                 "kind": "Regulatory",
                 "name": "bfsi.economictimes.indiatimes.com",
                 "url": "https://bfsi.economictimes.indiatimes.com/news/insurance/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132156228"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "moneycontrol.com",
-                "url": "https://www.moneycontrol.com/news/business/irdai-grants-final-r3-licence-to-prudential-hcl-health-insurance-venture-13963822.html"
               }
             ],
             "impact": "Risk",
@@ -25428,7 +25443,7 @@
             "companyId": null,
             "sourceUrl": "https://economictimes.indiatimes.com/markets/stocks/news/prudential-hcl-health-insurance-gets-irdai-nod/articleshow/132126831.cms",
             "sourceConfidence": "Medium",
-            "clusterSize": 11,
+            "clusterSize": 13,
             "clusterSources": [
               {
                 "kind": "Regulatory",
@@ -25493,6 +25508,86 @@
               },
               {
                 "kind": "Regulatory",
+                "name": "legal.economictimes.indiatimes.com",
+                "url": "https://legal.economictimes.indiatimes.com/news/litigation/motor-insurance-consider-issuing-circular-standardising-cross-border-coverage-clauses-sc-to-irdai/132519178"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "indianexpress.com",
+                "url": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "legal.economictimes.indiatimes.com",
+                "url": "https://legal.economictimes.indiatimes.com/news/regulators/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132160041"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "bfsi.economictimes.indiatimes.com",
+                "url": "https://bfsi.economictimes.indiatimes.com/news/insurance/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132156228"
+              }
+            ],
+            "impact": "Positive",
+            "scope": "sector",
+            "companyId": null,
+            "sourceUrl": "https://moneycontrol.com/news/business/banks/irdai-softens-stance-on-insurer-listings-13963096.html",
+            "sourceConfidence": "Medium",
+            "clusterSize": 3,
+            "clusterSources": [
+              {
+                "kind": "Regulatory",
+                "name": "moneycontrol.com",
+                "url": "https://moneycontrol.com/news/business/banks/irdai-softens-stance-on-insurer-listings-13963096.html"
+              }
+            ],
+            "independentSources": 1
+          },
+          {
+            "id": "a5da5aaf50",
+            "entity": "Supreme Court asks IRDAI to consider master circular on cross-border motor cover clauses",
+            "stars": 4,
+            "reasoning": [
+              "Currently motor-focused, but signals continued judicial pressure on IRDAI to standardise policy wording and claims clarity — a template that could extend to health policy drafting and cashless practices sector-wide.",
+              "Solvency 2.2x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency."
+            ],
+            "whatToWatch": "The impact on claims cost, expense ratio and pricing as rules tighten.",
+            "confidencePct": 87,
+            "evidenceCount": 5,
+            "status": "Watch",
+            "category": "Regulatory",
+            "why": {
+              "whatHappened": "Supreme Court asks IRDAI to consider master circular on cross-border motor cover clauses",
+              "whyItMatters": "Currently motor-focused, but signals continued judicial pressure on IRDAI to standardise policy wording and claims clarity — a template that could extend to health policy drafting and cashless…",
+              "whoAffected": "Every standalone health insurer (SAHI) — pricing, product design and compliance cost.",
+              "historicalContext": "Solvency 2.2x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency.",
+              "potentialImpact": "Solvency vs the 1.5x regulatory floor",
+              "whatToWatch": "The impact on claims cost, expense ratio and pricing as rules tighten."
+            },
+            "action": {
+              "id": "regulation",
+              "label": "Check IRDAI on claims cost",
+              "icon": "regulation",
+              "target": {
+                "page": "sahi",
+                "sahiTab": "governance",
+                "company": "star-health"
+              }
+            },
+            "isBreaking": true,
+            "isNew": true,
+            "freshLabel": "New at 1:38 pm",
+            "freshness": "fresh",
+            "freshnessLabel": "Fresh update",
+            "publishedLabel": "20 Jul",
+            "discoveredLabel": "21 Jul",
+            "sources": [
+              {
+                "kind": "Regulatory",
+                "name": "legal.economictimes.indiatimes.com",
+                "url": "https://legal.economictimes.indiatimes.com/news/litigation/motor-insurance-consider-issuing-circular-standardising-cross-border-coverage-clauses-sc-to-irdai/132519178"
+              },
+              {
+                "kind": "Regulatory",
                 "name": "indianexpress.com",
                 "url": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494"
               },
@@ -25512,17 +25607,17 @@
                 "url": "https://economictimes.indiatimes.com/markets/stocks/news/prudential-hcl-health-insurance-gets-irdai-nod/articleshow/132126831.cms"
               }
             ],
-            "impact": "Positive",
+            "impact": "Watch",
             "scope": "sector",
             "companyId": null,
-            "sourceUrl": "https://moneycontrol.com/news/business/banks/irdai-softens-stance-on-insurer-listings-13963096.html",
+            "sourceUrl": "https://legal.economictimes.indiatimes.com/news/litigation/motor-insurance-consider-issuing-circular-standardising-cross-border-coverage-clauses-sc-to-irdai/132519178",
             "sourceConfidence": "Medium",
-            "clusterSize": 4,
+            "clusterSize": 1,
             "clusterSources": [
               {
                 "kind": "Regulatory",
-                "name": "moneycontrol.com",
-                "url": "https://moneycontrol.com/news/business/banks/irdai-softens-stance-on-insurer-listings-13963096.html"
+                "name": "legal.economictimes.indiatimes.com",
+                "url": "https://legal.economictimes.indiatimes.com/news/litigation/motor-insurance-consider-issuing-circular-standardising-cross-border-coverage-clauses-sc-to-irdai/132519178"
               }
             ],
             "independentSources": 1
@@ -25572,6 +25667,11 @@
               },
               {
                 "kind": "Regulatory",
+                "name": "legal.economictimes.indiatimes.com",
+                "url": "https://legal.economictimes.indiatimes.com/news/litigation/motor-insurance-consider-issuing-circular-standardising-cross-border-coverage-clauses-sc-to-irdai/132519178"
+              },
+              {
+                "kind": "Regulatory",
                 "name": "indianexpress.com",
                 "url": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494"
               },
@@ -25584,11 +25684,6 @@
                 "kind": "Regulatory",
                 "name": "bfsi.economictimes.indiatimes.com",
                 "url": "https://bfsi.economictimes.indiatimes.com/news/insurance/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132156228"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "economictimes.indiatimes.com",
-                "url": "https://economictimes.indiatimes.com/markets/stocks/news/prudential-hcl-health-insurance-gets-irdai-nod/articleshow/132126831.cms"
               }
             ],
             "impact": "Watch",
@@ -25651,6 +25746,11 @@
               },
               {
                 "kind": "Regulatory",
+                "name": "legal.economictimes.indiatimes.com",
+                "url": "https://legal.economictimes.indiatimes.com/news/litigation/motor-insurance-consider-issuing-circular-standardising-cross-border-coverage-clauses-sc-to-irdai/132519178"
+              },
+              {
+                "kind": "Regulatory",
                 "name": "indianexpress.com",
                 "url": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494"
               },
@@ -25663,11 +25763,6 @@
                 "kind": "Regulatory",
                 "name": "bfsi.economictimes.indiatimes.com",
                 "url": "https://bfsi.economictimes.indiatimes.com/news/insurance/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132156228"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "economictimes.indiatimes.com",
-                "url": "https://economictimes.indiatimes.com/markets/stocks/news/prudential-hcl-health-insurance-gets-irdai-nod/articleshow/132126831.cms"
               }
             ],
             "impact": "Watch",
@@ -25681,99 +25776,6 @@
                 "kind": "Regulatory",
                 "name": "irdai.gov.in",
                 "url": "https://irdai.gov.in/guidelines"
-              }
-            ],
-            "independentSources": 1
-          },
-          {
-            "id": "d0f45d8397",
-            "entity": "Risk-based capital regime seen from April 2027",
-            "stars": 4,
-            "reasoning": [
-              "Proposed market-value based solvency assessment could improve balance-sheet flexibility across general insurers and support sector capital formation, a meaningful read-through for standalone health insurers as solvency…",
-              "Solvency 2.2x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency."
-            ],
-            "whatToWatch": "Solvency vs the 1.5x regulatory floor",
-            "confidencePct": 78,
-            "evidenceCount": 5,
-            "status": "Constructive",
-            "category": "Sector Catalyst",
-            "why": {
-              "whatHappened": "Risk-based capital regime seen from April 2027",
-              "whyItMatters": "Proposed market-value based solvency assessment could improve balance-sheet flexibility across general insurers and support sector capital formation, a meaningful read-through for standalone health…",
-              "whoAffected": "The broader health-insurance sector and its listed players.",
-              "historicalContext": "Solvency 2.2x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency.",
-              "potentialImpact": "Solvency vs the 1.5x regulatory floor",
-              "whatToWatch": "Solvency vs the 1.5x regulatory floor"
-            },
-            "action": {
-              "id": "margins",
-              "label": "Compare Star Health margin",
-              "icon": "margins",
-              "target": {
-                "page": "sahi",
-                "sahiTab": "profitability",
-                "company": "star-health",
-                "focus": {
-                  "id": "pulse-margins",
-                  "metricKey": "combined_ratio",
-                  "metricLabel": "Combined ratio",
-                  "company": "star-health",
-                  "companyLabel": "Star Health",
-                  "comparisonType": "YoY",
-                  "tone": "neutral",
-                  "insightLabel": "Underwriting margin — combined ratio",
-                  "unit": "%",
-                  "higherIsBetter": false,
-                  "sahiTab": "profitability",
-                  "origin": "pulse"
-                }
-              }
-            },
-            "isBreaking": false,
-            "isNew": false,
-            "freshness": "existing",
-            "freshnessLabel": "Existing context",
-            "publishedLabel": "10 Jul",
-            "discoveredLabel": "10 Jul",
-            "sources": [
-              {
-                "kind": "News",
-                "name": "livemint.com",
-                "url": "https://www.livemint.com/industry/banking/psu-general-insurers-india-solvency-equities-irdai-new-india-assurance-oriental-insurance-united-india-11783588869859.html"
-              },
-              {
-                "kind": "News",
-                "name": "moneycontrol.com",
-                "url": "https://www.moneycontrol.com/news/business/irdai-grants-final-r3-licence-to-prudential-hcl-health-insurance-venture-13963822.html"
-              },
-              {
-                "kind": "News",
-                "name": "livemint.com",
-                "url": "https://www.livemint.com/insurance/rbi-general-insurers-oriental-united-india-national-insurance-solvency-ratio-11782992284462.html"
-              },
-              {
-                "kind": "News",
-                "name": "bfsi.economictimes.indiatimes.com",
-                "url": "https://bfsi.economictimes.indiatimes.com/articles/star-health-sbi-life-and-max-financial-set-for-robust-fy27-growth/132272405"
-              },
-              {
-                "kind": "News",
-                "name": "bfsi.economictimes.indiatimes.com",
-                "url": "https://bfsi.economictimes.indiatimes.com/articles/general-insurance-premiums-soar-16-in-june-with-health-insurers-leading-growth-yes-securities-report/132283360"
-              }
-            ],
-            "impact": "Positive",
-            "scope": "sector",
-            "companyId": null,
-            "sourceUrl": "https://www.livemint.com/industry/banking/psu-general-insurers-india-solvency-equities-irdai-new-india-assurance-oriental-insurance-united-india-11783588869859.html",
-            "sourceConfidence": "Medium",
-            "clusterSize": 1,
-            "clusterSources": [
-              {
-                "kind": "News",
-                "name": "livemint.com",
-                "url": "https://www.livemint.com/industry/banking/psu-general-insurers-india-solvency-equities-irdai-new-india-assurance-oriental-insurance-united-india-11783588869859.html"
               }
             ],
             "independentSources": 1
@@ -38142,13 +38144,20 @@
         "company": "Care Health",
         "companyId": "care-health",
         "generatedAt": "2026-07-21T05:02:51.164Z",
-        "lastUpdatedAt": "2026-07-21T05:02:51.164Z",
+        "lastUpdatedAt": "2026-07-21T08:10:56.393Z",
         "status": "Watch",
-        "sourceConfidence": "Low",
+        "sourceConfidence": "Medium",
         "itemCount": 54,
         "runs": [
           {
             "runTime": "2026-07-21T05:02:51.164Z",
+            "developments": 57,
+            "sourceCount": 56,
+            "ideas": 6,
+            "status": "ok"
+          },
+          {
+            "runTime": "2026-07-21T08:10:56.393Z",
             "developments": 57,
             "sourceCount": 56,
             "ideas": 6,
@@ -38162,21 +38171,21 @@
           "developmentsCount": 57,
           "sourcesCount": 56,
           "domainsCount": 15,
-          "confidencePct": 68,
+          "confidencePct": 69,
           "confidenceTier": "Medium",
           "readingMins": 4,
-          "lastUpdatedLabel": "21 Jul, 05:00 am"
+          "lastUpdatedLabel": "21 Jul, 08:08 am"
         },
         "message": {
-          "since": "No company-specific movement for Care Health since the last brief — the read below is sector & regulatory context that applies across standalone health insurers.",
-          "keyThing": "Lower commissions and higher disclosure requirements would pressure distribution economics across health and general insurers, especially in commission-heavy retail health.",
+          "since": "No Care Health-specific movement since the last brief; one regulatory update moved into focus across the sector.",
+          "keyThing": "Currently motor-focused, but signals continued judicial pressure on IRDAI to standardise policy wording and claims clarity — a template that could extend to health policy…",
           "why": "The near-term read now turns on how the new rules land on pricing, commissions and cost.",
           "watch": "any fresh IRDAI clarification, and expense-ratio movement",
           "nothing": false
         },
         "one": {
-          "sentence": "Lower commissions and higher disclosure requirements would pressure distribution economics across health and general insurers, especially in commission-heavy retail health.",
-          "status": "Risk"
+          "sentence": "Currently motor-focused, but signals continued judicial pressure on IRDAI to standardise policy wording and claims clarity — a template that could extend to health policy…",
+          "status": "Watch"
         },
         "ideas": [
           {
@@ -38225,6 +38234,11 @@
               {
                 "kind": "Regulatory",
                 "name": "legal.economictimes.indiatimes.com",
+                "url": "https://legal.economictimes.indiatimes.com/news/litigation/motor-insurance-consider-issuing-circular-standardising-cross-border-coverage-clauses-sc-to-irdai/132519178"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "legal.economictimes.indiatimes.com",
                 "url": "https://legal.economictimes.indiatimes.com/news/regulators/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132160041"
               },
               {
@@ -38236,11 +38250,6 @@
                 "kind": "Regulatory",
                 "name": "economictimes.indiatimes.com",
                 "url": "https://economictimes.indiatimes.com/markets/stocks/news/prudential-hcl-health-insurance-gets-irdai-nod/articleshow/132126831.cms"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "moneycontrol.com",
-                "url": "https://www.moneycontrol.com/news/business/irdai-grants-final-r3-licence-to-prudential-hcl-health-insurance-venture-13963822.html"
               }
             ],
             "impact": "Risk",
@@ -38248,7 +38257,7 @@
             "companyId": null,
             "sourceUrl": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494",
             "sourceConfidence": "Medium",
-            "clusterSize": 7,
+            "clusterSize": 6,
             "clusterSources": [
               {
                 "kind": "Regulatory",
@@ -38323,6 +38332,11 @@
               },
               {
                 "kind": "Regulatory",
+                "name": "legal.economictimes.indiatimes.com",
+                "url": "https://legal.economictimes.indiatimes.com/news/litigation/motor-insurance-consider-issuing-circular-standardising-cross-border-coverage-clauses-sc-to-irdai/132519178"
+              },
+              {
+                "kind": "Regulatory",
                 "name": "indianexpress.com",
                 "url": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494"
               },
@@ -38335,11 +38349,6 @@
                 "kind": "Regulatory",
                 "name": "bfsi.economictimes.indiatimes.com",
                 "url": "https://bfsi.economictimes.indiatimes.com/news/insurance/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132156228"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "moneycontrol.com",
-                "url": "https://www.moneycontrol.com/news/business/irdai-grants-final-r3-licence-to-prudential-hcl-health-insurance-venture-13963822.html"
               }
             ],
             "impact": "Risk",
@@ -38347,7 +38356,7 @@
             "companyId": null,
             "sourceUrl": "https://economictimes.indiatimes.com/markets/stocks/news/prudential-hcl-health-insurance-gets-irdai-nod/articleshow/132126831.cms",
             "sourceConfidence": "Medium",
-            "clusterSize": 11,
+            "clusterSize": 13,
             "clusterSources": [
               {
                 "kind": "Regulatory",
@@ -38412,6 +38421,86 @@
               },
               {
                 "kind": "Regulatory",
+                "name": "legal.economictimes.indiatimes.com",
+                "url": "https://legal.economictimes.indiatimes.com/news/litigation/motor-insurance-consider-issuing-circular-standardising-cross-border-coverage-clauses-sc-to-irdai/132519178"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "indianexpress.com",
+                "url": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "legal.economictimes.indiatimes.com",
+                "url": "https://legal.economictimes.indiatimes.com/news/regulators/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132160041"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "bfsi.economictimes.indiatimes.com",
+                "url": "https://bfsi.economictimes.indiatimes.com/news/insurance/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132156228"
+              }
+            ],
+            "impact": "Positive",
+            "scope": "sector",
+            "companyId": null,
+            "sourceUrl": "https://moneycontrol.com/news/business/banks/irdai-softens-stance-on-insurer-listings-13963096.html",
+            "sourceConfidence": "Medium",
+            "clusterSize": 3,
+            "clusterSources": [
+              {
+                "kind": "Regulatory",
+                "name": "moneycontrol.com",
+                "url": "https://moneycontrol.com/news/business/banks/irdai-softens-stance-on-insurer-listings-13963096.html"
+              }
+            ],
+            "independentSources": 1
+          },
+          {
+            "id": "a5da5aaf50",
+            "entity": "Supreme Court asks IRDAI to consider master circular on cross-border motor cover clauses",
+            "stars": 4,
+            "reasoning": [
+              "Currently motor-focused, but signals continued judicial pressure on IRDAI to standardise policy wording and claims clarity — a template that could extend to health policy drafting and cashless practices sector-wide.",
+              "Care Health's capital cushion (solvency ratio) stands at 1.68x against the regulator's 1.5x minimum — that sounds safe, but growing premium at 20.4% a year consumes capital mechanically."
+            ],
+            "whatToWatch": "The impact on claims cost, expense ratio and pricing as rules tighten.",
+            "confidencePct": 87,
+            "evidenceCount": 5,
+            "status": "Watch",
+            "category": "Regulatory",
+            "why": {
+              "whatHappened": "Supreme Court asks IRDAI to consider master circular on cross-border motor cover clauses",
+              "whyItMatters": "Currently motor-focused, but signals continued judicial pressure on IRDAI to standardise policy wording and claims clarity — a template that could extend to health policy drafting and cashless…",
+              "whoAffected": "Every standalone health insurer (SAHI) — pricing, product design and compliance cost.",
+              "historicalContext": "Care Health's capital cushion (solvency ratio) stands at 1.68x against the regulator's 1.5x minimum — that sounds safe, but growing premium at 20.4% a year consumes capital mechanically.",
+              "potentialImpact": "Solvency sits close enough to the floor that a capital raise or slower growth is a live possibility.",
+              "whatToWatch": "The impact on claims cost, expense ratio and pricing as rules tighten."
+            },
+            "action": {
+              "id": "regulation",
+              "label": "Check IRDAI on claims cost",
+              "icon": "regulation",
+              "target": {
+                "page": "sahi",
+                "sahiTab": "governance",
+                "company": "care-health"
+              }
+            },
+            "isBreaking": true,
+            "isNew": true,
+            "freshLabel": "New at 1:38 pm",
+            "freshness": "fresh",
+            "freshnessLabel": "Fresh update",
+            "publishedLabel": "20 Jul",
+            "discoveredLabel": "21 Jul",
+            "sources": [
+              {
+                "kind": "Regulatory",
+                "name": "legal.economictimes.indiatimes.com",
+                "url": "https://legal.economictimes.indiatimes.com/news/litigation/motor-insurance-consider-issuing-circular-standardising-cross-border-coverage-clauses-sc-to-irdai/132519178"
+              },
+              {
+                "kind": "Regulatory",
                 "name": "indianexpress.com",
                 "url": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494"
               },
@@ -38431,17 +38520,17 @@
                 "url": "https://economictimes.indiatimes.com/markets/stocks/news/prudential-hcl-health-insurance-gets-irdai-nod/articleshow/132126831.cms"
               }
             ],
-            "impact": "Positive",
+            "impact": "Watch",
             "scope": "sector",
             "companyId": null,
-            "sourceUrl": "https://moneycontrol.com/news/business/banks/irdai-softens-stance-on-insurer-listings-13963096.html",
+            "sourceUrl": "https://legal.economictimes.indiatimes.com/news/litigation/motor-insurance-consider-issuing-circular-standardising-cross-border-coverage-clauses-sc-to-irdai/132519178",
             "sourceConfidence": "Medium",
-            "clusterSize": 4,
+            "clusterSize": 1,
             "clusterSources": [
               {
                 "kind": "Regulatory",
-                "name": "moneycontrol.com",
-                "url": "https://moneycontrol.com/news/business/banks/irdai-softens-stance-on-insurer-listings-13963096.html"
+                "name": "legal.economictimes.indiatimes.com",
+                "url": "https://legal.economictimes.indiatimes.com/news/litigation/motor-insurance-consider-issuing-circular-standardising-cross-border-coverage-clauses-sc-to-irdai/132519178"
               }
             ],
             "independentSources": 1
@@ -38491,6 +38580,11 @@
               },
               {
                 "kind": "Regulatory",
+                "name": "legal.economictimes.indiatimes.com",
+                "url": "https://legal.economictimes.indiatimes.com/news/litigation/motor-insurance-consider-issuing-circular-standardising-cross-border-coverage-clauses-sc-to-irdai/132519178"
+              },
+              {
+                "kind": "Regulatory",
                 "name": "indianexpress.com",
                 "url": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494"
               },
@@ -38503,11 +38597,6 @@
                 "kind": "Regulatory",
                 "name": "bfsi.economictimes.indiatimes.com",
                 "url": "https://bfsi.economictimes.indiatimes.com/news/insurance/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132156228"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "economictimes.indiatimes.com",
-                "url": "https://economictimes.indiatimes.com/markets/stocks/news/prudential-hcl-health-insurance-gets-irdai-nod/articleshow/132126831.cms"
               }
             ],
             "impact": "Watch",
@@ -38570,6 +38659,11 @@
               },
               {
                 "kind": "Regulatory",
+                "name": "legal.economictimes.indiatimes.com",
+                "url": "https://legal.economictimes.indiatimes.com/news/litigation/motor-insurance-consider-issuing-circular-standardising-cross-border-coverage-clauses-sc-to-irdai/132519178"
+              },
+              {
+                "kind": "Regulatory",
                 "name": "indianexpress.com",
                 "url": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494"
               },
@@ -38582,11 +38676,6 @@
                 "kind": "Regulatory",
                 "name": "bfsi.economictimes.indiatimes.com",
                 "url": "https://bfsi.economictimes.indiatimes.com/news/insurance/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132156228"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "economictimes.indiatimes.com",
-                "url": "https://economictimes.indiatimes.com/markets/stocks/news/prudential-hcl-health-insurance-gets-irdai-nod/articleshow/132126831.cms"
               }
             ],
             "impact": "Watch",
@@ -38600,99 +38689,6 @@
                 "kind": "Regulatory",
                 "name": "irdai.gov.in",
                 "url": "https://irdai.gov.in/guidelines"
-              }
-            ],
-            "independentSources": 1
-          },
-          {
-            "id": "d0f45d8397",
-            "entity": "Risk-based capital regime seen from April 2027",
-            "stars": 4,
-            "reasoning": [
-              "Proposed market-value based solvency assessment could improve balance-sheet flexibility across general insurers and support sector capital formation, a meaningful read-through for standalone health insurers as solvency…",
-              "Care Health's capital cushion (solvency ratio) stands at 1.68x against the regulator's 1.5x minimum — that sounds safe, but growing premium at 20.4% a year consumes capital mechanically."
-            ],
-            "whatToWatch": "Capital action — A share issue or debt raise, or growth slowing enough to visibly stop the erosion.",
-            "confidencePct": 78,
-            "evidenceCount": 5,
-            "status": "Constructive",
-            "category": "Sector Catalyst",
-            "why": {
-              "whatHappened": "Risk-based capital regime seen from April 2027",
-              "whyItMatters": "Proposed market-value based solvency assessment could improve balance-sheet flexibility across general insurers and support sector capital formation, a meaningful read-through for standalone health…",
-              "whoAffected": "The broader health-insurance sector and its listed players.",
-              "historicalContext": "Care Health's capital cushion (solvency ratio) stands at 1.68x against the regulator's 1.5x minimum — that sounds safe, but growing premium at 20.4% a year consumes capital mechanically.",
-              "potentialImpact": "Solvency sits close enough to the floor that a capital raise or slower growth is a live possibility.",
-              "whatToWatch": "Capital action — A share issue or debt raise, or growth slowing enough to visibly stop the erosion."
-            },
-            "action": {
-              "id": "margins",
-              "label": "Compare Care Health margin",
-              "icon": "margins",
-              "target": {
-                "page": "sahi",
-                "sahiTab": "profitability",
-                "company": "care-health",
-                "focus": {
-                  "id": "pulse-margins",
-                  "metricKey": "combined_ratio",
-                  "metricLabel": "Combined ratio",
-                  "company": "care-health",
-                  "companyLabel": "Care Health",
-                  "comparisonType": "YoY",
-                  "tone": "neutral",
-                  "insightLabel": "Underwriting margin — combined ratio",
-                  "unit": "%",
-                  "higherIsBetter": false,
-                  "sahiTab": "profitability",
-                  "origin": "pulse"
-                }
-              }
-            },
-            "isBreaking": false,
-            "isNew": false,
-            "freshness": "existing",
-            "freshnessLabel": "Existing context",
-            "publishedLabel": "10 Jul",
-            "discoveredLabel": "10 Jul",
-            "sources": [
-              {
-                "kind": "News",
-                "name": "livemint.com",
-                "url": "https://www.livemint.com/industry/banking/psu-general-insurers-india-solvency-equities-irdai-new-india-assurance-oriental-insurance-united-india-11783588869859.html"
-              },
-              {
-                "kind": "News",
-                "name": "moneycontrol.com",
-                "url": "https://www.moneycontrol.com/news/business/irdai-grants-final-r3-licence-to-prudential-hcl-health-insurance-venture-13963822.html"
-              },
-              {
-                "kind": "News",
-                "name": "livemint.com",
-                "url": "https://www.livemint.com/insurance/rbi-general-insurers-oriental-united-india-national-insurance-solvency-ratio-11782992284462.html"
-              },
-              {
-                "kind": "News",
-                "name": "bfsi.economictimes.indiatimes.com",
-                "url": "https://bfsi.economictimes.indiatimes.com/articles/star-health-sbi-life-and-max-financial-set-for-robust-fy27-growth/132272405"
-              },
-              {
-                "kind": "News",
-                "name": "bfsi.economictimes.indiatimes.com",
-                "url": "https://bfsi.economictimes.indiatimes.com/articles/general-insurance-premiums-soar-16-in-june-with-health-insurers-leading-growth-yes-securities-report/132283360"
-              }
-            ],
-            "impact": "Positive",
-            "scope": "sector",
-            "companyId": null,
-            "sourceUrl": "https://www.livemint.com/industry/banking/psu-general-insurers-india-solvency-equities-irdai-new-india-assurance-oriental-insurance-united-india-11783588869859.html",
-            "sourceConfidence": "Medium",
-            "clusterSize": 1,
-            "clusterSources": [
-              {
-                "kind": "News",
-                "name": "livemint.com",
-                "url": "https://www.livemint.com/industry/banking/psu-general-insurers-india-solvency-equities-irdai-new-india-assurance-oriental-insurance-united-india-11783588869859.html"
               }
             ],
             "independentSources": 1
@@ -51115,13 +51111,20 @@
         "company": "Aditya Birla",
         "companyId": "aditya-birla",
         "generatedAt": "2026-07-21T05:02:51.164Z",
-        "lastUpdatedAt": "2026-07-21T05:02:51.164Z",
+        "lastUpdatedAt": "2026-07-21T08:10:56.393Z",
         "status": "Watch",
-        "sourceConfidence": "Low",
+        "sourceConfidence": "Medium",
         "itemCount": 54,
         "runs": [
           {
             "runTime": "2026-07-21T05:02:51.164Z",
+            "developments": 56,
+            "sourceCount": 56,
+            "ideas": 6,
+            "status": "ok"
+          },
+          {
+            "runTime": "2026-07-21T08:10:56.393Z",
             "developments": 56,
             "sourceCount": 56,
             "ideas": 6,
@@ -51135,21 +51138,21 @@
           "developmentsCount": 56,
           "sourcesCount": 56,
           "domainsCount": 15,
-          "confidencePct": 68,
+          "confidencePct": 69,
           "confidenceTier": "Medium",
           "readingMins": 3,
-          "lastUpdatedLabel": "21 Jul, 05:00 am"
+          "lastUpdatedLabel": "21 Jul, 08:08 am"
         },
         "message": {
-          "since": "No company-specific movement for Aditya Birla since the last brief — the read below is sector & regulatory context that applies across standalone health insurers.",
-          "keyThing": "Lower commissions and higher disclosure requirements would pressure distribution economics across health and general insurers, especially in commission-heavy retail health.",
+          "since": "No Aditya Birla-specific movement since the last brief; one regulatory update moved into focus across the sector.",
+          "keyThing": "Currently motor-focused, but signals continued judicial pressure on IRDAI to standardise policy wording and claims clarity — a template that could extend to health policy…",
           "why": "The near-term read now turns on how the new rules land on pricing, commissions and cost.",
           "watch": "any fresh IRDAI clarification, and expense-ratio movement",
           "nothing": false
         },
         "one": {
-          "sentence": "Lower commissions and higher disclosure requirements would pressure distribution economics across health and general insurers, especially in commission-heavy retail health.",
-          "status": "Risk"
+          "sentence": "Currently motor-focused, but signals continued judicial pressure on IRDAI to standardise policy wording and claims clarity — a template that could extend to health policy…",
+          "status": "Watch"
         },
         "ideas": [
           {
@@ -51198,6 +51201,11 @@
               {
                 "kind": "Regulatory",
                 "name": "legal.economictimes.indiatimes.com",
+                "url": "https://legal.economictimes.indiatimes.com/news/litigation/motor-insurance-consider-issuing-circular-standardising-cross-border-coverage-clauses-sc-to-irdai/132519178"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "legal.economictimes.indiatimes.com",
                 "url": "https://legal.economictimes.indiatimes.com/news/regulators/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132160041"
               },
               {
@@ -51209,11 +51217,6 @@
                 "kind": "Regulatory",
                 "name": "economictimes.indiatimes.com",
                 "url": "https://economictimes.indiatimes.com/markets/stocks/news/prudential-hcl-health-insurance-gets-irdai-nod/articleshow/132126831.cms"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "moneycontrol.com",
-                "url": "https://www.moneycontrol.com/news/business/irdai-grants-final-r3-licence-to-prudential-hcl-health-insurance-venture-13963822.html"
               }
             ],
             "impact": "Risk",
@@ -51221,7 +51224,7 @@
             "companyId": null,
             "sourceUrl": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494",
             "sourceConfidence": "Medium",
-            "clusterSize": 7,
+            "clusterSize": 6,
             "clusterSources": [
               {
                 "kind": "Regulatory",
@@ -51296,6 +51299,11 @@
               },
               {
                 "kind": "Regulatory",
+                "name": "legal.economictimes.indiatimes.com",
+                "url": "https://legal.economictimes.indiatimes.com/news/litigation/motor-insurance-consider-issuing-circular-standardising-cross-border-coverage-clauses-sc-to-irdai/132519178"
+              },
+              {
+                "kind": "Regulatory",
                 "name": "indianexpress.com",
                 "url": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494"
               },
@@ -51308,11 +51316,6 @@
                 "kind": "Regulatory",
                 "name": "bfsi.economictimes.indiatimes.com",
                 "url": "https://bfsi.economictimes.indiatimes.com/news/insurance/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132156228"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "moneycontrol.com",
-                "url": "https://www.moneycontrol.com/news/business/irdai-grants-final-r3-licence-to-prudential-hcl-health-insurance-venture-13963822.html"
               }
             ],
             "impact": "Risk",
@@ -51320,7 +51323,7 @@
             "companyId": null,
             "sourceUrl": "https://economictimes.indiatimes.com/markets/stocks/news/prudential-hcl-health-insurance-gets-irdai-nod/articleshow/132126831.cms",
             "sourceConfidence": "Medium",
-            "clusterSize": 11,
+            "clusterSize": 13,
             "clusterSources": [
               {
                 "kind": "Regulatory",
@@ -51385,6 +51388,86 @@
               },
               {
                 "kind": "Regulatory",
+                "name": "legal.economictimes.indiatimes.com",
+                "url": "https://legal.economictimes.indiatimes.com/news/litigation/motor-insurance-consider-issuing-circular-standardising-cross-border-coverage-clauses-sc-to-irdai/132519178"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "indianexpress.com",
+                "url": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "legal.economictimes.indiatimes.com",
+                "url": "https://legal.economictimes.indiatimes.com/news/regulators/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132160041"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "bfsi.economictimes.indiatimes.com",
+                "url": "https://bfsi.economictimes.indiatimes.com/news/insurance/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132156228"
+              }
+            ],
+            "impact": "Positive",
+            "scope": "sector",
+            "companyId": null,
+            "sourceUrl": "https://moneycontrol.com/news/business/banks/irdai-softens-stance-on-insurer-listings-13963096.html",
+            "sourceConfidence": "Medium",
+            "clusterSize": 3,
+            "clusterSources": [
+              {
+                "kind": "Regulatory",
+                "name": "moneycontrol.com",
+                "url": "https://moneycontrol.com/news/business/banks/irdai-softens-stance-on-insurer-listings-13963096.html"
+              }
+            ],
+            "independentSources": 1
+          },
+          {
+            "id": "a5da5aaf50",
+            "entity": "Supreme Court asks IRDAI to consider master circular on cross-border motor cover clauses",
+            "stars": 4,
+            "reasoning": [
+              "Currently motor-focused, but signals continued judicial pressure on IRDAI to standardise policy wording and claims clarity — a template that could extend to health policy drafting and cashless practices sector-wide.",
+              "Solvency 1.84x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency."
+            ],
+            "whatToWatch": "The impact on claims cost, expense ratio and pricing as rules tighten.",
+            "confidencePct": 87,
+            "evidenceCount": 5,
+            "status": "Watch",
+            "category": "Regulatory",
+            "why": {
+              "whatHappened": "Supreme Court asks IRDAI to consider master circular on cross-border motor cover clauses",
+              "whyItMatters": "Currently motor-focused, but signals continued judicial pressure on IRDAI to standardise policy wording and claims clarity — a template that could extend to health policy drafting and cashless…",
+              "whoAffected": "Every standalone health insurer (SAHI) — pricing, product design and compliance cost.",
+              "historicalContext": "Solvency 1.84x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency.",
+              "potentialImpact": "Solvency vs the 1.5x regulatory floor",
+              "whatToWatch": "The impact on claims cost, expense ratio and pricing as rules tighten."
+            },
+            "action": {
+              "id": "regulation",
+              "label": "Check IRDAI on claims cost",
+              "icon": "regulation",
+              "target": {
+                "page": "sahi",
+                "sahiTab": "governance",
+                "company": "aditya-birla"
+              }
+            },
+            "isBreaking": true,
+            "isNew": true,
+            "freshLabel": "New at 1:38 pm",
+            "freshness": "fresh",
+            "freshnessLabel": "Fresh update",
+            "publishedLabel": "20 Jul",
+            "discoveredLabel": "21 Jul",
+            "sources": [
+              {
+                "kind": "Regulatory",
+                "name": "legal.economictimes.indiatimes.com",
+                "url": "https://legal.economictimes.indiatimes.com/news/litigation/motor-insurance-consider-issuing-circular-standardising-cross-border-coverage-clauses-sc-to-irdai/132519178"
+              },
+              {
+                "kind": "Regulatory",
                 "name": "indianexpress.com",
                 "url": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494"
               },
@@ -51404,17 +51487,17 @@
                 "url": "https://economictimes.indiatimes.com/markets/stocks/news/prudential-hcl-health-insurance-gets-irdai-nod/articleshow/132126831.cms"
               }
             ],
-            "impact": "Positive",
+            "impact": "Watch",
             "scope": "sector",
             "companyId": null,
-            "sourceUrl": "https://moneycontrol.com/news/business/banks/irdai-softens-stance-on-insurer-listings-13963096.html",
+            "sourceUrl": "https://legal.economictimes.indiatimes.com/news/litigation/motor-insurance-consider-issuing-circular-standardising-cross-border-coverage-clauses-sc-to-irdai/132519178",
             "sourceConfidence": "Medium",
-            "clusterSize": 4,
+            "clusterSize": 1,
             "clusterSources": [
               {
                 "kind": "Regulatory",
-                "name": "moneycontrol.com",
-                "url": "https://moneycontrol.com/news/business/banks/irdai-softens-stance-on-insurer-listings-13963096.html"
+                "name": "legal.economictimes.indiatimes.com",
+                "url": "https://legal.economictimes.indiatimes.com/news/litigation/motor-insurance-consider-issuing-circular-standardising-cross-border-coverage-clauses-sc-to-irdai/132519178"
               }
             ],
             "independentSources": 1
@@ -51464,6 +51547,11 @@
               },
               {
                 "kind": "Regulatory",
+                "name": "legal.economictimes.indiatimes.com",
+                "url": "https://legal.economictimes.indiatimes.com/news/litigation/motor-insurance-consider-issuing-circular-standardising-cross-border-coverage-clauses-sc-to-irdai/132519178"
+              },
+              {
+                "kind": "Regulatory",
                 "name": "indianexpress.com",
                 "url": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494"
               },
@@ -51476,11 +51564,6 @@
                 "kind": "Regulatory",
                 "name": "bfsi.economictimes.indiatimes.com",
                 "url": "https://bfsi.economictimes.indiatimes.com/news/insurance/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132156228"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "economictimes.indiatimes.com",
-                "url": "https://economictimes.indiatimes.com/markets/stocks/news/prudential-hcl-health-insurance-gets-irdai-nod/articleshow/132126831.cms"
               }
             ],
             "impact": "Watch",
@@ -51543,6 +51626,11 @@
               },
               {
                 "kind": "Regulatory",
+                "name": "legal.economictimes.indiatimes.com",
+                "url": "https://legal.economictimes.indiatimes.com/news/litigation/motor-insurance-consider-issuing-circular-standardising-cross-border-coverage-clauses-sc-to-irdai/132519178"
+              },
+              {
+                "kind": "Regulatory",
                 "name": "indianexpress.com",
                 "url": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494"
               },
@@ -51555,11 +51643,6 @@
                 "kind": "Regulatory",
                 "name": "bfsi.economictimes.indiatimes.com",
                 "url": "https://bfsi.economictimes.indiatimes.com/news/insurance/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132156228"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "economictimes.indiatimes.com",
-                "url": "https://economictimes.indiatimes.com/markets/stocks/news/prudential-hcl-health-insurance-gets-irdai-nod/articleshow/132126831.cms"
               }
             ],
             "impact": "Watch",
@@ -51573,99 +51656,6 @@
                 "kind": "Regulatory",
                 "name": "irdai.gov.in",
                 "url": "https://irdai.gov.in/guidelines"
-              }
-            ],
-            "independentSources": 1
-          },
-          {
-            "id": "d0f45d8397",
-            "entity": "Risk-based capital regime seen from April 2027",
-            "stars": 4,
-            "reasoning": [
-              "Proposed market-value based solvency assessment could improve balance-sheet flexibility across general insurers and support sector capital formation, a meaningful read-through for standalone health insurers as solvency…",
-              "Solvency 1.84x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency."
-            ],
-            "whatToWatch": "Solvency vs the 1.5x regulatory floor",
-            "confidencePct": 78,
-            "evidenceCount": 5,
-            "status": "Constructive",
-            "category": "Sector Catalyst",
-            "why": {
-              "whatHappened": "Risk-based capital regime seen from April 2027",
-              "whyItMatters": "Proposed market-value based solvency assessment could improve balance-sheet flexibility across general insurers and support sector capital formation, a meaningful read-through for standalone health…",
-              "whoAffected": "The broader health-insurance sector and its listed players.",
-              "historicalContext": "Solvency 1.84x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency.",
-              "potentialImpact": "Solvency vs the 1.5x regulatory floor",
-              "whatToWatch": "Solvency vs the 1.5x regulatory floor"
-            },
-            "action": {
-              "id": "margins",
-              "label": "Compare Aditya Birla margin",
-              "icon": "margins",
-              "target": {
-                "page": "sahi",
-                "sahiTab": "profitability",
-                "company": "aditya-birla",
-                "focus": {
-                  "id": "pulse-margins",
-                  "metricKey": "combined_ratio",
-                  "metricLabel": "Combined ratio",
-                  "company": "aditya-birla",
-                  "companyLabel": "Aditya Birla",
-                  "comparisonType": "YoY",
-                  "tone": "neutral",
-                  "insightLabel": "Underwriting margin — combined ratio",
-                  "unit": "%",
-                  "higherIsBetter": false,
-                  "sahiTab": "profitability",
-                  "origin": "pulse"
-                }
-              }
-            },
-            "isBreaking": false,
-            "isNew": false,
-            "freshness": "existing",
-            "freshnessLabel": "Existing context",
-            "publishedLabel": "10 Jul",
-            "discoveredLabel": "10 Jul",
-            "sources": [
-              {
-                "kind": "News",
-                "name": "livemint.com",
-                "url": "https://www.livemint.com/industry/banking/psu-general-insurers-india-solvency-equities-irdai-new-india-assurance-oriental-insurance-united-india-11783588869859.html"
-              },
-              {
-                "kind": "News",
-                "name": "moneycontrol.com",
-                "url": "https://www.moneycontrol.com/news/business/irdai-grants-final-r3-licence-to-prudential-hcl-health-insurance-venture-13963822.html"
-              },
-              {
-                "kind": "News",
-                "name": "livemint.com",
-                "url": "https://www.livemint.com/insurance/rbi-general-insurers-oriental-united-india-national-insurance-solvency-ratio-11782992284462.html"
-              },
-              {
-                "kind": "News",
-                "name": "bfsi.economictimes.indiatimes.com",
-                "url": "https://bfsi.economictimes.indiatimes.com/articles/star-health-sbi-life-and-max-financial-set-for-robust-fy27-growth/132272405"
-              },
-              {
-                "kind": "News",
-                "name": "bfsi.economictimes.indiatimes.com",
-                "url": "https://bfsi.economictimes.indiatimes.com/articles/general-insurance-premiums-soar-16-in-june-with-health-insurers-leading-growth-yes-securities-report/132283360"
-              }
-            ],
-            "impact": "Positive",
-            "scope": "sector",
-            "companyId": null,
-            "sourceUrl": "https://www.livemint.com/industry/banking/psu-general-insurers-india-solvency-equities-irdai-new-india-assurance-oriental-insurance-united-india-11783588869859.html",
-            "sourceConfidence": "Medium",
-            "clusterSize": 1,
-            "clusterSources": [
-              {
-                "kind": "News",
-                "name": "livemint.com",
-                "url": "https://www.livemint.com/industry/banking/psu-general-insurers-india-solvency-equities-irdai-new-india-assurance-oriental-insurance-united-india-11783588869859.html"
               }
             ],
             "independentSources": 1
@@ -64031,13 +64021,20 @@
         "company": "ManipalCigna",
         "companyId": "manipalcigna",
         "generatedAt": "2026-07-21T05:02:51.164Z",
-        "lastUpdatedAt": "2026-07-21T05:02:51.164Z",
+        "lastUpdatedAt": "2026-07-21T08:10:56.393Z",
         "status": "Watch",
-        "sourceConfidence": "Low",
+        "sourceConfidence": "Medium",
         "itemCount": 54,
         "runs": [
           {
             "runTime": "2026-07-21T05:02:51.164Z",
+            "developments": 57,
+            "sourceCount": 56,
+            "ideas": 6,
+            "status": "ok"
+          },
+          {
+            "runTime": "2026-07-21T08:10:56.393Z",
             "developments": 57,
             "sourceCount": 56,
             "ideas": 6,
@@ -64051,21 +64048,21 @@
           "developmentsCount": 57,
           "sourcesCount": 56,
           "domainsCount": 15,
-          "confidencePct": 68,
+          "confidencePct": 69,
           "confidenceTier": "Medium",
           "readingMins": 3,
-          "lastUpdatedLabel": "21 Jul, 05:00 am"
+          "lastUpdatedLabel": "21 Jul, 08:08 am"
         },
         "message": {
-          "since": "No company-specific movement for ManipalCigna since the last brief — the read below is sector & regulatory context that applies across standalone health insurers.",
-          "keyThing": "Lower commissions and higher disclosure requirements would pressure distribution economics across health and general insurers, especially in commission-heavy retail health.",
+          "since": "No ManipalCigna-specific movement since the last brief; one regulatory update moved into focus across the sector.",
+          "keyThing": "Currently motor-focused, but signals continued judicial pressure on IRDAI to standardise policy wording and claims clarity — a template that could extend to health policy…",
           "why": "The near-term read now turns on how the new rules land on pricing, commissions and cost.",
           "watch": "any fresh IRDAI clarification, and expense-ratio movement",
           "nothing": false
         },
         "one": {
-          "sentence": "Lower commissions and higher disclosure requirements would pressure distribution economics across health and general insurers, especially in commission-heavy retail health.",
-          "status": "Risk"
+          "sentence": "Currently motor-focused, but signals continued judicial pressure on IRDAI to standardise policy wording and claims clarity — a template that could extend to health policy…",
+          "status": "Watch"
         },
         "ideas": [
           {
@@ -64114,6 +64111,11 @@
               {
                 "kind": "Regulatory",
                 "name": "legal.economictimes.indiatimes.com",
+                "url": "https://legal.economictimes.indiatimes.com/news/litigation/motor-insurance-consider-issuing-circular-standardising-cross-border-coverage-clauses-sc-to-irdai/132519178"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "legal.economictimes.indiatimes.com",
                 "url": "https://legal.economictimes.indiatimes.com/news/regulators/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132160041"
               },
               {
@@ -64125,11 +64127,6 @@
                 "kind": "Regulatory",
                 "name": "economictimes.indiatimes.com",
                 "url": "https://economictimes.indiatimes.com/markets/stocks/news/prudential-hcl-health-insurance-gets-irdai-nod/articleshow/132126831.cms"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "moneycontrol.com",
-                "url": "https://www.moneycontrol.com/news/business/irdai-grants-final-r3-licence-to-prudential-hcl-health-insurance-venture-13963822.html"
               }
             ],
             "impact": "Risk",
@@ -64137,7 +64134,7 @@
             "companyId": null,
             "sourceUrl": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494",
             "sourceConfidence": "Medium",
-            "clusterSize": 7,
+            "clusterSize": 6,
             "clusterSources": [
               {
                 "kind": "Regulatory",
@@ -64212,6 +64209,11 @@
               },
               {
                 "kind": "Regulatory",
+                "name": "legal.economictimes.indiatimes.com",
+                "url": "https://legal.economictimes.indiatimes.com/news/litigation/motor-insurance-consider-issuing-circular-standardising-cross-border-coverage-clauses-sc-to-irdai/132519178"
+              },
+              {
+                "kind": "Regulatory",
                 "name": "indianexpress.com",
                 "url": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494"
               },
@@ -64224,11 +64226,6 @@
                 "kind": "Regulatory",
                 "name": "bfsi.economictimes.indiatimes.com",
                 "url": "https://bfsi.economictimes.indiatimes.com/news/insurance/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132156228"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "moneycontrol.com",
-                "url": "https://www.moneycontrol.com/news/business/irdai-grants-final-r3-licence-to-prudential-hcl-health-insurance-venture-13963822.html"
               }
             ],
             "impact": "Risk",
@@ -64236,7 +64233,7 @@
             "companyId": null,
             "sourceUrl": "https://economictimes.indiatimes.com/markets/stocks/news/prudential-hcl-health-insurance-gets-irdai-nod/articleshow/132126831.cms",
             "sourceConfidence": "Medium",
-            "clusterSize": 11,
+            "clusterSize": 13,
             "clusterSources": [
               {
                 "kind": "Regulatory",
@@ -64301,6 +64298,86 @@
               },
               {
                 "kind": "Regulatory",
+                "name": "legal.economictimes.indiatimes.com",
+                "url": "https://legal.economictimes.indiatimes.com/news/litigation/motor-insurance-consider-issuing-circular-standardising-cross-border-coverage-clauses-sc-to-irdai/132519178"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "indianexpress.com",
+                "url": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "legal.economictimes.indiatimes.com",
+                "url": "https://legal.economictimes.indiatimes.com/news/regulators/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132160041"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "bfsi.economictimes.indiatimes.com",
+                "url": "https://bfsi.economictimes.indiatimes.com/news/insurance/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132156228"
+              }
+            ],
+            "impact": "Positive",
+            "scope": "sector",
+            "companyId": null,
+            "sourceUrl": "https://moneycontrol.com/news/business/banks/irdai-softens-stance-on-insurer-listings-13963096.html",
+            "sourceConfidence": "Medium",
+            "clusterSize": 3,
+            "clusterSources": [
+              {
+                "kind": "Regulatory",
+                "name": "moneycontrol.com",
+                "url": "https://moneycontrol.com/news/business/banks/irdai-softens-stance-on-insurer-listings-13963096.html"
+              }
+            ],
+            "independentSources": 1
+          },
+          {
+            "id": "a5da5aaf50",
+            "entity": "Supreme Court asks IRDAI to consider master circular on cross-border motor cover clauses",
+            "stars": 4,
+            "reasoning": [
+              "Currently motor-focused, but signals continued judicial pressure on IRDAI to standardise policy wording and claims clarity — a template that could extend to health policy drafting and cashless practices sector-wide.",
+              "Solvency 1.7x vs the 1.5x floor — headroom is thinner; watch solvency alongside regulation."
+            ],
+            "whatToWatch": "The impact on claims cost, expense ratio and pricing as rules tighten.",
+            "confidencePct": 87,
+            "evidenceCount": 5,
+            "status": "Watch",
+            "category": "Regulatory",
+            "why": {
+              "whatHappened": "Supreme Court asks IRDAI to consider master circular on cross-border motor cover clauses",
+              "whyItMatters": "Currently motor-focused, but signals continued judicial pressure on IRDAI to standardise policy wording and claims clarity — a template that could extend to health policy drafting and cashless…",
+              "whoAffected": "Every standalone health insurer (SAHI) — pricing, product design and compliance cost.",
+              "historicalContext": "Solvency 1.7x vs the 1.5x floor — headroom is thinner; watch solvency alongside regulation.",
+              "potentialImpact": "Solvency sits close enough to the floor that a capital raise or slower growth is a live possibility.",
+              "whatToWatch": "The impact on claims cost, expense ratio and pricing as rules tighten."
+            },
+            "action": {
+              "id": "regulation",
+              "label": "Check IRDAI on claims cost",
+              "icon": "regulation",
+              "target": {
+                "page": "sahi",
+                "sahiTab": "governance",
+                "company": "manipalcigna"
+              }
+            },
+            "isBreaking": true,
+            "isNew": true,
+            "freshLabel": "New at 1:38 pm",
+            "freshness": "fresh",
+            "freshnessLabel": "Fresh update",
+            "publishedLabel": "20 Jul",
+            "discoveredLabel": "21 Jul",
+            "sources": [
+              {
+                "kind": "Regulatory",
+                "name": "legal.economictimes.indiatimes.com",
+                "url": "https://legal.economictimes.indiatimes.com/news/litigation/motor-insurance-consider-issuing-circular-standardising-cross-border-coverage-clauses-sc-to-irdai/132519178"
+              },
+              {
+                "kind": "Regulatory",
                 "name": "indianexpress.com",
                 "url": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494"
               },
@@ -64320,17 +64397,17 @@
                 "url": "https://economictimes.indiatimes.com/markets/stocks/news/prudential-hcl-health-insurance-gets-irdai-nod/articleshow/132126831.cms"
               }
             ],
-            "impact": "Positive",
+            "impact": "Watch",
             "scope": "sector",
             "companyId": null,
-            "sourceUrl": "https://moneycontrol.com/news/business/banks/irdai-softens-stance-on-insurer-listings-13963096.html",
+            "sourceUrl": "https://legal.economictimes.indiatimes.com/news/litigation/motor-insurance-consider-issuing-circular-standardising-cross-border-coverage-clauses-sc-to-irdai/132519178",
             "sourceConfidence": "Medium",
-            "clusterSize": 4,
+            "clusterSize": 1,
             "clusterSources": [
               {
                 "kind": "Regulatory",
-                "name": "moneycontrol.com",
-                "url": "https://moneycontrol.com/news/business/banks/irdai-softens-stance-on-insurer-listings-13963096.html"
+                "name": "legal.economictimes.indiatimes.com",
+                "url": "https://legal.economictimes.indiatimes.com/news/litigation/motor-insurance-consider-issuing-circular-standardising-cross-border-coverage-clauses-sc-to-irdai/132519178"
               }
             ],
             "independentSources": 1
@@ -64380,6 +64457,11 @@
               },
               {
                 "kind": "Regulatory",
+                "name": "legal.economictimes.indiatimes.com",
+                "url": "https://legal.economictimes.indiatimes.com/news/litigation/motor-insurance-consider-issuing-circular-standardising-cross-border-coverage-clauses-sc-to-irdai/132519178"
+              },
+              {
+                "kind": "Regulatory",
                 "name": "indianexpress.com",
                 "url": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494"
               },
@@ -64392,11 +64474,6 @@
                 "kind": "Regulatory",
                 "name": "bfsi.economictimes.indiatimes.com",
                 "url": "https://bfsi.economictimes.indiatimes.com/news/insurance/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132156228"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "economictimes.indiatimes.com",
-                "url": "https://economictimes.indiatimes.com/markets/stocks/news/prudential-hcl-health-insurance-gets-irdai-nod/articleshow/132126831.cms"
               }
             ],
             "impact": "Watch",
@@ -64459,6 +64536,11 @@
               },
               {
                 "kind": "Regulatory",
+                "name": "legal.economictimes.indiatimes.com",
+                "url": "https://legal.economictimes.indiatimes.com/news/litigation/motor-insurance-consider-issuing-circular-standardising-cross-border-coverage-clauses-sc-to-irdai/132519178"
+              },
+              {
+                "kind": "Regulatory",
                 "name": "indianexpress.com",
                 "url": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494"
               },
@@ -64471,11 +64553,6 @@
                 "kind": "Regulatory",
                 "name": "bfsi.economictimes.indiatimes.com",
                 "url": "https://bfsi.economictimes.indiatimes.com/news/insurance/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132156228"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "economictimes.indiatimes.com",
-                "url": "https://economictimes.indiatimes.com/markets/stocks/news/prudential-hcl-health-insurance-gets-irdai-nod/articleshow/132126831.cms"
               }
             ],
             "impact": "Watch",
@@ -64489,99 +64566,6 @@
                 "kind": "Regulatory",
                 "name": "irdai.gov.in",
                 "url": "https://irdai.gov.in/guidelines"
-              }
-            ],
-            "independentSources": 1
-          },
-          {
-            "id": "d0f45d8397",
-            "entity": "Risk-based capital regime seen from April 2027",
-            "stars": 4,
-            "reasoning": [
-              "Proposed market-value based solvency assessment could improve balance-sheet flexibility across general insurers and support sector capital formation, a meaningful read-through for standalone health insurers as solvency…",
-              "Solvency 1.7x vs the 1.5x floor — headroom is thinner; watch solvency alongside regulation."
-            ],
-            "whatToWatch": "Solvency vs the 1.5x regulatory floor",
-            "confidencePct": 78,
-            "evidenceCount": 5,
-            "status": "Constructive",
-            "category": "Sector Catalyst",
-            "why": {
-              "whatHappened": "Risk-based capital regime seen from April 2027",
-              "whyItMatters": "Proposed market-value based solvency assessment could improve balance-sheet flexibility across general insurers and support sector capital formation, a meaningful read-through for standalone health…",
-              "whoAffected": "The broader health-insurance sector and its listed players.",
-              "historicalContext": "Solvency 1.7x vs the 1.5x floor — headroom is thinner; watch solvency alongside regulation.",
-              "potentialImpact": "Solvency sits close enough to the floor that a capital raise or slower growth is a live possibility.",
-              "whatToWatch": "Solvency vs the 1.5x regulatory floor"
-            },
-            "action": {
-              "id": "margins",
-              "label": "Compare ManipalCigna margin",
-              "icon": "margins",
-              "target": {
-                "page": "sahi",
-                "sahiTab": "profitability",
-                "company": "manipalcigna",
-                "focus": {
-                  "id": "pulse-margins",
-                  "metricKey": "combined_ratio",
-                  "metricLabel": "Combined ratio",
-                  "company": "manipalcigna",
-                  "companyLabel": "ManipalCigna",
-                  "comparisonType": "YoY",
-                  "tone": "neutral",
-                  "insightLabel": "Underwriting margin — combined ratio",
-                  "unit": "%",
-                  "higherIsBetter": false,
-                  "sahiTab": "profitability",
-                  "origin": "pulse"
-                }
-              }
-            },
-            "isBreaking": false,
-            "isNew": false,
-            "freshness": "existing",
-            "freshnessLabel": "Existing context",
-            "publishedLabel": "10 Jul",
-            "discoveredLabel": "10 Jul",
-            "sources": [
-              {
-                "kind": "News",
-                "name": "livemint.com",
-                "url": "https://www.livemint.com/industry/banking/psu-general-insurers-india-solvency-equities-irdai-new-india-assurance-oriental-insurance-united-india-11783588869859.html"
-              },
-              {
-                "kind": "News",
-                "name": "moneycontrol.com",
-                "url": "https://www.moneycontrol.com/news/business/irdai-grants-final-r3-licence-to-prudential-hcl-health-insurance-venture-13963822.html"
-              },
-              {
-                "kind": "News",
-                "name": "livemint.com",
-                "url": "https://www.livemint.com/insurance/rbi-general-insurers-oriental-united-india-national-insurance-solvency-ratio-11782992284462.html"
-              },
-              {
-                "kind": "News",
-                "name": "bfsi.economictimes.indiatimes.com",
-                "url": "https://bfsi.economictimes.indiatimes.com/articles/star-health-sbi-life-and-max-financial-set-for-robust-fy27-growth/132272405"
-              },
-              {
-                "kind": "News",
-                "name": "bfsi.economictimes.indiatimes.com",
-                "url": "https://bfsi.economictimes.indiatimes.com/articles/general-insurance-premiums-soar-16-in-june-with-health-insurers-leading-growth-yes-securities-report/132283360"
-              }
-            ],
-            "impact": "Positive",
-            "scope": "sector",
-            "companyId": null,
-            "sourceUrl": "https://www.livemint.com/industry/banking/psu-general-insurers-india-solvency-equities-irdai-new-india-assurance-oriental-insurance-united-india-11783588869859.html",
-            "sourceConfidence": "Medium",
-            "clusterSize": 1,
-            "clusterSources": [
-              {
-                "kind": "News",
-                "name": "livemint.com",
-                "url": "https://www.livemint.com/industry/banking/psu-general-insurers-india-solvency-equities-irdai-new-india-assurance-oriental-insurance-united-india-11783588869859.html"
               }
             ],
             "independentSources": 1
@@ -64752,6 +64736,6 @@
     "snapshot_id": "pulse-brief-archive",
     "description": "Immutable per-calendar-day Pulse brief records (IST), one per company. Past days are frozen exactly as shown that day; the live Today view recomposes. Kept ~90 days per company.",
     "last_updated": "2026-07-21",
-    "last_successful_run": "2026-07-21T05:02:51.164Z"
+    "last_successful_run": "2026-07-21T08:10:56.393Z"
   }
 }
