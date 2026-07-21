@@ -15,10 +15,12 @@
     "dataset": "pending",
     "last_updated": null,
     "last_successful_run": null,
-    "last_fetched_at": "2026-07-14T06:32:19.199Z",
+    "last_fetched_at": "2026-07-21T06:46:49.709Z",
     "parser_status": "pending",
     "notes": "Pending — IRDAI source not yet reachable / no file. Drop data/raw/irdai/nonlife-flash/<YYYY-MM>.xlsx to populate.",
-    "warnings": []
+    "warnings": [
+      "IRDAI index fetch failed: HTTP 504 for https://irdai.gov.in/non-life"
+    ]
   },
   "data": []
 }
