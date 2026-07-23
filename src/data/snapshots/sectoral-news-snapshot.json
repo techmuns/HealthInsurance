@@ -3,10 +3,10 @@
     "snapshot_id": "sectoral-news-snapshot",
     "description": "Key Sectoral News feed — a permanent seed of 31 curated portfolio-pack updates, kept current by a scheduled muns web-search agent. Each item links its source. Seed items are curated; agent items are AI-gathered (web), clearly labelled and not audited.",
     "schema_version": "1.0.0",
-    "last_updated": "2026-07-20",
-    "last_successful_run": "2026-07-20T08:58:57.552Z",
+    "last_updated": "2026-07-23",
+    "last_successful_run": "2026-07-23T08:30:47.357Z",
     "seed_count": 31,
-    "agent_count": 124,
+    "agent_count": 132,
     "generated_by": "Seed: investor portfolio pack. Updates: AI (muns agent, web search).",
     "notes": "Seed floor can never be lost. Agent items are de-duped by subject+date and verified-before-acting."
   },
@@ -21,6 +21,50 @@
       "id": "0dcf716bcfc58a",
       "origin": "agent",
       "added_at": "2026-07-20"
+    },
+    {
+      "sn": 156,
+      "category": "Regulatory",
+      "date": "2026-07-22",
+      "subject": "Private insurers push back on IRDAI's unlisted-investment cap methodology",
+      "summary": "Insurers have asked IRDAI to base the ceiling on total shareholders' funds rather than funds net of solvency margin, arguing the draft norms are overly restrictive and would curb their ability to invest in high-growth unlisted companies; the regulator is yet to respond.",
+      "reference": "https://moneycontrol.com/banking/private-insurers-seek-changes-to-irdai-s-proposed-norms-on-unlisted-investments-article-13980781.html/amp",
+      "id": "1278d6f415dda0",
+      "origin": "agent",
+      "added_at": "2026-07-23"
+    },
+    {
+      "sn": 158,
+      "category": "Profitability",
+      "date": "2026-07-21",
+      "subject": "Niva Bupa says medical inflation at 13-14% but premium hikes kept below 10%",
+      "summary": "Management noted claims inflation is being contained to single digits via hospital-network negotiations and standardized treatment protocols even as underlying medical cost inflation runs in the low-to-mid teens; FY26 net profit was **~Rs 165 crore** (reversing a prior-year loss) on **~32% YoY** growth in gross written premium to over **Rs 7,000 crore** — a key data point on margin trajectory.",
+      "reference": "https://www.moneycontrol.com/banking/niva-bupa-doubles-down-on-retail-despite-marginal-pick-up-in-corporate-segment-says-ed-deputy-ceo-ankur-kharbanda-article-13979556.html/amp",
+      "id": "0356bd862e9749",
+      "origin": "agent",
+      "added_at": "2026-07-23"
+    },
+    {
+      "sn": 157,
+      "category": "Competition / Peers",
+      "date": "2026-07-21",
+      "subject": "Niva Bupa reaffirms retail-first strategy, targets 8-10% above-industry growth",
+      "summary": "Deputy CEO Ankur Kharbanda said retail (~70% of business) remains the strategic priority over group/corporate, with focus on the 25-45 age cohort and Tier-3/4 \"Bharat\" markets; the company also unveiled a large Commonwealth Games sponsorship-led brand campaign, signaling continued customer-acquisition spend.",
+      "reference": "https://www.moneycontrol.com/banking/niva-bupa-doubles-down-on-retail-despite-marginal-pick-up-in-corporate-segment-says-ed-deputy-ceo-ankur-kharbanda-article-13979556.html/amp",
+      "id": "014677c9477156",
+      "origin": "agent",
+      "added_at": "2026-07-23"
+    },
+    {
+      "sn": 159,
+      "category": "Competition / Peers",
+      "date": "2026-07-20",
+      "subject": "Bupa signals openness to raising stake in Niva Bupa further",
+      "summary": "Deputy CEO Ankur Kharbanda said parent Bupa periodically reviews and increases its holding opportunistically (already raised from below 50% to **56%**), a move enabled by the government's May 2026 notification of 100% FDI in insurance under the automatic route — a potential re-rating catalyst if a further stake hike materializes.",
+      "reference": "https://business-standard.com/companies/news/bupa-open-to-raising-stake-in-niva-bupa-says-deputy-ceo-ankur-kharbanda-126072001360_1.html",
+      "id": "19260ddaab6370",
+      "origin": "agent",
+      "added_at": "2026-07-23"
     },
     {
       "sn": 150,
@@ -133,6 +177,17 @@
       "added_at": "2026-07-06"
     },
     {
+      "sn": 160,
+      "category": "Competition / Peers",
+      "date": "2026-07-01",
+      "subject": "IRDAI grants 3rd new health-insurance licence of 2026 to Prudential-HCL JV",
+      "summary": "The Prudential HCL Health Insurance JV (UK's Prudential Group + HCL Group) received its Certificate of Registration at IRDAI's 136th Authority meeting, taking the standalone health insurer count in India to **eight**; more entrants raise long-term competitive intensity for incumbents like Niva Bupa, Star Health and Care Health.",
+      "reference": "https://bfsi.economictimes.indiatimes.com/articles/prudential-hcl-health-insurance-receives-irdai-license-a-milestone-in-indias-health-insurance-market/132118031",
+      "id": "0913f44e8fd278",
+      "origin": "agent",
+      "added_at": "2026-07-23"
+    },
+    {
       "sn": 152,
       "category": "General",
       "date": "2026-07-01",
@@ -243,6 +298,17 @@
       "added_at": "2026-07-06"
     },
     {
+      "sn": 161,
+      "category": "Regulatory",
+      "date": "2026-06-30",
+      "subject": "IRDAI approves another new general insurance licence amid rising foreign interest",
+      "summary": "A day before the Prudential-HCL nod, IRDAI Chairman Ajay Seth disclosed a separate general insurance licence approval, and flagged two applications from global players seeking \"significant\" stakes in Indian insurers — evidence that the 100% FDI liberalization is actively drawing fresh foreign capital into the sector.",
+      "reference": "https://bfsi.economictimes.indiatimes.com/articles/irdai-approves-new-general-insurance-license-amid-increased-foreign-investment-interest/132087704",
+      "id": "0b6308aa8e4f9c",
+      "origin": "agent",
+      "added_at": "2026-07-23"
+    },
+    {
       "sn": 149,
       "category": "Regulatory",
       "date": "2026-06-30",
@@ -285,6 +351,17 @@
       "id": "06602036559f5a",
       "origin": "agent",
       "added_at": "2026-07-06"
+    },
+    {
+      "sn": 162,
+      "category": "Competition / Peers",
+      "date": "2026-06-29",
+      "subject": "Nomura initiates on Indian health/general insurers; Buy on Niva Bupa and Star Health",
+      "summary": "Nomura started coverage calling the sector a \"21st century Mahabharat\" of competing insurers, hospitals and distributors; it gave Buy ratings to Niva Bupa (target **Rs 105**, **23%** premium CAGR FY26-29E, ROE **15.9%** by FY29E) and Star Health (target **Rs 675**, ROE improving to **12-14.9%** FY27-29E) on expectations of stabilizing loss ratios from repricing and tighter underwriting, while ICICI Lombard and PB Fintech got Neutral ratings on regulatory-reform uncertainty.",
+      "reference": "https://www.ndtvprofit.com/markets/niva-bupa-star-health-get-buy-calls-as-nomura-initiates-on-four-insurers-check-target-prices-11700967",
+      "id": "1a938f6d023bc3",
+      "origin": "agent",
+      "added_at": "2026-07-23"
     },
     {
       "sn": 138,
@@ -879,6 +956,17 @@
       "id": "1837ced350e863",
       "origin": "agent",
       "added_at": "2026-07-16"
+    },
+    {
+      "sn": 163,
+      "category": "Regulatory",
+      "date": "2026-05-01",
+      "subject": "Government notifies 100% FDI in insurance sector under automatic route",
+      "summary": "The finance ministry's notification, effective from May 2026, removed the prior cap on foreign ownership of Indian insurers, directly enabling moves such as Bupa's potential stake increase in Niva Bupa and fueling a wave of new licence applications and JV interest across the sector.",
+      "reference": "https://business-standard.com/companies/news/bupa-open-to-raising-stake-in-niva-bupa-says-deputy-ceo-ankur-kharbanda-126072001360_1.html",
+      "id": "0ff19b832e94bd",
+      "origin": "agent",
+      "added_at": "2026-07-23"
     },
     {
       "sn": 109,
