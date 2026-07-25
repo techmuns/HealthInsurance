@@ -15271,13 +15271,20 @@
         "company": "Niva Bupa",
         "companyId": "niva-bupa",
         "generatedAt": "2026-07-25T05:00:02.804Z",
-        "lastUpdatedAt": "2026-07-25T05:00:02.804Z",
+        "lastUpdatedAt": "2026-07-25T07:53:12.598Z",
         "status": "Watch",
         "sourceConfidence": "Medium",
         "itemCount": 58,
         "runs": [
           {
             "runTime": "2026-07-25T05:00:02.804Z",
+            "developments": 68,
+            "sourceCount": 60,
+            "ideas": 6,
+            "status": "ok"
+          },
+          {
+            "runTime": "2026-07-25T07:53:12.598Z",
             "developments": 68,
             "sourceCount": 60,
             "ideas": 6,
@@ -15294,10 +15301,10 @@
           "confidencePct": 69,
           "confidenceTier": "Medium",
           "readingMins": 3,
-          "lastUpdatedLabel": "25 Jul, 04:57 am"
+          "lastUpdatedLabel": "25 Jul, 07:50 am"
         },
         "message": {
-          "since": "No company-specific movement for Niva Bupa since the last brief — the read below is sector & regulatory context that applies across standalone health insurers.",
+          "since": "Niva Bupa had recently surfaced positive analyst coverage. No fresh company-specific update was published since the last brief.",
           "keyThing": "Currently motor-focused, but signals continued judicial pressure on IRDAI to standardise policy wording and claims clarity — a template that could extend to health policy…",
           "why": "Growth is only as good as the claims and expense ratios behind it — that is the real question now.",
           "watch": "any fresh IRDAI clarification, and expense-ratio movement",
@@ -15308,6 +15315,90 @@
           "status": "Watch"
         },
         "ideas": [
+          {
+            "id": "0dcd02f147",
+            "entity": "Niva Bupa",
+            "stars": 5,
+            "reasoning": [
+              "Parent's willingness to increase ownership signals long-term confidence and potential floating-stock/promoter-holding implications for the stock.",
+              "Retail and public the market cut their stake in Niva Bupa from 25.4% to 18.7% during Q1 FY26."
+            ],
+            "whatToWatch": "Execution and continuity after the leadership change.",
+            "confidencePct": 78,
+            "evidenceCount": 3,
+            "status": "Constructive",
+            "category": "Management",
+            "why": {
+              "whatHappened": "Bupa open to raising stake in Niva Bupa, says deputy CEO Kharbanda",
+              "whyItMatters": "Parent's willingness to increase ownership signals long-term confidence and potential floating-stock/promoter-holding implications for the stock.",
+              "whoAffected": "Niva Bupa's board, leadership continuity and its shareholders.",
+              "historicalContext": "Retail and public the market cut their stake in Niva Bupa from 25.4% to 18.7% during Q1 FY26.",
+              "potentialImpact": "Next shareholding filing — Public reverting toward 25.4%.",
+              "whatToWatch": "Execution and continuity after the leadership change."
+            },
+            "action": {
+              "id": "ownership",
+              "label": "Review Niva Bupa ownership",
+              "icon": "ownership",
+              "target": {
+                "page": "sahi",
+                "sahiTab": "governance",
+                "company": "niva-bupa",
+                "focus": {
+                  "id": "pulse-ownership",
+                  "metricKey": "promoter_holding",
+                  "metricLabel": "Promoter holding",
+                  "company": "niva-bupa",
+                  "companyLabel": "Niva Bupa",
+                  "comparisonType": "sequential",
+                  "tone": "neutral",
+                  "insightLabel": "Ownership — promoter holding trend",
+                  "unit": "%",
+                  "higherIsBetter": true,
+                  "sahiTab": "governance",
+                  "origin": "pulse"
+                }
+              }
+            },
+            "isBreaking": false,
+            "isNew": false,
+            "freshLabel": "Newly surfaced",
+            "freshness": "newly-surfaced",
+            "freshnessLabel": "Newly surfaced",
+            "publishedLabel": "20 Jul",
+            "discoveredLabel": "25 Jul",
+            "sources": [
+              {
+                "kind": "Filing",
+                "name": "business-standard.com",
+                "url": "https://www.business-standard.com/companies/news/bupa-open-to-raising-stake-in-niva-bupa-says-deputy-ceo-ankur-kharbanda-126072001360_1.html"
+              },
+              {
+                "kind": "Market data",
+                "name": "Q4 FY25 earnings call",
+                "url": "https://transactions.nivabupa.com/pages/doc/investor-relations/Earnings-Calls/2024-2025/Earnings-Call-Transcript-Q4-FY-2025.pdf"
+              },
+              {
+                "kind": "Market data",
+                "name": "1 curated source-backed insight",
+                "url": ""
+              }
+            ],
+            "impact": "Positive",
+            "scope": "company",
+            "companyId": "niva-bupa",
+            "sourceUrl": "https://www.business-standard.com/companies/news/bupa-open-to-raising-stake-in-niva-bupa-says-deputy-ceo-ankur-kharbanda-126072001360_1.html",
+            "sourceConfidence": "Medium",
+            "clusterSize": 1,
+            "clusterSources": [
+              {
+                "kind": "Filing",
+                "name": "business-standard.com",
+                "url": "https://www.business-standard.com/companies/news/bupa-open-to-raising-stake-in-niva-bupa-says-deputy-ceo-ankur-kharbanda-126072001360_1.html"
+              }
+            ],
+            "independentSources": 1
+          },
           {
             "id": "9555be48e5",
             "entity": "Niva Bupa",
@@ -15559,7 +15650,7 @@
             "companyId": null,
             "sourceUrl": "https://economictimes.indiatimes.com/markets/stocks/news/prudential-hcl-health-insurance-gets-irdai-nod/articleshow/132126831.cms",
             "sourceConfidence": "Medium",
-            "clusterSize": 13,
+            "clusterSize": 11,
             "clusterSources": [
               {
                 "kind": "Regulatory",
@@ -15760,93 +15851,14 @@
               }
             ],
             "independentSources": 4
-          },
-          {
-            "id": "3d8e8f3345",
-            "entity": "Cashless-facility enforcement remains a live policyholder-protection risk area",
-            "stars": 4,
-            "reasoning": [
-              "IRDAI’s circular requiring empanelled hospitals to honour notified cashless treatment underscores ongoing operational and reputational risk around cashless denial, a core monitorable for all health insurers’ claims…",
-              "Solvency 3.03x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency."
-            ],
-            "whatToWatch": "The impact on claims cost, expense ratio and pricing as rules tighten.",
-            "confidencePct": 83,
-            "evidenceCount": 5,
-            "status": "Watch",
-            "category": "Regulatory",
-            "why": {
-              "whatHappened": "Cashless-facility enforcement remains a live policyholder-protection risk area",
-              "whyItMatters": "IRDAI’s circular requiring empanelled hospitals to honour notified cashless treatment underscores ongoing operational and reputational risk around cashless denial, a core monitorable for all health…",
-              "whoAffected": "Every standalone health insurer (SAHI) — pricing, product design and compliance cost.",
-              "historicalContext": "Solvency 3.03x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency.",
-              "potentialImpact": "Solvency vs the 1.5x regulatory floor",
-              "whatToWatch": "The impact on claims cost, expense ratio and pricing as rules tighten."
-            },
-            "action": {
-              "id": "regulation",
-              "label": "Check IRDAI on claims cost",
-              "icon": "regulation",
-              "target": {
-                "page": "sahi",
-                "sahiTab": "governance",
-                "company": "niva-bupa"
-              }
-            },
-            "isBreaking": false,
-            "isNew": false,
-            "freshness": "existing",
-            "freshnessLabel": "Existing context",
-            "publishedLabel": "14 Jul",
-            "discoveredLabel": "13 Jul",
-            "sources": [
-              {
-                "kind": "Regulatory",
-                "name": "irdai.gov.in",
-                "url": "https://irdai.gov.in/web/guest/document-detail?documentId=394937"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "legal.economictimes.indiatimes.com",
-                "url": "https://legal.economictimes.indiatimes.com/news/litigation/motor-insurance-consider-issuing-circular-standardising-cross-border-coverage-clauses-sc-to-irdai/132519178"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "indianexpress.com",
-                "url": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "legal.economictimes.indiatimes.com",
-                "url": "https://legal.economictimes.indiatimes.com/news/regulators/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132160041"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "bfsi.economictimes.indiatimes.com",
-                "url": "https://bfsi.economictimes.indiatimes.com/news/insurance/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132156228"
-              }
-            ],
-            "impact": "Watch",
-            "scope": "sector",
-            "companyId": null,
-            "sourceUrl": "https://irdai.gov.in/web/guest/document-detail?documentId=394937",
-            "sourceConfidence": "High",
-            "clusterSize": 1,
-            "clusterSources": [
-              {
-                "kind": "Regulatory",
-                "name": "irdai.gov.in",
-                "url": "https://irdai.gov.in/web/guest/document-detail?documentId=394937"
-              }
-            ],
-            "independentSources": 1
           }
         ],
         "sinceDeltas": [
           {
             "id": "co",
-            "label": "company-specific updates",
-            "value": "0",
-            "direction": "flat",
+            "label": "newly surfaced relevant update",
+            "value": "1",
+            "direction": "up",
             "tone": "Neutral",
             "target": {
               "page": "sahi",
@@ -15862,12 +15874,13 @@
                 "companyLabel": "Niva Bupa",
                 "comparisonType": "trend",
                 "tone": "neutral",
-                "insightLabel": "No Niva Bupa-specific updates",
+                "insightLabel": "1 newly surfaced Niva Bupa update",
                 "unit": "",
                 "sahiTab": "companies",
                 "origin": "pulse"
               }
-            }
+            },
+            "href": "https://www.business-standard.com/companies/news/bupa-open-to-raising-stake-in-niva-bupa-says-deputy-ceo-ankur-kharbanda-126072001360_1.html"
           },
           {
             "id": "moves",
@@ -31059,15 +31072,22 @@
         "company": "Star Health",
         "companyId": "star-health",
         "generatedAt": "2026-07-25T05:00:02.804Z",
-        "lastUpdatedAt": "2026-07-25T05:00:02.804Z",
+        "lastUpdatedAt": "2026-07-25T07:53:12.598Z",
         "status": "Watch",
         "sourceConfidence": "Medium",
-        "itemCount": 54,
+        "itemCount": 53,
         "runs": [
           {
             "runTime": "2026-07-25T05:00:02.804Z",
             "developments": 61,
             "sourceCount": 56,
+            "ideas": 6,
+            "status": "ok"
+          },
+          {
+            "runTime": "2026-07-25T07:53:12.598Z",
+            "developments": 60,
+            "sourceCount": 55,
             "ideas": 6,
             "status": "ok"
           }
@@ -31076,13 +31096,13 @@
           "greeting": "Good morning",
           "narrative": "Regulatory pressure is the main watch item for health insurers today. Star Health is under pressure on premium growth and demand, but claims-cost and conduct scrutiny will decide whether the strength is sustainable.",
           "attentionCount": 6,
-          "developmentsCount": 61,
-          "sourcesCount": 56,
+          "developmentsCount": 60,
+          "sourcesCount": 55,
           "domainsCount": 15,
           "confidencePct": 69,
           "confidenceTier": "Medium",
           "readingMins": 3,
-          "lastUpdatedLabel": "25 Jul, 04:57 am"
+          "lastUpdatedLabel": "25 Jul, 07:50 am"
         },
         "message": {
           "since": "No company-specific movement for Star Health since the last brief — the read below is sector & regulatory context that applies across standalone health insurers.",
@@ -31264,7 +31284,7 @@
             "companyId": null,
             "sourceUrl": "https://economictimes.indiatimes.com/markets/stocks/news/prudential-hcl-health-insurance-gets-irdai-nod/articleshow/132126831.cms",
             "sourceConfidence": "Medium",
-            "clusterSize": 13,
+            "clusterSize": 11,
             "clusterSources": [
               {
                 "kind": "Regulatory",
@@ -46810,15 +46830,22 @@
         "company": "Care Health",
         "companyId": "care-health",
         "generatedAt": "2026-07-25T05:00:02.804Z",
-        "lastUpdatedAt": "2026-07-25T05:00:02.804Z",
+        "lastUpdatedAt": "2026-07-25T07:53:12.598Z",
         "status": "Watch",
         "sourceConfidence": "Medium",
-        "itemCount": 54,
+        "itemCount": 53,
         "runs": [
           {
             "runTime": "2026-07-25T05:00:02.804Z",
             "developments": 57,
             "sourceCount": 56,
+            "ideas": 6,
+            "status": "ok"
+          },
+          {
+            "runTime": "2026-07-25T07:53:12.598Z",
+            "developments": 56,
+            "sourceCount": 55,
             "ideas": 6,
             "status": "ok"
           }
@@ -46827,13 +46854,13 @@
           "greeting": "Good morning",
           "narrative": "Regulatory pressure is the main watch item for health insurers today. Care Health is under pressure on premium growth and demand, but claims-cost and conduct scrutiny will decide whether the strength is sustainable.",
           "attentionCount": 6,
-          "developmentsCount": 57,
-          "sourcesCount": 56,
+          "developmentsCount": 56,
+          "sourcesCount": 55,
           "domainsCount": 15,
           "confidencePct": 69,
           "confidenceTier": "Medium",
           "readingMins": 4,
-          "lastUpdatedLabel": "25 Jul, 04:57 am"
+          "lastUpdatedLabel": "25 Jul, 07:50 am"
         },
         "message": {
           "since": "No company-specific movement for Care Health since the last brief — the read below is sector & regulatory context that applies across standalone health insurers.",
@@ -47015,7 +47042,7 @@
             "companyId": null,
             "sourceUrl": "https://economictimes.indiatimes.com/markets/stocks/news/prudential-hcl-health-insurance-gets-irdai-nod/articleshow/132126831.cms",
             "sourceConfidence": "Medium",
-            "clusterSize": 13,
+            "clusterSize": 11,
             "clusterSources": [
               {
                 "kind": "Regulatory",
@@ -62615,15 +62642,22 @@
         "company": "Aditya Birla",
         "companyId": "aditya-birla",
         "generatedAt": "2026-07-25T05:00:02.804Z",
-        "lastUpdatedAt": "2026-07-25T05:00:02.804Z",
+        "lastUpdatedAt": "2026-07-25T07:53:12.598Z",
         "status": "Watch",
         "sourceConfidence": "Medium",
-        "itemCount": 54,
+        "itemCount": 53,
         "runs": [
           {
             "runTime": "2026-07-25T05:00:02.804Z",
             "developments": 56,
             "sourceCount": 56,
+            "ideas": 6,
+            "status": "ok"
+          },
+          {
+            "runTime": "2026-07-25T07:53:12.598Z",
+            "developments": 55,
+            "sourceCount": 55,
             "ideas": 6,
             "status": "ok"
           }
@@ -62632,13 +62666,13 @@
           "greeting": "Good morning",
           "narrative": "Regulatory pressure is the main watch item for health insurers today. Aditya Birla is under pressure on premium growth and demand, but claims-cost and conduct scrutiny will decide whether the strength is sustainable.",
           "attentionCount": 6,
-          "developmentsCount": 56,
-          "sourcesCount": 56,
+          "developmentsCount": 55,
+          "sourcesCount": 55,
           "domainsCount": 15,
           "confidencePct": 69,
           "confidenceTier": "Medium",
           "readingMins": 3,
-          "lastUpdatedLabel": "25 Jul, 04:57 am"
+          "lastUpdatedLabel": "25 Jul, 07:50 am"
         },
         "message": {
           "since": "No company-specific movement for Aditya Birla since the last brief — the read below is sector & regulatory context that applies across standalone health insurers.",
@@ -62820,7 +62854,7 @@
             "companyId": null,
             "sourceUrl": "https://economictimes.indiatimes.com/markets/stocks/news/prudential-hcl-health-insurance-gets-irdai-nod/articleshow/132126831.cms",
             "sourceConfidence": "Medium",
-            "clusterSize": 13,
+            "clusterSize": 11,
             "clusterSources": [
               {
                 "kind": "Regulatory",
@@ -78363,15 +78397,22 @@
         "company": "ManipalCigna",
         "companyId": "manipalcigna",
         "generatedAt": "2026-07-25T05:00:02.804Z",
-        "lastUpdatedAt": "2026-07-25T05:00:02.804Z",
+        "lastUpdatedAt": "2026-07-25T07:53:12.598Z",
         "status": "Watch",
         "sourceConfidence": "Medium",
-        "itemCount": 54,
+        "itemCount": 53,
         "runs": [
           {
             "runTime": "2026-07-25T05:00:02.804Z",
             "developments": 58,
             "sourceCount": 56,
+            "ideas": 6,
+            "status": "ok"
+          },
+          {
+            "runTime": "2026-07-25T07:53:12.598Z",
+            "developments": 57,
+            "sourceCount": 55,
             "ideas": 6,
             "status": "ok"
           }
@@ -78380,13 +78421,13 @@
           "greeting": "Good morning",
           "narrative": "Regulatory pressure is the main watch item for health insurers today. ManipalCigna is under pressure on premium growth and demand, but claims-cost and conduct scrutiny will decide whether the strength is sustainable.",
           "attentionCount": 6,
-          "developmentsCount": 58,
-          "sourcesCount": 56,
+          "developmentsCount": 57,
+          "sourcesCount": 55,
           "domainsCount": 15,
           "confidencePct": 69,
           "confidenceTier": "Medium",
           "readingMins": 3,
-          "lastUpdatedLabel": "25 Jul, 04:57 am"
+          "lastUpdatedLabel": "25 Jul, 07:50 am"
         },
         "message": {
           "since": "No company-specific movement for ManipalCigna since the last brief — the read below is sector & regulatory context that applies across standalone health insurers.",
@@ -78568,7 +78609,7 @@
             "companyId": null,
             "sourceUrl": "https://economictimes.indiatimes.com/markets/stocks/news/prudential-hcl-health-insurance-gets-irdai-nod/articleshow/132126831.cms",
             "sourceConfidence": "Medium",
-            "clusterSize": 13,
+            "clusterSize": 11,
             "clusterSources": [
               {
                 "kind": "Regulatory",
@@ -79038,6 +79079,6 @@
     "snapshot_id": "pulse-brief-archive",
     "description": "Immutable per-calendar-day Pulse brief records (IST), one per company. Past days are frozen exactly as shown that day; the live Today view recomposes. Kept ~90 days per company.",
     "last_updated": "2026-07-25",
-    "last_successful_run": "2026-07-25T05:00:02.804Z"
+    "last_successful_run": "2026-07-25T07:53:12.598Z"
   }
 }
