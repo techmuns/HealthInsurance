@@ -3,10 +3,10 @@
     "snapshot_id": "sectoral-news-snapshot",
     "description": "Key Sectoral News feed — a permanent seed of 31 curated portfolio-pack updates, kept current by a scheduled muns web-search agent. Each item links its source. Seed items are curated; agent items are AI-gathered (web), clearly labelled and not audited.",
     "schema_version": "1.0.0",
-    "last_updated": "2026-07-23",
-    "last_successful_run": "2026-07-23T08:30:47.357Z",
+    "last_updated": "2026-07-27",
+    "last_successful_run": "2026-07-27T09:52:50.988Z",
     "seed_count": 31,
-    "agent_count": 132,
+    "agent_count": 145,
     "generated_by": "Seed: investor portfolio pack. Updates: AI (muns agent, web search).",
     "notes": "Seed floor can never be lost. Agent items are de-duped by subject+date and verified-before-acting."
   },
@@ -21,6 +21,83 @@
       "id": "0dcf716bcfc58a",
       "origin": "agent",
       "added_at": "2026-07-20"
+    },
+    {
+      "sn": 166,
+      "category": "General",
+      "date": "2026-07-27",
+      "subject": "India insurance premiums up 3.6x in a decade, says IRDAI",
+      "summary": "IRDAI data shows a more-than-**3.6x** increase in industry premium income over ten years, underscoring long-term structural growth in insurance uptake including health, though this doesn't guarantee adequacy of coverage.",
+      "reference": "https://www.whalesbook.com/news/English/insurance/India-Insurance-Premiums-Surge-36x-In-Decade-Says-IRDAI/6a66e322d1570ec59e54bc81",
+      "id": "0b6a39a50a0ce6",
+      "origin": "agent",
+      "added_at": "2026-07-27"
+    },
+    {
+      "sn": 165,
+      "category": "Competition / Peers",
+      "date": "2026-07-27",
+      "subject": "Rekha Jhunjhunwala trims Star Health stake in Q1",
+      "summary": "Rekha Jhunjhunwala sold over **7 crore** Star Health shares during Q1 FY27, a notable marquee-investor exit that could pressure sentiment and float dynamics around the stock.",
+      "reference": "https://economictimes.indiatimes.com/markets/stocks/news/rekha-jhunjhunwala-sells-over-7-crore-star-health-shares-in-q1-details-here/articleshow/132577312.cms",
+      "id": "0852d9e99639e0",
+      "origin": "agent",
+      "added_at": "2026-07-27"
+    },
+    {
+      "sn": 164,
+      "category": "Competition / Peers",
+      "date": "2026-07-27",
+      "subject": "Niva Bupa board to meet for Q1 FY27 results, NCD fundraising",
+      "summary": "Niva Bupa's board is scheduled to meet on July 30 to approve Q1 FY27 results and discuss NCD (non-convertible debenture) fundraising, signaling a move to shore up capital for growth plans.",
+      "reference": "https://www.whalesbook.com/corporate-news/English/bankingfinance/Niva-Bupa-Board-to-Meet-July-30-for-Q1-Results-NCD-Fundraising/6a6201950037f071726c3ea1",
+      "id": "1d86cd3ef33f1c",
+      "origin": "agent",
+      "added_at": "2026-07-27"
+    },
+    {
+      "sn": 167,
+      "category": "Regulatory",
+      "date": "2026-07-26",
+      "subject": "IRDAI plans public registry to curb insurance mis-selling",
+      "summary": "The regulator is developing a public registry to track and curb mis-selling practices across insurance distribution, which could affect agent/broker-driven health insurance sales models used by Star Health and others.",
+      "reference": "https://www.whalesbook.com/news/English/insurance/IRDAI-Plans-Public-Registry-to-Curb-Insurance-Mis-selling/6a65b903d1570ec59e53ee86",
+      "id": "01288e96341390",
+      "origin": "agent",
+      "added_at": "2026-07-27"
+    },
+    {
+      "sn": 168,
+      "category": "Regulatory",
+      "date": "2026-07-25",
+      "subject": "IRDAI chief pushes insurers to eliminate \"dark patterns\" from digital platforms",
+      "summary": "IRDAI Chairman Ajay Seth urged insurers to remove deceptive UX practices (e.g., forcing personal details before showing prices) that erode consumer trust; the regulator is monitoring compliance via a nine-month audit with the Institute of Public Auditors of India, requiring insurers to self-certify — a credibility and compliance-cost item for all listed insurers including Niva Bupa and Star Health.",
+      "reference": "https://www.business-standard.com/finance/insurance/irdai-chief-calls-for-eliminating-dark-patterns-from-insurance-websites-apps-126072500897_1.html",
+      "id": "0b14b96b9b3237",
+      "origin": "agent",
+      "added_at": "2026-07-27"
+    },
+    {
+      "sn": 170,
+      "category": "General",
+      "date": "2026-07-24",
+      "subject": "India's insurance protection gap persists despite rising adoption",
+      "summary": "Economic Survey 2025-26 data shows premium income and sector assets grew substantially FY21-FY25, but rising ownership hasn't closed the \"protection gap\" — especially in health, where Aon projects 2026 medical-plan cost inflation of **11.5%**, pressuring static sum-insured adequacy for policyholders.",
+      "reference": "https://bfsi.economictimes.indiatimes.com/articles/understanding-indias-insurance-protection-gap-challenges-amid-growth/132604675",
+      "id": "1b829ab4492018",
+      "origin": "agent",
+      "added_at": "2026-07-27"
+    },
+    {
+      "sn": 169,
+      "category": "Profitability",
+      "date": "2026-07-24",
+      "subject": "New India Assurance posts weak Q1 FY27, GWP growth just 2.9%",
+      "summary": "General insurer New India Assurance reported muted **2.9%** GWP growth for Q1 FY27, hurt by a **27.8%** industry-wide drop in property premiums and continued Motor TP loss pressures; net incurred claims ratio surged to **103.38%**, illustrating sector-wide underwriting stress relevant to health insurers' cost environment too.",
+      "reference": "https://businessupturn.com/business/the-new-india-assurance-company-reports-challenging-q1-fy27-with-2-9-gwp-growth",
+      "id": "17e5fd3122ac3d",
+      "origin": "agent",
+      "added_at": "2026-07-27"
     },
     {
       "sn": 156,
@@ -54,6 +131,17 @@
       "id": "014677c9477156",
       "origin": "agent",
       "added_at": "2026-07-23"
+    },
+    {
+      "sn": 171,
+      "category": "Profitability",
+      "date": "2026-07-20",
+      "subject": "Medical inflation hits 12-14% annually in India",
+      "summary": "Medical cost inflation is running at **12-14%** per year, significantly outpacing general CPI; a ₹1 lakh procedure today could cost over **₹7 lakh** in 15 years at this rate, driving up claims costs and pressuring insurers to raise premiums, tighten underwriting, and push restoration/cumulative-bonus product features.",
+      "reference": "https://whalesbook.com/news/English/insurance/Medical-Inflation-Hits-14percent-How-to-Right-Size-Your-Insurance/6a5e1667fe1c9287f4774aa7",
+      "id": "056ab490ed3adc",
+      "origin": "agent",
+      "added_at": "2026-07-27"
     },
     {
       "sn": 159,
@@ -100,6 +188,17 @@
       "added_at": "2026-07-20"
     },
     {
+      "sn": 172,
+      "category": "Regulatory",
+      "date": "2026-07-16",
+      "subject": "Life insurers' ad expenses fell 19.16% to ₹3,211.6 crore in FY26",
+      "summary": "Life insurers cut advertising spend sharply amid cost pressures, a trend that read alongside health insurer cost discipline suggests industry-wide margin focus is intensifying ahead of potential regulatory/pricing shifts.",
+      "reference": "https://www.business-standard.com/finance/insurance/life-insurers-trim-advertising-spend-by-20-in-fy26-amid-cost-pressures-126071200490_1.html",
+      "id": "00f9d5928f1132",
+      "origin": "agent",
+      "added_at": "2026-07-27"
+    },
+    {
       "sn": 133,
       "category": "Profitability",
       "date": "2026-07-16",
@@ -131,6 +230,17 @@
       "id": "0308a0db12d18f",
       "origin": "agent",
       "added_at": "2026-07-13"
+    },
+    {
+      "sn": 173,
+      "category": "Regulatory",
+      "date": "2026-07-10",
+      "subject": "Regulatory changes, valuation pressures pull down life insurers' returns",
+      "summary": "Recent IRDAI regulatory changes combined with valuation compression have weighed on listed life insurers' stock performance — a cautionary parallel for health insurers given IRDAI's active reform agenda (dark patterns, mis-selling registry, product wording norms).",
+      "reference": "https://www.business-standard.com/finance/insurance/regulatory-changes-valuation-pressures-pull-down-life-insurers-returns-126071000974_1.html",
+      "id": "018df5dd4770a9",
+      "origin": "agent",
+      "added_at": "2026-07-27"
     },
     {
       "sn": 134,
@@ -351,6 +461,17 @@
       "id": "06602036559f5a",
       "origin": "agent",
       "added_at": "2026-07-06"
+    },
+    {
+      "sn": 174,
+      "category": "Competition / Peers",
+      "date": "2026-06-29",
+      "subject": "Nomura initiates coverage with Buy on Niva Bupa and Star Health",
+      "summary": "Nomura started coverage on India's non-life/health insurance space, giving Buy ratings to **Niva Bupa** (target **₹105**; forecasts **23%** premium CAGR FY26-29, ROE of **15.9%** by FY29) and **Star Health** (target **₹675**; ROE improving to **12-14.9%** over FY27-29) on expectations that annual repricing, cohort-based pricing, and tighter underwriting will stabilize loss ratios; Neutral ratings were given to ICICI Lombard and PB Fintech, with the latter flagged for risk from pending distributor-commission reforms that could cut fair value by up to **30%**.",
+      "reference": "https://www.ndtvprofit.com/markets/niva-bupa-star-health-get-buy-calls-as-nomura-initiates-on-four-insurers-check-target-prices-11700967",
+      "id": "14d00c4a1ae3f6",
+      "origin": "agent",
+      "added_at": "2026-07-27"
     },
     {
       "sn": 162,
@@ -958,6 +1079,17 @@
       "added_at": "2026-07-16"
     },
     {
+      "sn": 175,
+      "category": "Regulatory",
+      "date": "2026-05-01",
+      "subject": "Prudential HCL Health Insurance gets IRDAI nod",
+      "summary": "IRDAI approved a new standalone health insurance entrant (Prudential HCL Health Insurance), adding a new well-capitalized competitor to the standalone health insurance space alongside Niva Bupa, Star Health, Care Health, Aditya Birla Health, and ManipalCigna — intensifying competitive dynamics in pricing and distribution.",
+      "reference": "https://m.economictimes.com/markets/stocks/news/prudential-hcl-health-insurance-gets-irdai-nod/articleshow/132126831.cms",
+      "id": "11015ef8a17122",
+      "origin": "agent",
+      "added_at": "2026-07-27"
+    },
+    {
       "sn": 163,
       "category": "Regulatory",
       "date": "2026-05-01",
@@ -1132,6 +1264,17 @@
       "id": "1771b0d9c68125",
       "origin": "agent",
       "added_at": "2026-06-11"
+    },
+    {
+      "sn": 176,
+      "category": "General",
+      "date": "2026-04-01",
+      "subject": "How young families should prioritise insurance purchases",
+      "summary": "Personal finance coverage highlights continuing consumer-side gaps in health insurance planning among young families, reinforcing the \"under-insurance\" narrative that is a structural growth tailwind for standalone health insurers over the medium term.",
+      "reference": "https://www.business-standard.com/finance/personal-finance/young-family-insurance-planning-how-young-families-should-prioritise-insurance-avoid-mistakes-126072000573_1.html",
+      "id": "05dbb274277ad4",
+      "origin": "agent",
+      "added_at": "2026-07-27"
     },
     {
       "sn": 120,
