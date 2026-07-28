@@ -5,10 +5,10 @@
     "schema_version": "1.1.0",
     "dataset": "official",
     "source_policy": "official-first (NSE). Investing.com is login-free backup only, tagged low-confidence.",
-    "last_successful_run": "2026-07-28T07:12:46.422Z",
+    "last_successful_run": "2026-07-28T15:00:23.109Z",
     "parser_status": "ready",
     "notes": "Daily close / traded / deliverable quantity per listed insurer. Workbook seed (NSE via S&P Capital IQ) for niva-bupa listing→Jul-2025; Yahoo Finance keeps it current (close + volume). Deliverable quantity is NSE-only — null where only Yahoo covers a day, until an NSE delivery file is staged.",
-    "last_updated": "2026-07-28T07:12:49.578Z",
+    "last_updated": "2026-07-28T15:00:57.186Z",
     "row_count": 2149,
     "companies": [
       "godigit",
@@ -22,8 +22,8 @@
       "to": "2026-07-28"
     },
     "seeded_from_workbook": "data/raw/exchanges/niva-bupa/niva-bupa-historical-stock-movement.xlsx",
-    "muns_last_run": "2026-07-28T07:12:46.422Z",
-    "nse_delivery_last_run": "2026-07-27T15:25:56.987Z"
+    "muns_last_run": "2026-07-28T15:00:23.109Z",
+    "nse_delivery_last_run": "2026-07-28T15:00:56.592Z"
   },
   "data": [
     {
@@ -7356,9 +7356,9 @@
     {
       "company_id": "godigit",
       "date": "2026-07-28",
-      "close": 246.75,
-      "traded_qty": 610162,
-      "deliverable_qty": null,
+      "close": 245.65,
+      "traded_qty": 919610,
+      "deliverable_qty": 400611,
       "provenance": {
         "source_name": "muns market-data API — NSE daily history",
         "source_url": "https://fastapi.muns.io/market_data",
@@ -14683,7 +14683,7 @@
     {
       "company_id": "icici-lombard",
       "date": "2026-07-27",
-      "close": 1686.2,
+      "close": 1681,
       "traded_qty": 904443,
       "deliverable_qty": 428960,
       "provenance": {
@@ -14700,9 +14700,9 @@
     {
       "company_id": "icici-lombard",
       "date": "2026-07-28",
-      "close": 1670.9,
-      "traded_qty": 117083,
-      "deliverable_qty": null,
+      "close": 1683.8,
+      "traded_qty": 500147,
+      "deliverable_qty": 215883,
       "provenance": {
         "source_name": "muns market-data API — NSE daily history",
         "source_url": "https://fastapi.muns.io/market_data",
@@ -21874,7 +21874,7 @@
     {
       "company_id": "niva-bupa",
       "date": "2026-07-27",
-      "close": 87.05,
+      "close": 86.92,
       "traded_qty": 408564,
       "deliverable_qty": 217165,
       "provenance": {
@@ -21891,9 +21891,9 @@
     {
       "company_id": "niva-bupa",
       "date": "2026-07-28",
-      "close": 86.5,
-      "traded_qty": 149944,
-      "deliverable_qty": null,
+      "close": 86.58,
+      "traded_qty": 286119,
+      "deliverable_qty": 179328,
       "provenance": {
         "source_name": "muns market-data API — NSE daily history",
         "source_url": "https://fastapi.muns.io/market_data",
@@ -29184,8 +29184,8 @@
     {
       "company_id": "religare-enterprises",
       "date": "2026-07-27",
-      "close": 254.45,
-      "traded_qty": 1112367,
+      "close": 255.45,
+      "traded_qty": 1314228,
       "deliverable_qty": null,
       "provenance": {
         "source_name": "muns market-data API — NSE daily history",
@@ -29201,8 +29201,8 @@
     {
       "company_id": "religare-enterprises",
       "date": "2026-07-28",
-      "close": 253.15,
-      "traded_qty": 72583,
+      "close": 250.3,
+      "traded_qty": 293185,
       "deliverable_qty": null,
       "provenance": {
         "source_name": "muns market-data API — NSE daily history",
@@ -36528,7 +36528,7 @@
     {
       "company_id": "star-health",
       "date": "2026-07-27",
-      "close": 582,
+      "close": 592.05,
       "traded_qty": 380389,
       "deliverable_qty": 232308,
       "provenance": {
@@ -36545,9 +36545,9 @@
     {
       "company_id": "star-health",
       "date": "2026-07-28",
-      "close": 581.5,
-      "traded_qty": 125764,
-      "deliverable_qty": null,
+      "close": 584,
+      "traded_qty": 354375,
+      "deliverable_qty": 215172,
       "provenance": {
         "source_name": "muns market-data API — NSE daily history",
         "source_url": "https://fastapi.muns.io/market_data",
