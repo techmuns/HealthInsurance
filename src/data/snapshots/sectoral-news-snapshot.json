@@ -3,10 +3,10 @@
     "snapshot_id": "sectoral-news-snapshot",
     "description": "Key Sectoral News feed — a permanent seed of 31 curated portfolio-pack updates, kept current by a scheduled muns web-search agent. Each item links its source. Seed items are curated; agent items are AI-gathered (web), clearly labelled and not audited.",
     "schema_version": "1.0.0",
-    "last_updated": "2026-07-27",
-    "last_successful_run": "2026-07-27T09:52:50.988Z",
+    "last_updated": "2026-07-30",
+    "last_successful_run": "2026-07-30T08:27:33.119Z",
     "seed_count": 31,
-    "agent_count": 145,
+    "agent_count": 160,
     "generated_by": "Seed: investor portfolio pack. Updates: AI (muns agent, web search).",
     "notes": "Seed floor can never be lost. Agent items are de-duped by subject+date and verified-before-acting."
   },
@@ -21,6 +21,116 @@
       "id": "0dcf716bcfc58a",
       "origin": "agent",
       "added_at": "2026-07-20"
+    },
+    {
+      "sn": 180,
+      "category": "Competition / Peers",
+      "date": "2026-07-29",
+      "subject": "IRDAI approves Patanjali Ayurved–DS Group acquisition of Magma General Insurance",
+      "summary": "Regulatory clearance for the Patanjali/DS Group buyout of Magma General Insurance adds a well-capitalised, consumer-brand-backed player to general insurance, intensifying competitive dynamics that also touch health/indemnity products.",
+      "reference": "https://www.business-standard.com/companies/news/irdai-approves-patanjali-ayurved-ds-group-s-acquisition-of-magma-general-126072901428_1.html",
+      "id": "0da4a0f0f4f4d6",
+      "origin": "agent",
+      "added_at": "2026-07-30"
+    },
+    {
+      "sn": 179,
+      "category": "Profitability",
+      "date": "2026-07-29",
+      "subject": "Star Health Q1 FY27 profit jumps **26%** to **Rs 550 crore**",
+      "summary": "Net profit rose **25.5% YoY** to Rs 550 crore on **12.6%** growth in insurance revenue (Rs 4,917 crore) and **19%** GWP growth; combined ratio improved to **97.0%** from 98.7%, aided by a 37% surge in retail fresh GWP — a strongly positive profitability signal for the sector's largest pure-play health insurer.",
+      "reference": "https://www.ndtvprofit.com/markets/star-health-q1-results-profit-surges-26-to-rs-550-crore-11839016",
+      "id": "0abc6d42f713f7",
+      "origin": "agent",
+      "added_at": "2026-07-30"
+    },
+    {
+      "sn": 178,
+      "category": "Regulatory",
+      "date": "2026-07-29",
+      "subject": "IRDAI grants ProTec General Insurance licence, fourth approval of 2026",
+      "summary": "IRDAI approved a Certificate of Registration for ProTec General Insurance (a JV between M Pallonji Group and True North's Divya Sehgal) — the fourth new insurer registration in CY2026, signalling continued capital inflow and rising competitive intensity in general/health insurance.",
+      "reference": "https://www.business-standard.com/finance/insurance/irdai-grants-licence-to-protec-general-insurance-fourth-approval-in-2026-126072901490_1.html",
+      "id": "047b1a73bd9777",
+      "origin": "agent",
+      "added_at": "2026-07-30"
+    },
+    {
+      "sn": 177,
+      "category": "Regulatory",
+      "date": "2026-07-29",
+      "subject": "Two insurers cross 74% FDI cap after SBSR Act reform",
+      "summary": "Following the Sabka Bima Sabki Raksha (SBSR) Act enabling up to **100% foreign ownership** (effective Feb 5, 2026), one life insurer and one general insurer have already raised foreign shareholding beyond the earlier 74% ceiling — a sign of accelerating foreign capital interest in Indian insurers.",
+      "reference": "https://www.business-standard.com/finance/insurance/irdai-grants-licence-to-protec-general-insurance-fourth-approval-in-2026-126072901490_1.html",
+      "id": "0980c27df4e0cf",
+      "origin": "agent",
+      "added_at": "2026-07-30"
+    },
+    {
+      "sn": 184,
+      "category": "Regulatory",
+      "date": "2026-07-28",
+      "subject": "IRDAI approves new penalty framework (Manner and Procedure for Imposition of Penalties Regulations, 2026)",
+      "summary": "A structured enforcement process — show-cause notices, reasoned orders — aims to bring more consistency and fairness to regulatory action against insurers, raising overall governance accountability.",
+      "reference": "https://indianexpress.com/article/business/irdai-insurance-reforms-2026-sbsr-act-100-percent-fdi-protec-general-10809303",
+      "id": "1d81c5061412b8",
+      "origin": "agent",
+      "added_at": "2026-07-30"
+    },
+    {
+      "sn": 183,
+      "category": "Regulatory",
+      "date": "2026-07-28",
+      "subject": "IRDAI replaces periodic intermediary licence renewal with perpetual registration",
+      "summary": "Intermediary licences move to perpetual registration backed by an annual fee, reducing compliance burden but requiring stronger disclosure/governance — this affects agency/broker channels that distribute health covers.",
+      "reference": "https://www.thehindu.com/business/irdai-greenlights-reforms-policyholder-fund-norms-new-general-insurer/article71282750.ece",
+      "id": "0f429c9c2943d8",
+      "origin": "agent",
+      "added_at": "2026-07-30"
+    },
+    {
+      "sn": 182,
+      "category": "Regulatory",
+      "date": "2026-07-28",
+      "subject": "IRDAI operationalises Policyholders' Education and Protection Fund (PEPF)",
+      "summary": "New PEPF regulations under the SBSR Act will fund insurance awareness/literacy, strengthen grievance redressal, and help trace/settle unclaimed insurance amounts — a policyholder-centric reform relevant to claims-servicing standards across health insurers.",
+      "reference": "https://bfsi.economictimes.indiatimes.com/articles/irdai-introduces-major-reforms-to-enhance-policyholder-protection-and-investment-flexibility/132726046",
+      "id": "060495d7d930c0",
+      "origin": "agent",
+      "added_at": "2026-07-30"
+    },
+    {
+      "sn": 181,
+      "category": "Regulatory",
+      "date": "2026-07-28",
+      "subject": "IRDAI tightens policyholder protection, eases capital rules in 137th Authority Meeting",
+      "summary": "IRDAI approved amendments to Actuarial/Finance/Investment and Registration/Capital Structure regulations, giving insurers more flexibility in capital raising, investments and restructuring, alongside stricter actuarial oversight; it also mandated tagging of authorised salespersons to every policy for accountability.",
+      "reference": "https://bfsi.economictimes.indiatimes.com/articles/irdai-introduces-major-reforms-to-enhance-policyholder-protection-and-investment-flexibility/132726046",
+      "id": "070bb8bdde0345",
+      "origin": "agent",
+      "added_at": "2026-07-30"
+    },
+    {
+      "sn": 186,
+      "category": "Profitability",
+      "date": "2026-07-27",
+      "subject": "ICICI Lombard downgraded on motor business uncertainty; weak Q1 weighs on shares",
+      "summary": "Brokerages flagged downgrades on ICICI Lombard citing motor-segment uncertainty after a weak Q1 print; shares fell nearly **10%** post-results, illustrating margin-pressure themes (claims/pricing) relevant across general and health insurers.",
+      "reference": "https://www.business-standard.com/markets/news/downgrades-on-motor-business-uncertainty-to-weigh-on-icici-lombard-126072701280_1.html",
+      "id": "04fc26376a300f",
+      "origin": "agent",
+      "added_at": "2026-07-30"
+    },
+    {
+      "sn": 185,
+      "category": "Regulatory",
+      "date": "2026-07-27",
+      "subject": "IRDAI chief urges insurers to eliminate \"dark patterns\" from websites and apps",
+      "summary": "The regulator pushed insurers to remove deceptive UX/UI design practices from digital sales journeys, a conduct-risk reform that could require product and platform changes for health insurers' direct digital channels.",
+      "reference": "https://www.business-standard.com/finance/insurance/irdai-chief-calls-for-eliminating-dark-patterns-from-insurance-websites-apps-126072500897_1.html",
+      "id": "091712577df319",
+      "origin": "agent",
+      "added_at": "2026-07-30"
     },
     {
       "sn": 166,
@@ -188,6 +298,17 @@
       "added_at": "2026-07-20"
     },
     {
+      "sn": 187,
+      "category": "Profitability",
+      "date": "2026-07-16",
+      "subject": "ICICI Lombard Q1 profit falls **46%** to **Rs 403 crore** on higher claims and reserve provisions",
+      "summary": "Elevated claims and higher reserving provisions dragged ICICI Lombard's Q1 profit down sharply — a cautionary signal on rising claims-cost pressure in the broader general/health insurance ecosystem, with likely combined-ratio read-through for peers.",
+      "reference": "https://www.business-standard.com/companies/quarterly-results/icici-lombard-q1-profit-falls-46-on-higher-claims-reserve-provisions-126071501246_1.html",
+      "id": "0f1122464cc82f",
+      "origin": "agent",
+      "added_at": "2026-07-30"
+    },
+    {
       "sn": 172,
       "category": "Regulatory",
       "date": "2026-07-16",
@@ -219,6 +340,17 @@
       "id": "170badd89bcc64",
       "origin": "agent",
       "added_at": "2026-07-16"
+    },
+    {
+      "sn": 188,
+      "category": "Profitability",
+      "date": "2026-07-12",
+      "subject": "Life insurers trim FY26 ad spend by ~**19%** amid cost pressures",
+      "summary": "Advertising expenditure among life insurers fell **~19.16%** to Rs 3,211.6 crore in FY26 as companies tightened costs — indicative of broader expense discipline that could extend to health insurers facing combined-ratio pressure.",
+      "reference": "https://www.business-standard.com/finance/insurance/life-insurers-trim-advertising-spend-by-20-in-fy26-amid-cost-pressures-126071200490_1.html",
+      "id": "0a69ea0e0881f2",
+      "origin": "agent",
+      "added_at": "2026-07-30"
     },
     {
       "sn": 121,
@@ -694,6 +826,17 @@
       "added_at": "2026-06-18"
     },
     {
+      "sn": 189,
+      "category": "GST",
+      "date": "2026-06-15",
+      "subject": "GST regime on health insurance premiums remains at **0%/exempt** post-reform",
+      "summary": "Multiple consumer-facing trackers confirm health insurance premiums continue to attract nil GST following the September 2025 GST Council exemption, sustaining the affordability tailwind for retail health premium growth that has benefited FY27 volumes.",
+      "reference": "https://taxgarden.in/blog/gst-on-insurance-premiums-india-2026-life-health-motor-rates-guide",
+      "id": "15ce061cc7d803",
+      "origin": "agent",
+      "added_at": "2026-07-30"
+    },
+    {
       "sn": 90,
       "category": "Regulatory",
       "date": "2026-06-15",
@@ -846,6 +989,17 @@
       "id": "023266cfed762e",
       "origin": "agent",
       "added_at": "2026-06-11"
+    },
+    {
+      "sn": 190,
+      "category": "General",
+      "date": "2026-06-01",
+      "subject": "Medical inflation reported near **14%**, prompting calls to \"right-size\" health cover",
+      "summary": "Industry commentary flagged medical cost inflation running close to 14%, well above general CPI, pushing consumers toward higher sum-insured plans — a double-edged trend that lifts premium growth but also raises claims-cost risk for insurers.",
+      "reference": "https://whalesbook.com/news/English/insurance/Medical-Inflation-Hits-14percent-How-to-Right-Size-Your-Insurance/6a5e1667fe1c9287f4774aa7",
+      "id": "126b1ec33e5eac",
+      "origin": "agent",
+      "added_at": "2026-07-30"
     },
     {
       "sn": 155,
@@ -1066,6 +1220,17 @@
       "id": "17f40c867c57fd",
       "origin": "agent",
       "added_at": "2026-06-29"
+    },
+    {
+      "sn": 191,
+      "category": "Competition / Peers",
+      "date": "2026-05-11",
+      "subject": "Aditya Birla Capital infuses fresh capital (~**Rs 124 crore**) into health insurance arm",
+      "summary": "Aditya Birla Capital's capital infusion into Aditya Birla Health Insurance signals continued parent-backed investment to support growth and solvency in a competitive standalone health insurer segment.",
+      "reference": "https://www.whalesbook.com/news/English/insurance/Aditya-Birla-Capital-Infuses-indian-rupee124-Crore-Into-Health-Insurance-Arm/6a5f919dfe1c9287f479b1f7",
+      "id": "16d78262f0b075",
+      "origin": "agent",
+      "added_at": "2026-07-30"
     },
     {
       "sn": 144,
