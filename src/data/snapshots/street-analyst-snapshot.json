@@ -12,31 +12,41 @@
       "Moneycontrol Price"
     ],
     "dataset": "official",
-    "last_updated": "2026-07-31",
-    "last_successful_run": "2026-07-31T06:31:16.121Z",
-    "last_fetched_at": "2026-07-31T06:31:16.121Z",
+    "last_updated": "2026-08-01",
+    "last_successful_run": "2026-08-01T06:15:57.761Z",
+    "last_fetched_at": "2026-08-01T06:15:57.761Z",
     "parser_status": "ready",
     "notes": "Live Moneycontrol pull from: Moneycontrol Broker Research, Moneycontrol Price. Missing fields stay null (never fabricated)."
   },
   "consensus": {
-    "current_price": 86.57,
-    "consensus_target_price": 95,
-    "highest_target_price": 100,
+    "current_price": 87.01,
+    "consensus_target_price": 96.5,
+    "highest_target_price": 103,
     "lowest_target_price": 90,
     "analyst_count": 2,
     "buy_count": 2,
     "hold_count": 0,
     "sell_count": 0,
-    "last_updated": "2026-07-31"
+    "last_updated": "2026-08-01"
   },
   "market": {
-    "current_price": 86.57,
+    "current_price": 87.01,
     "week_high_52": 91.4,
     "week_low_52": 67.5,
-    "price_change_pct": 0.7565,
-    "price_as_of": "2026-07-31 12:01:24"
+    "price_change_pct": 1.2686,
+    "price_as_of": "2026-07-31 15:54:34"
   },
   "reports": [
+    {
+      "brokerage": "Motilal Oswal",
+      "rating": "Buy",
+      "target_price": 103,
+      "report_date": "30 Jul, 2026",
+      "thesis": null,
+      "source_id": null,
+      "source_url": "https://images.moneycontrol.com/static-mcnews/2026/07/20260731164316_Niva-Bupa-_31072026_Motilal-Oswal.pdf",
+      "confidence": "secondary"
+    },
     {
       "brokerage": "Motilal Oswal",
       "rating": "Buy",
@@ -85,16 +95,6 @@
       "thesis": null,
       "source_id": null,
       "source_url": "https://images.moneycontrol.com/static-mcnews/2025/11/20251104122823_Niva-Bupa_04112025_Motilal-Oswal.pdf",
-      "confidence": "secondary"
-    },
-    {
-      "brokerage": "ICICI Securities",
-      "rating": "Buy",
-      "target_price": 92,
-      "report_date": "11 Aug, 2025",
-      "thesis": null,
-      "source_id": null,
-      "source_url": "https://images.moneycontrol.com/static-mcnews/2025/08/20250814075016_Niva-Bupa-Health-Insurance-Company_13082025_ICICI-Securities.pdf",
       "confidence": "secondary"
     }
   ]
