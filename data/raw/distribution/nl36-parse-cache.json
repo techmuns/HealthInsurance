@@ -2,7 +2,7 @@
  "_meta": {
   "description": "Parse cache for the NL-36/NL-40 business-acquisition scan (ingest-distribution). Keyed by repo-relative path; entries are reused while file size and parser version match.",
   "parser_version": 9,
-  "updated_at": "2026-06-11T07:38:27.268Z"
+  "updated_at": "2026-08-01T06:57:01.100Z"
  },
  "files": {
   "companies/niva-bupa/niva-bupa-Niva_Bupa_TPA_Public_disclosure_FY-2022-23_Reported.pdf": {
@@ -9252,6 +9252,2699 @@
    "issues": [
     "@162730: table rows did not align — skipped"
    ]
+  },
+  "companies/care-health/care-health-Public_Disclosure_1780465863.pdf": {
+   "size": 2251002,
+   "version": 9,
+   "forms": [
+    {
+     "period": "FY26",
+     "fiscal_year": "FY26",
+     "period_type": "annual",
+     "premium": {
+      "banca": 89560,
+      "brokers": 307424,
+      "agents": 420268,
+      "corp_others": 95881,
+      "direct": 65658,
+      "others": 20686
+     },
+     "policies": {
+      "banca": 334630,
+      "brokers": 914901,
+      "agents": 2000819,
+      "corp_others": 108867,
+      "direct": 377010,
+      "others": 128311
+     },
+     "total_premium": 999476,
+     "total_policies": 3864538
+    }
+   ],
+   "issues": [
+    "@171490: table rows did not align — skipped"
+   ]
+  },
+  "companies/care-health/care-health-Qtr_1_18-19_NL10_1534227266.pdf": {
+   "size": 58328,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_18-19_NL11_1534227267.pdf": {
+   "size": 57896,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_18-19_NL12_1534227269.pdf": {
+   "size": 70650,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_18-19_NL13_1534227271.pdf": {
+   "size": 59069,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_18-19_NL14_1534227272.pdf": {
+   "size": 86851,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_18-19_NL15_1534227274.pdf": {
+   "size": 74833,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_18-19_NL16_1534227275.pdf": {
+   "size": 78851,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_18-19_NL17_1534227278.pdf": {
+   "size": 59977,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_18-19_NL18_1534227279.pdf": {
+   "size": 59166,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_18-19_NL19_1534227281.pdf": {
+   "size": 57853,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_18-19_NL1_1534231419.pdf": {
+   "size": 60934,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_18-19_NL20_1534227283.pdf": {
+   "size": 56368,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_18-19_NL21_1534227284.pdf": {
+   "size": 80048,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_18-19_NL22_1534227286.pdf": {
+   "size": 62770,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_18-19_NL23_1534227288.pdf": {
+   "size": 73038,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_18-19_NL24_1534227289.pdf": {
+   "size": 74335,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_18-19_NL25_1534227290.pdf": {
+   "size": 77444,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_18-19_NL26_1534227292.pdf": {
+   "size": 75225,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_18-19_NL27_1534227294.pdf": {
+   "size": 58183,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_18-19_NL28_1534227295.pdf": {
+   "size": 66599,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_18-19_NL29_1534227297.pdf": {
+   "size": 63418,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_18-19_NL2_1534231467.pdf": {
+   "size": 63664,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_18-19_NL30_1534227298.pdf": {
+   "size": 65874,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_18-19_NL31_1534227299.pdf": {
+   "size": 63385,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_18-19_NL32_1534227301.pdf": {
+   "size": 73885,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_18-19_NL33_1534227302.pdf": {
+   "size": 76567,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_18-19_NL34_1534227305.pdf": {
+   "size": 60015,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_18-19_NL35_1534227307.pdf": {
+   "size": 58845,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_18-19_NL36_1534227308.pdf": {
+   "size": 94582,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_18-19_NL37_1534227309.pdf": {
+   "size": 74191,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_18-19_NL38_1534227312.pdf": {
+   "size": 76780,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_18-19_NL39_1534227313.pdf": {
+   "size": 75595,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_18-19_NL3_1534227254.pdf": {
+   "size": 61180,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_18-19_NL40_1534227315.pdf": {
+   "size": 79537,
+   "version": 9,
+   "forms": [
+    {
+     "period": "Q1FY19",
+     "fiscal_year": "FY19",
+     "period_type": "cumulative",
+     "premium": {
+      "banca": 7333,
+      "brokers": 12907.9,
+      "agents": 9103.6,
+      "corp_others": 122,
+      "direct": 3663.3,
+      "others": 128.1
+     },
+     "policies": {
+      "banca": 27909,
+      "brokers": 30038,
+      "agents": 68657,
+      "corp_others": 989,
+      "direct": 49450,
+      "others": 65
+     },
+     "total_premium": 33258,
+     "total_policies": 177108
+    }
+   ],
+   "issues": [
+    "@2281: table rows did not align — skipped"
+   ]
+  },
+  "companies/care-health/care-health-Qtr_1_18-19_NL41_1534227317.pdf": {
+   "size": 65848,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_18-19_NL4_1534227255.pdf": {
+   "size": 61679,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_18-19_NL5_1534227258.pdf": {
+   "size": 77373,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_18-19_NL6_1534227259.pdf": {
+   "size": 80325,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_18-19_NL7_1534227261.pdf": {
+   "size": 62973,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_18-19_NL8_1534227262.pdf": {
+   "size": 75620,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_18-19_NL9_1534227264.pdf": {
+   "size": 58293,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_19-20_NL-10_1565861153.pdf": {
+   "size": 60833,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_19-20_NL-11_1565861153.pdf": {
+   "size": 60223,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_19-20_NL-12_1565861154.pdf": {
+   "size": 71554,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_19-20_NL-13_1565861155.pdf": {
+   "size": 61395,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_19-20_NL-14_1565861156.pdf": {
+   "size": 86148,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_19-20_NL-15_1565861157.pdf": {
+   "size": 78783,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_19-20_NL-16_1565861157.pdf": {
+   "size": 82783,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_19-20_NL-17_1565861158.pdf": {
+   "size": 62303,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_19-20_NL-18_1565861159.pdf": {
+   "size": 61020,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_19-20_NL-19_1565861160.pdf": {
+   "size": 60179,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_19-20_NL-1_1565861142.pdf": {
+   "size": 63529,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_19-20_NL-21_1565861161.pdf": {
+   "size": 83784,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_19-20_NL-22_1565861161.pdf": {
+   "size": 64974,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_19-20_NL-23_1565861163.pdf": {
+   "size": 76993,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_19-20_NL-24_1565861164.pdf": {
+   "size": 78578,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_19-20_NL-25_1565861164.pdf": {
+   "size": 81326,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_19-20_NL-26_1565861165.pdf": {
+   "size": 79131,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_19-20_NL-27_1565861166.pdf": {
+   "size": 60514,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_19-20_NL-28_1565861167.pdf": {
+   "size": 71212,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_19-20_NL-29_1565861167.pdf": {
+   "size": 61970,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_19-20_NL-2_1565861144.pdf": {
+   "size": 66368,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_19-20_NL-30_1565861168.pdf": {
+   "size": 67948,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_19-20_NL-31_1565861169.pdf": {
+   "size": 65986,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_19-20_NL-32_1565861171.pdf": {
+   "size": 77644,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_19-20_NL-33_1565861171.pdf": {
+   "size": 80520,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_19-20_NL-34_1565861172.pdf": {
+   "size": 52024,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_19-20_NL-35_1565861173.pdf": {
+   "size": 61145,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_19-20_NL-36_1565861174.pdf": {
+   "size": 99300,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_19-20_NL-37_1565861175.pdf": {
+   "size": 79079,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_19-20_NL-38_1565861176.pdf": {
+   "size": 80678,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_19-20_NL-39_1565861177.pdf": {
+   "size": 79692,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_19-20_NL-3_1565861145.pdf": {
+   "size": 63637,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_19-20_NL-40_1565861178.pdf": {
+   "size": 83568,
+   "version": 9,
+   "forms": [
+    {
+     "period": "Q1FY20",
+     "fiscal_year": "FY20",
+     "period_type": "cumulative",
+     "premium": {
+      "banca": 7502.6,
+      "brokers": 13189.7,
+      "agents": 12989.4,
+      "corp_others": 352.3,
+      "direct": 23006.4,
+      "others": 499.9
+     },
+     "policies": {
+      "banca": 28189,
+      "brokers": 43094,
+      "agents": 91257,
+      "corp_others": 1583,
+      "direct": 45658,
+      "others": 23
+     },
+     "total_premium": 57540.3,
+     "total_policies": 209804
+    }
+   ],
+   "issues": [
+    "@2223: table rows did not align — skipped"
+   ]
+  },
+  "companies/care-health/care-health-Qtr_1_19-20_NL-41_1565861179.pdf": {
+   "size": 67021,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_19-20_NL-4_1565861146.pdf": {
+   "size": 61947,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_19-20_NL-5_1565861147.pdf": {
+   "size": 80386,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_19-20_NL-6_1565861149.pdf": {
+   "size": 83937,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_19-20_NL-7_1565861149.pdf": {
+   "size": 64224,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_19-20_NL-8_1565861151.pdf": {
+   "size": 79594,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_19-20_NL-9_1565861152.pdf": {
+   "size": 60616,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_20-21_NL10_1597413611.pdf": {
+   "size": 64751,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_20-21_NL11_1597413613.pdf": {
+   "size": 63263,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_20-21_NL12_1597413615.pdf": {
+   "size": 105230,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_20-21_NL13_1597413616.pdf": {
+   "size": 64480,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_20-21_NL14_1597413618.pdf": {
+   "size": 91015,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_20-21_NL15_1597413620.pdf": {
+   "size": 83626,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_20-21_NL16_1597413622.pdf": {
+   "size": 87685,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_20-21_NL17_1597413623.pdf": {
+   "size": 65722,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_20-21_NL18_1597413624.pdf": {
+   "size": 65075,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_20-21_NL19_1597413626.pdf": {
+   "size": 63429,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_20-21_NL1_1597413594.pdf": {
+   "size": 66175,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_20-21_NL21_1597413627.pdf": {
+   "size": 88387,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_20-21_NL22_1597413629.pdf": {
+   "size": 67880,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_20-21_NL23_1597413631.pdf": {
+   "size": 81073,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_20-21_NL24_1597413633.pdf": {
+   "size": 83245,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_20-21_NL25_1597413635.pdf": {
+   "size": 85456,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_20-21_NL26_1597413636.pdf": {
+   "size": 83747,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_20-21_NL27_1597413638.pdf": {
+   "size": 63491,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_20-21_NL28_1597413641.pdf": {
+   "size": 73882,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_20-21_NL29_1597413642.pdf": {
+   "size": 64886,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_20-21_NL2_1597413596.pdf": {
+   "size": 69585,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_20-21_NL30_1597413646.pdf": {
+   "size": 71068,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_20-21_NL31_1597413649.pdf": {
+   "size": 87453,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_20-21_NL32_1597413651.pdf": {
+   "size": 87970,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_20-21_NL33_1597413652.pdf": {
+   "size": 85108,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_20-21_NL34_1597413654.pdf": {
+   "size": 66621,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_20-21_NL35_1597413655.pdf": {
+   "size": 64243,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_20-21_NL36_1597413657.pdf": {
+   "size": 104587,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_20-21_NL37_1597413659.pdf": {
+   "size": 65773,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_20-21_NL38_1597413661.pdf": {
+   "size": 84540,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_20-21_NL39_1597413663.pdf": {
+   "size": 83918,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_20-21_NL3_1597413598.pdf": {
+   "size": 67131,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_20-21_NL40_1597413665.pdf": {
+   "size": 88163,
+   "version": 9,
+   "forms": [
+    {
+     "period": "Q1FY21",
+     "fiscal_year": "FY21",
+     "period_type": "cumulative",
+     "premium": {
+      "banca": 7520,
+      "brokers": 16020,
+      "agents": 18811,
+      "corp_others": 676,
+      "direct": 5127,
+      "others": 9
+     },
+     "policies": {
+      "banca": 26805,
+      "brokers": 56996,
+      "agents": 114288,
+      "corp_others": 4487,
+      "direct": 29397,
+      "others": 0
+     },
+     "total_premium": 48163,
+     "total_policies": 231973
+    }
+   ],
+   "issues": [
+    "@2264: table rows did not align — skipped"
+   ]
+  },
+  "companies/care-health/care-health-Qtr_1_20-21_NL41_1597413666.pdf": {
+   "size": 71250,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_20-21_NL4_1597413599.pdf": {
+   "size": 66717,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_20-21_NL5_1597413601.pdf": {
+   "size": 85232,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_20-21_NL6_1597413603.pdf": {
+   "size": 88482,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_20-21_NL7_1597413605.pdf": {
+   "size": 67591,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_20-21_NL8_1597413608.pdf": {
+   "size": 84398,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_20-21_NL9_1597413609.pdf": {
+   "size": 63635,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_21-22_NL10_RESERVES_AND_SURPLUS_1628763618.pdf": {
+   "size": 483859,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_21-22_NL11_BORROWINGS_1628763619.pdf": {
+   "size": 476861,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_21-22_NL12A_INVESTMENTS_POLICYHOLDERS_1628763555.pdf": {
+   "size": 496579,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_21-22_NL12_INVESTMENTS_SHAREHOLDERS_1628763621.pdf": {
+   "size": 498755,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_21-22_NL13_LOANS_1628763555.pdf": {
+   "size": 483391,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_21-22_NL14_FIXED_ASSETS_1628763556.pdf": {
+   "size": 655144,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_21-22_NL15_CASH_AND_BANK_BALANCE_1628763557.pdf": {
+   "size": 629601,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_21-22_NL16_ADVANCES_AND_OTHER_ASSETS_1628763558.pdf": {
+   "size": 640291,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_21-22_NL17_CURRENT_LIABILITIES_1628763571.pdf": {
+   "size": 486177,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_21-22_NL18_PROVISIONS_1628763572.pdf": {
+   "size": 479923,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_21-22_NL19_MISCELLANEOUS_EXPENDITURE_1628763573.pdf": {
+   "size": 476271,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_21-22_NL1_REVENUE_ACCOUNT_1628763610.pdf": {
+   "size": 492142,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_21-22_NL21_STATEMENT_OF_LIABILITIES_1628763575.pdf": {
+   "size": 641097,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_21-22_NL22_GEOGRAPHICAL_DISTRIBUTION_OF_BUSINESS_1628763576.pdf": {
+   "size": 544415,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_21-22_NL23_REINSURANCE_RISK_CONCENTRATION_1628763576.pdf": {
+   "size": 630176,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_21-22_NL24_AGEING_OF_CLAIMS_1628763577.pdf": {
+   "size": 630570,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_21-22_NL25_QUARTERLY_CLAIMS_DATA_FOR_NONLIFE_1628763586.pdf": {
+   "size": 632511,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_21-22_NL26_CLAIMS_INFORMATION_1628763587.pdf": {
+   "size": 628596,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_21-22_NL27_OFFICES_INFORMATION_FOR_NONLIFE_1628763588.pdf": {
+   "size": 476854,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_21-22_NL28_STATEMENT_OF_ASSETS_1628763589.pdf": {
+   "size": 506923,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_21-22_NL29_DETAILS_REGARDING_DEBT_SECURITIES_1628763590.pdf": {
+   "size": 497689,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_21-22_NL2_PROFIT_AND_LOSS_ACCOUNT_1628763611.pdf": {
+   "size": 503670,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_21-22_NL30_ANALYTICAL_RATIOS_1628763591.pdf": {
+   "size": 510464,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_21-22_NL31_RELATED_PARTY_TRANSACTIONS_1628763592.pdf": {
+   "size": 628566,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_21-22_NL32_PRODUCTS_NFORMATION_1628763593.pdf": {
+   "size": 626502,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_21-22_NL33_SOLVENCY_MARGIN_1628763594.pdf": {
+   "size": 633158,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_21-22_NL34_BOARD_OF_DIRECTORS_AND_KEY_PERSONS_1628763594.pdf": {
+   "size": 485302,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_21-22_NL35_NON_PERFORMING_ASSETS_1628763595.pdf": {
+   "size": 476995,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_21-22_NL36_YIELD_ON_NVESTMENTS_1628763596.pdf": {
+   "size": 692637,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_21-22_NL37_DOWNGRADING_OF_INVESTMENTS_1628763597.pdf": {
+   "size": 635946,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_21-22_NL38_QUARTERLY_BUSINESS_RETURN_ACROSS_LINE_OF_BUSINESS_1628763598.pdf": {
+   "size": 630002,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_21-22_NL39_RURAL_AND_SOCIAL_OBLIGATIONS_1628763608.pdf": {
+   "size": 632501,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_21-22_NL3_BALANCE_SHEET_1628763612.pdf": {
+   "size": 492042,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_21-22_NL40_BUSINESS_ACQUISITION_THROUGH_DIFFERENT_CHANNELS_1628763609.pdf": {
+   "size": 565265,
+   "version": 9,
+   "forms": [
+    {
+     "period": "Q1FY22",
+     "fiscal_year": "FY22",
+     "period_type": "cumulative",
+     "premium": {
+      "banca": 12065,
+      "brokers": 20701,
+      "agents": 28709,
+      "corp_others": 3147,
+      "direct": 9240,
+      "others": 492
+     },
+     "policies": {
+      "banca": 32779,
+      "brokers": 60903,
+      "agents": 159564,
+      "corp_others": 4826,
+      "direct": 40989,
+      "others": 9
+     },
+     "total_premium": 74355,
+     "total_policies": 299070
+    }
+   ],
+   "issues": [
+    "@2253: table rows did not align — skipped"
+   ]
+  },
+  "companies/care-health/care-health-Qtr_1_21-22_NL41_GREIVANCE_DISPOSAL_1628763610.pdf": {
+   "size": 500998,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_21-22_NL4_PREMIUM_1628763613.pdf": {
+   "size": 499127,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_21-22_NL5_CLAIMS_1628763614.pdf": {
+   "size": 642576,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_21-22_NL6_COMMISSION_1628763614.pdf": {
+   "size": 653286,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_21-22_NL7_OPERATING_EXPENSES_1628763615.pdf": {
+   "size": 679289,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_21-22_NL8_SHARE_CAPITAL_1628763616.pdf": {
+   "size": 630501,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_21-22_NL9_PATTERN_OF_SHAREHOLDING_1628763617.pdf": {
+   "size": 475707,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_1_22-23_PublicDisclosure_1660281762.pdf": {
+   "size": 5127031,
+   "version": 9,
+   "forms": [],
+   "issues": [
+    "@154508: table rows did not align — skipped",
+    "@157323: table rows did not align — skipped"
+   ]
+  },
+  "companies/care-health/care-health-Qtr_1_23-24_PublicDisclosures_1691493096.pdf": {
+   "size": 1991527,
+   "version": 9,
+   "forms": [],
+   "issues": [
+    "@156892: table rows did not align — skipped",
+    "@160091: table rows did not align — skipped"
+   ]
+  },
+  "companies/care-health/care-health-Qtr_1_24-25_PublicDisclosure_1723641609.pdf": {
+   "size": 3310778,
+   "version": 9,
+   "forms": [
+    {
+     "period": "Q1FY25",
+     "fiscal_year": "FY25",
+     "period_type": "cumulative",
+     "premium": {
+      "banca": 23087,
+      "brokers": 67437,
+      "agents": 68488,
+      "corp_others": 12559,
+      "direct": 18349,
+      "others": 3192
+     },
+     "policies": {
+      "banca": 40196,
+      "brokers": 141702,
+      "agents": 287418,
+      "corp_others": 7942,
+      "direct": 82201,
+      "others": 21735
+     },
+     "total_premium": 193112,
+     "total_policies": 581194
+    }
+   ],
+   "issues": [
+    "@164114: table rows did not align — skipped"
+   ]
+  },
+  "companies/care-health/care-health-Qtr_2_18-19_NL10_1542289737.pdf": {
+   "size": 61853,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_18-19_NL11_1542289738.pdf": {
+   "size": 61245,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_18-19_NL12_1542289738.pdf": {
+   "size": 73941,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_18-19_NL13_1542289739.pdf": {
+   "size": 62418,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_18-19_NL14_1542289740.pdf": {
+   "size": 90023,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_18-19_NL15_1542289741.pdf": {
+   "size": 78065,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_18-19_NL16_1542289742.pdf": {
+   "size": 82132,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_18-19_NL17_1542289742.pdf": {
+   "size": 63315,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_18-19_NL18_1542289743.pdf": {
+   "size": 62523,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_18-19_NL19_1542289744.pdf": {
+   "size": 61213,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_18-19_NL1_1542289729.pdf": {
+   "size": 67015,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_18-19_NL20_1542289745.pdf": {
+   "size": 59780,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_18-19_NL21_1542289746.pdf": {
+   "size": 83282,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_18-19_NL22_1542289746.pdf": {
+   "size": 66661,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_18-19_NL23_1542289747.pdf": {
+   "size": 76240,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_18-19_NL24_1542289748.pdf": {
+   "size": 77557,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_18-19_NL25_1542289749.pdf": {
+   "size": 80667,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_18-19_NL26_1542289750.pdf": {
+   "size": 78450,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_18-19_NL27_1542289751.pdf": {
+   "size": 61533,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_18-19_NL28_1542289751.pdf": {
+   "size": 69808,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_18-19_NL29_1542289752.pdf": {
+   "size": 66799,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_18-19_NL2_1542289730.pdf": {
+   "size": 67138,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_18-19_NL30_1542289754.pdf": {
+   "size": 69310,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_18-19_NL31_1542289754.pdf": {
+   "size": 56596,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_18-19_NL3_1542289731.pdf": {
+   "size": 64541,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_18-19_NL4_1542289732.pdf": {
+   "size": 65556,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_18-19_NL5_1542289733.pdf": {
+   "size": 80916,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_18-19_NL6_1542289734.pdf": {
+   "size": 84102,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_18-19_NL7_1542289735.pdf": {
+   "size": 66827,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_18-19_NL8_1542289735.pdf": {
+   "size": 78860,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_18-19_NL9_1542289736.pdf": {
+   "size": 61656,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_19-20_NL10_1573641380.pdf": {
+   "size": 64409,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_19-20_NL11_1573641381.pdf": {
+   "size": 63466,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_19-20_NL12_1573641382.pdf": {
+   "size": 74946,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_19-20_NL13_1573641384.pdf": {
+   "size": 64879,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_19-20_NL14_1573641384.pdf": {
+   "size": 89275,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_19-20_NL15_1573641385.pdf": {
+   "size": 82206,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_19-20_NL16_1573641385.pdf": {
+   "size": 86346,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_19-20_NL17_1573641386.pdf": {
+   "size": 65744,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_19-20_NL18_1573641387.pdf": {
+   "size": 65079,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_19-20_NL19_1573641387.pdf": {
+   "size": 63377,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_19-20_NL1_1573641402.pdf": {
+   "size": 67142,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_19-20_NL21_1573641388.pdf": {
+   "size": 71489,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_19-20_NL22_1573641389.pdf": {
+   "size": 68494,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_19-20_NL23_1573641389.pdf": {
+   "size": 79932,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_19-20_NL24_1573641390.pdf": {
+   "size": 81897,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_19-20_NL25_1573641390.pdf": {
+   "size": 84281,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_19-20_NL26_1573641392.pdf": {
+   "size": 82488,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_19-20_NL27_1573641393.pdf": {
+   "size": 63834,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_19-20_NL28_1573641394.pdf": {
+   "size": 74014,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_19-20_NL29_1573641394.pdf": {
+   "size": 65055,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_19-20_NL2_1573641374.pdf": {
+   "size": 69984,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_19-20_NL30_1573641395.pdf": {
+   "size": 71382,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_19-20_NL31_1573641396.pdf": {
+   "size": 87663,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_19-20_NL32_1573641397.pdf": {
+   "size": 80781,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_19-20_NL33_1573641397.pdf": {
+   "size": 75346,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_19-20_NL34_1573641398.pdf": {
+   "size": 450694,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_19-20_NL35_1573641399.pdf": {
+   "size": 64384,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_19-20_NL36_1573641399.pdf": {
+   "size": 102443,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_19-20_NL37_1573641400.pdf": {
+   "size": 88528,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_19-20_NL38_1573641400.pdf": {
+   "size": 83385,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_19-20_NL39_1573641401.pdf": {
+   "size": 82755,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_19-20_NL3_1573641375.pdf": {
+   "size": 67091,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_19-20_NL40_1573641401.pdf": {
+   "size": 86762,
+   "version": 9,
+   "forms": [
+    {
+     "period": "H1FY20",
+     "fiscal_year": "FY20",
+     "period_type": "cumulative",
+     "premium": {
+      "banca": 16788,
+      "brokers": 26932,
+      "agents": 29887,
+      "corp_others": 869,
+      "direct": 37999,
+      "others": 1166
+     },
+     "policies": {
+      "banca": 60473,
+      "brokers": 94120,
+      "agents": 206573,
+      "corp_others": 4241,
+      "direct": 87949,
+      "others": 24
+     },
+     "total_premium": 113641,
+     "total_policies": 453380
+    }
+   ],
+   "issues": [
+    "@2251: table rows did not align — skipped"
+   ]
+  },
+  "companies/care-health/care-health-Qtr_2_19-20_NL41_1573641402.pdf": {
+   "size": 73786,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_19-20_NL4_1573641376.pdf": {
+   "size": 67114,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_19-20_NL5_1573641376.pdf": {
+   "size": 84228,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_19-20_NL6_1573641377.pdf": {
+   "size": 87442,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_19-20_NL7_1573641378.pdf": {
+   "size": 68117,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_19-20_NL8_1573641378.pdf": {
+   "size": 82815,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_19-20_NL9_1573641380.pdf": {
+   "size": 63752,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_20-21_NL10_1604924106.pdf": {
+   "size": 476092,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_20-21_NL11_1604924107.pdf": {
+   "size": 469505,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_20-21_NL12A_1604924108.pdf": {
+   "size": 488697,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_20-21_NL12_1604924107.pdf": {
+   "size": 491310,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_20-21_NL13_1604924108.pdf": {
+   "size": 475780,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_20-21_NL14_1604924109.pdf": {
+   "size": 647084,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_20-21_NL15_1604924110.pdf": {
+   "size": 621526,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_20-21_NL16_1604924110.pdf": {
+   "size": 630896,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_20-21_NL17_1604924111.pdf": {
+   "size": 478540,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_20-21_NL18_1604924089.pdf": {
+   "size": 472992,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_20-21_NL19_1604924089.pdf": {
+   "size": 468315,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_20-21_NL1_1604924101.pdf": {
+   "size": 484330,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_20-21_NL21_1604924090.pdf": {
+   "size": 633042,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_20-21_NL22_1604924090.pdf": {
+   "size": 535475,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_20-21_NL23_1604924091.pdf": {
+   "size": 622136,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_20-21_NL24_1604924092.pdf": {
+   "size": 622488,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_20-21_NL25_1604924092.pdf": {
+   "size": 624442,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_20-21_NL26_1604924093.pdf": {
+   "size": 620520,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_20-21_NL27_1604924093.pdf": {
+   "size": 469240,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_20-21_NL28_1604924094.pdf": {
+   "size": 499113,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_20-21_NL29_1604924094.pdf": {
+   "size": 490189,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_20-21_NL2_1604924102.pdf": {
+   "size": 496521,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_20-21_NL30_1604924095.pdf": {
+   "size": 502918,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_20-21_NL31_1604924096.pdf": {
+   "size": 641197,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_20-21_NL32_1604924096.pdf": {
+   "size": 615539,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_20-21_NL33_1604924097.pdf": {
+   "size": 625396,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_20-21_NL34_1604924097.pdf": {
+   "size": 478105,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_20-21_NL35_1604924098.pdf": {
+   "size": 469369,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_20-21_NL36_1604924098.pdf": {
+   "size": 681181,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_20-21_NL37_1604924099.pdf": {
+   "size": 56472,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_20-21_NL38_1604924099.pdf": {
+   "size": 55685,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_20-21_NL39_1604924100.pdf": {
+   "size": 63955,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_20-21_NL3_1604924102.pdf": {
+   "size": 484235,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_20-21_NL40_1604924100.pdf": {
+   "size": 62217,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_20-21_NL41_1604924101.pdf": {
+   "size": 493387,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_20-21_NL4_1604924103.pdf": {
+   "size": 491709,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_20-21_NL5_1604924103.pdf": {
+   "size": 634744,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_20-21_NL6_1604924104.pdf": {
+   "size": 645440,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_20-21_NL7_1604924105.pdf": {
+   "size": 523961,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_20-21_NL8_1604924105.pdf": {
+   "size": 622455,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_20-21_NL9_1604924106.pdf": {
+   "size": 468539,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_2_21-22_PublicDisclosureSeptember2021_1650290877.pdf": {
+   "size": 1660183,
+   "version": 9,
+   "forms": [
+    {
+     "period": "H1FY22",
+     "fiscal_year": "FY22",
+     "period_type": "cumulative",
+     "premium": {
+      "banca": 28293,
+      "brokers": 40061,
+      "agents": 58351,
+      "corp_others": 6589,
+      "direct": 22889,
+      "others": 11615
+     },
+     "policies": {
+      "banca": 84578,
+      "brokers": 103354,
+      "agents": 310087,
+      "corp_others": 10246,
+      "direct": 82684,
+      "others": 66069
+     },
+     "total_premium": 167798,
+     "total_policies": 657018
+    }
+   ],
+   "issues": [
+    "@149323: table rows did not align — skipped"
+   ]
+  },
+  "companies/care-health/care-health-Qtr_2_22-23_PublicDisclosures_1669021623.pdf": {
+   "size": 3209954,
+   "version": 9,
+   "forms": [
+    {
+     "period": "H1FY23",
+     "fiscal_year": "FY23",
+     "period_type": "cumulative",
+     "premium": {
+      "banca": 38003,
+      "brokers": 78844,
+      "agents": 74901,
+      "corp_others": 9608,
+      "direct": 28701,
+      "others": 9471
+     },
+     "policies": {
+      "banca": 149699,
+      "brokers": 193272,
+      "agents": 371902,
+      "corp_others": 10692,
+      "direct": 138617,
+      "others": 60625
+     },
+     "total_premium": 239529,
+     "total_policies": 924807
+    }
+   ],
+   "issues": [
+    "@161404: table rows did not align — skipped"
+   ]
+  },
+  "companies/care-health/care-health-Qtr_2_23-24_PublicDisclosure_1701862756.pdf": {
+   "size": 4790412,
+   "version": 9,
+   "forms": [],
+   "issues": [
+    "@157167: table rows did not align — skipped",
+    "@160344: table rows did not align — skipped"
+   ]
+  },
+  "companies/care-health/care-health-Qtr_3_19-20_NL-10_1581514636.pdf": {
+   "size": 64133,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_3_19-20_NL-11_1581514636.pdf": {
+   "size": 63107,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_3_19-20_NL-12_1581514636.pdf": {
+   "size": 73306,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_3_19-20_NL-13_1581514637.pdf": {
+   "size": 64325,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_3_19-20_NL-14_1581514637.pdf": {
+   "size": 90800,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_3_19-20_NL-15_1581514637.pdf": {
+   "size": 83320,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_3_19-20_NL-16_1581514638.pdf": {
+   "size": 87397,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_3_19-20_NL-17_1581514638.pdf": {
+   "size": 65621,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_3_19-20_NL-18_1581514639.pdf": {
+   "size": 64665,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_3_19-20_NL-19_1581514639.pdf": {
+   "size": 63276,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_3_19-20_NL-1_1581514633.pdf": {
+   "size": 57216,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_3_19-20_NL-21_1581514640.pdf": {
+   "size": 88050,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_3_19-20_NL-22_1581514640.pdf": {
+   "size": 68240,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_3_19-20_NL-23_1581514640.pdf": {
+   "size": 80756,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_3_19-20_NL-24_1581514641.pdf": {
+   "size": 82958,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_3_19-20_NL-25_1596114465.pdf": {
+   "size": 70635,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_3_19-20_NL-26_1581514641.pdf": {
+   "size": 83462,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_3_19-20_NL-27_1581514642.pdf": {
+   "size": 63359,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_3_19-20_NL-28_1581514642.pdf": {
+   "size": 74161,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_3_19-20_NL-29_1581514642.pdf": {
+   "size": 64736,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_3_19-20_NL-2_1581514633.pdf": {
+   "size": 62926,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_3_19-20_NL-30_1581514643.pdf": {
+   "size": 71046,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_3_19-20_NL-31_1581514643.pdf": {
+   "size": 89022,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_3_19-20_NL-32_1581514643.pdf": {
+   "size": 87909,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_3_19-20_NL-33_1581514644.pdf": {
+   "size": 75359,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_3_19-20_NL-34_1581514644.pdf": {
+   "size": 65969,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_3_19-20_NL-35_1581514645.pdf": {
+   "size": 64098,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_3_19-20_NL-36_1581514645.pdf": {
+   "size": 103581,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_3_19-20_NL-37_1581514646.pdf": {
+   "size": 89365,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_3_19-20_NL-38_1581514646.pdf": {
+   "size": 84556,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_3_19-20_NL-39_1581514646.pdf": {
+   "size": 83650,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_3_19-20_NL-3_1581514633.pdf": {
+   "size": 66592,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_3_19-20_NL-40_1581514647.pdf": {
+   "size": 87965,
+   "version": 9,
+   "forms": [
+    {
+     "period": "9MFY20",
+     "fiscal_year": "FY20",
+     "period_type": "cumulative",
+     "premium": {
+      "banca": 26067,
+      "brokers": 39463,
+      "agents": 47119,
+      "corp_others": 1489,
+      "direct": 58654,
+      "others": 2357
+     },
+     "policies": {
+      "banca": 88742,
+      "brokers": 149746,
+      "agents": 325093,
+      "corp_others": 7264,
+      "direct": 133746,
+      "others": 335
+     },
+     "total_premium": 175149,
+     "total_policies": 704926
+    }
+   ],
+   "issues": [
+    "@2238: table rows did not align — skipped"
+   ]
+  },
+  "companies/care-health/care-health-Qtr_3_19-20_NL-41_1596114467.pdf": {
+   "size": 65136,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_3_19-20_NL-4_1581514634.pdf": {
+   "size": 66737,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_3_19-20_NL-5_1581514634.pdf": {
+   "size": 85025,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_3_19-20_NL-6_1581514634.pdf": {
+   "size": 89027,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_3_19-20_NL-7_1581514635.pdf": {
+   "size": 67935,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_3_19-20_NL-8_1581514635.pdf": {
+   "size": 84100,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_3_19-20_NL-9_1581514635.pdf": {
+   "size": 63415,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_3_20-21_NL10_1614142502.pdf": {
+   "size": 479248,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_3_20-21_NL11_1614142503.pdf": {
+   "size": 472256,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_3_20-21_NL12A_1614142504.pdf": {
+   "size": 491700,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_3_20-21_NL12_1614142503.pdf": {
+   "size": 494276,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_3_20-21_NL13_1614142505.pdf": {
+   "size": 478778,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_3_20-21_NL14_1614142506.pdf": {
+   "size": 647886,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_3_20-21_NL15_1614142507.pdf": {
+   "size": 622333,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_3_20-21_NL16_1614142507.pdf": {
+   "size": 631676,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_3_20-21_NL17_1614142508.pdf": {
+   "size": 481546,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_3_20-21_NL18_1614142512.pdf": {
+   "size": 475982,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_3_20-21_NL19_1614142513.pdf": {
+   "size": 471309,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_3_20-21_NL1_1614142513.pdf": {
+   "size": 483471,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_3_20-21_NL21_1614142524.pdf": {
+   "size": 633832,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_3_20-21_NL22_1614142525.pdf": {
+   "size": 538521,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_3_20-21_NL23_1614142526.pdf": {
+   "size": 622917,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_3_20-21_NL24_1614142527.pdf": {
+   "size": 623308,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_3_20-21_NL25_1614142528.pdf": {
+   "size": 625225,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_3_20-21_NL26_1614142529.pdf": {
+   "size": 621310,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_3_20-21_NL27_1614142530.pdf": {
+   "size": 472235,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_3_20-21_NL28_1614142519.pdf": {
+   "size": 501341,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_3_20-21_NL29_1614142520.pdf": {
+   "size": 493112,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_3_20-21_NL2_1614142514.pdf": {
+   "size": 500493,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_3_20-21_NL30_1614142521.pdf": {
+   "size": 505893,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_3_20-21_NL31_1614142522.pdf": {
+   "size": 644517,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_3_20-21_NL32_1614142523.pdf": {
+   "size": 629710,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_3_20-21_NL33_1614142537.pdf": {
+   "size": 625875,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_3_20-21_NL34_1614142538.pdf": {
+   "size": 481316,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_3_20-21_NL35_1614142540.pdf": {
+   "size": 472362,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_3_20-21_NL36_1614142541.pdf": {
+   "size": 682006,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_3_20-21_NL37_1614142531.pdf": {
+   "size": 636693,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_3_20-21_NL38_1614142532.pdf": {
+   "size": 622779,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_3_20-21_NL39_1614142534.pdf": {
+   "size": 625225,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_3_20-21_NL3_1614142515.pdf": {
+   "size": 487305,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_3_20-21_NL40_1614142535.pdf": {
+   "size": 633409,
+   "version": 9,
+   "forms": [
+    {
+     "period": "9MFY21",
+     "fiscal_year": "FY21",
+     "period_type": "cumulative",
+     "premium": {
+      "banca": 34157,
+      "brokers": 47203,
+      "agents": 70469,
+      "corp_others": 5854,
+      "direct": 16891,
+      "others": 977
+     },
+     "policies": {
+      "banca": 99840,
+      "brokers": 175531,
+      "agents": 420513,
+      "corp_others": 14369,
+      "direct": 94300,
+      "others": 18
+     },
+     "total_premium": 175550,
+     "total_policies": 804571
+    }
+   ],
+   "issues": [
+    "@2233: table rows did not align — skipped"
+   ]
+  },
+  "companies/care-health/care-health-Qtr_3_20-21_NL41_1614142536.pdf": {
+   "size": 496380,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_3_20-21_NL4_1614142516.pdf": {
+   "size": 494866,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_3_20-21_NL5_1614142517.pdf": {
+   "size": 635536,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_3_20-21_NL6_1614142518.pdf": {
+   "size": 646342,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_3_20-21_NL7_1614142499.pdf": {
+   "size": 524704,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_3_20-21_NL8_1614142500.pdf": {
+   "size": 623251,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_3_20-21_NL9_1614142501.pdf": {
+   "size": 471115,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_3_21-22_PublicDisclosureDecember2021_1650290976.pdf": {
+   "size": 1777699,
+   "version": 9,
+   "forms": [
+    {
+     "period": "9MFY22",
+     "fiscal_year": "FY22",
+     "period_type": "cumulative",
+     "premium": {
+      "banca": 45176,
+      "brokers": 63839,
+      "agents": 90635,
+      "corp_others": 13677,
+      "direct": 34855,
+      "others": 16759
+     },
+     "policies": {
+      "banca": 135603,
+      "brokers": 173541,
+      "agents": 474368,
+      "corp_others": 15269,
+      "direct": 131789,
+      "others": 91418
+     },
+     "total_premium": 264941,
+     "total_policies": 1021988
+    }
+   ],
+   "issues": [
+    "@152449: table rows did not align — skipped"
+   ]
+  },
+  "companies/care-health/care-health-Qtr_3_22-23_PublicDisclosure_1676030671.pdf": {
+   "size": 3351523,
+   "version": 9,
+   "forms": [
+    {
+     "period": "9MFY23",
+     "fiscal_year": "FY23",
+     "period_type": "cumulative",
+     "premium": {
+      "banca": 58658,
+      "brokers": 130107,
+      "agents": 116405,
+      "corp_others": 16150,
+      "direct": 29375,
+      "others": 13911
+     },
+     "policies": {
+      "banca": 242117,
+      "brokers": 296299,
+      "agents": 567133,
+      "corp_others": 15888,
+      "direct": 197471,
+      "others": 89850
+     },
+     "total_premium": 364606,
+     "total_policies": 1408758
+    }
+   ],
+   "issues": [
+    "@161880: table rows did not align — skipped"
+   ]
+  },
+  "companies/care-health/care-health-Qtr_3_23-24_PublicDisclosure_1707305786.pdf": {
+   "size": 2321555,
+   "version": 9,
+   "forms": [],
+   "issues": [
+    "@155068: table rows did not align — skipped",
+    "@158192: table rows did not align — skipped"
+   ]
+  },
+  "companies/care-health/care-health-Qtr_3_24-25_PublicDisclosuresDecember2024_1738647983.pdf": {
+   "size": 2492002,
+   "version": 9,
+   "forms": [
+    {
+     "period": "9MFY25",
+     "fiscal_year": "FY25",
+     "period_type": "cumulative",
+     "premium": {
+      "banca": 69673,
+      "brokers": 200721,
+      "agents": 229835,
+      "corp_others": 38993,
+      "direct": 52274,
+      "others": 9860
+     },
+     "policies": {
+      "banca": 119664,
+      "brokers": 467587,
+      "agents": 987388,
+      "corp_others": 29185,
+      "direct": 258014,
+      "others": 68058
+     },
+     "total_premium": 601355,
+     "total_policies": 1929896
+    }
+   ],
+   "issues": [
+    "@161019: table rows did not align — skipped"
+   ]
+  },
+  "companies/care-health/care-health-Qtr_4_19-20_NL10_1594978794.pdf": {
+   "size": 63623,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_4_19-20_NL11_1594978795.pdf": {
+   "size": 58773,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_4_19-20_NL12_1594978796.pdf": {
+   "size": 70774,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_4_19-20_NL13_1594978797.pdf": {
+   "size": 62300,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_4_19-20_NL14_1594978799.pdf": {
+   "size": 82219,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_4_19-20_NL15_1594978800.pdf": {
+   "size": 75678,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_4_19-20_NL16_1594978801.pdf": {
+   "size": 77833,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_4_19-20_NL17_1594978803.pdf": {
+   "size": 64909,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_4_19-20_NL18_1594978804.pdf": {
+   "size": 60427,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_4_19-20_NL19_1594978805.pdf": {
+   "size": 58007,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_4_19-20_NL1_1594978775.pdf": {
+   "size": 58549,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_4_19-20_NL20_1594978806.pdf": {
+   "size": 56748,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_4_19-20_NL21_1594978807.pdf": {
+   "size": 71498,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_4_19-20_NL22_1594978808.pdf": {
+   "size": 57920,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_4_19-20_NL23_1594978809.pdf": {
+   "size": 64284,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_4_19-20_NL24_1594978810.pdf": {
+   "size": 63284,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_4_19-20_NL25_1594978811.pdf": {
+   "size": 62175,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_4_19-20_NL26_1594978812.pdf": {
+   "size": 64222,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_4_19-20_NL27_1594978813.pdf": {
+   "size": 59598,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_4_19-20_NL28_1594978815.pdf": {
+   "size": 68334,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_4_19-20_NL29_1594978816.pdf": {
+   "size": 56938,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_4_19-20_NL2_1594978777.pdf": {
+   "size": 65180,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_4_19-20_NL30_1594978817.pdf": {
+   "size": 65198,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_4_19-20_NL31_1594978818.pdf": {
+   "size": 74632,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_4_19-20_NL32_1594978819.pdf": {
+   "size": 62350,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_4_19-20_NL33_1594978821.pdf": {
+   "size": 75380,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_4_19-20_NL34_1594978822.pdf": {
+   "size": 61878,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_4_19-20_NL35_1594978825.pdf": {
+   "size": 51225,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_4_19-20_NL36_1594978826.pdf": {
+   "size": 76452,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_4_19-20_NL37_1594978834.pdf": {
+   "size": 66389,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_4_19-20_NL38_1594978835.pdf": {
+   "size": 64522,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_4_19-20_NL39_1594978836.pdf": {
+   "size": 70680,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_4_19-20_NL3_1594978778.pdf": {
+   "size": 60494,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_4_19-20_NL40_1594978838.pdf": {
+   "size": 70839,
+   "version": 9,
+   "forms": [
+    {
+     "period": "FY20",
+     "fiscal_year": "FY20",
+     "period_type": "annual",
+     "premium": {
+      "banca": 38226,
+      "brokers": 54499,
+      "agents": 72549,
+      "corp_others": 2458,
+      "direct": 67532,
+      "others": 3635
+     },
+     "policies": {
+      "banca": 154533,
+      "brokers": 223332,
+      "agents": 520093,
+      "corp_others": 13129,
+      "direct": 192481,
+      "others": 501
+     },
+     "total_premium": 238899,
+     "total_policies": 1104069
+    }
+   ],
+   "issues": [
+    "@2228: table rows did not align — skipped"
+   ]
+  },
+  "companies/care-health/care-health-Qtr_4_19-20_NL41_1594978839.pdf": {
+   "size": 55684,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_4_19-20_NL4_1594978780.pdf": {
+   "size": 58844,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_4_19-20_NL5_1594978782.pdf": {
+   "size": 66466,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_4_19-20_NL6_1594978783.pdf": {
+   "size": 71606,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_4_19-20_NL7_1594978784.pdf": {
+   "size": 61826,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_4_19-20_NL8_1594978786.pdf": {
+   "size": 72115,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_4_19-20_NL9_1594978787.pdf": {
+   "size": 60359,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_4_20-21_NL10_RESERVES_AND_SURPLUS_1623911342.pdf": {
+   "size": 62366,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_4_20-21_NL11_BORROWINGS_1623911342.pdf": {
+   "size": 60931,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_4_20-21_NL12A_INVESTMENTS_POLICYHOLDERS_1623911344.pdf": {
+   "size": 71692,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_4_20-21_NL12_INVESTMENTS_SHAREHOLDERS_1623911343.pdf": {
+   "size": 71536,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_4_20-21_NL13_LOANS_1623911344.pdf": {
+   "size": 62230,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_4_20-21_NL14_FIXED_ASSETS_1623911345.pdf": {
+   "size": 88554,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_4_20-21_NL15_CASH_AND_BANK_BALANCE_1623911346.pdf": {
+   "size": 81287,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_4_20-21_NL16_ADVANCES_AND_OTHER_ASSETS_1623911346.pdf": {
+   "size": 85137,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_4_20-21_NL17_CURRENT_LIABILITIES_1623911347.pdf": {
+   "size": 63316,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_4_20-21_NL18_PROVISIONS_1623911347.pdf": {
+   "size": 62949,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_4_20-21_NL19_MISCELLANEOUS_EXPENDITURE_1623911348.pdf": {
+   "size": 61460,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_4_20-21_NL1_REVENUE_ACCOUNT_1623911364.pdf": {
+   "size": 65451,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_4_20-21_NL20_RECEIPT_AND_PAYMENTS_1623911349.pdf": {
+   "size": 70717,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_4_20-21_NL21_STATEMENT_OF_LIABILITIES_1623911349.pdf": {
+   "size": 85339,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_4_20-21_NL22_GEOGRAPHICAL_DISTRIBUTION_OF_BUSINESS_1623911350.pdf": {
+   "size": 66296,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_4_20-21_NL23_REINSURANCE_RISK_CONCENTRATION_1623911351.pdf": {
+   "size": 80754,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_4_20-21_NL24_AGEING_OF_CLAIMS_1623911352.pdf": {
+   "size": 80948,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_4_20-21_NL25_QUARTERLY_CLAIMS_DATA_FOR_NONLIFE_1623911353.pdf": {
+   "size": 82911,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_4_20-21_NL26_CLAIMS_INFORMATION_1623911353.pdf": {
+   "size": 80992,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_4_20-21_NL27_OFFICES_INFORMATION_FOR_NONLIFE_1623911354.pdf": {
+   "size": 61290,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_4_20-21_NL28_STATEMENT_OF_ASSETS_1623911356.pdf": {
+   "size": 71468,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_4_20-21_NL29_DETAILS_REGARDING_DEBT_SECURITIES_1623911356.pdf": {
+   "size": 66853,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_4_20-21_NL2_PROFIT_AND_LOSS_ACCOUNT_1623911365.pdf": {
+   "size": 69035,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_4_20-21_NL30_ANALYTICAL_RATIOS_1623911357.pdf": {
+   "size": 68552,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_4_20-21_NL31_RELATED_PARTY_TRANSACTIONS_1623911358.pdf": {
+   "size": 84593,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_4_20-21_NL32_PRODUCTS_NFORMATION_1623911358.pdf": {
+   "size": 79484,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_4_20-21_NL33_SOLVENCY_MARGIN_1623911359.pdf": {
+   "size": 81522,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_4_20-21_NL34_BOARD_OF_DIRECTORS_AND_KEY_PERSONS_1623911359.pdf": {
+   "size": 63222,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_4_20-21_NL35_NON_PERFORMING_ASSETS_1623911360.pdf": {
+   "size": 61471,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_4_20-21_NL36_YIELD_ON_NVESTMENTS_1623911361.pdf": {
+   "size": 102869,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_4_20-21_NL37_DOWNGRADING_OF_INVESTMENTS_1623911361.pdf": {
+   "size": 81490,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_4_20-21_NL38_QUARTERLY_BUSINESS_RETURN_ACROSS_LINE_OF_BUSINESS_1623911362.pdf": {
+   "size": 82127,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_4_20-21_NL39_RURAL_AND_SOCIAL_OBLIGATIONS_1623911363.pdf": {
+   "size": 81567,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_4_20-21_NL3_BALANCE_SHEET_1623911366.pdf": {
+   "size": 64644,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_4_20-21_NL40_BUSINESS_ACQUISITION_THROUGH_DIFFERENT_CHANNELS_1623911363.pdf": {
+   "size": 85390,
+   "version": 9,
+   "forms": [
+    {
+     "period": "FY21",
+     "fiscal_year": "FY21",
+     "period_type": "annual",
+     "premium": {
+      "banca": 51156,
+      "brokers": 65388,
+      "agents": 104071,
+      "corp_others": 8617,
+      "direct": 24004,
+      "others": 2739
+     },
+     "policies": {
+      "banca": 227357,
+      "brokers": 269523,
+      "agents": 694861,
+      "corp_others": 23090,
+      "direct": 161954,
+      "others": 27
+     },
+     "total_premium": 255975,
+     "total_policies": 1376812
+    }
+   ],
+   "issues": [
+    "@2273: table rows did not align — skipped"
+   ]
+  },
+  "companies/care-health/care-health-Qtr_4_20-21_NL41_GREIVANCE_DISPOSAL_1623911364.pdf": {
+   "size": 68536,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_4_20-21_NL4_PREMIUM_1623911366.pdf": {
+   "size": 65660,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_4_20-21_NL5_CLAIMS_1623911367.pdf": {
+   "size": 83279,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_4_20-21_NL6_COMMISSION_1623911368.pdf": {
+   "size": 86100,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_4_20-21_NL7_OPERATING_EXPENSES_1623911368.pdf": {
+   "size": 66130,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_4_20-21_NL8_SHARE_CAPITAL_1623911369.pdf": {
+   "size": 81537,
+   "version": 9,
+   "forms": []
+  },
+  "companies/care-health/care-health-Qtr_4_20-21_NL9_PATTERN_OF_SHAREHOLDING_1623911369.pdf": {
+   "size": 61104,
+   "version": 9,
+   "forms": []
   }
  }
 }
