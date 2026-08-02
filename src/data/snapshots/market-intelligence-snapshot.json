@@ -5,7 +5,7 @@
     "schema_version": "1.0.0",
     "dataset": "ai_generated",
     "last_updated": "2026-08-02",
-    "last_successful_run": "2026-08-02T11:10:59.169Z",
+    "last_successful_run": "2026-08-02T14:54:34.299Z",
     "upstream_sources": [
       "muns_agent_web"
     ],
@@ -73,6 +73,36 @@
       "source_published_at": "2026-07-31",
       "first_seen": "2026-08-02T08:05:52.794Z",
       "discovered_at": "2026-08-02T08:05:52.794Z"
+    },
+    {
+      "id": "c37fbcf9de",
+      "company_id": "sector",
+      "date": "2026-07-31",
+      "kind": "regulatory",
+      "horizon": "recent",
+      "impact": "watch",
+      "headline": "IRDAI tightens intermediary rules, eases insurers' investment norms",
+      "detail": "New perpetual registration (subject to annual fee) for agents/brokers/TPAs plus mandatory salesperson-tagging from Jan 2027; insurers can now invest up to 20% in AA-rated infra SPVs and more in AIFs/VCFs — affects distribution cost structure and balance-sheet flexibility for health insurers.",
+      "source_name": "business-standard.com",
+      "source_url": "https://www.business-standard.com/amp/finance/insurance/irdai-tightens-intermediary-rules-eases-insurers-investment-norms-126073101478_1.html",
+      "source_published_at": "2026-07-31",
+      "first_seen": "2026-08-02T14:54:34.299Z",
+      "discovered_at": "2026-08-02T14:54:34.299Z"
+    },
+    {
+      "id": "b1a306ab1b",
+      "company_id": "niva-bupa",
+      "date": "2026-07-31",
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "watch",
+      "headline": "Volumes spurt at Niva Bupa Health Insurance counter",
+      "detail": "Sudden trading-volume spike flagged by Business Standard's capital markets desk, typically signalling fresh news flow or institutional positioning around the stock.",
+      "source_name": "business-standard.com",
+      "source_url": "https://www.business-standard.com/amp/markets/capital-market-news/volumes-spurt-at-niva-bupa-health-insurance-company-ltd-counter-126073100826_1.html",
+      "source_published_at": "2026-07-31",
+      "first_seen": "2026-08-02T14:54:34.299Z",
+      "discovered_at": "2026-08-02T14:54:34.299Z"
     },
     {
       "id": "03e89b4c5a",
@@ -862,32 +892,6 @@
       "source_published_at": null,
       "first_seen": "2026-07-09T16:22:46.308Z",
       "discovered_at": "2026-07-09T16:22:46.308Z"
-    },
-    {
-      "id": "b60cfb639c",
-      "company_id": "sector",
-      "date": "2026-07-01",
-      "kind": "regulatory",
-      "horizon": "recent",
-      "impact": "watch",
-      "headline": "IRDAI grants Prudential-HCL health insurance licence",
-      "detail": "A new standalone health insurer entering the market raises competitive intensity in retail health, distribution and hiring, which matters for growth and pricing across Niva Bupa, Star Health, Care and peers.",
-      "source_name": "bfsi.economictimes.indiatimes.com",
-      "source_url": "https://bfsi.economictimes.indiatimes.com/articles/prudential-hcl-health-insurance-receives-irdai-license-a-milestone-in-indias-health-insurance-market/132118031",
-      "first_seen": "2026-07-03T15:49:34.221Z"
-    },
-    {
-      "id": "a59ad3ce59",
-      "company_id": "sector",
-      "date": "2026-07-01",
-      "kind": "regulatory",
-      "horizon": "recent",
-      "impact": "positive",
-      "headline": "IRDAI softens listing stance for insurers",
-      "detail": "IRDAI chair Ajay Seth said insurers should go public only when they need capital, easing a potential overhang from regulator-driven IPO expectations for mature private insurers including standalone health players.",
-      "source_name": "moneycontrol.com",
-      "source_url": "https://www.moneycontrol.com/news/business/banks/irdai-softens-stance-on-insurer-listings-13963096.html",
-      "first_seen": "2026-07-03T15:49:34.221Z"
     }
   ]
 }
