@@ -4,8 +4,8 @@
     "description": "AI-generated market intelligence for the SAHI health insurers — investor meets, earnings/board dates, sector & regulatory news, share catalysts. Web-sourced; each item links its source. AI-generated, not audited.",
     "schema_version": "1.0.0",
     "dataset": "ai_generated",
-    "last_updated": "2026-08-01",
-    "last_successful_run": "2026-08-01T14:52:13.290Z",
+    "last_updated": "2026-08-02",
+    "last_successful_run": "2026-08-02T05:18:16.963Z",
     "upstream_sources": [
       "muns_agent_web"
     ],
@@ -73,34 +73,6 @@
       "source_published_at": "2026-07-30",
       "first_seen": "2026-08-01T11:11:01.335Z",
       "discovered_at": "2026-08-01T11:11:01.335Z"
-    },
-    {
-      "id": "725a333e97",
-      "company_id": "sector",
-      "date": "2026-07-29",
-      "kind": "board_meeting",
-      "horizon": "upcoming",
-      "impact": "watch",
-      "headline": "Star Health board to consider Q1 FY27 results on July 29",
-      "detail": "Star is the closest listed health-insurance read-through for Niva Bupa, so its quarterly print and commentary can reset sector expectations on growth and underwriting.",
-      "source_name": "moneycontrol.com",
-      "source_url": "https://www.moneycontrol.com/company-notices/starhealthalliedinsurancecompany/notices/SHA/",
-      "first_seen": "2026-07-04T14:58:23.219Z"
-    },
-    {
-      "id": "011c293779",
-      "company_id": "sector",
-      "date": "2026-07-29",
-      "kind": "board_meeting",
-      "horizon": "upcoming",
-      "impact": "watch",
-      "headline": "Star Health board to consider Q1 FY27 results on 29 July",
-      "detail": "Star Health’s Q1 print is a near-term sector read-across on health-insurance growth, claims experience and margins that could move Niva Bupa by comparison.",
-      "source_name": "screener.in",
-      "source_url": "https://www.screener.in/company/STARHEALTH/",
-      "source_published_at": null,
-      "first_seen": "2026-07-09T16:22:46.308Z",
-      "discovered_at": "2026-07-09T16:22:46.308Z"
     },
     {
       "id": "bb563b80a3",
@@ -882,6 +854,36 @@
       "source_published_at": "2026-07-01",
       "first_seen": "2026-07-05T08:43:25.282Z",
       "discovered_at": "2026-07-05T08:43:25.282Z"
+    },
+    {
+      "id": "a9a581005e",
+      "company_id": "sector",
+      "date": null,
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "impact",
+      "detail": "headline",
+      "source_name": null,
+      "source_url": null,
+      "source_published_at": null,
+      "first_seen": "2026-08-02T05:18:16.963Z",
+      "discovered_at": "2026-08-02T05:18:16.963Z"
+    },
+    {
+      "id": "c4c6c57253",
+      "company_id": "sector",
+      "date": null,
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "positive",
+      "detail": "Two insurers raise foreign shareholding beyond 74% cap after 100% FDI liberalisation",
+      "source_name": null,
+      "source_url": null,
+      "source_published_at": null,
+      "first_seen": "2026-08-02T05:18:16.963Z",
+      "discovered_at": "2026-08-02T05:18:16.963Z"
     }
   ]
 }
