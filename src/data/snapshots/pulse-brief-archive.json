@@ -22038,10 +22038,10 @@
         "company": "Niva Bupa",
         "companyId": "niva-bupa",
         "generatedAt": "2026-08-03T05:35:38.010Z",
-        "lastUpdatedAt": "2026-08-03T12:52:42.665Z",
+        "lastUpdatedAt": "2026-08-03T16:17:47.946Z",
         "status": "Constructive",
         "sourceConfidence": "Medium",
-        "itemCount": 49,
+        "itemCount": 47,
         "runs": [
           {
             "runTime": "2026-08-03T05:35:38.010Z",
@@ -22063,22 +22063,29 @@
             "sourceCount": 49,
             "ideas": 6,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-08-03T16:17:47.946Z",
+            "developments": 55,
+            "sourceCount": 47,
+            "ideas": 6,
+            "status": "ok"
           }
         ],
         "brief": {
           "greeting": "Good afternoon",
           "narrative": "Regulatory pressure is the main watch item for health insurers today. Niva Bupa is under pressure on premium growth and demand, but claims-cost and conduct scrutiny will decide whether the strength is sustainable.",
           "attentionCount": 6,
-          "developmentsCount": 57,
-          "sourcesCount": 49,
+          "developmentsCount": 55,
+          "sourcesCount": 47,
           "domainsCount": 17,
-          "confidencePct": 70,
+          "confidencePct": 71,
           "confidenceTier": "Medium",
           "readingMins": 3,
-          "lastUpdatedLabel": "3 Aug, 12:50 pm"
+          "lastUpdatedLabel": "3 Aug, 04:14 pm"
         },
         "message": {
-          "since": "Niva Bupa had recently surfaced positive analyst coverage, alongside older regulatory items now in view. No fresh company-specific update was published since the last brief.",
+          "since": "Since the last brief, Niva Bupa is back in the news for premium growth.",
           "keyThing": "New perpetual registration (subject to annual fee) for agents/brokers/TPAs plus mandatory salesperson-tagging from Jan 2027; insurers can now invest up to 20% in AA-rated…",
           "why": "Growth is only as good as the claims and expense ratios behind it — that is the real question now.",
           "watch": "any fresh IRDAI clarification, and expense-ratio movement",
@@ -22090,6 +22097,100 @@
         },
         "ideas": [
           {
+            "id": "744e54ff03",
+            "entity": "Niva Bupa",
+            "stars": 5,
+            "reasoning": [
+              "Nomura cites improving loss ratio (**63%**, -382bps YoY) and **23-25%** premium growth outlook for FY27-28; expects ROE to reach **12-15.9%** by FY29 vs **14.8%** in Q1 FY27.",
+              "Niva Bupa's market value is 5.01 times its statutory book value, but the company currently earns just 4.1% on that book (return on equity)."
+            ],
+            "whatToWatch": "Whether the next results confirm the rating and the price target.",
+            "confidencePct": 88,
+            "evidenceCount": 5,
+            "status": "Constructive",
+            "category": "Analyst Action",
+            "why": {
+              "whatHappened": "Nomura maintains 'Buy', TP ₹105 on Niva Bupa",
+              "whyItMatters": "Nomura cites improving loss ratio (**63%**, -382bps YoY) and **23-25%** premium growth outlook for FY27-28; expects ROE to reach **12-15.9%** by FY29 vs **14.8%** in Q1 FY27.",
+              "whoAffected": "Niva Bupa shareholders and anyone tracking its re-rating.",
+              "historicalContext": "Niva Bupa's market value is 5.01 times its statutory book value, but the company currently earns just 4.1% on that book (return on equity).",
+              "potentialImpact": "Share gains only help the thesis if they are profitable share — watch the claims ratio as the book grows, not just the share number.",
+              "whatToWatch": "Whether the next results confirm the rating and the price target."
+            },
+            "action": {
+              "id": "margins",
+              "label": "Compare Niva Bupa margin",
+              "icon": "margins",
+              "target": {
+                "page": "sahi",
+                "sahiTab": "profitability",
+                "company": "niva-bupa",
+                "focus": {
+                  "id": "pulse-margins",
+                  "metricKey": "combined_ratio",
+                  "metricLabel": "Combined ratio",
+                  "company": "niva-bupa",
+                  "companyLabel": "Niva Bupa",
+                  "comparisonType": "YoY",
+                  "tone": "neutral",
+                  "insightLabel": "Underwriting margin — combined ratio",
+                  "unit": "%",
+                  "higherIsBetter": false,
+                  "sahiTab": "profitability",
+                  "origin": "pulse"
+                }
+              }
+            },
+            "isBreaking": true,
+            "isNew": true,
+            "freshLabel": "New at 9:44 pm",
+            "freshness": "fresh",
+            "freshnessLabel": "Fresh update",
+            "publishedLabel": "3 Aug",
+            "discoveredLabel": "3 Aug",
+            "sources": [
+              {
+                "kind": "Analyst report",
+                "name": "moneycontrol.com",
+                "url": "https://www.moneycontrol.com/news/business/stocks/niva-bupa-gains-as-nomura-maintains-buy-sees-strong-premium-growth-outlook-13991858.html/amp)"
+              },
+              {
+                "kind": "Analyst report",
+                "name": "moneycontrol.com",
+                "url": "https://moneycontrol.com/news/business/buy-niva-bupa-target-of-rs-103-motilal-oswal-13990519.html"
+              },
+              {
+                "kind": "Analyst report",
+                "name": "moneycontrol.com",
+                "url": "https://www.moneycontrol.com/news/business/buy-niva-bupa-target-of-rs-103-motilal-oswal-13990519.html)"
+              },
+              {
+                "kind": "Analyst report",
+                "name": "marketsmojo.com",
+                "url": "https://www.marketsmojo.com/news/stock-recommendation/niva-bupa-health-insurance-company-ltd-is-rated-hold-4073966"
+              },
+              {
+                "kind": "Market data",
+                "name": "Derived from insurer-annual-snapshot + industry-segment-premium",
+                "url": "https://transactions.nivabupa.com/pages/doc/investor-relations/other-fin-disclosures/Press-Release-Results-March-2025.pdf"
+              }
+            ],
+            "impact": "Positive",
+            "scope": "company",
+            "companyId": "niva-bupa",
+            "sourceUrl": "https://www.moneycontrol.com/news/business/stocks/niva-bupa-gains-as-nomura-maintains-buy-sees-strong-premium-growth-outlook-13991858.html/amp)",
+            "sourceConfidence": "Medium",
+            "clusterSize": 1,
+            "clusterSources": [
+              {
+                "kind": "Analyst report",
+                "name": "moneycontrol.com",
+                "url": "https://www.moneycontrol.com/news/business/stocks/niva-bupa-gains-as-nomura-maintains-buy-sees-strong-premium-growth-outlook-13991858.html/amp)"
+              }
+            ],
+            "independentSources": 1
+          },
+          {
             "id": "6375158b1f",
             "entity": "Niva Bupa",
             "stars": 5,
@@ -22099,7 +22200,7 @@
             ],
             "whatToWatch": "Whether the next results confirm the rating and the price target.",
             "confidencePct": 78,
-            "evidenceCount": 4,
+            "evidenceCount": 5,
             "status": "Constructive",
             "category": "Analyst Action",
             "why": {
@@ -22149,6 +22250,16 @@
               },
               {
                 "kind": "Analyst report",
+                "name": "moneycontrol.com",
+                "url": "https://www.moneycontrol.com/news/business/stocks/niva-bupa-gains-as-nomura-maintains-buy-sees-strong-premium-growth-outlook-13991858.html/amp)"
+              },
+              {
+                "kind": "Analyst report",
+                "name": "moneycontrol.com",
+                "url": "https://www.moneycontrol.com/news/business/buy-niva-bupa-target-of-rs-103-motilal-oswal-13990519.html)"
+              },
+              {
+                "kind": "Analyst report",
                 "name": "marketsmojo.com",
                 "url": "https://www.marketsmojo.com/news/stock-recommendation/niva-bupa-health-insurance-company-ltd-is-rated-hold-4073966"
               },
@@ -22156,11 +22267,6 @@
                 "kind": "Market data",
                 "name": "Derived from insurer-annual-snapshot + industry-segment-premium",
                 "url": "https://transactions.nivabupa.com/pages/doc/investor-relations/other-fin-disclosures/Press-Release-Results-March-2025.pdf"
-              },
-              {
-                "kind": "Market data",
-                "name": "3 curated source-backed insights",
-                "url": ""
               }
             ],
             "impact": "Positive",
@@ -22168,7 +22274,7 @@
             "companyId": "niva-bupa",
             "sourceUrl": "https://moneycontrol.com/news/business/buy-niva-bupa-target-of-rs-103-motilal-oswal-13990519.html",
             "sourceConfidence": "Medium",
-            "clusterSize": 1,
+            "clusterSize": 2,
             "clusterSources": [
               {
                 "kind": "Analyst report",
@@ -22272,6 +22378,153 @@
             "independentSources": 1
           },
           {
+            "id": "40c9dab923",
+            "entity": "Niva Bupa",
+            "stars": 5,
+            "reasoning": [
+              "Insurance revenue rose 28.5% YoY to Rs 2,274 crore, GWP up 31.7%, signalling strong retail-led growth momentum for the stock",
+              "Retail and public the market cut their stake in Niva Bupa from 25.4% to 18.7% during Q1 FY26."
+            ],
+            "whatToWatch": "The next disclosure for confirmation of the trend.",
+            "confidencePct": 78,
+            "evidenceCount": 4,
+            "status": "Constructive",
+            "category": "Filing",
+            "why": {
+              "whatHappened": "Q1 FY27 net profit up 93% to Rs 138 cr; revenue crosses Rs 2,200 cr",
+              "whyItMatters": "Insurance revenue rose 28.5% YoY to Rs 2,274 crore, GWP up 31.7%, signalling strong retail-led growth momentum for the stock",
+              "whoAffected": "Niva Bupa directly — its premium growth, margins and shareholders.",
+              "historicalContext": "Retail and public the market cut their stake in Niva Bupa from 25.4% to 18.7% during Q1 FY26.",
+              "potentialImpact": "Next shareholding filing — Public reverting toward 25.4%.",
+              "whatToWatch": "The next disclosure for confirmation of the trend."
+            },
+            "action": {
+              "id": "source",
+              "label": "Verify Niva Bupa sources",
+              "icon": "source",
+              "target": {
+                "page": "audit",
+                "company": "niva-bupa"
+              }
+            },
+            "isBreaking": false,
+            "isNew": false,
+            "freshness": "existing",
+            "freshnessLabel": "Existing context",
+            "publishedLabel": "30 Jul",
+            "discoveredLabel": "1 Aug",
+            "sources": [
+              {
+                "kind": "Filing",
+                "name": "ndtvprofit.com",
+                "url": "https://www.ndtvprofit.com/markets/niva-bupa-health-q1-results-profit-doubles-insurance-revenue-crosses-rs-2-200-crore-11843320"
+              },
+              {
+                "kind": "Filing",
+                "name": "ndtvprofit.com",
+                "url": "https://www.ndtvprofit.com/markets/niva-bupa-health-q1-results-profit-doubles-insurance-revenue-crosses-rs-2-200-crore-11843320)"
+              },
+              {
+                "kind": "Market data",
+                "name": "Q4 FY25 earnings call",
+                "url": "https://transactions.nivabupa.com/pages/doc/investor-relations/Earnings-Calls/2024-2025/Earnings-Call-Transcript-Q4-FY-2025.pdf"
+              },
+              {
+                "kind": "Market data",
+                "name": "1 curated source-backed insight",
+                "url": ""
+              }
+            ],
+            "impact": "Positive",
+            "scope": "company",
+            "companyId": "niva-bupa",
+            "sourceUrl": "https://www.ndtvprofit.com/markets/niva-bupa-health-q1-results-profit-doubles-insurance-revenue-crosses-rs-2-200-crore-11843320",
+            "sourceConfidence": "Medium",
+            "clusterSize": 1,
+            "clusterSources": [
+              {
+                "kind": "Filing",
+                "name": "ndtvprofit.com",
+                "url": "https://www.ndtvprofit.com/markets/niva-bupa-health-q1-results-profit-doubles-insurance-revenue-crosses-rs-2-200-crore-11843320"
+              }
+            ],
+            "independentSources": 1
+          },
+          {
+            "id": "0fca67dab9",
+            "entity": "Niva Bupa",
+            "stars": 5,
+            "reasoning": [
+              "Insurance revenue up 28.5% to ₹2,274 cr; RoE improved to 3.7% from 2.1% YoY on Ind AS transition — a direct positive read-through for the stock.",
+              "Retail and public the market cut their stake in Niva Bupa from 25.4% to 18.7% during Q1 FY26."
+            ],
+            "whatToWatch": "The next disclosure for confirmation of the trend.",
+            "confidencePct": 78,
+            "evidenceCount": 4,
+            "status": "Constructive",
+            "category": "Filing",
+            "why": {
+              "whatHappened": "Q1 FY27 net profit doubles to ₹138 cr, up 93% YoY",
+              "whyItMatters": "Insurance revenue up 28.5% to ₹2,274 cr; RoE improved to 3.7% from 2.1% YoY on Ind AS transition — a direct positive read-through for the stock.",
+              "whoAffected": "Niva Bupa directly — its premium growth, margins and shareholders.",
+              "historicalContext": "Retail and public the market cut their stake in Niva Bupa from 25.4% to 18.7% during Q1 FY26.",
+              "potentialImpact": "Next shareholding filing — Public reverting toward 25.4%.",
+              "whatToWatch": "The next disclosure for confirmation of the trend."
+            },
+            "action": {
+              "id": "source",
+              "label": "Verify Niva Bupa sources",
+              "icon": "source",
+              "target": {
+                "page": "audit",
+                "company": "niva-bupa"
+              }
+            },
+            "isBreaking": false,
+            "isNew": false,
+            "freshLabel": "Newly surfaced",
+            "freshness": "newly-surfaced",
+            "freshnessLabel": "Newly surfaced",
+            "publishedLabel": "30 Jul",
+            "discoveredLabel": "2 Aug",
+            "sources": [
+              {
+                "kind": "Filing",
+                "name": "ndtvprofit.com",
+                "url": "https://www.ndtvprofit.com/markets/niva-bupa-health-q1-results-profit-doubles-insurance-revenue-crosses-rs-2-200-crore-11843320"
+              },
+              {
+                "kind": "Filing",
+                "name": "ndtvprofit.com",
+                "url": "https://www.ndtvprofit.com/markets/niva-bupa-health-q1-results-profit-doubles-insurance-revenue-crosses-rs-2-200-crore-11843320)"
+              },
+              {
+                "kind": "Market data",
+                "name": "Q4 FY25 earnings call",
+                "url": "https://transactions.nivabupa.com/pages/doc/investor-relations/Earnings-Calls/2024-2025/Earnings-Call-Transcript-Q4-FY-2025.pdf"
+              },
+              {
+                "kind": "Market data",
+                "name": "1 curated source-backed insight",
+                "url": ""
+              }
+            ],
+            "impact": "Positive",
+            "scope": "company",
+            "companyId": "niva-bupa",
+            "sourceUrl": "https://www.ndtvprofit.com/markets/niva-bupa-health-q1-results-profit-doubles-insurance-revenue-crosses-rs-2-200-crore-11843320",
+            "sourceConfidence": "Medium",
+            "clusterSize": 2,
+            "clusterSources": [
+              {
+                "kind": "Filing",
+                "name": "ndtvprofit.com",
+                "url": "https://www.ndtvprofit.com/markets/niva-bupa-health-q1-results-profit-doubles-insurance-revenue-crosses-rs-2-200-crore-11843320"
+              }
+            ],
+            "independentSources": 1
+          },
+          {
             "id": "81e8fbad12",
             "entity": "Niva Bupa",
             "stars": 5,
@@ -22363,231 +22616,6 @@
               }
             ],
             "independentSources": 1
-          },
-          {
-            "id": "40c9dab923",
-            "entity": "Niva Bupa",
-            "stars": 5,
-            "reasoning": [
-              "Insurance revenue rose 28.5% YoY to Rs 2,274 crore, GWP up 31.7%, signalling strong retail-led growth momentum for the stock",
-              "Retail and public the market cut their stake in Niva Bupa from 25.4% to 18.7% during Q1 FY26."
-            ],
-            "whatToWatch": "The next disclosure for confirmation of the trend.",
-            "confidencePct": 78,
-            "evidenceCount": 3,
-            "status": "Constructive",
-            "category": "Filing",
-            "why": {
-              "whatHappened": "Q1 FY27 net profit up 93% to Rs 138 cr; revenue crosses Rs 2,200 cr",
-              "whyItMatters": "Insurance revenue rose 28.5% YoY to Rs 2,274 crore, GWP up 31.7%, signalling strong retail-led growth momentum for the stock",
-              "whoAffected": "Niva Bupa directly — its premium growth, margins and shareholders.",
-              "historicalContext": "Retail and public the market cut their stake in Niva Bupa from 25.4% to 18.7% during Q1 FY26.",
-              "potentialImpact": "Next shareholding filing — Public reverting toward 25.4%.",
-              "whatToWatch": "The next disclosure for confirmation of the trend."
-            },
-            "action": {
-              "id": "source",
-              "label": "Verify Niva Bupa sources",
-              "icon": "source",
-              "target": {
-                "page": "audit",
-                "company": "niva-bupa"
-              }
-            },
-            "isBreaking": false,
-            "isNew": false,
-            "freshness": "existing",
-            "freshnessLabel": "Existing context",
-            "publishedLabel": "30 Jul",
-            "discoveredLabel": "1 Aug",
-            "sources": [
-              {
-                "kind": "Filing",
-                "name": "ndtvprofit.com",
-                "url": "https://www.ndtvprofit.com/markets/niva-bupa-health-q1-results-profit-doubles-insurance-revenue-crosses-rs-2-200-crore-11843320"
-              },
-              {
-                "kind": "Market data",
-                "name": "Q4 FY25 earnings call",
-                "url": "https://transactions.nivabupa.com/pages/doc/investor-relations/Earnings-Calls/2024-2025/Earnings-Call-Transcript-Q4-FY-2025.pdf"
-              },
-              {
-                "kind": "Market data",
-                "name": "1 curated source-backed insight",
-                "url": ""
-              }
-            ],
-            "impact": "Positive",
-            "scope": "company",
-            "companyId": "niva-bupa",
-            "sourceUrl": "https://www.ndtvprofit.com/markets/niva-bupa-health-q1-results-profit-doubles-insurance-revenue-crosses-rs-2-200-crore-11843320",
-            "sourceConfidence": "Medium",
-            "clusterSize": 1,
-            "clusterSources": [
-              {
-                "kind": "Filing",
-                "name": "ndtvprofit.com",
-                "url": "https://www.ndtvprofit.com/markets/niva-bupa-health-q1-results-profit-doubles-insurance-revenue-crosses-rs-2-200-crore-11843320"
-              }
-            ],
-            "independentSources": 1
-          },
-          {
-            "id": "0fca67dab9",
-            "entity": "Niva Bupa",
-            "stars": 5,
-            "reasoning": [
-              "Insurance revenue up 28.5% to ₹2,274 cr; RoE improved to 3.7% from 2.1% YoY on Ind AS transition — a direct positive read-through for the stock.",
-              "Retail and public the market cut their stake in Niva Bupa from 25.4% to 18.7% during Q1 FY26."
-            ],
-            "whatToWatch": "The next disclosure for confirmation of the trend.",
-            "confidencePct": 78,
-            "evidenceCount": 3,
-            "status": "Constructive",
-            "category": "Filing",
-            "why": {
-              "whatHappened": "Q1 FY27 net profit doubles to ₹138 cr, up 93% YoY",
-              "whyItMatters": "Insurance revenue up 28.5% to ₹2,274 cr; RoE improved to 3.7% from 2.1% YoY on Ind AS transition — a direct positive read-through for the stock.",
-              "whoAffected": "Niva Bupa directly — its premium growth, margins and shareholders.",
-              "historicalContext": "Retail and public the market cut their stake in Niva Bupa from 25.4% to 18.7% during Q1 FY26.",
-              "potentialImpact": "Next shareholding filing — Public reverting toward 25.4%.",
-              "whatToWatch": "The next disclosure for confirmation of the trend."
-            },
-            "action": {
-              "id": "source",
-              "label": "Verify Niva Bupa sources",
-              "icon": "source",
-              "target": {
-                "page": "audit",
-                "company": "niva-bupa"
-              }
-            },
-            "isBreaking": false,
-            "isNew": false,
-            "freshLabel": "Newly surfaced",
-            "freshness": "newly-surfaced",
-            "freshnessLabel": "Newly surfaced",
-            "publishedLabel": "30 Jul",
-            "discoveredLabel": "2 Aug",
-            "sources": [
-              {
-                "kind": "Filing",
-                "name": "ndtvprofit.com",
-                "url": "https://www.ndtvprofit.com/markets/niva-bupa-health-q1-results-profit-doubles-insurance-revenue-crosses-rs-2-200-crore-11843320"
-              },
-              {
-                "kind": "Market data",
-                "name": "Q4 FY25 earnings call",
-                "url": "https://transactions.nivabupa.com/pages/doc/investor-relations/Earnings-Calls/2024-2025/Earnings-Call-Transcript-Q4-FY-2025.pdf"
-              },
-              {
-                "kind": "Market data",
-                "name": "1 curated source-backed insight",
-                "url": ""
-              }
-            ],
-            "impact": "Positive",
-            "scope": "company",
-            "companyId": "niva-bupa",
-            "sourceUrl": "https://www.ndtvprofit.com/markets/niva-bupa-health-q1-results-profit-doubles-insurance-revenue-crosses-rs-2-200-crore-11843320",
-            "sourceConfidence": "Medium",
-            "clusterSize": 1,
-            "clusterSources": [
-              {
-                "kind": "Filing",
-                "name": "ndtvprofit.com",
-                "url": "https://www.ndtvprofit.com/markets/niva-bupa-health-q1-results-profit-doubles-insurance-revenue-crosses-rs-2-200-crore-11843320"
-              }
-            ],
-            "independentSources": 1
-          },
-          {
-            "id": "9555be48e5",
-            "entity": "Niva Bupa",
-            "stars": 5,
-            "reasoning": [
-              "MarketsMojo downgraded the stock from Buy to Hold, citing a rich **4.1x** P/B against a thin **3.4%** ROE — a valuation-versus-quality tension despite strong recent top-line/PBT growth.",
-              "Niva Bupa's market value is 5.01 times its statutory book value, but the company currently earns just 4.1% on that book (return on equity)."
-            ],
-            "whatToWatch": "Whether the next results confirm the rating and the price target.",
-            "confidencePct": 78,
-            "evidenceCount": 4,
-            "status": "Risk",
-            "category": "Analyst Action",
-            "why": {
-              "whatHappened": "Downgraded to Hold amid stretched valuation",
-              "whyItMatters": "MarketsMojo downgraded the stock from Buy to Hold, citing a rich **4.1x** P/B against a thin **3.4%** ROE — a valuation-versus-quality tension despite strong recent top-line/PBT growth.",
-              "whoAffected": "Niva Bupa shareholders and anyone tracking its re-rating.",
-              "historicalContext": "Niva Bupa's market value is 5.01 times its statutory book value, but the company currently earns just 4.1% on that book (return on equity).",
-              "potentialImpact": "Share gains only help the thesis if they are profitable share — watch the claims ratio as the book grows, not just the share number.",
-              "whatToWatch": "Whether the next results confirm the rating and the price target."
-            },
-            "action": {
-              "id": "margins",
-              "label": "Compare Niva Bupa margin",
-              "icon": "margins",
-              "target": {
-                "page": "sahi",
-                "sahiTab": "profitability",
-                "company": "niva-bupa",
-                "focus": {
-                  "id": "pulse-margins",
-                  "metricKey": "combined_ratio",
-                  "metricLabel": "Combined ratio",
-                  "company": "niva-bupa",
-                  "companyLabel": "Niva Bupa",
-                  "comparisonType": "YoY",
-                  "tone": "neutral",
-                  "insightLabel": "Underwriting margin — combined ratio",
-                  "unit": "%",
-                  "higherIsBetter": false,
-                  "sahiTab": "profitability",
-                  "origin": "pulse"
-                }
-              }
-            },
-            "isBreaking": false,
-            "isNew": false,
-            "freshness": "existing",
-            "freshnessLabel": "Existing context",
-            "publishedLabel": "9 Jul",
-            "discoveredLabel": "16 Jul",
-            "sources": [
-              {
-                "kind": "Analyst report",
-                "name": "marketsmojo.com",
-                "url": "https://www.marketsmojo.com/news/stock-recommendation/niva-bupa-health-insurance-company-ltd-is-rated-hold-4073966"
-              },
-              {
-                "kind": "Analyst report",
-                "name": "moneycontrol.com",
-                "url": "https://moneycontrol.com/news/business/buy-niva-bupa-target-of-rs-103-motilal-oswal-13990519.html"
-              },
-              {
-                "kind": "Market data",
-                "name": "Derived from insurer-annual-snapshot + industry-segment-premium",
-                "url": "https://transactions.nivabupa.com/pages/doc/investor-relations/other-fin-disclosures/Press-Release-Results-March-2025.pdf"
-              },
-              {
-                "kind": "Market data",
-                "name": "3 curated source-backed insights",
-                "url": ""
-              }
-            ],
-            "impact": "Risk",
-            "scope": "company",
-            "companyId": "niva-bupa",
-            "sourceUrl": "https://www.marketsmojo.com/news/stock-recommendation/niva-bupa-health-insurance-company-ltd-is-rated-hold-4073966",
-            "sourceConfidence": "Medium",
-            "clusterSize": 1,
-            "clusterSources": [
-              {
-                "kind": "Analyst report",
-                "name": "marketsmojo.com",
-                "url": "https://www.marketsmojo.com/news/stock-recommendation/niva-bupa-health-insurance-company-ltd-is-rated-hold-4073966"
-              }
-            ],
-            "independentSources": 1
           }
         ],
         "sinceDeltas": [
@@ -22625,10 +22653,10 @@
           },
           {
             "id": "co",
-            "label": "newly surfaced relevant updates",
-            "value": "4",
+            "label": "fresh update",
+            "value": "1",
             "direction": "up",
-            "tone": "Neutral",
+            "tone": "Positive",
             "target": {
               "page": "sahi",
               "sahiTab": "companies",
@@ -22643,13 +22671,13 @@
                 "companyLabel": "Niva Bupa",
                 "comparisonType": "trend",
                 "tone": "neutral",
-                "insightLabel": "4 newly surfaced Niva Bupa updates",
+                "insightLabel": "1 fresh Niva Bupa update",
                 "unit": "",
                 "sahiTab": "companies",
                 "origin": "pulse"
               }
             },
-            "href": "https://moneycontrol.com/news/business/buy-niva-bupa-target-of-rs-103-motilal-oswal-13990519.html"
+            "href": "https://www.moneycontrol.com/news/business/stocks/niva-bupa-gains-as-nomura-maintains-buy-sees-strong-premium-growth-outlook-13991858.html/amp)"
           },
           {
             "id": "moves",
@@ -44237,10 +44265,10 @@
         "company": "Star Health",
         "companyId": "star-health",
         "generatedAt": "2026-08-03T05:35:38.010Z",
-        "lastUpdatedAt": "2026-08-03T12:52:42.665Z",
+        "lastUpdatedAt": "2026-08-03T16:17:47.946Z",
         "status": "Constructive",
         "sourceConfidence": "Medium",
-        "itemCount": 42,
+        "itemCount": 39,
         "runs": [
           {
             "runTime": "2026-08-03T05:35:38.010Z",
@@ -44262,19 +44290,26 @@
             "sourceCount": 42,
             "ideas": 6,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-08-03T16:17:47.946Z",
+            "developments": 45,
+            "sourceCount": 40,
+            "ideas": 6,
+            "status": "ok"
           }
         ],
         "brief": {
           "greeting": "Good afternoon",
-          "narrative": "Regulatory pressure is the main watch item for health insurers today. Star Health is under pressure on premium growth and demand, but claims-cost and conduct scrutiny will decide whether the strength is sustainable.",
+          "narrative": "Regulatory pressure is the main watch item for health insurers today. Star Health is under pressure on premium growth and demand, but claims-cost and conduct scrutiny and upcoming disclosures will decide whether the strength is sustainable.",
           "attentionCount": 6,
-          "developmentsCount": 47,
-          "sourcesCount": 42,
-          "domainsCount": 14,
-          "confidencePct": 70,
+          "developmentsCount": 45,
+          "sourcesCount": 40,
+          "domainsCount": 15,
+          "confidencePct": 71,
           "confidenceTier": "Medium",
           "readingMins": 3,
-          "lastUpdatedLabel": "3 Aug, 12:50 pm"
+          "lastUpdatedLabel": "3 Aug, 04:14 pm"
         },
         "message": {
           "since": "Star Health had recently surfaced positive analyst coverage, alongside older regulatory items now in view. No fresh company-specific update was published since the last brief.",
@@ -44353,6 +44388,11 @@
               },
               {
                 "kind": "Analyst report",
+                "name": "moneycontrol.com",
+                "url": "https://www.moneycontrol.com/news/business/stocks/star-health-q1-profit-beats-estimates-nomura-raises-target-price-to-rs-700-maintains-buy-13989958.html)"
+              },
+              {
+                "kind": "Analyst report",
                 "name": "marketsmojo.com",
                 "url": "https://www.marketsmojo.com/news/stock-recommendation/star-health-allied-insurance-company-ltd-is-rated-hold-4115182"
               },
@@ -44360,11 +44400,6 @@
                 "kind": "Market data",
                 "name": "Derived from insurer-annual-snapshot + industry-segment-premium",
                 "url": "https://www.prnewswire.com/in/news-releases/star-health-insurance-reports-strong-performance-q1fy26-pat-grows-44-to-inr-438-cr-ifrs-premium-grows-13-302517057.html"
-              },
-              {
-                "kind": "Market data",
-                "name": "7 curated source-backed insights",
-                "url": ""
               }
             ],
             "impact": "Positive",
@@ -44372,7 +44407,7 @@
             "companyId": "star-health",
             "sourceUrl": "https://www.moneycontrol.com/news/business/stocks/star-health-q1-profit-beats-estimates-nomura-raises-target-price-to-rs-700-maintains-buy-13989958.html",
             "sourceConfidence": "Medium",
-            "clusterSize": 1,
+            "clusterSize": 2,
             "clusterSources": [
               {
                 "kind": "Analyst report",
@@ -44447,6 +44482,11 @@
               },
               {
                 "kind": "Analyst report",
+                "name": "moneycontrol.com",
+                "url": "https://www.moneycontrol.com/news/business/stocks/star-health-q1-profit-beats-estimates-nomura-raises-target-price-to-rs-700-maintains-buy-13989958.html)"
+              },
+              {
+                "kind": "Analyst report",
                 "name": "marketsmojo.com",
                 "url": "https://www.marketsmojo.com/news/stock-recommendation/star-health-allied-insurance-company-ltd-is-rated-hold-4115182"
               },
@@ -44454,11 +44494,6 @@
                 "kind": "Market data",
                 "name": "Derived from insurer-annual-snapshot + industry-segment-premium",
                 "url": "https://www.prnewswire.com/in/news-releases/star-health-insurance-reports-strong-performance-q1fy26-pat-grows-44-to-inr-438-cr-ifrs-premium-grows-13-302517057.html"
-              },
-              {
-                "kind": "Market data",
-                "name": "7 curated source-backed insights",
-                "url": ""
               }
             ],
             "impact": "Positive",
@@ -44569,7 +44604,7 @@
             ],
             "whatToWatch": "The next disclosure for confirmation of the trend.",
             "confidencePct": 78,
-            "evidenceCount": 4,
+            "evidenceCount": 5,
             "status": "Constructive",
             "category": "Filing",
             "why": {
@@ -44603,6 +44638,11 @@
               },
               {
                 "kind": "Filing",
+                "name": "scanx.trade",
+                "url": "https://scanx.trade/stock-market-news/companies/star-health-insurance-schedules-analyst-meet-in-hong-kong-on-aug-5/47123836)"
+              },
+              {
+                "kind": "Filing",
                 "name": "business-standard.com",
                 "url": "https://business-standard.com/content/press-releases-ani/star-health-reports-normalised-pat-of-386-crores-in-q1-fy27-up-44-yoy-underwriting-profit-increases-sharply-to-111-crores-compared-to-16-crores-in-q1-fy26-126073001368_1.html"
               },
@@ -44612,9 +44652,9 @@
                 "url": "https://economictimes.indiatimes.com/markets/stocks/earnings/star-health-insurance-q1-results-profit-jumps-25-to-rs-550-crore/articleshow/132716654.cms"
               },
               {
-                "kind": "Market data",
-                "name": "1 curated source-backed insight",
-                "url": ""
+                "kind": "Filing",
+                "name": "ndtvprofit.com",
+                "url": "https://www.ndtvprofit.com/markets/star-health-q1-results-profit-surges-26-to-rs-550-crore-11839016)"
               }
             ],
             "impact": "Positive",
@@ -44642,7 +44682,7 @@
             ],
             "whatToWatch": "The next disclosure for confirmation of the trend.",
             "confidencePct": 78,
-            "evidenceCount": 4,
+            "evidenceCount": 5,
             "status": "Constructive",
             "category": "Filing",
             "why": {
@@ -44676,6 +44716,11 @@
               },
               {
                 "kind": "Filing",
+                "name": "scanx.trade",
+                "url": "https://scanx.trade/stock-market-news/companies/star-health-insurance-schedules-analyst-meet-in-hong-kong-on-aug-5/47123836)"
+              },
+              {
+                "kind": "Filing",
                 "name": "business-standard.com",
                 "url": "https://www.business-standard.com/amp/content/press-releases-ani/star-health-reports-normalised-pat-of-386-crores-in-q1-fy27-up-44-yoy-underwriting-profit-increases-sharply-to-111-crores-compared-to-16-crores-in-q1-fy26-126073001368_1.html"
               },
@@ -44685,9 +44730,9 @@
                 "url": "https://business-standard.com/content/press-releases-ani/star-health-reports-normalised-pat-of-386-crores-in-q1-fy27-up-44-yoy-underwriting-profit-increases-sharply-to-111-crores-compared-to-16-crores-in-q1-fy26-126073001368_1.html"
               },
               {
-                "kind": "Market data",
-                "name": "1 curated source-backed insight",
-                "url": ""
+                "kind": "Filing",
+                "name": "ndtvprofit.com",
+                "url": "https://www.ndtvprofit.com/markets/star-health-q1-results-profit-surges-26-to-rs-550-crore-11839016)"
               }
             ],
             "impact": "Positive",
@@ -44706,103 +44751,83 @@
             "independentSources": 1
           },
           {
-            "id": "23fb9e20b0",
-            "entity": "IRDAI likely to tighten commission norms for intermediaries",
-            "stars": 4,
+            "id": "04d007c5f6",
+            "entity": "Star Health",
+            "stars": 5,
             "reasoning": [
-              "Lower commissions and higher disclosure requirements would pressure distribution economics across health and general insurers, especially in commission-heavy retail health.",
-              "Solvency 2.2x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency."
+              "GWP grew **19%** YoY to **₹4,287cr**; Retail Health fresh GWP up **37%** YoY; Combined Insurance Service Ratio improved to **97.0%** from **98.7%**, best-in-class underwriting discipline among peers.",
+              "Domestic funds raised their stake in Star Health from 15.4% to 21.1% during Q1 FY26."
             ],
-            "whatToWatch": "IRDAI mis-selling / distribution-conduct rules",
+            "whatToWatch": "The next disclosure for confirmation of the trend.",
             "confidencePct": 78,
             "evidenceCount": 5,
-            "status": "Risk",
-            "category": "Regulatory",
+            "status": "Constructive",
+            "category": "Filing",
             "why": {
-              "whatHappened": "IRDAI likely to tighten commission norms for intermediaries",
-              "whyItMatters": "Lower commissions and higher disclosure requirements would pressure distribution economics across health and general insurers, especially in commission-heavy retail health.",
-              "whoAffected": "Every standalone health insurer (SAHI) — pricing, product design and compliance cost.",
-              "historicalContext": "Solvency 2.2x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency.",
-              "potentialImpact": "Solvency vs the 1.5x regulatory floor",
-              "whatToWatch": "IRDAI mis-selling / distribution-conduct rules"
+              "whatHappened": "Q1 FY27 profit surges **25.5%** (Ind AS) / **44%** (normalised) to **₹550cr/₹386cr**",
+              "whyItMatters": "GWP grew **19%** YoY to **₹4,287cr**; Retail Health fresh GWP up **37%** YoY; Combined Insurance Service Ratio improved to **97.0%** from **98.7%**, best-in-class underwriting discipline among peers.",
+              "whoAffected": "Star Health directly — its premium growth, margins and shareholders.",
+              "historicalContext": "Domestic funds raised their stake in Star Health from 15.4% to 21.1% during Q1 FY26.",
+              "potentialImpact": "5.6pp of a listed insurer's shareholder base changing hands in one quarter is real money making a real decision.",
+              "whatToWatch": "The next disclosure for confirmation of the trend."
             },
             "action": {
-              "id": "regulation",
-              "label": "Check IRDAI on claims cost",
-              "icon": "regulation",
+              "id": "source",
+              "label": "Verify Star Health sources",
+              "icon": "source",
               "target": {
-                "page": "sahi",
-                "sahiTab": "governance",
+                "page": "audit",
                 "company": "star-health"
               }
             },
             "isBreaking": false,
             "isNew": false,
-            "freshness": "existing",
-            "freshnessLabel": "Existing context",
-            "publishedLabel": "4 Jul",
-            "discoveredLabel": "5 Jul",
+            "freshLabel": "Newly surfaced",
+            "freshness": "newly-surfaced",
+            "freshnessLabel": "Newly surfaced",
+            "publishedLabel": "29 Jul",
+            "discoveredLabel": "3 Aug",
             "sources": [
               {
-                "kind": "Regulatory",
-                "name": "indianexpress.com",
-                "url": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494"
+                "kind": "Filing",
+                "name": "ndtvprofit.com",
+                "url": "https://www.ndtvprofit.com/markets/star-health-q1-results-profit-surges-26-to-rs-550-crore-11839016)"
               },
               {
-                "kind": "Regulatory",
+                "kind": "Filing",
+                "name": "scanx.trade",
+                "url": "https://scanx.trade/stock-market-news/companies/star-health-insurance-schedules-analyst-meet-in-hong-kong-on-aug-5/47123836)"
+              },
+              {
+                "kind": "Filing",
                 "name": "business-standard.com",
-                "url": "https://www.business-standard.com/amp/finance/insurance/irdai-tightens-intermediary-rules-eases-insurers-investment-norms-126073101478_1.html"
+                "url": "https://www.business-standard.com/amp/content/press-releases-ani/star-health-reports-normalised-pat-of-386-crores-in-q1-fy27-up-44-yoy-underwriting-profit-increases-sharply-to-111-crores-compared-to-16-crores-in-q1-fy26-126073001368_1.html"
               },
               {
-                "kind": "Regulatory",
-                "name": "legal.economictimes.indiatimes.com",
-                "url": "https://legal.economictimes.indiatimes.com/news/regulators/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132160041"
+                "kind": "Filing",
+                "name": "business-standard.com",
+                "url": "https://business-standard.com/content/press-releases-ani/star-health-reports-normalised-pat-of-386-crores-in-q1-fy27-up-44-yoy-underwriting-profit-increases-sharply-to-111-crores-compared-to-16-crores-in-q1-fy26-126073001368_1.html"
               },
               {
-                "kind": "Regulatory",
-                "name": "bfsi.economictimes.indiatimes.com",
-                "url": "https://bfsi.economictimes.indiatimes.com/news/insurance/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132156228"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "irdai.gov.in",
-                "url": "https://irdai.gov.in/web/guest/document-detail?documentId=394937"
+                "kind": "Filing",
+                "name": "economictimes.indiatimes.com",
+                "url": "https://economictimes.indiatimes.com/markets/stocks/earnings/star-health-insurance-q1-results-profit-jumps-25-to-rs-550-crore/articleshow/132716654.cms"
               }
             ],
-            "impact": "Risk",
-            "scope": "sector",
-            "companyId": null,
-            "sourceUrl": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494",
+            "impact": "Positive",
+            "scope": "company",
+            "companyId": "star-health",
+            "sourceUrl": "https://www.ndtvprofit.com/markets/star-health-q1-results-profit-surges-26-to-rs-550-crore-11839016)",
             "sourceConfidence": "Medium",
-            "clusterSize": 6,
+            "clusterSize": 1,
             "clusterSources": [
               {
-                "kind": "Regulatory",
-                "name": "indianexpress.com",
-                "url": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "legal.economictimes.indiatimes.com",
-                "url": "https://legal.economictimes.indiatimes.com/news/regulators/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132160041"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "bfsi.economictimes.indiatimes.com",
-                "url": "https://bfsi.economictimes.indiatimes.com/news/insurance/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132156228"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "businesstoday.in",
-                "url": "https://businesstoday.in/personal-finance/insurance/story/insurance-commission-overhaul-irdais-proposal-can-boost-customer-trust-curb-mis-selling-experts-541797-2026-07-09"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "livemint.com",
-                "url": "https://www.livemint.com/money/personal-finance/irdai-plans-insurance-commission-overhaul-to-curb-mis-selling-with-staggered-payouts-and-stricter-transparency-rules-11783065965488.html"
+                "kind": "Filing",
+                "name": "ndtvprofit.com",
+                "url": "https://www.ndtvprofit.com/markets/star-health-q1-results-profit-surges-26-to-rs-550-crore-11839016)"
               }
             ],
-            "independentSources": 5
+            "independentSources": 1
           }
         ],
         "sinceDeltas": [
@@ -44841,7 +44866,7 @@
           {
             "id": "co",
             "label": "newly surfaced relevant updates",
-            "value": "3",
+            "value": "5",
             "direction": "up",
             "tone": "Neutral",
             "target": {
@@ -44858,13 +44883,40 @@
                 "companyLabel": "Star Health",
                 "comparisonType": "trend",
                 "tone": "neutral",
-                "insightLabel": "3 newly surfaced Star Health updates",
+                "insightLabel": "5 newly surfaced Star Health updates",
                 "unit": "",
                 "sahiTab": "companies",
                 "origin": "pulse"
               }
             },
             "href": "https://www.moneycontrol.com/news/business/stocks/star-health-q1-profit-beats-estimates-nomura-raises-target-price-to-rs-700-maintains-buy-13989958.html"
+          },
+          {
+            "id": "events",
+            "label": "event ahead",
+            "value": "1",
+            "direction": "up",
+            "tone": "Neutral",
+            "target": {
+              "page": "sahi",
+              "sahiTab": "governance",
+              "company": "star-health",
+              "focus": {
+                "id": "pulse-since-events",
+                "kind": "locator",
+                "locatorKind": "events",
+                "metricKey": "events",
+                "metricLabel": "Events ahead",
+                "company": "star-health",
+                "companyLabel": "Star Health",
+                "comparisonType": "trend",
+                "tone": "neutral",
+                "insightLabel": "1 event ahead",
+                "unit": "",
+                "sahiTab": "governance",
+                "origin": "pulse"
+              }
+            }
           },
           {
             "id": "moves",
@@ -44894,7 +44946,21 @@
             }
           }
         ],
-        "events": [],
+        "events": [
+          {
+            "id": "b4fb85da3b",
+            "day": "5",
+            "month": "Aug",
+            "dateLabel": "5 Aug 2026",
+            "kindLabel": "Investor / analyst meet",
+            "title": "Star Health to host in-person analyst meet in Hong Kong",
+            "context": "Meetings scheduled with FMR, BlackRock, and Shikhara Investment Management,…",
+            "url": "https://scanx.trade/stock-market-news/companies/star-health-insurance-schedules-analyst-meet-in-hong-kong-on-aug-5/47123836)",
+            "whenLabel": "Tomorrow",
+            "isFirm": true,
+            "impact": "Watch"
+          }
+        ],
         "actions": [
           {
             "id": "ownership",
@@ -44954,14 +45020,10 @@
             }
           },
           {
-            "id": "regulation",
-            "label": "Check IRDAI on claims cost",
-            "icon": "regulation",
-            "target": {
-              "page": "sahi",
-              "sahiTab": "governance",
-              "company": "star-health"
-            }
+            "id": "agm",
+            "label": "Watch Star Health meet",
+            "icon": "agm",
+            "href": "https://scanx.trade/stock-market-news/companies/star-health-insurance-schedules-analyst-meet-in-hong-kong-on-aug-5/47123836)"
           }
         ]
       }
@@ -66477,10 +66539,10 @@
         "company": "Care Health",
         "companyId": "care-health",
         "generatedAt": "2026-08-03T05:35:38.010Z",
-        "lastUpdatedAt": "2026-08-03T12:52:42.665Z",
+        "lastUpdatedAt": "2026-08-03T16:17:47.946Z",
         "status": "Watch",
         "sourceConfidence": "Medium",
-        "itemCount": 34,
+        "itemCount": 29,
         "runs": [
           {
             "runTime": "2026-08-03T05:35:38.010Z",
@@ -66502,19 +66564,26 @@
             "sourceCount": 34,
             "ideas": 6,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-08-03T16:17:47.946Z",
+            "developments": 30,
+            "sourceCount": 29,
+            "ideas": 6,
+            "status": "ok"
           }
         ],
         "brief": {
           "greeting": "Good afternoon",
           "narrative": "Regulatory pressure is the main watch item for health insurers today. Care Health is under pressure on premium growth and demand, but claims-cost and conduct scrutiny will decide whether the strength is sustainable.",
           "attentionCount": 6,
-          "developmentsCount": 35,
-          "sourcesCount": 34,
+          "developmentsCount": 30,
+          "sourcesCount": 29,
           "domainsCount": 14,
           "confidencePct": 69,
           "confidenceTier": "Medium",
           "readingMins": 4,
-          "lastUpdatedLabel": "3 Aug, 12:50 pm"
+          "lastUpdatedLabel": "3 Aug, 04:14 pm"
         },
         "message": {
           "since": "No company-specific movement for Care Health since the last brief — the read below is sector & regulatory context that applies across standalone health insurers.",
@@ -66626,85 +66695,6 @@
               }
             ],
             "independentSources": 5
-          },
-          {
-            "id": "8bf3cdceab",
-            "entity": "IRDAI clears Prudential HCL Health Insurance entry",
-            "stars": 4,
-            "reasoning": [
-              "A new standalone health insurer adds competition in an already crowded segment, raising the risk of tougher pricing, distribution battles and higher customer-acquisition spend.",
-              "Care Health's capital cushion (solvency ratio) stands at 1.68x against the regulator's 1.5x minimum — that sounds safe, but growing premium at 20.4% a year consumes capital mechanically."
-            ],
-            "whatToWatch": "The impact on claims cost, expense ratio and pricing as rules tighten.",
-            "confidencePct": 78,
-            "evidenceCount": 5,
-            "status": "Risk",
-            "category": "Regulatory",
-            "why": {
-              "whatHappened": "IRDAI clears Prudential HCL Health Insurance entry",
-              "whyItMatters": "A new standalone health insurer adds competition in an already crowded segment, raising the risk of tougher pricing, distribution battles and higher customer-acquisition spend.",
-              "whoAffected": "Every standalone health insurer (SAHI) — pricing, product design and compliance cost.",
-              "historicalContext": "Care Health's capital cushion (solvency ratio) stands at 1.68x against the regulator's 1.5x minimum — that sounds safe, but growing premium at 20.4% a year consumes capital mechanically.",
-              "potentialImpact": "Solvency sits close enough to the floor that a capital raise or slower growth is a live possibility.",
-              "whatToWatch": "The impact on claims cost, expense ratio and pricing as rules tighten."
-            },
-            "action": {
-              "id": "regulation",
-              "label": "Check IRDAI on claims cost",
-              "icon": "regulation",
-              "target": {
-                "page": "sahi",
-                "sahiTab": "governance",
-                "company": "care-health"
-              }
-            },
-            "isBreaking": false,
-            "isNew": false,
-            "freshness": "existing",
-            "freshnessLabel": "Existing context",
-            "publishedLabel": "2 Jul",
-            "discoveredLabel": "6 Jul",
-            "sources": [
-              {
-                "kind": "Regulatory",
-                "name": "economictimes.indiatimes.com",
-                "url": "https://economictimes.indiatimes.com/markets/stocks/news/prudential-hcl-health-insurance-gets-irdai-nod/articleshow/132126831.cms"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "business-standard.com",
-                "url": "https://www.business-standard.com/amp/finance/insurance/irdai-tightens-intermediary-rules-eases-insurers-investment-norms-126073101478_1.html"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "indianexpress.com",
-                "url": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "legal.economictimes.indiatimes.com",
-                "url": "https://legal.economictimes.indiatimes.com/news/regulators/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132160041"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "bfsi.economictimes.indiatimes.com",
-                "url": "https://bfsi.economictimes.indiatimes.com/news/insurance/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132156228"
-              }
-            ],
-            "impact": "Risk",
-            "scope": "sector",
-            "companyId": null,
-            "sourceUrl": "https://economictimes.indiatimes.com/markets/stocks/news/prudential-hcl-health-insurance-gets-irdai-nod/articleshow/132126831.cms",
-            "sourceConfidence": "Medium",
-            "clusterSize": 1,
-            "clusterSources": [
-              {
-                "kind": "Regulatory",
-                "name": "economictimes.indiatimes.com",
-                "url": "https://economictimes.indiatimes.com/markets/stocks/news/prudential-hcl-health-insurance-gets-irdai-nod/articleshow/132126831.cms"
-              }
-            ],
-            "independentSources": 1
           },
           {
             "id": "3d8e8f3345",
@@ -67019,6 +67009,99 @@
                 "kind": "Regulatory",
                 "name": "legal.economictimes.indiatimes.com",
                 "url": "https://legal.economictimes.indiatimes.com/news/litigation/motor-insurance-consider-issuing-circular-standardising-cross-border-coverage-clauses-sc-to-irdai/132519178"
+              }
+            ],
+            "independentSources": 1
+          },
+          {
+            "id": "d0f45d8397",
+            "entity": "Risk-based capital regime seen from April 2027",
+            "stars": 3,
+            "reasoning": [
+              "Proposed market-value based solvency assessment could improve balance-sheet flexibility across general insurers and support sector capital formation, a meaningful read-through for standalone health insurers as solvency…",
+              "Care Health's capital cushion (solvency ratio) stands at 1.68x against the regulator's 1.5x minimum — that sounds safe, but growing premium at 20.4% a year consumes capital mechanically."
+            ],
+            "whatToWatch": "Capital action — A share issue or debt raise, or growth slowing enough to visibly stop the erosion.",
+            "confidencePct": 77,
+            "evidenceCount": 5,
+            "status": "Constructive",
+            "category": "Sector Catalyst",
+            "why": {
+              "whatHappened": "Risk-based capital regime seen from April 2027",
+              "whyItMatters": "Proposed market-value based solvency assessment could improve balance-sheet flexibility across general insurers and support sector capital formation, a meaningful read-through for standalone health…",
+              "whoAffected": "The broader health-insurance sector and its listed players.",
+              "historicalContext": "Care Health's capital cushion (solvency ratio) stands at 1.68x against the regulator's 1.5x minimum — that sounds safe, but growing premium at 20.4% a year consumes capital mechanically.",
+              "potentialImpact": "Solvency sits close enough to the floor that a capital raise or slower growth is a live possibility.",
+              "whatToWatch": "Capital action — A share issue or debt raise, or growth slowing enough to visibly stop the erosion."
+            },
+            "action": {
+              "id": "margins",
+              "label": "Compare Care Health margin",
+              "icon": "margins",
+              "target": {
+                "page": "sahi",
+                "sahiTab": "profitability",
+                "company": "care-health",
+                "focus": {
+                  "id": "pulse-margins",
+                  "metricKey": "combined_ratio",
+                  "metricLabel": "Combined ratio",
+                  "company": "care-health",
+                  "companyLabel": "Care Health",
+                  "comparisonType": "YoY",
+                  "tone": "neutral",
+                  "insightLabel": "Underwriting margin — combined ratio",
+                  "unit": "%",
+                  "higherIsBetter": false,
+                  "sahiTab": "profitability",
+                  "origin": "pulse"
+                }
+              }
+            },
+            "isBreaking": false,
+            "isNew": false,
+            "freshness": "existing",
+            "freshnessLabel": "Existing context",
+            "publishedLabel": "10 Jul",
+            "discoveredLabel": "10 Jul",
+            "sources": [
+              {
+                "kind": "News",
+                "name": "livemint.com",
+                "url": "https://www.livemint.com/industry/banking/psu-general-insurers-india-solvency-equities-irdai-new-india-assurance-oriental-insurance-united-india-11783588869859.html"
+              },
+              {
+                "kind": "News",
+                "name": "livemint.com",
+                "url": "https://www.livemint.com/insurance/rbi-general-insurers-oriental-united-india-national-insurance-solvency-ratio-11782992284462.html"
+              },
+              {
+                "kind": "News",
+                "name": "bfsi.economictimes.indiatimes.com",
+                "url": "https://bfsi.economictimes.indiatimes.com/articles/star-health-sbi-life-and-max-financial-set-for-robust-fy27-growth/132272405"
+              },
+              {
+                "kind": "News",
+                "name": "bfsi.economictimes.indiatimes.com",
+                "url": "https://bfsi.economictimes.indiatimes.com/articles/general-insurance-premiums-soar-16-in-june-with-health-insurers-leading-growth-yes-securities-report/132283360"
+              },
+              {
+                "kind": "News",
+                "name": "economictimes.indiatimes.com",
+                "url": "https://economictimes.indiatimes.com/topic/manipalcigna"
+              }
+            ],
+            "impact": "Positive",
+            "scope": "sector",
+            "companyId": null,
+            "sourceUrl": "https://www.livemint.com/industry/banking/psu-general-insurers-india-solvency-equities-irdai-new-india-assurance-oriental-insurance-united-india-11783588869859.html",
+            "sourceConfidence": "Medium",
+            "clusterSize": 1,
+            "clusterSources": [
+              {
+                "kind": "News",
+                "name": "livemint.com",
+                "url": "https://www.livemint.com/industry/banking/psu-general-insurers-india-solvency-equities-irdai-new-india-assurance-oriental-insurance-united-india-11783588869859.html"
               }
             ],
             "independentSources": 1
@@ -88730,10 +88813,10 @@
         "company": "Aditya Birla",
         "companyId": "aditya-birla",
         "generatedAt": "2026-08-03T05:35:38.010Z",
-        "lastUpdatedAt": "2026-08-03T12:52:42.665Z",
+        "lastUpdatedAt": "2026-08-03T16:17:47.946Z",
         "status": "Watch",
         "sourceConfidence": "Medium",
-        "itemCount": 35,
+        "itemCount": 30,
         "runs": [
           {
             "runTime": "2026-08-03T05:35:38.010Z",
@@ -88755,19 +88838,26 @@
             "sourceCount": 35,
             "ideas": 6,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-08-03T16:17:47.946Z",
+            "developments": 30,
+            "sourceCount": 30,
+            "ideas": 6,
+            "status": "ok"
           }
         ],
         "brief": {
           "greeting": "Good afternoon",
           "narrative": "Regulatory pressure is the main watch item for health insurers today. Aditya Birla is under pressure on premium growth and demand, but claims-cost and conduct scrutiny will decide whether the strength is sustainable.",
           "attentionCount": 6,
-          "developmentsCount": 35,
-          "sourcesCount": 35,
+          "developmentsCount": 30,
+          "sourcesCount": 30,
           "domainsCount": 14,
           "confidencePct": 69,
           "confidenceTier": "Medium",
           "readingMins": 3,
-          "lastUpdatedLabel": "3 Aug, 12:50 pm"
+          "lastUpdatedLabel": "3 Aug, 04:14 pm"
         },
         "message": {
           "since": "Aditya Birla had recently surfaced positive analyst coverage, alongside older regulatory items now in view. No fresh company-specific update was published since the last brief.",
@@ -88879,85 +88969,6 @@
               }
             ],
             "independentSources": 5
-          },
-          {
-            "id": "8bf3cdceab",
-            "entity": "IRDAI clears Prudential HCL Health Insurance entry",
-            "stars": 4,
-            "reasoning": [
-              "A new standalone health insurer adds competition in an already crowded segment, raising the risk of tougher pricing, distribution battles and higher customer-acquisition spend.",
-              "Solvency 1.84x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency."
-            ],
-            "whatToWatch": "IRDAI mis-selling / distribution-conduct rules",
-            "confidencePct": 78,
-            "evidenceCount": 5,
-            "status": "Risk",
-            "category": "Regulatory",
-            "why": {
-              "whatHappened": "IRDAI clears Prudential HCL Health Insurance entry",
-              "whyItMatters": "A new standalone health insurer adds competition in an already crowded segment, raising the risk of tougher pricing, distribution battles and higher customer-acquisition spend.",
-              "whoAffected": "Every standalone health insurer (SAHI) — pricing, product design and compliance cost.",
-              "historicalContext": "Solvency 1.84x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency.",
-              "potentialImpact": "Solvency vs the 1.5x regulatory floor",
-              "whatToWatch": "IRDAI mis-selling / distribution-conduct rules"
-            },
-            "action": {
-              "id": "regulation",
-              "label": "Check IRDAI on claims cost",
-              "icon": "regulation",
-              "target": {
-                "page": "sahi",
-                "sahiTab": "governance",
-                "company": "aditya-birla"
-              }
-            },
-            "isBreaking": false,
-            "isNew": false,
-            "freshness": "existing",
-            "freshnessLabel": "Existing context",
-            "publishedLabel": "2 Jul",
-            "discoveredLabel": "6 Jul",
-            "sources": [
-              {
-                "kind": "Regulatory",
-                "name": "economictimes.indiatimes.com",
-                "url": "https://economictimes.indiatimes.com/markets/stocks/news/prudential-hcl-health-insurance-gets-irdai-nod/articleshow/132126831.cms"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "business-standard.com",
-                "url": "https://www.business-standard.com/amp/finance/insurance/irdai-tightens-intermediary-rules-eases-insurers-investment-norms-126073101478_1.html"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "indianexpress.com",
-                "url": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "legal.economictimes.indiatimes.com",
-                "url": "https://legal.economictimes.indiatimes.com/news/regulators/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132160041"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "bfsi.economictimes.indiatimes.com",
-                "url": "https://bfsi.economictimes.indiatimes.com/news/insurance/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132156228"
-              }
-            ],
-            "impact": "Risk",
-            "scope": "sector",
-            "companyId": null,
-            "sourceUrl": "https://economictimes.indiatimes.com/markets/stocks/news/prudential-hcl-health-insurance-gets-irdai-nod/articleshow/132126831.cms",
-            "sourceConfidence": "Medium",
-            "clusterSize": 1,
-            "clusterSources": [
-              {
-                "kind": "Regulatory",
-                "name": "economictimes.indiatimes.com",
-                "url": "https://economictimes.indiatimes.com/markets/stocks/news/prudential-hcl-health-insurance-gets-irdai-nod/articleshow/132126831.cms"
-              }
-            ],
-            "independentSources": 1
           },
           {
             "id": "3d8e8f3345",
@@ -89252,6 +89263,85 @@
                 "kind": "Regulatory",
                 "name": "irdai.gov.in",
                 "url": "https://irdai.gov.in/guidelines"
+              }
+            ],
+            "independentSources": 1
+          },
+          {
+            "id": "a5da5aaf50",
+            "entity": "Supreme Court asks IRDAI to consider master circular on cross-border motor cover clauses",
+            "stars": 4,
+            "reasoning": [
+              "Currently motor-focused, but signals continued judicial pressure on IRDAI to standardise policy wording and claims clarity — a template that could extend to health policy drafting and cashless practices sector-wide.",
+              "Solvency 1.84x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency."
+            ],
+            "whatToWatch": "The impact on claims cost, expense ratio and pricing as rules tighten.",
+            "confidencePct": 78,
+            "evidenceCount": 5,
+            "status": "Watch",
+            "category": "Regulatory",
+            "why": {
+              "whatHappened": "Supreme Court asks IRDAI to consider master circular on cross-border motor cover clauses",
+              "whyItMatters": "Currently motor-focused, but signals continued judicial pressure on IRDAI to standardise policy wording and claims clarity — a template that could extend to health policy drafting and cashless…",
+              "whoAffected": "Every standalone health insurer (SAHI) — pricing, product design and compliance cost.",
+              "historicalContext": "Solvency 1.84x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency.",
+              "potentialImpact": "Solvency vs the 1.5x regulatory floor",
+              "whatToWatch": "The impact on claims cost, expense ratio and pricing as rules tighten."
+            },
+            "action": {
+              "id": "regulation",
+              "label": "Check IRDAI on claims cost",
+              "icon": "regulation",
+              "target": {
+                "page": "sahi",
+                "sahiTab": "governance",
+                "company": "aditya-birla"
+              }
+            },
+            "isBreaking": false,
+            "isNew": false,
+            "freshness": "existing",
+            "freshnessLabel": "Existing context",
+            "publishedLabel": "20 Jul",
+            "discoveredLabel": "21 Jul",
+            "sources": [
+              {
+                "kind": "Regulatory",
+                "name": "legal.economictimes.indiatimes.com",
+                "url": "https://legal.economictimes.indiatimes.com/news/litigation/motor-insurance-consider-issuing-circular-standardising-cross-border-coverage-clauses-sc-to-irdai/132519178"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "business-standard.com",
+                "url": "https://www.business-standard.com/amp/finance/insurance/irdai-tightens-intermediary-rules-eases-insurers-investment-norms-126073101478_1.html"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "indianexpress.com",
+                "url": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "legal.economictimes.indiatimes.com",
+                "url": "https://legal.economictimes.indiatimes.com/news/regulators/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132160041"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "bfsi.economictimes.indiatimes.com",
+                "url": "https://bfsi.economictimes.indiatimes.com/news/insurance/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132156228"
+              }
+            ],
+            "impact": "Watch",
+            "scope": "sector",
+            "companyId": null,
+            "sourceUrl": "https://legal.economictimes.indiatimes.com/news/litigation/motor-insurance-consider-issuing-circular-standardising-cross-border-coverage-clauses-sc-to-irdai/132519178",
+            "sourceConfidence": "Medium",
+            "clusterSize": 1,
+            "clusterSources": [
+              {
+                "kind": "Regulatory",
+                "name": "legal.economictimes.indiatimes.com",
+                "url": "https://legal.economictimes.indiatimes.com/news/litigation/motor-insurance-consider-issuing-circular-standardising-cross-border-coverage-clauses-sc-to-irdai/132519178"
               }
             ],
             "independentSources": 1
@@ -110928,10 +111018,10 @@
         "company": "ManipalCigna",
         "companyId": "manipalcigna",
         "generatedAt": "2026-08-03T05:35:38.010Z",
-        "lastUpdatedAt": "2026-08-03T12:52:42.665Z",
+        "lastUpdatedAt": "2026-08-03T16:17:47.946Z",
         "status": "Watch",
         "sourceConfidence": "Medium",
-        "itemCount": 35,
+        "itemCount": 30,
         "runs": [
           {
             "runTime": "2026-08-03T05:35:38.010Z",
@@ -110953,19 +111043,26 @@
             "sourceCount": 35,
             "ideas": 6,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-08-03T16:17:47.946Z",
+            "developments": 32,
+            "sourceCount": 30,
+            "ideas": 6,
+            "status": "ok"
           }
         ],
         "brief": {
           "greeting": "Good afternoon",
           "narrative": "Regulatory pressure is the main watch item for health insurers today. ManipalCigna is under pressure on premium growth and demand, but claims-cost and conduct scrutiny will decide whether the strength is sustainable.",
           "attentionCount": 6,
-          "developmentsCount": 37,
-          "sourcesCount": 35,
+          "developmentsCount": 32,
+          "sourcesCount": 30,
           "domainsCount": 15,
           "confidencePct": 69,
           "confidenceTier": "Medium",
           "readingMins": 3,
-          "lastUpdatedLabel": "3 Aug, 12:50 pm"
+          "lastUpdatedLabel": "3 Aug, 04:14 pm"
         },
         "message": {
           "since": "No company-specific movement for ManipalCigna since the last brief — the read below is sector & regulatory context that applies across standalone health insurers.",
@@ -111077,85 +111174,6 @@
               }
             ],
             "independentSources": 5
-          },
-          {
-            "id": "8bf3cdceab",
-            "entity": "IRDAI clears Prudential HCL Health Insurance entry",
-            "stars": 4,
-            "reasoning": [
-              "A new standalone health insurer adds competition in an already crowded segment, raising the risk of tougher pricing, distribution battles and higher customer-acquisition spend.",
-              "Solvency 1.7x vs the 1.5x floor — headroom is thinner; watch solvency alongside regulation."
-            ],
-            "whatToWatch": "IRDAI mis-selling / distribution-conduct rules",
-            "confidencePct": 78,
-            "evidenceCount": 5,
-            "status": "Risk",
-            "category": "Regulatory",
-            "why": {
-              "whatHappened": "IRDAI clears Prudential HCL Health Insurance entry",
-              "whyItMatters": "A new standalone health insurer adds competition in an already crowded segment, raising the risk of tougher pricing, distribution battles and higher customer-acquisition spend.",
-              "whoAffected": "Every standalone health insurer (SAHI) — pricing, product design and compliance cost.",
-              "historicalContext": "Solvency 1.7x vs the 1.5x floor — headroom is thinner; watch solvency alongside regulation.",
-              "potentialImpact": "Solvency sits close enough to the floor that a capital raise or slower growth is a live possibility.",
-              "whatToWatch": "IRDAI mis-selling / distribution-conduct rules"
-            },
-            "action": {
-              "id": "regulation",
-              "label": "Check IRDAI on claims cost",
-              "icon": "regulation",
-              "target": {
-                "page": "sahi",
-                "sahiTab": "governance",
-                "company": "manipalcigna"
-              }
-            },
-            "isBreaking": false,
-            "isNew": false,
-            "freshness": "existing",
-            "freshnessLabel": "Existing context",
-            "publishedLabel": "2 Jul",
-            "discoveredLabel": "6 Jul",
-            "sources": [
-              {
-                "kind": "Regulatory",
-                "name": "economictimes.indiatimes.com",
-                "url": "https://economictimes.indiatimes.com/markets/stocks/news/prudential-hcl-health-insurance-gets-irdai-nod/articleshow/132126831.cms"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "business-standard.com",
-                "url": "https://www.business-standard.com/amp/finance/insurance/irdai-tightens-intermediary-rules-eases-insurers-investment-norms-126073101478_1.html"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "indianexpress.com",
-                "url": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "legal.economictimes.indiatimes.com",
-                "url": "https://legal.economictimes.indiatimes.com/news/regulators/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132160041"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "bfsi.economictimes.indiatimes.com",
-                "url": "https://bfsi.economictimes.indiatimes.com/news/insurance/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132156228"
-              }
-            ],
-            "impact": "Risk",
-            "scope": "sector",
-            "companyId": null,
-            "sourceUrl": "https://economictimes.indiatimes.com/markets/stocks/news/prudential-hcl-health-insurance-gets-irdai-nod/articleshow/132126831.cms",
-            "sourceConfidence": "Medium",
-            "clusterSize": 1,
-            "clusterSources": [
-              {
-                "kind": "Regulatory",
-                "name": "economictimes.indiatimes.com",
-                "url": "https://economictimes.indiatimes.com/markets/stocks/news/prudential-hcl-health-insurance-gets-irdai-nod/articleshow/132126831.cms"
-              }
-            ],
-            "independentSources": 1
           },
           {
             "id": "3d8e8f3345",
@@ -111473,6 +111491,99 @@
               }
             ],
             "independentSources": 1
+          },
+          {
+            "id": "d0f45d8397",
+            "entity": "Risk-based capital regime seen from April 2027",
+            "stars": 3,
+            "reasoning": [
+              "Proposed market-value based solvency assessment could improve balance-sheet flexibility across general insurers and support sector capital formation, a meaningful read-through for standalone health insurers as solvency…",
+              "Solvency 1.7x vs the 1.5x floor — headroom is thinner; watch solvency alongside regulation."
+            ],
+            "whatToWatch": "Solvency vs the 1.5x regulatory floor",
+            "confidencePct": 77,
+            "evidenceCount": 5,
+            "status": "Constructive",
+            "category": "Sector Catalyst",
+            "why": {
+              "whatHappened": "Risk-based capital regime seen from April 2027",
+              "whyItMatters": "Proposed market-value based solvency assessment could improve balance-sheet flexibility across general insurers and support sector capital formation, a meaningful read-through for standalone health…",
+              "whoAffected": "The broader health-insurance sector and its listed players.",
+              "historicalContext": "Solvency 1.7x vs the 1.5x floor — headroom is thinner; watch solvency alongside regulation.",
+              "potentialImpact": "Solvency sits close enough to the floor that a capital raise or slower growth is a live possibility.",
+              "whatToWatch": "Solvency vs the 1.5x regulatory floor"
+            },
+            "action": {
+              "id": "margins",
+              "label": "Compare ManipalCigna margin",
+              "icon": "margins",
+              "target": {
+                "page": "sahi",
+                "sahiTab": "profitability",
+                "company": "manipalcigna",
+                "focus": {
+                  "id": "pulse-margins",
+                  "metricKey": "combined_ratio",
+                  "metricLabel": "Combined ratio",
+                  "company": "manipalcigna",
+                  "companyLabel": "ManipalCigna",
+                  "comparisonType": "YoY",
+                  "tone": "neutral",
+                  "insightLabel": "Underwriting margin — combined ratio",
+                  "unit": "%",
+                  "higherIsBetter": false,
+                  "sahiTab": "profitability",
+                  "origin": "pulse"
+                }
+              }
+            },
+            "isBreaking": false,
+            "isNew": false,
+            "freshness": "existing",
+            "freshnessLabel": "Existing context",
+            "publishedLabel": "10 Jul",
+            "discoveredLabel": "10 Jul",
+            "sources": [
+              {
+                "kind": "News",
+                "name": "livemint.com",
+                "url": "https://www.livemint.com/industry/banking/psu-general-insurers-india-solvency-equities-irdai-new-india-assurance-oriental-insurance-united-india-11783588869859.html"
+              },
+              {
+                "kind": "News",
+                "name": "livemint.com",
+                "url": "https://www.livemint.com/insurance/rbi-general-insurers-oriental-united-india-national-insurance-solvency-ratio-11782992284462.html"
+              },
+              {
+                "kind": "News",
+                "name": "bfsi.economictimes.indiatimes.com",
+                "url": "https://bfsi.economictimes.indiatimes.com/articles/star-health-sbi-life-and-max-financial-set-for-robust-fy27-growth/132272405"
+              },
+              {
+                "kind": "News",
+                "name": "bfsi.economictimes.indiatimes.com",
+                "url": "https://bfsi.economictimes.indiatimes.com/articles/general-insurance-premiums-soar-16-in-june-with-health-insurers-leading-growth-yes-securities-report/132283360"
+              },
+              {
+                "kind": "News",
+                "name": "economictimes.indiatimes.com",
+                "url": "https://economictimes.indiatimes.com/topic/manipalcigna"
+              }
+            ],
+            "impact": "Positive",
+            "scope": "sector",
+            "companyId": null,
+            "sourceUrl": "https://www.livemint.com/industry/banking/psu-general-insurers-india-solvency-equities-irdai-new-india-assurance-oriental-insurance-united-india-11783588869859.html",
+            "sourceConfidence": "Medium",
+            "clusterSize": 1,
+            "clusterSources": [
+              {
+                "kind": "News",
+                "name": "livemint.com",
+                "url": "https://www.livemint.com/industry/banking/psu-general-insurers-india-solvency-equities-irdai-new-india-assurance-oriental-insurance-united-india-11783588869859.html"
+              }
+            ],
+            "independentSources": 1
           }
         ],
         "sinceDeltas": [
@@ -111640,6 +111751,6 @@
     "snapshot_id": "pulse-brief-archive",
     "description": "Immutable per-calendar-day Pulse brief records (IST), one per company. Past days are frozen exactly as shown that day; the live Today view recomposes. Kept ~90 days per company.",
     "last_updated": "2026-08-03",
-    "last_successful_run": "2026-08-03T12:52:42.665Z"
+    "last_successful_run": "2026-08-03T16:17:47.946Z"
   }
 }

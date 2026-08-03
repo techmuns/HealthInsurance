@@ -5,7 +5,7 @@
     "schema_version": "1.0.0",
     "dataset": "ai_generated",
     "last_updated": "2026-08-03",
-    "last_successful_run": "2026-08-03T12:50:00.068Z",
+    "last_successful_run": "2026-08-03T16:14:42.232Z",
     "upstream_sources": [
       "muns_agent_web"
     ],
@@ -14,6 +14,36 @@
     "notes": "Clearly labelled AI-generated intelligence — verify before acting. Items accumulate through the day and rank by investor impact, not recency."
   },
   "data": [
+    {
+      "id": "b4fb85da3b",
+      "company_id": "star-health",
+      "date": "2026-08-05",
+      "kind": "investor_meet",
+      "horizon": "upcoming",
+      "impact": "watch",
+      "headline": "Star Health to host in-person analyst meet in Hong Kong",
+      "detail": "Meetings scheduled with FMR, BlackRock, and Shikhara Investment Management, signalling active foreign institutional investor engagement that could influence FII flows into the sub-sector.",
+      "source_name": "scanx.trade",
+      "source_url": "https://scanx.trade/stock-market-news/companies/star-health-insurance-schedules-analyst-meet-in-hong-kong-on-aug-5/47123836)",
+      "source_published_at": "2026-08-01",
+      "first_seen": "2026-08-03T16:14:42.232Z",
+      "discovered_at": "2026-08-03T16:14:42.232Z"
+    },
+    {
+      "id": "744e54ff03",
+      "company_id": "niva-bupa",
+      "date": "2026-08-03",
+      "kind": "rating",
+      "horizon": "recent",
+      "impact": "positive",
+      "headline": "Nomura maintains 'Buy', TP ₹105 on Niva Bupa",
+      "detail": "Nomura cites improving loss ratio (**63%**, -382bps YoY) and **23-25%** premium growth outlook for FY27-28; expects ROE to reach **12-15.9%** by FY29 vs **14.8%** in Q1 FY27.",
+      "source_name": "moneycontrol.com",
+      "source_url": "https://www.moneycontrol.com/news/business/stocks/niva-bupa-gains-as-nomura-maintains-buy-sees-strong-premium-growth-outlook-13991858.html/amp)",
+      "source_published_at": "2026-08-03",
+      "first_seen": "2026-08-03T16:14:42.232Z",
+      "discovered_at": "2026-08-03T16:14:42.232Z"
+    },
     {
       "id": "6375158b1f",
       "company_id": "niva-bupa",
@@ -103,6 +133,36 @@
       "source_published_at": "2026-07-31",
       "first_seen": "2026-08-02T14:54:34.299Z",
       "discovered_at": "2026-08-02T14:54:34.299Z"
+    },
+    {
+      "id": "2cff607e58",
+      "company_id": "niva-bupa",
+      "date": "2026-07-31",
+      "kind": "rating",
+      "horizon": "recent",
+      "impact": "positive",
+      "headline": "Motilal Oswal initiates coverage with Buy, TP ₹103",
+      "detail": "Valued at **30x** FY28E IFRS PAT; PAT grew **93%** YoY to **₹1.4bn**; combined ratio improved **300bps** YoY to **100.2%**; RoE improved to **3.7%** from **2.1%**.",
+      "source_name": "moneycontrol.com",
+      "source_url": "https://www.moneycontrol.com/news/business/buy-niva-bupa-target-of-rs-103-motilal-oswal-13990519.html)",
+      "source_published_at": "2026-07-31",
+      "first_seen": "2026-08-03T16:14:42.232Z",
+      "discovered_at": "2026-08-03T16:14:42.232Z"
+    },
+    {
+      "id": "550428f212",
+      "company_id": "star-health",
+      "date": "2026-07-31",
+      "kind": "rating",
+      "horizon": "recent",
+      "impact": "positive",
+      "headline": "Nomura raises TP to **₹700** from **₹675**, maintains Buy",
+      "detail": "Q1 profit beat estimate by **84%**; loss ratio at **67.5%** (down 104bps YoY); Nomura lifts FY27-29 net profit estimates by **1-11%**, projects **17%** premium growth and **13-13.4%** ROE.",
+      "source_name": "moneycontrol.com",
+      "source_url": "https://www.moneycontrol.com/news/business/stocks/star-health-q1-profit-beats-estimates-nomura-raises-target-price-to-rs-700-maintains-buy-13989958.html)",
+      "source_published_at": "2026-07-31",
+      "first_seen": "2026-08-03T16:14:42.232Z",
+      "discovered_at": "2026-08-03T16:14:42.232Z"
     },
     {
       "id": "40c9dab923",
@@ -195,6 +255,21 @@
       "discovered_at": "2026-08-02T08:05:52.794Z"
     },
     {
+      "id": "467ee5b945",
+      "company_id": "niva-bupa",
+      "date": "2026-07-30",
+      "kind": "earnings",
+      "horizon": "recent",
+      "impact": "positive",
+      "headline": "Q1 FY27 net profit doubles to ₹138 crore (Ind AS)",
+      "detail": "Insurance revenue up **28.5%** YoY to **₹2,274 crore**; company to raise up to **₹500 crore** via NCDs, signalling capital strength for retail expansion.",
+      "source_name": "ndtvprofit.com",
+      "source_url": "https://www.ndtvprofit.com/markets/niva-bupa-health-q1-results-profit-doubles-insurance-revenue-crosses-rs-2-200-crore-11843320)",
+      "source_published_at": "2026-07-30",
+      "first_seen": "2026-08-03T16:14:42.232Z",
+      "discovered_at": "2026-08-03T16:14:42.232Z"
+    },
+    {
       "id": "bb563b80a3",
       "company_id": "star-health",
       "date": "2026-07-29",
@@ -223,6 +298,21 @@
       "source_published_at": "2026-07-29",
       "first_seen": "2026-08-01T11:11:01.335Z",
       "discovered_at": "2026-08-01T11:11:01.335Z"
+    },
+    {
+      "id": "04d007c5f6",
+      "company_id": "star-health",
+      "date": "2026-07-29",
+      "kind": "earnings",
+      "horizon": "recent",
+      "impact": "positive",
+      "headline": "Q1 FY27 profit surges **25.5%** (Ind AS) / **44%** (normalised) to **₹550cr/₹386cr**",
+      "detail": "GWP grew **19%** YoY to **₹4,287cr**; Retail Health fresh GWP up **37%** YoY; Combined Insurance Service Ratio improved to **97.0%** from **98.7%**, best-in-class underwriting discipline among peers.",
+      "source_name": "ndtvprofit.com",
+      "source_url": "https://www.ndtvprofit.com/markets/star-health-q1-results-profit-surges-26-to-rs-550-crore-11839016)",
+      "source_published_at": "2026-07-29",
+      "first_seen": "2026-08-03T16:14:42.232Z",
+      "discovered_at": "2026-08-03T16:14:42.232Z"
     },
     {
       "id": "1af35ac86d",
@@ -804,94 +894,6 @@
       "source_published_at": null,
       "first_seen": "2026-07-10T05:55:44.792Z",
       "discovered_at": "2026-07-10T05:55:44.792Z"
-    },
-    {
-      "id": "50c4a6f00f",
-      "company_id": "sector",
-      "date": "2026-07-03",
-      "kind": "sector_news",
-      "horizon": "recent",
-      "impact": "positive",
-      "headline": "Health insurers lead June non-life premium growth",
-      "detail": "Strong June premium growth indicates category demand remains healthy for standalone health insurers, supporting sentiment on growth visibility even if underwriting discipline remains key.",
-      "source_name": "bfsi.economictimes.indiatimes.com",
-      "source_url": "https://bfsi.economictimes.indiatimes.com/articles/general-insurance-premiums-soar-16-in-june-with-health-insurers-leading-growth-yes-securities-report/132283360",
-      "source_published_at": "2026-07-03",
-      "first_seen": "2026-07-10T09:19:20.154Z",
-      "discovered_at": "2026-07-10T09:19:20.154Z"
-    },
-    {
-      "id": "c575ebb3dd",
-      "company_id": "sector",
-      "date": "2026-07-02",
-      "kind": "sector_news",
-      "horizon": "recent",
-      "impact": "watch",
-      "headline": "ET reports broader IRDAI regulatory package alongside new licence",
-      "detail": "ET said IRDAI also approved rollout of Ind AS, a policyholder protection fund and retention of three domestic systemically important insurers, all of which matter for capital, reporting and sector oversight.",
-      "source_name": "economictimes.indiatimes.com",
-      "source_url": "https://economictimes.indiatimes.com/markets/stocks/news/prudential-hcl-health-insurance-gets-irdai-nod/articleshow/132126831.cms",
-      "first_seen": "2026-07-04T11:18:33.041Z"
-    },
-    {
-      "id": "bad2188f76",
-      "company_id": "sector",
-      "date": "2026-07-02",
-      "kind": "catalyst",
-      "horizon": "recent",
-      "impact": "positive",
-      "headline": "Aditya Birla Health says it aims to grow ahead of industry in FY27",
-      "detail": "ABHI’s stated growth ambition signals continued competitive intensity in retail health insurance, relevant for market-share and pricing assumptions across peers.",
-      "source_name": "moneycontrol.com",
-      "source_url": "https://www.moneycontrol.com/banking/health-insurance-moving-from-hospitalization-cover-to-preventive-healthcare-aditya-birla-health-ceo-article-13929893.html",
-      "source_published_at": "2026-07-02",
-      "first_seen": "2026-07-05T11:23:57.879Z",
-      "discovered_at": "2026-07-05T11:23:57.879Z"
-    },
-    {
-      "id": "8bf3cdceab",
-      "company_id": "sector",
-      "date": "2026-07-02",
-      "kind": "regulatory",
-      "horizon": "recent",
-      "impact": "negative",
-      "headline": "IRDAI clears Prudential HCL Health Insurance entry",
-      "detail": "A new standalone health insurer adds competition in an already crowded segment, raising the risk of tougher pricing, distribution battles and higher customer-acquisition spend.",
-      "source_name": "economictimes.indiatimes.com",
-      "source_url": "https://economictimes.indiatimes.com/markets/stocks/news/prudential-hcl-health-insurance-gets-irdai-nod/articleshow/132126831.cms",
-      "source_published_at": "2026-07-02",
-      "first_seen": "2026-07-06T06:19:46.701Z",
-      "discovered_at": "2026-07-06T06:19:46.701Z"
-    },
-    {
-      "id": "f4e7589a3a",
-      "company_id": "sector",
-      "date": "2026-07-02",
-      "kind": "sector_news",
-      "horizon": "recent",
-      "impact": "positive",
-      "headline": "Health insurers lead June premium growth, says YES Securities",
-      "detail": "Strong industry premium momentum is a read-through positive for listed health insurers, especially players with retail-health exposure such as Niva Bupa and Star Health.",
-      "source_name": "bfsi.economictimes.indiatimes.com",
-      "source_url": "https://bfsi.economictimes.indiatimes.com/articles/general-insurance-premiums-soar-16-in-june-with-health-insurers-leading-growth-yes-securities-report/132283360",
-      "source_published_at": null,
-      "first_seen": "2026-07-09T16:22:46.308Z",
-      "discovered_at": "2026-07-09T16:22:46.308Z"
-    },
-    {
-      "id": "a9a581005e",
-      "company_id": "sector",
-      "date": null,
-      "kind": "sector_news",
-      "horizon": "recent",
-      "impact": "neutral",
-      "headline": "impact",
-      "detail": "headline",
-      "source_name": null,
-      "source_url": null,
-      "source_published_at": null,
-      "first_seen": "2026-08-03T05:32:55.410Z",
-      "discovered_at": "2026-08-03T05:32:55.410Z"
     }
   ]
 }
