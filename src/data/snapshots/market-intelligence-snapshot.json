@@ -4,8 +4,8 @@
     "description": "AI-generated market intelligence for the SAHI health insurers — investor meets, earnings/board dates, sector & regulatory news, share catalysts. Web-sourced; each item links its source. AI-generated, not audited.",
     "schema_version": "1.0.0",
     "dataset": "ai_generated",
-    "last_updated": "2026-08-02",
-    "last_successful_run": "2026-08-02T14:54:34.299Z",
+    "last_updated": "2026-08-03",
+    "last_successful_run": "2026-08-03T05:32:55.410Z",
     "upstream_sources": [
       "muns_agent_web"
     ],
@@ -103,21 +103,6 @@
       "source_published_at": "2026-07-31",
       "first_seen": "2026-08-02T14:54:34.299Z",
       "discovered_at": "2026-08-02T14:54:34.299Z"
-    },
-    {
-      "id": "03e89b4c5a",
-      "company_id": "niva-bupa",
-      "date": "2026-07-30",
-      "kind": "board_meeting",
-      "horizon": "upcoming",
-      "impact": "watch",
-      "headline": "Board to meet July 30 for Q1 FY27 results + NCD fundraising",
-      "detail": "Board will approve Q1 FY27 unaudited results and consider raising capital via NCDs, a key near-term catalyst for the stock.",
-      "source_name": "whalesbook.com",
-      "source_url": "https://www.whalesbook.com/corporate-news/English/bankingfinance/Niva-Bupa-Board-to-Meet-July-30-for-Q1-Results-NCD-Fundraising/6a6201950037f071726c3ea1",
-      "source_published_at": "2026-07-23",
-      "first_seen": "2026-07-29T15:50:09.819Z",
-      "discovered_at": "2026-07-29T15:50:09.819Z"
     },
     {
       "id": "40c9dab923",
@@ -892,6 +877,21 @@
       "source_published_at": null,
       "first_seen": "2026-07-09T16:22:46.308Z",
       "discovered_at": "2026-07-09T16:22:46.308Z"
+    },
+    {
+      "id": "a9a581005e",
+      "company_id": "sector",
+      "date": null,
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "impact",
+      "detail": "headline",
+      "source_name": null,
+      "source_url": null,
+      "source_published_at": null,
+      "first_seen": "2026-08-03T05:32:55.410Z",
+      "discovered_at": "2026-08-03T05:32:55.410Z"
     }
   ]
 }
