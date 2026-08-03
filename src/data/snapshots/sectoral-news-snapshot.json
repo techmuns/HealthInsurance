@@ -3,14 +3,91 @@
     "snapshot_id": "sectoral-news-snapshot",
     "description": "Key Sectoral News feed — a permanent seed of 31 curated portfolio-pack updates, kept current by a scheduled muns web-search agent. Each item links its source. Seed items are curated; agent items are AI-gathered (web), clearly labelled and not audited.",
     "schema_version": "1.0.0",
-    "last_updated": "2026-07-30",
-    "last_successful_run": "2026-07-30T08:27:33.119Z",
+    "last_updated": "2026-08-03",
+    "last_successful_run": "2026-08-03T09:45:41.073Z",
     "seed_count": 31,
-    "agent_count": 160,
+    "agent_count": 174,
     "generated_by": "Seed: investor portfolio pack. Updates: AI (muns agent, web search).",
     "notes": "Seed floor can never be lost. Agent items are de-duped by subject+date and verified-before-acting."
   },
   "data": [
+    {
+      "sn": 192,
+      "category": "General",
+      "date": "2026-08-03",
+      "subject": "General Insurance Council defends fever admission advisory",
+      "summary": "Industry body defended an advisory guiding hospitals on fever-related hospital admissions amid concerns over unnecessary hospitalization driving up claims — a claims-management flashpoint directly affecting insurer loss ratios and hospital-insurer relations.",
+      "reference": "https://www.whalesbook.com/news/English/insurance/General-Insurance-Council-Defends-Fever-Admission-Advisory/6a7032fe0f4505b5a03e5a4c",
+      "id": "18106f385019a2",
+      "origin": "agent",
+      "added_at": "2026-08-03"
+    },
+    {
+      "sn": 193,
+      "category": "Regulatory",
+      "date": "2026-08-02",
+      "subject": "Why your health insurance sum insured may need a boost now",
+      "summary": "Coverage discussing regulatory and market push for policyholders to raise sum insured amid rising treatment costs, tying into IRDAI's broader policyholder-protection agenda and likely to influence higher-ticket product demand for insurers.",
+      "reference": "https://www.whalesbook.com/news/English/insurance/Why-Your-Health-Insurance-Sum-Insured-May-Need-A-Boost-Now/6a6f696c0f4505b5a03db219",
+      "id": "134cfbeff3c13c",
+      "origin": "agent",
+      "added_at": "2026-08-03"
+    },
+    {
+      "sn": 196,
+      "category": "General",
+      "date": "2026-07-31",
+      "subject": "Niva Bupa retail health share climbs as Q1 FY27 slides highlight demand mix shift",
+      "summary": "Company presentation flagged rising retail share within its overall book alongside profit doubling YoY, reflecting continuing structural growth in India's underpenetrated retail health insurance market that benefits scaled standalone players.",
+      "reference": "https://www.investing.com/news/company-news/niva-bupa-q1-fy2027-slides-profit-doubles-retail-share-climbs-93CH-4824825",
+      "id": "123a2a43a55af3",
+      "origin": "agent",
+      "added_at": "2026-08-03"
+    },
+    {
+      "sn": 195,
+      "category": "Competition / Peers",
+      "date": "2026-07-31",
+      "subject": "Niva Bupa FII stake climbs to 12.09%, highest in five quarters",
+      "summary": "Foreign institutional investors added **149bps** to their Niva Bupa holding in Q1 FY27 even as promoter Bupa Singapore held steady at **55.30%**, suggesting growing international confidence in India's listed standalone health insurers despite valuation concerns.",
+      "reference": "https://www.marketsmojo.com/news/result-analysis/niva-bupa-q1-fy27-profitability-surge-masks-valuation-concerns-4130374",
+      "id": "040d94ad38992c",
+      "origin": "agent",
+      "added_at": "2026-08-03"
+    },
+    {
+      "sn": 194,
+      "category": "Profitability",
+      "date": "2026-07-31",
+      "subject": "Niva Bupa Q1 FY27 profit surges 93% YoY but ROE stays weak",
+      "summary": "Net profit rose to **₹137.80 crore** (up **92.93%** YoY) on **28.56%** revenue growth and operating margin expansion to **8.10%**, yet ROE of just **4.56%** and a stretched **120.90x** trailing P/E raise sustainability and valuation concerns for investors.",
+      "reference": "https://www.marketsmojo.com/news/result-analysis/niva-bupa-q1-fy27-profitability-surge-masks-valuation-concerns-4130374",
+      "id": "1865df84875033",
+      "origin": "agent",
+      "added_at": "2026-08-03"
+    },
+    {
+      "sn": 200,
+      "category": "Profitability",
+      "date": "2026-07-30",
+      "subject": "Star Health flags reinsurance cost tailwind and loss-ratio guidance for FY27-28",
+      "summary": "Management guided that reinsurance costs should fall to **0.5-0.6%** of premium in FY27-28 from **~0.9%** in FY26, and expense ratio should improve **30-40bps** annually, while cautioning that growth could moderate in H2 FY27 once the GST-waiver-driven demand surge anniversaries.",
+      "reference": "https://www.investing.com/news/company-news/star-health-q1-fy27-slides-underwriting-profit-surges-digital-accelerates-93CH-4822335",
+      "id": "1c6eb706fd49cf",
+      "origin": "agent",
+      "added_at": "2026-08-03"
+    },
+    {
+      "sn": 199,
+      "category": "Profitability",
+      "date": "2026-07-30",
+      "subject": "Star Health Q1 FY27: underwriting profit surges, combined ratio improves",
+      "summary": "Gross written premium grew **19%** YoY to **₹4,287 crore**, underwriting profit jumped **~7x** to **₹111 crore**, and the combined insurance service ratio improved to **97.0%** from **98.7%**, with PAT up **25%** to **₹550 crore** — evidence of a genuine underwriting turnaround rather than just top-line growth.",
+      "reference": "https://www.investing.com/news/company-news/star-health-q1-fy27-slides-underwriting-profit-surges-digital-accelerates-93CH-4822335",
+      "id": "074f11c4c09013",
+      "origin": "agent",
+      "added_at": "2026-08-03"
+    },
     {
       "sn": 145,
       "category": "Competition / Peers",
@@ -21,6 +98,28 @@
       "id": "0dcf716bcfc58a",
       "origin": "agent",
       "added_at": "2026-07-20"
+    },
+    {
+      "sn": 198,
+      "category": "Regulatory",
+      "date": "2026-07-29",
+      "subject": "IRDAI grants 4th new insurance licence of 2026, incl. new general insurer",
+      "summary": "ProTec General Insurance Ltd received a Certificate of Registration to commence business, taking 2026's new registrations to four (two general insurers, one health insurer, one reinsurer) — indicating accelerating new entrant activity that could intensify competition for incumbents like Star Health, Niva Bupa and Care Health.",
+      "reference": "https://indianexpress.com/article/business/irdai-insurance-reforms-2026-sbsr-act-100-percent-fdi-protect-general-10809303/",
+      "id": "0ea22f5613fd5a",
+      "origin": "agent",
+      "added_at": "2026-08-03"
+    },
+    {
+      "sn": 197,
+      "category": "Regulatory",
+      "date": "2026-07-29",
+      "subject": "IRDAI unveils sweeping insurance reforms under SBSR Act",
+      "summary": "IRDAI's board approved amendments to actuarial/finance and capital-structure regulations, a new Policyholders' Education and Protection Fund, perpetual intermediary registration, and a penalty-imposition framework; two insurers have already raised foreign shareholding above **74%** following the **100%** FDI move, signalling stronger capital access for health insurers.",
+      "reference": "https://indianexpress.com/article/business/irdai-insurance-reforms-2026-sbsr-act-100-percent-fdi-protect-general-10809303/",
+      "id": "13b0dbcd480c0a",
+      "origin": "agent",
+      "added_at": "2026-08-03"
     },
     {
       "sn": 180,
@@ -221,6 +320,17 @@
       "added_at": "2026-07-23"
     },
     {
+      "sn": 201,
+      "category": "Competition / Peers",
+      "date": "2026-07-21",
+      "subject": "Aditya Birla Capital infuses ₹123.89 crore into health insurance arm via rights issue",
+      "summary": "The capital injection into Aditya Birla Health Insurance (ABHI) was made specifically to help the insurer meet IRDAI solvency margin requirements, with Aditya Birla Capital's **45.89%** stake unchanged — signals capital strain among mid-sized standalone health insurers even as growth continues.",
+      "reference": "https://www.cnbctv18.com/market/aditya-birla-capital-invests-rs123-89-crore-in-health-insurance-arm-via-rights-issue-19950816.htm",
+      "id": "1b090436ce5845",
+      "origin": "agent",
+      "added_at": "2026-08-03"
+    },
+    {
       "sn": 158,
       "category": "Profitability",
       "date": "2026-07-21",
@@ -241,6 +351,28 @@
       "id": "014677c9477156",
       "origin": "agent",
       "added_at": "2026-07-23"
+    },
+    {
+      "sn": 203,
+      "category": "GST",
+      "date": "2026-07-20",
+      "subject": "Group health insurance still taxed at 18% GST, unlike individual policies",
+      "summary": "While individual life/health premiums became GST-exempt from September 2025, employer-paid group health insurance premiums remain subject to **18%** GST in 2026, keeping corporate health cover costlier and creating a bifurcated tax treatment across retail vs. group books for insurers.",
+      "reference": "https://www.acko.com/group-health-insurance/blogs/group-health-insurance-gst-2026/",
+      "id": "15c083175863ca",
+      "origin": "agent",
+      "added_at": "2026-08-03"
+    },
+    {
+      "sn": 202,
+      "category": "Profitability",
+      "date": "2026-07-20",
+      "subject": "Medical inflation running at 12-14% annually in India",
+      "summary": "Experts warn medical costs are rising well above general inflation, meaning a **₹1 lakh** procedure today could cost over **₹7 lakh** in 15 years; this directly pressures health insurers' claims costs and loss ratios, reinforcing the need for policyholders to increase sum insured and insurers to reprice risk.",
+      "reference": "https://whalesbook.com/news/English/insurance/Medical-Inflation-Hits-14percent-How-to-Right-Size-Your-Insurance/6a5e1667fe1c9287f4774aa7",
+      "id": "0ab3d29048676c",
+      "origin": "agent",
+      "added_at": "2026-08-03"
     },
     {
       "sn": 171,
@@ -417,6 +549,17 @@
       "id": "0ddff3b4a37b6d",
       "origin": "agent",
       "added_at": "2026-07-06"
+    },
+    {
+      "sn": 204,
+      "category": "Competition / Peers",
+      "date": "2026-07-01",
+      "subject": "Motilal Oswal initiates coverage on Niva Bupa after profit doubles",
+      "summary": "Brokerage initiation following Niva Bupa's Q1 FY27 profit doubling signals rising sell-side interest in standalone health insurers as a distinct investable theme, which could support relative valuations versus diversified insurers.",
+      "reference": "https://www.whalesbook.com/news/English/brokerage-reports/Niva-Bupa-Profit-Doubles-in-Q1-FY27-Motilal-Oswal-Initiates-Coverage/6a6cd34e0f4505b5a03be938",
+      "id": "166d1743655efe",
+      "origin": "agent",
+      "added_at": "2026-08-03"
     },
     {
       "sn": 160,
@@ -1242,6 +1385,17 @@
       "id": "1837ced350e863",
       "origin": "agent",
       "added_at": "2026-07-16"
+    },
+    {
+      "sn": 205,
+      "category": "Competition / Peers",
+      "date": "2026-05-01",
+      "subject": "ManipalCigna parent Manipal Health completes IPO amid weak grey market signals",
+      "summary": "Manipal Health Enterprises' IPO drew nearly **5x** subscription on the final day but weak GMP pointed to a soft listing, an indirect read-through for ManipalCigna's promoter group's capital-raising appetite and market sentiment toward integrated health players.",
+      "reference": "https://www.moneycontrol.com/news/business/ipo/manipal-health-ipo-allotment-status-check-on-bse-nse-and-registrar-gmp-signals-negative-listing-13991568.html",
+      "id": "014fa320e41190",
+      "origin": "agent",
+      "added_at": "2026-08-03"
     },
     {
       "sn": 175,
