@@ -1,6 +1,6 @@
 {
-  "last_successful_run": "2026-08-03T08:05:34.734Z",
-  "last_failed_run": "2026-08-03T08:05:34.734Z",
+  "last_successful_run": "2026-08-03T08:49:05.023Z",
+  "last_failed_run": "2026-08-03T08:49:05.023Z",
   "sources_checked": 12,
   "sources_success": 5,
   "sources_failed": 2,
@@ -24536,7 +24536,7 @@
     {
       "source_id": "irdai_monthly_business",
       "status": "failed",
-      "last_attempt_at": "2026-08-03T07:54:08.306Z",
+      "last_attempt_at": "2026-08-03T08:37:31.552Z",
       "last_success_at": null,
       "records_fetched": 0,
       "error": "No XLSX link discovered on https://irdai.gov.in/non-life"
@@ -24642,21 +24642,21 @@
     {
       "source_id": "company_disclosures_batch",
       "status": "success",
-      "last_attempt_at": "2026-08-03T07:55:25.890Z",
-      "last_success_at": "2026-08-03T07:55:25.890Z",
+      "last_attempt_at": "2026-08-03T08:38:50.078Z",
+      "last_success_at": "2026-08-03T08:38:50.078Z",
       "records_fetched": 5
     },
     {
       "source_id": "distribution_extract",
       "status": "success",
-      "last_attempt_at": "2026-08-03T08:04:51.459Z",
-      "last_success_at": "2026-08-03T08:04:51.459Z",
+      "last_attempt_at": "2026-08-03T08:48:22.377Z",
+      "last_success_at": "2026-08-03T08:48:22.377Z",
       "records_fetched": 53
     },
     {
       "source_id": "ownership_quarterly",
       "status": "pending",
-      "last_attempt_at": "2026-08-03T08:04:51.736Z",
+      "last_attempt_at": "2026-08-03T08:48:22.744Z",
       "last_success_at": null,
       "records_fetched": 0,
       "error": "fetcher timed out after 6 min (capped so the run always reaches snapshot merge + commit)"
@@ -24671,7 +24671,7 @@
     {
       "source_id": "company_quarterly_disclosures",
       "status": "failed",
-      "last_attempt_at": "2026-08-03T08:04:51.458Z",
+      "last_attempt_at": "2026-08-03T08:48:22.375Z",
       "last_success_at": "2026-06-02T17:35:00.498Z",
       "records_fetched": 0,
       "error": "fetcher timed out after 6 min (capped so the run always reaches snapshot merge + commit)"
@@ -24679,7 +24679,7 @@
     {
       "source_id": "irdai_quarterly_disclosures",
       "status": "pending",
-      "last_attempt_at": "2026-08-03T07:54:57.390Z",
+      "last_attempt_at": "2026-08-03T08:38:24.937Z",
       "last_success_at": null,
       "records_fetched": 0
     },
@@ -24693,21 +24693,21 @@
     {
       "source_id": "gicouncil_flash_sahi",
       "status": "success",
-      "last_attempt_at": "2026-08-03T07:54:13.463Z",
-      "last_success_at": "2026-08-03T07:54:13.463Z",
+      "last_attempt_at": "2026-08-03T08:37:36.313Z",
+      "last_success_at": "2026-08-03T08:37:36.313Z",
       "records_fetched": 91
     },
     {
       "source_id": "gicouncil_segmentwise",
       "status": "success",
-      "last_attempt_at": "2026-08-03T07:54:20.221Z",
-      "last_success_at": "2026-08-03T07:54:20.221Z",
+      "last_attempt_at": "2026-08-03T08:37:43.107Z",
+      "last_success_at": "2026-08-03T08:37:43.107Z",
       "records_fetched": 110
     },
     {
       "source_id": "irdai_nonlife_flash",
       "status": "pending",
-      "last_attempt_at": "2026-08-03T07:54:10.846Z",
+      "last_attempt_at": "2026-08-03T08:37:33.828Z",
       "last_success_at": null,
       "records_fetched": 0
     },
@@ -24736,8 +24736,8 @@
     {
       "source_id": "gicouncil_segmentwise_annual",
       "status": "success",
-      "last_attempt_at": "2026-08-03T07:54:50.431Z",
-      "last_success_at": "2026-08-03T07:54:50.431Z",
+      "last_attempt_at": "2026-08-03T08:38:17.915Z",
+      "last_success_at": "2026-08-03T08:38:17.915Z",
       "records_fetched": 2814
     },
     {
@@ -24772,14 +24772,14 @@
     {
       "source_id": "screener_crosscheck",
       "status": "blocked",
-      "last_attempt_at": "2026-08-03T08:05:19.676Z",
+      "last_attempt_at": "2026-08-03T08:48:50.040Z",
       "last_success_at": null,
       "records_fetched": 0
     },
     {
       "source_id": "trendlyne_backup",
       "status": "pending",
-      "last_attempt_at": "2026-08-03T08:05:21.263Z",
+      "last_attempt_at": "2026-08-03T08:48:51.788Z",
       "last_success_at": null,
       "records_fetched": 0
     }
