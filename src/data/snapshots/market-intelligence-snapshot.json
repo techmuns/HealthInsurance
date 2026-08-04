@@ -5,7 +5,7 @@
     "schema_version": "1.0.0",
     "dataset": "ai_generated",
     "last_updated": "2026-08-04",
-    "last_successful_run": "2026-08-04T08:20:24.920Z",
+    "last_successful_run": "2026-08-04T11:56:31.908Z",
     "upstream_sources": [
       "muns_agent_web"
     ],
@@ -165,6 +165,21 @@
       "discovered_at": "2026-08-03T16:14:42.232Z"
     },
     {
+      "id": "a20ae3e94d",
+      "company_id": "niva-bupa",
+      "date": "2026-07-31",
+      "kind": "rating",
+      "horizon": "recent",
+      "impact": "positive",
+      "headline": "Nomura maintains 'Buy' on Niva Bupa, TP ₹105; projects 23% premium CAGR FY26-29",
+      "detail": "Brokerage cites stabilising loss ratios, improving operating leverage and strong premium growth outlook as key re-rating triggers for the stock.",
+      "source_name": "moneycontrol.com",
+      "source_url": "https://www.moneycontrol.com/news/business/stocks/niva-bupa-gains-as-nomura-maintains-buy-sees-strong-premium-growth-outlook-13991858.html",
+      "source_published_at": "2026-07-31",
+      "first_seen": "2026-08-04T11:56:31.908Z",
+      "discovered_at": "2026-08-04T11:56:31.908Z"
+    },
+    {
       "id": "40c9dab923",
       "company_id": "niva-bupa",
       "date": "2026-07-30",
@@ -270,6 +285,36 @@
       "discovered_at": "2026-08-03T16:14:42.232Z"
     },
     {
+      "id": "ada2879e51",
+      "company_id": "sector",
+      "date": "2026-07-30",
+      "kind": "regulatory",
+      "horizon": "recent",
+      "impact": "watch",
+      "headline": "IRDAI notifies new registration, shareholding & merger regulations in Gazette",
+      "detail": "The IRDAI (Registration, Capital Structure, Transfer of Shares and Amalgamation) Amendment Regulations 2026 set new approval thresholds (5%/10%/25%/50%/75%) for shareholding changes, ease SPV promoter norms, and enable holding-company mergers — material for future stake-sale/listing-linked moves at health insurers.",
+      "source_name": "cnbctv18.com",
+      "source_url": "https://www.cnbctv18.com/business/finance/insurance-sector-new-rulebook-irdai-registration-shareholding-merger-norms-19958730.htm",
+      "source_published_at": "2026-07-31",
+      "first_seen": "2026-08-04T11:56:31.908Z",
+      "discovered_at": "2026-08-04T11:56:31.908Z"
+    },
+    {
+      "id": "8b9c716cee",
+      "company_id": "sector",
+      "date": "2026-07-30",
+      "kind": "regulatory",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "IRDAI grants 4th new insurer registration of CY2026 (ProTec General); one health insurer license also approved in 2026",
+      "detail": "Confirms IRDAI's continued openness to new entrants (2 general insurers, 1 health insurer, 1 reinsurer registered in 2026), a mild dilution/competitive-intensity signal for incumbent standalone health insurers.",
+      "source_name": "indianexpress.com",
+      "source_url": "https://indianexpress.com/article/business/irdai-insurance-reforms-2026-sbsr-act-100-percent-fdi-protect-general-10809303/",
+      "source_published_at": "2026-07-29",
+      "first_seen": "2026-08-04T11:56:31.908Z",
+      "discovered_at": "2026-08-04T11:56:31.908Z"
+    },
+    {
       "id": "bb563b80a3",
       "company_id": "star-health",
       "date": "2026-07-29",
@@ -313,6 +358,21 @@
       "source_published_at": "2026-07-29",
       "first_seen": "2026-08-03T16:14:42.232Z",
       "discovered_at": "2026-08-03T16:14:42.232Z"
+    },
+    {
+      "id": "48a1bd58eb",
+      "company_id": "sector",
+      "date": "2026-07-29",
+      "kind": "regulatory",
+      "horizon": "recent",
+      "impact": "watch",
+      "headline": "IRDAI board approves sweeping reforms — capital, M&A, penalty framework",
+      "detail": "New rules ease capital infusion, amalgamation and share-transfer norms while introducing a formal, structured penalty regime under the SBSR Act — directly affects capital-raising flexibility and M&A optionality for standalone health insurers like Niva Bupa.",
+      "source_name": "indianexpress.com",
+      "source_url": "https://indianexpress.com/article/business/irdai-insurance-reforms-2026-sbsr-act-100-percent-fdi-protect-general-10809303/",
+      "source_published_at": "2026-07-29",
+      "first_seen": "2026-08-04T11:56:31.908Z",
+      "discovered_at": "2026-08-04T11:56:31.908Z"
     },
     {
       "id": "1af35ac86d",
@@ -834,66 +894,6 @@
       "source_published_at": "2026-07-03",
       "first_seen": "2026-07-05T08:43:25.282Z",
       "discovered_at": "2026-07-05T08:43:25.282Z"
-    },
-    {
-      "id": "95a5415b61",
-      "company_id": "sector",
-      "date": "2026-07-03",
-      "kind": "regulatory",
-      "horizon": "recent",
-      "impact": "negative",
-      "headline": "IRDAI weighs broader commission-rule overhaul as scrutiny on sales practices intensifies",
-      "detail": "Even before final rules, stronger regulatory focus on conduct and remuneration is a sentiment overhang for insurers reliant on agency and intermediary distribution.",
-      "source_name": "legal.economictimes.indiatimes.com",
-      "source_url": "https://legal.economictimes.indiatimes.com/news/regulators/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132160041",
-      "source_published_at": "2026-07-03",
-      "first_seen": "2026-07-05T11:23:57.879Z",
-      "discovered_at": "2026-07-05T11:23:57.879Z"
-    },
-    {
-      "id": "e36a29e026",
-      "company_id": "sector",
-      "date": "2026-07-03",
-      "kind": "regulatory",
-      "horizon": "recent",
-      "impact": "negative",
-      "headline": "IRDAI plans staggered commissions and tighter disclosure norms",
-      "detail": "A move away from large upfront commissions could pressure distributor economics, slow aggressive health-policy selling and reshape acquisition costs across standalone health insurers.",
-      "source_name": "bfsi.economictimes.indiatimes.com",
-      "source_url": "https://bfsi.economictimes.indiatimes.com/news/insurance/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132156228",
-      "source_published_at": "2026-07-03",
-      "first_seen": "2026-07-06T06:19:46.701Z",
-      "discovered_at": "2026-07-06T06:19:46.701Z"
-    },
-    {
-      "id": "7a6fc7199f",
-      "company_id": "sector",
-      "date": "2026-07-03",
-      "kind": "sector_news",
-      "horizon": "recent",
-      "impact": "watch",
-      "headline": "RBI flags weak solvency at three state-run general insurers",
-      "detail": "Stress at public-sector non-life insurers raises the odds of tighter supervisory scrutiny, pricing discipline and capital focus across the broader general/health insurance ecosystem.",
-      "source_name": "livemint.com",
-      "source_url": "https://www.livemint.com/insurance/rbi-general-insurers-oriental-united-india-national-insurance-solvency-ratio-11782992284462.html",
-      "source_published_at": "2026-07-03",
-      "first_seen": "2026-07-07T16:18:49.435Z",
-      "discovered_at": "2026-07-07T16:18:49.435Z"
-    },
-    {
-      "id": "b25b62f677",
-      "company_id": "sector",
-      "date": "2026-07-03",
-      "kind": "regulatory",
-      "horizon": "recent",
-      "impact": "watch",
-      "headline": "IRDAI guidelines page shows latest 2026 rulemaking cadence",
-      "detail": "The regulator’s updated legal repository underscores an active pipeline of 2026 guidelines and consultation-led rule changes, keeping compliance, product design and operating-model risk elevated for all standalone health insurers.",
-      "source_name": "irdai.gov.in",
-      "source_url": "https://irdai.gov.in/guidelines",
-      "source_published_at": null,
-      "first_seen": "2026-07-10T05:55:44.792Z",
-      "discovered_at": "2026-07-10T05:55:44.792Z"
     }
   ]
 }
