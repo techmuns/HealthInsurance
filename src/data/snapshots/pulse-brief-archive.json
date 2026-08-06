@@ -24223,6 +24223,694 @@
             }
           }
         ]
+      },
+      "2026-08-06": {
+        "date": "2026-08-06",
+        "company": "Niva Bupa",
+        "companyId": "niva-bupa",
+        "generatedAt": "2026-08-06T05:05:06.447Z",
+        "lastUpdatedAt": "2026-08-06T05:05:06.447Z",
+        "status": "Constructive",
+        "sourceConfidence": "Medium",
+        "itemCount": 47,
+        "runs": [
+          {
+            "runTime": "2026-08-06T05:05:06.447Z",
+            "developments": 55,
+            "sourceCount": 47,
+            "ideas": 6,
+            "status": "ok"
+          }
+        ],
+        "brief": {
+          "greeting": "Good morning",
+          "narrative": "Regulatory pressure is the main watch item for health insurers today. Niva Bupa remains supported by premium growth and demand, but claims-cost and conduct scrutiny will decide whether the strength is sustainable.",
+          "attentionCount": 6,
+          "developmentsCount": 55,
+          "sourcesCount": 47,
+          "domainsCount": 17,
+          "confidencePct": 70,
+          "confidenceTier": "Medium",
+          "readingMins": 3,
+          "lastUpdatedLabel": "5 Aug, 03:54 pm"
+        },
+        "message": {
+          "since": "No company-specific movement for Niva Bupa since the last brief — the read below is sector & regulatory context that applies across standalone health insurers.",
+          "keyThing": "New perpetual registration (subject to annual fee) for agents/brokers/TPAs plus mandatory salesperson-tagging from Jan 2027; insurers can now invest up to 20% in AA-rated…",
+          "why": "Growth is only as good as the claims and expense ratios behind it — that is the real question now.",
+          "watch": "any fresh IRDAI clarification, and expense-ratio movement",
+          "nothing": false
+        },
+        "one": {
+          "sentence": "New perpetual registration (subject to annual fee) for agents/brokers/TPAs plus mandatory salesperson-tagging from Jan 2027; insurers can now invest up to 20% in AA-rated infra…",
+          "status": "Watch"
+        },
+        "ideas": [
+          {
+            "id": "744e54ff03",
+            "entity": "Niva Bupa",
+            "stars": 5,
+            "reasoning": [
+              "Nomura cites improving loss ratio (**63%**, -382bps YoY) and **23-25%** premium growth outlook for FY27-28; expects ROE to reach **12-15.9%** by FY29 vs **14.8%** in Q1 FY27.",
+              "Niva Bupa's market value is 4.98 times its statutory book value, but the company currently earns just 4.1% on that book (return on equity)."
+            ],
+            "whatToWatch": "Whether the next results confirm the rating and the price target.",
+            "confidencePct": 78,
+            "evidenceCount": 5,
+            "status": "Constructive",
+            "category": "Analyst Action",
+            "why": {
+              "whatHappened": "Nomura maintains 'Buy', TP ₹105 on Niva Bupa",
+              "whyItMatters": "Nomura cites improving loss ratio (**63%**, -382bps YoY) and **23-25%** premium growth outlook for FY27-28; expects ROE to reach **12-15.9%** by FY29 vs **14.8%** in Q1 FY27.",
+              "whoAffected": "Niva Bupa shareholders and anyone tracking its re-rating.",
+              "historicalContext": "Niva Bupa's market value is 4.98 times its statutory book value, but the company currently earns just 4.1% on that book (return on equity).",
+              "potentialImpact": "Share gains only help the thesis if they are profitable share — watch the claims ratio as the book grows, not just the share number.",
+              "whatToWatch": "Whether the next results confirm the rating and the price target."
+            },
+            "action": {
+              "id": "margins",
+              "label": "Compare Niva Bupa margin",
+              "icon": "margins",
+              "target": {
+                "page": "sahi",
+                "sahiTab": "profitability",
+                "company": "niva-bupa",
+                "focus": {
+                  "id": "pulse-margins",
+                  "metricKey": "combined_ratio",
+                  "metricLabel": "Combined ratio",
+                  "company": "niva-bupa",
+                  "companyLabel": "Niva Bupa",
+                  "comparisonType": "YoY",
+                  "tone": "neutral",
+                  "insightLabel": "Underwriting margin — combined ratio",
+                  "unit": "%",
+                  "higherIsBetter": false,
+                  "sahiTab": "profitability",
+                  "origin": "pulse"
+                }
+              }
+            },
+            "isBreaking": false,
+            "isNew": false,
+            "freshness": "existing",
+            "freshnessLabel": "Existing context",
+            "publishedLabel": "3 Aug",
+            "discoveredLabel": "3 Aug",
+            "sources": [
+              {
+                "kind": "Analyst report",
+                "name": "moneycontrol.com",
+                "url": "https://www.moneycontrol.com/news/business/stocks/niva-bupa-gains-as-nomura-maintains-buy-sees-strong-premium-growth-outlook-13991858.html/amp)"
+              },
+              {
+                "kind": "Analyst report",
+                "name": "moneycontrol.com",
+                "url": "https://moneycontrol.com/news/business/buy-niva-bupa-target-of-rs-103-motilal-oswal-13990519.html"
+              },
+              {
+                "kind": "Analyst report",
+                "name": "moneycontrol.com",
+                "url": "https://www.moneycontrol.com/news/business/buy-niva-bupa-target-of-rs-103-motilal-oswal-13990519.html)"
+              },
+              {
+                "kind": "Analyst report",
+                "name": "moneycontrol.com",
+                "url": "https://www.moneycontrol.com/news/business/stocks/niva-bupa-gains-as-nomura-maintains-buy-sees-strong-premium-growth-outlook-13991858.html"
+              },
+              {
+                "kind": "Analyst report",
+                "name": "marketsmojo.com",
+                "url": "https://www.marketsmojo.com/news/stock-recommendation/niva-bupa-health-insurance-company-ltd-is-rated-hold-4073966"
+              }
+            ],
+            "impact": "Positive",
+            "scope": "company",
+            "companyId": "niva-bupa",
+            "sourceUrl": "https://www.moneycontrol.com/news/business/stocks/niva-bupa-gains-as-nomura-maintains-buy-sees-strong-premium-growth-outlook-13991858.html/amp)",
+            "sourceConfidence": "Medium",
+            "clusterSize": 2,
+            "clusterSources": [
+              {
+                "kind": "Analyst report",
+                "name": "moneycontrol.com",
+                "url": "https://www.moneycontrol.com/news/business/stocks/niva-bupa-gains-as-nomura-maintains-buy-sees-strong-premium-growth-outlook-13991858.html/amp)"
+              }
+            ],
+            "independentSources": 1
+          },
+          {
+            "id": "6375158b1f",
+            "entity": "Niva Bupa",
+            "stars": 5,
+            "reasoning": [
+              "Gross premium +32% YoY, retail health GWP +47% YoY, combined ratio improved 300bp to 100.2% — bullish valuation call at 30x FY28E IFRS PAT.",
+              "Niva Bupa's market value is 4.98 times its statutory book value, but the company currently earns just 4.1% on that book (return on equity)."
+            ],
+            "whatToWatch": "Whether the next results confirm the rating and the price target.",
+            "confidencePct": 78,
+            "evidenceCount": 5,
+            "status": "Constructive",
+            "category": "Analyst Action",
+            "why": {
+              "whatHappened": "Motilal Oswal initiates Buy, TP ₹103",
+              "whyItMatters": "Gross premium +32% YoY, retail health GWP +47% YoY, combined ratio improved 300bp to 100.2% — bullish valuation call at 30x FY28E IFRS PAT.",
+              "whoAffected": "Niva Bupa shareholders and anyone tracking its re-rating.",
+              "historicalContext": "Niva Bupa's market value is 4.98 times its statutory book value, but the company currently earns just 4.1% on that book (return on equity).",
+              "potentialImpact": "Share gains only help the thesis if they are profitable share — watch the claims ratio as the book grows, not just the share number.",
+              "whatToWatch": "Whether the next results confirm the rating and the price target."
+            },
+            "action": {
+              "id": "margins",
+              "label": "Compare Niva Bupa margin",
+              "icon": "margins",
+              "target": {
+                "page": "sahi",
+                "sahiTab": "profitability",
+                "company": "niva-bupa",
+                "focus": {
+                  "id": "pulse-margins",
+                  "metricKey": "combined_ratio",
+                  "metricLabel": "Combined ratio",
+                  "company": "niva-bupa",
+                  "companyLabel": "Niva Bupa",
+                  "comparisonType": "YoY",
+                  "tone": "neutral",
+                  "insightLabel": "Underwriting margin — combined ratio",
+                  "unit": "%",
+                  "higherIsBetter": false,
+                  "sahiTab": "profitability",
+                  "origin": "pulse"
+                }
+              }
+            },
+            "isBreaking": false,
+            "isNew": false,
+            "freshness": "existing",
+            "freshnessLabel": "Existing context",
+            "publishedLabel": "31 Jul",
+            "discoveredLabel": "2 Aug",
+            "sources": [
+              {
+                "kind": "Analyst report",
+                "name": "moneycontrol.com",
+                "url": "https://moneycontrol.com/news/business/buy-niva-bupa-target-of-rs-103-motilal-oswal-13990519.html"
+              },
+              {
+                "kind": "Analyst report",
+                "name": "moneycontrol.com",
+                "url": "https://www.moneycontrol.com/news/business/stocks/niva-bupa-gains-as-nomura-maintains-buy-sees-strong-premium-growth-outlook-13991858.html/amp)"
+              },
+              {
+                "kind": "Analyst report",
+                "name": "moneycontrol.com",
+                "url": "https://www.moneycontrol.com/news/business/buy-niva-bupa-target-of-rs-103-motilal-oswal-13990519.html)"
+              },
+              {
+                "kind": "Analyst report",
+                "name": "moneycontrol.com",
+                "url": "https://www.moneycontrol.com/news/business/stocks/niva-bupa-gains-as-nomura-maintains-buy-sees-strong-premium-growth-outlook-13991858.html"
+              },
+              {
+                "kind": "Analyst report",
+                "name": "marketsmojo.com",
+                "url": "https://www.marketsmojo.com/news/stock-recommendation/niva-bupa-health-insurance-company-ltd-is-rated-hold-4073966"
+              }
+            ],
+            "impact": "Positive",
+            "scope": "company",
+            "companyId": "niva-bupa",
+            "sourceUrl": "https://moneycontrol.com/news/business/buy-niva-bupa-target-of-rs-103-motilal-oswal-13990519.html",
+            "sourceConfidence": "Medium",
+            "clusterSize": 2,
+            "clusterSources": [
+              {
+                "kind": "Analyst report",
+                "name": "moneycontrol.com",
+                "url": "https://moneycontrol.com/news/business/buy-niva-bupa-target-of-rs-103-motilal-oswal-13990519.html"
+              }
+            ],
+            "independentSources": 1
+          },
+          {
+            "id": "47681a1d73",
+            "entity": "Niva Bupa",
+            "stars": 5,
+            "reasoning": [
+              "Parent Bupa has already lifted holding from below 50% to 56% amid 100% FDI-under-automatic-route reform; further increase would be a re-rating trigger",
+              "Retail and public the market cut their stake in Niva Bupa from 25.4% to 18.7% during Q1 FY26."
+            ],
+            "whatToWatch": "Execution and continuity after the leadership change.",
+            "confidencePct": 78,
+            "evidenceCount": 5,
+            "status": "Constructive",
+            "category": "Management",
+            "why": {
+              "whatHappened": "Bupa open to raising stake in Niva Bupa, says Deputy CEO Ankur Kharbanda",
+              "whyItMatters": "Parent Bupa has already lifted holding from below 50% to 56% amid 100% FDI-under-automatic-route reform; further increase would be a re-rating trigger",
+              "whoAffected": "Niva Bupa's board, leadership continuity and its shareholders.",
+              "historicalContext": "Retail and public the market cut their stake in Niva Bupa from 25.4% to 18.7% during Q1 FY26.",
+              "potentialImpact": "Next shareholding filing — Public reverting toward 25.4%.",
+              "whatToWatch": "Execution and continuity after the leadership change."
+            },
+            "action": {
+              "id": "ownership",
+              "label": "Review Niva Bupa ownership",
+              "icon": "ownership",
+              "target": {
+                "page": "sahi",
+                "sahiTab": "governance",
+                "company": "niva-bupa",
+                "focus": {
+                  "id": "pulse-ownership",
+                  "metricKey": "promoter_holding",
+                  "metricLabel": "Promoter holding",
+                  "company": "niva-bupa",
+                  "companyLabel": "Niva Bupa",
+                  "comparisonType": "sequential",
+                  "tone": "neutral",
+                  "insightLabel": "Ownership — promoter holding trend",
+                  "unit": "%",
+                  "higherIsBetter": true,
+                  "sahiTab": "governance",
+                  "origin": "pulse"
+                }
+              }
+            },
+            "isBreaking": false,
+            "isNew": false,
+            "freshness": "existing",
+            "freshnessLabel": "Existing context",
+            "publishedLabel": "24 Jul",
+            "discoveredLabel": "1 Aug",
+            "sources": [
+              {
+                "kind": "Filing",
+                "name": "business-standard.com",
+                "url": "https://www.business-standard.com/companies/news/bupa-open-to-raising-stake-in-niva-bupa-says-deputy-ceo-ankur-kharbanda-126072001360_1.html"
+              },
+              {
+                "kind": "Filing",
+                "name": "groww.in",
+                "url": "https://groww.in/stocks/niva-bupa-health-insurance-company-ltd"
+              },
+              {
+                "kind": "Filing",
+                "name": "ndtvprofit.com",
+                "url": "https://www.ndtvprofit.com/markets/niva-bupa-health-q1-results-profit-doubles-insurance-revenue-crosses-rs-2-200-crore-11843320"
+              },
+              {
+                "kind": "Filing",
+                "name": "business-standard.com",
+                "url": "https://www.business-standard.com/amp/companies/news/bupa-open-to-raising-stake-in-niva-bupa-says-deputy-ceo-ankur-kharbanda-126072001360_1.html"
+              },
+              {
+                "kind": "Filing",
+                "name": "thehindubusinessline.com",
+                "url": "https://www.thehindubusinessline.com/money-and-banking/a-large-part-of-niva-bupas-focus-is-attracting-young-customers-says-deputy-ceo-ankur-kharbanda/article71245958.ece"
+              }
+            ],
+            "impact": "Positive",
+            "scope": "company",
+            "companyId": "niva-bupa",
+            "sourceUrl": "https://www.business-standard.com/companies/news/bupa-open-to-raising-stake-in-niva-bupa-says-deputy-ceo-ankur-kharbanda-126072001360_1.html",
+            "sourceConfidence": "Medium",
+            "clusterSize": 3,
+            "clusterSources": [
+              {
+                "kind": "Filing",
+                "name": "business-standard.com",
+                "url": "https://www.business-standard.com/companies/news/bupa-open-to-raising-stake-in-niva-bupa-says-deputy-ceo-ankur-kharbanda-126072001360_1.html"
+              }
+            ],
+            "independentSources": 1
+          },
+          {
+            "id": "40c9dab923",
+            "entity": "Niva Bupa",
+            "stars": 5,
+            "reasoning": [
+              "Insurance revenue rose 28.5% YoY to Rs 2,274 crore, GWP up 31.7%, signalling strong retail-led growth momentum for the stock",
+              "Retail and public the market cut their stake in Niva Bupa from 25.4% to 18.7% during Q1 FY26."
+            ],
+            "whatToWatch": "The next disclosure for confirmation of the trend.",
+            "confidencePct": 78,
+            "evidenceCount": 4,
+            "status": "Constructive",
+            "category": "Filing",
+            "why": {
+              "whatHappened": "Q1 FY27 net profit up 93% to Rs 138 cr; revenue crosses Rs 2,200 cr",
+              "whyItMatters": "Insurance revenue rose 28.5% YoY to Rs 2,274 crore, GWP up 31.7%, signalling strong retail-led growth momentum for the stock",
+              "whoAffected": "Niva Bupa directly — its premium growth, margins and shareholders.",
+              "historicalContext": "Retail and public the market cut their stake in Niva Bupa from 25.4% to 18.7% during Q1 FY26.",
+              "potentialImpact": "Next shareholding filing — Public reverting toward 25.4%.",
+              "whatToWatch": "The next disclosure for confirmation of the trend."
+            },
+            "action": {
+              "id": "source",
+              "label": "Verify Niva Bupa sources",
+              "icon": "source",
+              "target": {
+                "page": "audit",
+                "company": "niva-bupa"
+              }
+            },
+            "isBreaking": false,
+            "isNew": false,
+            "freshness": "existing",
+            "freshnessLabel": "Existing context",
+            "publishedLabel": "30 Jul",
+            "discoveredLabel": "1 Aug",
+            "sources": [
+              {
+                "kind": "Filing",
+                "name": "ndtvprofit.com",
+                "url": "https://www.ndtvprofit.com/markets/niva-bupa-health-q1-results-profit-doubles-insurance-revenue-crosses-rs-2-200-crore-11843320"
+              },
+              {
+                "kind": "Filing",
+                "name": "ndtvprofit.com",
+                "url": "https://www.ndtvprofit.com/markets/niva-bupa-health-q1-results-profit-doubles-insurance-revenue-crosses-rs-2-200-crore-11843320)"
+              },
+              {
+                "kind": "Market data",
+                "name": "Q4 FY25 earnings call",
+                "url": "https://transactions.nivabupa.com/pages/doc/investor-relations/Earnings-Calls/2024-2025/Earnings-Call-Transcript-Q4-FY-2025.pdf"
+              },
+              {
+                "kind": "Market data",
+                "name": "1 curated source-backed insight",
+                "url": ""
+              }
+            ],
+            "impact": "Positive",
+            "scope": "company",
+            "companyId": "niva-bupa",
+            "sourceUrl": "https://www.ndtvprofit.com/markets/niva-bupa-health-q1-results-profit-doubles-insurance-revenue-crosses-rs-2-200-crore-11843320",
+            "sourceConfidence": "Medium",
+            "clusterSize": 1,
+            "clusterSources": [
+              {
+                "kind": "Filing",
+                "name": "ndtvprofit.com",
+                "url": "https://www.ndtvprofit.com/markets/niva-bupa-health-q1-results-profit-doubles-insurance-revenue-crosses-rs-2-200-crore-11843320"
+              }
+            ],
+            "independentSources": 1
+          },
+          {
+            "id": "0fca67dab9",
+            "entity": "Niva Bupa",
+            "stars": 5,
+            "reasoning": [
+              "Insurance revenue up 28.5% to ₹2,274 cr; RoE improved to 3.7% from 2.1% YoY on Ind AS transition — a direct positive read-through for the stock.",
+              "Retail and public the market cut their stake in Niva Bupa from 25.4% to 18.7% during Q1 FY26."
+            ],
+            "whatToWatch": "The next disclosure for confirmation of the trend.",
+            "confidencePct": 78,
+            "evidenceCount": 4,
+            "status": "Constructive",
+            "category": "Filing",
+            "why": {
+              "whatHappened": "Q1 FY27 net profit doubles to ₹138 cr, up 93% YoY",
+              "whyItMatters": "Insurance revenue up 28.5% to ₹2,274 cr; RoE improved to 3.7% from 2.1% YoY on Ind AS transition — a direct positive read-through for the stock.",
+              "whoAffected": "Niva Bupa directly — its premium growth, margins and shareholders.",
+              "historicalContext": "Retail and public the market cut their stake in Niva Bupa from 25.4% to 18.7% during Q1 FY26.",
+              "potentialImpact": "Next shareholding filing — Public reverting toward 25.4%.",
+              "whatToWatch": "The next disclosure for confirmation of the trend."
+            },
+            "action": {
+              "id": "source",
+              "label": "Verify Niva Bupa sources",
+              "icon": "source",
+              "target": {
+                "page": "audit",
+                "company": "niva-bupa"
+              }
+            },
+            "isBreaking": false,
+            "isNew": false,
+            "freshness": "existing",
+            "freshnessLabel": "Existing context",
+            "publishedLabel": "30 Jul",
+            "discoveredLabel": "2 Aug",
+            "sources": [
+              {
+                "kind": "Filing",
+                "name": "ndtvprofit.com",
+                "url": "https://www.ndtvprofit.com/markets/niva-bupa-health-q1-results-profit-doubles-insurance-revenue-crosses-rs-2-200-crore-11843320"
+              },
+              {
+                "kind": "Filing",
+                "name": "ndtvprofit.com",
+                "url": "https://www.ndtvprofit.com/markets/niva-bupa-health-q1-results-profit-doubles-insurance-revenue-crosses-rs-2-200-crore-11843320)"
+              },
+              {
+                "kind": "Market data",
+                "name": "Q4 FY25 earnings call",
+                "url": "https://transactions.nivabupa.com/pages/doc/investor-relations/Earnings-Calls/2024-2025/Earnings-Call-Transcript-Q4-FY-2025.pdf"
+              },
+              {
+                "kind": "Market data",
+                "name": "1 curated source-backed insight",
+                "url": ""
+              }
+            ],
+            "impact": "Positive",
+            "scope": "company",
+            "companyId": "niva-bupa",
+            "sourceUrl": "https://www.ndtvprofit.com/markets/niva-bupa-health-q1-results-profit-doubles-insurance-revenue-crosses-rs-2-200-crore-11843320",
+            "sourceConfidence": "Medium",
+            "clusterSize": 2,
+            "clusterSources": [
+              {
+                "kind": "Filing",
+                "name": "ndtvprofit.com",
+                "url": "https://www.ndtvprofit.com/markets/niva-bupa-health-q1-results-profit-doubles-insurance-revenue-crosses-rs-2-200-crore-11843320"
+              }
+            ],
+            "independentSources": 1
+          },
+          {
+            "id": "81e8fbad12",
+            "entity": "Niva Bupa",
+            "stars": 5,
+            "reasoning": [
+              "Strong FY26 exit run-rate (sales +29.1% YoY in Q4) and market-share gains (+76bps) set the base against which the Q1 FY27 print (due July 30) will be judged.",
+              "Solvency 3.03x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency."
+            ],
+            "whatToWatch": "Whether the sector move feeds through to premium growth and pricing.",
+            "confidencePct": 78,
+            "evidenceCount": 5,
+            "status": "Constructive",
+            "category": "Sector Catalyst",
+            "why": {
+              "whatHappened": "Q4 FY26 net profit up 67.5% YoY to ₹345 crore; market share at 10.1%",
+              "whyItMatters": "Strong FY26 exit run-rate (sales +29.1% YoY in Q4) and market-share gains (+76bps) set the base against which the Q1 FY27 print (due July 30) will be judged.",
+              "whoAffected": "Niva Bupa directly — its premium growth, margins and shareholders.",
+              "historicalContext": "Solvency 3.03x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency.",
+              "potentialImpact": "Solvency vs the 1.5x regulatory floor",
+              "whatToWatch": "Whether the sector move feeds through to premium growth and pricing."
+            },
+            "action": {
+              "id": "margins",
+              "label": "Compare Niva Bupa margin",
+              "icon": "margins",
+              "target": {
+                "page": "sahi",
+                "sahiTab": "profitability",
+                "company": "niva-bupa",
+                "focus": {
+                  "id": "pulse-margins",
+                  "metricKey": "combined_ratio",
+                  "metricLabel": "Combined ratio",
+                  "company": "niva-bupa",
+                  "companyLabel": "Niva Bupa",
+                  "comparisonType": "YoY",
+                  "tone": "neutral",
+                  "insightLabel": "Underwriting margin — combined ratio",
+                  "unit": "%",
+                  "higherIsBetter": false,
+                  "sahiTab": "profitability",
+                  "origin": "pulse"
+                }
+              }
+            },
+            "isBreaking": false,
+            "isNew": false,
+            "freshness": "existing",
+            "freshnessLabel": "Existing context",
+            "publishedLabel": "20 Jul",
+            "discoveredLabel": "29 Jul",
+            "sources": [
+              {
+                "kind": "News",
+                "name": "business-standard.com",
+                "url": "https://www.business-standard.com/amp/companies/news/bupa-open-to-raising-stake-in-niva-bupa-says-deputy-ceo-ankur-kharbanda-126072001360_1.html"
+              },
+              {
+                "kind": "News",
+                "name": "business-standard.com",
+                "url": "https://www.business-standard.com/amp/markets/capital-market-news/volumes-spurt-at-niva-bupa-health-insurance-company-ltd-counter-126073100826_1.html"
+              },
+              {
+                "kind": "News",
+                "name": "marketsmojo.com",
+                "url": "https://www.marketsmojo.com/news/stocks-in-action/niva-bupa-health-insurance-sees-bullish-technical-momentum-amid-mixed-market-returns-4097854"
+              },
+              {
+                "kind": "News",
+                "name": "ndtvprofit.com",
+                "url": "https://www.ndtvprofit.com/markets/niva-bupa-star-health-get-buy-calls-as-nomura-initiates-on-four-insurers-check-target-prices"
+              },
+              {
+                "kind": "News",
+                "name": "transactions.nivabupa.com",
+                "url": "https://transactions.nivabupa.com/pages/investor-relations.aspx"
+              }
+            ],
+            "impact": "Positive",
+            "scope": "company",
+            "companyId": "niva-bupa",
+            "sourceUrl": "https://www.business-standard.com/amp/companies/news/bupa-open-to-raising-stake-in-niva-bupa-says-deputy-ceo-ankur-kharbanda-126072001360_1.html",
+            "sourceConfidence": "Medium",
+            "clusterSize": 1,
+            "clusterSources": [
+              {
+                "kind": "News",
+                "name": "business-standard.com",
+                "url": "https://www.business-standard.com/amp/companies/news/bupa-open-to-raising-stake-in-niva-bupa-says-deputy-ceo-ankur-kharbanda-126072001360_1.html"
+              }
+            ],
+            "independentSources": 1
+          }
+        ],
+        "sinceDeltas": [
+          {
+            "id": "co",
+            "label": "company-specific updates",
+            "value": "0",
+            "direction": "flat",
+            "tone": "Neutral",
+            "target": {
+              "page": "sahi",
+              "sahiTab": "companies",
+              "company": "niva-bupa",
+              "focus": {
+                "id": "pulse-since-co",
+                "kind": "locator",
+                "locatorKind": "company",
+                "metricKey": "company",
+                "metricLabel": "Company update",
+                "company": "niva-bupa",
+                "companyLabel": "Niva Bupa",
+                "comparisonType": "trend",
+                "tone": "neutral",
+                "insightLabel": "No Niva Bupa-specific updates",
+                "unit": "",
+                "sahiTab": "companies",
+                "origin": "pulse"
+              }
+            }
+          },
+          {
+            "id": "moves",
+            "label": "unusual market moves",
+            "value": "0",
+            "direction": "flat",
+            "tone": "Positive",
+            "target": {
+              "page": "sahi",
+              "sahiTab": "valuation",
+              "company": "niva-bupa",
+              "focus": {
+                "id": "pulse-since-moves",
+                "kind": "locator",
+                "locatorKind": "market_move",
+                "metricKey": "market_move",
+                "metricLabel": "Market moves",
+                "company": "niva-bupa",
+                "companyLabel": "Niva Bupa",
+                "comparisonType": "trend",
+                "tone": "neutral",
+                "insightLabel": "No unusual market moves",
+                "unit": "",
+                "sahiTab": "valuation",
+                "origin": "pulse"
+              }
+            }
+          }
+        ],
+        "events": [],
+        "actions": [
+          {
+            "id": "ownership",
+            "label": "Review Niva Bupa ownership",
+            "icon": "ownership",
+            "target": {
+              "page": "sahi",
+              "sahiTab": "governance",
+              "company": "niva-bupa",
+              "focus": {
+                "id": "pulse-ownership",
+                "metricKey": "promoter_holding",
+                "metricLabel": "Promoter holding",
+                "company": "niva-bupa",
+                "companyLabel": "Niva Bupa",
+                "comparisonType": "sequential",
+                "tone": "neutral",
+                "insightLabel": "Ownership — promoter holding trend",
+                "unit": "%",
+                "higherIsBetter": true,
+                "sahiTab": "governance",
+                "origin": "pulse"
+              }
+            }
+          },
+          {
+            "id": "margins",
+            "label": "Compare Niva Bupa margin",
+            "icon": "margins",
+            "target": {
+              "page": "sahi",
+              "sahiTab": "profitability",
+              "company": "niva-bupa",
+              "focus": {
+                "id": "pulse-margins",
+                "metricKey": "combined_ratio",
+                "metricLabel": "Combined ratio",
+                "company": "niva-bupa",
+                "companyLabel": "Niva Bupa",
+                "comparisonType": "YoY",
+                "tone": "neutral",
+                "insightLabel": "Underwriting margin — combined ratio",
+                "unit": "%",
+                "higherIsBetter": false,
+                "sahiTab": "profitability",
+                "origin": "pulse"
+              }
+            }
+          },
+          {
+            "id": "source",
+            "label": "Verify Niva Bupa sources",
+            "icon": "source",
+            "target": {
+              "page": "audit",
+              "company": "niva-bupa"
+            }
+          },
+          {
+            "id": "regulation",
+            "label": "Check IRDAI on claims cost",
+            "icon": "regulation",
+            "target": {
+              "page": "sahi",
+              "sahiTab": "governance",
+              "company": "niva-bupa"
+            }
+          }
+        ]
       }
     },
     "star-health": {
@@ -47961,6 +48649,689 @@
             "href": "https://scanx.trade/stock-market-news/companies/star-health-insurance-schedules-analyst-meet-in-hong-kong-on-aug-5/47123836)"
           }
         ]
+      },
+      "2026-08-06": {
+        "date": "2026-08-06",
+        "company": "Star Health",
+        "companyId": "star-health",
+        "generatedAt": "2026-08-06T05:05:06.447Z",
+        "lastUpdatedAt": "2026-08-06T05:05:06.447Z",
+        "status": "Constructive",
+        "sourceConfidence": "Medium",
+        "itemCount": 38,
+        "runs": [
+          {
+            "runTime": "2026-08-06T05:05:06.447Z",
+            "developments": 44,
+            "sourceCount": 39,
+            "ideas": 6,
+            "status": "ok"
+          }
+        ],
+        "brief": {
+          "greeting": "Good morning",
+          "narrative": "Regulatory pressure is the main watch item for health insurers today. Star Health is under pressure on premium growth and demand, but claims-cost and conduct scrutiny and upcoming disclosures will decide whether the strength is sustainable.",
+          "attentionCount": 6,
+          "developmentsCount": 44,
+          "sourcesCount": 39,
+          "domainsCount": 15,
+          "confidencePct": 70,
+          "confidenceTier": "Medium",
+          "readingMins": 3,
+          "lastUpdatedLabel": "5 Aug, 03:54 pm"
+        },
+        "message": {
+          "since": "No company-specific movement for Star Health since the last brief — the read below is sector & regulatory context that applies across standalone health insurers.",
+          "keyThing": "New perpetual registration (subject to annual fee) for agents/brokers/TPAs plus mandatory salesperson-tagging from Jan 2027; insurers can now invest up to 20% in AA-rated…",
+          "why": "Growth is only as good as the claims and expense ratios behind it — that is the real question now.",
+          "watch": "any fresh IRDAI clarification, and expense-ratio movement",
+          "nothing": false
+        },
+        "one": {
+          "sentence": "New perpetual registration (subject to annual fee) for agents/brokers/TPAs plus mandatory salesperson-tagging from Jan 2027; insurers can now invest up to 20% in AA-rated infra…",
+          "status": "Watch"
+        },
+        "ideas": [
+          {
+            "id": "22b7817da6",
+            "entity": "Star Health",
+            "stars": 5,
+            "reasoning": [
+              "Loss ratio improved 104bp to 67.5%; Nomura lifts FY27–29 profit estimates by 1–11%, projects 17% GWP growth — benchmarks sector profitability trajectory.",
+              "Star Health's market value is 4.66 times its statutory book value, but the company currently earns just 7.3% on that book (return on equity)."
+            ],
+            "whatToWatch": "Whether the next results confirm the rating and the price target.",
+            "confidencePct": 78,
+            "evidenceCount": 5,
+            "status": "Constructive",
+            "category": "Analyst Action",
+            "why": {
+              "whatHappened": "Nomura raises TP to ₹700 (from ₹675), maintains Buy",
+              "whyItMatters": "Loss ratio improved 104bp to 67.5%; Nomura lifts FY27–29 profit estimates by 1–11%, projects 17% GWP growth — benchmarks sector profitability trajectory.",
+              "whoAffected": "Star Health shareholders and anyone tracking its re-rating.",
+              "historicalContext": "Star Health's market value is 4.66 times its statutory book value, but the company currently earns just 7.3% on that book (return on equity).",
+              "potentialImpact": "Share gains only help the thesis if they are profitable share — watch the claims ratio as the book grows, not just the share number.",
+              "whatToWatch": "Whether the next results confirm the rating and the price target."
+            },
+            "action": {
+              "id": "margins",
+              "label": "Compare Star Health margin",
+              "icon": "margins",
+              "target": {
+                "page": "sahi",
+                "sahiTab": "profitability",
+                "company": "star-health",
+                "focus": {
+                  "id": "pulse-margins",
+                  "metricKey": "combined_ratio",
+                  "metricLabel": "Combined ratio",
+                  "company": "star-health",
+                  "companyLabel": "Star Health",
+                  "comparisonType": "YoY",
+                  "tone": "neutral",
+                  "insightLabel": "Underwriting margin — combined ratio",
+                  "unit": "%",
+                  "higherIsBetter": false,
+                  "sahiTab": "profitability",
+                  "origin": "pulse"
+                }
+              }
+            },
+            "isBreaking": false,
+            "isNew": false,
+            "freshness": "existing",
+            "freshnessLabel": "Existing context",
+            "publishedLabel": "31 Jul",
+            "discoveredLabel": "2 Aug",
+            "sources": [
+              {
+                "kind": "Analyst report",
+                "name": "moneycontrol.com",
+                "url": "https://www.moneycontrol.com/news/business/stocks/star-health-q1-profit-beats-estimates-nomura-raises-target-price-to-rs-700-maintains-buy-13989958.html"
+              },
+              {
+                "kind": "Analyst report",
+                "name": "moneycontrol.com",
+                "url": "https://www.moneycontrol.com/news/business/buy-star-health-target-of-rs-770-motilal-oswal-13990523.html"
+              },
+              {
+                "kind": "Analyst report",
+                "name": "moneycontrol.com",
+                "url": "https://www.moneycontrol.com/news/business/stocks/star-health-q1-profit-beats-estimates-nomura-raises-target-price-to-rs-700-maintains-buy-13989958.html)"
+              },
+              {
+                "kind": "Analyst report",
+                "name": "marketsmojo.com",
+                "url": "https://www.marketsmojo.com/news/stock-recommendation/star-health-allied-insurance-company-ltd-is-rated-hold-4115182"
+              },
+              {
+                "kind": "Market data",
+                "name": "Derived from insurer-annual-snapshot + industry-segment-premium",
+                "url": "https://www.prnewswire.com/in/news-releases/star-health-insurance-reports-strong-performance-q1fy26-pat-grows-44-to-inr-438-cr-ifrs-premium-grows-13-302517057.html"
+              }
+            ],
+            "impact": "Positive",
+            "scope": "company",
+            "companyId": "star-health",
+            "sourceUrl": "https://www.moneycontrol.com/news/business/stocks/star-health-q1-profit-beats-estimates-nomura-raises-target-price-to-rs-700-maintains-buy-13989958.html",
+            "sourceConfidence": "Medium",
+            "clusterSize": 2,
+            "clusterSources": [
+              {
+                "kind": "Analyst report",
+                "name": "moneycontrol.com",
+                "url": "https://www.moneycontrol.com/news/business/stocks/star-health-q1-profit-beats-estimates-nomura-raises-target-price-to-rs-700-maintains-buy-13989958.html"
+              }
+            ],
+            "independentSources": 1
+          },
+          {
+            "id": "5cf394bd89",
+            "entity": "Star Health",
+            "stars": 5,
+            "reasoning": [
+              "Additional brokerage endorsement following strong Q1 print reinforces bullish sector sentiment on standalone health insurers.",
+              "Star Health's market value is 4.66 times its statutory book value, but the company currently earns just 7.3% on that book (return on equity)."
+            ],
+            "whatToWatch": "Whether the next results confirm the rating and the price target.",
+            "confidencePct": 78,
+            "evidenceCount": 5,
+            "status": "Constructive",
+            "category": "Analyst Action",
+            "why": {
+              "whatHappened": "Motilal Oswal Buy call, TP ₹770",
+              "whyItMatters": "Additional brokerage endorsement following strong Q1 print reinforces bullish sector sentiment on standalone health insurers.",
+              "whoAffected": "Star Health shareholders and anyone tracking its re-rating.",
+              "historicalContext": "Star Health's market value is 4.66 times its statutory book value, but the company currently earns just 7.3% on that book (return on equity).",
+              "potentialImpact": "Share gains only help the thesis if they are profitable share — watch the claims ratio as the book grows, not just the share number.",
+              "whatToWatch": "Whether the next results confirm the rating and the price target."
+            },
+            "action": {
+              "id": "margins",
+              "label": "Compare Star Health margin",
+              "icon": "margins",
+              "target": {
+                "page": "sahi",
+                "sahiTab": "profitability",
+                "company": "star-health",
+                "focus": {
+                  "id": "pulse-margins",
+                  "metricKey": "combined_ratio",
+                  "metricLabel": "Combined ratio",
+                  "company": "star-health",
+                  "companyLabel": "Star Health",
+                  "comparisonType": "YoY",
+                  "tone": "neutral",
+                  "insightLabel": "Underwriting margin — combined ratio",
+                  "unit": "%",
+                  "higherIsBetter": false,
+                  "sahiTab": "profitability",
+                  "origin": "pulse"
+                }
+              }
+            },
+            "isBreaking": false,
+            "isNew": false,
+            "freshness": "existing",
+            "freshnessLabel": "Existing context",
+            "publishedLabel": "31 Jul",
+            "discoveredLabel": "2 Aug",
+            "sources": [
+              {
+                "kind": "Analyst report",
+                "name": "moneycontrol.com",
+                "url": "https://www.moneycontrol.com/news/business/buy-star-health-target-of-rs-770-motilal-oswal-13990523.html"
+              },
+              {
+                "kind": "Analyst report",
+                "name": "moneycontrol.com",
+                "url": "https://www.moneycontrol.com/news/business/stocks/star-health-q1-profit-beats-estimates-nomura-raises-target-price-to-rs-700-maintains-buy-13989958.html"
+              },
+              {
+                "kind": "Analyst report",
+                "name": "moneycontrol.com",
+                "url": "https://www.moneycontrol.com/news/business/stocks/star-health-q1-profit-beats-estimates-nomura-raises-target-price-to-rs-700-maintains-buy-13989958.html)"
+              },
+              {
+                "kind": "Analyst report",
+                "name": "marketsmojo.com",
+                "url": "https://www.marketsmojo.com/news/stock-recommendation/star-health-allied-insurance-company-ltd-is-rated-hold-4115182"
+              },
+              {
+                "kind": "Market data",
+                "name": "Derived from insurer-annual-snapshot + industry-segment-premium",
+                "url": "https://www.prnewswire.com/in/news-releases/star-health-insurance-reports-strong-performance-q1fy26-pat-grows-44-to-inr-438-cr-ifrs-premium-grows-13-302517057.html"
+              }
+            ],
+            "impact": "Positive",
+            "scope": "company",
+            "companyId": "star-health",
+            "sourceUrl": "https://www.moneycontrol.com/news/business/buy-star-health-target-of-rs-770-motilal-oswal-13990523.html",
+            "sourceConfidence": "Medium",
+            "clusterSize": 1,
+            "clusterSources": [
+              {
+                "kind": "Analyst report",
+                "name": "moneycontrol.com",
+                "url": "https://www.moneycontrol.com/news/business/buy-star-health-target-of-rs-770-motilal-oswal-13990523.html"
+              }
+            ],
+            "independentSources": 1
+          },
+          {
+            "id": "3d7b01a9cf",
+            "entity": "Star Health",
+            "stars": 5,
+            "reasoning": [
+              "Normalised earnings growth outpaces reported growth, underscoring improving core underwriting profitability per management",
+              "Domestic funds raised their stake in Star Health from 15.4% to 21.1% during Q1 FY26."
+            ],
+            "whatToWatch": "The next disclosure for confirmation of the trend.",
+            "confidencePct": 78,
+            "evidenceCount": 5,
+            "status": "Constructive",
+            "category": "Filing",
+            "why": {
+              "whatHappened": "Normalised PAT of Rs 386 crore in Q1 FY27, up 44% YoY",
+              "whyItMatters": "Normalised earnings growth outpaces reported growth, underscoring improving core underwriting profitability per management",
+              "whoAffected": "Star Health directly — its premium growth, margins and shareholders.",
+              "historicalContext": "Domestic funds raised their stake in Star Health from 15.4% to 21.1% during Q1 FY26.",
+              "potentialImpact": "5.6pp of a listed insurer's shareholder base changing hands in one quarter is real money making a real decision.",
+              "whatToWatch": "The next disclosure for confirmation of the trend."
+            },
+            "action": {
+              "id": "source",
+              "label": "Verify Star Health sources",
+              "icon": "source",
+              "target": {
+                "page": "audit",
+                "company": "star-health"
+              }
+            },
+            "isBreaking": false,
+            "isNew": false,
+            "freshness": "existing",
+            "freshnessLabel": "Existing context",
+            "publishedLabel": "30 Jul",
+            "discoveredLabel": "1 Aug",
+            "sources": [
+              {
+                "kind": "Filing",
+                "name": "business-standard.com",
+                "url": "https://www.business-standard.com/amp/content/press-releases-ani/star-health-reports-normalised-pat-of-386-crores-in-q1-fy27-up-44-yoy-underwriting-profit-increases-sharply-to-111-crores-compared-to-16-crores-in-q1-fy26-126073001368_1.html"
+              },
+              {
+                "kind": "Filing",
+                "name": "scanx.trade",
+                "url": "https://scanx.trade/stock-market-news/companies/star-health-insurance-schedules-analyst-meet-in-hong-kong-on-aug-5/47123836)"
+              },
+              {
+                "kind": "Filing",
+                "name": "business-standard.com",
+                "url": "https://business-standard.com/content/press-releases-ani/star-health-reports-normalised-pat-of-386-crores-in-q1-fy27-up-44-yoy-underwriting-profit-increases-sharply-to-111-crores-compared-to-16-crores-in-q1-fy26-126073001368_1.html"
+              },
+              {
+                "kind": "Filing",
+                "name": "economictimes.indiatimes.com",
+                "url": "https://economictimes.indiatimes.com/markets/stocks/earnings/star-health-insurance-q1-results-profit-jumps-25-to-rs-550-crore/articleshow/132716654.cms"
+              },
+              {
+                "kind": "Filing",
+                "name": "ndtvprofit.com",
+                "url": "https://www.ndtvprofit.com/markets/star-health-q1-results-profit-surges-26-to-rs-550-crore-11839016)"
+              }
+            ],
+            "impact": "Positive",
+            "scope": "company",
+            "companyId": "star-health",
+            "sourceUrl": "https://www.business-standard.com/amp/content/press-releases-ani/star-health-reports-normalised-pat-of-386-crores-in-q1-fy27-up-44-yoy-underwriting-profit-increases-sharply-to-111-crores-compared-to-16-crores-in-q1-fy26-126073001368_1.html",
+            "sourceConfidence": "Medium",
+            "clusterSize": 2,
+            "clusterSources": [
+              {
+                "kind": "Filing",
+                "name": "business-standard.com",
+                "url": "https://www.business-standard.com/amp/content/press-releases-ani/star-health-reports-normalised-pat-of-386-crores-in-q1-fy27-up-44-yoy-underwriting-profit-increases-sharply-to-111-crores-compared-to-16-crores-in-q1-fy26-126073001368_1.html"
+              }
+            ],
+            "independentSources": 1
+          },
+          {
+            "id": "936069906d",
+            "entity": "Star Health",
+            "stars": 5,
+            "reasoning": [
+              "Falling solvency margin, even as profit grows, is a watch item for capital adequacy versus regulatory minimum (150%)",
+              "Solvency 2.2x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency."
+            ],
+            "whatToWatch": "Solvency vs the 1.5x regulatory floor",
+            "confidencePct": 78,
+            "evidenceCount": 3,
+            "status": "Risk",
+            "category": "Sector Catalyst",
+            "why": {
+              "whatHappened": "Solvency ratio declines to 209% from 222% YoY",
+              "whyItMatters": "Falling solvency margin, even as profit grows, is a watch item for capital adequacy versus regulatory minimum (150%)",
+              "whoAffected": "Star Health directly — its premium growth, margins and shareholders.",
+              "historicalContext": "Solvency 2.2x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency.",
+              "potentialImpact": "Solvency vs the 1.5x regulatory floor",
+              "whatToWatch": "Solvency vs the 1.5x regulatory floor"
+            },
+            "action": {
+              "id": "margins",
+              "label": "Compare Star Health margin",
+              "icon": "margins",
+              "target": {
+                "page": "sahi",
+                "sahiTab": "profitability",
+                "company": "star-health",
+                "focus": {
+                  "id": "pulse-margins",
+                  "metricKey": "combined_ratio",
+                  "metricLabel": "Combined ratio",
+                  "company": "star-health",
+                  "companyLabel": "Star Health",
+                  "comparisonType": "YoY",
+                  "tone": "neutral",
+                  "insightLabel": "Underwriting margin — combined ratio",
+                  "unit": "%",
+                  "higherIsBetter": false,
+                  "sahiTab": "profitability",
+                  "origin": "pulse"
+                }
+              }
+            },
+            "isBreaking": false,
+            "isNew": false,
+            "freshness": "existing",
+            "freshnessLabel": "Existing context",
+            "publishedLabel": "29 Jul",
+            "discoveredLabel": "1 Aug",
+            "sources": [
+              {
+                "kind": "News",
+                "name": "economictimes.indiatimes.com",
+                "url": "https://economictimes.indiatimes.com/markets/stocks/earnings/star-health-insurance-q1-results-profit-jumps-25-to-rs-550-crore/articleshow/132716654.cms"
+              },
+              {
+                "kind": "News",
+                "name": "marketsmojo.com",
+                "url": "https://www.marketsmojo.com/news/stocks-in-action/star-health-allied-insurance-company-ltd-hits-new-52-week-high-at-rs60595-4095427"
+              },
+              {
+                "kind": "Market data",
+                "name": "Derived from insurer-annual-snapshot + industry-segment-premium",
+                "url": "https://www.prnewswire.com/in/news-releases/star-health-insurance-reports-strong-performance-q1fy26-pat-grows-44-to-inr-438-cr-ifrs-premium-grows-13-302517057.html"
+              }
+            ],
+            "impact": "Risk",
+            "scope": "company",
+            "companyId": "star-health",
+            "sourceUrl": "https://economictimes.indiatimes.com/markets/stocks/earnings/star-health-insurance-q1-results-profit-jumps-25-to-rs-550-crore/articleshow/132716654.cms",
+            "sourceConfidence": "Medium",
+            "clusterSize": 1,
+            "clusterSources": [
+              {
+                "kind": "News",
+                "name": "economictimes.indiatimes.com",
+                "url": "https://economictimes.indiatimes.com/markets/stocks/earnings/star-health-insurance-q1-results-profit-jumps-25-to-rs-550-crore/articleshow/132716654.cms"
+              }
+            ],
+            "independentSources": 1
+          },
+          {
+            "id": "bb563b80a3",
+            "entity": "Star Health",
+            "stars": 5,
+            "reasoning": [
+              "GWP up 19% to Rs 4,287 cr and underwriting profit swung sharply higher from Rs 16 cr YoY, a key positive read for sector pricing",
+              "Domestic funds raised their stake in Star Health from 15.4% to 21.1% during Q1 FY26."
+            ],
+            "whatToWatch": "The next disclosure for confirmation of the trend.",
+            "confidencePct": 78,
+            "evidenceCount": 5,
+            "status": "Constructive",
+            "category": "Filing",
+            "why": {
+              "whatHappened": "Q1 FY27 profit jumps 25% to Rs 550 crore; underwriting profit surges to Rs 111 cr",
+              "whyItMatters": "GWP up 19% to Rs 4,287 cr and underwriting profit swung sharply higher from Rs 16 cr YoY, a key positive read for sector pricing",
+              "whoAffected": "Star Health directly — its premium growth, margins and shareholders.",
+              "historicalContext": "Domestic funds raised their stake in Star Health from 15.4% to 21.1% during Q1 FY26.",
+              "potentialImpact": "5.6pp of a listed insurer's shareholder base changing hands in one quarter is real money making a real decision.",
+              "whatToWatch": "The next disclosure for confirmation of the trend."
+            },
+            "action": {
+              "id": "source",
+              "label": "Verify Star Health sources",
+              "icon": "source",
+              "target": {
+                "page": "audit",
+                "company": "star-health"
+              }
+            },
+            "isBreaking": false,
+            "isNew": false,
+            "freshness": "existing",
+            "freshnessLabel": "Existing context",
+            "publishedLabel": "29 Jul",
+            "discoveredLabel": "1 Aug",
+            "sources": [
+              {
+                "kind": "Filing",
+                "name": "economictimes.indiatimes.com",
+                "url": "https://economictimes.indiatimes.com/markets/stocks/earnings/star-health-insurance-q1-results-profit-jumps-25-to-rs-550-crore/articleshow/132716654.cms"
+              },
+              {
+                "kind": "Filing",
+                "name": "scanx.trade",
+                "url": "https://scanx.trade/stock-market-news/companies/star-health-insurance-schedules-analyst-meet-in-hong-kong-on-aug-5/47123836)"
+              },
+              {
+                "kind": "Filing",
+                "name": "business-standard.com",
+                "url": "https://www.business-standard.com/amp/content/press-releases-ani/star-health-reports-normalised-pat-of-386-crores-in-q1-fy27-up-44-yoy-underwriting-profit-increases-sharply-to-111-crores-compared-to-16-crores-in-q1-fy26-126073001368_1.html"
+              },
+              {
+                "kind": "Filing",
+                "name": "business-standard.com",
+                "url": "https://business-standard.com/content/press-releases-ani/star-health-reports-normalised-pat-of-386-crores-in-q1-fy27-up-44-yoy-underwriting-profit-increases-sharply-to-111-crores-compared-to-16-crores-in-q1-fy26-126073001368_1.html"
+              },
+              {
+                "kind": "Filing",
+                "name": "ndtvprofit.com",
+                "url": "https://www.ndtvprofit.com/markets/star-health-q1-results-profit-surges-26-to-rs-550-crore-11839016)"
+              }
+            ],
+            "impact": "Positive",
+            "scope": "company",
+            "companyId": "star-health",
+            "sourceUrl": "https://economictimes.indiatimes.com/markets/stocks/earnings/star-health-insurance-q1-results-profit-jumps-25-to-rs-550-crore/articleshow/132716654.cms",
+            "sourceConfidence": "Medium",
+            "clusterSize": 1,
+            "clusterSources": [
+              {
+                "kind": "Filing",
+                "name": "economictimes.indiatimes.com",
+                "url": "https://economictimes.indiatimes.com/markets/stocks/earnings/star-health-insurance-q1-results-profit-jumps-25-to-rs-550-crore/articleshow/132716654.cms"
+              }
+            ],
+            "independentSources": 1
+          },
+          {
+            "id": "04d007c5f6",
+            "entity": "Star Health",
+            "stars": 5,
+            "reasoning": [
+              "GWP grew **19%** YoY to **₹4,287cr**; Retail Health fresh GWP up **37%** YoY; Combined Insurance Service Ratio improved to **97.0%** from **98.7%**, best-in-class underwriting discipline among peers.",
+              "Domestic funds raised their stake in Star Health from 15.4% to 21.1% during Q1 FY26."
+            ],
+            "whatToWatch": "The next disclosure for confirmation of the trend.",
+            "confidencePct": 78,
+            "evidenceCount": 5,
+            "status": "Constructive",
+            "category": "Filing",
+            "why": {
+              "whatHappened": "Q1 FY27 profit surges **25.5%** (Ind AS) / **44%** (normalised) to **₹550cr/₹386cr**",
+              "whyItMatters": "GWP grew **19%** YoY to **₹4,287cr**; Retail Health fresh GWP up **37%** YoY; Combined Insurance Service Ratio improved to **97.0%** from **98.7%**, best-in-class underwriting discipline among peers.",
+              "whoAffected": "Star Health directly — its premium growth, margins and shareholders.",
+              "historicalContext": "Domestic funds raised their stake in Star Health from 15.4% to 21.1% during Q1 FY26.",
+              "potentialImpact": "5.6pp of a listed insurer's shareholder base changing hands in one quarter is real money making a real decision.",
+              "whatToWatch": "The next disclosure for confirmation of the trend."
+            },
+            "action": {
+              "id": "source",
+              "label": "Verify Star Health sources",
+              "icon": "source",
+              "target": {
+                "page": "audit",
+                "company": "star-health"
+              }
+            },
+            "isBreaking": false,
+            "isNew": false,
+            "freshness": "existing",
+            "freshnessLabel": "Existing context",
+            "publishedLabel": "29 Jul",
+            "discoveredLabel": "3 Aug",
+            "sources": [
+              {
+                "kind": "Filing",
+                "name": "ndtvprofit.com",
+                "url": "https://www.ndtvprofit.com/markets/star-health-q1-results-profit-surges-26-to-rs-550-crore-11839016)"
+              },
+              {
+                "kind": "Filing",
+                "name": "scanx.trade",
+                "url": "https://scanx.trade/stock-market-news/companies/star-health-insurance-schedules-analyst-meet-in-hong-kong-on-aug-5/47123836)"
+              },
+              {
+                "kind": "Filing",
+                "name": "business-standard.com",
+                "url": "https://www.business-standard.com/amp/content/press-releases-ani/star-health-reports-normalised-pat-of-386-crores-in-q1-fy27-up-44-yoy-underwriting-profit-increases-sharply-to-111-crores-compared-to-16-crores-in-q1-fy26-126073001368_1.html"
+              },
+              {
+                "kind": "Filing",
+                "name": "business-standard.com",
+                "url": "https://business-standard.com/content/press-releases-ani/star-health-reports-normalised-pat-of-386-crores-in-q1-fy27-up-44-yoy-underwriting-profit-increases-sharply-to-111-crores-compared-to-16-crores-in-q1-fy26-126073001368_1.html"
+              },
+              {
+                "kind": "Filing",
+                "name": "economictimes.indiatimes.com",
+                "url": "https://economictimes.indiatimes.com/markets/stocks/earnings/star-health-insurance-q1-results-profit-jumps-25-to-rs-550-crore/articleshow/132716654.cms"
+              }
+            ],
+            "impact": "Positive",
+            "scope": "company",
+            "companyId": "star-health",
+            "sourceUrl": "https://www.ndtvprofit.com/markets/star-health-q1-results-profit-surges-26-to-rs-550-crore-11839016)",
+            "sourceConfidence": "Medium",
+            "clusterSize": 1,
+            "clusterSources": [
+              {
+                "kind": "Filing",
+                "name": "ndtvprofit.com",
+                "url": "https://www.ndtvprofit.com/markets/star-health-q1-results-profit-surges-26-to-rs-550-crore-11839016)"
+              }
+            ],
+            "independentSources": 1
+          }
+        ],
+        "sinceDeltas": [
+          {
+            "id": "co",
+            "label": "company-specific updates",
+            "value": "0",
+            "direction": "flat",
+            "tone": "Neutral",
+            "target": {
+              "page": "sahi",
+              "sahiTab": "companies",
+              "company": "star-health",
+              "focus": {
+                "id": "pulse-since-co",
+                "kind": "locator",
+                "locatorKind": "company",
+                "metricKey": "company",
+                "metricLabel": "Company update",
+                "company": "star-health",
+                "companyLabel": "Star Health",
+                "comparisonType": "trend",
+                "tone": "neutral",
+                "insightLabel": "No Star Health-specific updates",
+                "unit": "",
+                "sahiTab": "companies",
+                "origin": "pulse"
+              }
+            }
+          },
+          {
+            "id": "moves",
+            "label": "unusual market moves",
+            "value": "0",
+            "direction": "flat",
+            "tone": "Positive",
+            "target": {
+              "page": "sahi",
+              "sahiTab": "valuation",
+              "company": "star-health",
+              "focus": {
+                "id": "pulse-since-moves",
+                "kind": "locator",
+                "locatorKind": "market_move",
+                "metricKey": "market_move",
+                "metricLabel": "Market moves",
+                "company": "star-health",
+                "companyLabel": "Star Health",
+                "comparisonType": "trend",
+                "tone": "neutral",
+                "insightLabel": "No unusual market moves",
+                "unit": "",
+                "sahiTab": "valuation",
+                "origin": "pulse"
+              }
+            }
+          }
+        ],
+        "events": [
+          {
+            "id": "b4fb85da3b",
+            "day": "5",
+            "month": "Aug",
+            "dateLabel": "5 Aug 2026",
+            "kindLabel": "Investor / analyst meet",
+            "title": "Star Health to host in-person analyst meet in Hong Kong",
+            "context": "Meetings scheduled with FMR, BlackRock, and Shikhara Investment Management,…",
+            "url": "https://scanx.trade/stock-market-news/companies/star-health-insurance-schedules-analyst-meet-in-hong-kong-on-aug-5/47123836)",
+            "whenLabel": "Today",
+            "isFirm": false,
+            "impact": "Watch"
+          }
+        ],
+        "actions": [
+          {
+            "id": "ownership",
+            "label": "Review Star Health ownership",
+            "icon": "ownership",
+            "target": {
+              "page": "sahi",
+              "sahiTab": "governance",
+              "company": "star-health",
+              "focus": {
+                "id": "pulse-ownership",
+                "metricKey": "promoter_holding",
+                "metricLabel": "Promoter holding",
+                "company": "star-health",
+                "companyLabel": "Star Health",
+                "comparisonType": "sequential",
+                "tone": "neutral",
+                "insightLabel": "Ownership — promoter holding trend",
+                "unit": "%",
+                "higherIsBetter": true,
+                "sahiTab": "governance",
+                "origin": "pulse"
+              }
+            }
+          },
+          {
+            "id": "margins",
+            "label": "Compare Star Health margin",
+            "icon": "margins",
+            "target": {
+              "page": "sahi",
+              "sahiTab": "profitability",
+              "company": "star-health",
+              "focus": {
+                "id": "pulse-margins",
+                "metricKey": "combined_ratio",
+                "metricLabel": "Combined ratio",
+                "company": "star-health",
+                "companyLabel": "Star Health",
+                "comparisonType": "YoY",
+                "tone": "neutral",
+                "insightLabel": "Underwriting margin — combined ratio",
+                "unit": "%",
+                "higherIsBetter": false,
+                "sahiTab": "profitability",
+                "origin": "pulse"
+              }
+            }
+          },
+          {
+            "id": "source",
+            "label": "Verify Star Health sources",
+            "icon": "source",
+            "target": {
+              "page": "audit",
+              "company": "star-health"
+            }
+          },
+          {
+            "id": "agm",
+            "label": "Watch Star Health meet",
+            "icon": "agm",
+            "href": "https://scanx.trade/stock-market-news/companies/star-health-insurance-schedules-analyst-meet-in-hong-kong-on-aug-5/47123836)"
+          }
+        ]
       }
     },
     "care-health": {
@@ -71591,6 +72962,665 @@
             }
           }
         ]
+      },
+      "2026-08-06": {
+        "date": "2026-08-06",
+        "company": "Care Health",
+        "companyId": "care-health",
+        "generatedAt": "2026-08-06T05:05:06.447Z",
+        "lastUpdatedAt": "2026-08-06T05:05:06.447Z",
+        "status": "Watch",
+        "sourceConfidence": "Medium",
+        "itemCount": 28,
+        "runs": [
+          {
+            "runTime": "2026-08-06T05:05:06.447Z",
+            "developments": 29,
+            "sourceCount": 28,
+            "ideas": 6,
+            "status": "ok"
+          }
+        ],
+        "brief": {
+          "greeting": "Good morning",
+          "narrative": "Regulatory pressure is the main watch item for health insurers today. Care Health is under pressure on premium growth and demand, but claims-cost and conduct scrutiny will decide whether the strength is sustainable.",
+          "attentionCount": 6,
+          "developmentsCount": 29,
+          "sourcesCount": 28,
+          "domainsCount": 14,
+          "confidencePct": 68,
+          "confidenceTier": "Medium",
+          "readingMins": 4,
+          "lastUpdatedLabel": "5 Aug, 03:54 pm"
+        },
+        "message": {
+          "since": "No company-specific movement for Care Health since the last brief — the read below is sector & regulatory context that applies across standalone health insurers.",
+          "keyThing": "New perpetual registration (subject to annual fee) for agents/brokers/TPAs plus mandatory salesperson-tagging from Jan 2027; insurers can now invest up to 20% in AA-rated…",
+          "why": "The near-term read now turns on how the new rules land on pricing, commissions and cost.",
+          "watch": "any fresh IRDAI clarification, and expense-ratio movement",
+          "nothing": false
+        },
+        "one": {
+          "sentence": "New perpetual registration (subject to annual fee) for agents/brokers/TPAs plus mandatory salesperson-tagging from Jan 2027; insurers can now invest up to 20% in AA-rated infra…",
+          "status": "Watch"
+        },
+        "ideas": [
+          {
+            "id": "23fb9e20b0",
+            "entity": "IRDAI likely to tighten commission norms for intermediaries",
+            "stars": 4,
+            "reasoning": [
+              "Lower commissions and higher disclosure requirements would pressure distribution economics across health and general insurers, especially in commission-heavy retail health.",
+              "Care Health's capital cushion (solvency ratio) stands at 1.68x against the regulator's 1.5x minimum — that sounds safe, but growing premium at 20.4% a year consumes capital mechanically."
+            ],
+            "whatToWatch": "The impact on claims cost, expense ratio and pricing as rules tighten.",
+            "confidencePct": 78,
+            "evidenceCount": 5,
+            "status": "Risk",
+            "category": "Regulatory",
+            "why": {
+              "whatHappened": "IRDAI likely to tighten commission norms for intermediaries",
+              "whyItMatters": "Lower commissions and higher disclosure requirements would pressure distribution economics across health and general insurers, especially in commission-heavy retail health.",
+              "whoAffected": "Every standalone health insurer (SAHI) — pricing, product design and compliance cost.",
+              "historicalContext": "Care Health's capital cushion (solvency ratio) stands at 1.68x against the regulator's 1.5x minimum — that sounds safe, but growing premium at 20.4% a year consumes capital mechanically.",
+              "potentialImpact": "Solvency sits close enough to the floor that a capital raise or slower growth is a live possibility.",
+              "whatToWatch": "The impact on claims cost, expense ratio and pricing as rules tighten."
+            },
+            "action": {
+              "id": "regulation",
+              "label": "Check IRDAI on claims cost",
+              "icon": "regulation",
+              "target": {
+                "page": "sahi",
+                "sahiTab": "governance",
+                "company": "care-health"
+              }
+            },
+            "isBreaking": false,
+            "isNew": false,
+            "freshness": "existing",
+            "freshnessLabel": "Existing context",
+            "publishedLabel": "4 Jul",
+            "discoveredLabel": "5 Jul",
+            "sources": [
+              {
+                "kind": "Regulatory",
+                "name": "indianexpress.com",
+                "url": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "business-standard.com",
+                "url": "https://www.business-standard.com/amp/finance/insurance/irdai-tightens-intermediary-rules-eases-insurers-investment-norms-126073101478_1.html"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "cnbctv18.com",
+                "url": "https://www.cnbctv18.com/business/finance/insurance-sector-new-rulebook-irdai-registration-shareholding-merger-norms-19958730.htm"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "indianexpress.com",
+                "url": "https://indianexpress.com/article/business/irdai-insurance-reforms-2026-sbsr-act-100-percent-fdi-protect-general-10809303/"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "irdai.gov.in",
+                "url": "https://irdai.gov.in/web/guest/document-detail?documentId=394937"
+              }
+            ],
+            "impact": "Risk",
+            "scope": "sector",
+            "companyId": null,
+            "sourceUrl": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494",
+            "sourceConfidence": "Medium",
+            "clusterSize": 4,
+            "clusterSources": [
+              {
+                "kind": "Regulatory",
+                "name": "businesstoday.in",
+                "url": "https://businesstoday.in/personal-finance/insurance/story/insurance-commission-overhaul-irdais-proposal-can-boost-customer-trust-curb-mis-selling-experts-541797-2026-07-09"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "indianexpress.com",
+                "url": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "livemint.com",
+                "url": "https://www.livemint.com/money/personal-finance/irdai-plans-insurance-commission-overhaul-to-curb-mis-selling-with-staggered-payouts-and-stricter-transparency-rules-11783065965488.html"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "bfsi.economictimes.indiatimes.com",
+                "url": "https://bfsi.economictimes.indiatimes.com/news/insurance/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132156228"
+              }
+            ],
+            "independentSources": 4
+          },
+          {
+            "id": "c37fbcf9de",
+            "entity": "IRDAI tightens intermediary rules, eases insurers' investment norms",
+            "stars": 4,
+            "reasoning": [
+              "New perpetual registration (subject to annual fee) for agents/brokers/TPAs plus mandatory salesperson-tagging from Jan 2027; insurers can now invest up to 20% in AA-rated infra SPVs and more in AIFs/VCFs — affects…",
+              "Care Health's capital cushion (solvency ratio) stands at 1.68x against the regulator's 1.5x minimum — that sounds safe, but growing premium at 20.4% a year consumes capital mechanically."
+            ],
+            "whatToWatch": "The impact on claims cost, expense ratio and pricing as rules tighten.",
+            "confidencePct": 78,
+            "evidenceCount": 5,
+            "status": "Watch",
+            "category": "Regulatory",
+            "why": {
+              "whatHappened": "IRDAI tightens intermediary rules, eases insurers' investment norms",
+              "whyItMatters": "New perpetual registration (subject to annual fee) for agents/brokers/TPAs plus mandatory salesperson-tagging from Jan 2027; insurers can now invest up to 20% in AA-rated infra SPVs and more in…",
+              "whoAffected": "Every standalone health insurer (SAHI) — pricing, product design and compliance cost.",
+              "historicalContext": "Care Health's capital cushion (solvency ratio) stands at 1.68x against the regulator's 1.5x minimum — that sounds safe, but growing premium at 20.4% a year consumes capital mechanically.",
+              "potentialImpact": "Solvency sits close enough to the floor that a capital raise or slower growth is a live possibility.",
+              "whatToWatch": "The impact on claims cost, expense ratio and pricing as rules tighten."
+            },
+            "action": {
+              "id": "regulation",
+              "label": "Check IRDAI on claims cost",
+              "icon": "regulation",
+              "target": {
+                "page": "sahi",
+                "sahiTab": "governance",
+                "company": "care-health"
+              }
+            },
+            "isBreaking": false,
+            "isNew": false,
+            "freshness": "existing",
+            "freshnessLabel": "Existing context",
+            "publishedLabel": "31 Jul",
+            "discoveredLabel": "2 Aug",
+            "sources": [
+              {
+                "kind": "Regulatory",
+                "name": "business-standard.com",
+                "url": "https://www.business-standard.com/amp/finance/insurance/irdai-tightens-intermediary-rules-eases-insurers-investment-norms-126073101478_1.html"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "cnbctv18.com",
+                "url": "https://www.cnbctv18.com/business/finance/insurance-sector-new-rulebook-irdai-registration-shareholding-merger-norms-19958730.htm"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "indianexpress.com",
+                "url": "https://indianexpress.com/article/business/irdai-insurance-reforms-2026-sbsr-act-100-percent-fdi-protect-general-10809303/"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "irdai.gov.in",
+                "url": "https://irdai.gov.in/web/guest/document-detail?documentId=394937"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "legal.economictimes.indiatimes.com",
+                "url": "https://legal.economictimes.indiatimes.com/news/litigation/motor-insurance-consider-issuing-circular-standardising-cross-border-coverage-clauses-sc-to-irdai/132519178"
+              }
+            ],
+            "impact": "Watch",
+            "scope": "sector",
+            "companyId": null,
+            "sourceUrl": "https://www.business-standard.com/amp/finance/insurance/irdai-tightens-intermediary-rules-eases-insurers-investment-norms-126073101478_1.html",
+            "sourceConfidence": "Medium",
+            "clusterSize": 1,
+            "clusterSources": [
+              {
+                "kind": "Regulatory",
+                "name": "business-standard.com",
+                "url": "https://www.business-standard.com/amp/finance/insurance/irdai-tightens-intermediary-rules-eases-insurers-investment-norms-126073101478_1.html"
+              }
+            ],
+            "independentSources": 1
+          },
+          {
+            "id": "ada2879e51",
+            "entity": "IRDAI notifies new registration, shareholding & merger regulations in Gazette",
+            "stars": 4,
+            "reasoning": [
+              "The IRDAI (Registration, Capital Structure, Transfer of Shares and Amalgamation) Amendment Regulations 2026 set new approval thresholds (5%/10%/25%/50%/75%) for shareholding changes, ease SPV promoter norms, and enable…",
+              "Care Health's capital cushion (solvency ratio) stands at 1.68x against the regulator's 1.5x minimum — that sounds safe, but growing premium at 20.4% a year consumes capital mechanically."
+            ],
+            "whatToWatch": "Capital action — A share issue or debt raise, or growth slowing enough to visibly stop the erosion.",
+            "confidencePct": 78,
+            "evidenceCount": 5,
+            "status": "Watch",
+            "category": "Regulatory",
+            "why": {
+              "whatHappened": "IRDAI notifies new registration, shareholding & merger regulations in Gazette",
+              "whyItMatters": "The IRDAI (Registration, Capital Structure, Transfer of Shares and Amalgamation) Amendment Regulations 2026 set new approval thresholds (5%/10%/25%/50%/75%) for shareholding changes, ease SPV…",
+              "whoAffected": "Every standalone health insurer (SAHI) — pricing, product design and compliance cost.",
+              "historicalContext": "Care Health's capital cushion (solvency ratio) stands at 1.68x against the regulator's 1.5x minimum — that sounds safe, but growing premium at 20.4% a year consumes capital mechanically.",
+              "potentialImpact": "Solvency sits close enough to the floor that a capital raise or slower growth is a live possibility.",
+              "whatToWatch": "Capital action — A share issue or debt raise, or growth slowing enough to visibly stop the erosion."
+            },
+            "action": {
+              "id": "regulation",
+              "label": "Check IRDAI on claims cost",
+              "icon": "regulation",
+              "target": {
+                "page": "sahi",
+                "sahiTab": "governance",
+                "company": "care-health"
+              }
+            },
+            "isBreaking": false,
+            "isNew": false,
+            "freshness": "existing",
+            "freshnessLabel": "Existing context",
+            "publishedLabel": "31 Jul",
+            "discoveredLabel": "4 Aug",
+            "sources": [
+              {
+                "kind": "Regulatory",
+                "name": "cnbctv18.com",
+                "url": "https://www.cnbctv18.com/business/finance/insurance-sector-new-rulebook-irdai-registration-shareholding-merger-norms-19958730.htm"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "business-standard.com",
+                "url": "https://www.business-standard.com/amp/finance/insurance/irdai-tightens-intermediary-rules-eases-insurers-investment-norms-126073101478_1.html"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "indianexpress.com",
+                "url": "https://indianexpress.com/article/business/irdai-insurance-reforms-2026-sbsr-act-100-percent-fdi-protect-general-10809303/"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "irdai.gov.in",
+                "url": "https://irdai.gov.in/web/guest/document-detail?documentId=394937"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "legal.economictimes.indiatimes.com",
+                "url": "https://legal.economictimes.indiatimes.com/news/litigation/motor-insurance-consider-issuing-circular-standardising-cross-border-coverage-clauses-sc-to-irdai/132519178"
+              }
+            ],
+            "impact": "Watch",
+            "scope": "sector",
+            "companyId": null,
+            "sourceUrl": "https://www.cnbctv18.com/business/finance/insurance-sector-new-rulebook-irdai-registration-shareholding-merger-norms-19958730.htm",
+            "sourceConfidence": "Medium",
+            "clusterSize": 1,
+            "clusterSources": [
+              {
+                "kind": "Regulatory",
+                "name": "cnbctv18.com",
+                "url": "https://www.cnbctv18.com/business/finance/insurance-sector-new-rulebook-irdai-registration-shareholding-merger-norms-19958730.htm"
+              }
+            ],
+            "independentSources": 1
+          },
+          {
+            "id": "3d8e8f3345",
+            "entity": "Cashless-facility enforcement remains a live policyholder-protection risk area",
+            "stars": 4,
+            "reasoning": [
+              "IRDAI’s circular requiring empanelled hospitals to honour notified cashless treatment underscores ongoing operational and reputational risk around cashless denial, a core monitorable for all health insurers’ claims…",
+              "Care Health's capital cushion (solvency ratio) stands at 1.68x against the regulator's 1.5x minimum — that sounds safe, but growing premium at 20.4% a year consumes capital mechanically."
+            ],
+            "whatToWatch": "The impact on claims cost, expense ratio and pricing as rules tighten.",
+            "confidencePct": 81,
+            "evidenceCount": 5,
+            "status": "Watch",
+            "category": "Regulatory",
+            "why": {
+              "whatHappened": "Cashless-facility enforcement remains a live policyholder-protection risk area",
+              "whyItMatters": "IRDAI’s circular requiring empanelled hospitals to honour notified cashless treatment underscores ongoing operational and reputational risk around cashless denial, a core monitorable for all health…",
+              "whoAffected": "Every standalone health insurer (SAHI) — pricing, product design and compliance cost.",
+              "historicalContext": "Care Health's capital cushion (solvency ratio) stands at 1.68x against the regulator's 1.5x minimum — that sounds safe, but growing premium at 20.4% a year consumes capital mechanically.",
+              "potentialImpact": "Solvency sits close enough to the floor that a capital raise or slower growth is a live possibility.",
+              "whatToWatch": "The impact on claims cost, expense ratio and pricing as rules tighten."
+            },
+            "action": {
+              "id": "regulation",
+              "label": "Check IRDAI on claims cost",
+              "icon": "regulation",
+              "target": {
+                "page": "sahi",
+                "sahiTab": "governance",
+                "company": "care-health"
+              }
+            },
+            "isBreaking": false,
+            "isNew": false,
+            "freshness": "existing",
+            "freshnessLabel": "Existing context",
+            "publishedLabel": "14 Jul",
+            "discoveredLabel": "13 Jul",
+            "sources": [
+              {
+                "kind": "Regulatory",
+                "name": "irdai.gov.in",
+                "url": "https://irdai.gov.in/web/guest/document-detail?documentId=394937"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "business-standard.com",
+                "url": "https://www.business-standard.com/amp/finance/insurance/irdai-tightens-intermediary-rules-eases-insurers-investment-norms-126073101478_1.html"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "cnbctv18.com",
+                "url": "https://www.cnbctv18.com/business/finance/insurance-sector-new-rulebook-irdai-registration-shareholding-merger-norms-19958730.htm"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "indianexpress.com",
+                "url": "https://indianexpress.com/article/business/irdai-insurance-reforms-2026-sbsr-act-100-percent-fdi-protect-general-10809303/"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "legal.economictimes.indiatimes.com",
+                "url": "https://legal.economictimes.indiatimes.com/news/litigation/motor-insurance-consider-issuing-circular-standardising-cross-border-coverage-clauses-sc-to-irdai/132519178"
+              }
+            ],
+            "impact": "Watch",
+            "scope": "sector",
+            "companyId": null,
+            "sourceUrl": "https://irdai.gov.in/web/guest/document-detail?documentId=394937",
+            "sourceConfidence": "High",
+            "clusterSize": 1,
+            "clusterSources": [
+              {
+                "kind": "Regulatory",
+                "name": "irdai.gov.in",
+                "url": "https://irdai.gov.in/web/guest/document-detail?documentId=394937"
+              }
+            ],
+            "independentSources": 1
+          },
+          {
+            "id": "8b9c716cee",
+            "entity": "IRDAI grants 4th new insurer registration of CY2026 (ProTec General); one health insurer license also approved in 2026",
+            "stars": 4,
+            "reasoning": [
+              "Confirms IRDAI's continued openness to new entrants (2 general insurers, 1 health insurer, 1 reinsurer registered in 2026), a mild dilution/competitive-intensity signal for incumbent standalone health insurers.",
+              "Care Health's capital cushion (solvency ratio) stands at 1.68x against the regulator's 1.5x minimum — that sounds safe, but growing premium at 20.4% a year consumes capital mechanically."
+            ],
+            "whatToWatch": "The impact on claims cost, expense ratio and pricing as rules tighten.",
+            "confidencePct": 78,
+            "evidenceCount": 5,
+            "status": "Neutral",
+            "category": "Regulatory",
+            "why": {
+              "whatHappened": "IRDAI grants 4th new insurer registration of CY2026 (ProTec General); one health insurer license also approved in 2026",
+              "whyItMatters": "Confirms IRDAI's continued openness to new entrants (2 general insurers, 1 health insurer, 1 reinsurer registered in 2026), a mild dilution/competitive-intensity signal for incumbent standalone…",
+              "whoAffected": "Every standalone health insurer (SAHI) — pricing, product design and compliance cost.",
+              "historicalContext": "Care Health's capital cushion (solvency ratio) stands at 1.68x against the regulator's 1.5x minimum — that sounds safe, but growing premium at 20.4% a year consumes capital mechanically.",
+              "potentialImpact": "Solvency sits close enough to the floor that a capital raise or slower growth is a live possibility.",
+              "whatToWatch": "The impact on claims cost, expense ratio and pricing as rules tighten."
+            },
+            "action": {
+              "id": "regulation",
+              "label": "Check IRDAI on claims cost",
+              "icon": "regulation",
+              "target": {
+                "page": "sahi",
+                "sahiTab": "governance",
+                "company": "care-health"
+              }
+            },
+            "isBreaking": false,
+            "isNew": false,
+            "freshness": "existing",
+            "freshnessLabel": "Existing context",
+            "publishedLabel": "29 Jul",
+            "discoveredLabel": "4 Aug",
+            "sources": [
+              {
+                "kind": "Regulatory",
+                "name": "indianexpress.com",
+                "url": "https://indianexpress.com/article/business/irdai-insurance-reforms-2026-sbsr-act-100-percent-fdi-protect-general-10809303/"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "business-standard.com",
+                "url": "https://www.business-standard.com/amp/finance/insurance/irdai-tightens-intermediary-rules-eases-insurers-investment-norms-126073101478_1.html"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "cnbctv18.com",
+                "url": "https://www.cnbctv18.com/business/finance/insurance-sector-new-rulebook-irdai-registration-shareholding-merger-norms-19958730.htm"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "irdai.gov.in",
+                "url": "https://irdai.gov.in/web/guest/document-detail?documentId=394937"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "legal.economictimes.indiatimes.com",
+                "url": "https://legal.economictimes.indiatimes.com/news/litigation/motor-insurance-consider-issuing-circular-standardising-cross-border-coverage-clauses-sc-to-irdai/132519178"
+              }
+            ],
+            "impact": "Neutral",
+            "scope": "sector",
+            "companyId": null,
+            "sourceUrl": "https://indianexpress.com/article/business/irdai-insurance-reforms-2026-sbsr-act-100-percent-fdi-protect-general-10809303/",
+            "sourceConfidence": "Medium",
+            "clusterSize": 1,
+            "clusterSources": [
+              {
+                "kind": "Regulatory",
+                "name": "indianexpress.com",
+                "url": "https://indianexpress.com/article/business/irdai-insurance-reforms-2026-sbsr-act-100-percent-fdi-protect-general-10809303/"
+              }
+            ],
+            "independentSources": 1
+          },
+          {
+            "id": "48a1bd58eb",
+            "entity": "IRDAI board approves sweeping reforms — capital, M&A, penalty framework",
+            "stars": 4,
+            "reasoning": [
+              "New rules ease capital infusion, amalgamation and share-transfer norms while introducing a formal, structured penalty regime under the SBSR Act — directly affects capital-raising flexibility and M&A optionality for…",
+              "Care Health's capital cushion (solvency ratio) stands at 1.68x against the regulator's 1.5x minimum — that sounds safe, but growing premium at 20.4% a year consumes capital mechanically."
+            ],
+            "whatToWatch": "Capital action — A share issue or debt raise, or growth slowing enough to visibly stop the erosion.",
+            "confidencePct": 78,
+            "evidenceCount": 5,
+            "status": "Watch",
+            "category": "Regulatory",
+            "why": {
+              "whatHappened": "IRDAI board approves sweeping reforms — capital, M&A, penalty framework",
+              "whyItMatters": "New rules ease capital infusion, amalgamation and share-transfer norms while introducing a formal, structured penalty regime under the SBSR Act — directly affects capital-raising flexibility and M&A…",
+              "whoAffected": "Every standalone health insurer (SAHI) — pricing, product design and compliance cost.",
+              "historicalContext": "Care Health's capital cushion (solvency ratio) stands at 1.68x against the regulator's 1.5x minimum — that sounds safe, but growing premium at 20.4% a year consumes capital mechanically.",
+              "potentialImpact": "Solvency sits close enough to the floor that a capital raise or slower growth is a live possibility.",
+              "whatToWatch": "Capital action — A share issue or debt raise, or growth slowing enough to visibly stop the erosion."
+            },
+            "action": {
+              "id": "regulation",
+              "label": "Check IRDAI on claims cost",
+              "icon": "regulation",
+              "target": {
+                "page": "sahi",
+                "sahiTab": "governance",
+                "company": "care-health"
+              }
+            },
+            "isBreaking": false,
+            "isNew": false,
+            "freshness": "existing",
+            "freshnessLabel": "Existing context",
+            "publishedLabel": "29 Jul",
+            "discoveredLabel": "4 Aug",
+            "sources": [
+              {
+                "kind": "Regulatory",
+                "name": "indianexpress.com",
+                "url": "https://indianexpress.com/article/business/irdai-insurance-reforms-2026-sbsr-act-100-percent-fdi-protect-general-10809303/"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "business-standard.com",
+                "url": "https://www.business-standard.com/amp/finance/insurance/irdai-tightens-intermediary-rules-eases-insurers-investment-norms-126073101478_1.html"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "cnbctv18.com",
+                "url": "https://www.cnbctv18.com/business/finance/insurance-sector-new-rulebook-irdai-registration-shareholding-merger-norms-19958730.htm"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "irdai.gov.in",
+                "url": "https://irdai.gov.in/web/guest/document-detail?documentId=394937"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "legal.economictimes.indiatimes.com",
+                "url": "https://legal.economictimes.indiatimes.com/news/litigation/motor-insurance-consider-issuing-circular-standardising-cross-border-coverage-clauses-sc-to-irdai/132519178"
+              }
+            ],
+            "impact": "Watch",
+            "scope": "sector",
+            "companyId": null,
+            "sourceUrl": "https://indianexpress.com/article/business/irdai-insurance-reforms-2026-sbsr-act-100-percent-fdi-protect-general-10809303/",
+            "sourceConfidence": "Medium",
+            "clusterSize": 1,
+            "clusterSources": [
+              {
+                "kind": "Regulatory",
+                "name": "indianexpress.com",
+                "url": "https://indianexpress.com/article/business/irdai-insurance-reforms-2026-sbsr-act-100-percent-fdi-protect-general-10809303/"
+              }
+            ],
+            "independentSources": 1
+          }
+        ],
+        "sinceDeltas": [
+          {
+            "id": "co",
+            "label": "company-specific updates",
+            "value": "0",
+            "direction": "flat",
+            "tone": "Neutral",
+            "target": {
+              "page": "sahi",
+              "sahiTab": "companies",
+              "company": "care-health",
+              "focus": {
+                "id": "pulse-since-co",
+                "kind": "locator",
+                "locatorKind": "company",
+                "metricKey": "company",
+                "metricLabel": "Company update",
+                "company": "care-health",
+                "companyLabel": "Care Health",
+                "comparisonType": "trend",
+                "tone": "neutral",
+                "insightLabel": "No Care Health-specific updates",
+                "unit": "",
+                "sahiTab": "companies",
+                "origin": "pulse"
+              }
+            }
+          },
+          {
+            "id": "moves",
+            "label": "unusual market moves",
+            "value": "0",
+            "direction": "flat",
+            "tone": "Positive",
+            "target": {
+              "page": "sahi",
+              "sahiTab": "valuation",
+              "company": "care-health",
+              "focus": {
+                "id": "pulse-since-moves",
+                "kind": "locator",
+                "locatorKind": "market_move",
+                "metricKey": "market_move",
+                "metricLabel": "Market moves",
+                "company": "care-health",
+                "companyLabel": "Care Health",
+                "comparisonType": "trend",
+                "tone": "neutral",
+                "insightLabel": "No unusual market moves",
+                "unit": "",
+                "sahiTab": "valuation",
+                "origin": "pulse"
+              }
+            }
+          }
+        ],
+        "events": [],
+        "actions": [
+          {
+            "id": "ownership",
+            "label": "Review Care Health ownership",
+            "icon": "ownership",
+            "target": {
+              "page": "sahi",
+              "sahiTab": "governance",
+              "company": "care-health",
+              "focus": {
+                "id": "pulse-ownership",
+                "metricKey": "promoter_holding",
+                "metricLabel": "Promoter holding",
+                "company": "care-health",
+                "companyLabel": "Care Health",
+                "comparisonType": "sequential",
+                "tone": "neutral",
+                "insightLabel": "Ownership — promoter holding trend",
+                "unit": "%",
+                "higherIsBetter": true,
+                "sahiTab": "governance",
+                "origin": "pulse"
+              }
+            }
+          },
+          {
+            "id": "margins",
+            "label": "Compare Care Health margin",
+            "icon": "margins",
+            "target": {
+              "page": "sahi",
+              "sahiTab": "profitability",
+              "company": "care-health",
+              "focus": {
+                "id": "pulse-margins",
+                "metricKey": "combined_ratio",
+                "metricLabel": "Combined ratio",
+                "company": "care-health",
+                "companyLabel": "Care Health",
+                "comparisonType": "YoY",
+                "tone": "neutral",
+                "insightLabel": "Underwriting margin — combined ratio",
+                "unit": "%",
+                "higherIsBetter": false,
+                "sahiTab": "profitability",
+                "origin": "pulse"
+              }
+            }
+          },
+          {
+            "id": "source",
+            "label": "Verify Care Health sources",
+            "icon": "source",
+            "target": {
+              "page": "audit",
+              "company": "care-health"
+            }
+          },
+          {
+            "id": "regulation",
+            "label": "Check IRDAI on claims cost",
+            "icon": "regulation",
+            "target": {
+              "page": "sahi",
+              "sahiTab": "governance",
+              "company": "care-health"
+            }
+          }
+        ]
       }
     },
     "aditya-birla": {
@@ -95048,6 +97078,644 @@
                 "kind": "Regulatory",
                 "name": "irdai.gov.in",
                 "url": "https://irdai.gov.in/web/guest/document-detail?documentId=394937"
+              }
+            ],
+            "independentSources": 1
+          }
+        ],
+        "sinceDeltas": [
+          {
+            "id": "co",
+            "label": "company-specific updates",
+            "value": "0",
+            "direction": "flat",
+            "tone": "Neutral",
+            "target": {
+              "page": "sahi",
+              "sahiTab": "companies",
+              "company": "aditya-birla",
+              "focus": {
+                "id": "pulse-since-co",
+                "kind": "locator",
+                "locatorKind": "company",
+                "metricKey": "company",
+                "metricLabel": "Company update",
+                "company": "aditya-birla",
+                "companyLabel": "Aditya Birla",
+                "comparisonType": "trend",
+                "tone": "neutral",
+                "insightLabel": "No Aditya Birla-specific updates",
+                "unit": "",
+                "sahiTab": "companies",
+                "origin": "pulse"
+              }
+            }
+          },
+          {
+            "id": "moves",
+            "label": "unusual market moves",
+            "value": "0",
+            "direction": "flat",
+            "tone": "Positive",
+            "target": {
+              "page": "sahi",
+              "sahiTab": "valuation",
+              "company": "aditya-birla",
+              "focus": {
+                "id": "pulse-since-moves",
+                "kind": "locator",
+                "locatorKind": "market_move",
+                "metricKey": "market_move",
+                "metricLabel": "Market moves",
+                "company": "aditya-birla",
+                "companyLabel": "Aditya Birla",
+                "comparisonType": "trend",
+                "tone": "neutral",
+                "insightLabel": "No unusual market moves",
+                "unit": "",
+                "sahiTab": "valuation",
+                "origin": "pulse"
+              }
+            }
+          }
+        ],
+        "events": [],
+        "actions": [
+          {
+            "id": "ownership",
+            "label": "Review Aditya Birla ownership",
+            "icon": "ownership",
+            "target": {
+              "page": "sahi",
+              "sahiTab": "governance",
+              "company": "aditya-birla",
+              "focus": {
+                "id": "pulse-ownership",
+                "metricKey": "promoter_holding",
+                "metricLabel": "Promoter holding",
+                "company": "aditya-birla",
+                "companyLabel": "Aditya Birla",
+                "comparisonType": "sequential",
+                "tone": "neutral",
+                "insightLabel": "Ownership — promoter holding trend",
+                "unit": "%",
+                "higherIsBetter": true,
+                "sahiTab": "governance",
+                "origin": "pulse"
+              }
+            }
+          },
+          {
+            "id": "margins",
+            "label": "Compare Aditya Birla margin",
+            "icon": "margins",
+            "target": {
+              "page": "sahi",
+              "sahiTab": "profitability",
+              "company": "aditya-birla",
+              "focus": {
+                "id": "pulse-margins",
+                "metricKey": "combined_ratio",
+                "metricLabel": "Combined ratio",
+                "company": "aditya-birla",
+                "companyLabel": "Aditya Birla",
+                "comparisonType": "YoY",
+                "tone": "neutral",
+                "insightLabel": "Underwriting margin — combined ratio",
+                "unit": "%",
+                "higherIsBetter": false,
+                "sahiTab": "profitability",
+                "origin": "pulse"
+              }
+            }
+          },
+          {
+            "id": "source",
+            "label": "Verify Aditya Birla sources",
+            "icon": "source",
+            "target": {
+              "page": "audit",
+              "company": "aditya-birla"
+            }
+          },
+          {
+            "id": "regulation",
+            "label": "Check IRDAI on claims cost",
+            "icon": "regulation",
+            "target": {
+              "page": "sahi",
+              "sahiTab": "governance",
+              "company": "aditya-birla"
+            }
+          }
+        ]
+      },
+      "2026-08-06": {
+        "date": "2026-08-06",
+        "company": "Aditya Birla",
+        "companyId": "aditya-birla",
+        "generatedAt": "2026-08-06T05:05:06.447Z",
+        "lastUpdatedAt": "2026-08-06T05:05:06.447Z",
+        "status": "Watch",
+        "sourceConfidence": "Medium",
+        "itemCount": 29,
+        "runs": [
+          {
+            "runTime": "2026-08-06T05:05:06.447Z",
+            "developments": 29,
+            "sourceCount": 29,
+            "ideas": 6,
+            "status": "ok"
+          }
+        ],
+        "brief": {
+          "greeting": "Good morning",
+          "narrative": "Regulatory pressure is the main watch item for health insurers today. Aditya Birla is under pressure on premium growth and demand, but claims-cost and conduct scrutiny will decide whether the strength is sustainable.",
+          "attentionCount": 6,
+          "developmentsCount": 29,
+          "sourcesCount": 29,
+          "domainsCount": 14,
+          "confidencePct": 68,
+          "confidenceTier": "Medium",
+          "readingMins": 3,
+          "lastUpdatedLabel": "5 Aug, 03:54 pm"
+        },
+        "message": {
+          "since": "No company-specific movement for Aditya Birla since the last brief — the read below is sector & regulatory context that applies across standalone health insurers.",
+          "keyThing": "New perpetual registration (subject to annual fee) for agents/brokers/TPAs plus mandatory salesperson-tagging from Jan 2027; insurers can now invest up to 20% in AA-rated…",
+          "why": "Growth is only as good as the claims and expense ratios behind it — that is the real question now.",
+          "watch": "any fresh IRDAI clarification, and expense-ratio movement",
+          "nothing": false
+        },
+        "one": {
+          "sentence": "New perpetual registration (subject to annual fee) for agents/brokers/TPAs plus mandatory salesperson-tagging from Jan 2027; insurers can now invest up to 20% in AA-rated infra…",
+          "status": "Watch"
+        },
+        "ideas": [
+          {
+            "id": "23fb9e20b0",
+            "entity": "IRDAI likely to tighten commission norms for intermediaries",
+            "stars": 4,
+            "reasoning": [
+              "Lower commissions and higher disclosure requirements would pressure distribution economics across health and general insurers, especially in commission-heavy retail health.",
+              "Solvency 1.84x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency."
+            ],
+            "whatToWatch": "IRDAI mis-selling / distribution-conduct rules",
+            "confidencePct": 78,
+            "evidenceCount": 5,
+            "status": "Risk",
+            "category": "Regulatory",
+            "why": {
+              "whatHappened": "IRDAI likely to tighten commission norms for intermediaries",
+              "whyItMatters": "Lower commissions and higher disclosure requirements would pressure distribution economics across health and general insurers, especially in commission-heavy retail health.",
+              "whoAffected": "Every standalone health insurer (SAHI) — pricing, product design and compliance cost.",
+              "historicalContext": "Solvency 1.84x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency.",
+              "potentialImpact": "Solvency vs the 1.5x regulatory floor",
+              "whatToWatch": "IRDAI mis-selling / distribution-conduct rules"
+            },
+            "action": {
+              "id": "regulation",
+              "label": "Check IRDAI on claims cost",
+              "icon": "regulation",
+              "target": {
+                "page": "sahi",
+                "sahiTab": "governance",
+                "company": "aditya-birla"
+              }
+            },
+            "isBreaking": false,
+            "isNew": false,
+            "freshness": "existing",
+            "freshnessLabel": "Existing context",
+            "publishedLabel": "4 Jul",
+            "discoveredLabel": "5 Jul",
+            "sources": [
+              {
+                "kind": "Regulatory",
+                "name": "indianexpress.com",
+                "url": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "business-standard.com",
+                "url": "https://www.business-standard.com/amp/finance/insurance/irdai-tightens-intermediary-rules-eases-insurers-investment-norms-126073101478_1.html"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "cnbctv18.com",
+                "url": "https://www.cnbctv18.com/business/finance/insurance-sector-new-rulebook-irdai-registration-shareholding-merger-norms-19958730.htm"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "indianexpress.com",
+                "url": "https://indianexpress.com/article/business/irdai-insurance-reforms-2026-sbsr-act-100-percent-fdi-protect-general-10809303/"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "irdai.gov.in",
+                "url": "https://irdai.gov.in/web/guest/document-detail?documentId=394937"
+              }
+            ],
+            "impact": "Risk",
+            "scope": "sector",
+            "companyId": null,
+            "sourceUrl": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494",
+            "sourceConfidence": "Medium",
+            "clusterSize": 4,
+            "clusterSources": [
+              {
+                "kind": "Regulatory",
+                "name": "businesstoday.in",
+                "url": "https://businesstoday.in/personal-finance/insurance/story/insurance-commission-overhaul-irdais-proposal-can-boost-customer-trust-curb-mis-selling-experts-541797-2026-07-09"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "indianexpress.com",
+                "url": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "livemint.com",
+                "url": "https://www.livemint.com/money/personal-finance/irdai-plans-insurance-commission-overhaul-to-curb-mis-selling-with-staggered-payouts-and-stricter-transparency-rules-11783065965488.html"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "bfsi.economictimes.indiatimes.com",
+                "url": "https://bfsi.economictimes.indiatimes.com/news/insurance/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132156228"
+              }
+            ],
+            "independentSources": 4
+          },
+          {
+            "id": "db9500ae19",
+            "entity": "Aditya Birla",
+            "stars": 4,
+            "reasoning": [
+              "Aditya Birla Health Insurance GWP rose 50% YoY to ₹2,196 cr, market share up 200bp to 16.2%, combined ratio improved to 106% — signals aggressive scale-up by a key private competitor to Niva Bupa/Star Health.",
+              "Management plan, execution credibility and future catalysts."
+            ],
+            "whatToWatch": "The next disclosure for confirmation of the trend.",
+            "confidencePct": 78,
+            "evidenceCount": 1,
+            "status": "Constructive",
+            "category": "Filing",
+            "why": {
+              "whatHappened": "ABCL consolidated PAT up 40% YoY to ₹1,175 cr; ₹4,000 cr capital raised",
+              "whyItMatters": "Aditya Birla Health Insurance GWP rose 50% YoY to ₹2,196 cr, market share up 200bp to 16.2%, combined ratio improved to 106% — signals aggressive scale-up by a key private competitor to Niva…",
+              "whoAffected": "Aditya Birla directly — its premium growth, margins and shareholders.",
+              "historicalContext": "Management plan, execution credibility and future catalysts.",
+              "potentialImpact": "The next disclosure for confirmation of the trend.",
+              "whatToWatch": "The next disclosure for confirmation of the trend."
+            },
+            "action": {
+              "id": "source",
+              "label": "Verify Aditya Birla sources",
+              "icon": "source",
+              "target": {
+                "page": "audit",
+                "company": "aditya-birla"
+              }
+            },
+            "isBreaking": false,
+            "isNew": false,
+            "freshness": "existing",
+            "freshnessLabel": "Existing context",
+            "publishedLabel": "31 Jul",
+            "discoveredLabel": "2 Aug",
+            "sources": [
+              {
+                "kind": "Filing",
+                "name": "business-standard.com",
+                "url": "https://www.business-standard.com/amp/companies/quarterly-results/aditya-birla-capital-posts-40-rise-in-q1-profit-raises-4-000-crore-126073101509_1.html"
+              }
+            ],
+            "impact": "Positive",
+            "scope": "company",
+            "companyId": "aditya-birla",
+            "sourceUrl": "https://www.business-standard.com/amp/companies/quarterly-results/aditya-birla-capital-posts-40-rise-in-q1-profit-raises-4-000-crore-126073101509_1.html",
+            "sourceConfidence": "Medium",
+            "clusterSize": 1,
+            "clusterSources": [
+              {
+                "kind": "Filing",
+                "name": "business-standard.com",
+                "url": "https://www.business-standard.com/amp/companies/quarterly-results/aditya-birla-capital-posts-40-rise-in-q1-profit-raises-4-000-crore-126073101509_1.html"
+              }
+            ],
+            "independentSources": 1
+          },
+          {
+            "id": "c37fbcf9de",
+            "entity": "IRDAI tightens intermediary rules, eases insurers' investment norms",
+            "stars": 4,
+            "reasoning": [
+              "New perpetual registration (subject to annual fee) for agents/brokers/TPAs plus mandatory salesperson-tagging from Jan 2027; insurers can now invest up to 20% in AA-rated infra SPVs and more in AIFs/VCFs — affects…",
+              "Solvency 1.84x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency."
+            ],
+            "whatToWatch": "IRDAI mis-selling / distribution-conduct rules",
+            "confidencePct": 78,
+            "evidenceCount": 5,
+            "status": "Watch",
+            "category": "Regulatory",
+            "why": {
+              "whatHappened": "IRDAI tightens intermediary rules, eases insurers' investment norms",
+              "whyItMatters": "New perpetual registration (subject to annual fee) for agents/brokers/TPAs plus mandatory salesperson-tagging from Jan 2027; insurers can now invest up to 20% in AA-rated infra SPVs and more in…",
+              "whoAffected": "Every standalone health insurer (SAHI) — pricing, product design and compliance cost.",
+              "historicalContext": "Solvency 1.84x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency.",
+              "potentialImpact": "Solvency vs the 1.5x regulatory floor",
+              "whatToWatch": "IRDAI mis-selling / distribution-conduct rules"
+            },
+            "action": {
+              "id": "regulation",
+              "label": "Check IRDAI on claims cost",
+              "icon": "regulation",
+              "target": {
+                "page": "sahi",
+                "sahiTab": "governance",
+                "company": "aditya-birla"
+              }
+            },
+            "isBreaking": false,
+            "isNew": false,
+            "freshness": "existing",
+            "freshnessLabel": "Existing context",
+            "publishedLabel": "31 Jul",
+            "discoveredLabel": "2 Aug",
+            "sources": [
+              {
+                "kind": "Regulatory",
+                "name": "business-standard.com",
+                "url": "https://www.business-standard.com/amp/finance/insurance/irdai-tightens-intermediary-rules-eases-insurers-investment-norms-126073101478_1.html"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "cnbctv18.com",
+                "url": "https://www.cnbctv18.com/business/finance/insurance-sector-new-rulebook-irdai-registration-shareholding-merger-norms-19958730.htm"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "indianexpress.com",
+                "url": "https://indianexpress.com/article/business/irdai-insurance-reforms-2026-sbsr-act-100-percent-fdi-protect-general-10809303/"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "irdai.gov.in",
+                "url": "https://irdai.gov.in/web/guest/document-detail?documentId=394937"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "legal.economictimes.indiatimes.com",
+                "url": "https://legal.economictimes.indiatimes.com/news/litigation/motor-insurance-consider-issuing-circular-standardising-cross-border-coverage-clauses-sc-to-irdai/132519178"
+              }
+            ],
+            "impact": "Watch",
+            "scope": "sector",
+            "companyId": null,
+            "sourceUrl": "https://www.business-standard.com/amp/finance/insurance/irdai-tightens-intermediary-rules-eases-insurers-investment-norms-126073101478_1.html",
+            "sourceConfidence": "Medium",
+            "clusterSize": 1,
+            "clusterSources": [
+              {
+                "kind": "Regulatory",
+                "name": "business-standard.com",
+                "url": "https://www.business-standard.com/amp/finance/insurance/irdai-tightens-intermediary-rules-eases-insurers-investment-norms-126073101478_1.html"
+              }
+            ],
+            "independentSources": 1
+          },
+          {
+            "id": "ada2879e51",
+            "entity": "IRDAI notifies new registration, shareholding & merger regulations in Gazette",
+            "stars": 4,
+            "reasoning": [
+              "The IRDAI (Registration, Capital Structure, Transfer of Shares and Amalgamation) Amendment Regulations 2026 set new approval thresholds (5%/10%/25%/50%/75%) for shareholding changes, ease SPV promoter norms, and enable…",
+              "Solvency 1.84x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency."
+            ],
+            "whatToWatch": "The impact on claims cost, expense ratio and pricing as rules tighten.",
+            "confidencePct": 78,
+            "evidenceCount": 5,
+            "status": "Watch",
+            "category": "Regulatory",
+            "why": {
+              "whatHappened": "IRDAI notifies new registration, shareholding & merger regulations in Gazette",
+              "whyItMatters": "The IRDAI (Registration, Capital Structure, Transfer of Shares and Amalgamation) Amendment Regulations 2026 set new approval thresholds (5%/10%/25%/50%/75%) for shareholding changes, ease SPV…",
+              "whoAffected": "Every standalone health insurer (SAHI) — pricing, product design and compliance cost.",
+              "historicalContext": "Solvency 1.84x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency.",
+              "potentialImpact": "Solvency vs the 1.5x regulatory floor",
+              "whatToWatch": "The impact on claims cost, expense ratio and pricing as rules tighten."
+            },
+            "action": {
+              "id": "regulation",
+              "label": "Check IRDAI on claims cost",
+              "icon": "regulation",
+              "target": {
+                "page": "sahi",
+                "sahiTab": "governance",
+                "company": "aditya-birla"
+              }
+            },
+            "isBreaking": false,
+            "isNew": false,
+            "freshness": "existing",
+            "freshnessLabel": "Existing context",
+            "publishedLabel": "31 Jul",
+            "discoveredLabel": "4 Aug",
+            "sources": [
+              {
+                "kind": "Regulatory",
+                "name": "cnbctv18.com",
+                "url": "https://www.cnbctv18.com/business/finance/insurance-sector-new-rulebook-irdai-registration-shareholding-merger-norms-19958730.htm"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "business-standard.com",
+                "url": "https://www.business-standard.com/amp/finance/insurance/irdai-tightens-intermediary-rules-eases-insurers-investment-norms-126073101478_1.html"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "indianexpress.com",
+                "url": "https://indianexpress.com/article/business/irdai-insurance-reforms-2026-sbsr-act-100-percent-fdi-protect-general-10809303/"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "irdai.gov.in",
+                "url": "https://irdai.gov.in/web/guest/document-detail?documentId=394937"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "legal.economictimes.indiatimes.com",
+                "url": "https://legal.economictimes.indiatimes.com/news/litigation/motor-insurance-consider-issuing-circular-standardising-cross-border-coverage-clauses-sc-to-irdai/132519178"
+              }
+            ],
+            "impact": "Watch",
+            "scope": "sector",
+            "companyId": null,
+            "sourceUrl": "https://www.cnbctv18.com/business/finance/insurance-sector-new-rulebook-irdai-registration-shareholding-merger-norms-19958730.htm",
+            "sourceConfidence": "Medium",
+            "clusterSize": 1,
+            "clusterSources": [
+              {
+                "kind": "Regulatory",
+                "name": "cnbctv18.com",
+                "url": "https://www.cnbctv18.com/business/finance/insurance-sector-new-rulebook-irdai-registration-shareholding-merger-norms-19958730.htm"
+              }
+            ],
+            "independentSources": 1
+          },
+          {
+            "id": "3d8e8f3345",
+            "entity": "Cashless-facility enforcement remains a live policyholder-protection risk area",
+            "stars": 4,
+            "reasoning": [
+              "IRDAI’s circular requiring empanelled hospitals to honour notified cashless treatment underscores ongoing operational and reputational risk around cashless denial, a core monitorable for all health insurers’ claims…",
+              "Solvency 1.84x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency."
+            ],
+            "whatToWatch": "The impact on claims cost, expense ratio and pricing as rules tighten.",
+            "confidencePct": 81,
+            "evidenceCount": 5,
+            "status": "Watch",
+            "category": "Regulatory",
+            "why": {
+              "whatHappened": "Cashless-facility enforcement remains a live policyholder-protection risk area",
+              "whyItMatters": "IRDAI’s circular requiring empanelled hospitals to honour notified cashless treatment underscores ongoing operational and reputational risk around cashless denial, a core monitorable for all health…",
+              "whoAffected": "Every standalone health insurer (SAHI) — pricing, product design and compliance cost.",
+              "historicalContext": "Solvency 1.84x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency.",
+              "potentialImpact": "Solvency vs the 1.5x regulatory floor",
+              "whatToWatch": "The impact on claims cost, expense ratio and pricing as rules tighten."
+            },
+            "action": {
+              "id": "regulation",
+              "label": "Check IRDAI on claims cost",
+              "icon": "regulation",
+              "target": {
+                "page": "sahi",
+                "sahiTab": "governance",
+                "company": "aditya-birla"
+              }
+            },
+            "isBreaking": false,
+            "isNew": false,
+            "freshness": "existing",
+            "freshnessLabel": "Existing context",
+            "publishedLabel": "14 Jul",
+            "discoveredLabel": "13 Jul",
+            "sources": [
+              {
+                "kind": "Regulatory",
+                "name": "irdai.gov.in",
+                "url": "https://irdai.gov.in/web/guest/document-detail?documentId=394937"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "business-standard.com",
+                "url": "https://www.business-standard.com/amp/finance/insurance/irdai-tightens-intermediary-rules-eases-insurers-investment-norms-126073101478_1.html"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "cnbctv18.com",
+                "url": "https://www.cnbctv18.com/business/finance/insurance-sector-new-rulebook-irdai-registration-shareholding-merger-norms-19958730.htm"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "indianexpress.com",
+                "url": "https://indianexpress.com/article/business/irdai-insurance-reforms-2026-sbsr-act-100-percent-fdi-protect-general-10809303/"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "legal.economictimes.indiatimes.com",
+                "url": "https://legal.economictimes.indiatimes.com/news/litigation/motor-insurance-consider-issuing-circular-standardising-cross-border-coverage-clauses-sc-to-irdai/132519178"
+              }
+            ],
+            "impact": "Watch",
+            "scope": "sector",
+            "companyId": null,
+            "sourceUrl": "https://irdai.gov.in/web/guest/document-detail?documentId=394937",
+            "sourceConfidence": "High",
+            "clusterSize": 1,
+            "clusterSources": [
+              {
+                "kind": "Regulatory",
+                "name": "irdai.gov.in",
+                "url": "https://irdai.gov.in/web/guest/document-detail?documentId=394937"
+              }
+            ],
+            "independentSources": 1
+          },
+          {
+            "id": "8b9c716cee",
+            "entity": "IRDAI grants 4th new insurer registration of CY2026 (ProTec General); one health insurer license also approved in 2026",
+            "stars": 4,
+            "reasoning": [
+              "Confirms IRDAI's continued openness to new entrants (2 general insurers, 1 health insurer, 1 reinsurer registered in 2026), a mild dilution/competitive-intensity signal for incumbent standalone health insurers.",
+              "Solvency 1.84x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency."
+            ],
+            "whatToWatch": "The impact on claims cost, expense ratio and pricing as rules tighten.",
+            "confidencePct": 78,
+            "evidenceCount": 5,
+            "status": "Neutral",
+            "category": "Regulatory",
+            "why": {
+              "whatHappened": "IRDAI grants 4th new insurer registration of CY2026 (ProTec General); one health insurer license also approved in 2026",
+              "whyItMatters": "Confirms IRDAI's continued openness to new entrants (2 general insurers, 1 health insurer, 1 reinsurer registered in 2026), a mild dilution/competitive-intensity signal for incumbent standalone…",
+              "whoAffected": "Every standalone health insurer (SAHI) — pricing, product design and compliance cost.",
+              "historicalContext": "Solvency 1.84x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency.",
+              "potentialImpact": "Solvency vs the 1.5x regulatory floor",
+              "whatToWatch": "The impact on claims cost, expense ratio and pricing as rules tighten."
+            },
+            "action": {
+              "id": "regulation",
+              "label": "Check IRDAI on claims cost",
+              "icon": "regulation",
+              "target": {
+                "page": "sahi",
+                "sahiTab": "governance",
+                "company": "aditya-birla"
+              }
+            },
+            "isBreaking": false,
+            "isNew": false,
+            "freshness": "existing",
+            "freshnessLabel": "Existing context",
+            "publishedLabel": "29 Jul",
+            "discoveredLabel": "4 Aug",
+            "sources": [
+              {
+                "kind": "Regulatory",
+                "name": "indianexpress.com",
+                "url": "https://indianexpress.com/article/business/irdai-insurance-reforms-2026-sbsr-act-100-percent-fdi-protect-general-10809303/"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "business-standard.com",
+                "url": "https://www.business-standard.com/amp/finance/insurance/irdai-tightens-intermediary-rules-eases-insurers-investment-norms-126073101478_1.html"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "cnbctv18.com",
+                "url": "https://www.cnbctv18.com/business/finance/insurance-sector-new-rulebook-irdai-registration-shareholding-merger-norms-19958730.htm"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "irdai.gov.in",
+                "url": "https://irdai.gov.in/web/guest/document-detail?documentId=394937"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "legal.economictimes.indiatimes.com",
+                "url": "https://legal.economictimes.indiatimes.com/news/litigation/motor-insurance-consider-issuing-circular-standardising-cross-border-coverage-clauses-sc-to-irdai/132519178"
+              }
+            ],
+            "impact": "Neutral",
+            "scope": "sector",
+            "companyId": null,
+            "sourceUrl": "https://indianexpress.com/article/business/irdai-insurance-reforms-2026-sbsr-act-100-percent-fdi-protect-general-10809303/",
+            "sourceConfidence": "Medium",
+            "clusterSize": 1,
+            "clusterSources": [
+              {
+                "kind": "Regulatory",
+                "name": "indianexpress.com",
+                "url": "https://indianexpress.com/article/business/irdai-insurance-reforms-2026-sbsr-act-100-percent-fdi-protect-general-10809303/"
               }
             ],
             "independentSources": 1
@@ -118808,13 +121476,672 @@
             }
           }
         ]
+      },
+      "2026-08-06": {
+        "date": "2026-08-06",
+        "company": "ManipalCigna",
+        "companyId": "manipalcigna",
+        "generatedAt": "2026-08-06T05:05:06.447Z",
+        "lastUpdatedAt": "2026-08-06T05:05:06.447Z",
+        "status": "Watch",
+        "sourceConfidence": "Medium",
+        "itemCount": 29,
+        "runs": [
+          {
+            "runTime": "2026-08-06T05:05:06.447Z",
+            "developments": 31,
+            "sourceCount": 29,
+            "ideas": 6,
+            "status": "ok"
+          }
+        ],
+        "brief": {
+          "greeting": "Good morning",
+          "narrative": "Regulatory pressure is the main watch item for health insurers today. ManipalCigna is under pressure on premium growth and demand, but claims-cost and conduct scrutiny will decide whether the strength is sustainable.",
+          "attentionCount": 6,
+          "developmentsCount": 31,
+          "sourcesCount": 29,
+          "domainsCount": 15,
+          "confidencePct": 68,
+          "confidenceTier": "Medium",
+          "readingMins": 3,
+          "lastUpdatedLabel": "5 Aug, 03:54 pm"
+        },
+        "message": {
+          "since": "No company-specific movement for ManipalCigna since the last brief — the read below is sector & regulatory context that applies across standalone health insurers.",
+          "keyThing": "New perpetual registration (subject to annual fee) for agents/brokers/TPAs plus mandatory salesperson-tagging from Jan 2027; insurers can now invest up to 20% in AA-rated…",
+          "why": "The near-term read now turns on how the new rules land on pricing, commissions and cost.",
+          "watch": "any fresh IRDAI clarification, and expense-ratio movement",
+          "nothing": false
+        },
+        "one": {
+          "sentence": "New perpetual registration (subject to annual fee) for agents/brokers/TPAs plus mandatory salesperson-tagging from Jan 2027; insurers can now invest up to 20% in AA-rated infra…",
+          "status": "Watch"
+        },
+        "ideas": [
+          {
+            "id": "23fb9e20b0",
+            "entity": "IRDAI likely to tighten commission norms for intermediaries",
+            "stars": 4,
+            "reasoning": [
+              "Lower commissions and higher disclosure requirements would pressure distribution economics across health and general insurers, especially in commission-heavy retail health.",
+              "Solvency 1.7x vs the 1.5x floor — headroom is thinner; watch solvency alongside regulation."
+            ],
+            "whatToWatch": "IRDAI mis-selling / distribution-conduct rules",
+            "confidencePct": 78,
+            "evidenceCount": 5,
+            "status": "Risk",
+            "category": "Regulatory",
+            "why": {
+              "whatHappened": "IRDAI likely to tighten commission norms for intermediaries",
+              "whyItMatters": "Lower commissions and higher disclosure requirements would pressure distribution economics across health and general insurers, especially in commission-heavy retail health.",
+              "whoAffected": "Every standalone health insurer (SAHI) — pricing, product design and compliance cost.",
+              "historicalContext": "Solvency 1.7x vs the 1.5x floor — headroom is thinner; watch solvency alongside regulation.",
+              "potentialImpact": "Solvency sits close enough to the floor that a capital raise or slower growth is a live possibility.",
+              "whatToWatch": "IRDAI mis-selling / distribution-conduct rules"
+            },
+            "action": {
+              "id": "regulation",
+              "label": "Check IRDAI on claims cost",
+              "icon": "regulation",
+              "target": {
+                "page": "sahi",
+                "sahiTab": "governance",
+                "company": "manipalcigna"
+              }
+            },
+            "isBreaking": false,
+            "isNew": false,
+            "freshness": "existing",
+            "freshnessLabel": "Existing context",
+            "publishedLabel": "4 Jul",
+            "discoveredLabel": "5 Jul",
+            "sources": [
+              {
+                "kind": "Regulatory",
+                "name": "indianexpress.com",
+                "url": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "business-standard.com",
+                "url": "https://www.business-standard.com/amp/finance/insurance/irdai-tightens-intermediary-rules-eases-insurers-investment-norms-126073101478_1.html"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "cnbctv18.com",
+                "url": "https://www.cnbctv18.com/business/finance/insurance-sector-new-rulebook-irdai-registration-shareholding-merger-norms-19958730.htm"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "indianexpress.com",
+                "url": "https://indianexpress.com/article/business/irdai-insurance-reforms-2026-sbsr-act-100-percent-fdi-protect-general-10809303/"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "irdai.gov.in",
+                "url": "https://irdai.gov.in/web/guest/document-detail?documentId=394937"
+              }
+            ],
+            "impact": "Risk",
+            "scope": "sector",
+            "companyId": null,
+            "sourceUrl": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494",
+            "sourceConfidence": "Medium",
+            "clusterSize": 4,
+            "clusterSources": [
+              {
+                "kind": "Regulatory",
+                "name": "businesstoday.in",
+                "url": "https://businesstoday.in/personal-finance/insurance/story/insurance-commission-overhaul-irdais-proposal-can-boost-customer-trust-curb-mis-selling-experts-541797-2026-07-09"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "indianexpress.com",
+                "url": "https://indianexpress.com/article/business/insurance-regulator-irdai-likely-to-tighten-commission-norms-10770494"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "livemint.com",
+                "url": "https://www.livemint.com/money/personal-finance/irdai-plans-insurance-commission-overhaul-to-curb-mis-selling-with-staggered-payouts-and-stricter-transparency-rules-11783065965488.html"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "bfsi.economictimes.indiatimes.com",
+                "url": "https://bfsi.economictimes.indiatimes.com/news/insurance/insurance-regulator-irdai-plans-overhaul-of-commission-rules-to-curb-mis-selling-sources-say/132156228"
+              }
+            ],
+            "independentSources": 4
+          },
+          {
+            "id": "c37fbcf9de",
+            "entity": "IRDAI tightens intermediary rules, eases insurers' investment norms",
+            "stars": 4,
+            "reasoning": [
+              "New perpetual registration (subject to annual fee) for agents/brokers/TPAs plus mandatory salesperson-tagging from Jan 2027; insurers can now invest up to 20% in AA-rated infra SPVs and more in AIFs/VCFs — affects…",
+              "Solvency 1.7x vs the 1.5x floor — headroom is thinner; watch solvency alongside regulation."
+            ],
+            "whatToWatch": "IRDAI mis-selling / distribution-conduct rules",
+            "confidencePct": 78,
+            "evidenceCount": 5,
+            "status": "Watch",
+            "category": "Regulatory",
+            "why": {
+              "whatHappened": "IRDAI tightens intermediary rules, eases insurers' investment norms",
+              "whyItMatters": "New perpetual registration (subject to annual fee) for agents/brokers/TPAs plus mandatory salesperson-tagging from Jan 2027; insurers can now invest up to 20% in AA-rated infra SPVs and more in…",
+              "whoAffected": "Every standalone health insurer (SAHI) — pricing, product design and compliance cost.",
+              "historicalContext": "Solvency 1.7x vs the 1.5x floor — headroom is thinner; watch solvency alongside regulation.",
+              "potentialImpact": "Solvency sits close enough to the floor that a capital raise or slower growth is a live possibility.",
+              "whatToWatch": "IRDAI mis-selling / distribution-conduct rules"
+            },
+            "action": {
+              "id": "regulation",
+              "label": "Check IRDAI on claims cost",
+              "icon": "regulation",
+              "target": {
+                "page": "sahi",
+                "sahiTab": "governance",
+                "company": "manipalcigna"
+              }
+            },
+            "isBreaking": false,
+            "isNew": false,
+            "freshness": "existing",
+            "freshnessLabel": "Existing context",
+            "publishedLabel": "31 Jul",
+            "discoveredLabel": "2 Aug",
+            "sources": [
+              {
+                "kind": "Regulatory",
+                "name": "business-standard.com",
+                "url": "https://www.business-standard.com/amp/finance/insurance/irdai-tightens-intermediary-rules-eases-insurers-investment-norms-126073101478_1.html"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "cnbctv18.com",
+                "url": "https://www.cnbctv18.com/business/finance/insurance-sector-new-rulebook-irdai-registration-shareholding-merger-norms-19958730.htm"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "indianexpress.com",
+                "url": "https://indianexpress.com/article/business/irdai-insurance-reforms-2026-sbsr-act-100-percent-fdi-protect-general-10809303/"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "irdai.gov.in",
+                "url": "https://irdai.gov.in/web/guest/document-detail?documentId=394937"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "legal.economictimes.indiatimes.com",
+                "url": "https://legal.economictimes.indiatimes.com/news/litigation/motor-insurance-consider-issuing-circular-standardising-cross-border-coverage-clauses-sc-to-irdai/132519178"
+              }
+            ],
+            "impact": "Watch",
+            "scope": "sector",
+            "companyId": null,
+            "sourceUrl": "https://www.business-standard.com/amp/finance/insurance/irdai-tightens-intermediary-rules-eases-insurers-investment-norms-126073101478_1.html",
+            "sourceConfidence": "Medium",
+            "clusterSize": 1,
+            "clusterSources": [
+              {
+                "kind": "Regulatory",
+                "name": "business-standard.com",
+                "url": "https://www.business-standard.com/amp/finance/insurance/irdai-tightens-intermediary-rules-eases-insurers-investment-norms-126073101478_1.html"
+              }
+            ],
+            "independentSources": 1
+          },
+          {
+            "id": "ada2879e51",
+            "entity": "IRDAI notifies new registration, shareholding & merger regulations in Gazette",
+            "stars": 4,
+            "reasoning": [
+              "The IRDAI (Registration, Capital Structure, Transfer of Shares and Amalgamation) Amendment Regulations 2026 set new approval thresholds (5%/10%/25%/50%/75%) for shareholding changes, ease SPV promoter norms, and enable…",
+              "Solvency 1.7x vs the 1.5x floor — headroom is thinner; watch solvency alongside regulation."
+            ],
+            "whatToWatch": "The impact on claims cost, expense ratio and pricing as rules tighten.",
+            "confidencePct": 78,
+            "evidenceCount": 5,
+            "status": "Watch",
+            "category": "Regulatory",
+            "why": {
+              "whatHappened": "IRDAI notifies new registration, shareholding & merger regulations in Gazette",
+              "whyItMatters": "The IRDAI (Registration, Capital Structure, Transfer of Shares and Amalgamation) Amendment Regulations 2026 set new approval thresholds (5%/10%/25%/50%/75%) for shareholding changes, ease SPV…",
+              "whoAffected": "Every standalone health insurer (SAHI) — pricing, product design and compliance cost.",
+              "historicalContext": "Solvency 1.7x vs the 1.5x floor — headroom is thinner; watch solvency alongside regulation.",
+              "potentialImpact": "Solvency sits close enough to the floor that a capital raise or slower growth is a live possibility.",
+              "whatToWatch": "The impact on claims cost, expense ratio and pricing as rules tighten."
+            },
+            "action": {
+              "id": "regulation",
+              "label": "Check IRDAI on claims cost",
+              "icon": "regulation",
+              "target": {
+                "page": "sahi",
+                "sahiTab": "governance",
+                "company": "manipalcigna"
+              }
+            },
+            "isBreaking": false,
+            "isNew": false,
+            "freshness": "existing",
+            "freshnessLabel": "Existing context",
+            "publishedLabel": "31 Jul",
+            "discoveredLabel": "4 Aug",
+            "sources": [
+              {
+                "kind": "Regulatory",
+                "name": "cnbctv18.com",
+                "url": "https://www.cnbctv18.com/business/finance/insurance-sector-new-rulebook-irdai-registration-shareholding-merger-norms-19958730.htm"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "business-standard.com",
+                "url": "https://www.business-standard.com/amp/finance/insurance/irdai-tightens-intermediary-rules-eases-insurers-investment-norms-126073101478_1.html"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "indianexpress.com",
+                "url": "https://indianexpress.com/article/business/irdai-insurance-reforms-2026-sbsr-act-100-percent-fdi-protect-general-10809303/"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "irdai.gov.in",
+                "url": "https://irdai.gov.in/web/guest/document-detail?documentId=394937"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "legal.economictimes.indiatimes.com",
+                "url": "https://legal.economictimes.indiatimes.com/news/litigation/motor-insurance-consider-issuing-circular-standardising-cross-border-coverage-clauses-sc-to-irdai/132519178"
+              }
+            ],
+            "impact": "Watch",
+            "scope": "sector",
+            "companyId": null,
+            "sourceUrl": "https://www.cnbctv18.com/business/finance/insurance-sector-new-rulebook-irdai-registration-shareholding-merger-norms-19958730.htm",
+            "sourceConfidence": "Medium",
+            "clusterSize": 1,
+            "clusterSources": [
+              {
+                "kind": "Regulatory",
+                "name": "cnbctv18.com",
+                "url": "https://www.cnbctv18.com/business/finance/insurance-sector-new-rulebook-irdai-registration-shareholding-merger-norms-19958730.htm"
+              }
+            ],
+            "independentSources": 1
+          },
+          {
+            "id": "3d8e8f3345",
+            "entity": "Cashless-facility enforcement remains a live policyholder-protection risk area",
+            "stars": 4,
+            "reasoning": [
+              "IRDAI’s circular requiring empanelled hospitals to honour notified cashless treatment underscores ongoing operational and reputational risk around cashless denial, a core monitorable for all health insurers’ claims…",
+              "Solvency 1.7x vs the 1.5x floor — headroom is thinner; watch solvency alongside regulation."
+            ],
+            "whatToWatch": "The impact on claims cost, expense ratio and pricing as rules tighten.",
+            "confidencePct": 81,
+            "evidenceCount": 5,
+            "status": "Watch",
+            "category": "Regulatory",
+            "why": {
+              "whatHappened": "Cashless-facility enforcement remains a live policyholder-protection risk area",
+              "whyItMatters": "IRDAI’s circular requiring empanelled hospitals to honour notified cashless treatment underscores ongoing operational and reputational risk around cashless denial, a core monitorable for all health…",
+              "whoAffected": "Every standalone health insurer (SAHI) — pricing, product design and compliance cost.",
+              "historicalContext": "Solvency 1.7x vs the 1.5x floor — headroom is thinner; watch solvency alongside regulation.",
+              "potentialImpact": "Solvency sits close enough to the floor that a capital raise or slower growth is a live possibility.",
+              "whatToWatch": "The impact on claims cost, expense ratio and pricing as rules tighten."
+            },
+            "action": {
+              "id": "regulation",
+              "label": "Check IRDAI on claims cost",
+              "icon": "regulation",
+              "target": {
+                "page": "sahi",
+                "sahiTab": "governance",
+                "company": "manipalcigna"
+              }
+            },
+            "isBreaking": false,
+            "isNew": false,
+            "freshness": "existing",
+            "freshnessLabel": "Existing context",
+            "publishedLabel": "14 Jul",
+            "discoveredLabel": "13 Jul",
+            "sources": [
+              {
+                "kind": "Regulatory",
+                "name": "irdai.gov.in",
+                "url": "https://irdai.gov.in/web/guest/document-detail?documentId=394937"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "business-standard.com",
+                "url": "https://www.business-standard.com/amp/finance/insurance/irdai-tightens-intermediary-rules-eases-insurers-investment-norms-126073101478_1.html"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "cnbctv18.com",
+                "url": "https://www.cnbctv18.com/business/finance/insurance-sector-new-rulebook-irdai-registration-shareholding-merger-norms-19958730.htm"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "indianexpress.com",
+                "url": "https://indianexpress.com/article/business/irdai-insurance-reforms-2026-sbsr-act-100-percent-fdi-protect-general-10809303/"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "legal.economictimes.indiatimes.com",
+                "url": "https://legal.economictimes.indiatimes.com/news/litigation/motor-insurance-consider-issuing-circular-standardising-cross-border-coverage-clauses-sc-to-irdai/132519178"
+              }
+            ],
+            "impact": "Watch",
+            "scope": "sector",
+            "companyId": null,
+            "sourceUrl": "https://irdai.gov.in/web/guest/document-detail?documentId=394937",
+            "sourceConfidence": "High",
+            "clusterSize": 1,
+            "clusterSources": [
+              {
+                "kind": "Regulatory",
+                "name": "irdai.gov.in",
+                "url": "https://irdai.gov.in/web/guest/document-detail?documentId=394937"
+              }
+            ],
+            "independentSources": 1
+          },
+          {
+            "id": "8b9c716cee",
+            "entity": "IRDAI grants 4th new insurer registration of CY2026 (ProTec General); one health insurer license also approved in 2026",
+            "stars": 4,
+            "reasoning": [
+              "Confirms IRDAI's continued openness to new entrants (2 general insurers, 1 health insurer, 1 reinsurer registered in 2026), a mild dilution/competitive-intensity signal for incumbent standalone health insurers.",
+              "Solvency 1.7x vs the 1.5x floor — headroom is thinner; watch solvency alongside regulation."
+            ],
+            "whatToWatch": "The impact on claims cost, expense ratio and pricing as rules tighten.",
+            "confidencePct": 78,
+            "evidenceCount": 5,
+            "status": "Neutral",
+            "category": "Regulatory",
+            "why": {
+              "whatHappened": "IRDAI grants 4th new insurer registration of CY2026 (ProTec General); one health insurer license also approved in 2026",
+              "whyItMatters": "Confirms IRDAI's continued openness to new entrants (2 general insurers, 1 health insurer, 1 reinsurer registered in 2026), a mild dilution/competitive-intensity signal for incumbent standalone…",
+              "whoAffected": "Every standalone health insurer (SAHI) — pricing, product design and compliance cost.",
+              "historicalContext": "Solvency 1.7x vs the 1.5x floor — headroom is thinner; watch solvency alongside regulation.",
+              "potentialImpact": "Solvency sits close enough to the floor that a capital raise or slower growth is a live possibility.",
+              "whatToWatch": "The impact on claims cost, expense ratio and pricing as rules tighten."
+            },
+            "action": {
+              "id": "regulation",
+              "label": "Check IRDAI on claims cost",
+              "icon": "regulation",
+              "target": {
+                "page": "sahi",
+                "sahiTab": "governance",
+                "company": "manipalcigna"
+              }
+            },
+            "isBreaking": false,
+            "isNew": false,
+            "freshness": "existing",
+            "freshnessLabel": "Existing context",
+            "publishedLabel": "29 Jul",
+            "discoveredLabel": "4 Aug",
+            "sources": [
+              {
+                "kind": "Regulatory",
+                "name": "indianexpress.com",
+                "url": "https://indianexpress.com/article/business/irdai-insurance-reforms-2026-sbsr-act-100-percent-fdi-protect-general-10809303/"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "business-standard.com",
+                "url": "https://www.business-standard.com/amp/finance/insurance/irdai-tightens-intermediary-rules-eases-insurers-investment-norms-126073101478_1.html"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "cnbctv18.com",
+                "url": "https://www.cnbctv18.com/business/finance/insurance-sector-new-rulebook-irdai-registration-shareholding-merger-norms-19958730.htm"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "irdai.gov.in",
+                "url": "https://irdai.gov.in/web/guest/document-detail?documentId=394937"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "legal.economictimes.indiatimes.com",
+                "url": "https://legal.economictimes.indiatimes.com/news/litigation/motor-insurance-consider-issuing-circular-standardising-cross-border-coverage-clauses-sc-to-irdai/132519178"
+              }
+            ],
+            "impact": "Neutral",
+            "scope": "sector",
+            "companyId": null,
+            "sourceUrl": "https://indianexpress.com/article/business/irdai-insurance-reforms-2026-sbsr-act-100-percent-fdi-protect-general-10809303/",
+            "sourceConfidence": "Medium",
+            "clusterSize": 1,
+            "clusterSources": [
+              {
+                "kind": "Regulatory",
+                "name": "indianexpress.com",
+                "url": "https://indianexpress.com/article/business/irdai-insurance-reforms-2026-sbsr-act-100-percent-fdi-protect-general-10809303/"
+              }
+            ],
+            "independentSources": 1
+          },
+          {
+            "id": "48a1bd58eb",
+            "entity": "IRDAI board approves sweeping reforms — capital, M&A, penalty framework",
+            "stars": 4,
+            "reasoning": [
+              "New rules ease capital infusion, amalgamation and share-transfer norms while introducing a formal, structured penalty regime under the SBSR Act — directly affects capital-raising flexibility and M&A optionality for…",
+              "Solvency 1.7x vs the 1.5x floor — headroom is thinner; watch solvency alongside regulation."
+            ],
+            "whatToWatch": "The impact on claims cost, expense ratio and pricing as rules tighten.",
+            "confidencePct": 78,
+            "evidenceCount": 5,
+            "status": "Watch",
+            "category": "Regulatory",
+            "why": {
+              "whatHappened": "IRDAI board approves sweeping reforms — capital, M&A, penalty framework",
+              "whyItMatters": "New rules ease capital infusion, amalgamation and share-transfer norms while introducing a formal, structured penalty regime under the SBSR Act — directly affects capital-raising flexibility and M&A…",
+              "whoAffected": "Every standalone health insurer (SAHI) — pricing, product design and compliance cost.",
+              "historicalContext": "Solvency 1.7x vs the 1.5x floor — headroom is thinner; watch solvency alongside regulation.",
+              "potentialImpact": "Solvency sits close enough to the floor that a capital raise or slower growth is a live possibility.",
+              "whatToWatch": "The impact on claims cost, expense ratio and pricing as rules tighten."
+            },
+            "action": {
+              "id": "regulation",
+              "label": "Check IRDAI on claims cost",
+              "icon": "regulation",
+              "target": {
+                "page": "sahi",
+                "sahiTab": "governance",
+                "company": "manipalcigna"
+              }
+            },
+            "isBreaking": false,
+            "isNew": false,
+            "freshness": "existing",
+            "freshnessLabel": "Existing context",
+            "publishedLabel": "29 Jul",
+            "discoveredLabel": "4 Aug",
+            "sources": [
+              {
+                "kind": "Regulatory",
+                "name": "indianexpress.com",
+                "url": "https://indianexpress.com/article/business/irdai-insurance-reforms-2026-sbsr-act-100-percent-fdi-protect-general-10809303/"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "business-standard.com",
+                "url": "https://www.business-standard.com/amp/finance/insurance/irdai-tightens-intermediary-rules-eases-insurers-investment-norms-126073101478_1.html"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "cnbctv18.com",
+                "url": "https://www.cnbctv18.com/business/finance/insurance-sector-new-rulebook-irdai-registration-shareholding-merger-norms-19958730.htm"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "irdai.gov.in",
+                "url": "https://irdai.gov.in/web/guest/document-detail?documentId=394937"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "legal.economictimes.indiatimes.com",
+                "url": "https://legal.economictimes.indiatimes.com/news/litigation/motor-insurance-consider-issuing-circular-standardising-cross-border-coverage-clauses-sc-to-irdai/132519178"
+              }
+            ],
+            "impact": "Watch",
+            "scope": "sector",
+            "companyId": null,
+            "sourceUrl": "https://indianexpress.com/article/business/irdai-insurance-reforms-2026-sbsr-act-100-percent-fdi-protect-general-10809303/",
+            "sourceConfidence": "Medium",
+            "clusterSize": 1,
+            "clusterSources": [
+              {
+                "kind": "Regulatory",
+                "name": "indianexpress.com",
+                "url": "https://indianexpress.com/article/business/irdai-insurance-reforms-2026-sbsr-act-100-percent-fdi-protect-general-10809303/"
+              }
+            ],
+            "independentSources": 1
+          }
+        ],
+        "sinceDeltas": [
+          {
+            "id": "co",
+            "label": "company-specific updates",
+            "value": "0",
+            "direction": "flat",
+            "tone": "Neutral",
+            "target": {
+              "page": "sahi",
+              "sahiTab": "companies",
+              "company": "manipalcigna",
+              "focus": {
+                "id": "pulse-since-co",
+                "kind": "locator",
+                "locatorKind": "company",
+                "metricKey": "company",
+                "metricLabel": "Company update",
+                "company": "manipalcigna",
+                "companyLabel": "ManipalCigna",
+                "comparisonType": "trend",
+                "tone": "neutral",
+                "insightLabel": "No ManipalCigna-specific updates",
+                "unit": "",
+                "sahiTab": "companies",
+                "origin": "pulse"
+              }
+            }
+          },
+          {
+            "id": "moves",
+            "label": "unusual market moves",
+            "value": "0",
+            "direction": "flat",
+            "tone": "Positive",
+            "target": {
+              "page": "sahi",
+              "sahiTab": "valuation",
+              "company": "manipalcigna",
+              "focus": {
+                "id": "pulse-since-moves",
+                "kind": "locator",
+                "locatorKind": "market_move",
+                "metricKey": "market_move",
+                "metricLabel": "Market moves",
+                "company": "manipalcigna",
+                "companyLabel": "ManipalCigna",
+                "comparisonType": "trend",
+                "tone": "neutral",
+                "insightLabel": "No unusual market moves",
+                "unit": "",
+                "sahiTab": "valuation",
+                "origin": "pulse"
+              }
+            }
+          }
+        ],
+        "events": [],
+        "actions": [
+          {
+            "id": "ownership",
+            "label": "Review ManipalCigna ownership",
+            "icon": "ownership",
+            "target": {
+              "page": "sahi",
+              "sahiTab": "governance",
+              "company": "manipalcigna",
+              "focus": {
+                "id": "pulse-ownership",
+                "metricKey": "promoter_holding",
+                "metricLabel": "Promoter holding",
+                "company": "manipalcigna",
+                "companyLabel": "ManipalCigna",
+                "comparisonType": "sequential",
+                "tone": "neutral",
+                "insightLabel": "Ownership — promoter holding trend",
+                "unit": "%",
+                "higherIsBetter": true,
+                "sahiTab": "governance",
+                "origin": "pulse"
+              }
+            }
+          },
+          {
+            "id": "margins",
+            "label": "Compare ManipalCigna margin",
+            "icon": "margins",
+            "target": {
+              "page": "sahi",
+              "sahiTab": "profitability",
+              "company": "manipalcigna",
+              "focus": {
+                "id": "pulse-margins",
+                "metricKey": "combined_ratio",
+                "metricLabel": "Combined ratio",
+                "company": "manipalcigna",
+                "companyLabel": "ManipalCigna",
+                "comparisonType": "YoY",
+                "tone": "neutral",
+                "insightLabel": "Underwriting margin — combined ratio",
+                "unit": "%",
+                "higherIsBetter": false,
+                "sahiTab": "profitability",
+                "origin": "pulse"
+              }
+            }
+          },
+          {
+            "id": "source",
+            "label": "Verify ManipalCigna sources",
+            "icon": "source",
+            "target": {
+              "page": "audit",
+              "company": "manipalcigna"
+            }
+          },
+          {
+            "id": "regulation",
+            "label": "Check IRDAI on claims cost",
+            "icon": "regulation",
+            "target": {
+              "page": "sahi",
+              "sahiTab": "governance",
+              "company": "manipalcigna"
+            }
+          }
+        ]
       }
     }
   },
   "_meta": {
     "snapshot_id": "pulse-brief-archive",
     "description": "Immutable per-calendar-day Pulse brief records (IST), one per company. Past days are frozen exactly as shown that day; the live Today view recomposes. Kept ~90 days per company.",
-    "last_updated": "2026-08-05",
-    "last_successful_run": "2026-08-05T16:03:08.729Z"
+    "last_updated": "2026-08-06",
+    "last_successful_run": "2026-08-06T05:05:06.447Z"
   }
 }
