@@ -4,8 +4,8 @@
     "description": "AI-generated market intelligence for the SAHI health insurers — investor meets, earnings/board dates, sector & regulatory news, share catalysts. Web-sourced; each item links its source. AI-generated, not audited.",
     "schema_version": "1.0.0",
     "dataset": "ai_generated",
-    "last_updated": "2026-08-08",
-    "last_successful_run": "2026-08-08T14:23:27.146Z",
+    "last_updated": "2026-08-09",
+    "last_successful_run": "2026-08-09T10:22:52.137Z",
     "upstream_sources": [
       "muns_agent_web"
     ],
@@ -14,21 +14,6 @@
     "notes": "Clearly labelled AI-generated intelligence — verify before acting. Items accumulate through the day and rank by investor impact, not recency."
   },
   "data": [
-    {
-      "id": "b4fb85da3b",
-      "company_id": "star-health",
-      "date": "2026-08-05",
-      "kind": "investor_meet",
-      "horizon": "upcoming",
-      "impact": "watch",
-      "headline": "Star Health to host in-person analyst meet in Hong Kong",
-      "detail": "Meetings scheduled with FMR, BlackRock, and Shikhara Investment Management, signalling active foreign institutional investor engagement that could influence FII flows into the sub-sector.",
-      "source_name": "scanx.trade",
-      "source_url": "https://scanx.trade/stock-market-news/companies/star-health-insurance-schedules-analyst-meet-in-hong-kong-on-aug-5/47123836)",
-      "source_published_at": "2026-08-01",
-      "first_seen": "2026-08-03T16:14:42.232Z",
-      "discovered_at": "2026-08-03T16:14:42.232Z"
-    },
     {
       "id": "744e54ff03",
       "company_id": "niva-bupa",
@@ -894,6 +879,21 @@
       "source_published_at": "2026-07-03",
       "first_seen": "2026-07-05T08:43:25.282Z",
       "discovered_at": "2026-07-05T08:43:25.282Z"
+    },
+    {
+      "id": "a9a581005e",
+      "company_id": "sector",
+      "date": null,
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "impact",
+      "detail": "headline",
+      "source_name": null,
+      "source_url": null,
+      "source_published_at": null,
+      "first_seen": "2026-08-09T10:22:52.137Z",
+      "discovered_at": "2026-08-09T10:22:52.137Z"
     }
   ]
 }
