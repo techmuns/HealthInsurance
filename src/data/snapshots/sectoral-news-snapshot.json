@@ -3,14 +3,69 @@
     "snapshot_id": "sectoral-news-snapshot",
     "description": "Key Sectoral News feed — a permanent seed of 31 curated portfolio-pack updates, kept current by a scheduled muns web-search agent. Each item links its source. Seed items are curated; agent items are AI-gathered (web), clearly labelled and not audited.",
     "schema_version": "1.0.0",
-    "last_updated": "2026-08-03",
-    "last_successful_run": "2026-08-03T09:45:41.073Z",
+    "last_updated": "2026-08-10",
+    "last_successful_run": "2026-08-10T07:41:38.211Z",
     "seed_count": 31,
-    "agent_count": 174,
+    "agent_count": 188,
     "generated_by": "Seed: investor portfolio pack. Updates: AI (muns agent, web search).",
     "notes": "Seed floor can never be lost. Agent items are de-duped by subject+date and verified-before-acting."
   },
   "data": [
+    {
+      "sn": 207,
+      "category": "Regulatory",
+      "date": "2026-08-08",
+      "subject": "IRDAI proposes salesperson accountability register to curb mis-selling",
+      "summary": "Chairman Ajay Seth proposed a public register tracing every policy to its seller and floated linking commissions to advice quality; the harder incentive-reform (cutting commissions) is seen as less likely to be enacted than the register itself.",
+      "reference": "https://www.valueresearchonline.com/stories/229291/insurance-mis-selling-irdai-reforms-agent-accountability/",
+      "id": "080b639e9bcf08",
+      "origin": "agent",
+      "added_at": "2026-08-10"
+    },
+    {
+      "sn": 206,
+      "category": "Regulatory",
+      "date": "2026-08-08",
+      "subject": "IRDAI mandates monthly premium/claims/investment data for ISP",
+      "summary": "IRDAI directed all insurers (ex-reinsurers) to submit gross premium, claims paid and investment income data monthly from July 2026 to feed MoSPI's new Index of Services Production, adding a fresh compliance/reporting burden on health insurers.",
+      "reference": "https://thehindu.com/business/Economy/irdai-asks-insurers-to-submit-premium-claims-investment-data-for-isp/article71321503.ece/amp",
+      "id": "18161520ef34df",
+      "origin": "agent",
+      "added_at": "2026-08-10"
+    },
+    {
+      "sn": 208,
+      "category": "General",
+      "date": "2026-08-06",
+      "subject": "S&P: India insurance sector set for \"massive\" growth, but profitability strained",
+      "summary": "S&P Global Ratings said reforms, **100%** FDI and low penetration will drive long-term growth for life and non-life insurers, while warning that non-life/health insurer profitability remains pressured by investment-return-led pricing and macro headwinds (slowing growth, weak monsoon).",
+      "reference": "https://business-standard.com/amp/industry/news/low-insurance-penetration-reforms-to-drive-massive-growth-in-india-s-insurance-sector-s-p-126080600828_1.html",
+      "id": "0da0b9427fd6b8",
+      "origin": "agent",
+      "added_at": "2026-08-10"
+    },
+    {
+      "sn": 210,
+      "category": "Competition / Peers",
+      "date": "2026-08-04",
+      "subject": "Aditya Birla Health Insurance targets faster-than-industry growth",
+      "summary": "ABHI (≈**16%** share of standalone group health) is chasing under-35 customers via digital tie-ups and its new \"Activ Yuva\" wellness product after **29.38%** YoY premium growth in FY26, intensifying competition for Niva Bupa, Star Health and Care Health in the youth segment.",
+      "reference": "https://whalesbook.com/news/English/insurance/Aditya-Birla-Health-Insurance-Targets-Faster-Growth-in-FY26/6a7206cd0f4505b5a04239d3",
+      "id": "0190c63a7d72d8",
+      "origin": "agent",
+      "added_at": "2026-08-10"
+    },
+    {
+      "sn": 209,
+      "category": "Profitability",
+      "date": "2026-08-04",
+      "subject": "Niva Bupa Q1FY27 net profit surges 93% YoY on underwriting gains",
+      "summary": "Net profit rose to **₹137.8 crore** from **₹71.4 crore** YoY as the combined insurance service ratio improved **296 bps** to **100.2%** and the claims ratio fell to **63%** from **66.8%**, showing margin-led rather than volume-led profit growth; GWP grew **23%** and retail health GWP **35.5%**.",
+      "reference": "https://scanx.trade/stock-market-news/companies/niva-bupa-health-insurance-q1-results-net-profit-rises-93-yoy/46957172",
+      "id": "0fcbf72296c7c8",
+      "origin": "agent",
+      "added_at": "2026-08-10"
+    },
     {
       "sn": 192,
       "category": "General",
@@ -65,6 +120,28 @@
       "id": "1865df84875033",
       "origin": "agent",
       "added_at": "2026-08-03"
+    },
+    {
+      "sn": 212,
+      "category": "Regulatory",
+      "date": "2026-07-30",
+      "subject": "Two insurers lift foreign shareholding beyond old 74% FDI cap",
+      "summary": "Following the government's approval of **100%** automatic-route FDI in insurance, one life and one general insurer have already raised foreign stakes past the previous ceiling, an early signal of capital-inflow appetite that could extend to standalone health insurers.",
+      "reference": "https://vajiramandravi.com/current-affairs/irdai-insurance-sector-reforms-2026/",
+      "id": "1197531cd4a434",
+      "origin": "agent",
+      "added_at": "2026-08-10"
+    },
+    {
+      "sn": 211,
+      "category": "Regulatory",
+      "date": "2026-07-30",
+      "subject": "IRDAI board approves sweeping reforms — PEPF, perpetual registration, penalty framework, 4th new insurer licence",
+      "summary": "IRDAI operationalised the Policyholders' Education & Protection Fund, moved intermediaries to perpetual (fee-based) registration, introduced a uniform penalty framework, and granted ProTec General Insurance a new licence — the sector's **4th** new registration in CY2026, signalling continued market opening.",
+      "reference": "https://vajiramandravi.com/current-affairs/irdai-insurance-sector-reforms-2026/",
+      "id": "0161b7b605a9c2",
+      "origin": "agent",
+      "added_at": "2026-08-10"
     },
     {
       "sn": 200,
@@ -353,6 +430,28 @@
       "added_at": "2026-07-23"
     },
     {
+      "sn": 214,
+      "category": "Profitability",
+      "date": "2026-07-20",
+      "subject": "Medical inflation running at 12–14%, well above income growth",
+      "summary": "Rising hospital costs mean a **₹1 lakh** procedure could balloon past **₹7 lakh** in 15 years at current trends; advisors are urging higher city-specific sum-insured, restoration benefits and cumulative bonuses — features that directly affect insurers' claims/loss-ratio trajectory.",
+      "reference": "https://whalesbook.com/news/English/insurance/Medical-Inflation-Hits-14percent-How-to-Right-Size-Your-Insurance/6a5e1667fe1c9287f4774aa7",
+      "id": "09a09988002cda",
+      "origin": "agent",
+      "added_at": "2026-08-10"
+    },
+    {
+      "sn": 213,
+      "category": "GST",
+      "date": "2026-07-20",
+      "subject": "One year on: GST exemption lowers premiums, but insurers' ITC loss trims the benefit",
+      "summary": "A year after the Sep-2025 GST Council move to zero-rate individual/family health premiums (from **18%**), retail premiums are lower, but insurers' loss of input-tax-credit has pushed some to nudge up base prices, partly offsetting consumer savings; employer group covers still attract **18%** GST.",
+      "reference": "https://www.firstpost.com/brand-connect/a-year-after-the-gst-exemption-for-health-insurance-have-premiums-actually-come-down-14032752.html",
+      "id": "0452de2be8ba75",
+      "origin": "agent",
+      "added_at": "2026-08-10"
+    },
+    {
       "sn": 203,
       "category": "GST",
       "date": "2026-07-20",
@@ -395,6 +494,17 @@
       "id": "19260ddaab6370",
       "origin": "agent",
       "added_at": "2026-07-23"
+    },
+    {
+      "sn": 215,
+      "category": "General",
+      "date": "2026-07-18",
+      "subject": "Niva Bupa files FY26 Business Responsibility & Sustainability Report",
+      "summary": "Niva Bupa disclosed its FY26 BRSR reporting **₹8,58,592 lakh** turnover, reflecting expanding ESG-linked disclosure obligations now standard for large listed insurers.",
+      "reference": "https://scanx.trade/stock-market-news/companies/niva-bupa-files-business-responsibility-and-sustainability-report-for-fy26/45836209",
+      "id": "1d72fb92155baa",
+      "origin": "agent",
+      "added_at": "2026-08-10"
     },
     {
       "sn": 150,
@@ -461,6 +571,17 @@
       "id": "0c74548eb60dc9",
       "origin": "agent",
       "added_at": "2026-07-16"
+    },
+    {
+      "sn": 216,
+      "category": "GST",
+      "date": "2026-07-15",
+      "subject": "Niva Bupa receives ₹22.12 crore tax refund",
+      "summary": "A modest one-off cash-flow positive for Niva Bupa tied to tax/GST settlement, supportive of near-term liquidity and solvency metrics.",
+      "reference": "https://scanx.trade/stock-market-news/companies/niva-bupa-health-insurance-receives-22-12-crore-tax-refund/45661654",
+      "id": "128ba1455b6bd2",
+      "origin": "agent",
+      "added_at": "2026-08-10"
     },
     {
       "sn": 136,
@@ -1123,6 +1244,17 @@
       "added_at": "2026-06-18"
     },
     {
+      "sn": 217,
+      "category": "Competition / Peers",
+      "date": "2026-06-04",
+      "subject": "Niva Bupa appoints Ashwani Bhatia as Independent Director",
+      "summary": "The board-strengthening move adds capital-markets expertise ahead of heightened governance scrutiny under new IRDAI intermediary/penalty norms.",
+      "reference": "https://scanx.trade/stock-market-news/companies/niva-bupa-appoints-ashwani-bhatia-as-non-executive-independent-director/42026112",
+      "id": "11fed2850424d1",
+      "origin": "agent",
+      "added_at": "2026-08-10"
+    },
+    {
       "sn": 43,
       "category": "Regulatory",
       "date": "2026-06-04",
@@ -1363,6 +1495,28 @@
       "id": "17f40c867c57fd",
       "origin": "agent",
       "added_at": "2026-06-29"
+    },
+    {
+      "sn": 218,
+      "category": "Competition / Peers",
+      "date": "2026-05-13",
+      "subject": "Niva Bupa announces board changes, leadership elevation and ESOP grant",
+      "summary": "Leadership and governance refresh signals continued organisational build-out as the insurer scales retail health distribution ahead of FY27.",
+      "reference": "https://scanx.trade/stock-market-news/companies/niva-bupa-health-insurance-announces-key-board-changes-leadership-elevation-and-esop-grant/39810840",
+      "id": "1ee6a5bde485ce",
+      "origin": "agent",
+      "added_at": "2026-08-10"
+    },
+    {
+      "sn": 219,
+      "category": "Profitability",
+      "date": "2026-05-12",
+      "subject": "Niva Bupa FY26 results: IFRS PAT jumps 80% to ₹366 crore",
+      "summary": "Full-year profit growth of **80%** (IFRS) on **27%** YoY GWP growth confirms the underwriting-margin-improvement theme that carried through into the strong Q1FY27 print.",
+      "reference": "https://scanx.trade/stock-market-news/companies/niva-bupa-health-insurance-reports-audited-financial-results-for-quarter-and-year-ended-march-31-2026/39806723",
+      "id": "0d545078ce7986",
+      "origin": "agent",
+      "added_at": "2026-08-10"
     },
     {
       "sn": 191,
