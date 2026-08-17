@@ -147,6 +147,26 @@ function clean(s: string | undefined): string {
   return (s ?? '').replace(/^["'\s]+|["'\s]+$/g, '').trim()
 }
 
+// A "headline" that is really the template's own vocabulary — the legend row, a
+// column name, or a bare enum value — not a development. When the agent echoes the
+// requested FORMAT instead of answering it, every such line still parses cleanly
+// (7+ pipe-separated cells) and lands in the feed as an undated item whose headline
+// is literally "impact" / "positive" / "watch". That is what silently starved the
+// Pulse feed from 2026-08-04: four of these per run, zero real news, run still green.
+// A genuine headline is a sentence, so require prose and reject the vocabulary.
+const SCHEMA_WORDS = new Set([
+  ...KINDS, ...IMPACTS, 'company', 'date', 'kind', 'horizon', 'impact', 'headline', 'detail',
+  'source', 'source_name', 'source_url', 'published', 'source_published_at', 'upcoming', 'recent',
+  'sector', 'n/a', 'na', 'none', 'tbd', 'null',
+])
+function isSchemaEcho(headline: string): boolean {
+  const h = headline.toLowerCase().replace(/[_\s-]+/g, ' ').trim()
+  if (SCHEMA_WORDS.has(h) || SCHEMA_WORDS.has(h.replace(/ /g, '_'))) return true
+  // A real development reads as prose: at least three words and one letter run
+  // long enough to be a word. "sector news", "target price" alone are labels.
+  return h.split(/\s+/).filter((w) => /[a-z]{3,}/.test(w)).length < 3
+}
+
 // An evergreen explainer / guide / FAQ / IR-landing URL — reference content with no
 // genuine publication date (an insurer's "what the new IRDAI rules mean" article, a
 // broker's "IRDA rules" guide, an IR "watch this page"). Kept in sync with the reader's
@@ -190,6 +210,7 @@ function parseItems(answer: string, today: string): IntelItem[] {
     if (/^company$/i.test(c[0]) || /^-+$/.test(c[1] ?? '')) continue // header / divider
     const headline = clean(c[5])
     if (!headline || headline.length < 4) continue
+    if (isSchemaEcho(headline)) continue // format echo, not a development
     const sourceUrl = (c[7] || '').match(/https?:\/\/\S+/)?.[0] ?? null
     const dateMatch = clean(c[1]).match(/\d{4}-\d{2}-\d{2}/)?.[0] ?? null
     // An evergreen explainer / guide / FAQ / IR "watch this page" landing carries no
@@ -276,12 +297,20 @@ function mergeFeed(
     }
   }
   let merged = [...byId.values()].filter((it) => isStillCurrent(it, today))
+  // Rank by the SAME reference `isStillCurrent` ages on: the item's own date when it
+  // has one, else the day we discovered it. Sorting undated items to the bottom (the
+  // old rule) meant that once the feed reached MAX_ITEMS, every newly-discovered
+  // undated item was sliced straight back off — the feed could never take anything
+  // new again. That froze the Pulse timeline from 2026-08-04 while runs stayed green.
+  // Ranking on the effective date lets a just-found item hold its place against
+  // genuinely older stored ones, and the cap evicts the oldest instead of the newest.
+  const rank = (it: IntelItem) => it.date || (it.first_seen || it.discovered_at || '').slice(0, 10) || ''
   merged.sort((a, b) => {
-    const da = a.date || ''
-    const db = b.date || ''
-    if (da && db) return da < db ? 1 : da > db ? -1 : 0
-    if (da) return -1
-    if (db) return 1
+    const ra = rank(a)
+    const rb = rank(b)
+    if (ra && rb) return ra < rb ? 1 : ra > rb ? -1 : 0
+    if (ra) return -1
+    if (rb) return 1
     return 0
   })
   if (merged.length > MAX_ITEMS) merged = merged.slice(0, MAX_ITEMS)

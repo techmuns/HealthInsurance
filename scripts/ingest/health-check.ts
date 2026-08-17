@@ -53,7 +53,17 @@ const STALE_DAYS: Record<Cadence, number> = { daily: 4, monthly: 45, quarterly: 
 // source still supplies the shown value), so it is recorded but never alerted.
 const BACKUP_SOURCE = /moneycontrol|screener|trendlyne|yahoo|investing|nse.?deliver|_delivery/i
 
+// …EXCEPT where the aggregator is the ONLY supplier of its metric. The "a break
+// here is a non-event" reasoning holds only when an official source still fills
+// the cell. Broker ratings and price targets have no official feed at all — the
+// aggregator IS the source — so demoting them to a silent 'backup' meant analyst
+// coverage could go dark and never raise a word. It did: both broker feeds died
+// and the Analyst coverage sheet sat frozen for a fortnight, recorded but never
+// alerted. Sole-source feeds are treated as core no matter who serves them.
+const SOLE_SOURCE = /analyst|broker|target_price|trendlyne_backup/i
+
 function tierOf(sourceId: string): 'core' | 'backup' {
+  if (SOLE_SOURCE.test(sourceId)) return 'core'
   return BACKUP_SOURCE.test(sourceId) ? 'backup' : 'core'
 }
 

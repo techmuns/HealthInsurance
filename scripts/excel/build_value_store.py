@@ -36,6 +36,7 @@ from __future__ import annotations
 
 import json
 import re
+from collections import defaultdict
 from pathlib import Path
 
 # A standalone-quarter period (e.g. "Q1FY25"). In a statutory NL-form the
@@ -950,6 +951,93 @@ def resolve_nl_form_urls(store):
     return n
 
 
+def withhold_premium_waterfall_violations(store):
+    """Withhold premium values that break the accounting waterfall GWP >= NWP >= NEP.
+
+    A premium leg that violates the waterfall is a mis-extraction: the three legs
+    come off the same filing, so one of them is reading the wrong row. Showing it
+    would put a number on the dashboard that cannot be true, and — because the QA
+    gate treats the waterfall as a HARD invariant — a single bad leg also fails
+    every gated pipeline's commit step, freezing unrelated data indefinitely.
+    (That is exactly what care-health Q1FY25 did from 2026-08-03: NWP 1088.14 <
+    NEP 1445.22 blocked the analyst-coverage, gic-segment and ingest workflows
+    for 15 days.)
+
+    Which leg is wrong is decided from the entity's OWN history, never guessed:
+    we take the median NWP/GWP and NEP/GWP across that entity's periods where the
+    waterfall holds, and withhold whichever leg deviates further from its own
+    median. With too little history to judge, BOTH legs of the violated pair are
+    withheld — we know one is wrong and cannot tell which, so neither is shown.
+
+    Withheld values keep full source proof and land on the Blocked Data sheet.
+    Nothing is fabricated, corrected or coerced to zero — the cell reads missing.
+    """
+    legs = defaultdict(dict)
+    for key, v in store.items():
+        entity, metric, period = key.split("::", 2)
+        if metric in ("total_gwp", "nwp", "nep") and v.get("normalized_value") is not None:
+            legs[(entity, period)][metric] = v["normalized_value"]
+
+    # Per-entity median ratio-to-GWP, learned only from periods that are self-consistent.
+    ratios = defaultdict(lambda: defaultdict(list))
+    for (entity, period), m in legs.items():
+        g, n, ne = m.get("total_gwp"), m.get("nwp"), m.get("nep")
+        if not g or g <= 0:
+            continue
+        if n is not None and ne is not None and not (g >= n >= ne):
+            continue  # a violating period must not teach the baseline
+        if n is not None and g >= n:
+            ratios[entity]["nwp"].append(n / g)
+        if ne is not None and g >= ne:
+            ratios[entity]["nep"].append(ne / g)
+
+    def median(xs):
+        s = sorted(xs)
+        if not s:
+            return None
+        mid = len(s) // 2
+        return s[mid] if len(s) % 2 else (s[mid - 1] + s[mid]) / 2
+
+    held = []
+    for (entity, period), m in sorted(legs.items()):
+        g, n, ne = m.get("total_gwp"), m.get("nwp"), m.get("nep")
+        bad = set()
+        if g is not None and n is not None and g + 1e-6 < n:
+            bad.add("nwp")  # NWP above GWP: gross is the anchor, so NWP is misread
+        if n is not None and ne is not None and n + 1e-6 < ne:
+            if not g or g <= 0:
+                bad.update({"nwp", "nep"})
+            else:
+                mn, mne = median(ratios[entity]["nwp"]), median(ratios[entity]["nep"])
+                dn = abs(n / g - mn) if mn is not None else None
+                dne = abs(ne / g - mne) if mne is not None else None
+                if dn is None or dne is None:
+                    bad.update({"nwp", "nep"})  # no baseline to judge against
+                else:
+                    bad.add("nwp" if dn > dne else "nep")
+        for metric in sorted(bad):
+            key = f"{entity}::{metric}::{period}"
+            v = store.pop(key, None)
+            if v is None:
+                continue
+            others = ", ".join(f"{k.replace('total_gwp', 'GWP').upper()} {m[k]:,.2f}"
+                               for k in ("total_gwp", "nwp", "nep") if k in m and k != metric)
+            held.append({
+                "company_id": entity, "metric": metric, "raw_value": v.get("raw_value"),
+                "normalized_value": v.get("normalized_value"), "unit": v.get("unit"),
+                "filing_period": period, "document_type": v.get("document_type"),
+                "document_title": v.get("document_title"), "filing_date": v.get("filing_date"),
+                "source_url": v.get("source_url"), "source_file": v.get("source_file"),
+                "confidence": v.get("confidence"),
+                "hold_reason": "fails_premium_invariant",
+                "source_description": v.get("source_name"),
+                "note": (f"breaks GWP >= NWP >= NEP for {period} (same filing reports {others}); "
+                         "the row read is not the one the cell needs, so the value is withheld "
+                         "rather than shown — the cell reads missing, never zero"),
+            })
+    return held
+
+
 def main():
     collect_existing()
     collect_shareholding()  # rank-1 per-holder shareholding shares (Captable tab)
@@ -965,6 +1053,10 @@ def main():
     # Alternate-basis (ex-1/n) ratio values superseded by the statutory 1/n value
     # land on Blocked Data alongside the held company-filing values.
     held = held + alternates
+    # Premium legs that cannot all be true (GWP >= NWP >= NEP) are withheld with
+    # full source proof rather than shown — and so never hard-fail the QA gate.
+    waterfall_held = withhold_premium_waterfall_violations(store)
+    held = held + waterfall_held
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(json.dumps(store, indent=2, ensure_ascii=False))
     OUT_HELD.write_text(json.dumps({
@@ -977,7 +1069,8 @@ def main():
                         "scope_unclear": "company-wide vs health-only / GDPI vs total GWP",
                         "basis_mismatch_ex_1n_adjusted": "ex-1/n / management-adjusted ratio superseded by the statutory 1/n value for the Excel cell",
                         "superseded_by_statutory_filing": "as-originally-reported premium superseded by the statutory NL-1 filing (restated comparative); statutory value fills the cell",
-                        "period_unclear": "premium amount whose NL-form column basis does not match the cell's period (quarter vs full-period); withheld so it is not promoted into the wrong cell"},
+                        "period_unclear": "premium amount whose NL-form column basis does not match the cell's period (quarter vs full-period); withheld so it is not promoted into the wrong cell",
+                        "fails_premium_invariant": "premium leg that breaks GWP >= NWP >= NEP for its period - the extractor read the wrong row of the filing; withheld (cell reads missing, never zero) instead of publishing a number that cannot be true"},
         },
         "data": held,
     }, indent=2, ensure_ascii=False))
@@ -991,6 +1084,8 @@ def main():
           f"  |  annual-report-sourced: {by_layer.get('annual_report', 0)}"
           f"  |  screener-fallback: {by_layer.get('screener_fallback', 0)} (wired {screener})"
           f"  |  conflicts flagged: {conflicts}  |  CF ratio candidates wired: {wired}  |  held-back: {len(held)}")
+    for h in waterfall_held:
+        print(f"  withheld (premium waterfall): {h['company_id']} {h['metric']} {h['filing_period']} = {h['normalized_value']}")
     by_metric = Counter(v["metric"].split("::")[0] for v in store.values())
     for metric, n in by_metric.most_common():
         print(f"    {metric:<32} {n}")
