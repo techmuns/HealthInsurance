@@ -52,18 +52,6 @@ jobs:
           SCRAPERAPI_KEY: ${{ secrets.SCRAPER_KEY }}
         run: npx tsx scripts/ingest/analyst-coverage-agent.ts
 
-      - name: Pull broker reports - Moneycontrol public feeds (no key needed)
-        # The third broker source, and the only one currently returning anything:
-        # Moneycontrol's free public feeds. It needs no token and no proxy, which is
-        # exactly why it kept working while the Trendlyne scrape (bot-blocked,
-        # tables=0) and the muns agent (502) both went dark. It was written but never
-        # scheduled, so its snapshot only moved when someone ran it by hand — last on
-        # 2026-08-03. Running it here keeps broker coverage refreshing on its own.
-        # Block-tolerant by design: a failed feed is skipped and the prior snapshot is
-        # never blanked, so this must not red the run.
-        continue-on-error: true
-        run: npx tsx scripts/ingest/ingest-moneycontrol-analyst.ts
-
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
@@ -85,7 +73,7 @@ jobs:
           git config user.email "data-bot@users.noreply.github.com"
           # 1) Commit ONLY the analyst-exclusive source (snapshot + raw pulls). No
           #    other workflow touches these, so this commit always rebases cleanly.
-          git add src/data/snapshots/analyst-coverage-snapshot.json src/data/snapshots/street-analyst-snapshot.json data/agent-pulls/analyst-coverage data/raw/moneycontrol
+          git add src/data/snapshots/analyst-coverage-snapshot.json data/agent-pulls/analyst-coverage
           git commit -m "data: analyst coverage snapshot @ $(date -u +%Y-%m-%dT%H:%MZ)" || { echo "no snapshot change"; exit 0; }
           # 2) Drop the working-tree generated files; they are rebuilt after landing.
           git checkout -- . 2>/dev/null || true
