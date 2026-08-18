@@ -350,8 +350,20 @@ async function main(): Promise<number> {
   await appendLog('sahi-intelligence-agent.log', { count: items.length, pulls: raws.length })
 
   if (items.length === 0) {
-    console.error('No parseable items across pulls — leaving market-intelligence-snapshot.json untouched.')
-    return 0
+    // Leaving the snapshot untouched is right — we never invent a feed. But a
+    // run that reaches the agent and gets NOTHING usable back is a broken
+    // upstream, not a quiet day, and returning 0 here is what let the feed sit
+    // frozen from 2026-08-04 to 2026-08-18 with every run showing green. Exit
+    // non-zero so the step is flagged in the Actions UI; the workflow's
+    // continue-on-error keeps the brief archive committing regardless.
+    console.error('ERROR: agent answered but returned NO usable items — the feed is not updating.')
+    console.error('  The pulls succeeded, so this is a degraded answer, not an outage: the agent is')
+    console.error('  echoing the requested format instead of the news (those echoes are now rejected).')
+    if (!(process.env.MUNS_AGENT_URL || '').trim()) {
+      console.error(`  MUNS_AGENT_URL is unset, so this ran against the fallback ${API_URL} — set the`)
+      console.error('  secret to the live agent endpoint; that is the most likely fix.')
+    }
+    return 1
   }
 
   // Merge this pull into the stored feed so the day's highlights accumulate (a
