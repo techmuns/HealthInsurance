@@ -1,10 +1,10 @@
 {
   "meta": {
-    "generatedAt": "2026-08-18T04:18:39.719Z",
+    "generatedAt": "2026-08-18T05:10:00.800Z",
     "dataAsOf": "Q1 FY27",
     "model": "insight-engine v2 — deterministic detector battery (no AI, no key; quarterly + monthly + annual)",
-    "signalsComputed": 310,
-    "signalHash": "sig_360654e8",
+    "signalsComputed": 311,
+    "signalHash": "sig_d3001ad3",
     "coverage": [
       {
         "insurer": "niva-bupa",
@@ -206,7 +206,7 @@
           }
         },
         "payloadHash": "sig_1a1ff6eb",
-        "computedAt": "2026-08-18T04:18:39.719Z",
+        "computedAt": "2026-08-18T05:10:00.800Z",
         "isQuantitative": true
       },
       "application": {
@@ -389,7 +389,7 @@
           }
         },
         "payloadHash": "sig_6a47c527",
-        "computedAt": "2026-08-18T04:18:39.719Z",
+        "computedAt": "2026-08-18T05:10:00.800Z",
         "isQuantitative": true
       },
       "application": {
@@ -571,7 +571,7 @@
           }
         },
         "payloadHash": "sig_c8a9e93",
-        "computedAt": "2026-08-18T04:18:39.719Z",
+        "computedAt": "2026-08-18T05:10:00.800Z",
         "isQuantitative": true
       },
       "application": {
@@ -774,7 +774,7 @@
           }
         },
         "payloadHash": "sig_ee954395",
-        "computedAt": "2026-08-18T04:18:39.719Z",
+        "computedAt": "2026-08-18T05:10:00.800Z",
         "isQuantitative": true
       },
       "application": {
@@ -975,7 +975,7 @@
           }
         },
         "payloadHash": "sig_f1d3e47b",
-        "computedAt": "2026-08-18T04:18:39.719Z",
+        "computedAt": "2026-08-18T05:10:00.800Z",
         "isQuantitative": true
       },
       "application": {
@@ -1157,7 +1157,7 @@
           }
         },
         "payloadHash": "sig_585adc2e",
-        "computedAt": "2026-08-18T04:18:39.719Z",
+        "computedAt": "2026-08-18T05:10:00.800Z",
         "isQuantitative": true
       },
       "application": {
@@ -1339,7 +1339,7 @@
           }
         },
         "payloadHash": "sig_32747194",
-        "computedAt": "2026-08-18T04:18:39.719Z",
+        "computedAt": "2026-08-18T05:10:00.800Z",
         "isQuantitative": true
       },
       "application": {
@@ -1506,7 +1506,7 @@
           }
         },
         "payloadHash": "sig_b130f166",
-        "computedAt": "2026-08-18T04:18:39.719Z",
+        "computedAt": "2026-08-18T05:10:00.800Z",
         "isQuantitative": true
       },
       "application": {
@@ -1712,7 +1712,7 @@
           }
         },
         "payloadHash": "sig_d1d1e10b",
-        "computedAt": "2026-08-18T04:18:39.719Z",
+        "computedAt": "2026-08-18T05:10:00.800Z",
         "isQuantitative": true
       },
       "application": {
@@ -1928,7 +1928,7 @@
           }
         },
         "payloadHash": "sig_fd2ef82f",
-        "computedAt": "2026-08-18T04:18:39.719Z",
+        "computedAt": "2026-08-18T05:10:00.800Z",
         "isQuantitative": true
       },
       "application": {
@@ -2115,7 +2115,7 @@
           }
         },
         "payloadHash": "sig_67ae5a8",
-        "computedAt": "2026-08-18T04:18:39.719Z",
+        "computedAt": "2026-08-18T05:10:00.800Z",
         "isQuantitative": true
       },
       "application": {
@@ -2321,7 +2321,7 @@
           }
         },
         "payloadHash": "sig_f039104a",
-        "computedAt": "2026-08-18T04:18:39.719Z",
+        "computedAt": "2026-08-18T05:10:00.800Z",
         "isQuantitative": true
       },
       "application": {
@@ -2362,175 +2362,8 @@
       }
     },
     {
-      "id": "sahi-structure-q3fy26",
-      "rank": 13,
-      "category": "market_structure",
-      "headline": "Specialist health insurers wrote 31.4% of all health premium in Q3 FY26, vs 28.7% a year ago (+2.7pp)",
-      "shortHeadline": "Specialists keep taking the health market",
-      "summary": "The specialist health insurers (SAHIs) together wrote 31.4% of the industry's health premium in Q3 FY26, up from 28.7% in Q3 FY25 — on a ₹11294 cr quarterly book. This is the structural contest under every SAHI valuation: specialists versus the big general insurers.",
-      "thesis": "Share the specialists take from generalists is stickier than share swapped between specialists: it comes with retail-heavy mix and agency distribution the generalists struggle to match. One quarter is a data point, not a trend — the streak to watch starts here.",
-      "whatConsensusMisses": "The specialist-vs-generalist split is tracked annually, if at all. The quarterly numbers show it moving up as of Q3 FY26 — and this share is baked into every SAHI's long-term valuation as if it were constant.",
-      "tier": "supporting",
-      "consensusView": "The SAHI share of health premium is treated as a slow-moving constant in long-term valuation math.",
-      "variantBasis": "The quarterly industry numbers show it moving +2.7pp year-on-year — the 'constant' is drifting print by print.",
-      "steelman": "Government-scheme flows in the industry total can nudge these shares without any retail-market change. Handled: the read uses the report's own printed sub-totals — and where no multi-quarter streak exists the card claims a data point, not a trend.",
-      "evidence": [
-        {
-          "insurer": "SAHI",
-          "metric": "SAHI share of industry health premium (quarter)",
-          "value": 31.38,
-          "unit": "%",
-          "context": "+2.71pp vs Q3 FY25",
-          "layers": [
-            "statutory"
-          ],
-          "period": "Q3 FY26"
-        },
-        {
-          "insurer": "SAHI",
-          "metric": "SAHI share of industry health premium (quarter, prior year)",
-          "value": 28.67,
-          "unit": "%",
-          "context": "same quarter a year earlier",
-          "layers": [
-            "statutory"
-          ],
-          "period": "Q3 FY25"
-        },
-        {
-          "insurer": "SAHI",
-          "metric": "SAHI health premium (quarter)",
-          "value": 11294,
-          "unit": "₹ Cr",
-          "context": "printed SAHI aggregate",
-          "layers": [
-            "statutory"
-          ],
-          "period": "Q3 FY26"
-        }
-      ],
-      "conviction": "high",
-      "horizon": "near",
-      "falsifier": "The next quarterly release reverses the gain, breaking the run.",
-      "affectedInsurers": [],
-      "chart": {
-        "type": "timeseries",
-        "title": "SAHI share of industry health — quarterly %",
-        "seriesKeys": [
-          "eq:share_total"
-        ],
-        "insurers": [
-          "SAHI"
-        ],
-        "period": "Q3 FY26"
-      },
-      "sourceNote": "Printed GI Council aggregates: the SAHI sub-total over the industry total for the same standalone quarter — both rows as printed, never re-summed from members.",
-      "period": "Q3 FY26",
-      "cadence": "quarterly",
-      "family": "sahi_structure",
-      "keyMove": {
-        "label": "SAHI share of health premium, Q3 FY25 → Q3 FY26",
-        "from": 28.67,
-        "to": 31.38,
-        "unit": "%"
-      },
-      "methodology": {
-        "steps": [
-          {
-            "key": "pp_delta",
-            "lens": "macro",
-            "name": "Carrier-type share shift",
-            "refTag": "Level shift (pp)",
-            "gloss": "SAHI share of industry health: the change in percentage points between the two prints.",
-            "formulaTeX": "\\Delta = a - b",
-            "instanceTeX": "\\Delta = 31.38 - 28.67 = 2.71\\,\\text{pp}",
-            "inputs": [
-              {
-                "symbol": "a",
-                "label": "SAHI share of industry health (Q3 FY26)",
-                "value": 31.38,
-                "unit": "%",
-                "insurer": "SAHI",
-                "period": "Q3 FY26",
-                "layer": "statutory"
-              },
-              {
-                "symbol": "b",
-                "label": "SAHI share of industry health (Q3 FY25)",
-                "value": 28.67,
-                "unit": "%",
-                "insurer": "SAHI",
-                "period": "Q3 FY25",
-                "layer": "statutory"
-              }
-            ],
-            "statistic": {
-              "symbol": "\\Delta_{sahi}",
-              "value": 2.71,
-              "unit": "pp"
-            },
-            "threshold": {
-              "rule": "|Δ| ≥ 0.4pp",
-              "value": 0.4,
-              "passed": true
-            }
-          }
-        ],
-        "lenses": {
-          "fundamental": {
-            "status": "no_signal",
-            "stepKeys": []
-          },
-          "technical": {
-            "status": "no_signal",
-            "stepKeys": []
-          },
-          "sentiment": {
-            "status": "no_signal",
-            "stepKeys": []
-          },
-          "macro": {
-            "status": "populated",
-            "stepKeys": [
-              "pp_delta"
-            ]
-          }
-        },
-        "payloadHash": "sig_cce71ded",
-        "computedAt": "2026-08-18T04:18:39.719Z",
-        "isQuantitative": true
-      },
-      "application": {
-        "framing": "A market-structure input for every SAHI valuation.",
-        "uses": [
-          {
-            "angle": "Terminal value",
-            "detail": "Stress long-term SAHI share assumptions against the printed 31.4% and its direction."
-          },
-          {
-            "angle": "Sector tailwind",
-            "detail": "A rising specialist share lifts the whole SAHI cohort’s addressable market."
-          }
-        ]
-      },
-      "watch": {
-        "items": [
-          {
-            "trigger": "Next quarterly aggregate",
-            "condition": "SAHI share back near 28.7% — run broken.",
-            "direction": "invalidates"
-          },
-          {
-            "trigger": "Streak",
-            "condition": "A further same-direction quarter beyond 31.4%.",
-            "direction": "confirms"
-          }
-        ]
-      }
-    },
-    {
       "id": "mix-shift-niva-bupa-q1fy27",
-      "rank": 14,
+      "rank": 13,
       "category": "quality",
       "headline": "Retail is now 75.8% of Niva Bupa's book, vs 68.1% a year ago (+7.7pp) — the good kind of growth",
       "shortHeadline": "Niva Bupa's growth just got healthier",
@@ -2716,7 +2549,7 @@
           }
         },
         "payloadHash": "sig_834b23a5",
-        "computedAt": "2026-08-18T04:18:39.719Z",
+        "computedAt": "2026-08-18T05:10:00.800Z",
         "isQuantitative": true
       },
       "application": {
@@ -2742,6 +2575,173 @@
           {
             "trigger": "Mix trend",
             "condition": "A second quarter at or beyond 75.8% retail.",
+            "direction": "confirms"
+          }
+        ]
+      }
+    },
+    {
+      "id": "sahi-structure-q3fy26",
+      "rank": 14,
+      "category": "market_structure",
+      "headline": "Specialist health insurers wrote 31.4% of all health premium in Q3 FY26, vs 28.7% a year ago (+2.7pp)",
+      "shortHeadline": "Specialists keep taking the health market",
+      "summary": "The specialist health insurers (SAHIs) together wrote 31.4% of the industry's health premium in Q3 FY26, up from 28.7% in Q3 FY25 — on a ₹11294 cr quarterly book. This is the structural contest under every SAHI valuation: specialists versus the big general insurers.",
+      "thesis": "Share the specialists take from generalists is stickier than share swapped between specialists: it comes with retail-heavy mix and agency distribution the generalists struggle to match. One quarter is a data point, not a trend — the streak to watch starts here.",
+      "whatConsensusMisses": "The specialist-vs-generalist split is tracked annually, if at all. The quarterly numbers show it moving up as of Q3 FY26 — and this share is baked into every SAHI's long-term valuation as if it were constant.",
+      "tier": "supporting",
+      "consensusView": "The SAHI share of health premium is treated as a slow-moving constant in long-term valuation math.",
+      "variantBasis": "The quarterly industry numbers show it moving +2.7pp year-on-year — the 'constant' is drifting print by print.",
+      "steelman": "Government-scheme flows in the industry total can nudge these shares without any retail-market change. Handled: the read uses the report's own printed sub-totals — and where no multi-quarter streak exists the card claims a data point, not a trend.",
+      "evidence": [
+        {
+          "insurer": "SAHI",
+          "metric": "SAHI share of industry health premium (quarter)",
+          "value": 31.38,
+          "unit": "%",
+          "context": "+2.71pp vs Q3 FY25",
+          "layers": [
+            "statutory"
+          ],
+          "period": "Q3 FY26"
+        },
+        {
+          "insurer": "SAHI",
+          "metric": "SAHI share of industry health premium (quarter, prior year)",
+          "value": 28.67,
+          "unit": "%",
+          "context": "same quarter a year earlier",
+          "layers": [
+            "statutory"
+          ],
+          "period": "Q3 FY25"
+        },
+        {
+          "insurer": "SAHI",
+          "metric": "SAHI health premium (quarter)",
+          "value": 11294,
+          "unit": "₹ Cr",
+          "context": "printed SAHI aggregate",
+          "layers": [
+            "statutory"
+          ],
+          "period": "Q3 FY26"
+        }
+      ],
+      "conviction": "medium",
+      "horizon": "near",
+      "falsifier": "The next quarterly release reverses the gain, breaking the run.",
+      "affectedInsurers": [],
+      "chart": {
+        "type": "timeseries",
+        "title": "SAHI share of industry health — quarterly %",
+        "seriesKeys": [
+          "eq:share_total"
+        ],
+        "insurers": [
+          "SAHI"
+        ],
+        "period": "Q3 FY26"
+      },
+      "sourceNote": "Printed GI Council aggregates: the SAHI sub-total over the industry total for the same standalone quarter — both rows as printed, never re-summed from members.",
+      "period": "Q3 FY26",
+      "cadence": "quarterly",
+      "family": "sahi_structure",
+      "keyMove": {
+        "label": "SAHI share of health premium, Q3 FY25 → Q3 FY26",
+        "from": 28.67,
+        "to": 31.38,
+        "unit": "%"
+      },
+      "methodology": {
+        "steps": [
+          {
+            "key": "pp_delta",
+            "lens": "macro",
+            "name": "Carrier-type share shift",
+            "refTag": "Level shift (pp)",
+            "gloss": "SAHI share of industry health: the change in percentage points between the two prints.",
+            "formulaTeX": "\\Delta = a - b",
+            "instanceTeX": "\\Delta = 31.38 - 28.67 = 2.71\\,\\text{pp}",
+            "inputs": [
+              {
+                "symbol": "a",
+                "label": "SAHI share of industry health (Q3 FY26)",
+                "value": 31.38,
+                "unit": "%",
+                "insurer": "SAHI",
+                "period": "Q3 FY26",
+                "layer": "statutory"
+              },
+              {
+                "symbol": "b",
+                "label": "SAHI share of industry health (Q3 FY25)",
+                "value": 28.67,
+                "unit": "%",
+                "insurer": "SAHI",
+                "period": "Q3 FY25",
+                "layer": "statutory"
+              }
+            ],
+            "statistic": {
+              "symbol": "\\Delta_{sahi}",
+              "value": 2.71,
+              "unit": "pp"
+            },
+            "threshold": {
+              "rule": "|Δ| ≥ 0.4pp",
+              "value": 0.4,
+              "passed": true
+            }
+          }
+        ],
+        "lenses": {
+          "fundamental": {
+            "status": "no_signal",
+            "stepKeys": []
+          },
+          "technical": {
+            "status": "no_signal",
+            "stepKeys": []
+          },
+          "sentiment": {
+            "status": "no_signal",
+            "stepKeys": []
+          },
+          "macro": {
+            "status": "populated",
+            "stepKeys": [
+              "pp_delta"
+            ]
+          }
+        },
+        "payloadHash": "sig_cce71ded",
+        "computedAt": "2026-08-18T05:10:00.800Z",
+        "isQuantitative": true
+      },
+      "application": {
+        "framing": "A market-structure input for every SAHI valuation.",
+        "uses": [
+          {
+            "angle": "Terminal value",
+            "detail": "Stress long-term SAHI share assumptions against the printed 31.4% and its direction."
+          },
+          {
+            "angle": "Sector tailwind",
+            "detail": "A rising specialist share lifts the whole SAHI cohort’s addressable market."
+          }
+        ]
+      },
+      "watch": {
+        "items": [
+          {
+            "trigger": "Next quarterly aggregate",
+            "condition": "SAHI share back near 28.7% — run broken.",
+            "direction": "invalidates"
+          },
+          {
+            "trigger": "Streak",
+            "condition": "A further same-direction quarter beyond 31.4%.",
             "direction": "confirms"
           }
         ]
@@ -2895,7 +2895,7 @@
           }
         },
         "payloadHash": "sig_770d08ea",
-        "computedAt": "2026-08-18T04:18:39.719Z",
+        "computedAt": "2026-08-18T05:10:00.800Z",
         "isQuantitative": true
       },
       "application": {
@@ -3101,7 +3101,7 @@
           }
         },
         "payloadHash": "sig_5cd89c04",
-        "computedAt": "2026-08-18T04:18:39.719Z",
+        "computedAt": "2026-08-18T05:10:00.800Z",
         "isQuantitative": true
       },
       "application": {
@@ -3298,7 +3298,7 @@
           }
         },
         "payloadHash": "sig_3bddbca",
-        "computedAt": "2026-08-18T04:18:39.719Z",
+        "computedAt": "2026-08-18T05:10:00.800Z",
         "isQuantitative": true
       },
       "application": {
@@ -3518,7 +3518,7 @@
           }
         },
         "payloadHash": "sig_b3e86a7b",
-        "computedAt": "2026-08-18T04:18:39.719Z",
+        "computedAt": "2026-08-18T05:10:00.800Z",
         "isQuantitative": true
       },
       "application": {
@@ -3685,7 +3685,7 @@
           }
         },
         "payloadHash": "sig_c8e8bcd3",
-        "computedAt": "2026-08-18T04:18:39.719Z",
+        "computedAt": "2026-08-18T05:10:00.800Z",
         "isQuantitative": true
       },
       "application": {
@@ -3852,7 +3852,7 @@
           }
         },
         "payloadHash": "sig_26c49fd7",
-        "computedAt": "2026-08-18T04:18:39.719Z",
+        "computedAt": "2026-08-18T05:10:00.800Z",
         "isQuantitative": true
       },
       "application": {
@@ -4031,7 +4031,7 @@
           }
         },
         "payloadHash": "sig_bb757477",
-        "computedAt": "2026-08-18T04:18:39.719Z",
+        "computedAt": "2026-08-18T05:10:00.800Z",
         "isQuantitative": true
       },
       "application": {
@@ -4238,7 +4238,7 @@
           }
         },
         "payloadHash": "sig_bc9ce4c1",
-        "computedAt": "2026-08-18T04:18:39.719Z",
+        "computedAt": "2026-08-18T05:10:00.800Z",
         "isQuantitative": true
       },
       "application": {
@@ -4453,7 +4453,7 @@
           }
         },
         "payloadHash": "sig_9d69304f",
-        "computedAt": "2026-08-18T04:18:39.719Z",
+        "computedAt": "2026-08-18T05:10:00.800Z",
         "isQuantitative": true
       },
       "application": {
@@ -4494,228 +4494,8 @@
       }
     },
     {
-      "id": "mix-shift-hdfc-ergo-q2fy26",
-      "rank": 24,
-      "category": "quality",
-      "headline": "Retail is now 79.7% of HDFC Ergo's book, vs 68.6% a year ago (+11.1pp) — the good kind of growth",
-      "shortHeadline": "HDFC Ergo's growth just got healthier",
-      "summary": "In Q2 FY26, 79.7% of HDFC Ergo's health premium came from retail customers, against 68.6% in Q2 FY25. Underneath: retail premium grew 2.1% while group fell 43.1%. Retail policies renew year after year and price better than corporate group deals, so the same headline growth is now worth more.",
-      "thesis": "Retail and group health are different businesses: retail renews at high rates with pricing power; group is re-tendered every year on price. A 11.1pp one-quarter shift on a ₹1378 cr book re-weights future margin upward before any profit ratio shows it.",
-      "whatConsensusMisses": "Growth screens show one number; the composition shows the same growth is now coming from the better book — which turns into margin several quarters later.",
-      "tier": "supporting",
-      "consensusView": "Health premium growth is read as one number; what kind of premium is growing rarely gets examined.",
-      "variantBasis": "The quarter's own retail/group split (79.7% retail now vs 68.6% a year ago) re-prices the quality of that growth today.",
-      "steelman": "Group business is lumpy — one big corporate win or loss can swing a quarter's mix without any strategy change. Handled: the comparison is same-quarter against last year on a ₹1378 cr base, and government schemes are excluded so a scheme win can't pollute the read.",
-      "evidence": [
-        {
-          "insurer": "hdfc-ergo",
-          "metric": "Retail share of retail+group health premium (quarter)",
-          "value": 79.67,
-          "unit": "%",
-          "context": "+11.07pp vs Q2 FY25",
-          "layers": [
-            "statutory"
-          ],
-          "period": "Q2 FY26"
-        },
-        {
-          "insurer": "hdfc-ergo",
-          "metric": "Retail share of retail+group health premium (quarter, prior year)",
-          "value": 68.6,
-          "unit": "%",
-          "context": "same quarter a year earlier",
-          "layers": [
-            "statutory"
-          ],
-          "period": "Q2 FY25"
-        },
-        {
-          "insurer": "hdfc-ergo",
-          "metric": "Retail health premium growth YoY (quarter)",
-          "value": 2.1,
-          "unit": "%",
-          "context": "retail leg",
-          "layers": [
-            "statutory"
-          ],
-          "period": "Q2 FY26"
-        },
-        {
-          "insurer": "hdfc-ergo",
-          "metric": "Group health premium growth YoY (quarter)",
-          "value": -43.1,
-          "unit": "%",
-          "context": "group leg",
-          "layers": [
-            "statutory"
-          ],
-          "period": "Q2 FY26"
-        }
-      ],
-      "conviction": "medium",
-      "horizon": "near",
-      "falsifier": "The next quarter's retail share reverts toward 68.6% — the shift was one contract, not a reallocation.",
-      "affectedInsurers": [
-        "hdfc-ergo"
-      ],
-      "chart": {
-        "type": "decomposition_stacked",
-        "title": "Retail vs group — this quarter (₹ Cr)",
-        "seriesKeys": [
-          "eq:retail",
-          "eq:group"
-        ],
-        "insurers": [
-          "hdfc-ergo",
-          "star-health",
-          "care-health",
-          "niva-bupa"
-        ],
-        "period": "Q2 FY26"
-      },
-      "sourceNote": "Retail and group legs from the GI Council standalone-quarter prints (government business excluded from the mix so a govt-scheme win never masquerades as retail quality).",
-      "period": "Q2 FY26",
-      "cadence": "quarterly",
-      "family": "mix_shift_q",
-      "keyMove": {
-        "label": "Retail share of the book, Q2 FY25 → Q2 FY26",
-        "from": 68.6,
-        "to": 79.67,
-        "unit": "%"
-      },
-      "methodology": {
-        "steps": [
-          {
-            "key": "share_of",
-            "lens": "fundamental",
-            "name": "Retail share of the quarter's book",
-            "refTag": "Share of printed total",
-            "gloss": "retail health premium as a share of the printed retail + group premium — numerator and denominator from the same report, never re-summed.",
-            "formulaTeX": "s = \\frac{p}{T}\\times 100",
-            "instanceTeX": "s = \\frac{1098}{1378}\\times 100 = 79.67\\%",
-            "inputs": [
-              {
-                "symbol": "p",
-                "label": "retail health premium",
-                "value": 1098.07,
-                "unit": "₹ Cr",
-                "insurer": "hdfc-ergo",
-                "period": "Q2 FY26",
-                "layer": "statutory"
-              },
-              {
-                "symbol": "T",
-                "label": "retail + group premium",
-                "value": 1378.24,
-                "unit": "₹ Cr",
-                "insurer": "hdfc-ergo",
-                "period": "Q2 FY26",
-                "layer": "statutory"
-              }
-            ],
-            "statistic": {
-              "symbol": "s_{mix}",
-              "value": 79.67,
-              "unit": "%"
-            }
-          },
-          {
-            "key": "pp_delta",
-            "lens": "fundamental",
-            "name": "Mix shift vs same quarter LY",
-            "refTag": "Level shift (pp)",
-            "gloss": "Retail share of retail+group: the change in percentage points between the two prints.",
-            "formulaTeX": "\\Delta = a - b",
-            "instanceTeX": "\\Delta = 79.67 - 68.6 = 11.07\\,\\text{pp}",
-            "inputs": [
-              {
-                "symbol": "a",
-                "label": "Retail share of retail+group (Q2 FY26)",
-                "value": 79.67,
-                "unit": "%",
-                "insurer": "hdfc-ergo",
-                "period": "Q2 FY26",
-                "layer": "statutory"
-              },
-              {
-                "symbol": "b",
-                "label": "Retail share of retail+group (Q2 FY25)",
-                "value": 68.6,
-                "unit": "%",
-                "insurer": "hdfc-ergo",
-                "period": "Q2 FY25",
-                "layer": "statutory"
-              }
-            ],
-            "statistic": {
-              "symbol": "\\Delta_{mix}",
-              "value": 11.07,
-              "unit": "pp"
-            },
-            "threshold": {
-              "rule": "|Δ| ≥ 3.5pp",
-              "value": 3.5,
-              "passed": true
-            }
-          }
-        ],
-        "lenses": {
-          "fundamental": {
-            "status": "populated",
-            "stepKeys": [
-              "share_of",
-              "pp_delta"
-            ]
-          },
-          "technical": {
-            "status": "not_applicable",
-            "reason": "Unlisted — no market price/volume.",
-            "stepKeys": []
-          },
-          "sentiment": {
-            "status": "no_signal",
-            "stepKeys": []
-          },
-          "macro": {
-            "status": "no_signal",
-            "stepKeys": []
-          }
-        },
-        "payloadHash": "sig_7f0b8b58",
-        "computedAt": "2026-08-18T04:18:39.719Z",
-        "isQuantitative": true
-      },
-      "application": {
-        "framing": "A growth-quality read on HDFC Ergo.",
-        "uses": [
-          {
-            "angle": "Thesis test",
-            "detail": "Adjust the growth multiple for mix: retail-led growth deserves a premium, group-led growth a discount."
-          },
-          {
-            "angle": "Margin watch",
-            "detail": "A rising retail mix should pull loss ratios down over the next year — watch for the follow-through."
-          }
-        ]
-      },
-      "watch": {
-        "items": [
-          {
-            "trigger": "Next-quarter mix",
-            "condition": "Retail share back near 68.6% — the shift did not persist.",
-            "direction": "invalidates"
-          },
-          {
-            "trigger": "Mix trend",
-            "condition": "A second quarter at or beyond 79.7% retail.",
-            "direction": "confirms"
-          }
-        ]
-      }
-    },
-    {
       "id": "monthly-momentum-bajaj-general-aprfy27",
-      "rank": 25,
+      "rank": 24,
       "category": "growth",
       "headline": "Bajaj Allianz's three months to Apr FY27 grew 37.2% year-on-year — the three months before that grew 13.9%",
       "shortHeadline": "Bajaj Allianz is speeding up, month by month",
@@ -4887,7 +4667,7 @@
           }
         },
         "payloadHash": "sig_924192e",
-        "computedAt": "2026-08-18T04:18:39.719Z",
+        "computedAt": "2026-08-18T05:10:00.800Z",
         "isQuantitative": true
       },
       "application": {
@@ -4920,7 +4700,7 @@
     },
     {
       "id": "share-shift-aditya-birla-q1fy27",
-      "rank": 26,
+      "rank": 25,
       "category": "market_structure",
       "headline": "Aditya Birla's share of India's retail health premium: 3.4% in Q1 FY26 → 4.6% in Q1 FY27 (+1.2pp)",
       "shortHeadline": "Aditya Birla is winning retail market share",
@@ -5095,7 +4875,7 @@
           }
         },
         "payloadHash": "sig_7611a8fa",
-        "computedAt": "2026-08-18T04:18:39.719Z",
+        "computedAt": "2026-08-18T05:10:00.800Z",
         "isQuantitative": true
       },
       "application": {
@@ -5137,7 +4917,7 @@
     },
     {
       "id": "share-shift-niva-bupa-q4fy26",
-      "rank": 27,
+      "rank": 26,
       "category": "market_structure",
       "headline": "Niva Bupa's share of India's retail health premium: 9% in Q4 FY25 → 10.5% in Q4 FY26 (+1.5pp)",
       "shortHeadline": "Niva Bupa is winning retail market share",
@@ -5310,7 +5090,7 @@
           }
         },
         "payloadHash": "sig_8b1cafd0",
-        "computedAt": "2026-08-18T04:18:39.719Z",
+        "computedAt": "2026-08-18T05:10:00.800Z",
         "isQuantitative": true
       },
       "application": {
@@ -5345,6 +5125,226 @@
           {
             "trigger": "Retail premium",
             "condition": "The retail book compounding from ₹1930 cr while share holds.",
+            "direction": "confirms"
+          }
+        ]
+      }
+    },
+    {
+      "id": "mix-shift-hdfc-ergo-q4fy25",
+      "rank": 27,
+      "category": "quality",
+      "headline": "Retail is now 84.5% of HDFC Ergo's book, vs 66% a year ago (+18.6pp) — because group collapsed",
+      "shortHeadline": "HDFC Ergo's book is shrinking, not upgrading",
+      "summary": "In Q4 FY25, 84.5% of HDFC Ergo's health premium came from retail customers, against 66% in Q4 FY24. Underneath: retail premium fell 1.3% while group fell 65%. The retail share rose only because group business fell away — the book got smaller, not better.",
+      "thesis": "A rising retail share only signals quality when retail itself is growing. Here retail moved −1.3% while group collapsed — the right read is lost or abandoned group contracts, and the question is whether the remaining retail base holds its pricing.",
+      "whatConsensusMisses": "A mix table alone scores this as an upgrade; read with the growth legs it is a shrinking book whose retail share rose by default.",
+      "tier": "supporting",
+      "consensusView": "Health premium growth is read as one number; what kind of premium is growing rarely gets examined.",
+      "variantBasis": "The quarter's own retail/group split (84.5% retail now vs 66% a year ago) re-prices the quality of that growth today.",
+      "steelman": "Group business is lumpy — one big corporate win or loss can swing a quarter's mix without any strategy change. Handled: the comparison is same-quarter against last year on a ₹1578 cr base, and government schemes are excluded so a scheme win can't pollute the read.",
+      "evidence": [
+        {
+          "insurer": "hdfc-ergo",
+          "metric": "Retail share of retail+group health premium (quarter)",
+          "value": 84.52,
+          "unit": "%",
+          "context": "+18.56pp vs Q4 FY24",
+          "layers": [
+            "statutory"
+          ],
+          "period": "Q4 FY25"
+        },
+        {
+          "insurer": "hdfc-ergo",
+          "metric": "Retail share of retail+group health premium (quarter, prior year)",
+          "value": 65.96,
+          "unit": "%",
+          "context": "same quarter a year earlier",
+          "layers": [
+            "statutory"
+          ],
+          "period": "Q4 FY24"
+        },
+        {
+          "insurer": "hdfc-ergo",
+          "metric": "Retail health premium growth YoY (quarter)",
+          "value": -1.3,
+          "unit": "%",
+          "context": "retail leg",
+          "layers": [
+            "statutory"
+          ],
+          "period": "Q4 FY25"
+        },
+        {
+          "insurer": "hdfc-ergo",
+          "metric": "Group health premium growth YoY (quarter)",
+          "value": -65,
+          "unit": "%",
+          "context": "group leg",
+          "layers": [
+            "statutory"
+          ],
+          "period": "Q4 FY25"
+        }
+      ],
+      "conviction": "medium",
+      "horizon": "near",
+      "falsifier": "The next quarter's retail share reverts toward 66% — the shift was one contract, not a reallocation.",
+      "affectedInsurers": [
+        "hdfc-ergo"
+      ],
+      "chart": {
+        "type": "decomposition_stacked",
+        "title": "Retail vs group — this quarter (₹ Cr)",
+        "seriesKeys": [
+          "eq:retail",
+          "eq:group"
+        ],
+        "insurers": [
+          "hdfc-ergo",
+          "star-health",
+          "care-health",
+          "niva-bupa"
+        ],
+        "period": "Q4 FY25"
+      },
+      "sourceNote": "Retail and group legs from the GI Council standalone-quarter prints (government business excluded from the mix so a govt-scheme win never masquerades as retail quality).",
+      "period": "Q4 FY25",
+      "cadence": "quarterly",
+      "family": "mix_shift_q",
+      "keyMove": {
+        "label": "Retail share of the book, Q4 FY24 → Q4 FY25",
+        "from": 65.96,
+        "to": 84.52,
+        "unit": "%"
+      },
+      "methodology": {
+        "steps": [
+          {
+            "key": "share_of",
+            "lens": "fundamental",
+            "name": "Retail share of the quarter's book",
+            "refTag": "Share of printed total",
+            "gloss": "retail health premium as a share of the printed retail + group premium — numerator and denominator from the same report, never re-summed.",
+            "formulaTeX": "s = \\frac{p}{T}\\times 100",
+            "instanceTeX": "s = \\frac{1333}{1578}\\times 100 = 84.52\\%",
+            "inputs": [
+              {
+                "symbol": "p",
+                "label": "retail health premium",
+                "value": 1333.3,
+                "unit": "₹ Cr",
+                "insurer": "hdfc-ergo",
+                "period": "Q4 FY25",
+                "layer": "statutory"
+              },
+              {
+                "symbol": "T",
+                "label": "retail + group premium",
+                "value": 1577.57,
+                "unit": "₹ Cr",
+                "insurer": "hdfc-ergo",
+                "period": "Q4 FY25",
+                "layer": "statutory"
+              }
+            ],
+            "statistic": {
+              "symbol": "s_{mix}",
+              "value": 84.52,
+              "unit": "%"
+            }
+          },
+          {
+            "key": "pp_delta",
+            "lens": "fundamental",
+            "name": "Mix shift vs same quarter LY",
+            "refTag": "Level shift (pp)",
+            "gloss": "Retail share of retail+group: the change in percentage points between the two prints.",
+            "formulaTeX": "\\Delta = a - b",
+            "instanceTeX": "\\Delta = 84.52 - 65.96 = 18.56\\,\\text{pp}",
+            "inputs": [
+              {
+                "symbol": "a",
+                "label": "Retail share of retail+group (Q4 FY25)",
+                "value": 84.52,
+                "unit": "%",
+                "insurer": "hdfc-ergo",
+                "period": "Q4 FY25",
+                "layer": "statutory"
+              },
+              {
+                "symbol": "b",
+                "label": "Retail share of retail+group (Q4 FY24)",
+                "value": 65.96,
+                "unit": "%",
+                "insurer": "hdfc-ergo",
+                "period": "Q4 FY24",
+                "layer": "statutory"
+              }
+            ],
+            "statistic": {
+              "symbol": "\\Delta_{mix}",
+              "value": 18.56,
+              "unit": "pp"
+            },
+            "threshold": {
+              "rule": "|Δ| ≥ 3.5pp",
+              "value": 3.5,
+              "passed": true
+            }
+          }
+        ],
+        "lenses": {
+          "fundamental": {
+            "status": "populated",
+            "stepKeys": [
+              "share_of",
+              "pp_delta"
+            ]
+          },
+          "technical": {
+            "status": "not_applicable",
+            "reason": "Unlisted — no market price/volume.",
+            "stepKeys": []
+          },
+          "sentiment": {
+            "status": "no_signal",
+            "stepKeys": []
+          },
+          "macro": {
+            "status": "no_signal",
+            "stepKeys": []
+          }
+        },
+        "payloadHash": "sig_1337b936",
+        "computedAt": "2026-08-18T05:10:00.800Z",
+        "isQuantitative": true
+      },
+      "application": {
+        "framing": "A growth-quality read on HDFC Ergo.",
+        "uses": [
+          {
+            "angle": "Thesis test",
+            "detail": "Adjust the growth multiple for mix: retail-led growth deserves a premium, group-led growth a discount."
+          },
+          {
+            "angle": "Risk flag",
+            "detail": "A falling retail mix typically precedes margin pressure by two to four quarters."
+          }
+        ]
+      },
+      "watch": {
+        "items": [
+          {
+            "trigger": "Next-quarter mix",
+            "condition": "Retail share back near 66% — the shift did not persist.",
+            "direction": "invalidates"
+          },
+          {
+            "trigger": "Mix trend",
+            "condition": "A second quarter at or beyond 84.5% retail.",
             "direction": "confirms"
           }
         ]
@@ -5539,7 +5539,7 @@
           }
         },
         "payloadHash": "sig_3ababd56",
-        "computedAt": "2026-08-18T04:18:39.719Z",
+        "computedAt": "2026-08-18T05:10:00.800Z",
         "isQuantitative": true
       },
       "application": {
@@ -5717,7 +5717,7 @@
           }
         },
         "payloadHash": "sig_2c091d21",
-        "computedAt": "2026-08-18T04:18:39.719Z",
+        "computedAt": "2026-08-18T05:10:00.800Z",
         "isQuantitative": true
       },
       "application": {
@@ -5940,7 +5940,7 @@
           }
         },
         "payloadHash": "sig_817c4e85",
-        "computedAt": "2026-08-18T04:18:39.719Z",
+        "computedAt": "2026-08-18T05:10:00.800Z",
         "isQuantitative": true
       },
       "application": {
@@ -5972,230 +5972,8 @@
       }
     },
     {
-      "id": "uw-economics-star-health-ifrs-fy26",
-      "rank": 31,
-      "category": "earnings_quality",
-      "headline": "Star Health's combined ratio (IFRS): 101.1% in FY25 → 98.8% in FY26 — under the 100% break-even line",
-      "shortHeadline": "Star Health's insurance book now pays for itself",
-      "summary": "Star Health spent ₹98.8 on claims and costs for every ₹100 of premium earned in FY26 (the combined ratio, IFRS basis) — a year earlier it was ₹101.1. The move came −2pp from claims and −0.3pp from costs. Crossing under 100 means the insurance business itself now makes money, instead of relying on investment income to cover underwriting losses.",
-      "thesis": "Crossing below a 100% combined ratio is the single most valuation-relevant event a health insurer can print: it changes the equity story from 'investment fund with an insurance cost attached' to 'profitable insurance franchise', and multiples re-rate on it. The question from here is persistence, not the crossing.",
-      "whatConsensusMisses": "Headline profit hides the split: at 98.8%, the insurance operation itself makes money on its own — and the −2.3pp move re-prices the quality of every rupee of reported profit.",
-      "tier": "supporting",
-      "consensusView": "Reported profit is read at face value; the combined ratio is a secondary disclosure.",
-      "variantBasis": "Economic earnings live in the underwriting line: 98.8% vs 101.1% (IFRS, like-for-like) is the real margin print. The move came −2pp from claims and −0.3pp from costs.",
-      "steelman": "Combined ratios can move on reserve adjustments and one-off cost items, not just current-year pricing. Handled: the comparison is strictly same-basis and same-period-type, and the watch items test persistence.",
-      "evidence": [
-        {
-          "insurer": "star-health",
-          "metric": "Combined ratio (IFRS)",
-          "value": 98.8,
-          "unit": "%",
-          "context": "-2.3pp vs FY25",
-          "layers": [
-            "ifrs"
-          ],
-          "period": "FY26"
-        },
-        {
-          "insurer": "star-health",
-          "metric": "Combined ratio (IFRS, prior period)",
-          "value": 101.1,
-          "unit": "%",
-          "context": "prior comparable period, same basis",
-          "layers": [
-            "ifrs"
-          ],
-          "period": "FY25"
-        },
-        {
-          "insurer": "star-health",
-          "metric": "Claims ratio (IFRS)",
-          "value": 68.7,
-          "unit": "%",
-          "context": "-2pp",
-          "layers": [
-            "ifrs"
-          ],
-          "period": "FY26"
-        },
-        {
-          "insurer": "star-health",
-          "metric": "Expense ratio (IFRS)",
-          "value": 30.1,
-          "unit": "%",
-          "context": "-0.3pp",
-          "layers": [
-            "ifrs"
-          ],
-          "period": "FY26"
-        }
-      ],
-      "conviction": "medium",
-      "horizon": "medium",
-      "falsifier": "The ratio moves back above 100 at the next same-basis print — the crossing was one-off (reserve releases or cost timing).",
-      "affectedInsurers": [
-        "star-health"
-      ],
-      "chart": {
-        "type": "timeseries",
-        "title": "Combined ratio — IFRS %",
-        "seriesKeys": [
-          "ab:cr_ifrs"
-        ],
-        "insurers": [
-          "niva-bupa",
-          "star-health",
-          "care-health"
-        ],
-        "period": "FY26"
-      },
-      "sourceNote": "Combined, claims and expense ratios on the IFRS basis from the company's own disclosures — the two accounting bases are never mixed in one comparison.",
-      "period": "FY26",
-      "cadence": "annual",
-      "family": "uw_economics",
-      "keyMove": {
-        "label": "Combined ratio (IFRS), FY25 → FY26",
-        "from": 101.1,
-        "to": 98.8,
-        "unit": "%"
-      },
-      "methodology": {
-        "steps": [
-          {
-            "key": "pp_delta",
-            "lens": "fundamental",
-            "name": "Combined-ratio move (IFRS)",
-            "refTag": "Level shift (pp)",
-            "gloss": "Combined ratio: the change in percentage points between the two prints.",
-            "formulaTeX": "\\Delta = a - b",
-            "instanceTeX": "\\Delta = 98.8 - 101.1 = -2.3\\,\\text{pp}",
-            "inputs": [
-              {
-                "symbol": "a",
-                "label": "Combined ratio (FY26)",
-                "value": 98.8,
-                "unit": "%",
-                "insurer": "star-health",
-                "period": "FY26",
-                "layer": "ifrs"
-              },
-              {
-                "symbol": "b",
-                "label": "Combined ratio (FY25)",
-                "value": 101.1,
-                "unit": "%",
-                "insurer": "star-health",
-                "period": "FY25",
-                "layer": "ifrs"
-              }
-            ],
-            "statistic": {
-              "symbol": "\\Delta_{CR}",
-              "value": -2.3,
-              "unit": "pp"
-            },
-            "threshold": {
-              "rule": "|Δ| ≥ 2pp",
-              "value": 2,
-              "passed": true
-            }
-          },
-          {
-            "key": "pp_delta",
-            "lens": "fundamental",
-            "name": "Claims-side attribution",
-            "refTag": "Level shift (pp)",
-            "gloss": "Claims ratio: the change in percentage points between the two prints.",
-            "formulaTeX": "\\Delta = a - b",
-            "instanceTeX": "\\Delta = 68.7 - 70.7 = -2\\,\\text{pp}",
-            "inputs": [
-              {
-                "symbol": "a",
-                "label": "Claims ratio (FY26)",
-                "value": 68.7,
-                "unit": "%",
-                "insurer": "star-health",
-                "period": "FY26",
-                "layer": "ifrs"
-              },
-              {
-                "symbol": "b",
-                "label": "Claims ratio (FY25)",
-                "value": 70.7,
-                "unit": "%",
-                "insurer": "star-health",
-                "period": "FY25",
-                "layer": "ifrs"
-              }
-            ],
-            "statistic": {
-              "symbol": "\\Delta_{claims}",
-              "value": -2,
-              "unit": "pp"
-            },
-            "threshold": {
-              "rule": "|Δ| ≥ 0pp",
-              "value": 0,
-              "passed": true
-            }
-          }
-        ],
-        "lenses": {
-          "fundamental": {
-            "status": "populated",
-            "stepKeys": [
-              "pp_delta",
-              "pp_delta"
-            ]
-          },
-          "technical": {
-            "status": "no_signal",
-            "stepKeys": []
-          },
-          "sentiment": {
-            "status": "no_signal",
-            "stepKeys": []
-          },
-          "macro": {
-            "status": "no_signal",
-            "stepKeys": []
-          }
-        },
-        "payloadHash": "sig_cf288c18",
-        "computedAt": "2026-08-18T04:18:39.719Z",
-        "isQuantitative": true
-      },
-      "application": {
-        "framing": "An earnings-quality read on Star Health (IFRS basis).",
-        "uses": [
-          {
-            "angle": "Valuation",
-            "detail": "A health insurer that makes money on underwriting deserves a structurally higher multiple than one that relies on float income — check whether the market has re-rated it yet."
-          },
-          {
-            "angle": "Cross-check",
-            "detail": "Confirm the same direction on the other accounting basis before sizing a position on it."
-          }
-        ]
-      },
-      "watch": {
-        "items": [
-          {
-            "trigger": "Next same-basis print",
-            "condition": "Combined ratio back above 100.",
-            "direction": "invalidates"
-          },
-          {
-            "trigger": "Persistence",
-            "condition": "A second consecutive print below 100.",
-            "direction": "confirms"
-          }
-        ]
-      }
-    },
-    {
       "id": "uw-economics-star-health-igaap-fy25",
-      "rank": 32,
+      "rank": 31,
       "category": "earnings_quality",
       "headline": "Star Health's combined ratio (IGAAP): 96.7% in FY24 → 101.1% in FY25 — over the 100% break-even line",
       "shortHeadline": "Star Health slipped into underwriting loss",
@@ -6384,7 +6162,7 @@
           }
         },
         "payloadHash": "sig_31f285df",
-        "computedAt": "2026-08-18T04:18:39.719Z",
+        "computedAt": "2026-08-18T05:10:00.800Z",
         "isQuantitative": true
       },
       "application": {
@@ -6410,6 +6188,228 @@
           {
             "trigger": "Persistence",
             "condition": "The trajectory extending from 101.1%.",
+            "direction": "confirms"
+          }
+        ]
+      }
+    },
+    {
+      "id": "uw-economics-star-health-ifrs-fy26",
+      "rank": 32,
+      "category": "earnings_quality",
+      "headline": "Star Health's combined ratio (IFRS): 101.1% in FY25 → 98.8% in FY26 — under the 100% break-even line",
+      "shortHeadline": "Star Health's insurance book now pays for itself",
+      "summary": "Star Health spent ₹98.8 on claims and costs for every ₹100 of premium earned in FY26 (the combined ratio, IFRS basis) — a year earlier it was ₹101.1. The move came −2pp from claims and −0.3pp from costs. Crossing under 100 means the insurance business itself now makes money, instead of relying on investment income to cover underwriting losses.",
+      "thesis": "Crossing below a 100% combined ratio is the single most valuation-relevant event a health insurer can print: it changes the equity story from 'investment fund with an insurance cost attached' to 'profitable insurance franchise', and multiples re-rate on it. The question from here is persistence, not the crossing.",
+      "whatConsensusMisses": "Headline profit hides the split: at 98.8%, the insurance operation itself makes money on its own — and the −2.3pp move re-prices the quality of every rupee of reported profit.",
+      "tier": "supporting",
+      "consensusView": "Reported profit is read at face value; the combined ratio is a secondary disclosure.",
+      "variantBasis": "Economic earnings live in the underwriting line: 98.8% vs 101.1% (IFRS, like-for-like) is the real margin print. The move came −2pp from claims and −0.3pp from costs.",
+      "steelman": "Combined ratios can move on reserve adjustments and one-off cost items, not just current-year pricing. Handled: the comparison is strictly same-basis and same-period-type, and the watch items test persistence.",
+      "evidence": [
+        {
+          "insurer": "star-health",
+          "metric": "Combined ratio (IFRS)",
+          "value": 98.8,
+          "unit": "%",
+          "context": "-2.3pp vs FY25",
+          "layers": [
+            "ifrs"
+          ],
+          "period": "FY26"
+        },
+        {
+          "insurer": "star-health",
+          "metric": "Combined ratio (IFRS, prior period)",
+          "value": 101.1,
+          "unit": "%",
+          "context": "prior comparable period, same basis",
+          "layers": [
+            "ifrs"
+          ],
+          "period": "FY25"
+        },
+        {
+          "insurer": "star-health",
+          "metric": "Claims ratio (IFRS)",
+          "value": 68.7,
+          "unit": "%",
+          "context": "-2pp",
+          "layers": [
+            "ifrs"
+          ],
+          "period": "FY26"
+        },
+        {
+          "insurer": "star-health",
+          "metric": "Expense ratio (IFRS)",
+          "value": 30.1,
+          "unit": "%",
+          "context": "-0.3pp",
+          "layers": [
+            "ifrs"
+          ],
+          "period": "FY26"
+        }
+      ],
+      "conviction": "medium",
+      "horizon": "medium",
+      "falsifier": "The ratio moves back above 100 at the next same-basis print — the crossing was one-off (reserve releases or cost timing).",
+      "affectedInsurers": [
+        "star-health"
+      ],
+      "chart": {
+        "type": "timeseries",
+        "title": "Combined ratio — IFRS %",
+        "seriesKeys": [
+          "ab:cr_ifrs"
+        ],
+        "insurers": [
+          "niva-bupa",
+          "star-health",
+          "care-health"
+        ],
+        "period": "FY26"
+      },
+      "sourceNote": "Combined, claims and expense ratios on the IFRS basis from the company's own disclosures — the two accounting bases are never mixed in one comparison.",
+      "period": "FY26",
+      "cadence": "annual",
+      "family": "uw_economics",
+      "keyMove": {
+        "label": "Combined ratio (IFRS), FY25 → FY26",
+        "from": 101.1,
+        "to": 98.8,
+        "unit": "%"
+      },
+      "methodology": {
+        "steps": [
+          {
+            "key": "pp_delta",
+            "lens": "fundamental",
+            "name": "Combined-ratio move (IFRS)",
+            "refTag": "Level shift (pp)",
+            "gloss": "Combined ratio: the change in percentage points between the two prints.",
+            "formulaTeX": "\\Delta = a - b",
+            "instanceTeX": "\\Delta = 98.8 - 101.1 = -2.3\\,\\text{pp}",
+            "inputs": [
+              {
+                "symbol": "a",
+                "label": "Combined ratio (FY26)",
+                "value": 98.8,
+                "unit": "%",
+                "insurer": "star-health",
+                "period": "FY26",
+                "layer": "ifrs"
+              },
+              {
+                "symbol": "b",
+                "label": "Combined ratio (FY25)",
+                "value": 101.1,
+                "unit": "%",
+                "insurer": "star-health",
+                "period": "FY25",
+                "layer": "ifrs"
+              }
+            ],
+            "statistic": {
+              "symbol": "\\Delta_{CR}",
+              "value": -2.3,
+              "unit": "pp"
+            },
+            "threshold": {
+              "rule": "|Δ| ≥ 2pp",
+              "value": 2,
+              "passed": true
+            }
+          },
+          {
+            "key": "pp_delta",
+            "lens": "fundamental",
+            "name": "Claims-side attribution",
+            "refTag": "Level shift (pp)",
+            "gloss": "Claims ratio: the change in percentage points between the two prints.",
+            "formulaTeX": "\\Delta = a - b",
+            "instanceTeX": "\\Delta = 68.7 - 70.7 = -2\\,\\text{pp}",
+            "inputs": [
+              {
+                "symbol": "a",
+                "label": "Claims ratio (FY26)",
+                "value": 68.7,
+                "unit": "%",
+                "insurer": "star-health",
+                "period": "FY26",
+                "layer": "ifrs"
+              },
+              {
+                "symbol": "b",
+                "label": "Claims ratio (FY25)",
+                "value": 70.7,
+                "unit": "%",
+                "insurer": "star-health",
+                "period": "FY25",
+                "layer": "ifrs"
+              }
+            ],
+            "statistic": {
+              "symbol": "\\Delta_{claims}",
+              "value": -2,
+              "unit": "pp"
+            },
+            "threshold": {
+              "rule": "|Δ| ≥ 0pp",
+              "value": 0,
+              "passed": true
+            }
+          }
+        ],
+        "lenses": {
+          "fundamental": {
+            "status": "populated",
+            "stepKeys": [
+              "pp_delta",
+              "pp_delta"
+            ]
+          },
+          "technical": {
+            "status": "no_signal",
+            "stepKeys": []
+          },
+          "sentiment": {
+            "status": "no_signal",
+            "stepKeys": []
+          },
+          "macro": {
+            "status": "no_signal",
+            "stepKeys": []
+          }
+        },
+        "payloadHash": "sig_cf288c18",
+        "computedAt": "2026-08-18T05:10:00.800Z",
+        "isQuantitative": true
+      },
+      "application": {
+        "framing": "An earnings-quality read on Star Health (IFRS basis).",
+        "uses": [
+          {
+            "angle": "Valuation",
+            "detail": "A health insurer that makes money on underwriting deserves a structurally higher multiple than one that relies on float income — check whether the market has re-rated it yet."
+          },
+          {
+            "angle": "Cross-check",
+            "detail": "Confirm the same direction on the other accounting basis before sizing a position on it."
+          }
+        ]
+      },
+      "watch": {
+        "items": [
+          {
+            "trigger": "Next same-basis print",
+            "condition": "Combined ratio back above 100.",
+            "direction": "invalidates"
+          },
+          {
+            "trigger": "Persistence",
+            "condition": "A second consecutive print below 100.",
             "direction": "confirms"
           }
         ]
@@ -6589,7 +6589,7 @@
           }
         },
         "payloadHash": "sig_a8e27109",
-        "computedAt": "2026-08-18T04:18:39.719Z",
+        "computedAt": "2026-08-18T05:10:00.800Z",
         "isQuantitative": true
       },
       "application": {
@@ -6621,8 +6621,213 @@
       }
     },
     {
-      "id": "monthly-momentum-niva-bupa-mayfy27",
+      "id": "monthly-momentum-hdfc-ergo-julfy27",
       "rank": 34,
+      "category": "growth",
+      "headline": "HDFC Ergo's three months to Jul FY27 grew 45.4% year-on-year — the three months before that grew 34.8%",
+      "shortHeadline": "HDFC Ergo is speeding up, month by month",
+      "summary": "HDFC Ergo's health premium for the three months to Jul FY27 was 45.4% higher than the same three months last year — one quarter earlier the pace was 34.8%. That is a 10.6pp pick-up on a ₹1928 cr rolling book (monthly regulator filings, government schemes excluded). Quarterly results will not show this until the next reporting date; the monthly data shows it now.",
+      "thesis": "Monthly premium filings are the earliest reliable read the public data offers — roughly a quarter ahead of results. A 10.6pp acceleration this size, on a base this large, usually survives into the reported quarter.",
+      "whatConsensusMisses": "Most investors wait for quarterly results. The monthly filings already show the pace rising — 34.8% to 45.4% — weeks before any result is published.",
+      "tier": "supporting",
+      "consensusView": "Growth is tracked quarterly; between results the last reported pace is assumed to continue.",
+      "variantBasis": "Rolling three-month growth (45.4% now vs 34.8% a quarter ago) re-times the change to today instead of the next results day.",
+      "steelman": "Monthly numbers are lumpy and one big booking can tilt a window. Handled: three-month windows smooth single-month noise, both windows compare like-for-like against their own prior-year months, government schemes are excluded, and the base is ₹1928 cr — large enough that one deal rarely explains 10.6pp.",
+      "evidence": [
+        {
+          "insurer": "hdfc-ergo",
+          "metric": "Trailing 3-month health GWP growth YoY (ex-government)",
+          "value": 45.4,
+          "unit": "%",
+          "context": "window ending Jul FY27",
+          "layers": [
+            "statutory"
+          ],
+          "period": "Jul FY27"
+        },
+        {
+          "insurer": "hdfc-ergo",
+          "metric": "Prior 3-month window growth YoY (ex-government)",
+          "value": 34.8,
+          "unit": "%",
+          "context": "window ending Apr FY27",
+          "layers": [
+            "statutory"
+          ],
+          "period": "Apr FY27"
+        },
+        {
+          "insurer": "hdfc-ergo",
+          "metric": "Trailing 3-month health GWP ex-government",
+          "value": 1927.9,
+          "unit": "₹ Cr",
+          "context": "sum of the three printed single months",
+          "layers": [
+            "statutory"
+          ],
+          "period": "Jul FY27"
+        }
+      ],
+      "conviction": "medium",
+      "horizon": "near",
+      "falsifier": "The next monthly window reverts toward 34.8%, marking the shift as booking-timing noise.",
+      "affectedInsurers": [
+        "hdfc-ergo"
+      ],
+      "chart": {
+        "type": "timeseries",
+        "title": "Monthly health GWP ex-government — ₹ Cr",
+        "seriesKeys": [
+          "em:exgovt"
+        ],
+        "insurers": [
+          "hdfc-ergo"
+        ],
+        "period": "Jul FY27"
+      },
+      "sourceNote": "Single-month premium from the GI Council monthly flash with government-scheme business excluded (each month's own print, YTD differences where the source prints only cumulatives). A 3-month window smooths single-month lumpiness, and every comparison stays on one side of the Oct-2024 1/n recognition change.",
+      "period": "Jul FY27",
+      "cadence": "monthly",
+      "family": "monthly_momentum",
+      "keyMove": {
+        "label": "3-month growth pace, vs a quarter earlier",
+        "from": 34.8,
+        "to": 45.4,
+        "unit": "%"
+      },
+      "methodology": {
+        "steps": [
+          {
+            "key": "yoy_growth",
+            "lens": "fundamental",
+            "name": "Year-over-year growth",
+            "refTag": "Same-period comparison",
+            "gloss": "Trailing 3-month health GWP ex-government against the same period a year earlier — the seasonality-free growth read.",
+            "formulaTeX": "g = \\left(\\frac{x_{1}}{x_{0}} - 1\\right)\\times 100",
+            "instanceTeX": "g = \\left(\\frac{1928}{1326} - 1\\right)\\times 100 = 45.4\\%",
+            "inputs": [
+              {
+                "symbol": "x_1",
+                "label": "Trailing 3-month health GWP ex-government (Jul FY27)",
+                "value": 1927.92,
+                "unit": "₹ Cr",
+                "insurer": "hdfc-ergo",
+                "period": "Jul FY27",
+                "layer": "statutory"
+              },
+              {
+                "symbol": "x_0",
+                "label": "Trailing 3-month health GWP ex-government (Jul FY26)",
+                "value": 1325.85,
+                "unit": "₹ Cr",
+                "insurer": "hdfc-ergo",
+                "period": "Jul FY26",
+                "layer": "statutory"
+              }
+            ],
+            "statistic": {
+              "symbol": "g_{3m}",
+              "value": 45.4,
+              "unit": "%"
+            }
+          },
+          {
+            "key": "pp_delta",
+            "lens": "fundamental",
+            "name": "Momentum shift between windows",
+            "refTag": "Level shift (pp)",
+            "gloss": "Trailing 3-month YoY growth (ex-govt): the change in percentage points between the two prints.",
+            "formulaTeX": "\\Delta = a - b",
+            "instanceTeX": "\\Delta = 45.4 - 34.8 = 10.6\\,\\text{pp}",
+            "inputs": [
+              {
+                "symbol": "a",
+                "label": "Trailing 3-month YoY growth (ex-govt) (Jul FY27)",
+                "value": 45.4,
+                "unit": "%",
+                "insurer": "hdfc-ergo",
+                "period": "Jul FY27",
+                "layer": "statutory"
+              },
+              {
+                "symbol": "b",
+                "label": "Trailing 3-month YoY growth (ex-govt) (Apr FY27)",
+                "value": 34.8,
+                "unit": "%",
+                "insurer": "hdfc-ergo",
+                "period": "Apr FY27",
+                "layer": "statutory"
+              }
+            ],
+            "statistic": {
+              "symbol": "\\Delta_{mom}",
+              "value": 10.6,
+              "unit": "pp"
+            },
+            "threshold": {
+              "rule": "|Δ| ≥ 8pp",
+              "value": 8,
+              "passed": true
+            }
+          }
+        ],
+        "lenses": {
+          "fundamental": {
+            "status": "populated",
+            "stepKeys": [
+              "yoy_growth",
+              "pp_delta"
+            ]
+          },
+          "technical": {
+            "status": "not_applicable",
+            "reason": "Unlisted — no market price/volume.",
+            "stepKeys": []
+          },
+          "sentiment": {
+            "status": "no_signal",
+            "stepKeys": []
+          },
+          "macro": {
+            "status": "no_signal",
+            "stepKeys": []
+          }
+        },
+        "payloadHash": "sig_32960406",
+        "computedAt": "2026-08-18T05:10:00.800Z",
+        "isQuantitative": true
+      },
+      "application": {
+        "framing": "An early-warning read on HDFC Ergo.",
+        "uses": [
+          {
+            "angle": "Timing",
+            "detail": "Position before the quarterly result rather than reacting to it — the monthly data already contains its direction."
+          },
+          {
+            "angle": "Thesis confirm",
+            "detail": "Monthly acceleration on a large base tends to survive into the reported quarter."
+          }
+        ]
+      },
+      "watch": {
+        "items": [
+          {
+            "trigger": "Next monthly window",
+            "condition": "Rolling three-month growth reverting toward 34.8%.",
+            "direction": "invalidates"
+          },
+          {
+            "trigger": "Window trend",
+            "condition": "Another window at or above 45.4%.",
+            "direction": "confirms"
+          }
+        ]
+      }
+    },
+    {
+      "id": "monthly-momentum-niva-bupa-mayfy27",
+      "rank": 35,
       "category": "growth",
       "headline": "Niva Bupa's three months to May FY27 grew 33.8% year-on-year — the three months before that grew 44.5%",
       "shortHeadline": "Niva Bupa is slowing down, month by month",
@@ -6793,7 +6998,7 @@
           }
         },
         "payloadHash": "sig_61927dad",
-        "computedAt": "2026-08-18T04:18:39.719Z",
+        "computedAt": "2026-08-18T05:10:00.800Z",
         "isQuantitative": true
       },
       "application": {
@@ -6826,7 +7031,7 @@
     },
     {
       "id": "monthly-momentum-icici-lombard-mayfy27",
-      "rank": 35,
+      "rank": 36,
       "category": "growth",
       "headline": "ICICI Lombard's three months to May FY27 grew 27.2% year-on-year — the three months before that grew 35.9%",
       "shortHeadline": "ICICI Lombard is slowing down, month by month",
@@ -6997,7 +7202,7 @@
           }
         },
         "payloadHash": "sig_6a511735",
-        "computedAt": "2026-08-18T04:18:39.719Z",
+        "computedAt": "2026-08-18T05:10:00.800Z",
         "isQuantitative": true
       },
       "application": {
@@ -7030,7 +7235,7 @@
     },
     {
       "id": "uw-economics-niva-bupa-igaap-fy25",
-      "rank": 36,
+      "rank": 37,
       "category": "earnings_quality",
       "headline": "Niva Bupa's combined ratio (IGAAP): 98.8% in FY24 → 101.2% in FY25 — over the 100% break-even line",
       "shortHeadline": "Niva Bupa slipped into underwriting loss",
@@ -7219,7 +7424,7 @@
           }
         },
         "payloadHash": "sig_3a2a499f",
-        "computedAt": "2026-08-18T04:18:39.719Z",
+        "computedAt": "2026-08-18T05:10:00.800Z",
         "isQuantitative": true
       },
       "application": {
@@ -7252,7 +7457,7 @@
     },
     {
       "id": "growth-inflection-hdfc-ergo-q3fy26",
-      "rank": 37,
+      "rank": 38,
       "category": "growth",
       "headline": "HDFC Ergo grew 45.3% in Q3 FY26 vs its usual ~18.6% pace — a 26.7pp break from trend",
       "shortHeadline": "HDFC Ergo's growth just jumped a gear",
@@ -7424,7 +7629,7 @@
           }
         },
         "payloadHash": "sig_cff66028",
-        "computedAt": "2026-08-18T04:18:39.719Z",
+        "computedAt": "2026-08-18T05:10:00.800Z",
         "isQuantitative": true
       },
       "application": {
@@ -7450,211 +7655,6 @@
           {
             "trigger": "New pace",
             "condition": "A second consecutive quarter within a few points of 45.3%.",
-            "direction": "confirms"
-          }
-        ]
-      }
-    },
-    {
-      "id": "growth-inflection-manipalcigna-q3fy26",
-      "rank": 38,
-      "category": "growth",
-      "headline": "ManipalCigna grew 53.3% in Q3 FY26 vs its usual ~22.2% pace — a 31.1pp break from trend",
-      "shortHeadline": "ManipalCigna's growth just jumped a gear",
-      "summary": "ManipalCigna's health premium grew 53.3% in Q3 FY26 compared with the same quarter last year — far above the ~22.2% it usually grows (the median of its recent quarters, with government-scheme business stripped out). On a ₹570 cr quarter, a 31.1pp break from its own pattern means something real changed in the business.",
-      "thesis": "The comparison is same-quarter and excludes government schemes, so seasonality and one-off scheme wins are already out of the number. When growth jumps this far above a company’s own pace, something started working — distribution, pricing, or a product — and it compounds from here if it holds.",
-      "whatConsensusMisses": "Annual growth figures still show the old pace; the newest quarter runs at 53.3%. Anyone modelling ManipalCigna off last year's rate is underestimating it by roughly 31.1pp.",
-      "tier": "supporting",
-      "consensusView": "ManipalCigna is extrapolated at roughly 22.2% growth, because that is what the trailing figures show.",
-      "variantBasis": "The newest quarter runs at 53.3% — the current pace has already moved 31.1pp; annual numbers will catch up with a lag.",
-      "steelman": "One quarter is one data point, and a single large corporate deal can move even a same-quarter comparison. Handled: government schemes are excluded, the base quarter is ₹570 cr — big enough that one contract rarely moves it this far — and the next print is the direct test.",
-      "evidence": [
-        {
-          "insurer": "manipalcigna",
-          "metric": "Health GWP growth YoY, ex-government (quarter)",
-          "value": 53.3,
-          "unit": "%",
-          "context": "vs ~22.2% trailing-quarter norm",
-          "layers": [
-            "statutory"
-          ],
-          "period": "Q3 FY26"
-        },
-        {
-          "insurer": "manipalcigna",
-          "metric": "Health GWP ex-government (quarter)",
-          "value": 569.5,
-          "unit": "₹ Cr",
-          "context": "standalone quarter from printed cumulatives, government schemes excluded",
-          "layers": [
-            "statutory"
-          ],
-          "period": "Q3 FY26"
-        },
-        {
-          "insurer": "manipalcigna",
-          "metric": "Trailing-quarter growth norm",
-          "value": 22.2,
-          "unit": "%",
-          "context": "median of the 4 preceding same-basis quarterly YoY prints",
-          "layers": [
-            "statutory"
-          ],
-          "period": "Q3 FY26"
-        }
-      ],
-      "conviction": "medium",
-      "horizon": "near",
-      "falsifier": "The following quarter returns to the ~22.2% usual pace, marking this print as noise or a one-off contract.",
-      "affectedInsurers": [
-        "manipalcigna"
-      ],
-      "chart": {
-        "type": "timeseries",
-        "title": "Quarterly health GWP ex-government — ₹ Cr",
-        "seriesKeys": [
-          "eq:exgovt"
-        ],
-        "insurers": [
-          "manipalcigna"
-        ],
-        "period": "Q3 FY26"
-      },
-      "sourceNote": "Standalone-quarter premium from the GI Council quarter-end prints with government-scheme business excluded, so a scheme win or loss never reads as business momentum. Growth is same-quarter YoY on a like-for-like recognition basis (comparisons that cross the Oct-2024 1/n change are excluded).",
-      "period": "Q3 FY26",
-      "cadence": "quarterly",
-      "family": "growth_inflection_q",
-      "keyMove": {
-        "label": "Growth vs its usual pace, Q3 FY26",
-        "from": 22.2,
-        "to": 53.3,
-        "unit": "%"
-      },
-      "methodology": {
-        "steps": [
-          {
-            "key": "yoy_growth",
-            "lens": "fundamental",
-            "name": "Year-over-year growth",
-            "refTag": "Same-period comparison",
-            "gloss": "Health GWP ex-government against the same period a year earlier — the seasonality-free growth read.",
-            "formulaTeX": "g = \\left(\\frac{x_{1}}{x_{0}} - 1\\right)\\times 100",
-            "instanceTeX": "g = \\left(\\frac{570}{372} - 1\\right)\\times 100 = 53.3\\%",
-            "inputs": [
-              {
-                "symbol": "x_1",
-                "label": "Health GWP ex-government (Q3 FY26)",
-                "value": 569.53,
-                "unit": "₹ Cr",
-                "insurer": "manipalcigna",
-                "period": "Q3 FY26",
-                "layer": "statutory"
-              },
-              {
-                "symbol": "x_0",
-                "label": "Health GWP ex-government (Q3 FY25)",
-                "value": 371.54,
-                "unit": "₹ Cr",
-                "insurer": "manipalcigna",
-                "period": "Q3 FY25",
-                "layer": "statutory"
-              }
-            ],
-            "statistic": {
-              "symbol": "g_{q}",
-              "value": 53.3,
-              "unit": "%"
-            }
-          },
-          {
-            "key": "pp_delta",
-            "lens": "fundamental",
-            "name": "Growth vs own trailing norm",
-            "refTag": "Level shift (pp)",
-            "gloss": "Quarterly YoY growth (ex-govt): the change in percentage points between the two prints.",
-            "formulaTeX": "\\Delta = a - b",
-            "instanceTeX": "\\Delta = 53.3 - 22.2 = 31.1\\,\\text{pp}",
-            "inputs": [
-              {
-                "symbol": "a",
-                "label": "Quarterly YoY growth (ex-govt) (Q3 FY26)",
-                "value": 53.3,
-                "unit": "%",
-                "insurer": "manipalcigna",
-                "period": "Q3 FY26",
-                "layer": "statutory"
-              },
-              {
-                "symbol": "b",
-                "label": "Quarterly YoY growth (ex-govt) (trailing norm)",
-                "value": 22.2,
-                "unit": "%",
-                "insurer": "manipalcigna",
-                "period": "trailing norm",
-                "layer": "statutory"
-              }
-            ],
-            "statistic": {
-              "symbol": "\\Delta_{trend}",
-              "value": 31.1,
-              "unit": "pp"
-            },
-            "threshold": {
-              "rule": "|Δ| ≥ 12pp",
-              "value": 12,
-              "passed": true
-            }
-          }
-        ],
-        "lenses": {
-          "fundamental": {
-            "status": "populated",
-            "stepKeys": [
-              "yoy_growth",
-              "pp_delta"
-            ]
-          },
-          "technical": {
-            "status": "not_applicable",
-            "reason": "Unlisted — no market price/volume.",
-            "stepKeys": []
-          },
-          "sentiment": {
-            "status": "no_signal",
-            "stepKeys": []
-          },
-          "macro": {
-            "status": "no_signal",
-            "stepKeys": []
-          }
-        },
-        "payloadHash": "sig_a9c61d66",
-        "computedAt": "2026-08-18T04:18:39.719Z",
-        "isQuantitative": true
-      },
-      "application": {
-        "framing": "A growth-pace reset read on ManipalCigna.",
-        "uses": [
-          {
-            "angle": "Forecast check",
-            "detail": "Re-base premium models on the 53.3% newest pace rather than the trailing average."
-          },
-          {
-            "angle": "Thesis confirm",
-            "detail": "A growth jump on a large base is the strongest confirmation a franchise thesis gets."
-          }
-        ]
-      },
-      "watch": {
-        "items": [
-          {
-            "trigger": "Next-quarter growth",
-            "condition": "A print back near the ~22.2% usual pace — the break did not hold.",
-            "direction": "invalidates"
-          },
-          {
-            "trigger": "New pace",
-            "condition": "A second consecutive quarter within a few points of 53.3%.",
             "direction": "confirms"
           }
         ]
@@ -7833,7 +7833,7 @@
           }
         },
         "payloadHash": "sig_c5311462",
-        "computedAt": "2026-08-18T04:18:39.719Z",
+        "computedAt": "2026-08-18T05:10:00.800Z",
         "isQuantitative": true
       },
       "application": {
@@ -8038,7 +8038,7 @@
           }
         },
         "payloadHash": "sig_d0827e6c",
-        "computedAt": "2026-08-18T04:18:39.719Z",
+        "computedAt": "2026-08-18T05:10:00.800Z",
         "isQuantitative": true
       },
       "application": {
@@ -8070,8 +8070,213 @@
       }
     },
     {
-      "id": "ownership-niva-bupa-q1fy26",
+      "id": "growth-inflection-manipalcigna-q3fy26",
       "rank": 41,
+      "category": "growth",
+      "headline": "ManipalCigna grew 53.3% in Q3 FY26 vs its usual ~22.2% pace — a 31.1pp break from trend",
+      "shortHeadline": "ManipalCigna's growth just jumped a gear",
+      "summary": "ManipalCigna's health premium grew 53.3% in Q3 FY26 compared with the same quarter last year — far above the ~22.2% it usually grows (the median of its recent quarters, with government-scheme business stripped out). On a ₹570 cr quarter, a 31.1pp break from its own pattern means something real changed in the business.",
+      "thesis": "The comparison is same-quarter and excludes government schemes, so seasonality and one-off scheme wins are already out of the number. When growth jumps this far above a company’s own pace, something started working — distribution, pricing, or a product — and it compounds from here if it holds.",
+      "whatConsensusMisses": "Annual growth figures still show the old pace; the newest quarter runs at 53.3%. Anyone modelling ManipalCigna off last year's rate is underestimating it by roughly 31.1pp.",
+      "tier": "supporting",
+      "consensusView": "ManipalCigna is extrapolated at roughly 22.2% growth, because that is what the trailing figures show.",
+      "variantBasis": "The newest quarter runs at 53.3% — the current pace has already moved 31.1pp; annual numbers will catch up with a lag.",
+      "steelman": "One quarter is one data point, and a single large corporate deal can move even a same-quarter comparison. Handled: government schemes are excluded, the base quarter is ₹570 cr — big enough that one contract rarely moves it this far — and the next print is the direct test.",
+      "evidence": [
+        {
+          "insurer": "manipalcigna",
+          "metric": "Health GWP growth YoY, ex-government (quarter)",
+          "value": 53.3,
+          "unit": "%",
+          "context": "vs ~22.2% trailing-quarter norm",
+          "layers": [
+            "statutory"
+          ],
+          "period": "Q3 FY26"
+        },
+        {
+          "insurer": "manipalcigna",
+          "metric": "Health GWP ex-government (quarter)",
+          "value": 569.5,
+          "unit": "₹ Cr",
+          "context": "standalone quarter from printed cumulatives, government schemes excluded",
+          "layers": [
+            "statutory"
+          ],
+          "period": "Q3 FY26"
+        },
+        {
+          "insurer": "manipalcigna",
+          "metric": "Trailing-quarter growth norm",
+          "value": 22.2,
+          "unit": "%",
+          "context": "median of the 4 preceding same-basis quarterly YoY prints",
+          "layers": [
+            "statutory"
+          ],
+          "period": "Q3 FY26"
+        }
+      ],
+      "conviction": "medium",
+      "horizon": "near",
+      "falsifier": "The following quarter returns to the ~22.2% usual pace, marking this print as noise or a one-off contract.",
+      "affectedInsurers": [
+        "manipalcigna"
+      ],
+      "chart": {
+        "type": "timeseries",
+        "title": "Quarterly health GWP ex-government — ₹ Cr",
+        "seriesKeys": [
+          "eq:exgovt"
+        ],
+        "insurers": [
+          "manipalcigna"
+        ],
+        "period": "Q3 FY26"
+      },
+      "sourceNote": "Standalone-quarter premium from the GI Council quarter-end prints with government-scheme business excluded, so a scheme win or loss never reads as business momentum. Growth is same-quarter YoY on a like-for-like recognition basis (comparisons that cross the Oct-2024 1/n change are excluded).",
+      "period": "Q3 FY26",
+      "cadence": "quarterly",
+      "family": "growth_inflection_q",
+      "keyMove": {
+        "label": "Growth vs its usual pace, Q3 FY26",
+        "from": 22.2,
+        "to": 53.3,
+        "unit": "%"
+      },
+      "methodology": {
+        "steps": [
+          {
+            "key": "yoy_growth",
+            "lens": "fundamental",
+            "name": "Year-over-year growth",
+            "refTag": "Same-period comparison",
+            "gloss": "Health GWP ex-government against the same period a year earlier — the seasonality-free growth read.",
+            "formulaTeX": "g = \\left(\\frac{x_{1}}{x_{0}} - 1\\right)\\times 100",
+            "instanceTeX": "g = \\left(\\frac{570}{372} - 1\\right)\\times 100 = 53.3\\%",
+            "inputs": [
+              {
+                "symbol": "x_1",
+                "label": "Health GWP ex-government (Q3 FY26)",
+                "value": 569.53,
+                "unit": "₹ Cr",
+                "insurer": "manipalcigna",
+                "period": "Q3 FY26",
+                "layer": "statutory"
+              },
+              {
+                "symbol": "x_0",
+                "label": "Health GWP ex-government (Q3 FY25)",
+                "value": 371.54,
+                "unit": "₹ Cr",
+                "insurer": "manipalcigna",
+                "period": "Q3 FY25",
+                "layer": "statutory"
+              }
+            ],
+            "statistic": {
+              "symbol": "g_{q}",
+              "value": 53.3,
+              "unit": "%"
+            }
+          },
+          {
+            "key": "pp_delta",
+            "lens": "fundamental",
+            "name": "Growth vs own trailing norm",
+            "refTag": "Level shift (pp)",
+            "gloss": "Quarterly YoY growth (ex-govt): the change in percentage points between the two prints.",
+            "formulaTeX": "\\Delta = a - b",
+            "instanceTeX": "\\Delta = 53.3 - 22.2 = 31.1\\,\\text{pp}",
+            "inputs": [
+              {
+                "symbol": "a",
+                "label": "Quarterly YoY growth (ex-govt) (Q3 FY26)",
+                "value": 53.3,
+                "unit": "%",
+                "insurer": "manipalcigna",
+                "period": "Q3 FY26",
+                "layer": "statutory"
+              },
+              {
+                "symbol": "b",
+                "label": "Quarterly YoY growth (ex-govt) (trailing norm)",
+                "value": 22.2,
+                "unit": "%",
+                "insurer": "manipalcigna",
+                "period": "trailing norm",
+                "layer": "statutory"
+              }
+            ],
+            "statistic": {
+              "symbol": "\\Delta_{trend}",
+              "value": 31.1,
+              "unit": "pp"
+            },
+            "threshold": {
+              "rule": "|Δ| ≥ 12pp",
+              "value": 12,
+              "passed": true
+            }
+          }
+        ],
+        "lenses": {
+          "fundamental": {
+            "status": "populated",
+            "stepKeys": [
+              "yoy_growth",
+              "pp_delta"
+            ]
+          },
+          "technical": {
+            "status": "not_applicable",
+            "reason": "Unlisted — no market price/volume.",
+            "stepKeys": []
+          },
+          "sentiment": {
+            "status": "no_signal",
+            "stepKeys": []
+          },
+          "macro": {
+            "status": "no_signal",
+            "stepKeys": []
+          }
+        },
+        "payloadHash": "sig_a9c61d66",
+        "computedAt": "2026-08-18T05:10:00.800Z",
+        "isQuantitative": true
+      },
+      "application": {
+        "framing": "A growth-pace reset read on ManipalCigna.",
+        "uses": [
+          {
+            "angle": "Forecast check",
+            "detail": "Re-base premium models on the 53.3% newest pace rather than the trailing average."
+          },
+          {
+            "angle": "Thesis confirm",
+            "detail": "A growth jump on a large base is the strongest confirmation a franchise thesis gets."
+          }
+        ]
+      },
+      "watch": {
+        "items": [
+          {
+            "trigger": "Next-quarter growth",
+            "condition": "A print back near the ~22.2% usual pace — the break did not hold.",
+            "direction": "invalidates"
+          },
+          {
+            "trigger": "New pace",
+            "condition": "A second consecutive quarter within a few points of 53.3%.",
+            "direction": "confirms"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ownership-niva-bupa-q1fy26",
+      "rank": 42,
       "category": "management",
       "headline": "Public went from 25.4% to 18.7% of Niva Bupa in Q1 FY26 (−6.7pp)",
       "shortHeadline": "Retail and public investors are selling Niva Bupa",
@@ -8247,7 +8452,7 @@
           }
         },
         "payloadHash": "sig_cc3b255d",
-        "computedAt": "2026-08-18T04:18:39.719Z",
+        "computedAt": "2026-08-18T05:10:00.800Z",
         "isQuantitative": true
       },
       "application": {
@@ -8280,7 +8485,7 @@
     },
     {
       "id": "ownership-star-health-q1fy26",
-      "rank": 42,
+      "rank": 43,
       "category": "management",
       "headline": "DIIs went from 15.4% to 21.1% of Star Health in Q1 FY26 (+5.6pp)",
       "shortHeadline": "Domestic funds are buying into Star Health",
@@ -8456,7 +8661,7 @@
           }
         },
         "payloadHash": "sig_6c6b1248",
-        "computedAt": "2026-08-18T04:18:39.719Z",
+        "computedAt": "2026-08-18T05:10:00.800Z",
         "isQuantitative": true
       },
       "application": {
@@ -8488,34 +8693,34 @@
       }
     },
     {
-      "id": "growth-inflection-icici-lombard-q3fy26",
-      "rank": 43,
+      "id": "growth-inflection-niva-bupa-q3fy26",
+      "rank": 44,
       "category": "growth",
-      "headline": "ICICI Lombard grew 41.9% in Q3 FY26 vs its usual ~26% pace — a 15.9pp break from trend",
-      "shortHeadline": "ICICI Lombard's growth just jumped a gear",
-      "summary": "ICICI Lombard's health premium grew 41.9% in Q3 FY26 compared with the same quarter last year — far above the ~26% it usually grows (the median of its recent quarters, with government-scheme business stripped out). On a ₹1932 cr quarter, a 15.9pp break from its own pattern means something real changed in the business.",
+      "headline": "Niva Bupa grew 55.8% in Q3 FY26 vs its usual ~41.2% pace — a 14.6pp break from trend",
+      "shortHeadline": "Niva Bupa's growth just jumped a gear",
+      "summary": "Niva Bupa's health premium grew 55.8% in Q3 FY26 compared with the same quarter last year — far above the ~41.2% it usually grows (the median of its recent quarters, with government-scheme business stripped out). On a ₹2204 cr quarter, a 14.6pp break from its own pattern means something real changed in the business.",
       "thesis": "The comparison is same-quarter and excludes government schemes, so seasonality and one-off scheme wins are already out of the number. When growth jumps this far above a company’s own pace, something started working — distribution, pricing, or a product — and it compounds from here if it holds.",
-      "whatConsensusMisses": "Annual growth figures still show the old pace; the newest quarter runs at 41.9%. Anyone modelling ICICI Lombard off last year's rate is underestimating it by roughly 15.9pp.",
+      "whatConsensusMisses": "Annual growth figures still show the old pace; the newest quarter runs at 55.8%. Anyone modelling Niva Bupa off last year's rate is underestimating it by roughly 14.6pp.",
       "tier": "supporting",
-      "consensusView": "ICICI Lombard is extrapolated at roughly 26% growth, because that is what the trailing figures show.",
-      "variantBasis": "The newest quarter runs at 41.9% — the current pace has already moved 15.9pp; annual numbers will catch up with a lag.",
-      "steelman": "One quarter is one data point, and a single large corporate deal can move even a same-quarter comparison. Handled: government schemes are excluded, the base quarter is ₹1932 cr — big enough that one contract rarely moves it this far — and the next print is the direct test.",
+      "consensusView": "Niva Bupa is extrapolated at roughly 41.2% growth, because that is what the trailing figures show.",
+      "variantBasis": "The newest quarter runs at 55.8% — the current pace has already moved 14.6pp; annual numbers will catch up with a lag.",
+      "steelman": "One quarter is one data point, and a single large corporate deal can move even a same-quarter comparison. Handled: government schemes are excluded, the base quarter is ₹2204 cr — big enough that one contract rarely moves it this far — and the next print is the direct test.",
       "evidence": [
         {
-          "insurer": "icici-lombard",
+          "insurer": "niva-bupa",
           "metric": "Health GWP growth YoY, ex-government (quarter)",
-          "value": 41.9,
+          "value": 55.8,
           "unit": "%",
-          "context": "vs ~26% trailing-quarter norm",
+          "context": "vs ~41.2% trailing-quarter norm",
           "layers": [
             "statutory"
           ],
           "period": "Q3 FY26"
         },
         {
-          "insurer": "icici-lombard",
+          "insurer": "niva-bupa",
           "metric": "Health GWP ex-government (quarter)",
-          "value": 1932,
+          "value": 2204.4,
           "unit": "₹ Cr",
           "context": "standalone quarter from printed cumulatives, government schemes excluded",
           "layers": [
@@ -8524,9 +8729,9 @@
           "period": "Q3 FY26"
         },
         {
-          "insurer": "icici-lombard",
+          "insurer": "niva-bupa",
           "metric": "Trailing-quarter growth norm",
-          "value": 26,
+          "value": 41.2,
           "unit": "%",
           "context": "median of the 4 preceding same-basis quarterly YoY prints",
           "layers": [
@@ -8537,9 +8742,9 @@
       ],
       "conviction": "medium",
       "horizon": "near",
-      "falsifier": "The following quarter returns to the ~26% usual pace, marking this print as noise or a one-off contract.",
+      "falsifier": "The following quarter returns to the ~41.2% usual pace, marking this print as noise or a one-off contract.",
       "affectedInsurers": [
-        "icici-lombard"
+        "niva-bupa"
       ],
       "chart": {
         "type": "timeseries",
@@ -8548,7 +8753,7 @@
           "eq:exgovt"
         ],
         "insurers": [
-          "icici-lombard"
+          "niva-bupa"
         ],
         "period": "Q3 FY26"
       },
@@ -8558,8 +8763,8 @@
       "family": "growth_inflection_q",
       "keyMove": {
         "label": "Growth vs its usual pace, Q3 FY26",
-        "from": 26,
-        "to": 41.9,
+        "from": 41.2,
+        "to": 55.8,
         "unit": "%"
       },
       "methodology": {
@@ -8571,30 +8776,30 @@
             "refTag": "Same-period comparison",
             "gloss": "Health GWP ex-government against the same period a year earlier — the seasonality-free growth read.",
             "formulaTeX": "g = \\left(\\frac{x_{1}}{x_{0}} - 1\\right)\\times 100",
-            "instanceTeX": "g = \\left(\\frac{1932}{1362} - 1\\right)\\times 100 = 41.9\\%",
+            "instanceTeX": "g = \\left(\\frac{2204}{1415} - 1\\right)\\times 100 = 55.8\\%",
             "inputs": [
               {
                 "symbol": "x_1",
                 "label": "Health GWP ex-government (Q3 FY26)",
-                "value": 1931.99,
+                "value": 2204.42,
                 "unit": "₹ Cr",
-                "insurer": "icici-lombard",
+                "insurer": "niva-bupa",
                 "period": "Q3 FY26",
                 "layer": "statutory"
               },
               {
                 "symbol": "x_0",
                 "label": "Health GWP ex-government (Q3 FY25)",
-                "value": 1361.52,
+                "value": 1415.34,
                 "unit": "₹ Cr",
-                "insurer": "icici-lombard",
+                "insurer": "niva-bupa",
                 "period": "Q3 FY25",
                 "layer": "statutory"
               }
             ],
             "statistic": {
               "symbol": "g_{q}",
-              "value": 41.9,
+              "value": 55.8,
               "unit": "%"
             }
           },
@@ -8605,30 +8810,30 @@
             "refTag": "Level shift (pp)",
             "gloss": "Quarterly YoY growth (ex-govt): the change in percentage points between the two prints.",
             "formulaTeX": "\\Delta = a - b",
-            "instanceTeX": "\\Delta = 41.9 - 26 = 15.9\\,\\text{pp}",
+            "instanceTeX": "\\Delta = 55.8 - 41.2 = 14.6\\,\\text{pp}",
             "inputs": [
               {
                 "symbol": "a",
                 "label": "Quarterly YoY growth (ex-govt) (Q3 FY26)",
-                "value": 41.9,
+                "value": 55.8,
                 "unit": "%",
-                "insurer": "icici-lombard",
+                "insurer": "niva-bupa",
                 "period": "Q3 FY26",
                 "layer": "statutory"
               },
               {
                 "symbol": "b",
                 "label": "Quarterly YoY growth (ex-govt) (trailing norm)",
-                "value": 26,
+                "value": 41.2,
                 "unit": "%",
-                "insurer": "icici-lombard",
+                "insurer": "niva-bupa",
                 "period": "trailing norm",
                 "layer": "statutory"
               }
             ],
             "statistic": {
               "symbol": "\\Delta_{trend}",
-              "value": 15.9,
+              "value": 14.6,
               "unit": "pp"
             },
             "threshold": {
@@ -8659,16 +8864,16 @@
             "stepKeys": []
           }
         },
-        "payloadHash": "sig_ca7a9130",
-        "computedAt": "2026-08-18T04:18:39.719Z",
+        "payloadHash": "sig_655b89fd",
+        "computedAt": "2026-08-18T05:10:00.800Z",
         "isQuantitative": true
       },
       "application": {
-        "framing": "A growth-pace reset read on ICICI Lombard.",
+        "framing": "A growth-pace reset read on Niva Bupa.",
         "uses": [
           {
             "angle": "Forecast check",
-            "detail": "Re-base premium models on the 41.9% newest pace rather than the trailing average."
+            "detail": "Re-base premium models on the 55.8% newest pace rather than the trailing average."
           },
           {
             "angle": "Thesis confirm",
@@ -8680,12 +8885,12 @@
         "items": [
           {
             "trigger": "Next-quarter growth",
-            "condition": "A print back near the ~26% usual pace — the break did not hold.",
+            "condition": "A print back near the ~41.2% usual pace — the break did not hold.",
             "direction": "invalidates"
           },
           {
             "trigger": "New pace",
-            "condition": "A second consecutive quarter within a few points of 41.9%.",
+            "condition": "A second consecutive quarter within a few points of 55.8%.",
             "direction": "confirms"
           }
         ]
@@ -8693,7 +8898,7 @@
     },
     {
       "id": "uw-economics-care-health-igaap-fy24",
-      "rank": 44,
+      "rank": 45,
       "category": "earnings_quality",
       "headline": "Care Health's combined ratio (IGAAP): 92% in FY23 → 95% in FY24",
       "shortHeadline": "Care Health's underwriting cushion is thinning",
@@ -8883,7 +9088,7 @@
           }
         },
         "payloadHash": "sig_e77b7707",
-        "computedAt": "2026-08-18T04:18:39.719Z",
+        "computedAt": "2026-08-18T05:10:00.800Z",
         "isQuantitative": true
       },
       "application": {
@@ -8916,7 +9121,7 @@
     },
     {
       "id": "analyst-reprice-star-health-aprfy27",
-      "rank": 45,
+      "rank": 46,
       "category": "valuation",
       "headline": "2 broker desks moved their Star Health targets the same way in Apr FY27 — Emkay led with +23.8% (₹525 → ₹650)",
       "shortHeadline": "Brokers are raising Star Health targets together",
@@ -9093,7 +9298,7 @@
           }
         },
         "payloadHash": "sig_94959fa3",
-        "computedAt": "2026-08-18T04:18:39.719Z",
+        "computedAt": "2026-08-18T05:10:00.800Z",
         "isQuantitative": true
       },
       "application": {
@@ -9126,7 +9331,7 @@
     },
     {
       "id": "channel-shift-care-health-fy25",
-      "rank": 46,
+      "rank": 47,
       "category": "quality",
       "headline": "Care Health now sources 8.3% of premium through direct sales (no intermediary), vs 12.2% a year ago (−3.9pp, full-year mix)",
       "shortHeadline": "Care Health is changing how it sells",
@@ -9303,7 +9508,7 @@
           }
         },
         "payloadHash": "sig_98861e1f",
-        "computedAt": "2026-08-18T04:18:39.719Z",
+        "computedAt": "2026-08-18T05:10:00.800Z",
         "isQuantitative": true
       },
       "application": {
@@ -9336,7 +9541,7 @@
     },
     {
       "id": "channel-shift-care-health-h1fy26",
-      "rank": 47,
+      "rank": 48,
       "category": "quality",
       "headline": "Care Health now sources 9% of premium through bank branches (bancassurance), vs 12.2% a year ago (−3.2pp, 6-month cumulative mix (H1FY26))",
       "shortHeadline": "Care Health is changing how it sells",
@@ -9513,7 +9718,7 @@
           }
         },
         "payloadHash": "sig_316a9f75",
-        "computedAt": "2026-08-18T04:18:39.719Z",
+        "computedAt": "2026-08-18T05:10:00.800Z",
         "isQuantitative": true
       },
       "application": {
@@ -9534,164 +9739,6 @@
           {
             "trigger": "Full-year mix",
             "condition": "Bancassurance share reverting toward 12.2% at the annual disclosure.",
-            "direction": "invalidates"
-          },
-          {
-            "trigger": "Expense ratio",
-            "condition": "Commission and cost lines drifting the way the new mix implies.",
-            "direction": "confirms"
-          }
-        ]
-      }
-    },
-    {
-      "id": "channel-shift-niva-bupa-fy25",
-      "rank": 48,
-      "category": "quality",
-      "headline": "Niva Bupa now sources 30.6% of premium through insurance brokers, vs 27% a year ago (+3.6pp, full-year mix)",
-      "shortHeadline": "Niva Bupa is changing how it sells",
-      "summary": "30.6% of Niva Bupa's premium came through insurance brokers this period, against 27% in the same window a year ago (full-year mix). Distribution is destiny in retail insurance: each sales channel carries its own commission cost, renewal stickiness and claims profile, so mix shifts like this reach the profit line with a lag.",
-      "thesis": "Channel mix moves before economics do: a 3.6pp reallocation toward insurance brokers re-prices acquisition costs and renewal durability quarters before the expense ratio shows it. The disclosure sits in a regulatory filing almost nobody models — which is exactly why it is early.",
-      "whatConsensusMisses": "Distribution mix is treated as a static fact from the last annual report. The filings show it moving 3.6pp within a year — strategy changing in real time, with margin consequences still ahead of the P&L.",
-      "tier": "context",
-      "consensusView": "Distribution mix is a descriptive footnote, refreshed once a year.",
-      "variantBasis": "The like-for-like disclosure shows insurance brokers moving 3.6pp in twelve months — a live strategic shift, not a footnote.",
-      "steelman": "Cumulative windows can shift on the timing of one big campaign, and a channel's share can move because another channel surged. Handled: the comparison holds the window fixed against the same period last year, and the card reports the reallocation without asserting intent.",
-      "evidence": [
-        {
-          "insurer": "niva-bupa",
-          "metric": "Brokers share of channel mix",
-          "value": 30.63,
-          "unit": "%",
-          "context": "+3.58pp vs FY24 · full-year mix",
-          "layers": [
-            "statutory"
-          ],
-          "period": "FY25"
-        },
-        {
-          "insurer": "niva-bupa",
-          "metric": "Brokers share (prior year, same basis)",
-          "value": 27.04,
-          "unit": "%",
-          "context": "FY24",
-          "layers": [
-            "statutory"
-          ],
-          "period": "FY24"
-        }
-      ],
-      "conviction": "low",
-      "horizon": "medium",
-      "falsifier": "The full-year disclosure shows Brokers back near 27% — campaign timing, not strategy.",
-      "affectedInsurers": [
-        "niva-bupa"
-      ],
-      "chart": {
-        "type": "timeseries",
-        "title": "Brokers share of GWP — full-year trend %",
-        "seriesKeys": [
-          "ch:broker"
-        ],
-        "insurers": [
-          "niva-bupa"
-        ],
-        "period": "FY25"
-      },
-      "sourceNote": "Channel mix from IRDAI business-acquisition disclosures (NL-36/NL-40); the comparison holds the basis fixed — full-year mix against the same window a year earlier.",
-      "period": "FY25",
-      "cadence": "annual",
-      "family": "channel_shift",
-      "keyMove": {
-        "label": "Premium sold via insurance brokers",
-        "from": 27.04,
-        "to": 30.63,
-        "unit": "%"
-      },
-      "methodology": {
-        "steps": [
-          {
-            "key": "pp_delta",
-            "lens": "fundamental",
-            "name": "Brokers mix shift",
-            "refTag": "Level shift (pp)",
-            "gloss": "Brokers share of GWP: the change in percentage points between the two prints.",
-            "formulaTeX": "\\Delta = a - b",
-            "instanceTeX": "\\Delta = 30.63 - 27.04 = 3.59\\,\\text{pp}",
-            "inputs": [
-              {
-                "symbol": "a",
-                "label": "Brokers share of GWP (FY25)",
-                "value": 30.63,
-                "unit": "%",
-                "insurer": "niva-bupa",
-                "period": "FY25",
-                "layer": "statutory"
-              },
-              {
-                "symbol": "b",
-                "label": "Brokers share of GWP (FY24)",
-                "value": 27.04,
-                "unit": "%",
-                "insurer": "niva-bupa",
-                "period": "FY24",
-                "layer": "statutory"
-              }
-            ],
-            "statistic": {
-              "symbol": "\\Delta_{ch}",
-              "value": 3.59,
-              "unit": "pp"
-            },
-            "threshold": {
-              "rule": "|Δ| ≥ 2.5pp",
-              "value": 2.5,
-              "passed": true
-            }
-          }
-        ],
-        "lenses": {
-          "fundamental": {
-            "status": "populated",
-            "stepKeys": [
-              "pp_delta"
-            ]
-          },
-          "technical": {
-            "status": "no_signal",
-            "stepKeys": []
-          },
-          "sentiment": {
-            "status": "no_signal",
-            "stepKeys": []
-          },
-          "macro": {
-            "status": "no_signal",
-            "stepKeys": []
-          }
-        },
-        "payloadHash": "sig_4097b126",
-        "computedAt": "2026-08-18T04:18:39.719Z",
-        "isQuantitative": true
-      },
-      "application": {
-        "framing": "A distribution-economics read on Niva Bupa.",
-        "uses": [
-          {
-            "angle": "Margin lead indicator",
-            "detail": "Map the channel’s commission and renewal profile onto the shift to pre-model the expense-ratio drift."
-          },
-          {
-            "angle": "Dependence",
-            "detail": "Watch concentration: a company leaning harder on one channel inherits that channel’s bargaining power."
-          }
-        ]
-      },
-      "watch": {
-        "items": [
-          {
-            "trigger": "Full-year mix",
-            "condition": "Brokers share reverting toward 27% at the annual disclosure.",
             "direction": "invalidates"
           },
           {
@@ -9824,7 +9871,7 @@
           }
         },
         "payloadHash": "sig_ebf972f7",
-        "computedAt": "2026-08-18T04:18:39.719Z",
+        "computedAt": "2026-08-18T05:10:00.800Z",
         "isQuantitative": true
       },
       "application": {
@@ -9977,7 +10024,7 @@
           }
         },
         "payloadHash": "sig_817f0498",
-        "computedAt": "2026-08-18T04:18:39.719Z",
+        "computedAt": "2026-08-18T05:10:00.800Z",
         "isQuantitative": true
       },
       "application": {
@@ -10187,7 +10234,7 @@
           }
         },
         "payloadHash": "sig_a8c57c06",
-        "computedAt": "2026-08-18T04:18:39.719Z",
+        "computedAt": "2026-08-18T05:10:00.800Z",
         "isQuantitative": true
       },
       "application": {
