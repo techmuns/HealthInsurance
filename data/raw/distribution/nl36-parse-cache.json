@@ -2,7 +2,7 @@
  "_meta": {
   "description": "Parse cache for the NL-36/NL-40 business-acquisition scan (ingest-distribution). Keyed by repo-relative path; entries are reused while file size and parser version match.",
   "parser_version": 9,
-  "updated_at": "2026-08-02T07:16:49.127Z"
+  "updated_at": "2026-08-18T05:07:55.780Z"
  },
  "files": {
   "companies/niva-bupa/niva-bupa-Niva_Bupa_TPA_Public_disclosure_FY-2022-23_Reported.pdf": {
@@ -17768,6 +17768,44 @@
    "size": 58290,
    "version": 9,
    "forms": []
+  },
+  "companies/niva-bupa/niva-bupa-Website-Public-Disclosures-Jun-2026.pdf": {
+   "size": 1821577,
+   "version": 9,
+   "forms": [
+    {
+     "period": "Q1FY27",
+     "fiscal_year": "FY27",
+     "period_type": "cumulative",
+     "premium": {
+      "banca": 41712,
+      "brokers": 59096,
+      "agents": 69607,
+      "corp_others": 16000,
+      "direct": 26992,
+      "others": 1589
+     },
+     "policies": {
+      "banca": 100772,
+      "brokers": 214415,
+      "agents": 250360,
+      "corp_others": 10635,
+      "direct": 97996,
+      "others": 5744
+     },
+     "total_premium": 214996,
+     "total_policies": 679922
+    }
+   ]
+  },
+  "companies/care-health/care-health-Public_Disclosures_June_2026_1786655903.pdf": {
+   "size": 2453423,
+   "version": 9,
+   "forms": [],
+   "issues": [
+    "@159779: table rows did not align — skipped",
+    "@163053: table rows did not align — skipped"
+   ]
   }
  }
 }
