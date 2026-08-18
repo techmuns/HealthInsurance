@@ -1,9 +1,9 @@
 {
   "last_successful_run": "2026-08-03T08:49:05.023Z",
-  "last_failed_run": "2026-08-03T08:49:05.023Z",
+  "last_failed_run": "2026-08-18T04:17:30.943Z",
   "sources_checked": 7,
-  "sources_success": 3,
-  "sources_failed": 0,
+  "sources_success": 2,
+  "sources_failed": 1,
   "metrics_updated": [
     "company.gwp::niva-bupa::Annual",
     "company.pat::niva-bupa::Annual",
@@ -24443,7 +24443,7 @@
     {
       "source_id": "valuation_daily",
       "status": "pending",
-      "last_attempt_at": "2026-08-17T20:52:20.830Z",
+      "last_attempt_at": "2026-08-18T04:10:23.356Z",
       "last_success_at": null,
       "records_fetched": 0
     },
@@ -24478,14 +24478,14 @@
     {
       "source_id": "moneycontrol_analyst",
       "status": "success",
-      "last_attempt_at": "2026-08-17T20:52:23.159Z",
-      "last_success_at": "2026-08-17T20:52:23.159Z",
+      "last_attempt_at": "2026-08-18T04:10:25.654Z",
+      "last_success_at": "2026-08-18T04:10:25.654Z",
       "records_fetched": 6
     },
     {
       "source_id": "price_history",
       "status": "pending",
-      "last_attempt_at": "2026-08-17T20:53:27.871Z",
+      "last_attempt_at": "2026-08-18T04:17:28.791Z",
       "last_success_at": null,
       "records_fetched": 0,
       "error": "fetcher timed out after 6 min (capped so the run always reaches snapshot merge + commit)"
@@ -24499,8 +24499,8 @@
     },
     {
       "source_id": "muns_market_data",
-      "status": "success",
-      "last_attempt_at": "2026-08-17T20:52:55.349Z",
+      "status": "failed",
+      "last_attempt_at": "2026-08-18T04:16:59.724Z",
       "last_success_at": "2026-08-17T20:52:55.349Z",
       "records_fetched": 0,
       "error": "fetcher timed out after 6 min (capped so the run always reaches snapshot merge + commit)"
@@ -24508,22 +24508,22 @@
     {
       "source_id": "yahoo_price",
       "status": "pending",
-      "last_attempt_at": "2026-08-17T20:52:58.871Z",
+      "last_attempt_at": "2026-08-18T04:16:59.725Z",
       "last_success_at": null,
       "records_fetched": 0
     },
     {
       "source_id": "nse_delivery",
       "status": "pending",
-      "last_attempt_at": "2026-08-17T20:53:37.514Z",
+      "last_attempt_at": "2026-08-18T04:17:30.867Z",
       "last_success_at": "2026-07-03T14:35:51.158Z",
       "records_fetched": 0
     },
     {
       "source_id": "moneycontrol_stock_deals",
       "status": "success",
-      "last_attempt_at": "2026-08-17T20:52:47.203Z",
-      "last_success_at": "2026-08-17T20:52:47.203Z",
+      "last_attempt_at": "2026-08-18T04:10:51.191Z",
+      "last_success_at": "2026-08-18T04:10:51.191Z",
       "records_fetched": 0
     },
     {
