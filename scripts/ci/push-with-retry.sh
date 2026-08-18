@@ -30,8 +30,13 @@ set -uo pipefail
 ATTEMPTS="${PUSH_ATTEMPTS:-5}"
 REBUILD="${1:-}"
 # Artefacts that are a pure function of the committed source data — safe to
-# resolve by rebuilding. Anything outside this set needs a human.
+# resolve by rebuilding.
 GENERATED_RE='^(data/processed/|src/data/snapshots/extracted-data-audit\.json|src/data/snapshots/ifrs-valuation-multiples\.json|schema-map\.json|templates/)'
+# Accumulating STATUS files: each run updates only the sources it ran, so
+# neither side of a race is wholly right and neither can be rebuilt (that would
+# mean re-running the fetchers). These are merged key-by-key instead.
+MERGEABLE_RE='^(src/data/snapshots/data-health\.json|src/data/snapshots/watchdog-streaks\.json)$'
+# Anything outside BOTH sets needs a human.
 
 rebuild_and_stage() {
   [ -n "$REBUILD" ] || return 0
@@ -50,7 +55,7 @@ for i in $(seq 1 "$ATTEMPTS"); do
     rebuild_and_stage
   else
     unmerged="$(git diff --name-only --diff-filter=U)"
-    foreign="$(echo "$unmerged" | grep -vE "$GENERATED_RE" || true)"
+    foreign="$(echo "$unmerged" | grep -vE "$GENERATED_RE" | grep -vE "$MERGEABLE_RE" || true)"
     if [ -z "$unmerged" ] || [ -n "$foreign" ]; then
       echo "attempt $i: conflict outside generated artefacts - not guessing:"
       echo "$unmerged" | sed 's/^/    /'
@@ -59,10 +64,27 @@ for i in $(seq 1 "$ATTEMPTS"); do
     fi
     # Every conflicted path is regenerated below, so which side we take here is
     # irrelevant - we just need the rebase to finish.
+    merge_failed=""
     for f in $unmerged; do
-      git checkout --theirs -- "$f" 2>/dev/null || git checkout --ours -- "$f" 2>/dev/null || true
+      if echo "$f" | grep -qE "$MERGEABLE_RE"; then
+        # Stage 2 is the upstream tip, stage 3 is this run's commit (rebase
+        # inverts ours/theirs). Merge them rather than pick a winner.
+        git show ":2:$f" > /tmp/pwr-ours.json 2>/dev/null || : > /tmp/pwr-ours.json
+        git show ":3:$f" > /tmp/pwr-theirs.json 2>/dev/null || : > /tmp/pwr-theirs.json
+        if ! python3 scripts/ci/merge-status-json.py "$f" /tmp/pwr-ours.json /tmp/pwr-theirs.json; then
+          echo "  could not merge $f - refusing to pick a side"
+          merge_failed=1; break
+        fi
+      else
+        # Regenerated below, so which side we take here is irrelevant.
+        git checkout --theirs -- "$f" 2>/dev/null || git checkout --ours -- "$f" 2>/dev/null || true
+      fi
       git add -- "$f" 2>/dev/null || true
     done
+    if [ -n "$merge_failed" ]; then
+      git rebase --abort 2>/dev/null || true
+      sleep 5; continue
+    fi
     if ! GIT_EDITOR=true git rebase --continue; then
       git rebase --abort 2>/dev/null || true
       echo "attempt $i: could not continue the rebase; retrying ..."; sleep 5; continue
