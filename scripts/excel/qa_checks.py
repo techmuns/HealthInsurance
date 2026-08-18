@@ -25,8 +25,10 @@ Usage: python3 scripts/excel/qa_checks.py [filled.xlsx]
 from __future__ import annotations
 
 import json
+import re
 import sys
 from collections import defaultdict
+from datetime import datetime
 from pathlib import Path
 
 import openpyxl
@@ -158,6 +160,65 @@ def main(filled_path: Path) -> int:
         cl, ex, co = m.get("claims_ratio_igaap"), m.get("expense_ratio_igaap"), m.get("combined_ratio_igaap")
         if cl is not None and ex is not None and co is not None and abs(co - (cl + ex)) > 0.03:
             soft.append(f"S? combined != claims+expense for {ent} {period}: {co} vs {cl}+{ex}={cl+ex:.3f}.")
+
+    # H6 Analyst coverage structural integrity. The sheet is the one list-table
+    # in the workbook: it grows DOWNWARD as broker notes arrive, so the classes
+    # of breakage that matter are structural, not numeric — a row that lost its
+    # broker, an Average that stopped covering its block, the same note landing
+    # twice, or a row sitting past whatever range the schema builder scans (that
+    # last one silently dropped Go Digit the first time the sheet grew).
+    if "Analyst coverage" in wb.sheetnames:
+        ac = wb["Analyst coverage"]
+        blocks, cur, rows = [], None, []
+        for r in range(4, ac.max_row + 1):
+            lbl = ac.cell(r, 2).value
+            if lbl and str(lbl).strip():
+                cur = str(lbl).strip()
+            broker = ac.cell(r, 3).value
+            if not broker:
+                continue
+            if str(broker).strip().lower() == "average":
+                if rows:
+                    blocks.append((cur, rows, r))
+                rows = []
+                continue
+            rows.append(r)
+        if rows:
+            blocks.append((cur, rows, None))
+        if not blocks:
+            hard.append("H6 Analyst coverage: no company blocks found — sheet structure lost.")
+        seen_notes = set()
+        for entity, data_rows, avg_row in blocks:
+            for r in data_rows:
+                if not str(ac.cell(r, 3).value or "").strip():
+                    hard.append(f"H6 Analyst coverage row {r} has no broker.")
+                key = (entity, str(ac.cell(r, 3).value).strip().lower(), str(ac.cell(r, 4).value))
+                if key in seen_notes:
+                    # SOFT on purpose. Two same-day notes from one broker collide on a
+                    # single schema-map key, so both rows show the same figure — worth
+                    # surfacing, but it is pre-existing sheet content, not corruption.
+                    # Hard-failing on a data quirk is precisely what froze three
+                    # pipelines for a fortnight; never gate the build on one again.
+                    soft.append(f"S3 Analyst coverage duplicate note {key[1]} {key[2]} for {entity} (row {r}) - both rows resolve to one value.")
+                seen_notes.add(key)
+            if avg_row:
+                for col in ("F", "G", "H"):
+                    want = f"=AVERAGE({col}{data_rows[0]}:{col}{data_rows[-1]})"
+                    got = ac.cell(avg_row, {"F": 6, "G": 7, "H": 8}[col]).value
+                    if got != want:
+                        hard.append(f"H6 Analyst coverage {entity} Average {col} is {got!r}, expected {want!r}.")
+        # Every dated row must be bound in the schema map — catches a scan range
+        # that stopped short of the sheet's real extent.
+        try:
+            smap = json.loads((REPO / "schema-map.json").read_text())
+            sheet_map = next(x for x in smap["sheets"] if x["sheet"] == "Analyst coverage")
+            bound_rows = {int(re.sub(r"[^0-9]", "", b["cell"])) for b in sheet_map.get("bindings", []) if b.get("cell")}
+            for entity, data_rows, _ in blocks:
+                for r in data_rows:
+                    if isinstance(ac.cell(r, 4).value, datetime) and r not in bound_rows:
+                        soft.append(f"S3 Analyst coverage row {r} ({entity}) is dated but unbound in schema-map - it will never fill.")
+        except Exception as e:
+            soft.append(f"S3 Analyst coverage binding cross-check skipped: {e}")
 
     # Soft coverage stats
     pct = 100.0 * len(audit_cells) / max(1, len(audit_cells) + len(missing_cells))

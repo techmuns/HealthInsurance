@@ -60,6 +60,12 @@ jobs:
       - name: Project into the workbook grid
         run: |
           pip install openpyxl
+          # Standing instruction extended to ROWS (Neha, 2026-08-17): Analyst
+          # coverage grows downward, one row per dated broker note. Never fails
+          # the build - it verifies itself and declines to write on any doubt,
+          # leaving the previous good template in place.
+          python3 scripts/excel/extend_analyst_coverage.py || echo "WARNING: analyst-coverage row extension declined to write (see above); continuing with the existing template."
+          python3 scripts/excel/build_schema_map.py templates/niva-bupa-portfolio-review.xlsx
           python3 scripts/excel/build_value_store.py
           python3 scripts/excel/fill_template.py
           python3 scripts/excel/build_audit_index.py
@@ -73,7 +79,7 @@ jobs:
           git config user.email "data-bot@users.noreply.github.com"
           # 1) Commit ONLY the analyst-exclusive source (snapshot + raw pulls). No
           #    other workflow touches these, so this commit always rebases cleanly.
-          git add src/data/snapshots/analyst-coverage-snapshot.json data/agent-pulls/analyst-coverage
+          git add src/data/snapshots/analyst-coverage-snapshot.json data/agent-pulls/analyst-coverage templates/ schema-map.json
           git commit -m "data: analyst coverage snapshot @ $(date -u +%Y-%m-%dT%H:%MZ)" || { echo "no snapshot change"; exit 0; }
           # 2) Drop the working-tree generated files; they are rebuilt after landing.
           git checkout -- . 2>/dev/null || true
@@ -85,7 +91,7 @@ jobs:
             git fetch origin main && git rebase origin/main || { git rebase --abort 2>/dev/null || true; sleep 5; continue; }
             python3 scripts/excel/build_value_store.py >/dev/null 2>&1 || true
             python3 scripts/excel/build_audit_index.py >/dev/null 2>&1 || true
-            git add data/ src/data/snapshots/
+            git add data/ src/data/snapshots/ templates/ schema-map.json
             git diff --staged --quiet || git commit -m "data: rebuild audit index @ $(date -u +%Y-%m-%dT%H:%MZ)"
             if git push; then echo "pushed on attempt $i"; exit 0; fi
             git log -1 --pretty=%s | grep -q "rebuild audit index" && git reset --hard HEAD~1

@@ -3,7 +3,7 @@
     "artifact": "schema-map",
     "schema_version": "1.0.0",
     "phase": "1 - template reader",
-    "template_sha256": "833c4781c667a8c5a3b08330e079eda4f975c8b1a601be18fc0e1ef416028cf7",
+    "template_sha256": "9632dfc606074e10ec10ad3b5afb52cb1e5d7fcecb8482d01f4988ec0a50101f",
     "template_file": "niva-bupa-portfolio-review.xlsx",
     "template_origin": "Built with the S&P Capital IQ Excel plug-in (see _CIQHiddenCacheSheet and CIQ() formulas in 'Comps'). This pipeline rebuilds those outputs from official public sources.",
     "source_policy": "official-first (IRDAI / GI Council / NSE-BSE / company public disclosures). Screener / Trendlyne / Investing are clearly-tagged, lower-confidence BACKUP only, used where no official equivalent exists. Login-free (Neha, 2026-06-05).",
@@ -36162,28 +36162,181 @@
     },
     {
       "sheet": "Analyst coverage",
-      "dimensions": "A1:J66",
-      "max_row": 66,
+      "dimensions": "A1:J69",
+      "max_row": 69,
       "max_col": 10,
       "merged_cells": [
-        "B4:B17",
-        "B39:B57",
-        "B64:B65",
-        "B20:B36"
+        "B4:B20",
+        "B42:B60",
+        "B23:B39",
+        "B67:B68"
       ],
       "hidden_columns": [],
       "grid_summary": {
-        "input": 160,
-        "input_date": 53,
+        "input": 163,
+        "input_date": 56,
         "input_na": 9,
-        "formula": 119,
-        "text": 145,
-        "empty": 174
+        "formula": 125,
+        "text": 148,
+        "empty": 189
       },
       "role": "analyst_coverage",
       "bindings": [
         {
           "cell": "E4",
+          "section": "Analyst coverage",
+          "entity": "niva-bupa",
+          "metric": "analyst_recommendation::Motilal Oswal",
+          "period": "2026-07-30",
+          "period_type": "event",
+          "unit": "text",
+          "cell_kind": "input",
+          "is_external_input": true,
+          "fillable": true,
+          "template_value_preview": null,
+          "source_key": "analyst_coverage",
+          "source_name": "Broker research aggregators (no official equivalent exists)",
+          "source_status": "backup",
+          "binding_confidence": "low"
+        },
+        {
+          "cell": "G4",
+          "section": "Analyst coverage",
+          "entity": "niva-bupa",
+          "metric": "analyst_price_at_reco::Motilal Oswal",
+          "period": "2026-07-30",
+          "period_type": "event",
+          "unit": "INR",
+          "cell_kind": "input",
+          "is_external_input": true,
+          "fillable": true,
+          "template_value_preview": null,
+          "source_key": "analyst_coverage",
+          "source_name": "Broker research aggregators (no official equivalent exists)",
+          "source_status": "backup",
+          "binding_confidence": "low"
+        },
+        {
+          "cell": "H4",
+          "section": "Analyst coverage",
+          "entity": "niva-bupa",
+          "metric": "analyst_target_price::Motilal Oswal",
+          "period": "2026-07-30",
+          "period_type": "event",
+          "unit": "INR",
+          "cell_kind": "input",
+          "is_external_input": true,
+          "fillable": true,
+          "template_value_preview": null,
+          "source_key": "analyst_coverage",
+          "source_name": "Broker research aggregators (no official equivalent exists)",
+          "source_status": "backup",
+          "binding_confidence": "low"
+        },
+        {
+          "cell": "E5",
+          "section": "Analyst coverage",
+          "entity": "niva-bupa",
+          "metric": "analyst_recommendation::Motilal Oswal",
+          "period": "2026-06-19",
+          "period_type": "event",
+          "unit": "text",
+          "cell_kind": "input",
+          "is_external_input": true,
+          "fillable": true,
+          "template_value_preview": null,
+          "source_key": "analyst_coverage",
+          "source_name": "Broker research aggregators (no official equivalent exists)",
+          "source_status": "backup",
+          "binding_confidence": "low"
+        },
+        {
+          "cell": "G5",
+          "section": "Analyst coverage",
+          "entity": "niva-bupa",
+          "metric": "analyst_price_at_reco::Motilal Oswal",
+          "period": "2026-06-19",
+          "period_type": "event",
+          "unit": "INR",
+          "cell_kind": "input",
+          "is_external_input": true,
+          "fillable": true,
+          "template_value_preview": null,
+          "source_key": "analyst_coverage",
+          "source_name": "Broker research aggregators (no official equivalent exists)",
+          "source_status": "backup",
+          "binding_confidence": "low"
+        },
+        {
+          "cell": "H5",
+          "section": "Analyst coverage",
+          "entity": "niva-bupa",
+          "metric": "analyst_target_price::Motilal Oswal",
+          "period": "2026-06-19",
+          "period_type": "event",
+          "unit": "INR",
+          "cell_kind": "input",
+          "is_external_input": true,
+          "fillable": true,
+          "template_value_preview": null,
+          "source_key": "analyst_coverage",
+          "source_name": "Broker research aggregators (no official equivalent exists)",
+          "source_status": "backup",
+          "binding_confidence": "low"
+        },
+        {
+          "cell": "E6",
+          "section": "Analyst coverage",
+          "entity": "niva-bupa",
+          "metric": "analyst_recommendation::Motilal Oswal",
+          "period": "2026-05-10",
+          "period_type": "event",
+          "unit": "text",
+          "cell_kind": "input",
+          "is_external_input": true,
+          "fillable": true,
+          "template_value_preview": null,
+          "source_key": "analyst_coverage",
+          "source_name": "Broker research aggregators (no official equivalent exists)",
+          "source_status": "backup",
+          "binding_confidence": "low"
+        },
+        {
+          "cell": "G6",
+          "section": "Analyst coverage",
+          "entity": "niva-bupa",
+          "metric": "analyst_price_at_reco::Motilal Oswal",
+          "period": "2026-05-10",
+          "period_type": "event",
+          "unit": "INR",
+          "cell_kind": "input",
+          "is_external_input": true,
+          "fillable": true,
+          "template_value_preview": null,
+          "source_key": "analyst_coverage",
+          "source_name": "Broker research aggregators (no official equivalent exists)",
+          "source_status": "backup",
+          "binding_confidence": "low"
+        },
+        {
+          "cell": "H6",
+          "section": "Analyst coverage",
+          "entity": "niva-bupa",
+          "metric": "analyst_target_price::Motilal Oswal",
+          "period": "2026-05-10",
+          "period_type": "event",
+          "unit": "INR",
+          "cell_kind": "input",
+          "is_external_input": true,
+          "fillable": true,
+          "template_value_preview": null,
+          "source_key": "analyst_coverage",
+          "source_name": "Broker research aggregators (no official equivalent exists)",
+          "source_status": "backup",
+          "binding_confidence": "low"
+        },
+        {
+          "cell": "E7",
           "section": "Analyst coverage",
           "entity": "niva-bupa",
           "metric": "analyst_recommendation::Motilal Oswal",
@@ -36200,7 +36353,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "G4",
+          "cell": "G7",
           "section": "Analyst coverage",
           "entity": "niva-bupa",
           "metric": "analyst_price_at_reco::Motilal Oswal",
@@ -36217,7 +36370,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "H4",
+          "cell": "H7",
           "section": "Analyst coverage",
           "entity": "niva-bupa",
           "metric": "analyst_target_price::Motilal Oswal",
@@ -36234,7 +36387,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "E5",
+          "cell": "E8",
           "section": "Analyst coverage",
           "entity": "niva-bupa",
           "metric": "analyst_recommendation::ICICI Securities",
@@ -36251,7 +36404,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "G5",
+          "cell": "G8",
           "section": "Analyst coverage",
           "entity": "niva-bupa",
           "metric": "analyst_price_at_reco::ICICI Securities",
@@ -36268,7 +36421,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "H5",
+          "cell": "H8",
           "section": "Analyst coverage",
           "entity": "niva-bupa",
           "metric": "analyst_target_price::ICICI Securities",
@@ -36285,164 +36438,11 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "E6",
-          "section": "Analyst coverage",
-          "entity": "niva-bupa",
-          "metric": "analyst_recommendation::Motilal Oswal",
-          "period": "2025-11-03",
-          "period_type": "event",
-          "unit": "text",
-          "cell_kind": "text",
-          "is_external_input": false,
-          "fillable": false,
-          "template_value_preview": "Buy",
-          "source_key": "analyst_coverage",
-          "source_name": "Broker research aggregators (no official equivalent exists)",
-          "source_status": "backup",
-          "binding_confidence": "low"
-        },
-        {
-          "cell": "G6",
-          "section": "Analyst coverage",
-          "entity": "niva-bupa",
-          "metric": "analyst_price_at_reco::Motilal Oswal",
-          "period": "2025-11-03",
-          "period_type": "event",
-          "unit": "INR",
-          "cell_kind": "input",
-          "is_external_input": false,
-          "fillable": true,
-          "template_value_preview": 74.06,
-          "source_key": "analyst_coverage",
-          "source_name": "Broker research aggregators (no official equivalent exists)",
-          "source_status": "backup",
-          "binding_confidence": "low"
-        },
-        {
-          "cell": "H6",
-          "section": "Analyst coverage",
-          "entity": "niva-bupa",
-          "metric": "analyst_target_price::Motilal Oswal",
-          "period": "2025-11-03",
-          "period_type": "event",
-          "unit": "INR",
-          "cell_kind": "input",
-          "is_external_input": false,
-          "fillable": true,
-          "template_value_preview": 92,
-          "source_key": "analyst_coverage",
-          "source_name": "Broker research aggregators (no official equivalent exists)",
-          "source_status": "backup",
-          "binding_confidence": "low"
-        },
-        {
-          "cell": "E7",
-          "section": "Analyst coverage",
-          "entity": "niva-bupa",
-          "metric": "analyst_recommendation::ICICI Securities",
-          "period": "2025-08-11",
-          "period_type": "event",
-          "unit": "text",
-          "cell_kind": "text",
-          "is_external_input": false,
-          "fillable": false,
-          "template_value_preview": "Buy",
-          "source_key": "analyst_coverage",
-          "source_name": "Broker research aggregators (no official equivalent exists)",
-          "source_status": "backup",
-          "binding_confidence": "low"
-        },
-        {
-          "cell": "G7",
-          "section": "Analyst coverage",
-          "entity": "niva-bupa",
-          "metric": "analyst_price_at_reco::ICICI Securities",
-          "period": "2025-08-11",
-          "period_type": "event",
-          "unit": "INR",
-          "cell_kind": "input",
-          "is_external_input": false,
-          "fillable": true,
-          "template_value_preview": 79.65,
-          "source_key": "analyst_coverage",
-          "source_name": "Broker research aggregators (no official equivalent exists)",
-          "source_status": "backup",
-          "binding_confidence": "low"
-        },
-        {
-          "cell": "H7",
-          "section": "Analyst coverage",
-          "entity": "niva-bupa",
-          "metric": "analyst_target_price::ICICI Securities",
-          "period": "2025-08-11",
-          "period_type": "event",
-          "unit": "INR",
-          "cell_kind": "input",
-          "is_external_input": false,
-          "fillable": true,
-          "template_value_preview": 92,
-          "source_key": "analyst_coverage",
-          "source_name": "Broker research aggregators (no official equivalent exists)",
-          "source_status": "backup",
-          "binding_confidence": "low"
-        },
-        {
-          "cell": "E8",
-          "section": "Analyst coverage",
-          "entity": "niva-bupa",
-          "metric": "analyst_recommendation::Motilal Oswal",
-          "period": "2025-08-07",
-          "period_type": "event",
-          "unit": "text",
-          "cell_kind": "text",
-          "is_external_input": false,
-          "fillable": false,
-          "template_value_preview": "Buy",
-          "source_key": "analyst_coverage",
-          "source_name": "Broker research aggregators (no official equivalent exists)",
-          "source_status": "backup",
-          "binding_confidence": "low"
-        },
-        {
-          "cell": "G8",
-          "section": "Analyst coverage",
-          "entity": "niva-bupa",
-          "metric": "analyst_price_at_reco::Motilal Oswal",
-          "period": "2025-08-07",
-          "period_type": "event",
-          "unit": "INR",
-          "cell_kind": "input",
-          "is_external_input": false,
-          "fillable": true,
-          "template_value_preview": 80.37,
-          "source_key": "analyst_coverage",
-          "source_name": "Broker research aggregators (no official equivalent exists)",
-          "source_status": "backup",
-          "binding_confidence": "low"
-        },
-        {
-          "cell": "H8",
-          "section": "Analyst coverage",
-          "entity": "niva-bupa",
-          "metric": "analyst_target_price::Motilal Oswal",
-          "period": "2025-08-07",
-          "period_type": "event",
-          "unit": "INR",
-          "cell_kind": "input",
-          "is_external_input": false,
-          "fillable": true,
-          "template_value_preview": 101,
-          "source_key": "analyst_coverage",
-          "source_name": "Broker research aggregators (no official equivalent exists)",
-          "source_status": "backup",
-          "binding_confidence": "low"
-        },
-        {
           "cell": "E9",
           "section": "Analyst coverage",
           "entity": "niva-bupa",
           "metric": "analyst_recommendation::Motilal Oswal",
-          "period": "2025-07-31",
+          "period": "2025-11-03",
           "period_type": "event",
           "unit": "text",
           "cell_kind": "text",
@@ -36459,6 +36459,159 @@
           "section": "Analyst coverage",
           "entity": "niva-bupa",
           "metric": "analyst_price_at_reco::Motilal Oswal",
+          "period": "2025-11-03",
+          "period_type": "event",
+          "unit": "INR",
+          "cell_kind": "input",
+          "is_external_input": false,
+          "fillable": true,
+          "template_value_preview": 74.06,
+          "source_key": "analyst_coverage",
+          "source_name": "Broker research aggregators (no official equivalent exists)",
+          "source_status": "backup",
+          "binding_confidence": "low"
+        },
+        {
+          "cell": "H9",
+          "section": "Analyst coverage",
+          "entity": "niva-bupa",
+          "metric": "analyst_target_price::Motilal Oswal",
+          "period": "2025-11-03",
+          "period_type": "event",
+          "unit": "INR",
+          "cell_kind": "input",
+          "is_external_input": false,
+          "fillable": true,
+          "template_value_preview": 92,
+          "source_key": "analyst_coverage",
+          "source_name": "Broker research aggregators (no official equivalent exists)",
+          "source_status": "backup",
+          "binding_confidence": "low"
+        },
+        {
+          "cell": "E10",
+          "section": "Analyst coverage",
+          "entity": "niva-bupa",
+          "metric": "analyst_recommendation::ICICI Securities",
+          "period": "2025-08-11",
+          "period_type": "event",
+          "unit": "text",
+          "cell_kind": "text",
+          "is_external_input": false,
+          "fillable": false,
+          "template_value_preview": "Buy",
+          "source_key": "analyst_coverage",
+          "source_name": "Broker research aggregators (no official equivalent exists)",
+          "source_status": "backup",
+          "binding_confidence": "low"
+        },
+        {
+          "cell": "G10",
+          "section": "Analyst coverage",
+          "entity": "niva-bupa",
+          "metric": "analyst_price_at_reco::ICICI Securities",
+          "period": "2025-08-11",
+          "period_type": "event",
+          "unit": "INR",
+          "cell_kind": "input",
+          "is_external_input": false,
+          "fillable": true,
+          "template_value_preview": 79.65,
+          "source_key": "analyst_coverage",
+          "source_name": "Broker research aggregators (no official equivalent exists)",
+          "source_status": "backup",
+          "binding_confidence": "low"
+        },
+        {
+          "cell": "H10",
+          "section": "Analyst coverage",
+          "entity": "niva-bupa",
+          "metric": "analyst_target_price::ICICI Securities",
+          "period": "2025-08-11",
+          "period_type": "event",
+          "unit": "INR",
+          "cell_kind": "input",
+          "is_external_input": false,
+          "fillable": true,
+          "template_value_preview": 92,
+          "source_key": "analyst_coverage",
+          "source_name": "Broker research aggregators (no official equivalent exists)",
+          "source_status": "backup",
+          "binding_confidence": "low"
+        },
+        {
+          "cell": "E11",
+          "section": "Analyst coverage",
+          "entity": "niva-bupa",
+          "metric": "analyst_recommendation::Motilal Oswal",
+          "period": "2025-08-07",
+          "period_type": "event",
+          "unit": "text",
+          "cell_kind": "text",
+          "is_external_input": false,
+          "fillable": false,
+          "template_value_preview": "Buy",
+          "source_key": "analyst_coverage",
+          "source_name": "Broker research aggregators (no official equivalent exists)",
+          "source_status": "backup",
+          "binding_confidence": "low"
+        },
+        {
+          "cell": "G11",
+          "section": "Analyst coverage",
+          "entity": "niva-bupa",
+          "metric": "analyst_price_at_reco::Motilal Oswal",
+          "period": "2025-08-07",
+          "period_type": "event",
+          "unit": "INR",
+          "cell_kind": "input",
+          "is_external_input": false,
+          "fillable": true,
+          "template_value_preview": 80.37,
+          "source_key": "analyst_coverage",
+          "source_name": "Broker research aggregators (no official equivalent exists)",
+          "source_status": "backup",
+          "binding_confidence": "low"
+        },
+        {
+          "cell": "H11",
+          "section": "Analyst coverage",
+          "entity": "niva-bupa",
+          "metric": "analyst_target_price::Motilal Oswal",
+          "period": "2025-08-07",
+          "period_type": "event",
+          "unit": "INR",
+          "cell_kind": "input",
+          "is_external_input": false,
+          "fillable": true,
+          "template_value_preview": 101,
+          "source_key": "analyst_coverage",
+          "source_name": "Broker research aggregators (no official equivalent exists)",
+          "source_status": "backup",
+          "binding_confidence": "low"
+        },
+        {
+          "cell": "E12",
+          "section": "Analyst coverage",
+          "entity": "niva-bupa",
+          "metric": "analyst_recommendation::Motilal Oswal",
+          "period": "2025-07-31",
+          "period_type": "event",
+          "unit": "text",
+          "cell_kind": "text",
+          "is_external_input": false,
+          "fillable": false,
+          "template_value_preview": "Buy",
+          "source_key": "analyst_coverage",
+          "source_name": "Broker research aggregators (no official equivalent exists)",
+          "source_status": "backup",
+          "binding_confidence": "low"
+        },
+        {
+          "cell": "G12",
+          "section": "Analyst coverage",
+          "entity": "niva-bupa",
+          "metric": "analyst_price_at_reco::Motilal Oswal",
           "period": "2025-07-31",
           "period_type": "event",
           "unit": "INR",
@@ -36472,7 +36625,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "H9",
+          "cell": "H12",
           "section": "Analyst coverage",
           "entity": "niva-bupa",
           "metric": "analyst_target_price::Motilal Oswal",
@@ -36489,7 +36642,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "E10",
+          "cell": "E13",
           "section": "Analyst coverage",
           "entity": "niva-bupa",
           "metric": "analyst_recommendation::Motilal Oswal",
@@ -36506,7 +36659,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "G10",
+          "cell": "G13",
           "section": "Analyst coverage",
           "entity": "niva-bupa",
           "metric": "analyst_price_at_reco::Motilal Oswal",
@@ -36523,7 +36676,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "H10",
+          "cell": "H13",
           "section": "Analyst coverage",
           "entity": "niva-bupa",
           "metric": "analyst_target_price::Motilal Oswal",
@@ -36540,7 +36693,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "E11",
+          "cell": "E14",
           "section": "Analyst coverage",
           "entity": "niva-bupa",
           "metric": "analyst_recommendation::ICICI Securities",
@@ -36557,7 +36710,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "G11",
+          "cell": "G14",
           "section": "Analyst coverage",
           "entity": "niva-bupa",
           "metric": "analyst_price_at_reco::ICICI Securities",
@@ -36574,7 +36727,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "H11",
+          "cell": "H14",
           "section": "Analyst coverage",
           "entity": "niva-bupa",
           "metric": "analyst_target_price::ICICI Securities",
@@ -36591,7 +36744,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "E12",
+          "cell": "E15",
           "section": "Analyst coverage",
           "entity": "niva-bupa",
           "metric": "analyst_recommendation::Kotak Securities",
@@ -36608,7 +36761,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "G12",
+          "cell": "G15",
           "section": "Analyst coverage",
           "entity": "niva-bupa",
           "metric": "analyst_price_at_reco::Kotak Securities",
@@ -36625,7 +36778,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "H12",
+          "cell": "H15",
           "section": "Analyst coverage",
           "entity": "niva-bupa",
           "metric": "analyst_target_price::Kotak Securities",
@@ -36642,7 +36795,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "E13",
+          "cell": "E16",
           "section": "Analyst coverage",
           "entity": "niva-bupa",
           "metric": "analyst_recommendation::Morgan Stanley",
@@ -36659,7 +36812,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "G13",
+          "cell": "G16",
           "section": "Analyst coverage",
           "entity": "niva-bupa",
           "metric": "analyst_price_at_reco::Morgan Stanley",
@@ -36676,7 +36829,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "H13",
+          "cell": "H16",
           "section": "Analyst coverage",
           "entity": "niva-bupa",
           "metric": "analyst_target_price::Morgan Stanley",
@@ -36693,7 +36846,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "E14",
+          "cell": "E17",
           "section": "Analyst coverage",
           "entity": "niva-bupa",
           "metric": "analyst_recommendation::HDFC Securities",
@@ -36710,7 +36863,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "G14",
+          "cell": "G17",
           "section": "Analyst coverage",
           "entity": "niva-bupa",
           "metric": "analyst_price_at_reco::HDFC Securities",
@@ -36727,7 +36880,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "H14",
+          "cell": "H17",
           "section": "Analyst coverage",
           "entity": "niva-bupa",
           "metric": "analyst_target_price::HDFC Securities",
@@ -36744,7 +36897,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "E15",
+          "cell": "E18",
           "section": "Analyst coverage",
           "entity": "niva-bupa",
           "metric": "analyst_recommendation::KR Choksey",
@@ -36761,7 +36914,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "G15",
+          "cell": "G18",
           "section": "Analyst coverage",
           "entity": "niva-bupa",
           "metric": "analyst_price_at_reco::KR Choksey",
@@ -36778,7 +36931,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "H15",
+          "cell": "H18",
           "section": "Analyst coverage",
           "entity": "niva-bupa",
           "metric": "analyst_target_price::KR Choksey",
@@ -36795,7 +36948,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "E16",
+          "cell": "E19",
           "section": "Analyst coverage",
           "entity": "niva-bupa",
           "metric": "analyst_recommendation::SBI Securities",
@@ -36812,7 +36965,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "G16",
+          "cell": "G19",
           "section": "Analyst coverage",
           "entity": "niva-bupa",
           "metric": "analyst_price_at_reco::SBI Securities",
@@ -36829,7 +36982,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "H16",
+          "cell": "H19",
           "section": "Analyst coverage",
           "entity": "niva-bupa",
           "metric": "analyst_target_price::SBI Securities",
@@ -36846,7 +36999,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "E17",
+          "cell": "E20",
           "section": "Analyst coverage",
           "entity": "niva-bupa",
           "metric": "analyst_recommendation::Ventura",
@@ -36863,7 +37016,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "G17",
+          "cell": "G20",
           "section": "Analyst coverage",
           "entity": "niva-bupa",
           "metric": "analyst_price_at_reco::Ventura",
@@ -36880,7 +37033,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "H17",
+          "cell": "H20",
           "section": "Analyst coverage",
           "entity": "niva-bupa",
           "metric": "analyst_target_price::Ventura",
@@ -36897,7 +37050,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "E20",
+          "cell": "E23",
           "section": "Analyst coverage",
           "entity": "star-health",
           "metric": "analyst_recommendation::ICICI Securities Limited",
@@ -36914,7 +37067,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "G20",
+          "cell": "G23",
           "section": "Analyst coverage",
           "entity": "star-health",
           "metric": "analyst_price_at_reco::ICICI Securities Limited",
@@ -36931,7 +37084,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "H20",
+          "cell": "H23",
           "section": "Analyst coverage",
           "entity": "star-health",
           "metric": "analyst_target_price::ICICI Securities Limited",
@@ -36948,7 +37101,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "E21",
+          "cell": "E24",
           "section": "Analyst coverage",
           "entity": "star-health",
           "metric": "analyst_recommendation::Emkay",
@@ -36965,7 +37118,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "G21",
+          "cell": "G24",
           "section": "Analyst coverage",
           "entity": "star-health",
           "metric": "analyst_price_at_reco::Emkay",
@@ -36982,7 +37135,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "H21",
+          "cell": "H24",
           "section": "Analyst coverage",
           "entity": "star-health",
           "metric": "analyst_target_price::Emkay",
@@ -36999,7 +37152,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "E22",
+          "cell": "E25",
           "section": "Analyst coverage",
           "entity": "star-health",
           "metric": "analyst_recommendation::Motilal Oswal",
@@ -37016,7 +37169,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "G22",
+          "cell": "G25",
           "section": "Analyst coverage",
           "entity": "star-health",
           "metric": "analyst_price_at_reco::Motilal Oswal",
@@ -37033,7 +37186,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "H22",
+          "cell": "H25",
           "section": "Analyst coverage",
           "entity": "star-health",
           "metric": "analyst_target_price::Motilal Oswal",
@@ -37050,164 +37203,11 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "E23",
-          "section": "Analyst coverage",
-          "entity": "star-health",
-          "metric": "analyst_recommendation::Motilal Oswal",
-          "period": "2026-01-29",
-          "period_type": "event",
-          "unit": "text",
-          "cell_kind": "text",
-          "is_external_input": false,
-          "fillable": false,
-          "template_value_preview": "Buy",
-          "source_key": "analyst_coverage",
-          "source_name": "Broker research aggregators (no official equivalent exists)",
-          "source_status": "backup",
-          "binding_confidence": "low"
-        },
-        {
-          "cell": "G23",
-          "section": "Analyst coverage",
-          "entity": "star-health",
-          "metric": "analyst_price_at_reco::Motilal Oswal",
-          "period": "2026-01-29",
-          "period_type": "event",
-          "unit": "INR",
-          "cell_kind": "input",
-          "is_external_input": false,
-          "fillable": true,
-          "template_value_preview": 450.5,
-          "source_key": "analyst_coverage",
-          "source_name": "Broker research aggregators (no official equivalent exists)",
-          "source_status": "backup",
-          "binding_confidence": "low"
-        },
-        {
-          "cell": "H23",
-          "section": "Analyst coverage",
-          "entity": "star-health",
-          "metric": "analyst_target_price::Motilal Oswal",
-          "period": "2026-01-29",
-          "period_type": "event",
-          "unit": "INR",
-          "cell_kind": "input",
-          "is_external_input": false,
-          "fillable": true,
-          "template_value_preview": 560,
-          "source_key": "analyst_coverage",
-          "source_name": "Broker research aggregators (no official equivalent exists)",
-          "source_status": "backup",
-          "binding_confidence": "low"
-        },
-        {
-          "cell": "E24",
-          "section": "Analyst coverage",
-          "entity": "star-health",
-          "metric": "analyst_recommendation::Geojit BNP Paribas",
-          "period": "2026-01-06",
-          "period_type": "event",
-          "unit": "text",
-          "cell_kind": "text",
-          "is_external_input": false,
-          "fillable": false,
-          "template_value_preview": "Buy",
-          "source_key": "analyst_coverage",
-          "source_name": "Broker research aggregators (no official equivalent exists)",
-          "source_status": "backup",
-          "binding_confidence": "low"
-        },
-        {
-          "cell": "G24",
-          "section": "Analyst coverage",
-          "entity": "star-health",
-          "metric": "analyst_price_at_reco::Geojit BNP Paribas",
-          "period": "2026-01-06",
-          "period_type": "event",
-          "unit": "INR",
-          "cell_kind": "input",
-          "is_external_input": false,
-          "fillable": true,
-          "template_value_preview": 451.85,
-          "source_key": "analyst_coverage",
-          "source_name": "Broker research aggregators (no official equivalent exists)",
-          "source_status": "backup",
-          "binding_confidence": "low"
-        },
-        {
-          "cell": "H24",
-          "section": "Analyst coverage",
-          "entity": "star-health",
-          "metric": "analyst_target_price::Geojit BNP Paribas",
-          "period": "2026-01-06",
-          "period_type": "event",
-          "unit": "INR",
-          "cell_kind": "input",
-          "is_external_input": false,
-          "fillable": true,
-          "template_value_preview": 510,
-          "source_key": "analyst_coverage",
-          "source_name": "Broker research aggregators (no official equivalent exists)",
-          "source_status": "backup",
-          "binding_confidence": "low"
-        },
-        {
-          "cell": "E25",
-          "section": "Analyst coverage",
-          "entity": "star-health",
-          "metric": "analyst_recommendation::ICICI Securities",
-          "period": "2025-11-06",
-          "period_type": "event",
-          "unit": "text",
-          "cell_kind": "text",
-          "is_external_input": false,
-          "fillable": false,
-          "template_value_preview": "Buy",
-          "source_key": "analyst_coverage",
-          "source_name": "Broker research aggregators (no official equivalent exists)",
-          "source_status": "backup",
-          "binding_confidence": "low"
-        },
-        {
-          "cell": "G25",
-          "section": "Analyst coverage",
-          "entity": "star-health",
-          "metric": "analyst_price_at_reco::ICICI Securities",
-          "period": "2025-11-06",
-          "period_type": "event",
-          "unit": "INR",
-          "cell_kind": "input",
-          "is_external_input": false,
-          "fillable": true,
-          "template_value_preview": 486.7,
-          "source_key": "analyst_coverage",
-          "source_name": "Broker research aggregators (no official equivalent exists)",
-          "source_status": "backup",
-          "binding_confidence": "low"
-        },
-        {
-          "cell": "H25",
-          "section": "Analyst coverage",
-          "entity": "star-health",
-          "metric": "analyst_target_price::ICICI Securities",
-          "period": "2025-11-06",
-          "period_type": "event",
-          "unit": "INR",
-          "cell_kind": "input",
-          "is_external_input": false,
-          "fillable": true,
-          "template_value_preview": 570,
-          "source_key": "analyst_coverage",
-          "source_name": "Broker research aggregators (no official equivalent exists)",
-          "source_status": "backup",
-          "binding_confidence": "low"
-        },
-        {
           "cell": "E26",
           "section": "Analyst coverage",
           "entity": "star-health",
           "metric": "analyst_recommendation::Motilal Oswal",
-          "period": "2025-10-29",
+          "period": "2026-01-29",
           "period_type": "event",
           "unit": "text",
           "cell_kind": "text",
@@ -37224,13 +37224,13 @@
           "section": "Analyst coverage",
           "entity": "star-health",
           "metric": "analyst_price_at_reco::Motilal Oswal",
-          "period": "2025-10-29",
+          "period": "2026-01-29",
           "period_type": "event",
           "unit": "INR",
           "cell_kind": "input",
           "is_external_input": false,
           "fillable": true,
-          "template_value_preview": 480.45,
+          "template_value_preview": 450.5,
           "source_key": "analyst_coverage",
           "source_name": "Broker research aggregators (no official equivalent exists)",
           "source_status": "backup",
@@ -37241,13 +37241,13 @@
           "section": "Analyst coverage",
           "entity": "star-health",
           "metric": "analyst_target_price::Motilal Oswal",
-          "period": "2025-10-29",
+          "period": "2026-01-29",
           "period_type": "event",
           "unit": "INR",
           "cell_kind": "input",
           "is_external_input": false,
           "fillable": true,
-          "template_value_preview": 570,
+          "template_value_preview": 560,
           "source_key": "analyst_coverage",
           "source_name": "Broker research aggregators (no official equivalent exists)",
           "source_status": "backup",
@@ -37257,8 +37257,8 @@
           "cell": "E27",
           "section": "Analyst coverage",
           "entity": "star-health",
-          "metric": "analyst_recommendation::ICICI Securities",
-          "period": "2025-09-03",
+          "metric": "analyst_recommendation::Geojit BNP Paribas",
+          "period": "2026-01-06",
           "period_type": "event",
           "unit": "text",
           "cell_kind": "text",
@@ -37274,14 +37274,14 @@
           "cell": "G27",
           "section": "Analyst coverage",
           "entity": "star-health",
-          "metric": "analyst_price_at_reco::ICICI Securities",
-          "period": "2025-09-03",
+          "metric": "analyst_price_at_reco::Geojit BNP Paribas",
+          "period": "2026-01-06",
           "period_type": "event",
           "unit": "INR",
           "cell_kind": "input",
           "is_external_input": false,
           "fillable": true,
-          "template_value_preview": 512,
+          "template_value_preview": 451.85,
           "source_key": "analyst_coverage",
           "source_name": "Broker research aggregators (no official equivalent exists)",
           "source_status": "backup",
@@ -37291,14 +37291,14 @@
           "cell": "H27",
           "section": "Analyst coverage",
           "entity": "star-health",
-          "metric": "analyst_target_price::ICICI Securities",
-          "period": "2025-09-03",
+          "metric": "analyst_target_price::Geojit BNP Paribas",
+          "period": "2026-01-06",
           "period_type": "event",
           "unit": "INR",
           "cell_kind": "input",
           "is_external_input": false,
           "fillable": true,
-          "template_value_preview": 512,
+          "template_value_preview": 510,
           "source_key": "analyst_coverage",
           "source_name": "Broker research aggregators (no official equivalent exists)",
           "source_status": "backup",
@@ -37308,8 +37308,8 @@
           "cell": "E28",
           "section": "Analyst coverage",
           "entity": "star-health",
-          "metric": "analyst_recommendation::Motilal Oswal",
-          "period": "2025-08-25",
+          "metric": "analyst_recommendation::ICICI Securities",
+          "period": "2025-11-06",
           "period_type": "event",
           "unit": "text",
           "cell_kind": "text",
@@ -37325,14 +37325,14 @@
           "cell": "G28",
           "section": "Analyst coverage",
           "entity": "star-health",
-          "metric": "analyst_price_at_reco::Motilal Oswal",
-          "period": "2025-08-25",
+          "metric": "analyst_price_at_reco::ICICI Securities",
+          "period": "2025-11-06",
           "period_type": "event",
           "unit": "INR",
           "cell_kind": "input",
           "is_external_input": false,
           "fillable": true,
-          "template_value_preview": 520,
+          "template_value_preview": 486.7,
           "source_key": "analyst_coverage",
           "source_name": "Broker research aggregators (no official equivalent exists)",
           "source_status": "backup",
@@ -37342,14 +37342,14 @@
           "cell": "H28",
           "section": "Analyst coverage",
           "entity": "star-health",
-          "metric": "analyst_target_price::Motilal Oswal",
-          "period": "2025-08-25",
+          "metric": "analyst_target_price::ICICI Securities",
+          "period": "2025-11-06",
           "period_type": "event",
           "unit": "INR",
           "cell_kind": "input",
           "is_external_input": false,
           "fillable": true,
-          "template_value_preview": 520,
+          "template_value_preview": 570,
           "source_key": "analyst_coverage",
           "source_name": "Broker research aggregators (no official equivalent exists)",
           "source_status": "backup",
@@ -37360,7 +37360,7 @@
           "section": "Analyst coverage",
           "entity": "star-health",
           "metric": "analyst_recommendation::Motilal Oswal",
-          "period": "2025-07-30",
+          "period": "2025-10-29",
           "period_type": "event",
           "unit": "text",
           "cell_kind": "text",
@@ -37377,6 +37377,159 @@
           "section": "Analyst coverage",
           "entity": "star-health",
           "metric": "analyst_price_at_reco::Motilal Oswal",
+          "period": "2025-10-29",
+          "period_type": "event",
+          "unit": "INR",
+          "cell_kind": "input",
+          "is_external_input": false,
+          "fillable": true,
+          "template_value_preview": 480.45,
+          "source_key": "analyst_coverage",
+          "source_name": "Broker research aggregators (no official equivalent exists)",
+          "source_status": "backup",
+          "binding_confidence": "low"
+        },
+        {
+          "cell": "H29",
+          "section": "Analyst coverage",
+          "entity": "star-health",
+          "metric": "analyst_target_price::Motilal Oswal",
+          "period": "2025-10-29",
+          "period_type": "event",
+          "unit": "INR",
+          "cell_kind": "input",
+          "is_external_input": false,
+          "fillable": true,
+          "template_value_preview": 570,
+          "source_key": "analyst_coverage",
+          "source_name": "Broker research aggregators (no official equivalent exists)",
+          "source_status": "backup",
+          "binding_confidence": "low"
+        },
+        {
+          "cell": "E30",
+          "section": "Analyst coverage",
+          "entity": "star-health",
+          "metric": "analyst_recommendation::ICICI Securities",
+          "period": "2025-09-03",
+          "period_type": "event",
+          "unit": "text",
+          "cell_kind": "text",
+          "is_external_input": false,
+          "fillable": false,
+          "template_value_preview": "Buy",
+          "source_key": "analyst_coverage",
+          "source_name": "Broker research aggregators (no official equivalent exists)",
+          "source_status": "backup",
+          "binding_confidence": "low"
+        },
+        {
+          "cell": "G30",
+          "section": "Analyst coverage",
+          "entity": "star-health",
+          "metric": "analyst_price_at_reco::ICICI Securities",
+          "period": "2025-09-03",
+          "period_type": "event",
+          "unit": "INR",
+          "cell_kind": "input",
+          "is_external_input": false,
+          "fillable": true,
+          "template_value_preview": 512,
+          "source_key": "analyst_coverage",
+          "source_name": "Broker research aggregators (no official equivalent exists)",
+          "source_status": "backup",
+          "binding_confidence": "low"
+        },
+        {
+          "cell": "H30",
+          "section": "Analyst coverage",
+          "entity": "star-health",
+          "metric": "analyst_target_price::ICICI Securities",
+          "period": "2025-09-03",
+          "period_type": "event",
+          "unit": "INR",
+          "cell_kind": "input",
+          "is_external_input": false,
+          "fillable": true,
+          "template_value_preview": 512,
+          "source_key": "analyst_coverage",
+          "source_name": "Broker research aggregators (no official equivalent exists)",
+          "source_status": "backup",
+          "binding_confidence": "low"
+        },
+        {
+          "cell": "E31",
+          "section": "Analyst coverage",
+          "entity": "star-health",
+          "metric": "analyst_recommendation::Motilal Oswal",
+          "period": "2025-08-25",
+          "period_type": "event",
+          "unit": "text",
+          "cell_kind": "text",
+          "is_external_input": false,
+          "fillable": false,
+          "template_value_preview": "Buy",
+          "source_key": "analyst_coverage",
+          "source_name": "Broker research aggregators (no official equivalent exists)",
+          "source_status": "backup",
+          "binding_confidence": "low"
+        },
+        {
+          "cell": "G31",
+          "section": "Analyst coverage",
+          "entity": "star-health",
+          "metric": "analyst_price_at_reco::Motilal Oswal",
+          "period": "2025-08-25",
+          "period_type": "event",
+          "unit": "INR",
+          "cell_kind": "input",
+          "is_external_input": false,
+          "fillable": true,
+          "template_value_preview": 520,
+          "source_key": "analyst_coverage",
+          "source_name": "Broker research aggregators (no official equivalent exists)",
+          "source_status": "backup",
+          "binding_confidence": "low"
+        },
+        {
+          "cell": "H31",
+          "section": "Analyst coverage",
+          "entity": "star-health",
+          "metric": "analyst_target_price::Motilal Oswal",
+          "period": "2025-08-25",
+          "period_type": "event",
+          "unit": "INR",
+          "cell_kind": "input",
+          "is_external_input": false,
+          "fillable": true,
+          "template_value_preview": 520,
+          "source_key": "analyst_coverage",
+          "source_name": "Broker research aggregators (no official equivalent exists)",
+          "source_status": "backup",
+          "binding_confidence": "low"
+        },
+        {
+          "cell": "E32",
+          "section": "Analyst coverage",
+          "entity": "star-health",
+          "metric": "analyst_recommendation::Motilal Oswal",
+          "period": "2025-07-30",
+          "period_type": "event",
+          "unit": "text",
+          "cell_kind": "text",
+          "is_external_input": false,
+          "fillable": false,
+          "template_value_preview": "Buy",
+          "source_key": "analyst_coverage",
+          "source_name": "Broker research aggregators (no official equivalent exists)",
+          "source_status": "backup",
+          "binding_confidence": "low"
+        },
+        {
+          "cell": "G32",
+          "section": "Analyst coverage",
+          "entity": "star-health",
+          "metric": "analyst_price_at_reco::Motilal Oswal",
           "period": "2025-07-30",
           "period_type": "event",
           "unit": "INR",
@@ -37390,7 +37543,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "H29",
+          "cell": "H32",
           "section": "Analyst coverage",
           "entity": "star-health",
           "metric": "analyst_target_price::Motilal Oswal",
@@ -37407,7 +37560,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "E30",
+          "cell": "E33",
           "section": "Analyst coverage",
           "entity": "star-health",
           "metric": "analyst_recommendation::Geojit BNP Paribas",
@@ -37424,7 +37577,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "G30",
+          "cell": "G33",
           "section": "Analyst coverage",
           "entity": "star-health",
           "metric": "analyst_price_at_reco::Geojit BNP Paribas",
@@ -37441,7 +37594,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "H30",
+          "cell": "H33",
           "section": "Analyst coverage",
           "entity": "star-health",
           "metric": "analyst_target_price::Geojit BNP Paribas",
@@ -37458,7 +37611,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "E31",
+          "cell": "E34",
           "section": "Analyst coverage",
           "entity": "star-health",
           "metric": "analyst_recommendation::Geojit BNP Paribas",
@@ -37475,7 +37628,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "G31",
+          "cell": "G34",
           "section": "Analyst coverage",
           "entity": "star-health",
           "metric": "analyst_price_at_reco::Geojit BNP Paribas",
@@ -37492,7 +37645,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "H31",
+          "cell": "H34",
           "section": "Analyst coverage",
           "entity": "star-health",
           "metric": "analyst_target_price::Geojit BNP Paribas",
@@ -37509,7 +37662,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "E32",
+          "cell": "E35",
           "section": "Analyst coverage",
           "entity": "star-health",
           "metric": "analyst_recommendation::Emkay",
@@ -37526,7 +37679,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "G32",
+          "cell": "G35",
           "section": "Analyst coverage",
           "entity": "star-health",
           "metric": "analyst_price_at_reco::Emkay",
@@ -37543,7 +37696,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "H32",
+          "cell": "H35",
           "section": "Analyst coverage",
           "entity": "star-health",
           "metric": "analyst_target_price::Emkay",
@@ -37560,7 +37713,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "E33",
+          "cell": "E36",
           "section": "Analyst coverage",
           "entity": "star-health",
           "metric": "analyst_recommendation::ICICI Direct",
@@ -37577,7 +37730,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "G33",
+          "cell": "G36",
           "section": "Analyst coverage",
           "entity": "star-health",
           "metric": "analyst_price_at_reco::ICICI Direct",
@@ -37594,7 +37747,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "H33",
+          "cell": "H36",
           "section": "Analyst coverage",
           "entity": "star-health",
           "metric": "analyst_target_price::ICICI Direct",
@@ -37611,7 +37764,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "E34",
+          "cell": "E37",
           "section": "Analyst coverage",
           "entity": "star-health",
           "metric": "analyst_recommendation::Geojit BNP Paribas",
@@ -37628,7 +37781,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "G34",
+          "cell": "G37",
           "section": "Analyst coverage",
           "entity": "star-health",
           "metric": "analyst_price_at_reco::Geojit BNP Paribas",
@@ -37645,7 +37798,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "H34",
+          "cell": "H37",
           "section": "Analyst coverage",
           "entity": "star-health",
           "metric": "analyst_target_price::Geojit BNP Paribas",
@@ -37662,7 +37815,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "E35",
+          "cell": "E38",
           "section": "Analyst coverage",
           "entity": "star-health",
           "metric": "analyst_recommendation::Motilal Oswal",
@@ -37679,7 +37832,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "G35",
+          "cell": "G38",
           "section": "Analyst coverage",
           "entity": "star-health",
           "metric": "analyst_price_at_reco::Motilal Oswal",
@@ -37696,7 +37849,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "H35",
+          "cell": "H38",
           "section": "Analyst coverage",
           "entity": "star-health",
           "metric": "analyst_target_price::Motilal Oswal",
@@ -37713,7 +37866,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "E36",
+          "cell": "E39",
           "section": "Analyst coverage",
           "entity": "star-health",
           "metric": "analyst_recommendation::Emkay",
@@ -37730,7 +37883,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "G36",
+          "cell": "G39",
           "section": "Analyst coverage",
           "entity": "star-health",
           "metric": "analyst_price_at_reco::Emkay",
@@ -37747,7 +37900,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "H36",
+          "cell": "H39",
           "section": "Analyst coverage",
           "entity": "star-health",
           "metric": "analyst_target_price::Emkay",
@@ -37764,7 +37917,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "E39",
+          "cell": "E42",
           "section": "Analyst coverage",
           "entity": "icici-lombard",
           "metric": "analyst_recommendation::Motilal Oswal",
@@ -37781,7 +37934,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "G39",
+          "cell": "G42",
           "section": "Analyst coverage",
           "entity": "icici-lombard",
           "metric": "analyst_price_at_reco::Motilal Oswal",
@@ -37798,7 +37951,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "H39",
+          "cell": "H42",
           "section": "Analyst coverage",
           "entity": "icici-lombard",
           "metric": "analyst_target_price::Motilal Oswal",
@@ -37815,7 +37968,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "E40",
+          "cell": "E43",
           "section": "Analyst coverage",
           "entity": "icici-lombard",
           "metric": "analyst_recommendation::ICICI Securities",
@@ -37832,7 +37985,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "G40",
+          "cell": "G43",
           "section": "Analyst coverage",
           "entity": "icici-lombard",
           "metric": "analyst_price_at_reco::ICICI Securities",
@@ -37849,7 +38002,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "H40",
+          "cell": "H43",
           "section": "Analyst coverage",
           "entity": "icici-lombard",
           "metric": "analyst_target_price::ICICI Securities",
@@ -37866,7 +38019,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "E41",
+          "cell": "E44",
           "section": "Analyst coverage",
           "entity": "icici-lombard",
           "metric": "analyst_recommendation::Motilal Oswal",
@@ -37883,7 +38036,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "G41",
+          "cell": "G44",
           "section": "Analyst coverage",
           "entity": "icici-lombard",
           "metric": "analyst_price_at_reco::Motilal Oswal",
@@ -37900,7 +38053,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "H41",
+          "cell": "H44",
           "section": "Analyst coverage",
           "entity": "icici-lombard",
           "metric": "analyst_target_price::Motilal Oswal",
@@ -37917,7 +38070,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "E42",
+          "cell": "E45",
           "section": "Analyst coverage",
           "entity": "icici-lombard",
           "metric": "analyst_recommendation::ICICI Securities",
@@ -37934,7 +38087,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "G42",
+          "cell": "G45",
           "section": "Analyst coverage",
           "entity": "icici-lombard",
           "metric": "analyst_price_at_reco::ICICI Securities",
@@ -37951,7 +38104,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "H42",
+          "cell": "H45",
           "section": "Analyst coverage",
           "entity": "icici-lombard",
           "metric": "analyst_target_price::ICICI Securities",
@@ -37968,7 +38121,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "E43",
+          "cell": "E46",
           "section": "Analyst coverage",
           "entity": "icici-lombard",
           "metric": "analyst_recommendation::Geojit BNP Paribas",
@@ -37985,7 +38138,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "G43",
+          "cell": "G46",
           "section": "Analyst coverage",
           "entity": "icici-lombard",
           "metric": "analyst_price_at_reco::Geojit BNP Paribas",
@@ -38002,7 +38155,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "H43",
+          "cell": "H46",
           "section": "Analyst coverage",
           "entity": "icici-lombard",
           "metric": "analyst_target_price::Geojit BNP Paribas",
@@ -38019,7 +38172,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "E44",
+          "cell": "E47",
           "section": "Analyst coverage",
           "entity": "icici-lombard",
           "metric": "analyst_recommendation::ICICI Securities",
@@ -38036,7 +38189,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "G44",
+          "cell": "G47",
           "section": "Analyst coverage",
           "entity": "icici-lombard",
           "metric": "analyst_price_at_reco::ICICI Securities",
@@ -38053,7 +38206,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "H44",
+          "cell": "H47",
           "section": "Analyst coverage",
           "entity": "icici-lombard",
           "metric": "analyst_target_price::ICICI Securities",
@@ -38070,7 +38223,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "E45",
+          "cell": "E48",
           "section": "Analyst coverage",
           "entity": "icici-lombard",
           "metric": "analyst_recommendation::Motilal Oswal",
@@ -38087,7 +38240,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "G45",
+          "cell": "G48",
           "section": "Analyst coverage",
           "entity": "icici-lombard",
           "metric": "analyst_price_at_reco::Motilal Oswal",
@@ -38104,7 +38257,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "H45",
+          "cell": "H48",
           "section": "Analyst coverage",
           "entity": "icici-lombard",
           "metric": "analyst_target_price::Motilal Oswal",
@@ -38121,7 +38274,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "E46",
+          "cell": "E49",
           "section": "Analyst coverage",
           "entity": "icici-lombard",
           "metric": "analyst_recommendation::ICICI Securities",
@@ -38138,7 +38291,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "G46",
+          "cell": "G49",
           "section": "Analyst coverage",
           "entity": "icici-lombard",
           "metric": "analyst_price_at_reco::ICICI Securities",
@@ -38155,7 +38308,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "H46",
+          "cell": "H49",
           "section": "Analyst coverage",
           "entity": "icici-lombard",
           "metric": "analyst_target_price::ICICI Securities",
@@ -38172,7 +38325,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "E47",
+          "cell": "E50",
           "section": "Analyst coverage",
           "entity": "icici-lombard",
           "metric": "analyst_recommendation::Motilal Oswal",
@@ -38189,7 +38342,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "G47",
+          "cell": "G50",
           "section": "Analyst coverage",
           "entity": "icici-lombard",
           "metric": "analyst_price_at_reco::Motilal Oswal",
@@ -38206,7 +38359,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "H47",
+          "cell": "H50",
           "section": "Analyst coverage",
           "entity": "icici-lombard",
           "metric": "analyst_target_price::Motilal Oswal",
@@ -38223,7 +38376,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "E48",
+          "cell": "E51",
           "section": "Analyst coverage",
           "entity": "icici-lombard",
           "metric": "analyst_recommendation::Geojit BNP Paribas",
@@ -38240,7 +38393,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "G48",
+          "cell": "G51",
           "section": "Analyst coverage",
           "entity": "icici-lombard",
           "metric": "analyst_price_at_reco::Geojit BNP Paribas",
@@ -38257,7 +38410,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "H48",
+          "cell": "H51",
           "section": "Analyst coverage",
           "entity": "icici-lombard",
           "metric": "analyst_target_price::Geojit BNP Paribas",
@@ -38274,7 +38427,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "E49",
+          "cell": "E52",
           "section": "Analyst coverage",
           "entity": "icici-lombard",
           "metric": "analyst_recommendation::Motilal Oswal",
@@ -38291,7 +38444,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "G49",
+          "cell": "G52",
           "section": "Analyst coverage",
           "entity": "icici-lombard",
           "metric": "analyst_price_at_reco::Motilal Oswal",
@@ -38308,7 +38461,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "H49",
+          "cell": "H52",
           "section": "Analyst coverage",
           "entity": "icici-lombard",
           "metric": "analyst_target_price::Motilal Oswal",
@@ -38325,7 +38478,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "E50",
+          "cell": "E53",
           "section": "Analyst coverage",
           "entity": "icici-lombard",
           "metric": "analyst_recommendation::Sharekhan",
@@ -38342,7 +38495,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "G50",
+          "cell": "G53",
           "section": "Analyst coverage",
           "entity": "icici-lombard",
           "metric": "analyst_price_at_reco::Sharekhan",
@@ -38359,7 +38512,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "H50",
+          "cell": "H53",
           "section": "Analyst coverage",
           "entity": "icici-lombard",
           "metric": "analyst_target_price::Sharekhan",
@@ -38376,7 +38529,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "E51",
+          "cell": "E54",
           "section": "Analyst coverage",
           "entity": "icici-lombard",
           "metric": "analyst_recommendation::Motilal Oswal",
@@ -38393,7 +38546,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "G51",
+          "cell": "G54",
           "section": "Analyst coverage",
           "entity": "icici-lombard",
           "metric": "analyst_price_at_reco::Motilal Oswal",
@@ -38410,7 +38563,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "H51",
+          "cell": "H54",
           "section": "Analyst coverage",
           "entity": "icici-lombard",
           "metric": "analyst_target_price::Motilal Oswal",
@@ -38427,7 +38580,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "E52",
+          "cell": "E55",
           "section": "Analyst coverage",
           "entity": "icici-lombard",
           "metric": "analyst_recommendation::Geojit BNP Paribas",
@@ -38444,7 +38597,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "G52",
+          "cell": "G55",
           "section": "Analyst coverage",
           "entity": "icici-lombard",
           "metric": "analyst_price_at_reco::Geojit BNP Paribas",
@@ -38461,7 +38614,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "H52",
+          "cell": "H55",
           "section": "Analyst coverage",
           "entity": "icici-lombard",
           "metric": "analyst_target_price::Geojit BNP Paribas",
@@ -38478,7 +38631,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "E53",
+          "cell": "E56",
           "section": "Analyst coverage",
           "entity": "icici-lombard",
           "metric": "analyst_recommendation::Emkay",
@@ -38495,7 +38648,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "G53",
+          "cell": "G56",
           "section": "Analyst coverage",
           "entity": "icici-lombard",
           "metric": "analyst_price_at_reco::Emkay",
@@ -38512,7 +38665,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "H53",
+          "cell": "H56",
           "section": "Analyst coverage",
           "entity": "icici-lombard",
           "metric": "analyst_target_price::Emkay",
@@ -38529,7 +38682,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "E54",
+          "cell": "E57",
           "section": "Analyst coverage",
           "entity": "icici-lombard",
           "metric": "analyst_recommendation::Sharekhan",
@@ -38546,7 +38699,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "G54",
+          "cell": "G57",
           "section": "Analyst coverage",
           "entity": "icici-lombard",
           "metric": "analyst_price_at_reco::Sharekhan",
@@ -38563,7 +38716,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "H54",
+          "cell": "H57",
           "section": "Analyst coverage",
           "entity": "icici-lombard",
           "metric": "analyst_target_price::Sharekhan",
@@ -38580,164 +38733,11 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "E55",
-          "section": "Analyst coverage",
-          "entity": "icici-lombard",
-          "metric": "analyst_recommendation::Motilal Oswal",
-          "period": "2025-01-17",
-          "period_type": "event",
-          "unit": "text",
-          "cell_kind": "text",
-          "is_external_input": false,
-          "fillable": false,
-          "template_value_preview": "Buy",
-          "source_key": "analyst_coverage",
-          "source_name": "Broker research aggregators (no official equivalent exists)",
-          "source_status": "backup",
-          "binding_confidence": "low"
-        },
-        {
-          "cell": "G55",
-          "section": "Analyst coverage",
-          "entity": "icici-lombard",
-          "metric": "analyst_price_at_reco::Motilal Oswal",
-          "period": "2025-01-17",
-          "period_type": "event",
-          "unit": "INR",
-          "cell_kind": "input",
-          "is_external_input": false,
-          "fillable": true,
-          "template_value_preview": 1948.75,
-          "source_key": "analyst_coverage",
-          "source_name": "Broker research aggregators (no official equivalent exists)",
-          "source_status": "backup",
-          "binding_confidence": "low"
-        },
-        {
-          "cell": "H55",
-          "section": "Analyst coverage",
-          "entity": "icici-lombard",
-          "metric": "analyst_target_price::Motilal Oswal",
-          "period": "2025-01-17",
-          "period_type": "event",
-          "unit": "INR",
-          "cell_kind": "input",
-          "is_external_input": false,
-          "fillable": true,
-          "template_value_preview": 2300,
-          "source_key": "analyst_coverage",
-          "source_name": "Broker research aggregators (no official equivalent exists)",
-          "source_status": "backup",
-          "binding_confidence": "low"
-        },
-        {
-          "cell": "E56",
-          "section": "Analyst coverage",
-          "entity": "icici-lombard",
-          "metric": "analyst_recommendation::ICICI Direct",
-          "period": "2024-10-23",
-          "period_type": "event",
-          "unit": "text",
-          "cell_kind": "text",
-          "is_external_input": false,
-          "fillable": false,
-          "template_value_preview": "Hold",
-          "source_key": "analyst_coverage",
-          "source_name": "Broker research aggregators (no official equivalent exists)",
-          "source_status": "backup",
-          "binding_confidence": "low"
-        },
-        {
-          "cell": "G56",
-          "section": "Analyst coverage",
-          "entity": "icici-lombard",
-          "metric": "analyst_price_at_reco::ICICI Direct",
-          "period": "2024-10-23",
-          "period_type": "event",
-          "unit": "INR",
-          "cell_kind": "input",
-          "is_external_input": false,
-          "fillable": true,
-          "template_value_preview": 1959,
-          "source_key": "analyst_coverage",
-          "source_name": "Broker research aggregators (no official equivalent exists)",
-          "source_status": "backup",
-          "binding_confidence": "low"
-        },
-        {
-          "cell": "H56",
-          "section": "Analyst coverage",
-          "entity": "icici-lombard",
-          "metric": "analyst_target_price::ICICI Direct",
-          "period": "2024-10-23",
-          "period_type": "event",
-          "unit": "INR",
-          "cell_kind": "input",
-          "is_external_input": false,
-          "fillable": true,
-          "template_value_preview": 2100,
-          "source_key": "analyst_coverage",
-          "source_name": "Broker research aggregators (no official equivalent exists)",
-          "source_status": "backup",
-          "binding_confidence": "low"
-        },
-        {
-          "cell": "E57",
-          "section": "Analyst coverage",
-          "entity": "icici-lombard",
-          "metric": "analyst_recommendation::Emkay",
-          "period": "2024-10-20",
-          "period_type": "event",
-          "unit": "text",
-          "cell_kind": "text",
-          "is_external_input": false,
-          "fillable": false,
-          "template_value_preview": "Sell",
-          "source_key": "analyst_coverage",
-          "source_name": "Broker research aggregators (no official equivalent exists)",
-          "source_status": "backup",
-          "binding_confidence": "low"
-        },
-        {
-          "cell": "G57",
-          "section": "Analyst coverage",
-          "entity": "icici-lombard",
-          "metric": "analyst_price_at_reco::Emkay",
-          "period": "2024-10-20",
-          "period_type": "event",
-          "unit": "INR",
-          "cell_kind": "input",
-          "is_external_input": false,
-          "fillable": true,
-          "template_value_preview": 2020,
-          "source_key": "analyst_coverage",
-          "source_name": "Broker research aggregators (no official equivalent exists)",
-          "source_status": "backup",
-          "binding_confidence": "low"
-        },
-        {
-          "cell": "H57",
-          "section": "Analyst coverage",
-          "entity": "icici-lombard",
-          "metric": "analyst_target_price::Emkay",
-          "period": "2024-10-20",
-          "period_type": "event",
-          "unit": "INR",
-          "cell_kind": "input",
-          "is_external_input": false,
-          "fillable": true,
-          "template_value_preview": 1900,
-          "source_key": "analyst_coverage",
-          "source_name": "Broker research aggregators (no official equivalent exists)",
-          "source_status": "backup",
-          "binding_confidence": "low"
-        },
-        {
           "cell": "E58",
           "section": "Analyst coverage",
           "entity": "icici-lombard",
           "metric": "analyst_recommendation::Motilal Oswal",
-          "period": "2024-10-18",
+          "period": "2025-01-17",
           "period_type": "event",
           "unit": "text",
           "cell_kind": "text",
@@ -38754,6 +38754,159 @@
           "section": "Analyst coverage",
           "entity": "icici-lombard",
           "metric": "analyst_price_at_reco::Motilal Oswal",
+          "period": "2025-01-17",
+          "period_type": "event",
+          "unit": "INR",
+          "cell_kind": "input",
+          "is_external_input": false,
+          "fillable": true,
+          "template_value_preview": 1948.75,
+          "source_key": "analyst_coverage",
+          "source_name": "Broker research aggregators (no official equivalent exists)",
+          "source_status": "backup",
+          "binding_confidence": "low"
+        },
+        {
+          "cell": "H58",
+          "section": "Analyst coverage",
+          "entity": "icici-lombard",
+          "metric": "analyst_target_price::Motilal Oswal",
+          "period": "2025-01-17",
+          "period_type": "event",
+          "unit": "INR",
+          "cell_kind": "input",
+          "is_external_input": false,
+          "fillable": true,
+          "template_value_preview": 2300,
+          "source_key": "analyst_coverage",
+          "source_name": "Broker research aggregators (no official equivalent exists)",
+          "source_status": "backup",
+          "binding_confidence": "low"
+        },
+        {
+          "cell": "E59",
+          "section": "Analyst coverage",
+          "entity": "icici-lombard",
+          "metric": "analyst_recommendation::ICICI Direct",
+          "period": "2024-10-23",
+          "period_type": "event",
+          "unit": "text",
+          "cell_kind": "text",
+          "is_external_input": false,
+          "fillable": false,
+          "template_value_preview": "Hold",
+          "source_key": "analyst_coverage",
+          "source_name": "Broker research aggregators (no official equivalent exists)",
+          "source_status": "backup",
+          "binding_confidence": "low"
+        },
+        {
+          "cell": "G59",
+          "section": "Analyst coverage",
+          "entity": "icici-lombard",
+          "metric": "analyst_price_at_reco::ICICI Direct",
+          "period": "2024-10-23",
+          "period_type": "event",
+          "unit": "INR",
+          "cell_kind": "input",
+          "is_external_input": false,
+          "fillable": true,
+          "template_value_preview": 1959,
+          "source_key": "analyst_coverage",
+          "source_name": "Broker research aggregators (no official equivalent exists)",
+          "source_status": "backup",
+          "binding_confidence": "low"
+        },
+        {
+          "cell": "H59",
+          "section": "Analyst coverage",
+          "entity": "icici-lombard",
+          "metric": "analyst_target_price::ICICI Direct",
+          "period": "2024-10-23",
+          "period_type": "event",
+          "unit": "INR",
+          "cell_kind": "input",
+          "is_external_input": false,
+          "fillable": true,
+          "template_value_preview": 2100,
+          "source_key": "analyst_coverage",
+          "source_name": "Broker research aggregators (no official equivalent exists)",
+          "source_status": "backup",
+          "binding_confidence": "low"
+        },
+        {
+          "cell": "E60",
+          "section": "Analyst coverage",
+          "entity": "icici-lombard",
+          "metric": "analyst_recommendation::Emkay",
+          "period": "2024-10-20",
+          "period_type": "event",
+          "unit": "text",
+          "cell_kind": "text",
+          "is_external_input": false,
+          "fillable": false,
+          "template_value_preview": "Sell",
+          "source_key": "analyst_coverage",
+          "source_name": "Broker research aggregators (no official equivalent exists)",
+          "source_status": "backup",
+          "binding_confidence": "low"
+        },
+        {
+          "cell": "G60",
+          "section": "Analyst coverage",
+          "entity": "icici-lombard",
+          "metric": "analyst_price_at_reco::Emkay",
+          "period": "2024-10-20",
+          "period_type": "event",
+          "unit": "INR",
+          "cell_kind": "input",
+          "is_external_input": false,
+          "fillable": true,
+          "template_value_preview": 2020,
+          "source_key": "analyst_coverage",
+          "source_name": "Broker research aggregators (no official equivalent exists)",
+          "source_status": "backup",
+          "binding_confidence": "low"
+        },
+        {
+          "cell": "H60",
+          "section": "Analyst coverage",
+          "entity": "icici-lombard",
+          "metric": "analyst_target_price::Emkay",
+          "period": "2024-10-20",
+          "period_type": "event",
+          "unit": "INR",
+          "cell_kind": "input",
+          "is_external_input": false,
+          "fillable": true,
+          "template_value_preview": 1900,
+          "source_key": "analyst_coverage",
+          "source_name": "Broker research aggregators (no official equivalent exists)",
+          "source_status": "backup",
+          "binding_confidence": "low"
+        },
+        {
+          "cell": "E61",
+          "section": "Analyst coverage",
+          "entity": "icici-lombard",
+          "metric": "analyst_recommendation::Motilal Oswal",
+          "period": "2024-10-18",
+          "period_type": "event",
+          "unit": "text",
+          "cell_kind": "text",
+          "is_external_input": false,
+          "fillable": false,
+          "template_value_preview": "Buy",
+          "source_key": "analyst_coverage",
+          "source_name": "Broker research aggregators (no official equivalent exists)",
+          "source_status": "backup",
+          "binding_confidence": "low"
+        },
+        {
+          "cell": "G61",
+          "section": "Analyst coverage",
+          "entity": "icici-lombard",
+          "metric": "analyst_price_at_reco::Motilal Oswal",
           "period": "2024-10-18",
           "period_type": "event",
           "unit": "INR",
@@ -38767,7 +38920,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "H58",
+          "cell": "H61",
           "section": "Analyst coverage",
           "entity": "icici-lombard",
           "metric": "analyst_target_price::Motilal Oswal",
@@ -38784,7 +38937,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "E59",
+          "cell": "E62",
           "section": "Analyst coverage",
           "entity": "icici-lombard",
           "metric": "analyst_recommendation::Sharekhan",
@@ -38801,7 +38954,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "G59",
+          "cell": "G62",
           "section": "Analyst coverage",
           "entity": "icici-lombard",
           "metric": "analyst_price_at_reco::Sharekhan",
@@ -38818,7 +38971,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "H59",
+          "cell": "H62",
           "section": "Analyst coverage",
           "entity": "icici-lombard",
           "metric": "analyst_target_price::Sharekhan",
@@ -38835,7 +38988,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "E60",
+          "cell": "E63",
           "section": "Analyst coverage",
           "entity": "icici-lombard",
           "metric": "analyst_recommendation::Geojit BNP Paribas",
@@ -38852,7 +39005,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "G60",
+          "cell": "G63",
           "section": "Analyst coverage",
           "entity": "icici-lombard",
           "metric": "analyst_price_at_reco::Geojit BNP Paribas",
@@ -38869,7 +39022,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "H60",
+          "cell": "H63",
           "section": "Analyst coverage",
           "entity": "icici-lombard",
           "metric": "analyst_target_price::Geojit BNP Paribas",
@@ -38886,7 +39039,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "E61",
+          "cell": "E64",
           "section": "Analyst coverage",
           "entity": "icici-lombard",
           "metric": "analyst_recommendation::IDBI Capital",
@@ -38903,7 +39056,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "G61",
+          "cell": "G64",
           "section": "Analyst coverage",
           "entity": "icici-lombard",
           "metric": "analyst_price_at_reco::IDBI Capital",
@@ -38920,7 +39073,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "H61",
+          "cell": "H64",
           "section": "Analyst coverage",
           "entity": "icici-lombard",
           "metric": "analyst_target_price::IDBI Capital",
@@ -38937,7 +39090,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "E64",
+          "cell": "E67",
           "section": "Analyst coverage",
           "entity": "godigit",
           "metric": "analyst_recommendation::Emkay",
@@ -38954,7 +39107,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "G64",
+          "cell": "G67",
           "section": "Analyst coverage",
           "entity": "godigit",
           "metric": "analyst_price_at_reco::Emkay",
@@ -38971,7 +39124,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "H64",
+          "cell": "H67",
           "section": "Analyst coverage",
           "entity": "godigit",
           "metric": "analyst_target_price::Emkay",
@@ -38988,7 +39141,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "E65",
+          "cell": "E68",
           "section": "Analyst coverage",
           "entity": "godigit",
           "metric": "analyst_recommendation::Emkay",
@@ -39005,7 +39158,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "G65",
+          "cell": "G68",
           "section": "Analyst coverage",
           "entity": "godigit",
           "metric": "analyst_price_at_reco::Emkay",
@@ -39022,7 +39175,7 @@
           "binding_confidence": "low"
         },
         {
-          "cell": "H65",
+          "cell": "H68",
           "section": "Analyst coverage",
           "entity": "godigit",
           "metric": "analyst_target_price::Emkay",
@@ -39039,7 +39192,7 @@
           "binding_confidence": "low"
         }
       ],
-      "fillable_inputs": 112
+      "fillable_inputs": 121
     },
     {
       "sheet": "Comps",

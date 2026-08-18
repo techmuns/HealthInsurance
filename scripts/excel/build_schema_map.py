@@ -512,14 +512,21 @@ def _binding(ws_v, ws_f, col, row, *, entity, metric, period, period_type, unit,
     }
 
 
-def _keep_bindings(out, keep_empty_cols=frozenset()):
+def _keep_bindings(out, keep_empty_cols=frozenset(), keep_empty_rows=frozenset()):
     """Drop blank cells, EXCEPT in auto-appended period columns — those are
-    blank by design and stay fillable inputs (Neha, 2026-06-11)."""
+    blank by design and stay fillable inputs (Neha, 2026-06-11).
+
+    keep_empty_rows is the same rule turned ninety degrees, for the one sheet
+    that grows DOWN instead of across: an appended broker-note row on Analyst
+    coverage is blank by design too, and without this it was dropped here and
+    never filled — the row existed but stayed invisible."""
     result = []
     for b in out:
+        cell = b["cell"]
+        row = int(re.sub(r"[^0-9]", "", cell) or 0)
         if b["cell_kind"] != "empty":
             result.append(b)
-        elif b["cell"].rstrip("0123456789") in keep_empty_cols:
+        elif cell.rstrip("0123456789") in keep_empty_cols or row in keep_empty_rows:
             b["cell_kind"] = "input"
             b["fillable"] = True
             b["is_external_input"] = True
@@ -704,7 +711,20 @@ def build_analyst(ws_v, ws_f):
     out = []
     cols = {"E": ("recommendation", "text"), "G": ("price_at_reco", "INR"), "H": ("target_price", "INR")}
     current_entity = ""
-    for row in range(4, 67):
+    # An appended note row carries broker + date but no values yet — keep its
+    # cells as fillable inputs so the data layer can fill them on this run.
+    keep_empty_rows = {
+        row for row in range(4, ws_v.max_row + 1)
+        if ws_v[f"C{row}"].value and str(ws_v[f"C{row}"].value).strip().lower() != "average"
+        and isinstance(ws_v[f"D{row}"].value, datetime)
+        and not any(ws_v[f"{c}{row}"].value is not None for c in ("E", "G", "H"))
+    }
+    # Scan the sheet's ACTUAL extent, not a fixed 4..66. This is a list-table:
+    # extend_analyst_coverage.py appends a row per new dated broker note, so a
+    # hardcoded end silently drops whole companies off the bottom the first
+    # time the sheet grows (Go Digit fell outside it the moment Niva Bupa took
+    # three new notes).
+    for row in range(4, ws_v.max_row + 1):
         ent_label = ws_v[f"B{row}"].value
         if ent_label and entity_from_label(str(ent_label)):
             current_entity = entity_from_label(str(ent_label))
@@ -720,7 +740,7 @@ def build_analyst(ws_v, ws_f):
                 period=period, period_type="event", unit=unit,
                 source_key="analyst_coverage", section="Analyst coverage", conf="low",
             ))
-    return _keep_bindings(out)
+    return _keep_bindings(out, keep_empty_rows=keep_empty_rows)
 
 
 def build_mgmt_commentary(ws_v, ws_f):

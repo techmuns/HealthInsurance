@@ -176,6 +176,30 @@ OVERLAY_METRIC_ALIAS = {
 }
 
 
+
+def load_snapshot(name: str):
+    """Whole snapshot document (not just its `data` list)."""
+    try:
+        return json.loads((SNAP / f"{name}.json").read_text())
+    except Exception:
+        return {}
+
+
+def _iso_report_date(v) -> str | None:
+    """'30 Jul, 2026' or '2026-07-30' -> '2026-07-30'; anything else -> None."""
+    import datetime as _dt
+    s = str(v or "").strip()
+    if re.match(r"^\d{4}-\d{2}-\d{2}", s):
+        return s[:10]
+    m = re.match(r"^(\d{1,2})\s+([A-Za-z]{3})[a-z]*,?\s+(\d{4})$", s)
+    if m:
+        try:
+            return _dt.datetime.strptime(f"{m.group(1)} {m.group(2)} {m.group(3)}", "%d %b %Y").date().isoformat()
+        except ValueError:
+            return None
+    return None
+
+
 def collect_overlay():
     """Curated values staged in src/data/snapshots/audit-overlay.json — the same
     layer the Audit grid reads. GAP-FILL ONLY: a curated value is added only where
@@ -450,6 +474,34 @@ def collect_existing():
                               "identity (value used as-is)", "INR", prov,
                               RANK_BACKUP, "analyst_aggregator", "backup",
                               {"basis_note": "Broker-report figure from a public aggregator page; low confidence by policy."})
+    # Moneycontrol street feed — the same class of aggregator broker note, and
+    # currently the only broker source still returning data (the Trendlyne
+    # scrape is bot-blocked and the muns agent 502s). Same rank and same
+    # low-confidence policy tag; add-only, so it never displaces a richer row
+    # that already carries a price-at-reco.
+    street = load_snapshot("street-analyst-snapshot")
+    street_entity = ((street or {}).get("_meta") or {}).get("company_id")
+    for r in (street or {}).get("reports", []) or []:
+        broker, date = r.get("brokerage"), _iso_report_date(r.get("report_date"))
+        if not (street_entity and broker and date and r.get("source_url")):
+            continue
+        if r.get("target_price") is None:
+            continue
+        prov = {
+            "source_name": f"{broker} research note, {date} (Moneycontrol broker research)",
+            "source_url": r.get("source_url"), "source_file": None,
+            "fetched_at": ((street or {}).get("_meta") or {}).get("last_fetched_at"),
+            "confidence": "low",
+        }
+        note = {"basis_note": "Broker-report figure from a public aggregator page; low confidence by policy."}
+        add_candidate(street_entity, f"analyst_target_price::{str(broker).strip()}", date,
+                      r["target_price"], r["target_price"], "identity (value used as-is)", "INR",
+                      prov, RANK_BACKUP, "analyst_aggregator", "backup", note)
+        if r.get("rating"):
+            add_candidate(street_entity, f"analyst_recommendation::{str(broker).strip()}", date,
+                          r["rating"], r["rating"], "identity (value used as-is)", "text",
+                          prov, RANK_BACKUP, "analyst_aggregator", "backup", note)
+
     for r in load("gic-health-monthly"):
         period, ent, grp = r.get("period"), r.get("entity"), r.get("carrier_group")
         if not period or not ent:
