@@ -258,13 +258,10 @@ jobs:
             # main moves constantly (other sessions + workflows push during a
             # 10-minute ingest) — rebase onto the latest tip and retry, never
             # lose a finished fetch to a push race.
-            for i in 1 2 3 4 5; do
-              if git pull --rebase --autostash origin main && git push; then
-                echo "pushed on attempt $i"; exit 0
-              fi
-              echo "push attempt $i failed; retrying..."; sleep 5
-            done
-            echo "ERROR: push failed after retries"; exit 1
+            # Push races are routine here; the retry loop this replaces could not
+            # survive one - a conflicting rebase left unmerged files and every later
+            # attempt died on them. See scripts/ci/push-with-retry.sh.
+            bash scripts/ci/push-with-retry.sh "python3 scripts/excel/build_value_store.py && python3 scripts/excel/build_audit_index.py"
           else
             echo "No snapshot changes — nothing to commit."
           fi

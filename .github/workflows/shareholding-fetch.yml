@@ -78,10 +78,7 @@ jobs:
           fi
           BRANCH="${{ github.ref_name }}"
           git commit -m "shareholding: auto-refresh from exchange filing @ $(date -u +%Y-%m-%dT%H:%MZ)"
-          for i in 1 2 3 4 5; do
-            if git pull --rebase --autostash origin "$BRANCH" && git push origin "HEAD:$BRANCH"; then
-              echo "pushed on attempt $i"; exit 0
-            fi
-            echo "push retry $i"; sleep $((2 ** i))
-          done
-          echo "ERROR: push failed after retries"; exit 1
+          # Push races are routine here; the retry loop this replaces could not
+          # survive one - a conflicting rebase left unmerged files and every later
+          # attempt died on them. See scripts/ci/push-with-retry.sh.
+          bash scripts/ci/push-with-retry.sh

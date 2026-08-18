@@ -64,10 +64,7 @@ jobs:
           fi
           git commit -m "niva-fy25-financials: agent pull + sources @ $(date -u +%Y-%m-%dT%H:%MZ)"
           # Rebase onto latest main and retry so a concurrent push never drops our commit.
-          for i in 1 2 3 4 5; do
-            if git pull --rebase --autostash origin main && git push; then
-              echo "pushed on attempt $i"; exit 0
-            fi
-            echo "push attempt $i failed; retrying..."; sleep 3
-          done
-          echo "ERROR: push failed after retries"; exit 1
+          # Push races are routine here; the retry loop this replaces could not
+          # survive one - a conflicting rebase left unmerged files and every later
+          # attempt died on them. See scripts/ci/push-with-retry.sh.
+          bash scripts/ci/push-with-retry.sh

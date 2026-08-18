@@ -65,8 +65,7 @@ jobs:
           git add src/data/snapshots/market-intelligence-snapshot.json src/data/snapshots/pulse-brief-archive.json
           if git diff --staged --quiet; then echo "No change."; exit 0; fi
           git commit -m "intelligence: AI market-intelligence feed + Pulse brief archive @ $(date -u +%Y-%m-%dT%H:%MZ)"
-          for i in 1 2 3 4 5; do
-            if git pull --rebase --autostash origin main && git push; then echo "pushed $i"; exit 0; fi
-            echo "retry $i"; sleep 3
-          done
-          echo "ERROR: push failed"; exit 1
+          # Push races are routine here; the retry loop this replaces could not
+          # survive one - a conflicting rebase left unmerged files and every later
+          # attempt died on them. See scripts/ci/push-with-retry.sh.
+          bash scripts/ci/push-with-retry.sh
