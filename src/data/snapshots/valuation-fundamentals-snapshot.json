@@ -4,10 +4,10 @@
     "description": "Per-company reported financials behind the Valuation tab's multiples — full-year GWP, PAT (IFRS), YoY growth, net margin and retail-health share — by fiscal year, for the LISTED health insurers. The Valuation tab reads the latest fiscal year per company and derives P/GWP and P/E live (market cap from the daily price feed ÷ these reported figures). Seed = the audited figures hand-checked 2026-06-01; the quarterly agent refreshes them as each result publishes. Missing stays null, never fabricated.",
     "schema_version": "1.0.0",
     "dataset": "mixed",
-    "last_updated": "2026-06-01",
+    "last_updated": "2026-08-20",
     "refresh_cadence": "quarterly — Indian listed insurers report within ~45 days of each quarter-end (Q1 ~Aug, Q2 ~Nov, Q3 ~Feb, Q4 + full-year audited ~May). The agent pulls each company's latest reported FULL-YEAR figures every quarter; the full-year basis advances once a year (with Q4).",
     "metric_basis": "Full-year (annual) figures, Rs crore. PAT on the IFRS / Ind AS basis to match the listed reporting. GWP = gross written premium (a premium metric, not profit).",
-    "last_successful_run": null,
+    "last_successful_run": "2026-08-20T06:56:06.178Z",
     "notes": "Listed health insurers only (Niva Bupa, Star Health). Unlisted SAHIs have no market price, so no multiple is published for them (the Valuation tab marks them 'pending'). net_margin = PAT / GWP.",
     "agent_target_fys": [
       "FY26",
@@ -35,7 +35,7 @@
       "company_id": "niva-bupa",
       "fiscal_year": "FY25",
       "gwp": 7015,
-      "gwp_growth_yoy": null,
+      "gwp_growth_yoy": 32,
       "pat": 203,
       "pat_growth_yoy": null,
       "retail_share": null,
@@ -44,7 +44,14 @@
         "source_name": "Niva Bupa FY25 audited results: GWP Rs 7,015 cr, PAT Rs 203 cr",
         "source_url": "https://transactions.nivabupa.com/pages/investor-relations.aspx",
         "fetched_at": "2026-06-01",
-        "confidence": "high"
+        "confidence": "medium",
+        "field_sources": {
+          "gwp_growth_yoy": "https://transactions.nivabupa.com/pages/doc/investor-relations/other-fin-disclosures/Press-Release-Results-March-2025.pdf?v=1.1"
+        },
+        "auto_filled": [
+          "gwp_growth_yoy"
+        ],
+        "agent_last_run": "2026-08-20T06:56:06.178Z"
       }
     },
     {
@@ -61,6 +68,31 @@
         "source_url": "https://www.starhealth.in/investors/financial-information/",
         "fetched_at": "2026-06-01",
         "confidence": "high"
+      }
+    },
+    {
+      "company_id": "star-health",
+      "fiscal_year": "FY25",
+      "gwp": 16781,
+      "gwp_growth_yoy": 10,
+      "pat": 787,
+      "pat_growth_yoy": null,
+      "retail_share": null,
+      "retail_share_delta_bps": null,
+      "provenance": {
+        "source_name": "Auto-filled by the muns web agent from company results",
+        "field_sources": {
+          "gwp": "https://www.businessupturn.com/business/corporates/star-health-insurance-posts-rs-787-crore-profit-in-fy25-gwp-grows-10-to-rs-16781-crore/",
+          "pat": "https://www.businessupturn.com/business/corporates/star-health-insurance-posts-rs-787-crore-profit-in-fy25-gwp-grows-10-to-rs-16781-crore/",
+          "gwp_growth_yoy": "https://www.businessupturn.com/business/corporates/star-health-insurance-posts-rs-787-crore-profit-in-fy25-gwp-grows-10-to-rs-16781-crore/"
+        },
+        "auto_filled": [
+          "gwp",
+          "pat",
+          "gwp_growth_yoy"
+        ],
+        "confidence": "medium",
+        "agent_last_run": "2026-08-20T06:56:06.178Z"
       }
     }
   ]
