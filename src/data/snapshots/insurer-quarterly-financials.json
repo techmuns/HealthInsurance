@@ -4,8 +4,8 @@
     "description": "Quarterly company financials — GWP, NWP, NEP, PAT, combined ratio, solvency, ROE — drawn from quarterly disclosures.",
     "schema_version": "1.0.0",
     "dataset": "mixed",
-    "last_updated": "2026-06-16",
-    "last_successful_run": "2026-06-02T17:46:12.494Z",
+    "last_updated": "2026-08-20",
+    "last_successful_run": "2026-08-20T07:37:00.515Z",
     "upstream_sources": [
       "irdai_public_disclosures",
       "company_ir"
@@ -978,6 +978,59 @@
         "parsed_at": "2026-06-02T17:45:30.840Z",
         "parser_name": "ingest-quarterly-disclosures",
         "confidence": "high"
+      }
+    },
+    {
+      "company_id": "star-health",
+      "fiscal_year": "FY26",
+      "quarter": "Q4",
+      "period_type": "quarterly",
+      "gwp": null,
+      "nwp": 5598.57,
+      "nep": 4327.2,
+      "premium_provenance": {
+        "source_name": "Auto-filled by the muns web agent from company quarterly results",
+        "auto_filled": [
+          "nwp",
+          "nep"
+        ],
+        "confidence": "medium",
+        "agent_last_run": "2026-08-20T07:37:00.515Z"
+      }
+    },
+    {
+      "company_id": "star-health",
+      "fiscal_year": "FY26",
+      "quarter": "Q3",
+      "period_type": "quarterly",
+      "gwp": null,
+      "nwp": 4360.91,
+      "nep": null,
+      "premium_provenance": {
+        "source_name": "Auto-filled by the muns web agent from company quarterly results",
+        "auto_filled": [
+          "nwp"
+        ],
+        "confidence": "medium",
+        "agent_last_run": "2026-08-20T07:37:00.515Z"
+      }
+    },
+    {
+      "company_id": "star-health",
+      "fiscal_year": "FY25",
+      "quarter": "Q4",
+      "period_type": "quarterly",
+      "gwp": null,
+      "nwp": 4819.57,
+      "nep": 3798.3,
+      "premium_provenance": {
+        "source_name": "Auto-filled by the muns web agent from company quarterly results",
+        "auto_filled": [
+          "nwp",
+          "nep"
+        ],
+        "confidence": "medium",
+        "agent_last_run": "2026-08-20T07:37:00.515Z"
       }
     }
   ]
