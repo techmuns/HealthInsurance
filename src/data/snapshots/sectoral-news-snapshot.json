@@ -3,14 +3,102 @@
     "snapshot_id": "sectoral-news-snapshot",
     "description": "Key Sectoral News feed — a permanent seed of 31 curated portfolio-pack updates, kept current by a scheduled muns web-search agent. Each item links its source. Seed items are curated; agent items are AI-gathered (web), clearly labelled and not audited.",
     "schema_version": "1.0.0",
-    "last_updated": "2026-08-10",
-    "last_successful_run": "2026-08-10T07:41:38.211Z",
+    "last_updated": "2026-08-20",
+    "last_successful_run": "2026-08-20T06:46:17.891Z",
     "seed_count": 31,
-    "agent_count": 188,
+    "agent_count": 201,
     "generated_by": "Seed: investor portfolio pack. Updates: AI (muns agent, web search).",
     "notes": "Seed floor can never be lost. Agent items are de-duped by subject+date and verified-before-acting."
   },
   "data": [
+    {
+      "sn": 221,
+      "category": "GST",
+      "date": "2026-08-19",
+      "subject": "Retail health growth may moderate as GST-exemption base effect normalises",
+      "summary": "The same industry report flags that health insurance's strong growth (nearly a year after individual policies were exempted from GST) could slow from Q3 FY27 once the GST-exemption anniversary base effect kicks in from September — a key watch-item for SAHI investors.",
+      "reference": "https://bfsi.economictimes.indiatimes.com/articles/non-life-insurance-premium-growth-slows-to-5-7-in-july-as-fire-crop-drag/133341067",
+      "id": "1a39e472c023df",
+      "origin": "agent",
+      "added_at": "2026-08-20"
+    },
+    {
+      "sn": 220,
+      "category": "General",
+      "date": "2026-08-19",
+      "subject": "Non-life premium growth slows to 5.7% in July; health remains engine",
+      "summary": "Overall non-life premiums grew just **5.7%** YoY to **₹31,398cr** in July as fire (-30.9%) and crop (-58.5%) insurance dragged, but health premiums rose **26%** YoY to **₹15,009cr** (retail health **+31.6%**), with standalone health insurers (SAHIs) growing premiums **28.8%** YoY and gaining share to **31.1%** of health premiums.",
+      "reference": "https://bfsi.economictimes.indiatimes.com/articles/non-life-insurance-premium-growth-slows-to-5-7-in-july-as-fire-crop-drag/133341067",
+      "id": "0799bf374a5588",
+      "origin": "agent",
+      "added_at": "2026-08-20"
+    },
+    {
+      "sn": 223,
+      "category": "Profitability",
+      "date": "2026-08-18",
+      "subject": "Policybazaar report: cancer & heart disease drive 22% of health claims value",
+      "summary": "The \"Cost of Care in India\" study found cancer and cardiac claims alone account for **22%** of total claim value (avg. cancer claim ₹5.55 lakh, cardiac ₹2.08 lakh); hospital bills for seniors run **2.7x** those of under-25s, and Tier-1 city claims run **44%** higher than Tier-3 — underscoring rising claims-cost pressure on insurers' loss ratios.",
+      "reference": "https://hindi.moneycontrol.com/news/your-money/health-insurance-rising-medical-costs-in-india-report-cancer-heart-disease-claims-2432069.html",
+      "id": "1aa2cfcec3a467",
+      "origin": "agent",
+      "added_at": "2026-08-20"
+    },
+    {
+      "sn": 222,
+      "category": "Competition / Peers",
+      "date": "2026-08-18",
+      "subject": "Prudential's ₹3,500cr Bharti Life Insurance stake deal gets CCI approval",
+      "summary": "The Competition Commission of India cleared Prudential Corporation Holdings' acquisition of a **75%** stake in Bharti Life Insurance for **~₹3,500cr**, part of the broader wave of foreign-insurer consolidation reshaping the competitive landscape adjacent to health insurers.",
+      "reference": "https://www.ndtvprofit.com/business/prudentials-rs-3-500-crore-deal-for-bharti-life-insurance-stake-gets-cci-nod-11927158",
+      "id": "1ffd8beaa49a35",
+      "origin": "agent",
+      "added_at": "2026-08-20"
+    },
+    {
+      "sn": 226,
+      "category": "Profitability",
+      "date": "2026-08-17",
+      "subject": "India general insurance industry grows 9% in FY26 to ₹3.36 lakh cr, but PAT falls 23%: BCG",
+      "summary": "BCG's FY26 review shows industry combined ratio worsened **2pp to 113%** and sector PAT fell **23%** to **₹10,000cr** (ROE down to 6% from 9%), even as health remained the fastest-growing line (**+17%**) — SAHIs gained 2pp of GDPI share but posted a sector-wide health ROE of **-7%**, still investing heavily in distribution.",
+      "reference": "https://fortuneindia.com/amp/story/business-news/indias-general-insurance-industry-grows-9-in-fy26-to-336-lakh-crore-bcg-report/154376",
+      "id": "18b72839f0aa71",
+      "origin": "agent",
+      "added_at": "2026-08-20"
+    },
+    {
+      "sn": 225,
+      "category": "Competition / Peers",
+      "date": "2026-08-17",
+      "subject": "Star Health launches new OOH brand campaign (\"back of billboards\")",
+      "summary": "Star Health rolled out a differentiated out-of-home advertising campaign highlighting customer support, part of continued brand-investment competition among SAHIs as Star Health defends its **~29%** retail health market-share lead.",
+      "reference": "https://campaignbriefasia.com/2026/08/17/talented-turns-the-back-of-billboards-into-a-symbol-of-support-for-star-health-insurance/",
+      "id": "1fe262bba1f057",
+      "origin": "agent",
+      "added_at": "2026-08-20"
+    },
+    {
+      "sn": 224,
+      "category": "Regulatory",
+      "date": "2026-08-17",
+      "subject": "Care Health Insurance ordered to pay claim; NCDRC precedent on \"lifestyle diseases",
+      "summary": "A Delhi consumer commission ordered Care Health Insurance to pay **~₹2.1 lakh** after ruling that diabetes/hypertension are \"lifestyle diseases,\" not chronic conditions justifying claim rejection — reinforcing a string of NCDRC precedents that tighten insurers' ability to repudiate claims on pre-existing-condition grounds.",
+      "reference": "https://economictimes.indiatimes.com/news/new-updates/care-health-insurance-rejected-heart-attack-patients-mediclaim-over-pre-existing-diabetes-hypertension-court-says-these-are-lifestyle-diseases-orders-over-rs-2-lakh-payout/articleshow/133292628.cms",
+      "id": "0bc12359c0d1eb",
+      "origin": "agent",
+      "added_at": "2026-08-20"
+    },
+    {
+      "sn": 227,
+      "category": "Regulatory",
+      "date": "2026-08-12",
+      "subject": "IRDAI panel weighs benchmarked hospital tariffs & national claims exchange",
+      "summary": "A regulator-industry-hospital panel (chaired by IRDAI chief, with CII) is finalising reforms by year-end to benchmark treatment rates between insurers/hospitals, introduce a common mandatory base health product, and scale up the National Health Claims Exchange — aimed at curbing **~10-15%** fraudulent claims and **12-14%** annual medical inflation.",
+      "reference": "https://business-standard.com/industry/news/insurance-regulators-weigh-reforms-to-tackle-rising-medical-costs-126081200906_1.html",
+      "id": "0716f952f08000",
+      "origin": "agent",
+      "added_at": "2026-08-20"
+    },
     {
       "sn": 207,
       "category": "Regulatory",
@@ -67,6 +155,17 @@
       "added_at": "2026-08-10"
     },
     {
+      "sn": 228,
+      "category": "Regulatory",
+      "date": "2026-08-03",
+      "subject": "Global insurers (Hanwha, Discovery) eye India after 100% FDI relaxation",
+      "summary": "Following India's FDI cap increase to **100%** (from 74%), South Korea's Hanwha and South Africa's Discovery are evaluating India entry alongside Allianz-Jio and Prudential-Bharti deals; QBE and Aviva are also moving to full ownership of existing JVs, intensifying competitive dynamics that could spill into health insurance distribution and capital availability.",
+      "reference": "https://www.livemint.com/companies/news/india-insurance-sector-100-fdi-foreign-insurers-hanwha-discovery-allianz-prudential-investment/amp-11785650405228.html",
+      "id": "100cd2b2d74334",
+      "origin": "agent",
+      "added_at": "2026-08-20"
+    },
+    {
       "sn": 192,
       "category": "General",
       "date": "2026-08-03",
@@ -120,6 +219,50 @@
       "id": "1865df84875033",
       "origin": "agent",
       "added_at": "2026-08-03"
+    },
+    {
+      "sn": 232,
+      "category": "Profitability",
+      "date": "2026-07-30",
+      "subject": "Niva Bupa Q1 FY27 PAT surges 93% YoY to ₹137.8cr on margin gains",
+      "summary": "Niva Bupa reported a **93%** YoY jump in net profit to **₹137.8cr** in Q1 FY27 with GWP up **31.7%**, reflecting improving underwriting discipline and margin expansion in line with sector-wide SAHI profitability gains this quarter.",
+      "reference": "https://www.investywise.com/niva-bupa-health-insurance-q1fy2027-earnings-call-presentation/",
+      "id": "0ca5df5b6cea44",
+      "origin": "agent",
+      "added_at": "2026-08-20"
+    },
+    {
+      "sn": 231,
+      "category": "Profitability",
+      "date": "2026-07-30",
+      "subject": "Star Health Q1 FY27: underwriting profit surges 7x, CISR improves to 97%",
+      "summary": "Star Health's Q1 FY27 GWP grew **19%** YoY to **₹4,287cr** with underwriting profit up to **₹111cr** (from ₹16cr), loss ratio improving to **67.5%** (from 68.5%), and normalized ROE at **15.6%** (from 12.2%); management flagged some H2 FY27 growth moderation as the GST-waiver base effect anniversaries.",
+      "reference": "https://www.investing.com/news/company-news/star-health-q1-fy27-slides-underwriting-profit-surges-digital-accelerates-93CH-4822335",
+      "id": "1ae773addb1017",
+      "origin": "agent",
+      "added_at": "2026-08-20"
+    },
+    {
+      "sn": 230,
+      "category": "Competition / Peers",
+      "date": "2026-07-30",
+      "subject": "IRDAI licenses ProTec General Insurance, 4th new entrant of 2026",
+      "summary": "As part of the same reform announcement, IRDAI granted registration to ProTec General Insurance, the fourth new insurer licensed in 2026, signalling continued new-entrant interest in India's under-penetrated general/health insurance market.",
+      "reference": "https://indianexpress.com/article/explained/explained-economics/irdai-insurance-reforms-explained-10810249/",
+      "id": "13301ffbafc2e0",
+      "origin": "agent",
+      "added_at": "2026-08-20"
+    },
+    {
+      "sn": 229,
+      "category": "Regulatory",
+      "date": "2026-07-30",
+      "subject": "IRDAI board approves sweeping reform package (capital, investment, PEPF, penalties)",
+      "summary": "IRDAI amended five regulations covering actuarial, capital, registration, share-transfer/M&A and investment norms, operationalising the Sabka Bima Sabki Raksha Act 2025; it also approved the Policyholders' Education & Protection Fund (PEPF) and mandatory salesperson-tagging to curb mis-selling — directly affecting compliance costs and capital flexibility for standalone health insurers.",
+      "reference": "https://indianexpress.com/article/explained/explained-economics/irdai-insurance-reforms-explained-10810249/",
+      "id": "185bf273edc27f",
+      "origin": "agent",
+      "added_at": "2026-08-20"
     },
     {
       "sn": 212,
