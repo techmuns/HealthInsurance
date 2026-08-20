@@ -5,11 +5,11 @@
     "schema_version": "1.1.0",
     "dataset": "official",
     "source_policy": "official-first (NSE). Investing.com is login-free backup only, tagged low-confidence.",
-    "last_successful_run": "2026-08-20T04:10:05.015Z",
+    "last_successful_run": "2026-08-20T13:27:48.363Z",
     "parser_status": "ready",
     "notes": "Daily close / traded / deliverable quantity per listed insurer. Workbook seed (NSE via S&P Capital IQ) for niva-bupa listing→Jul-2025; Yahoo Finance keeps it current (close + volume). Deliverable quantity is NSE-only — null where only Yahoo covers a day, until an NSE delivery file is staged.",
-    "last_updated": "2026-08-20T04:10:44.647Z",
-    "row_count": 2233,
+    "last_updated": "2026-08-20T13:28:24.752Z",
+    "row_count": 2234,
     "companies": [
       "godigit",
       "icici-lombard",
@@ -22,8 +22,8 @@
       "to": "2026-08-20"
     },
     "seeded_from_workbook": "data/raw/exchanges/niva-bupa/niva-bupa-historical-stock-movement.xlsx",
-    "muns_last_run": "2026-08-20T04:10:05.015Z",
-    "nse_delivery_last_run": "2026-08-20T04:10:43.364Z"
+    "muns_last_run": "2026-08-20T13:27:48.363Z",
+    "nse_delivery_last_run": "2026-08-20T13:28:21.975Z"
   },
   "data": [
     {
@@ -7628,26 +7628,26 @@
     {
       "company_id": "godigit",
       "date": "2026-08-19",
-      "close": null,
+      "close": 252.05,
       "traded_qty": 187084,
       "deliverable_qty": 102801,
       "provenance": {
-        "source_name": "NSE security-wise delivery",
-        "source_url": "https://archives.nseindia.com/archives/equities/mto/MTO_19082026.DAT",
-        "source_file": "https://archives.nseindia.com/archives/equities/mto/MTO_19082026.DAT",
+        "source_name": "muns market-data API — NSE daily history",
+        "source_url": "https://fastapi.muns.io/market_data",
+        "source_file": "https://fastapi.muns.io/market_data?ticker=GODIGIT&start=2026-08-17&end=2026-08-21&country=India",
         "source_period": "2026-08-19",
-        "fetched_at": "2026-08-20T04:10:43.364Z",
-        "parsed_at": "2026-08-20T04:10:44.566Z",
-        "parser_name": "fetch-nse-delivery",
+        "fetched_at": "2026-08-20T13:27:48.363Z",
+        "parsed_at": "2026-08-20T13:27:51.427Z",
+        "parser_name": "fetch-muns-market-data",
         "confidence": "high"
       }
     },
     {
       "company_id": "godigit",
       "date": "2026-08-20",
-      "close": 254.2,
-      "traded_qty": 8848,
-      "deliverable_qty": null,
+      "close": 256.7,
+      "traded_qty": 228758,
+      "deliverable_qty": 77203,
       "provenance": {
         "source_name": "muns market-data API — NSE daily history",
         "source_url": "https://fastapi.muns.io/market_data",
@@ -15261,26 +15261,26 @@
     {
       "company_id": "icici-lombard",
       "date": "2026-08-19",
-      "close": null,
+      "close": 1615.7,
       "traded_qty": 325133,
       "deliverable_qty": 200795,
       "provenance": {
-        "source_name": "NSE security-wise delivery",
-        "source_url": "https://archives.nseindia.com/archives/equities/mto/MTO_19082026.DAT",
-        "source_file": "https://archives.nseindia.com/archives/equities/mto/MTO_19082026.DAT",
+        "source_name": "muns market-data API — NSE daily history",
+        "source_url": "https://fastapi.muns.io/market_data",
+        "source_file": "https://fastapi.muns.io/market_data?ticker=ICICIGI&start=2026-08-17&end=2026-08-21&country=India",
         "source_period": "2026-08-19",
-        "fetched_at": "2026-08-20T04:10:43.364Z",
-        "parsed_at": "2026-08-20T04:10:44.566Z",
-        "parser_name": "fetch-nse-delivery",
+        "fetched_at": "2026-08-20T13:27:48.363Z",
+        "parsed_at": "2026-08-20T13:27:50.800Z",
+        "parser_name": "fetch-muns-market-data",
         "confidence": "high"
       }
     },
     {
       "company_id": "icici-lombard",
       "date": "2026-08-20",
-      "close": 1621.5,
-      "traded_qty": 70756,
-      "deliverable_qty": null,
+      "close": 1625,
+      "traded_qty": 667664,
+      "deliverable_qty": 378941,
       "provenance": {
         "source_name": "muns market-data API — NSE daily history",
         "source_url": "https://fastapi.muns.io/market_data",
@@ -22758,9 +22758,9 @@
     {
       "company_id": "niva-bupa",
       "date": "2026-08-20",
-      "close": 83.48,
-      "traded_qty": 54163,
-      "deliverable_qty": null,
+      "close": 82.88,
+      "traded_qty": 575760,
+      "deliverable_qty": 329092,
       "provenance": {
         "source_name": "muns market-data API — NSE daily history",
         "source_url": "https://fastapi.muns.io/market_data",
@@ -30339,9 +30339,26 @@
     },
     {
       "company_id": "religare-enterprises",
+      "date": "2026-08-19",
+      "close": 230.7,
+      "traded_qty": 471995,
+      "deliverable_qty": null,
+      "provenance": {
+        "source_name": "muns market-data API — NSE daily history",
+        "source_url": "https://fastapi.muns.io/market_data",
+        "source_file": "https://fastapi.muns.io/market_data?ticker=RELIGARE&start=2026-08-17&end=2026-08-21&country=India",
+        "source_period": "2026-08-19",
+        "fetched_at": "2026-08-20T13:27:48.363Z",
+        "parsed_at": "2026-08-20T13:27:51.969Z",
+        "parser_name": "fetch-muns-market-data",
+        "confidence": "high"
+      }
+    },
+    {
+      "company_id": "religare-enterprises",
       "date": "2026-08-20",
-      "close": 231,
-      "traded_qty": 20459,
+      "close": 231.65,
+      "traded_qty": 425780,
       "deliverable_qty": null,
       "provenance": {
         "source_name": "muns market-data API — NSE daily history",
@@ -37956,26 +37973,26 @@
     {
       "company_id": "star-health",
       "date": "2026-08-19",
-      "close": null,
+      "close": 582.8,
       "traded_qty": 139550,
       "deliverable_qty": 80752,
       "provenance": {
-        "source_name": "NSE security-wise delivery",
-        "source_url": "https://archives.nseindia.com/archives/equities/mto/MTO_19082026.DAT",
-        "source_file": "https://archives.nseindia.com/archives/equities/mto/MTO_19082026.DAT",
+        "source_name": "muns market-data API — NSE daily history",
+        "source_url": "https://fastapi.muns.io/market_data",
+        "source_file": "https://fastapi.muns.io/market_data?ticker=STARHEALTH&start=2026-08-17&end=2026-08-21&country=India",
         "source_period": "2026-08-19",
-        "fetched_at": "2026-08-20T04:10:43.364Z",
-        "parsed_at": "2026-08-20T04:10:44.566Z",
-        "parser_name": "fetch-nse-delivery",
+        "fetched_at": "2026-08-20T13:27:48.363Z",
+        "parsed_at": "2026-08-20T13:27:50.043Z",
+        "parser_name": "fetch-muns-market-data",
         "confidence": "high"
       }
     },
     {
       "company_id": "star-health",
       "date": "2026-08-20",
-      "close": 582.95,
-      "traded_qty": 21850,
-      "deliverable_qty": null,
+      "close": 575.5,
+      "traded_qty": 268454,
+      "deliverable_qty": 133990,
       "provenance": {
         "source_name": "muns market-data API — NSE daily history",
         "source_url": "https://fastapi.muns.io/market_data",
