@@ -4,8 +4,8 @@
     "description": "AI-generated market intelligence for the SAHI health insurers — investor meets, earnings/board dates, sector & regulatory news, share catalysts. Web-sourced; each item links its source. AI-generated, not audited.",
     "schema_version": "1.0.0",
     "dataset": "ai_generated",
-    "last_updated": "2026-08-20",
-    "last_successful_run": "2026-08-20T14:26:18.382Z",
+    "last_updated": "2026-08-21",
+    "last_successful_run": "2026-08-21T10:20:14.158Z",
     "upstream_sources": [
       "muns_agent_web"
     ],
@@ -14,6 +14,51 @@
     "notes": "Clearly labelled AI-generated intelligence — verify before acting. Items accumulate through the day and rank by investor impact, not recency."
   },
   "data": [
+    {
+      "id": "effc13dfb2",
+      "company_id": "sector",
+      "date": null,
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "<span style=\"background:#FEF2F2;color:#EF4444;padding:2px 6px;border-radius:4px;font-weight:600\">negative</span>",
+      "detail": "RBI declines to approve Religare's insurance/financial-services demerger",
+      "source_name": null,
+      "source_url": null,
+      "source_published_at": null,
+      "first_seen": "2026-08-21T10:20:14.158Z",
+      "discovered_at": "2026-08-21T10:20:14.158Z"
+    },
+    {
+      "id": "5c4ccba351",
+      "company_id": "sector",
+      "date": null,
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "<span style=\"background:#FFFBEB;color:#F59E0B;padding:2px 6px;border-radius:4px;font-weight:600\">watch</span>",
+      "detail": "Q1 FY27 PAT **₹137.8cr** (▲93% YoY, ▼13.5% QoQ); revenue ▲28.6% YoY",
+      "source_name": null,
+      "source_url": null,
+      "source_published_at": null,
+      "first_seen": "2026-08-21T10:20:14.158Z",
+      "discovered_at": "2026-08-21T10:20:14.158Z"
+    },
+    {
+      "id": "52f674d77e",
+      "company_id": "sector",
+      "date": null,
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "<span style=\"background:#F0FDF4;color:#22C55E;padding:2px 6px;border-radius:4px;font-weight:600\">positive</span>",
+      "detail": "Q1 profit beats estimates; Nomura hikes target to **₹700**, keeps Buy",
+      "source_name": null,
+      "source_url": null,
+      "source_published_at": null,
+      "first_seen": "2026-08-21T10:20:14.158Z",
+      "discovered_at": "2026-08-21T10:20:14.158Z"
+    },
     {
       "id": "c3d9bdf855",
       "company_id": "sector",
@@ -823,21 +868,6 @@
       "source_published_at": null,
       "first_seen": "2026-07-13T05:27:27.029Z",
       "discovered_at": "2026-07-13T05:27:27.029Z"
-    },
-    {
-      "id": "eb6648d24a",
-      "company_id": "sector",
-      "date": "2026-07-06",
-      "kind": "sector_news",
-      "horizon": "recent",
-      "impact": "neutral",
-      "headline": "Manipal Health gets SEBI nod for Rs 10,000-crore IPO",
-      "detail": "While this is a hospital-chain IPO rather than ManipalCigna, it is relevant sector context because large healthcare capital-market activity can redirect investor attention to healthcare and insurance adjacencies.",
-      "source_name": "moneycontrol.com",
-      "source_url": "https://www.moneycontrol.com/news/business/ipo/manipal-health-gets-sebi-nod-for-rs-10-000-crore-ipo-paves-way-for-one-of-india-s-biggest-healthcare-listings-13967334.html",
-      "source_published_at": "2026-07-06",
-      "first_seen": "2026-07-13T08:49:12.049Z",
-      "discovered_at": "2026-07-13T08:49:12.049Z"
     }
   ]
 }
