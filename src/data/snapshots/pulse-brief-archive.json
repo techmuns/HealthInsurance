@@ -35740,13 +35740,20 @@
         "company": "Niva Bupa",
         "companyId": "niva-bupa",
         "generatedAt": "2026-08-22T03:07:43.688Z",
-        "lastUpdatedAt": "2026-08-22T03:07:43.688Z",
+        "lastUpdatedAt": "2026-08-22T06:43:17.813Z",
         "status": "Constructive",
         "sourceConfidence": "Medium",
         "itemCount": 36,
         "runs": [
           {
             "runTime": "2026-08-22T03:07:43.688Z",
+            "developments": 43,
+            "sourceCount": 36,
+            "ideas": 6,
+            "status": "ok"
+          },
+          {
+            "runTime": "2026-08-22T06:43:17.813Z",
             "developments": 43,
             "sourceCount": 36,
             "ideas": 6,
@@ -71445,13 +71452,20 @@
         "company": "Star Health",
         "companyId": "star-health",
         "generatedAt": "2026-08-22T03:07:43.688Z",
-        "lastUpdatedAt": "2026-08-22T03:07:43.688Z",
+        "lastUpdatedAt": "2026-08-22T06:43:17.813Z",
         "status": "Constructive",
         "sourceConfidence": "Medium",
         "itemCount": 29,
         "runs": [
           {
             "runTime": "2026-08-22T03:07:43.688Z",
+            "developments": 31,
+            "sourceCount": 29,
+            "ideas": 6,
+            "status": "ok"
+          },
+          {
+            "runTime": "2026-08-22T06:43:17.813Z",
             "developments": 31,
             "sourceCount": 29,
             "ideas": 6,
@@ -106905,13 +106919,20 @@
         "company": "Care Health",
         "companyId": "care-health",
         "generatedAt": "2026-08-22T03:07:43.688Z",
-        "lastUpdatedAt": "2026-08-22T03:07:43.688Z",
+        "lastUpdatedAt": "2026-08-22T06:43:17.813Z",
         "status": "Watch",
         "sourceConfidence": "Medium",
         "itemCount": 19,
         "runs": [
           {
             "runTime": "2026-08-22T03:07:43.688Z",
+            "developments": 21,
+            "sourceCount": 19,
+            "ideas": 6,
+            "status": "ok"
+          },
+          {
+            "runTime": "2026-08-22T06:43:17.813Z",
             "developments": 21,
             "sourceCount": 19,
             "ideas": 6,
@@ -141821,13 +141842,20 @@
         "company": "Aditya Birla",
         "companyId": "aditya-birla",
         "generatedAt": "2026-08-22T03:07:43.688Z",
-        "lastUpdatedAt": "2026-08-22T03:07:43.688Z",
+        "lastUpdatedAt": "2026-08-22T06:43:17.813Z",
         "status": "Watch",
         "sourceConfidence": "Medium",
         "itemCount": 20,
         "runs": [
           {
             "runTime": "2026-08-22T03:07:43.688Z",
+            "developments": 20,
+            "sourceCount": 20,
+            "ideas": 6,
+            "status": "ok"
+          },
+          {
+            "runTime": "2026-08-22T06:43:17.813Z",
             "developments": 20,
             "sourceCount": 20,
             "ideas": 6,
@@ -177234,13 +177262,20 @@
         "company": "ManipalCigna",
         "companyId": "manipalcigna",
         "generatedAt": "2026-08-22T03:07:43.688Z",
-        "lastUpdatedAt": "2026-08-22T03:07:43.688Z",
+        "lastUpdatedAt": "2026-08-22T06:43:17.813Z",
         "status": "Watch",
         "sourceConfidence": "Medium",
         "itemCount": 20,
         "runs": [
           {
             "runTime": "2026-08-22T03:07:43.688Z",
+            "developments": 22,
+            "sourceCount": 20,
+            "ideas": 6,
+            "status": "ok"
+          },
+          {
+            "runTime": "2026-08-22T06:43:17.813Z",
             "developments": 22,
             "sourceCount": 20,
             "ideas": 6,
@@ -177912,6 +177947,6 @@
     "snapshot_id": "pulse-brief-archive",
     "description": "Immutable per-calendar-day Pulse brief records (IST), one per company. Past days are frozen exactly as shown that day; the live Today view recomposes. Kept ~90 days per company.",
     "last_updated": "2026-08-22",
-    "last_successful_run": "2026-08-22T03:07:43.688Z"
+    "last_successful_run": "2026-08-22T06:43:17.813Z"
   }
 }
