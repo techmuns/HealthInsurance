@@ -4,8 +4,8 @@
     "description": "AI-generated market intelligence for the SAHI health insurers — investor meets, earnings/board dates, sector & regulatory news, share catalysts. Web-sourced; each item links its source. AI-generated, not audited.",
     "schema_version": "1.0.0",
     "dataset": "ai_generated",
-    "last_updated": "2026-08-21",
-    "last_successful_run": "2026-08-21T14:25:10.999Z",
+    "last_updated": "2026-08-22",
+    "last_successful_run": "2026-08-22T10:13:27.965Z",
     "upstream_sources": [
       "muns_agent_web"
     ],
@@ -14,6 +14,36 @@
     "notes": "Clearly labelled AI-generated intelligence — verify before acting. Items accumulate through the day and rank by investor impact, not recency."
   },
   "data": [
+    {
+      "id": "868bb13f8f",
+      "company_id": "sector",
+      "date": null,
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "<span style=\"background:#FEF2F2;color:#EF4444;font-weight:600;padding:2px 6px;border-radius:4px\">negative</span>",
+      "detail": "IRDAI bars Niva Bupa from opening new branches for **6 months**",
+      "source_name": null,
+      "source_url": null,
+      "source_published_at": "2026-08-20",
+      "first_seen": "2026-08-22T10:13:27.965Z",
+      "discovered_at": "2026-08-22T10:13:27.965Z"
+    },
+    {
+      "id": "3a93d460b2",
+      "company_id": "sector",
+      "date": null,
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "<span style=\"background:#F0FDF4;color:#22C55E;font-weight:600;padding:2px 6px;border-radius:4px\">positive</span>",
+      "detail": "Q1 FY27 net profit **▲93% YoY** to ₹137.8cr",
+      "source_name": null,
+      "source_url": null,
+      "source_published_at": null,
+      "first_seen": "2026-08-22T10:13:27.965Z",
+      "discovered_at": "2026-08-22T10:13:27.965Z"
+    },
     {
       "id": "effc13dfb2",
       "company_id": "sector",
