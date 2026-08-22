@@ -5,7 +5,7 @@
     "schema_version": "1.0.0",
     "dataset": "ai_generated",
     "last_updated": "2026-08-22",
-    "last_successful_run": "2026-08-22T10:13:27.965Z",
+    "last_successful_run": "2026-08-22T14:12:02.142Z",
     "upstream_sources": [
       "muns_agent_web"
     ],
@@ -43,6 +43,21 @@
       "source_published_at": null,
       "first_seen": "2026-08-22T10:13:27.965Z",
       "discovered_at": "2026-08-22T10:13:27.965Z"
+    },
+    {
+      "id": "af98b0cfe2",
+      "company_id": "sector",
+      "date": null,
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "<span style=\"color:#F59E0B;font-weight:600\">neutral</span>",
+      "detail": "ABHICL launches \"Activ Yuva\" targeting 25-35 age cohort",
+      "source_name": null,
+      "source_url": null,
+      "source_published_at": null,
+      "first_seen": "2026-08-22T14:12:02.142Z",
+      "discovered_at": "2026-08-22T14:12:02.142Z"
     },
     {
       "id": "effc13dfb2",
@@ -898,21 +913,6 @@
       "source_published_at": null,
       "first_seen": "2026-07-10T09:19:20.154Z",
       "discovered_at": "2026-07-10T09:19:20.154Z"
-    },
-    {
-      "id": "4a44463d1b",
-      "company_id": "sector",
-      "date": "2026-07-08",
-      "kind": "catalyst",
-      "horizon": "recent",
-      "impact": "watch",
-      "headline": "Star Health hits 52-week high",
-      "detail": "Star Health’s move to a new high signals strong investor appetite for retail-health insurers, which can help sector rerating but also raise valuation expectations for peers.",
-      "source_name": "marketsmojo.com",
-      "source_url": "https://www.marketsmojo.com/news/stocks-in-action/star-health-allied-insurance-company-ltd-hits-new-52-week-high-at-rs60595-4095427",
-      "source_published_at": null,
-      "first_seen": "2026-07-13T05:27:27.029Z",
-      "discovered_at": "2026-07-13T05:27:27.029Z"
     }
   ]
 }
