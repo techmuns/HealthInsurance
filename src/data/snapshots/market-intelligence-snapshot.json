@@ -4,8 +4,8 @@
     "description": "AI-generated market intelligence for the SAHI health insurers — investor meets, earnings/board dates, sector & regulatory news, share catalysts. Web-sourced; each item links its source. AI-generated, not audited.",
     "schema_version": "1.0.0",
     "dataset": "ai_generated",
-    "last_updated": "2026-08-22",
-    "last_successful_run": "2026-08-22T14:12:02.142Z",
+    "last_updated": "2026-08-23",
+    "last_successful_run": "2026-08-23T10:13:57.322Z",
     "upstream_sources": [
       "muns_agent_web"
     ],
@@ -883,36 +883,6 @@
       "source_published_at": "2026-07-09",
       "first_seen": "2026-07-29T15:50:09.819Z",
       "discovered_at": "2026-07-29T15:50:09.819Z"
-    },
-    {
-      "id": "33f929f540",
-      "company_id": "sector",
-      "date": "2026-07-08",
-      "kind": "regulatory",
-      "horizon": "recent",
-      "impact": "watch",
-      "headline": "IRDAI consultation window closes on regulation-making framework",
-      "detail": "The draft would formalise 21-day public consultation, cost-benefit review and 3-year regulation review cycles, affecting how quickly sector rules on pricing, distribution and conduct can change.",
-      "source_name": "business-standard.com",
-      "source_url": "https://www.business-standard.com/amp/finance/insurance/irdai-proposes-framework-for-regulation-making-public-consultations-126061701305_1.html",
-      "source_published_at": "2026-06-17",
-      "first_seen": "2026-07-09T16:22:46.308Z",
-      "discovered_at": "2026-07-09T16:22:46.308Z"
-    },
-    {
-      "id": "5440c51d35",
-      "company_id": "sector",
-      "date": "2026-07-08",
-      "kind": "catalyst",
-      "horizon": "recent",
-      "impact": "watch",
-      "headline": "LIC reportedly preparing to acquire 40-49% stake in ManipalCigna",
-      "detail": "A strategic stake sale or capital infusion into ManipalCigna could intensify competition and reshape ownership dynamics in standalone health insurance.",
-      "source_name": "economictimes.indiatimes.com",
-      "source_url": "https://economictimes.indiatimes.com/topic/manipalcigna",
-      "source_published_at": null,
-      "first_seen": "2026-07-10T09:19:20.154Z",
-      "discovered_at": "2026-07-10T09:19:20.154Z"
     }
   ]
 }
