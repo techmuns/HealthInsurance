@@ -5,7 +5,7 @@
     "schema_version": "1.0.0",
     "dataset": "ai_generated",
     "last_updated": "2026-08-23",
-    "last_successful_run": "2026-08-23T10:13:57.322Z",
+    "last_successful_run": "2026-08-23T14:14:08.887Z",
     "upstream_sources": [
       "muns_agent_web"
     ],
@@ -14,6 +14,36 @@
     "notes": "Clearly labelled AI-generated intelligence — verify before acting. Items accumulate through the day and rank by investor impact, not recency."
   },
   "data": [
+    {
+      "id": "91533b7530",
+      "company_id": "sector",
+      "date": null,
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "<span style=\"color:#22C55E;font-weight:600\">▲ positive</span>",
+      "detail": "Niva Bupa Q1 FY27 profit nearly doubles (**~93% YoY**)",
+      "source_name": null,
+      "source_url": null,
+      "source_published_at": null,
+      "first_seen": "2026-08-23T14:14:08.887Z",
+      "discovered_at": "2026-08-23T14:14:08.887Z"
+    },
+    {
+      "id": "dee8ef9e82",
+      "company_id": "sector",
+      "date": null,
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "<span style=\"color:#22C55E;font-weight:600;background:#F0FDF4;padding:2px 6px;border-radius:4px\">▲ positive</span>",
+      "detail": "Star Health Q1 FY27 profit up **25.5%** to ₹550 cr",
+      "source_name": null,
+      "source_url": null,
+      "source_published_at": null,
+      "first_seen": "2026-08-23T14:14:08.887Z",
+      "discovered_at": "2026-08-23T14:14:08.887Z"
+    },
     {
       "id": "868bb13f8f",
       "company_id": "sector",
