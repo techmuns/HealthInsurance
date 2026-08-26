@@ -5,11 +5,11 @@
     "schema_version": "1.1.0",
     "dataset": "official",
     "source_policy": "official-first (NSE). Investing.com is login-free backup only, tagged low-confidence.",
-    "last_successful_run": "2026-08-25T13:29:31.399Z",
+    "last_successful_run": "2026-08-26T13:35:14.834Z",
     "parser_status": "ready",
     "notes": "Daily close / traded / deliverable quantity per listed insurer. Workbook seed (NSE via S&P Capital IQ) for niva-bupa listing→Jul-2025; Yahoo Finance keeps it current (close + volume). Deliverable quantity is NSE-only — null where only Yahoo covers a day, until an NSE delivery file is staged.",
-    "last_updated": "2026-08-25T13:30:10.183Z",
-    "row_count": 2249,
+    "last_updated": "2026-08-26T13:35:51.768Z",
+    "row_count": 2254,
     "companies": [
       "godigit",
       "icici-lombard",
@@ -19,11 +19,11 @@
     ],
     "coverage": {
       "from": "2024-11-01",
-      "to": "2026-08-25"
+      "to": "2026-08-26"
     },
     "seeded_from_workbook": "data/raw/exchanges/niva-bupa/niva-bupa-historical-stock-movement.xlsx",
-    "muns_last_run": "2026-08-25T13:29:31.399Z",
-    "nse_delivery_last_run": "2026-08-25T13:30:07.658Z"
+    "muns_last_run": "2026-08-26T13:35:14.834Z",
+    "nse_delivery_last_run": "2026-08-26T13:35:51.134Z"
   },
   "data": [
     {
@@ -7706,6 +7706,23 @@
         "source_period": "2026-08-25",
         "fetched_at": "2026-08-25T13:29:31.399Z",
         "parsed_at": "2026-08-25T13:29:36.296Z",
+        "parser_name": "fetch-muns-market-data",
+        "confidence": "high"
+      }
+    },
+    {
+      "company_id": "godigit",
+      "date": "2026-08-26",
+      "close": 259.1,
+      "traded_qty": 185562,
+      "deliverable_qty": 97192,
+      "provenance": {
+        "source_name": "muns market-data API — NSE daily history",
+        "source_url": "https://fastapi.muns.io/market_data",
+        "source_file": "https://fastapi.muns.io/market_data?ticker=GODIGIT&start=2026-08-26&end=2026-08-27&country=India",
+        "source_period": "2026-08-26",
+        "fetched_at": "2026-08-26T13:35:14.834Z",
+        "parsed_at": "2026-08-26T13:35:19.870Z",
         "parser_name": "fetch-muns-market-data",
         "confidence": "high"
       }
@@ -15395,6 +15412,23 @@
       }
     },
     {
+      "company_id": "icici-lombard",
+      "date": "2026-08-26",
+      "close": 1596.9,
+      "traded_qty": 5634591,
+      "deliverable_qty": 3722150,
+      "provenance": {
+        "source_name": "muns market-data API — NSE daily history",
+        "source_url": "https://fastapi.muns.io/market_data",
+        "source_file": "https://fastapi.muns.io/market_data?ticker=ICICIGI&start=2026-08-26&end=2026-08-27&country=India",
+        "source_period": "2026-08-26",
+        "fetched_at": "2026-08-26T13:35:14.834Z",
+        "parsed_at": "2026-08-26T13:35:18.870Z",
+        "parser_name": "fetch-muns-market-data",
+        "confidence": "high"
+      }
+    },
+    {
       "company_id": "niva-bupa",
       "date": "2024-11-14",
       "close": 74,
@@ -22921,6 +22955,23 @@
         "source_period": "2026-08-25",
         "fetched_at": "2026-08-25T13:29:31.399Z",
         "parsed_at": "2026-08-25T13:29:32.927Z",
+        "parser_name": "fetch-muns-market-data",
+        "confidence": "high"
+      }
+    },
+    {
+      "company_id": "niva-bupa",
+      "date": "2026-08-26",
+      "close": 82.17,
+      "traded_qty": 324029,
+      "deliverable_qty": 161609,
+      "provenance": {
+        "source_name": "muns market-data API — NSE daily history",
+        "source_url": "https://fastapi.muns.io/market_data",
+        "source_file": "https://fastapi.muns.io/market_data?ticker=NIVABUPA&start=2026-08-26&end=2026-08-27&country=India",
+        "source_period": "2026-08-26",
+        "fetched_at": "2026-08-26T13:35:14.834Z",
+        "parsed_at": "2026-08-26T13:35:16.666Z",
         "parser_name": "fetch-muns-market-data",
         "confidence": "high"
       }
@@ -30562,7 +30613,7 @@
       "company_id": "religare-enterprises",
       "date": "2026-08-25",
       "close": 228.45,
-      "traded_qty": 1337909,
+      "traded_qty": 1337984,
       "deliverable_qty": null,
       "provenance": {
         "source_name": "muns market-data API — NSE daily history",
@@ -30571,6 +30622,23 @@
         "source_period": "2026-08-25",
         "fetched_at": "2026-08-25T13:29:31.399Z",
         "parsed_at": "2026-08-25T13:29:37.463Z",
+        "parser_name": "fetch-muns-market-data",
+        "confidence": "high"
+      }
+    },
+    {
+      "company_id": "religare-enterprises",
+      "date": "2026-08-26",
+      "close": 227.85,
+      "traded_qty": 321623,
+      "deliverable_qty": null,
+      "provenance": {
+        "source_name": "muns market-data API — NSE daily history",
+        "source_url": "https://fastapi.muns.io/market_data",
+        "source_file": "https://fastapi.muns.io/market_data?ticker=RELIGARE&start=2026-08-26&end=2026-08-27&country=India",
+        "source_period": "2026-08-26",
+        "fetched_at": "2026-08-26T13:35:14.834Z",
+        "parsed_at": "2026-08-26T13:35:20.871Z",
         "parser_name": "fetch-muns-market-data",
         "confidence": "high"
       }
@@ -38255,6 +38323,23 @@
         "source_period": "2026-08-25",
         "fetched_at": "2026-08-25T13:29:31.399Z",
         "parsed_at": "2026-08-25T13:29:34.146Z",
+        "parser_name": "fetch-muns-market-data",
+        "confidence": "high"
+      }
+    },
+    {
+      "company_id": "star-health",
+      "date": "2026-08-26",
+      "close": 583.75,
+      "traded_qty": 240205,
+      "deliverable_qty": 138815,
+      "provenance": {
+        "source_name": "muns market-data API — NSE daily history",
+        "source_url": "https://fastapi.muns.io/market_data",
+        "source_file": "https://fastapi.muns.io/market_data?ticker=STARHEALTH&start=2026-08-26&end=2026-08-27&country=India",
+        "source_period": "2026-08-26",
+        "fetched_at": "2026-08-26T13:35:14.834Z",
+        "parsed_at": "2026-08-26T13:35:17.855Z",
         "parser_name": "fetch-muns-market-data",
         "confidence": "high"
       }
