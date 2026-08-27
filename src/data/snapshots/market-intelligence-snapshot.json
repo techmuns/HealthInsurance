@@ -4,8 +4,8 @@
     "description": "AI-generated market intelligence for the SAHI health insurers — investor meets, earnings/board dates, sector & regulatory news, share catalysts. Web-sourced; each item links its source. AI-generated, not audited.",
     "schema_version": "1.0.0",
     "dataset": "ai_generated",
-    "last_updated": "2026-08-26",
-    "last_successful_run": "2026-08-26T14:35:07.523Z",
+    "last_updated": "2026-08-27",
+    "last_successful_run": "2026-08-27T12:09:29.320Z",
     "upstream_sources": [
       "muns_agent_web"
     ],
@@ -14,6 +14,21 @@
     "notes": "Clearly labelled AI-generated intelligence — verify before acting. Items accumulate through the day and rank by investor impact, not recency."
   },
   "data": [
+    {
+      "id": "6ba7daeeb9",
+      "company_id": "sector",
+      "date": null,
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "<span style=\"background:#FEF2F2;color:#EF4444;font-weight:600;padding:2px 6px;border-radius:4px;\">negative</span>",
+      "detail": "IRDAI bars Niva Bupa from opening new offices for 6 months",
+      "source_name": null,
+      "source_url": null,
+      "source_published_at": null,
+      "first_seen": "2026-08-27T12:09:29.320Z",
+      "discovered_at": "2026-08-27T12:09:29.320Z"
+    },
     {
       "id": "d316a38b40",
       "company_id": "sector",
@@ -853,36 +868,6 @@
       "source_published_at": "2026-07-13",
       "first_seen": "2026-07-16T07:56:07.024Z",
       "discovered_at": "2026-07-16T07:56:07.024Z"
-    },
-    {
-      "id": "b1bcd59eb3",
-      "company_id": "sector",
-      "date": "2026-07-12",
-      "kind": "catalyst",
-      "horizon": "recent",
-      "impact": "watch",
-      "headline": "LIC said to prepare acquisition of 40-49% stake in ManipalCigna",
-      "detail": "A potential strategic deal in ManipalCigna would reshape competitive intensity and valuation benchmarks across standalone health insurers.",
-      "source_name": "economictimes.indiatimes.com",
-      "source_url": "https://economictimes.indiatimes.com/topic/manipalcigna",
-      "source_published_at": null,
-      "first_seen": "2026-07-12T14:48:05.967Z",
-      "discovered_at": "2026-07-12T14:48:05.967Z"
-    },
-    {
-      "id": "947ca4c9ed",
-      "company_id": "sector",
-      "date": "2026-07-12",
-      "kind": "catalyst",
-      "horizon": "recent",
-      "impact": "positive",
-      "headline": "Aditya Birla Health CEO signals growth ahead of industry in FY27",
-      "detail": "Aggressive growth ambitions at Aditya Birla Health point to competition for market share, distribution and partnerships across the sector.",
-      "source_name": "moneycontrol.com",
-      "source_url": "https://www.moneycontrol.com/banking/health-insurance-moving-from-hospitalization-cover-to-preventive-healthcare-aditya-birla-health-ceo-article-13929893.html",
-      "source_published_at": null,
-      "first_seen": "2026-07-12T14:48:05.967Z",
-      "discovered_at": "2026-07-12T14:48:05.967Z"
     }
   ]
 }
