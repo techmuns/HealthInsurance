@@ -3,14 +3,80 @@
     "snapshot_id": "sectoral-news-snapshot",
     "description": "Key Sectoral News feed — a permanent seed of 31 curated portfolio-pack updates, kept current by a scheduled muns web-search agent. Each item links its source. Seed items are curated; agent items are AI-gathered (web), clearly labelled and not audited.",
     "schema_version": "1.0.0",
-    "last_updated": "2026-08-20",
-    "last_successful_run": "2026-08-20T06:46:17.891Z",
+    "last_updated": "2026-08-27",
+    "last_successful_run": "2026-08-27T17:28:03.391Z",
     "seed_count": 31,
-    "agent_count": 201,
+    "agent_count": 213,
     "generated_by": "Seed: investor portfolio pack. Updates: AI (muns agent, web search).",
     "notes": "Seed floor can never be lost. Agent items are de-duped by subject+date and verified-before-acting."
   },
   "data": [
+    {
+      "sn": 233,
+      "category": "GST",
+      "date": "2026-08-27",
+      "subject": "Calls for GST reform on senior-citizen health premiums",
+      "summary": "Commentary argues rising costs for elderly policyholders still demand structural GST relief even after the 2025 exemption, flagging that pricing pressure on senior-citizen products remains a live investor issue for insurers like Niva Bupa/Star Health with large senior-citizen books.",
+      "reference": "",
+      "id": "01e882b070eeb7",
+      "origin": "agent",
+      "added_at": "2026-08-27"
+    },
+    {
+      "sn": 234,
+      "category": "Profitability",
+      "date": "2026-08-26",
+      "subject": "Hospitalisation costs rise sharply with age; Mumbai costliest",
+      "summary": "New data shows average claim size jumps from ~₹65,000 at age 25 to ~₹1.77 lakh post-60, with Mumbai the most expensive city — a direct driver of claims-ratio and pricing pressure for health insurers.",
+      "reference": "",
+      "id": "03c45b91c4afb9",
+      "origin": "agent",
+      "added_at": "2026-08-27"
+    },
+    {
+      "sn": 235,
+      "category": "Competition / Peers",
+      "date": "2026-08-25",
+      "subject": "Aditya Birla Health Insurance ties up with ICAI",
+      "summary": "ABHICL partnered with ICAI to cover ~17 lakh CA students/members via four tailored products (Activ Yuva, Activ One Max, Activ One VYTL, porting plans), expanding its group/affinity distribution reach against Niva Bupa/Star Health.",
+      "reference": "https://www.thehindubusinessline.com/money-and-banking/aditya-birla-health-insurance-ties-up-with-icai-to-offer-coverage-to-17-lakh-students-and-ca-members/article71388594.ece",
+      "id": "0e8be9284a33b8",
+      "origin": "agent",
+      "added_at": "2026-08-27"
+    },
+    {
+      "sn": 236,
+      "category": "Competition / Peers",
+      "date": "2026-08-21",
+      "subject": "Prudential HCL Health Insurance commences operations in India",
+      "summary": "The Prudential plc–HCL Group JV formally launched health insurance operations, becoming a new well-capitalised entrant targeting India's fast-growing SAHI market, raising competitive intensity facing Niva Bupa/Star Health/Care Health.",
+      "reference": "https://www.expresshealthcare.in/news/prudential-health-india-commences-operations-to-tap-fast-growing-health-insurance-market/454868/",
+      "id": "16328d191fc666",
+      "origin": "agent",
+      "added_at": "2026-08-27"
+    },
+    {
+      "sn": 237,
+      "category": "General",
+      "date": "2026-08-20",
+      "subject": "Niva Bupa, ICICI Lombard lead July insurance growth; Star Health steady (Kotak)",
+      "summary": "Non-life GWP grew 12% YoY ex-crop in July (vs 18% in June); health premiums rose 26%, with Niva Bupa up 34% (retail health +47%) and Star Health up ~19%, though Star's retail health market share slipped to 29.5% from 31.8% YoY — SAHIs continued gaining share from PSUs.",
+      "reference": "https://www.moneycontrol.com/news/business/stocks/niva-bupa-icici-lombard-lead-july-insurance-growth-bajaj-general-star-health-steady-kotak-14011207.html",
+      "id": "05159beacb9a6d",
+      "origin": "agent",
+      "added_at": "2026-08-27"
+    },
+    {
+      "sn": 238,
+      "category": "Regulatory",
+      "date": "2026-08-19",
+      "subject": "IRDAI bars Niva Bupa (and Acko General) from opening new branches for 6 months",
+      "summary": "IRDAI issued an order restricting Niva Bupa from adding new places of business for six months after finding the insurer breached Expense of Management (EoM) limits for FY24-25 — a near-term operational/expansion constraint directly affecting the stock.",
+      "reference": "https://www.thehindu.com/business/Industry/irdai-bars-acko-general-niva-bupa-health-from-opening-new-branches-for-exceeding-eom-limits/article71369787.ece",
+      "id": "04b4a881e02638",
+      "origin": "agent",
+      "added_at": "2026-08-27"
+    },
     {
       "sn": 221,
       "category": "GST",
@@ -89,6 +155,17 @@
       "added_at": "2026-08-20"
     },
     {
+      "sn": 239,
+      "category": "Regulatory",
+      "date": "2026-08-12",
+      "subject": "India weighs benchmarked treatment rates & wider NHCX rollout to curb medical inflation",
+      "summary": "A government/IRDAI-led panel (with CII, hospitals) is finalising reforms — including benchmarked hospital tariffs, a common mandatory health product, and expansion of the National Health Claims Exchange — to tackle India's 12-14% medical inflation; recommendations expected by year-end.",
+      "reference": "https://health.economictimes.indiatimes.com/amp/news/insurance/india-plans-insurance-reforms-to-rein-in-healthcare-costs-sources-say/133178077",
+      "id": "1c78cc952c930a",
+      "origin": "agent",
+      "added_at": "2026-08-27"
+    },
+    {
       "sn": 227,
       "category": "Regulatory",
       "date": "2026-08-12",
@@ -98,6 +175,17 @@
       "id": "0716f952f08000",
       "origin": "agent",
       "added_at": "2026-08-20"
+    },
+    {
+      "sn": 240,
+      "category": "Competition / Peers",
+      "date": "2026-08-08",
+      "subject": "Star Health CEO: National Health Claims Exchange can become \"UPI for health insurance claims",
+      "summary": "Star Health MD & CEO Anand Roy said NHCX could digitise and standardise claims data across insurers/hospitals, cutting settlement times from hours to minutes via AI-driven processing — a potential structural efficiency lever for the sector's claims ratios.",
+      "reference": "https://www.moneycontrol.com/news/business/personal-finance/national-health-claims-exchange-can-become-upi-for-health-insurance-claims-says-star-health-md-anand-roy-14012110.html",
+      "id": "18f0c73338bd26",
+      "origin": "agent",
+      "added_at": "2026-08-27"
     },
     {
       "sn": 207,
@@ -188,6 +276,17 @@
       "added_at": "2026-08-03"
     },
     {
+      "sn": 241,
+      "category": "Regulatory",
+      "date": "2026-07-31",
+      "subject": "IRDAI tightens intermediary accountability with new disclosure norms",
+      "summary": "New IRDAI (Registration of Insurance Intermediaries) Amendment Regulations 2026 mandate salesperson-tagging on every policy and move to perpetual registration (annual fee vs periodic renewal) — raising traceability but easing compliance costs for distribution partners of health insurers.",
+      "reference": "https://bfsi.economictimes.indiatimes.com/articles/irdai-introduces-new-disclosure-rules-for-insurance-intermediaries-to-boost-accountability/132758297",
+      "id": "16cdcfd215a7e8",
+      "origin": "agent",
+      "added_at": "2026-08-27"
+    },
+    {
       "sn": 196,
       "category": "General",
       "date": "2026-07-31",
@@ -219,6 +318,17 @@
       "id": "1865df84875033",
       "origin": "agent",
       "added_at": "2026-08-03"
+    },
+    {
+      "sn": 242,
+      "category": "Profitability",
+      "date": "2026-07-30",
+      "subject": "Niva Bupa Q1 FY27: PAT surges 93% YoY to ₹137.8 crore, GWP up 31.7%",
+      "summary": "Combined Insurance Service Ratio improved to 100.2% (from 103.2%) and retail health market share rose to 11.1%, but PAT fell 13.5% sequentially from Q4 FY26 — a profitability recovery after FY26's mid-year losses, though ROE (~4.6%) still trails peers.",
+      "reference": "https://www.investywise.com/niva-bupa-health-insurance-q1fy2027-earnings-call-presentation/",
+      "id": "051e75e1fe58c3",
+      "origin": "agent",
+      "added_at": "2026-08-27"
     },
     {
       "sn": 232,
@@ -318,6 +428,17 @@
       "id": "0dcf716bcfc58a",
       "origin": "agent",
       "added_at": "2026-07-20"
+    },
+    {
+      "sn": 243,
+      "category": "Regulatory",
+      "date": "2026-07-29",
+      "subject": "IRDAI unveils sweeping reforms: SBSR Act support, 100% FDI progress, new capital/governance rules",
+      "summary": "IRDAI board approved liberalised investment norms, a Policyholders' Education & Protection Fund, and penalty-imposition regulations, and confirmed two insurers have already raised foreign shareholding above the old 74% cap following the 100% FDI reform — also granted registration to a new general insurer (ProTec).",
+      "reference": "https://indianexpress.com/article/business/irdai-insurance-reforms-2026-sbsr-act-100-percent-fdi-protect-general-10809303/",
+      "id": "0ac2aad1094d2f",
+      "origin": "agent",
+      "added_at": "2026-08-27"
     },
     {
       "sn": 198,
@@ -428,6 +549,17 @@
       "id": "070bb8bdde0345",
       "origin": "agent",
       "added_at": "2026-07-30"
+    },
+    {
+      "sn": 244,
+      "category": "Profitability",
+      "date": "2026-07-27",
+      "subject": "General insurers push for first motor third-party premium hike in 4 years amid mounting losses",
+      "summary": "Insurers (New India Assurance, ICICI Lombard, etc.) are seeking a TP premium revision after a Supreme Court ruling on \"Loss of Domestic Care\" compensation is expected to raise motor TP loss ratios by 12-15%; primarily a motor-line issue but signals broader claims-cost/pricing pressure across the general insurance industry that health insurers also operate within.",
+      "reference": "https://indianexpress.com/article/business/insurers-seek-first-third-party-premium-hike-in-four-years-as-losses-mount-10804945/",
+      "id": "0f6b5b37765ef9",
+      "origin": "agent",
+      "added_at": "2026-08-27"
     },
     {
       "sn": 186,
