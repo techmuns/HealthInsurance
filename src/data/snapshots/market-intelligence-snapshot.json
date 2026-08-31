@@ -4,8 +4,8 @@
     "description": "AI-generated market intelligence for the SAHI health insurers — investor meets, earnings/board dates, sector & regulatory news, share catalysts. Web-sourced; each item links its source. AI-generated, not audited.",
     "schema_version": "1.0.0",
     "dataset": "ai_generated",
-    "last_updated": "2026-08-30",
-    "last_successful_run": "2026-08-30T14:34:53.034Z",
+    "last_updated": "2026-08-31",
+    "last_successful_run": "2026-08-31T17:20:05.801Z",
     "upstream_sources": [
       "muns_agent_web"
     ],
@@ -14,6 +14,21 @@
     "notes": "Clearly labelled AI-generated intelligence — verify before acting. Items accumulate through the day and rank by investor impact, not recency."
   },
   "data": [
+    {
+      "id": "a8611f5888",
+      "company_id": "sector",
+      "date": null,
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "<span style=\"color:#22C55E;font-weight:600\">positive</span> <span style=\"background:#F0FDF4;padding:2px 6px;border-radius:4px;\">Buy · TP ₹105</span>",
+      "detail": "Nomura reiterates 'Buy', TP ₹105",
+      "source_name": null,
+      "source_url": null,
+      "source_published_at": null,
+      "first_seen": "2026-08-31T17:20:05.801Z",
+      "discovered_at": "2026-08-31T17:20:05.801Z"
+    },
     {
       "id": "e54fa65d10",
       "company_id": "sector",
