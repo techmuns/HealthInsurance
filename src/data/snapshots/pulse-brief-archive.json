@@ -42748,10 +42748,10 @@
         "company": "Niva Bupa",
         "companyId": "niva-bupa",
         "generatedAt": "2026-09-01T07:15:41.712Z",
-        "lastUpdatedAt": "2026-09-01T07:15:41.712Z",
+        "lastUpdatedAt": "2026-09-01T14:30:56.920Z",
         "status": "Constructive",
         "sourceConfidence": "Medium",
-        "itemCount": 20,
+        "itemCount": 22,
         "runs": [
           {
             "runTime": "2026-09-01T07:15:41.712Z",
@@ -42759,19 +42759,26 @@
             "sourceCount": 20,
             "ideas": 6,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-09-01T14:30:56.920Z",
+            "developments": 29,
+            "sourceCount": 22,
+            "ideas": 6,
+            "status": "ok"
           }
         ],
         "brief": {
-          "greeting": "Good morning",
+          "greeting": "Good afternoon",
           "narrative": "Regulatory pressure is the main watch item for health insurers today. Niva Bupa remains supported by premium growth and demand, but claims-cost and conduct scrutiny will decide whether the strength is sustainable.",
           "attentionCount": 6,
-          "developmentsCount": 27,
-          "sourcesCount": 20,
+          "developmentsCount": 29,
+          "sourcesCount": 22,
           "domainsCount": 8,
           "confidencePct": 75,
           "confidenceTier": "Medium",
           "readingMins": 3,
-          "lastUpdatedLabel": "31 Aug, 05:20 pm"
+          "lastUpdatedLabel": "1 Sep, 02:24 pm"
         },
         "message": {
           "since": "No company-specific movement for Niva Bupa since the last brief — the read below is sector & regulatory context that applies across standalone health insurers.",
@@ -42972,182 +42979,6 @@
             "independentSources": 1
           },
           {
-            "id": "47681a1d73",
-            "entity": "Niva Bupa",
-            "stars": 5,
-            "reasoning": [
-              "Parent Bupa has already lifted holding from below 50% to 56% amid 100% FDI-under-automatic-route reform; further increase would be a re-rating trigger",
-              "Retail and public the market cut their stake in Niva Bupa from 25.4% to 18.7% during Q1 FY26."
-            ],
-            "whatToWatch": "Execution and continuity after the leadership change.",
-            "confidencePct": 78,
-            "evidenceCount": 5,
-            "status": "Constructive",
-            "category": "Management",
-            "why": {
-              "whatHappened": "Bupa open to raising stake in Niva Bupa, says Deputy CEO Ankur Kharbanda",
-              "whyItMatters": "Parent Bupa has already lifted holding from below 50% to 56% amid 100% FDI-under-automatic-route reform; further increase would be a re-rating trigger",
-              "whoAffected": "Niva Bupa's board, leadership continuity and its shareholders.",
-              "historicalContext": "Retail and public the market cut their stake in Niva Bupa from 25.4% to 18.7% during Q1 FY26.",
-              "potentialImpact": "Next shareholding filing — Public reverting toward 25.4%.",
-              "whatToWatch": "Execution and continuity after the leadership change."
-            },
-            "action": {
-              "id": "ownership",
-              "label": "Review Niva Bupa ownership",
-              "icon": "ownership",
-              "target": {
-                "page": "sahi",
-                "sahiTab": "governance",
-                "company": "niva-bupa",
-                "focus": {
-                  "id": "pulse-ownership",
-                  "metricKey": "promoter_holding",
-                  "metricLabel": "Promoter holding",
-                  "company": "niva-bupa",
-                  "companyLabel": "Niva Bupa",
-                  "comparisonType": "sequential",
-                  "tone": "neutral",
-                  "insightLabel": "Ownership — promoter holding trend",
-                  "unit": "%",
-                  "higherIsBetter": true,
-                  "sahiTab": "governance",
-                  "origin": "pulse"
-                }
-              }
-            },
-            "isBreaking": false,
-            "isNew": false,
-            "freshness": "existing",
-            "freshnessLabel": "Existing context",
-            "publishedLabel": "24 Jul",
-            "discoveredLabel": "1 Aug",
-            "sources": [
-              {
-                "kind": "Filing",
-                "name": "business-standard.com",
-                "url": "https://www.business-standard.com/companies/news/bupa-open-to-raising-stake-in-niva-bupa-says-deputy-ceo-ankur-kharbanda-126072001360_1.html"
-              },
-              {
-                "kind": "Filing",
-                "name": "business-standard.com",
-                "url": "https://www.business-standard.com/amp/companies/news/bupa-open-to-raising-stake-in-niva-bupa-says-deputy-ceo-ankur-kharbanda-126072001360_1.html"
-              },
-              {
-                "kind": "Filing",
-                "name": "groww.in",
-                "url": "https://groww.in/stocks/niva-bupa-health-insurance-company-ltd"
-              },
-              {
-                "kind": "Filing",
-                "name": "ndtvprofit.com",
-                "url": "https://www.ndtvprofit.com/markets/niva-bupa-health-q1-results-profit-doubles-insurance-revenue-crosses-rs-2-200-crore-11843320"
-              },
-              {
-                "kind": "Filing",
-                "name": "thehindubusinessline.com",
-                "url": "https://www.thehindubusinessline.com/money-and-banking/a-large-part-of-niva-bupas-focus-is-attracting-young-customers-says-deputy-ceo-ankur-kharbanda/article71245958.ece"
-              }
-            ],
-            "impact": "Positive",
-            "scope": "company",
-            "companyId": "niva-bupa",
-            "sourceUrl": "https://www.business-standard.com/companies/news/bupa-open-to-raising-stake-in-niva-bupa-says-deputy-ceo-ankur-kharbanda-126072001360_1.html",
-            "sourceConfidence": "Medium",
-            "clusterSize": 3,
-            "clusterSources": [
-              {
-                "kind": "Filing",
-                "name": "business-standard.com",
-                "url": "https://www.business-standard.com/companies/news/bupa-open-to-raising-stake-in-niva-bupa-says-deputy-ceo-ankur-kharbanda-126072001360_1.html"
-              }
-            ],
-            "independentSources": 1
-          },
-          {
-            "id": "81e8fbad12",
-            "entity": "Niva Bupa",
-            "stars": 4,
-            "reasoning": [
-              "Strong FY26 exit run-rate (sales +29.1% YoY in Q4) and market-share gains (+76bps) set the base against which the Q1 FY27 print (due July 30) will be judged.",
-              "Solvency 3.03x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency."
-            ],
-            "whatToWatch": "Whether the sector move feeds through to premium growth and pricing.",
-            "confidencePct": 78,
-            "evidenceCount": 3,
-            "status": "Constructive",
-            "category": "Sector Catalyst",
-            "why": {
-              "whatHappened": "Q4 FY26 net profit up 67.5% YoY to ₹345 crore; market share at 10.1%",
-              "whyItMatters": "Strong FY26 exit run-rate (sales +29.1% YoY in Q4) and market-share gains (+76bps) set the base against which the Q1 FY27 print (due July 30) will be judged.",
-              "whoAffected": "Niva Bupa directly — its premium growth, margins and shareholders.",
-              "historicalContext": "Solvency 3.03x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency.",
-              "potentialImpact": "Solvency vs the 1.5x regulatory floor",
-              "whatToWatch": "Whether the sector move feeds through to premium growth and pricing."
-            },
-            "action": {
-              "id": "margins",
-              "label": "Compare Niva Bupa margin",
-              "icon": "margins",
-              "target": {
-                "page": "sahi",
-                "sahiTab": "profitability",
-                "company": "niva-bupa",
-                "focus": {
-                  "id": "pulse-margins",
-                  "metricKey": "combined_ratio",
-                  "metricLabel": "Combined ratio",
-                  "company": "niva-bupa",
-                  "companyLabel": "Niva Bupa",
-                  "comparisonType": "YoY",
-                  "tone": "neutral",
-                  "insightLabel": "Underwriting margin — combined ratio",
-                  "unit": "%",
-                  "higherIsBetter": false,
-                  "sahiTab": "profitability",
-                  "origin": "pulse"
-                }
-              }
-            },
-            "isBreaking": false,
-            "isNew": false,
-            "freshness": "existing",
-            "freshnessLabel": "Existing context",
-            "publishedLabel": "20 Jul",
-            "discoveredLabel": "29 Jul",
-            "sources": [
-              {
-                "kind": "News",
-                "name": "business-standard.com",
-                "url": "https://www.business-standard.com/amp/companies/news/bupa-open-to-raising-stake-in-niva-bupa-says-deputy-ceo-ankur-kharbanda-126072001360_1.html"
-              },
-              {
-                "kind": "News",
-                "name": "business-standard.com",
-                "url": "https://www.business-standard.com/amp/markets/capital-market-news/volumes-spurt-at-niva-bupa-health-insurance-company-ltd-counter-126073100826_1.html"
-              },
-              {
-                "kind": "Market data",
-                "name": "Derived from insurer-annual-snapshot + industry-segment-premium",
-                "url": "https://transactions.nivabupa.com/pages/doc/investor-relations/other-fin-disclosures/Press-Release-Results-March-2025.pdf"
-              }
-            ],
-            "impact": "Positive",
-            "scope": "company",
-            "companyId": "niva-bupa",
-            "sourceUrl": "https://www.business-standard.com/amp/companies/news/bupa-open-to-raising-stake-in-niva-bupa-says-deputy-ceo-ankur-kharbanda-126072001360_1.html",
-            "sourceConfidence": "Medium",
-            "clusterSize": 1,
-            "clusterSources": [
-              {
-                "kind": "News",
-                "name": "business-standard.com",
-                "url": "https://www.business-standard.com/amp/companies/news/bupa-open-to-raising-stake-in-niva-bupa-says-deputy-ceo-ankur-kharbanda-126072001360_1.html"
-              }
-            ],
-            "independentSources": 1
-          },
-          {
             "id": "40c9dab923",
             "entity": "Niva Bupa",
             "stars": 4,
@@ -43289,6 +43120,182 @@
                 "kind": "Filing",
                 "name": "ndtvprofit.com",
                 "url": "https://www.ndtvprofit.com/markets/niva-bupa-health-q1-results-profit-doubles-insurance-revenue-crosses-rs-2-200-crore-11843320"
+              }
+            ],
+            "independentSources": 1
+          },
+          {
+            "id": "871c3e4cad",
+            "entity": "Niva Bupa",
+            "stars": 3,
+            "reasoning": [
+              "Debt issuance to shore up solvency/growth capital; modestly dilutive to leverage metrics but supports growth funding needs.",
+              "Retail and public the market cut their stake in Niva Bupa from 25.4% to 18.7% during Q1 FY26."
+            ],
+            "whatToWatch": "Execution and continuity after the leadership change.",
+            "confidencePct": 78,
+            "evidenceCount": 4,
+            "status": "Neutral",
+            "category": "Management",
+            "why": {
+              "whatHappened": "Board approves ₹500 cr NCD fundraise plan",
+              "whyItMatters": "Debt issuance to shore up solvency/growth capital; modestly dilutive to leverage metrics but supports growth funding needs.",
+              "whoAffected": "Niva Bupa's board, leadership continuity and its shareholders.",
+              "historicalContext": "Retail and public the market cut their stake in Niva Bupa from 25.4% to 18.7% during Q1 FY26.",
+              "potentialImpact": "Next shareholding filing — Public reverting toward 25.4%.",
+              "whatToWatch": "Execution and continuity after the leadership change."
+            },
+            "action": {
+              "id": "ownership",
+              "label": "Review Niva Bupa ownership",
+              "icon": "ownership",
+              "target": {
+                "page": "sahi",
+                "sahiTab": "governance",
+                "company": "niva-bupa",
+                "focus": {
+                  "id": "pulse-ownership",
+                  "metricKey": "promoter_holding",
+                  "metricLabel": "Promoter holding",
+                  "company": "niva-bupa",
+                  "companyLabel": "Niva Bupa",
+                  "comparisonType": "sequential",
+                  "tone": "neutral",
+                  "insightLabel": "Ownership — promoter holding trend",
+                  "unit": "%",
+                  "higherIsBetter": true,
+                  "sahiTab": "governance",
+                  "origin": "pulse"
+                }
+              }
+            },
+            "isBreaking": false,
+            "isNew": false,
+            "freshness": "existing",
+            "freshnessLabel": "Existing context",
+            "publishedLabel": "30 Jul",
+            "discoveredLabel": "2 Aug",
+            "sources": [
+              {
+                "kind": "Filing",
+                "name": "ndtvprofit.com",
+                "url": "https://www.ndtvprofit.com/markets/niva-bupa-health-q1-results-profit-doubles-insurance-revenue-crosses-rs-2-200-crore-11843320"
+              },
+              {
+                "kind": "Filing",
+                "name": "groww.in",
+                "url": "https://groww.in/stocks/niva-bupa-health-insurance-company-ltd"
+              },
+              {
+                "kind": "Market data",
+                "name": "Q4 FY25 earnings call",
+                "url": "https://transactions.nivabupa.com/pages/doc/investor-relations/Earnings-Calls/2024-2025/Earnings-Call-Transcript-Q4-FY-2025.pdf"
+              },
+              {
+                "kind": "Market data",
+                "name": "1 curated source-backed insight",
+                "url": ""
+              }
+            ],
+            "impact": "Neutral",
+            "scope": "company",
+            "companyId": "niva-bupa",
+            "sourceUrl": "https://www.ndtvprofit.com/markets/niva-bupa-health-q1-results-profit-doubles-insurance-revenue-crosses-rs-2-200-crore-11843320",
+            "sourceConfidence": "Medium",
+            "clusterSize": 1,
+            "clusterSources": [
+              {
+                "kind": "Filing",
+                "name": "ndtvprofit.com",
+                "url": "https://www.ndtvprofit.com/markets/niva-bupa-health-q1-results-profit-doubles-insurance-revenue-crosses-rs-2-200-crore-11843320"
+              }
+            ],
+            "independentSources": 1
+          },
+          {
+            "id": "312170a2bf",
+            "entity": "Niva Bupa",
+            "stars": 3,
+            "reasoning": [
+              "Debt-based capital raise alongside Q1 results could affect leverage/solvency ratios and dilution-free growth funding",
+              "Retail and public the market cut their stake in Niva Bupa from 25.4% to 18.7% during Q1 FY26."
+            ],
+            "whatToWatch": "Execution and continuity after the leadership change.",
+            "confidencePct": 77,
+            "evidenceCount": 4,
+            "status": "Watch",
+            "category": "Management",
+            "why": {
+              "whatHappened": "Board approves plan to raise up to Rs 500 crore via NCDs",
+              "whyItMatters": "Debt-based capital raise alongside Q1 results could affect leverage/solvency ratios and dilution-free growth funding",
+              "whoAffected": "Niva Bupa's board, leadership continuity and its shareholders.",
+              "historicalContext": "Retail and public the market cut their stake in Niva Bupa from 25.4% to 18.7% during Q1 FY26.",
+              "potentialImpact": "Next shareholding filing — Public reverting toward 25.4%.",
+              "whatToWatch": "Execution and continuity after the leadership change."
+            },
+            "action": {
+              "id": "ownership",
+              "label": "Review Niva Bupa ownership",
+              "icon": "ownership",
+              "target": {
+                "page": "sahi",
+                "sahiTab": "governance",
+                "company": "niva-bupa",
+                "focus": {
+                  "id": "pulse-ownership",
+                  "metricKey": "promoter_holding",
+                  "metricLabel": "Promoter holding",
+                  "company": "niva-bupa",
+                  "companyLabel": "Niva Bupa",
+                  "comparisonType": "sequential",
+                  "tone": "neutral",
+                  "insightLabel": "Ownership — promoter holding trend",
+                  "unit": "%",
+                  "higherIsBetter": true,
+                  "sahiTab": "governance",
+                  "origin": "pulse"
+                }
+              }
+            },
+            "isBreaking": false,
+            "isNew": false,
+            "freshness": "existing",
+            "freshnessLabel": "Existing context",
+            "publishedLabel": "30 Jul",
+            "discoveredLabel": "1 Aug",
+            "sources": [
+              {
+                "kind": "Filing",
+                "name": "groww.in",
+                "url": "https://groww.in/stocks/niva-bupa-health-insurance-company-ltd"
+              },
+              {
+                "kind": "Filing",
+                "name": "ndtvprofit.com",
+                "url": "https://www.ndtvprofit.com/markets/niva-bupa-health-q1-results-profit-doubles-insurance-revenue-crosses-rs-2-200-crore-11843320"
+              },
+              {
+                "kind": "Market data",
+                "name": "Q4 FY25 earnings call",
+                "url": "https://transactions.nivabupa.com/pages/doc/investor-relations/Earnings-Calls/2024-2025/Earnings-Call-Transcript-Q4-FY-2025.pdf"
+              },
+              {
+                "kind": "Market data",
+                "name": "1 curated source-backed insight",
+                "url": ""
+              }
+            ],
+            "impact": "Watch",
+            "scope": "company",
+            "companyId": "niva-bupa",
+            "sourceUrl": "https://groww.in/stocks/niva-bupa-health-insurance-company-ltd",
+            "sourceConfidence": "Low",
+            "clusterSize": 1,
+            "clusterSources": [
+              {
+                "kind": "Filing",
+                "name": "groww.in",
+                "url": "https://groww.in/stocks/niva-bupa-health-insurance-company-ltd"
               }
             ],
             "independentSources": 1
@@ -85508,10 +85515,10 @@
         "company": "Star Health",
         "companyId": "star-health",
         "generatedAt": "2026-09-01T07:15:41.712Z",
-        "lastUpdatedAt": "2026-09-01T07:15:41.712Z",
+        "lastUpdatedAt": "2026-09-01T14:30:56.920Z",
         "status": "Constructive",
         "sourceConfidence": "Medium",
-        "itemCount": 14,
+        "itemCount": 20,
         "runs": [
           {
             "runTime": "2026-09-01T07:15:41.712Z",
@@ -85519,19 +85526,26 @@
             "sourceCount": 14,
             "ideas": 6,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-09-01T14:30:56.920Z",
+            "developments": 22,
+            "sourceCount": 20,
+            "ideas": 6,
+            "status": "ok"
           }
         ],
         "brief": {
-          "greeting": "Good morning",
+          "greeting": "Good afternoon",
           "narrative": "Regulatory pressure is the main watch item for health insurers today. Star Health remains supported by premium growth and demand, but claims-cost and conduct scrutiny will decide whether the strength is sustainable.",
           "attentionCount": 6,
-          "developmentsCount": 16,
-          "sourcesCount": 14,
+          "developmentsCount": 22,
+          "sourcesCount": 20,
           "domainsCount": 8,
           "confidencePct": 76,
           "confidenceTier": "Medium",
           "readingMins": 3,
-          "lastUpdatedLabel": "31 Aug, 05:20 pm"
+          "lastUpdatedLabel": "1 Sep, 02:24 pm"
         },
         "message": {
           "since": "No company-specific movement for Star Health since the last brief — the read below is sector & regulatory context that applies across standalone health insurers.",
@@ -85613,14 +85627,14 @@
                 "url": "https://www.moneycontrol.com/news/business/stocks/star-health-q1-profit-beats-estimates-nomura-raises-target-price-to-rs-700-maintains-buy-13989958.html)"
               },
               {
-                "kind": "Analyst report",
-                "name": "marketsmojo.com",
-                "url": "https://www.marketsmojo.com/news/stock-recommendation/star-health-allied-insurance-company-ltd-is-rated-hold-4115182"
-              },
-              {
                 "kind": "Market data",
                 "name": "Derived from insurer-annual-snapshot + industry-segment-premium",
                 "url": "https://www.prnewswire.com/in/news-releases/star-health-insurance-reports-strong-performance-q1fy26-pat-grows-44-to-inr-438-cr-ifrs-premium-grows-13-302517057.html"
+              },
+              {
+                "kind": "Market data",
+                "name": "7 curated source-backed insights",
+                "url": ""
               }
             ],
             "impact": "Positive",
@@ -85706,14 +85720,14 @@
                 "url": "https://www.moneycontrol.com/news/business/stocks/star-health-q1-profit-beats-estimates-nomura-raises-target-price-to-rs-700-maintains-buy-13989958.html)"
               },
               {
-                "kind": "Analyst report",
-                "name": "marketsmojo.com",
-                "url": "https://www.marketsmojo.com/news/stock-recommendation/star-health-allied-insurance-company-ltd-is-rated-hold-4115182"
-              },
-              {
                 "kind": "Market data",
                 "name": "Derived from insurer-annual-snapshot + industry-segment-premium",
                 "url": "https://www.prnewswire.com/in/news-releases/star-health-insurance-reports-strong-performance-q1fy26-pat-grows-44-to-inr-438-cr-ifrs-premium-grows-13-302517057.html"
+              },
+              {
+                "kind": "Market data",
+                "name": "7 curated source-backed insights",
+                "url": ""
               }
             ],
             "impact": "Positive",
@@ -126984,10 +126998,10 @@
         "company": "Care Health",
         "companyId": "care-health",
         "generatedAt": "2026-09-01T07:15:41.712Z",
-        "lastUpdatedAt": "2026-09-01T07:15:41.712Z",
+        "lastUpdatedAt": "2026-09-01T14:30:56.920Z",
         "status": "Watch",
         "sourceConfidence": "Medium",
-        "itemCount": 5,
+        "itemCount": 12,
         "runs": [
           {
             "runTime": "2026-09-01T07:15:41.712Z",
@@ -126995,19 +127009,26 @@
             "sourceCount": 5,
             "ideas": 5,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-09-01T14:30:56.920Z",
+            "developments": 14,
+            "sourceCount": 12,
+            "ideas": 6,
+            "status": "ok"
           }
         ],
         "brief": {
-          "greeting": "Good morning",
+          "greeting": "Good afternoon",
           "narrative": "Regulatory pressure is the main watch item for health insurers today. Care Health is under pressure on its market position, but claims-cost and conduct scrutiny will decide whether the strength is sustainable.",
-          "attentionCount": 5,
-          "developmentsCount": 7,
-          "sourcesCount": 5,
-          "domainsCount": 4,
+          "attentionCount": 6,
+          "developmentsCount": 14,
+          "sourcesCount": 12,
+          "domainsCount": 6,
           "confidencePct": 76,
           "confidenceTier": "Medium",
           "readingMins": 4,
-          "lastUpdatedLabel": "31 Aug, 05:20 pm"
+          "lastUpdatedLabel": "1 Sep, 02:24 pm"
         },
         "message": {
           "since": "No company-specific movement for Care Health since the last brief — the read below is sector & regulatory context that applies across standalone health insurers.",
@@ -127075,14 +127096,14 @@
                 "url": "https://indianexpress.com/article/business/irdai-insurance-reforms-2026-sbsr-act-100-percent-fdi-protect-general-10809303/"
               },
               {
-                "kind": "Regulatory",
-                "name": "legal.economictimes.indiatimes.com",
-                "url": "https://legal.economictimes.indiatimes.com/news/litigation/motor-insurance-consider-issuing-circular-standardising-cross-border-coverage-clauses-sc-to-irdai/132519178"
-              },
-              {
                 "kind": "Market data",
                 "name": "care-health disclosure",
                 "url": "https://cms.careinsurance.com/cms/public/uploads/uploads/public_disclosure/FY%2024-25/Qtr%203%2024-25/PublicDisclosuresDecember2024_1738647983.pdf"
+              },
+              {
+                "kind": "Market data",
+                "name": "1 curated source-backed insight",
+                "url": ""
               }
             ],
             "impact": "Watch",
@@ -127154,14 +127175,14 @@
                 "url": "https://indianexpress.com/article/business/irdai-insurance-reforms-2026-sbsr-act-100-percent-fdi-protect-general-10809303/"
               },
               {
-                "kind": "Regulatory",
-                "name": "legal.economictimes.indiatimes.com",
-                "url": "https://legal.economictimes.indiatimes.com/news/litigation/motor-insurance-consider-issuing-circular-standardising-cross-border-coverage-clauses-sc-to-irdai/132519178"
-              },
-              {
                 "kind": "Market data",
                 "name": "care-health disclosure",
                 "url": "https://cms.careinsurance.com/cms/public/uploads/uploads/public_disclosure/FY%2024-25/Qtr%203%2024-25/PublicDisclosuresDecember2024_1738647983.pdf"
+              },
+              {
+                "kind": "Market data",
+                "name": "1 curated source-backed insight",
+                "url": ""
               }
             ],
             "impact": "Watch",
@@ -127233,14 +127254,14 @@
                 "url": "https://www.cnbctv18.com/business/finance/insurance-sector-new-rulebook-irdai-registration-shareholding-merger-norms-19958730.htm"
               },
               {
-                "kind": "Regulatory",
-                "name": "legal.economictimes.indiatimes.com",
-                "url": "https://legal.economictimes.indiatimes.com/news/litigation/motor-insurance-consider-issuing-circular-standardising-cross-border-coverage-clauses-sc-to-irdai/132519178"
-              },
-              {
                 "kind": "Market data",
                 "name": "care-health disclosure",
                 "url": "https://cms.careinsurance.com/cms/public/uploads/uploads/public_disclosure/FY%2024-25/Qtr%203%2024-25/PublicDisclosuresDecember2024_1738647983.pdf"
+              },
+              {
+                "kind": "Market data",
+                "name": "1 curated source-backed insight",
+                "url": ""
               }
             ],
             "impact": "Watch",
@@ -127254,85 +127275,6 @@
                 "kind": "Regulatory",
                 "name": "indianexpress.com",
                 "url": "https://indianexpress.com/article/business/irdai-insurance-reforms-2026-sbsr-act-100-percent-fdi-protect-general-10809303/"
-              }
-            ],
-            "independentSources": 1
-          },
-          {
-            "id": "a5da5aaf50",
-            "entity": "Supreme Court asks IRDAI to consider master circular on cross-border motor cover clauses",
-            "stars": 3,
-            "reasoning": [
-              "Currently motor-focused, but signals continued judicial pressure on IRDAI to standardise policy wording and claims clarity — a template that could extend to health policy drafting and cashless practices sector-wide.",
-              "Care Health's capital cushion (solvency ratio) stands at 1.68x against the regulator's 1.5x minimum — that sounds safe, but growing premium at 20.4% a year consumes capital mechanically."
-            ],
-            "whatToWatch": "The impact on claims cost, expense ratio and pricing as rules tighten.",
-            "confidencePct": 77,
-            "evidenceCount": 5,
-            "status": "Watch",
-            "category": "Regulatory",
-            "why": {
-              "whatHappened": "Supreme Court asks IRDAI to consider master circular on cross-border motor cover clauses",
-              "whyItMatters": "Currently motor-focused, but signals continued judicial pressure on IRDAI to standardise policy wording and claims clarity — a template that could extend to health policy drafting and cashless…",
-              "whoAffected": "Every standalone health insurer (SAHI) — pricing, product design and compliance cost.",
-              "historicalContext": "Care Health's capital cushion (solvency ratio) stands at 1.68x against the regulator's 1.5x minimum — that sounds safe, but growing premium at 20.4% a year consumes capital mechanically.",
-              "potentialImpact": "Solvency sits close enough to the floor that a capital raise or slower growth is a live possibility.",
-              "whatToWatch": "The impact on claims cost, expense ratio and pricing as rules tighten."
-            },
-            "action": {
-              "id": "regulation",
-              "label": "Check IRDAI on claims cost",
-              "icon": "regulation",
-              "target": {
-                "page": "sahi",
-                "sahiTab": "governance",
-                "company": "care-health"
-              }
-            },
-            "isBreaking": false,
-            "isNew": false,
-            "freshness": "existing",
-            "freshnessLabel": "Existing context",
-            "publishedLabel": "20 Jul",
-            "discoveredLabel": "21 Jul",
-            "sources": [
-              {
-                "kind": "Regulatory",
-                "name": "legal.economictimes.indiatimes.com",
-                "url": "https://legal.economictimes.indiatimes.com/news/litigation/motor-insurance-consider-issuing-circular-standardising-cross-border-coverage-clauses-sc-to-irdai/132519178"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "business-standard.com",
-                "url": "https://www.business-standard.com/amp/finance/insurance/irdai-tightens-intermediary-rules-eases-insurers-investment-norms-126073101478_1.html"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "cnbctv18.com",
-                "url": "https://www.cnbctv18.com/business/finance/insurance-sector-new-rulebook-irdai-registration-shareholding-merger-norms-19958730.htm"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "indianexpress.com",
-                "url": "https://indianexpress.com/article/business/irdai-insurance-reforms-2026-sbsr-act-100-percent-fdi-protect-general-10809303/"
-              },
-              {
-                "kind": "Market data",
-                "name": "care-health disclosure",
-                "url": "https://cms.careinsurance.com/cms/public/uploads/uploads/public_disclosure/FY%2024-25/Qtr%203%2024-25/PublicDisclosuresDecember2024_1738647983.pdf"
-              }
-            ],
-            "impact": "Watch",
-            "scope": "sector",
-            "companyId": null,
-            "sourceUrl": "https://legal.economictimes.indiatimes.com/news/litigation/motor-insurance-consider-issuing-circular-standardising-cross-border-coverage-clauses-sc-to-irdai/132519178",
-            "sourceConfidence": "Medium",
-            "clusterSize": 1,
-            "clusterSources": [
-              {
-                "kind": "Regulatory",
-                "name": "legal.economictimes.indiatimes.com",
-                "url": "https://legal.economictimes.indiatimes.com/news/litigation/motor-insurance-consider-issuing-circular-standardising-cross-border-coverage-clauses-sc-to-irdai/132519178"
               }
             ],
             "independentSources": 1
@@ -127391,14 +127333,14 @@
                 "url": "https://www.cnbctv18.com/business/finance/insurance-sector-new-rulebook-irdai-registration-shareholding-merger-norms-19958730.htm"
               },
               {
-                "kind": "Regulatory",
-                "name": "legal.economictimes.indiatimes.com",
-                "url": "https://legal.economictimes.indiatimes.com/news/litigation/motor-insurance-consider-issuing-circular-standardising-cross-border-coverage-clauses-sc-to-irdai/132519178"
-              },
-              {
                 "kind": "Market data",
                 "name": "care-health disclosure",
                 "url": "https://cms.careinsurance.com/cms/public/uploads/uploads/public_disclosure/FY%2024-25/Qtr%203%2024-25/PublicDisclosuresDecember2024_1738647983.pdf"
+              },
+              {
+                "kind": "Market data",
+                "name": "1 curated source-backed insight",
+                "url": ""
               }
             ],
             "impact": "Neutral",
@@ -127412,6 +127354,199 @@
                 "kind": "Regulatory",
                 "name": "indianexpress.com",
                 "url": "https://indianexpress.com/article/business/irdai-insurance-reforms-2026-sbsr-act-100-percent-fdi-protect-general-10809303/"
+              }
+            ],
+            "independentSources": 1
+          },
+          {
+            "id": "4ea823e336",
+            "entity": "<span style=\"color:#22C55E;font-weight:600\">Nomura retains 'Buy' on Star Health & Niva Bupa</span>",
+            "stars": 2,
+            "reasoning": [
+              "Nomura's \"21st Century Mahabharat\" thesis flags **more predictable loss ratios** sector-wide, reinforcing its bullish stance on both listed insurers.",
+              "Care Health's capital cushion (solvency ratio) stands at 1.68x against the regulator's 1.5x minimum — that sounds safe, but growing premium at 20.4% a year consumes capital mechanically."
+            ],
+            "whatToWatch": "Whether the sector move feeds through to premium growth and pricing.",
+            "confidencePct": 64,
+            "evidenceCount": 5,
+            "status": "Neutral",
+            "category": "Sector Catalyst",
+            "why": {
+              "whatHappened": "<span style=\"color:#22C55E;font-weight:600\">Nomura retains 'Buy' on Star Health & Niva Bupa</span>",
+              "whyItMatters": "Nomura's \"21st Century Mahabharat\" thesis flags **more predictable loss ratios** sector-wide, reinforcing its bullish stance on both listed insurers.",
+              "whoAffected": "The broader health-insurance sector and its listed players.",
+              "historicalContext": "Care Health's capital cushion (solvency ratio) stands at 1.68x against the regulator's 1.5x minimum — that sounds safe, but growing premium at 20.4% a year consumes capital mechanically.",
+              "potentialImpact": "Solvency sits close enough to the floor that a capital raise or slower growth is a live possibility.",
+              "whatToWatch": "Whether the sector move feeds through to premium growth and pricing."
+            },
+            "action": {
+              "id": "margins",
+              "label": "Compare Care Health margin",
+              "icon": "margins",
+              "target": {
+                "page": "sahi",
+                "sahiTab": "profitability",
+                "company": "care-health",
+                "focus": {
+                  "id": "pulse-margins",
+                  "metricKey": "combined_ratio",
+                  "metricLabel": "Combined ratio",
+                  "company": "care-health",
+                  "companyLabel": "Care Health",
+                  "comparisonType": "YoY",
+                  "tone": "neutral",
+                  "insightLabel": "Underwriting margin — combined ratio",
+                  "unit": "%",
+                  "higherIsBetter": false,
+                  "sahiTab": "profitability",
+                  "origin": "pulse"
+                }
+              }
+            },
+            "isBreaking": false,
+            "isNew": false,
+            "freshLabel": "Newly surfaced",
+            "freshness": "newly-surfaced",
+            "freshnessLabel": "Newly surfaced",
+            "publishedLabel": "—",
+            "discoveredLabel": "1 Sep",
+            "sources": [
+              {
+                "kind": "News",
+                "name": "moneycontrol.com",
+                "url": "https://www.moneycontrol.com/news/business/stocks/nomura-retains-buy-on-star-health-niva-bupa-sees-more-predictable-loss-ratios-14019004.html)"
+              },
+              {
+                "kind": "News",
+                "name": "mediabrief.com",
+                "url": "https://mediabrief.com/aditya-birla-health-insurance-expands-distribution/)"
+              },
+              {
+                "kind": "News",
+                "name": "scanx.trade",
+                "url": "https://scanx.trade/stock-market-news/companies/niva-bupa-agm-approves-director-appointments-executive-pay-revisions/48098549)"
+              },
+              {
+                "kind": "News",
+                "name": "moneycontrol.com",
+                "url": "https://moneycontrol.com/news/business/stocks/niva-bupa-gains-as-nomura-maintains-buy-sees-strong-premium-growth-outlook-13991858.html)"
+              },
+              {
+                "kind": "News",
+                "name": "moneycontrol.com",
+                "url": "https://www.moneycontrol.com/news/business/stocks/star-health-q1-profit-beats-estimates-nomura-raises-target-price-to-rs-700-maintains-buy-13989958.html)"
+              }
+            ],
+            "impact": "Neutral",
+            "scope": "sector",
+            "companyId": null,
+            "sourceUrl": "https://www.moneycontrol.com/news/business/stocks/nomura-retains-buy-on-star-health-niva-bupa-sees-more-predictable-loss-ratios-14019004.html)",
+            "sourceConfidence": "Medium",
+            "clusterSize": 4,
+            "clusterSources": [
+              {
+                "kind": "News",
+                "name": "moneycontrol.com",
+                "url": "https://www.moneycontrol.com/news/business/stocks/nomura-retains-buy-on-star-health-niva-bupa-sees-more-predictable-loss-ratios-14019004.html)"
+              },
+              {
+                "kind": "News",
+                "name": "business-standard.com",
+                "url": "https://www.business-standard.com/amp/companies/news/bupa-open-to-raising-stake-in-niva-bupa-says-deputy-ceo-ankur-kharbanda-126072001360_1.html)"
+              }
+            ],
+            "independentSources": 2
+          },
+          {
+            "id": "65d639e89a",
+            "entity": "<span style=\"color:#F59E0B;font-weight:600\">Aditya Birla Health signs ICAI distribution tie-up</span>",
+            "stars": 2,
+            "reasoning": [
+              "New institutional channel targets **12.32 lakh** CA students + **4.67 lakh** CA members — rising competitive intensity in the affinity-distribution space Niva Bupa and Star Health also compete in.",
+              "Care Health's capital cushion (solvency ratio) stands at 1.68x against the regulator's 1.5x minimum — that sounds safe, but growing premium at 20.4% a year consumes capital mechanically."
+            ],
+            "whatToWatch": "Whether the sector move feeds through to premium growth and pricing.",
+            "confidencePct": 64,
+            "evidenceCount": 5,
+            "status": "Neutral",
+            "category": "Sector Catalyst",
+            "why": {
+              "whatHappened": "<span style=\"color:#F59E0B;font-weight:600\">Aditya Birla Health signs ICAI distribution tie-up</span>",
+              "whyItMatters": "New institutional channel targets **12.32 lakh** CA students + **4.67 lakh** CA members — rising competitive intensity in the affinity-distribution space Niva Bupa and Star Health also compete in.",
+              "whoAffected": "The broader health-insurance sector and its listed players.",
+              "historicalContext": "Care Health's capital cushion (solvency ratio) stands at 1.68x against the regulator's 1.5x minimum — that sounds safe, but growing premium at 20.4% a year consumes capital mechanically.",
+              "potentialImpact": "Solvency sits close enough to the floor that a capital raise or slower growth is a live possibility.",
+              "whatToWatch": "Whether the sector move feeds through to premium growth and pricing."
+            },
+            "action": {
+              "id": "margins",
+              "label": "Compare Care Health margin",
+              "icon": "margins",
+              "target": {
+                "page": "sahi",
+                "sahiTab": "profitability",
+                "company": "care-health",
+                "focus": {
+                  "id": "pulse-margins",
+                  "metricKey": "combined_ratio",
+                  "metricLabel": "Combined ratio",
+                  "company": "care-health",
+                  "companyLabel": "Care Health",
+                  "comparisonType": "YoY",
+                  "tone": "neutral",
+                  "insightLabel": "Underwriting margin — combined ratio",
+                  "unit": "%",
+                  "higherIsBetter": false,
+                  "sahiTab": "profitability",
+                  "origin": "pulse"
+                }
+              }
+            },
+            "isBreaking": false,
+            "isNew": false,
+            "freshLabel": "Newly surfaced",
+            "freshness": "newly-surfaced",
+            "freshnessLabel": "Newly surfaced",
+            "publishedLabel": "—",
+            "discoveredLabel": "1 Sep",
+            "sources": [
+              {
+                "kind": "News",
+                "name": "mediabrief.com",
+                "url": "https://mediabrief.com/aditya-birla-health-insurance-expands-distribution/)"
+              },
+              {
+                "kind": "News",
+                "name": "moneycontrol.com",
+                "url": "https://www.moneycontrol.com/news/business/stocks/nomura-retains-buy-on-star-health-niva-bupa-sees-more-predictable-loss-ratios-14019004.html)"
+              },
+              {
+                "kind": "News",
+                "name": "scanx.trade",
+                "url": "https://scanx.trade/stock-market-news/companies/niva-bupa-agm-approves-director-appointments-executive-pay-revisions/48098549)"
+              },
+              {
+                "kind": "News",
+                "name": "moneycontrol.com",
+                "url": "https://moneycontrol.com/news/business/stocks/niva-bupa-gains-as-nomura-maintains-buy-sees-strong-premium-growth-outlook-13991858.html)"
+              },
+              {
+                "kind": "News",
+                "name": "moneycontrol.com",
+                "url": "https://www.moneycontrol.com/news/business/stocks/star-health-q1-profit-beats-estimates-nomura-raises-target-price-to-rs-700-maintains-buy-13989958.html)"
+              }
+            ],
+            "impact": "Neutral",
+            "scope": "sector",
+            "companyId": null,
+            "sourceUrl": "https://mediabrief.com/aditya-birla-health-insurance-expands-distribution/)",
+            "sourceConfidence": "Medium",
+            "clusterSize": 1,
+            "clusterSources": [
+              {
+                "kind": "News",
+                "name": "mediabrief.com",
+                "url": "https://mediabrief.com/aditya-birla-health-insurance-expands-distribution/)"
               }
             ],
             "independentSources": 1
@@ -127475,6 +127610,30 @@
         ],
         "events": [],
         "actions": [
+          {
+            "id": "margins",
+            "label": "Compare Care Health margin",
+            "icon": "margins",
+            "target": {
+              "page": "sahi",
+              "sahiTab": "profitability",
+              "company": "care-health",
+              "focus": {
+                "id": "pulse-margins",
+                "metricKey": "combined_ratio",
+                "metricLabel": "Combined ratio",
+                "company": "care-health",
+                "companyLabel": "Care Health",
+                "comparisonType": "YoY",
+                "tone": "neutral",
+                "insightLabel": "Underwriting margin — combined ratio",
+                "unit": "%",
+                "higherIsBetter": false,
+                "sahiTab": "profitability",
+                "origin": "pulse"
+              }
+            }
+          },
           {
             "id": "source",
             "label": "Verify Care Health sources",
@@ -168203,10 +168362,10 @@
         "company": "Aditya Birla",
         "companyId": "aditya-birla",
         "generatedAt": "2026-09-01T07:15:41.712Z",
-        "lastUpdatedAt": "2026-09-01T07:15:41.712Z",
+        "lastUpdatedAt": "2026-09-01T14:30:56.920Z",
         "status": "Watch",
         "sourceConfidence": "Medium",
-        "itemCount": 6,
+        "itemCount": 13,
         "runs": [
           {
             "runTime": "2026-09-01T07:15:41.712Z",
@@ -168214,19 +168373,26 @@
             "sourceCount": 6,
             "ideas": 6,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-09-01T14:30:56.920Z",
+            "developments": 13,
+            "sourceCount": 13,
+            "ideas": 6,
+            "status": "ok"
           }
         ],
         "brief": {
-          "greeting": "Good morning",
+          "greeting": "Good afternoon",
           "narrative": "Regulatory pressure is the main watch item for health insurers today. Aditya Birla is under pressure on premium growth and demand, but claims-cost and conduct scrutiny will decide whether the strength is sustainable.",
           "attentionCount": 6,
-          "developmentsCount": 6,
-          "sourcesCount": 6,
-          "domainsCount": 4,
+          "developmentsCount": 13,
+          "sourcesCount": 13,
+          "domainsCount": 6,
           "confidencePct": 76,
           "confidenceTier": "Medium",
           "readingMins": 3,
-          "lastUpdatedLabel": "31 Aug, 05:20 pm"
+          "lastUpdatedLabel": "1 Sep, 02:24 pm"
         },
         "message": {
           "since": "No company-specific movement for Aditya Birla since the last brief — the read below is sector & regulatory context that applies across standalone health insurers.",
@@ -168308,7 +168474,7 @@
             ],
             "whatToWatch": "IRDAI mis-selling / distribution-conduct rules",
             "confidencePct": 77,
-            "evidenceCount": 5,
+            "evidenceCount": 4,
             "status": "Watch",
             "category": "Regulatory",
             "why": {
@@ -168352,11 +168518,6 @@
                 "url": "https://indianexpress.com/article/business/irdai-insurance-reforms-2026-sbsr-act-100-percent-fdi-protect-general-10809303/"
               },
               {
-                "kind": "Regulatory",
-                "name": "legal.economictimes.indiatimes.com",
-                "url": "https://legal.economictimes.indiatimes.com/news/litigation/motor-insurance-consider-issuing-circular-standardising-cross-border-coverage-clauses-sc-to-irdai/132519178"
-              },
-              {
                 "kind": "Market data",
                 "name": "Aditya Birla Capital Q4 & FY25 Results Press Release",
                 "url": "https://www.adityabirlacapital.com/-/media/ABCL/pdf/Quarterly-Results/Q4-FY-25/130525_ABCL-Results-Press-Release.ashx"
@@ -168387,7 +168548,7 @@
             ],
             "whatToWatch": "The impact on claims cost, expense ratio and pricing as rules tighten.",
             "confidencePct": 77,
-            "evidenceCount": 5,
+            "evidenceCount": 4,
             "status": "Watch",
             "category": "Regulatory",
             "why": {
@@ -168431,11 +168592,6 @@
                 "url": "https://indianexpress.com/article/business/irdai-insurance-reforms-2026-sbsr-act-100-percent-fdi-protect-general-10809303/"
               },
               {
-                "kind": "Regulatory",
-                "name": "legal.economictimes.indiatimes.com",
-                "url": "https://legal.economictimes.indiatimes.com/news/litigation/motor-insurance-consider-issuing-circular-standardising-cross-border-coverage-clauses-sc-to-irdai/132519178"
-              },
-              {
                 "kind": "Market data",
                 "name": "Aditya Birla Capital Q4 & FY25 Results Press Release",
                 "url": "https://www.adityabirlacapital.com/-/media/ABCL/pdf/Quarterly-Results/Q4-FY-25/130525_ABCL-Results-Press-Release.ashx"
@@ -168466,7 +168622,7 @@
             ],
             "whatToWatch": "The impact on claims cost, expense ratio and pricing as rules tighten.",
             "confidencePct": 77,
-            "evidenceCount": 5,
+            "evidenceCount": 4,
             "status": "Watch",
             "category": "Regulatory",
             "why": {
@@ -168510,11 +168666,6 @@
                 "url": "https://www.cnbctv18.com/business/finance/insurance-sector-new-rulebook-irdai-registration-shareholding-merger-norms-19958730.htm"
               },
               {
-                "kind": "Regulatory",
-                "name": "legal.economictimes.indiatimes.com",
-                "url": "https://legal.economictimes.indiatimes.com/news/litigation/motor-insurance-consider-issuing-circular-standardising-cross-border-coverage-clauses-sc-to-irdai/132519178"
-              },
-              {
                 "kind": "Market data",
                 "name": "Aditya Birla Capital Q4 & FY25 Results Press Release",
                 "url": "https://www.adityabirlacapital.com/-/media/ABCL/pdf/Quarterly-Results/Q4-FY-25/130525_ABCL-Results-Press-Release.ashx"
@@ -168536,85 +168687,6 @@
             "independentSources": 1
           },
           {
-            "id": "a5da5aaf50",
-            "entity": "Supreme Court asks IRDAI to consider master circular on cross-border motor cover clauses",
-            "stars": 3,
-            "reasoning": [
-              "Currently motor-focused, but signals continued judicial pressure on IRDAI to standardise policy wording and claims clarity — a template that could extend to health policy drafting and cashless practices sector-wide.",
-              "Solvency 1.84x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency."
-            ],
-            "whatToWatch": "The impact on claims cost, expense ratio and pricing as rules tighten.",
-            "confidencePct": 77,
-            "evidenceCount": 5,
-            "status": "Watch",
-            "category": "Regulatory",
-            "why": {
-              "whatHappened": "Supreme Court asks IRDAI to consider master circular on cross-border motor cover clauses",
-              "whyItMatters": "Currently motor-focused, but signals continued judicial pressure on IRDAI to standardise policy wording and claims clarity — a template that could extend to health policy drafting and cashless…",
-              "whoAffected": "Every standalone health insurer (SAHI) — pricing, product design and compliance cost.",
-              "historicalContext": "Solvency 1.84x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency.",
-              "potentialImpact": "Solvency vs the 1.5x regulatory floor",
-              "whatToWatch": "The impact on claims cost, expense ratio and pricing as rules tighten."
-            },
-            "action": {
-              "id": "regulation",
-              "label": "Check IRDAI on claims cost",
-              "icon": "regulation",
-              "target": {
-                "page": "sahi",
-                "sahiTab": "governance",
-                "company": "aditya-birla"
-              }
-            },
-            "isBreaking": false,
-            "isNew": false,
-            "freshness": "existing",
-            "freshnessLabel": "Existing context",
-            "publishedLabel": "20 Jul",
-            "discoveredLabel": "21 Jul",
-            "sources": [
-              {
-                "kind": "Regulatory",
-                "name": "legal.economictimes.indiatimes.com",
-                "url": "https://legal.economictimes.indiatimes.com/news/litigation/motor-insurance-consider-issuing-circular-standardising-cross-border-coverage-clauses-sc-to-irdai/132519178"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "business-standard.com",
-                "url": "https://www.business-standard.com/amp/finance/insurance/irdai-tightens-intermediary-rules-eases-insurers-investment-norms-126073101478_1.html"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "cnbctv18.com",
-                "url": "https://www.cnbctv18.com/business/finance/insurance-sector-new-rulebook-irdai-registration-shareholding-merger-norms-19958730.htm"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "indianexpress.com",
-                "url": "https://indianexpress.com/article/business/irdai-insurance-reforms-2026-sbsr-act-100-percent-fdi-protect-general-10809303/"
-              },
-              {
-                "kind": "Market data",
-                "name": "Aditya Birla Capital Q4 & FY25 Results Press Release",
-                "url": "https://www.adityabirlacapital.com/-/media/ABCL/pdf/Quarterly-Results/Q4-FY-25/130525_ABCL-Results-Press-Release.ashx"
-              }
-            ],
-            "impact": "Watch",
-            "scope": "sector",
-            "companyId": null,
-            "sourceUrl": "https://legal.economictimes.indiatimes.com/news/litigation/motor-insurance-consider-issuing-circular-standardising-cross-border-coverage-clauses-sc-to-irdai/132519178",
-            "sourceConfidence": "Medium",
-            "clusterSize": 1,
-            "clusterSources": [
-              {
-                "kind": "Regulatory",
-                "name": "legal.economictimes.indiatimes.com",
-                "url": "https://legal.economictimes.indiatimes.com/news/litigation/motor-insurance-consider-issuing-circular-standardising-cross-border-coverage-clauses-sc-to-irdai/132519178"
-              }
-            ],
-            "independentSources": 1
-          },
-          {
             "id": "8b9c716cee",
             "entity": "IRDAI grants 4th new insurer registration of CY2026 (ProTec General); one health insurer license also approved in 2026",
             "stars": 3,
@@ -168624,7 +168696,7 @@
             ],
             "whatToWatch": "The impact on claims cost, expense ratio and pricing as rules tighten.",
             "confidencePct": 74,
-            "evidenceCount": 5,
+            "evidenceCount": 4,
             "status": "Neutral",
             "category": "Regulatory",
             "why": {
@@ -168668,11 +168740,6 @@
                 "url": "https://www.cnbctv18.com/business/finance/insurance-sector-new-rulebook-irdai-registration-shareholding-merger-norms-19958730.htm"
               },
               {
-                "kind": "Regulatory",
-                "name": "legal.economictimes.indiatimes.com",
-                "url": "https://legal.economictimes.indiatimes.com/news/litigation/motor-insurance-consider-issuing-circular-standardising-cross-border-coverage-clauses-sc-to-irdai/132519178"
-              },
-              {
                 "kind": "Market data",
                 "name": "Aditya Birla Capital Q4 & FY25 Results Press Release",
                 "url": "https://www.adityabirlacapital.com/-/media/ABCL/pdf/Quarterly-Results/Q4-FY-25/130525_ABCL-Results-Press-Release.ashx"
@@ -168692,6 +168759,105 @@
               }
             ],
             "independentSources": 1
+          },
+          {
+            "id": "4ea823e336",
+            "entity": "<span style=\"color:#22C55E;font-weight:600\">Nomura retains 'Buy' on Star Health & Niva Bupa</span>",
+            "stars": 2,
+            "reasoning": [
+              "Nomura's \"21st Century Mahabharat\" thesis flags **more predictable loss ratios** sector-wide, reinforcing its bullish stance on both listed insurers.",
+              "Solvency 1.84x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency."
+            ],
+            "whatToWatch": "Whether the sector move feeds through to premium growth and pricing.",
+            "confidencePct": 64,
+            "evidenceCount": 5,
+            "status": "Neutral",
+            "category": "Sector Catalyst",
+            "why": {
+              "whatHappened": "<span style=\"color:#22C55E;font-weight:600\">Nomura retains 'Buy' on Star Health & Niva Bupa</span>",
+              "whyItMatters": "Nomura's \"21st Century Mahabharat\" thesis flags **more predictable loss ratios** sector-wide, reinforcing its bullish stance on both listed insurers.",
+              "whoAffected": "The broader health-insurance sector and its listed players.",
+              "historicalContext": "Solvency 1.84x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency.",
+              "potentialImpact": "Solvency vs the 1.5x regulatory floor",
+              "whatToWatch": "Whether the sector move feeds through to premium growth and pricing."
+            },
+            "action": {
+              "id": "margins",
+              "label": "Compare Aditya Birla margin",
+              "icon": "margins",
+              "target": {
+                "page": "sahi",
+                "sahiTab": "profitability",
+                "company": "aditya-birla",
+                "focus": {
+                  "id": "pulse-margins",
+                  "metricKey": "combined_ratio",
+                  "metricLabel": "Combined ratio",
+                  "company": "aditya-birla",
+                  "companyLabel": "Aditya Birla",
+                  "comparisonType": "YoY",
+                  "tone": "neutral",
+                  "insightLabel": "Underwriting margin — combined ratio",
+                  "unit": "%",
+                  "higherIsBetter": false,
+                  "sahiTab": "profitability",
+                  "origin": "pulse"
+                }
+              }
+            },
+            "isBreaking": false,
+            "isNew": false,
+            "freshLabel": "Newly surfaced",
+            "freshness": "newly-surfaced",
+            "freshnessLabel": "Newly surfaced",
+            "publishedLabel": "—",
+            "discoveredLabel": "1 Sep",
+            "sources": [
+              {
+                "kind": "News",
+                "name": "moneycontrol.com",
+                "url": "https://www.moneycontrol.com/news/business/stocks/nomura-retains-buy-on-star-health-niva-bupa-sees-more-predictable-loss-ratios-14019004.html)"
+              },
+              {
+                "kind": "News",
+                "name": "mediabrief.com",
+                "url": "https://mediabrief.com/aditya-birla-health-insurance-expands-distribution/)"
+              },
+              {
+                "kind": "News",
+                "name": "scanx.trade",
+                "url": "https://scanx.trade/stock-market-news/companies/niva-bupa-agm-approves-director-appointments-executive-pay-revisions/48098549)"
+              },
+              {
+                "kind": "News",
+                "name": "moneycontrol.com",
+                "url": "https://moneycontrol.com/news/business/stocks/niva-bupa-gains-as-nomura-maintains-buy-sees-strong-premium-growth-outlook-13991858.html)"
+              },
+              {
+                "kind": "News",
+                "name": "moneycontrol.com",
+                "url": "https://www.moneycontrol.com/news/business/stocks/star-health-q1-profit-beats-estimates-nomura-raises-target-price-to-rs-700-maintains-buy-13989958.html)"
+              }
+            ],
+            "impact": "Neutral",
+            "scope": "sector",
+            "companyId": null,
+            "sourceUrl": "https://www.moneycontrol.com/news/business/stocks/nomura-retains-buy-on-star-health-niva-bupa-sees-more-predictable-loss-ratios-14019004.html)",
+            "sourceConfidence": "Medium",
+            "clusterSize": 4,
+            "clusterSources": [
+              {
+                "kind": "News",
+                "name": "moneycontrol.com",
+                "url": "https://www.moneycontrol.com/news/business/stocks/nomura-retains-buy-on-star-health-niva-bupa-sees-more-predictable-loss-ratios-14019004.html)"
+              },
+              {
+                "kind": "News",
+                "name": "business-standard.com",
+                "url": "https://www.business-standard.com/amp/companies/news/bupa-open-to-raising-stake-in-niva-bupa-says-deputy-ceo-ankur-kharbanda-126072001360_1.html)"
+              }
+            ],
+            "independentSources": 2
           }
         ],
         "sinceDeltas": [
@@ -209920,10 +210086,10 @@
         "company": "ManipalCigna",
         "companyId": "manipalcigna",
         "generatedAt": "2026-09-01T07:15:41.712Z",
-        "lastUpdatedAt": "2026-09-01T07:15:41.712Z",
+        "lastUpdatedAt": "2026-09-01T14:30:56.920Z",
         "status": "Watch",
         "sourceConfidence": "Medium",
-        "itemCount": 6,
+        "itemCount": 12,
         "runs": [
           {
             "runTime": "2026-09-01T07:15:41.712Z",
@@ -209931,19 +210097,26 @@
             "sourceCount": 6,
             "ideas": 6,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-09-01T14:30:56.920Z",
+            "developments": 14,
+            "sourceCount": 12,
+            "ideas": 6,
+            "status": "ok"
           }
         ],
         "brief": {
-          "greeting": "Good morning",
+          "greeting": "Good afternoon",
           "narrative": "Regulatory pressure is the main watch item for health insurers today. ManipalCigna is under pressure on its market position, but claims-cost and conduct scrutiny will decide whether the strength is sustainable.",
           "attentionCount": 6,
-          "developmentsCount": 8,
-          "sourcesCount": 6,
-          "domainsCount": 5,
+          "developmentsCount": 14,
+          "sourcesCount": 12,
+          "domainsCount": 6,
           "confidencePct": 76,
           "confidenceTier": "Medium",
           "readingMins": 3,
-          "lastUpdatedLabel": "31 Aug, 05:20 pm"
+          "lastUpdatedLabel": "1 Sep, 02:24 pm"
         },
         "message": {
           "since": "No company-specific movement for ManipalCigna since the last brief — the read below is sector & regulatory context that applies across standalone health insurers.",
@@ -209967,7 +210140,7 @@
             ],
             "whatToWatch": "IRDAI mis-selling / distribution-conduct rules",
             "confidencePct": 77,
-            "evidenceCount": 5,
+            "evidenceCount": 4,
             "status": "Watch",
             "category": "Regulatory",
             "why": {
@@ -210011,11 +210184,6 @@
                 "url": "https://indianexpress.com/article/business/irdai-insurance-reforms-2026-sbsr-act-100-percent-fdi-protect-general-10809303/"
               },
               {
-                "kind": "Regulatory",
-                "name": "legal.economictimes.indiatimes.com",
-                "url": "https://legal.economictimes.indiatimes.com/news/litigation/motor-insurance-consider-issuing-circular-standardising-cross-border-coverage-clauses-sc-to-irdai/132519178"
-              },
-              {
                 "kind": "Market data",
                 "name": "ManipalCigna FY25 Public Disclosures",
                 "url": "https://www.manipalcigna.com/disclosures/public-disclosures"
@@ -210046,7 +210214,7 @@
             ],
             "whatToWatch": "The impact on claims cost, expense ratio and pricing as rules tighten.",
             "confidencePct": 77,
-            "evidenceCount": 5,
+            "evidenceCount": 4,
             "status": "Watch",
             "category": "Regulatory",
             "why": {
@@ -210090,11 +210258,6 @@
                 "url": "https://indianexpress.com/article/business/irdai-insurance-reforms-2026-sbsr-act-100-percent-fdi-protect-general-10809303/"
               },
               {
-                "kind": "Regulatory",
-                "name": "legal.economictimes.indiatimes.com",
-                "url": "https://legal.economictimes.indiatimes.com/news/litigation/motor-insurance-consider-issuing-circular-standardising-cross-border-coverage-clauses-sc-to-irdai/132519178"
-              },
-              {
                 "kind": "Market data",
                 "name": "ManipalCigna FY25 Public Disclosures",
                 "url": "https://www.manipalcigna.com/disclosures/public-disclosures"
@@ -210125,7 +210288,7 @@
             ],
             "whatToWatch": "The impact on claims cost, expense ratio and pricing as rules tighten.",
             "confidencePct": 77,
-            "evidenceCount": 5,
+            "evidenceCount": 4,
             "status": "Watch",
             "category": "Regulatory",
             "why": {
@@ -210169,11 +210332,6 @@
                 "url": "https://www.cnbctv18.com/business/finance/insurance-sector-new-rulebook-irdai-registration-shareholding-merger-norms-19958730.htm"
               },
               {
-                "kind": "Regulatory",
-                "name": "legal.economictimes.indiatimes.com",
-                "url": "https://legal.economictimes.indiatimes.com/news/litigation/motor-insurance-consider-issuing-circular-standardising-cross-border-coverage-clauses-sc-to-irdai/132519178"
-              },
-              {
                 "kind": "Market data",
                 "name": "ManipalCigna FY25 Public Disclosures",
                 "url": "https://www.manipalcigna.com/disclosures/public-disclosures"
@@ -210195,85 +210353,6 @@
             "independentSources": 1
           },
           {
-            "id": "a5da5aaf50",
-            "entity": "Supreme Court asks IRDAI to consider master circular on cross-border motor cover clauses",
-            "stars": 3,
-            "reasoning": [
-              "Currently motor-focused, but signals continued judicial pressure on IRDAI to standardise policy wording and claims clarity — a template that could extend to health policy drafting and cashless practices sector-wide.",
-              "Solvency 1.7x vs the 1.5x floor — headroom is thinner; watch solvency alongside regulation."
-            ],
-            "whatToWatch": "The impact on claims cost, expense ratio and pricing as rules tighten.",
-            "confidencePct": 77,
-            "evidenceCount": 5,
-            "status": "Watch",
-            "category": "Regulatory",
-            "why": {
-              "whatHappened": "Supreme Court asks IRDAI to consider master circular on cross-border motor cover clauses",
-              "whyItMatters": "Currently motor-focused, but signals continued judicial pressure on IRDAI to standardise policy wording and claims clarity — a template that could extend to health policy drafting and cashless…",
-              "whoAffected": "Every standalone health insurer (SAHI) — pricing, product design and compliance cost.",
-              "historicalContext": "Solvency 1.7x vs the 1.5x floor — headroom is thinner; watch solvency alongside regulation.",
-              "potentialImpact": "Solvency sits close enough to the floor that a capital raise or slower growth is a live possibility.",
-              "whatToWatch": "The impact on claims cost, expense ratio and pricing as rules tighten."
-            },
-            "action": {
-              "id": "regulation",
-              "label": "Check IRDAI on claims cost",
-              "icon": "regulation",
-              "target": {
-                "page": "sahi",
-                "sahiTab": "governance",
-                "company": "manipalcigna"
-              }
-            },
-            "isBreaking": false,
-            "isNew": false,
-            "freshness": "existing",
-            "freshnessLabel": "Existing context",
-            "publishedLabel": "20 Jul",
-            "discoveredLabel": "21 Jul",
-            "sources": [
-              {
-                "kind": "Regulatory",
-                "name": "legal.economictimes.indiatimes.com",
-                "url": "https://legal.economictimes.indiatimes.com/news/litigation/motor-insurance-consider-issuing-circular-standardising-cross-border-coverage-clauses-sc-to-irdai/132519178"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "business-standard.com",
-                "url": "https://www.business-standard.com/amp/finance/insurance/irdai-tightens-intermediary-rules-eases-insurers-investment-norms-126073101478_1.html"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "cnbctv18.com",
-                "url": "https://www.cnbctv18.com/business/finance/insurance-sector-new-rulebook-irdai-registration-shareholding-merger-norms-19958730.htm"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "indianexpress.com",
-                "url": "https://indianexpress.com/article/business/irdai-insurance-reforms-2026-sbsr-act-100-percent-fdi-protect-general-10809303/"
-              },
-              {
-                "kind": "Market data",
-                "name": "ManipalCigna FY25 Public Disclosures",
-                "url": "https://www.manipalcigna.com/disclosures/public-disclosures"
-              }
-            ],
-            "impact": "Watch",
-            "scope": "sector",
-            "companyId": null,
-            "sourceUrl": "https://legal.economictimes.indiatimes.com/news/litigation/motor-insurance-consider-issuing-circular-standardising-cross-border-coverage-clauses-sc-to-irdai/132519178",
-            "sourceConfidence": "Medium",
-            "clusterSize": 1,
-            "clusterSources": [
-              {
-                "kind": "Regulatory",
-                "name": "legal.economictimes.indiatimes.com",
-                "url": "https://legal.economictimes.indiatimes.com/news/litigation/motor-insurance-consider-issuing-circular-standardising-cross-border-coverage-clauses-sc-to-irdai/132519178"
-              }
-            ],
-            "independentSources": 1
-          },
-          {
             "id": "8b9c716cee",
             "entity": "IRDAI grants 4th new insurer registration of CY2026 (ProTec General); one health insurer license also approved in 2026",
             "stars": 3,
@@ -210283,7 +210362,7 @@
             ],
             "whatToWatch": "The impact on claims cost, expense ratio and pricing as rules tighten.",
             "confidencePct": 74,
-            "evidenceCount": 5,
+            "evidenceCount": 4,
             "status": "Neutral",
             "category": "Regulatory",
             "why": {
@@ -210327,11 +210406,6 @@
                 "url": "https://www.cnbctv18.com/business/finance/insurance-sector-new-rulebook-irdai-registration-shareholding-merger-norms-19958730.htm"
               },
               {
-                "kind": "Regulatory",
-                "name": "legal.economictimes.indiatimes.com",
-                "url": "https://legal.economictimes.indiatimes.com/news/litigation/motor-insurance-consider-issuing-circular-standardising-cross-border-coverage-clauses-sc-to-irdai/132519178"
-              },
-              {
                 "kind": "Market data",
                 "name": "ManipalCigna FY25 Public Disclosures",
                 "url": "https://www.manipalcigna.com/disclosures/public-disclosures"
@@ -210353,74 +210427,194 @@
             "independentSources": 1
           },
           {
-            "id": "1af35ac86d",
-            "entity": "ManipalCigna",
-            "stars": 3,
+            "id": "4ea823e336",
+            "entity": "<span style=\"color:#22C55E;font-weight:600\">Nomura retains 'Buy' on Star Health & Niva Bupa</span>",
+            "stars": 2,
             "reasoning": [
-              "Unlisted peer's MD/CEO Joydeep Saha cites tier-2/3 penetration and retail-led growth as the key differentiator — relevant benchmark for Niva Bupa's own retail growth narrative and tier-3/4 expansion plans.",
-              "Management plan, execution credibility and future catalysts."
+              "Nomura's \"21st Century Mahabharat\" thesis flags **more predictable loss ratios** sector-wide, reinforcing its bullish stance on both listed insurers.",
+              "Solvency 1.7x vs the 1.5x floor — headroom is thinner; watch solvency alongside regulation."
             ],
-            "whatToWatch": "Execution and continuity after the leadership change.",
-            "confidencePct": 71,
-            "evidenceCount": 1,
-            "status": "Watch",
-            "category": "Management",
+            "whatToWatch": "Whether the sector move feeds through to premium growth and pricing.",
+            "confidencePct": 64,
+            "evidenceCount": 5,
+            "status": "Neutral",
+            "category": "Sector Catalyst",
             "why": {
-              "whatHappened": "ManipalCigna Q1 FY27: GWP +32% YoY, retail +46%, SME group biz +70%",
-              "whyItMatters": "Unlisted peer's MD/CEO Joydeep Saha cites tier-2/3 penetration and retail-led growth as the key differentiator — relevant benchmark for Niva Bupa's own retail growth narrative and tier-3/4 expansion…",
-              "whoAffected": "ManipalCigna's board, leadership continuity and its shareholders.",
-              "historicalContext": "Management plan, execution credibility and future catalysts.",
-              "potentialImpact": "Execution and continuity after the leadership change.",
-              "whatToWatch": "Execution and continuity after the leadership change."
+              "whatHappened": "<span style=\"color:#22C55E;font-weight:600\">Nomura retains 'Buy' on Star Health & Niva Bupa</span>",
+              "whyItMatters": "Nomura's \"21st Century Mahabharat\" thesis flags **more predictable loss ratios** sector-wide, reinforcing its bullish stance on both listed insurers.",
+              "whoAffected": "The broader health-insurance sector and its listed players.",
+              "historicalContext": "Solvency 1.7x vs the 1.5x floor — headroom is thinner; watch solvency alongside regulation.",
+              "potentialImpact": "Solvency sits close enough to the floor that a capital raise or slower growth is a live possibility.",
+              "whatToWatch": "Whether the sector move feeds through to premium growth and pricing."
             },
             "action": {
-              "id": "ownership",
-              "label": "Review ManipalCigna ownership",
-              "icon": "ownership",
+              "id": "margins",
+              "label": "Compare ManipalCigna margin",
+              "icon": "margins",
               "target": {
                 "page": "sahi",
-                "sahiTab": "governance",
+                "sahiTab": "profitability",
                 "company": "manipalcigna",
                 "focus": {
-                  "id": "pulse-ownership",
-                  "metricKey": "promoter_holding",
-                  "metricLabel": "Promoter holding",
+                  "id": "pulse-margins",
+                  "metricKey": "combined_ratio",
+                  "metricLabel": "Combined ratio",
                   "company": "manipalcigna",
                   "companyLabel": "ManipalCigna",
-                  "comparisonType": "sequential",
+                  "comparisonType": "YoY",
                   "tone": "neutral",
-                  "insightLabel": "Ownership — promoter holding trend",
+                  "insightLabel": "Underwriting margin — combined ratio",
                   "unit": "%",
-                  "higherIsBetter": true,
-                  "sahiTab": "governance",
+                  "higherIsBetter": false,
+                  "sahiTab": "profitability",
                   "origin": "pulse"
                 }
               }
             },
             "isBreaking": false,
             "isNew": false,
-            "freshness": "existing",
-            "freshnessLabel": "Existing context",
-            "publishedLabel": "24 Jul",
-            "discoveredLabel": "29 Jul",
+            "freshLabel": "Newly surfaced",
+            "freshness": "newly-surfaced",
+            "freshnessLabel": "Newly surfaced",
+            "publishedLabel": "—",
+            "discoveredLabel": "1 Sep",
             "sources": [
               {
-                "kind": "Filing",
-                "name": "thehindubusinessline.com",
-                "url": "https://www.thehindubusinessline.com/money-and-banking/cignas-vast-experience-helps-manipalcigna-health-insurance-maintain-right-balance-when-designing-products-pricing-strategies-says-md-ceo-joydeep-saha/article71262737.ece"
+                "kind": "News",
+                "name": "moneycontrol.com",
+                "url": "https://www.moneycontrol.com/news/business/stocks/nomura-retains-buy-on-star-health-niva-bupa-sees-more-predictable-loss-ratios-14019004.html)"
+              },
+              {
+                "kind": "News",
+                "name": "mediabrief.com",
+                "url": "https://mediabrief.com/aditya-birla-health-insurance-expands-distribution/)"
+              },
+              {
+                "kind": "News",
+                "name": "scanx.trade",
+                "url": "https://scanx.trade/stock-market-news/companies/niva-bupa-agm-approves-director-appointments-executive-pay-revisions/48098549)"
+              },
+              {
+                "kind": "News",
+                "name": "moneycontrol.com",
+                "url": "https://moneycontrol.com/news/business/stocks/niva-bupa-gains-as-nomura-maintains-buy-sees-strong-premium-growth-outlook-13991858.html)"
+              },
+              {
+                "kind": "News",
+                "name": "moneycontrol.com",
+                "url": "https://www.moneycontrol.com/news/business/stocks/star-health-q1-profit-beats-estimates-nomura-raises-target-price-to-rs-700-maintains-buy-13989958.html)"
               }
             ],
-            "impact": "Watch",
-            "scope": "company",
-            "companyId": "manipalcigna",
-            "sourceUrl": "https://www.thehindubusinessline.com/money-and-banking/cignas-vast-experience-helps-manipalcigna-health-insurance-maintain-right-balance-when-designing-products-pricing-strategies-says-md-ceo-joydeep-saha/article71262737.ece",
+            "impact": "Neutral",
+            "scope": "sector",
+            "companyId": null,
+            "sourceUrl": "https://www.moneycontrol.com/news/business/stocks/nomura-retains-buy-on-star-health-niva-bupa-sees-more-predictable-loss-ratios-14019004.html)",
+            "sourceConfidence": "Medium",
+            "clusterSize": 4,
+            "clusterSources": [
+              {
+                "kind": "News",
+                "name": "moneycontrol.com",
+                "url": "https://www.moneycontrol.com/news/business/stocks/nomura-retains-buy-on-star-health-niva-bupa-sees-more-predictable-loss-ratios-14019004.html)"
+              },
+              {
+                "kind": "News",
+                "name": "business-standard.com",
+                "url": "https://www.business-standard.com/amp/companies/news/bupa-open-to-raising-stake-in-niva-bupa-says-deputy-ceo-ankur-kharbanda-126072001360_1.html)"
+              }
+            ],
+            "independentSources": 2
+          },
+          {
+            "id": "65d639e89a",
+            "entity": "<span style=\"color:#F59E0B;font-weight:600\">Aditya Birla Health signs ICAI distribution tie-up</span>",
+            "stars": 2,
+            "reasoning": [
+              "New institutional channel targets **12.32 lakh** CA students + **4.67 lakh** CA members — rising competitive intensity in the affinity-distribution space Niva Bupa and Star Health also compete in.",
+              "Solvency 1.7x vs the 1.5x floor — headroom is thinner; watch solvency alongside regulation."
+            ],
+            "whatToWatch": "IRDAI mis-selling / distribution-conduct rules",
+            "confidencePct": 64,
+            "evidenceCount": 5,
+            "status": "Neutral",
+            "category": "Sector Catalyst",
+            "why": {
+              "whatHappened": "<span style=\"color:#F59E0B;font-weight:600\">Aditya Birla Health signs ICAI distribution tie-up</span>",
+              "whyItMatters": "New institutional channel targets **12.32 lakh** CA students + **4.67 lakh** CA members — rising competitive intensity in the affinity-distribution space Niva Bupa and Star Health also compete in.",
+              "whoAffected": "The broader health-insurance sector and its listed players.",
+              "historicalContext": "Solvency 1.7x vs the 1.5x floor — headroom is thinner; watch solvency alongside regulation.",
+              "potentialImpact": "Solvency sits close enough to the floor that a capital raise or slower growth is a live possibility.",
+              "whatToWatch": "IRDAI mis-selling / distribution-conduct rules"
+            },
+            "action": {
+              "id": "margins",
+              "label": "Compare ManipalCigna margin",
+              "icon": "margins",
+              "target": {
+                "page": "sahi",
+                "sahiTab": "profitability",
+                "company": "manipalcigna",
+                "focus": {
+                  "id": "pulse-margins",
+                  "metricKey": "combined_ratio",
+                  "metricLabel": "Combined ratio",
+                  "company": "manipalcigna",
+                  "companyLabel": "ManipalCigna",
+                  "comparisonType": "YoY",
+                  "tone": "neutral",
+                  "insightLabel": "Underwriting margin — combined ratio",
+                  "unit": "%",
+                  "higherIsBetter": false,
+                  "sahiTab": "profitability",
+                  "origin": "pulse"
+                }
+              }
+            },
+            "isBreaking": false,
+            "isNew": false,
+            "freshLabel": "Newly surfaced",
+            "freshness": "newly-surfaced",
+            "freshnessLabel": "Newly surfaced",
+            "publishedLabel": "—",
+            "discoveredLabel": "1 Sep",
+            "sources": [
+              {
+                "kind": "News",
+                "name": "mediabrief.com",
+                "url": "https://mediabrief.com/aditya-birla-health-insurance-expands-distribution/)"
+              },
+              {
+                "kind": "News",
+                "name": "moneycontrol.com",
+                "url": "https://www.moneycontrol.com/news/business/stocks/nomura-retains-buy-on-star-health-niva-bupa-sees-more-predictable-loss-ratios-14019004.html)"
+              },
+              {
+                "kind": "News",
+                "name": "scanx.trade",
+                "url": "https://scanx.trade/stock-market-news/companies/niva-bupa-agm-approves-director-appointments-executive-pay-revisions/48098549)"
+              },
+              {
+                "kind": "News",
+                "name": "moneycontrol.com",
+                "url": "https://moneycontrol.com/news/business/stocks/niva-bupa-gains-as-nomura-maintains-buy-sees-strong-premium-growth-outlook-13991858.html)"
+              },
+              {
+                "kind": "News",
+                "name": "moneycontrol.com",
+                "url": "https://www.moneycontrol.com/news/business/stocks/star-health-q1-profit-beats-estimates-nomura-raises-target-price-to-rs-700-maintains-buy-13989958.html)"
+              }
+            ],
+            "impact": "Neutral",
+            "scope": "sector",
+            "companyId": null,
+            "sourceUrl": "https://mediabrief.com/aditya-birla-health-insurance-expands-distribution/)",
             "sourceConfidence": "Medium",
             "clusterSize": 1,
             "clusterSources": [
               {
-                "kind": "Filing",
-                "name": "thehindubusinessline.com",
-                "url": "https://www.thehindubusinessline.com/money-and-banking/cignas-vast-experience-helps-manipalcigna-health-insurance-maintain-right-balance-when-designing-products-pricing-strategies-says-md-ceo-joydeep-saha/article71262737.ece"
+                "kind": "News",
+                "name": "mediabrief.com",
+                "url": "https://mediabrief.com/aditya-birla-health-insurance-expands-distribution/)"
               }
             ],
             "independentSources": 1
@@ -210485,6 +210679,30 @@
         "events": [],
         "actions": [
           {
+            "id": "margins",
+            "label": "Compare ManipalCigna margin",
+            "icon": "margins",
+            "target": {
+              "page": "sahi",
+              "sahiTab": "profitability",
+              "company": "manipalcigna",
+              "focus": {
+                "id": "pulse-margins",
+                "metricKey": "combined_ratio",
+                "metricLabel": "Combined ratio",
+                "company": "manipalcigna",
+                "companyLabel": "ManipalCigna",
+                "comparisonType": "YoY",
+                "tone": "neutral",
+                "insightLabel": "Underwriting margin — combined ratio",
+                "unit": "%",
+                "higherIsBetter": false,
+                "sahiTab": "profitability",
+                "origin": "pulse"
+              }
+            }
+          },
+          {
             "id": "source",
             "label": "Verify ManipalCigna sources",
             "icon": "source",
@@ -210511,6 +210729,6 @@
     "snapshot_id": "pulse-brief-archive",
     "description": "Immutable per-calendar-day Pulse brief records (IST), one per company. Past days are frozen exactly as shown that day; the live Today view recomposes. Kept ~90 days per company.",
     "last_updated": "2026-09-01",
-    "last_successful_run": "2026-09-01T07:15:41.712Z"
+    "last_successful_run": "2026-09-01T14:30:56.920Z"
   }
 }
