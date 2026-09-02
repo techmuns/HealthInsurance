@@ -32,10 +32,10 @@ REBUILD="${1:-}"
 # Artefacts that are a pure function of the committed source data — safe to
 # resolve by rebuilding.
 GENERATED_RE='^(data/processed/|src/data/snapshots/extracted-data-audit\.json|src/data/snapshots/ifrs-valuation-multiples\.json|schema-map\.json|templates/)'
-# Accumulating STATUS files: each run updates only the sources it ran, so
+# Accumulating STATUS / LINEAGE files: each run updates only the keys it ran, so
 # neither side of a race is wholly right and neither can be rebuilt (that would
 # mean re-running the fetchers). These are merged key-by-key instead.
-MERGEABLE_RE='^(src/data/snapshots/data-health\.json|src/data/snapshots/watchdog-streaks\.json)$'
+MERGEABLE_RE='^(src/data/snapshots/data-health\.json|src/data/snapshots/watchdog-streaks\.json|src/data/snapshots/data-provenance\.json)$'
 # Anything outside BOTH sets needs a human.
 
 rebuild_and_stage() {

@@ -14,6 +14,11 @@ Merging them by key is the only resolution that loses nothing:
     last_attempt_at (the more recent observation of that source).
   * watchdog-streaks        — per source_id, keep the LONGER bad-run streak,
     so a race can never shorten a streak and delay an alert.
+  * data-provenance.entries — per "<metric>::<company>::<period>" key, keep
+    the entry with the later fetched_at. Every fetcher that lands a value adds
+    its own keys here, so two racing runs hold disjoint fresh keys and taking
+    either wholesale drops the other run's proof (this is what failed the
+    2026-09-02 ingest push after QA had passed).
 
 Usage: merge-status-json.py <path> <ours.json> <theirs.json>
 Writes the merged document to <path>. On anything unexpected it exits
@@ -66,6 +71,21 @@ def merge_streaks(ours: dict, theirs: dict) -> dict:
     return out
 
 
+def merge_provenance(ours: dict, theirs: dict) -> dict:
+    out = dict(theirs)
+    entries: dict[str, dict] = {}
+    for side in (ours, theirs):
+        for key, entry in (side.get("entries") or {}).items():
+            entries[key] = newer(entries.get(key), entry, "fetched_at") if key in entries else entry
+    out["entries"] = {k: entries[k] for k in sorted(entries)}
+    meta = dict(theirs.get("_meta") or ours.get("_meta") or {})
+    lu = max((side.get("_meta") or {}).get("last_updated") or "" for side in (ours, theirs))
+    if lu:
+        meta["last_updated"] = lu
+    out["_meta"] = meta
+    return out
+
+
 def main() -> int:
     path, ours_f, theirs_f = Path(sys.argv[1]), Path(sys.argv[2]), Path(sys.argv[3])
     ours, theirs = json.loads(ours_f.read_text()), json.loads(theirs_f.read_text())
@@ -74,6 +94,8 @@ def main() -> int:
         merged = merge_health(ours, theirs)
     elif name == "watchdog-streaks.json":
         merged = merge_streaks(ours, theirs)
+    elif name == "data-provenance.json":
+        merged = merge_provenance(ours, theirs)
     else:
         print(f"merge-status-json: no rule for {name}", file=sys.stderr)
         return 2
