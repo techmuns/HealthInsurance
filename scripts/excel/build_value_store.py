@@ -443,8 +443,20 @@ def collect_existing():
         if not (q and fy):
             continue
         period = f"{q}{fy}"
+        # Premium legs the quarterly-premium agent auto-filled carry their own
+        # provenance under `premium_provenance` (the row's `provenance` block, when
+        # present, describes the ratio/PAT filing, not the agent pull). Reading the
+        # wrong block gave those legs NO source at all (name=None, url=None) and
+        # failed the QA gate's provenance rule on every run from 2026-08-20.
+        pp = r.get("premium_provenance") or {}
+        auto_filled = set(pp.get("auto_filled") or [])
         for field, metric, tf, unit in QUARTERLY_MAP:
-            snap_candidate(r["company_id"], metric, period, r.get(field), tf, unit, prov)
+            field_prov = prov
+            if field in auto_filled:
+                per_metric_url = (pp.get("sources") or {}).get(field)
+                field_prov = {**pp, "source_url": per_metric_url or pp.get("source_url"),
+                              "fetched_at": pp.get("fetched_at") or pp.get("agent_last_run")}
+            snap_candidate(r["company_id"], metric, period, r.get(field), tf, unit, field_prov)
     for r in load("industry-segment-premium"):
         # ANNUAL rows only: the snapshot also carries monthly flow rows (period
         # "2026-01" + a fiscal_year tag) whose single-month values must never
@@ -1090,6 +1102,44 @@ def withhold_premium_waterfall_violations(store):
     return held
 
 
+def withhold_unsourced_values(store):
+    """Withhold any resolved value that has no named source or no source link.
+
+    The QA gate's H1 rule is hard: every audited value must name its source and
+    link to it (analyst-entered workbook figures are the one sanctioned
+    exception - a real, named provenance with no external link). A value that
+    reaches the store without that proof would fail every gated pipeline's
+    commit step and freeze unrelated data - exactly what four agent-filled Star
+    Health premium legs did to gic-segment-monthly from 2026-08-20 (13 days of
+    red runs, nothing committed). Withhold it here instead: the cell reads
+    missing (never zero), the figure and whatever proof it has land on Blocked
+    Data, and the pipeline keeps publishing everything else.
+    """
+    held = []
+    for key in sorted(store):
+        v = store[key]
+        name, url = v.get("source_name"), v.get("source_url")
+        analyst_entered = isinstance(name, str) and "analyst-entered" in name.lower()
+        if name and (url or analyst_entered):
+            continue
+        entity, metric, period = key.split("::", 2)
+        store.pop(key)
+        missing = "source name" if not name else "source link"
+        held.append({
+            "company_id": entity, "metric": metric, "raw_value": v.get("raw_value"),
+            "normalized_value": v.get("normalized_value"), "unit": v.get("unit"),
+            "filing_period": period, "document_type": v.get("document_type"),
+            "document_title": v.get("document_title"), "filing_date": v.get("filing_date"),
+            "source_url": url, "source_file": v.get("source_file"),
+            "confidence": v.get("confidence"),
+            "hold_reason": "provenance_missing",
+            "source_description": name,
+            "note": (f"no {missing} recorded for this value ({v.get('source_layer')}); "
+                     "withheld until a linked source exists - the cell reads missing, never zero"),
+        })
+    return held
+
+
 def main():
     collect_existing()
     collect_shareholding()  # rank-1 per-holder shareholding shares (Captable tab)
@@ -1109,6 +1159,9 @@ def main():
     # full source proof rather than shown — and so never hard-fail the QA gate.
     waterfall_held = withhold_premium_waterfall_violations(store)
     held = held + waterfall_held
+    # A value that cannot NAME its source and LINK to it is not shown (same rule
+    # the QA gate enforces as hard H1) — it is withheld with whatever proof it has.
+    held = held + withhold_unsourced_values(store)
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(json.dumps(store, indent=2, ensure_ascii=False))
     OUT_HELD.write_text(json.dumps({
@@ -1122,7 +1175,8 @@ def main():
                         "basis_mismatch_ex_1n_adjusted": "ex-1/n / management-adjusted ratio superseded by the statutory 1/n value for the Excel cell",
                         "superseded_by_statutory_filing": "as-originally-reported premium superseded by the statutory NL-1 filing (restated comparative); statutory value fills the cell",
                         "period_unclear": "premium amount whose NL-form column basis does not match the cell's period (quarter vs full-period); withheld so it is not promoted into the wrong cell",
-                        "fails_premium_invariant": "premium leg that breaks GWP >= NWP >= NEP for its period - the extractor read the wrong row of the filing; withheld (cell reads missing, never zero) instead of publishing a number that cannot be true"},
+                        "fails_premium_invariant": "premium leg that breaks GWP >= NWP >= NEP for its period - the extractor read the wrong row of the filing; withheld (cell reads missing, never zero) instead of publishing a number that cannot be true",
+                        "provenance_missing": "value arrived without a named source and/or a source link (e.g. an agent pull that did not return where the figure came from); withheld until a linked source exists - the cell reads missing, never zero"},
         },
         "data": held,
     }, indent=2, ensure_ascii=False))

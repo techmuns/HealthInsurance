@@ -50,12 +50,13 @@ function buildPayload() {
     tasks: [
       'For the two listed Indian health insurers Niva Bupa (NSE: NIVABUPA) and Star Health (NSE: STARHEALTH), give me their reported QUARTERLY premium for the last ~8 quarters (FY25 Q1 through the latest filed quarter). I need two measures per quarter from the company results / IRDAI quarterly Revenue Account (NL forms): NWP = Net Written Premium, and NEP = Net Earned Premium (premium earned, net). Use ONLY real published figures — if a quarter is not yet filed, LEAVE IT OUT, never guess.\n\n' +
         'Return ONLY a pipe-delimited table, no leading/trailing pipe, EXACTLY these columns:\n\n' +
-        'company | fiscal_year | quarter | metric | value\n\n' +
+        'company | fiscal_year | quarter | metric | value | source_url\n\n' +
         'company = "NIVABUPA" or "STARHEALTH".\n' +
         'fiscal_year = "FY26" etc. (Indian FY ends 31 March).\n' +
         'quarter = "Q1" | "Q2" | "Q3" | "Q4".\n' +
         'metric = "nwp" or "nep".\n' +
         'value = Rs CRORE for that single quarter (digits only). Niva ref: Q4 FY26 NEP ≈ 1972.\n' +
+        'source_url = the full https:// link to the published document the figure is read from (company results PDF / investor page / IRDAI public disclosure). A row WITHOUT a real link is useless — omit it.\n' +
         'One row per (company, fiscal_year, quarter, metric). Newest first.',
     ],
     query_context: {
@@ -106,6 +107,16 @@ export interface QFigure {
   quarter: string
   metric: Metric
   value: number
+  sourceUrl: string
+}
+
+// Every saved figure must carry a real link to where it was read from — the
+// workbook's QA gate withholds any value that cannot name AND link its source,
+// so an unlinked figure would only ever sit on Blocked Data. Better to leave the
+// cell honestly blank and try again next run.
+const urlOf = (s: string | undefined): string | null => {
+  const m = (s ?? '').match(/https?:\/\/[^\s|<>"')\]]+/i)
+  return m ? m[0] : null
 }
 
 export function parseFigures(answer: string): QFigure[] {
@@ -127,9 +138,19 @@ export function parseFigures(answer: string): QFigure[] {
     if (!METRICS.includes(metric)) continue
     const value = numOf(cells[4])
     if (value == null || value < BOUNDS.min || value > BOUNDS.max) continue
-    out.push({ companyId, fy, quarter, metric, value })
+    const sourceUrl = urlOf(cells[5])
+    if (!sourceUrl) continue // unlinked figure: never saved, never fabricated a source for
+    out.push({ companyId, fy, quarter, metric, value, sourceUrl })
   }
   return out
+}
+
+export function isUnlinkedAutoFill(row: QRow, metric: Metric): boolean {
+  const prov = (row.premium_provenance ?? {}) as Record<string, unknown>
+  const autoFilled = (prov.auto_filled as string[]) ?? []
+  if (!autoFilled.includes(metric)) return false
+  const perMetric = (prov.sources as Record<string, string> | undefined)?.[metric]
+  return !perMetric && !prov.source_url
 }
 
 export async function main(): Promise<number> {
@@ -156,7 +177,11 @@ export async function main(): Promise<number> {
       console.log(`Parsed ${figures.length} candidate figure(s).`)
       for (const f of figures) {
         let row = byKey.get(keyOf(f.companyId, f.fy, f.quarter))
-        if (row && row[f.metric] != null) continue // ADD-ONLY — never overwrite
+        // ADD-ONLY — never overwrite a populated cell. The one exception is a
+        // value this agent itself filled earlier WITHOUT a link (pre-2026-09
+        // runs recorded no source_url): that value is withheld from the workbook
+        // anyway, so a linked figure for the same cell replaces it.
+        if (row && row[f.metric] != null && !isUnlinkedAutoFill(row, f.metric)) continue
         if (!row) {
           row = { company_id: f.companyId, fiscal_year: f.fy, quarter: f.quarter, period_type: 'quarterly', gwp: null, nwp: null, nep: null }
           byKey.set(keyOf(f.companyId, f.fy, f.quarter), row)
@@ -164,11 +189,15 @@ export async function main(): Promise<number> {
         }
         row[f.metric] = f.value
         const prov = (row.premium_provenance ?? {}) as Record<string, unknown>
+        const sources = { ...((prov.sources as Record<string, string>) ?? {}), [f.metric]: f.sourceUrl }
         row.premium_provenance = {
           ...prov,
           source_name: (prov.source_name as string) ?? 'Auto-filled by the muns web agent from company quarterly results',
+          source_url: f.sourceUrl,
+          sources, // per-metric link: the workbook cites the exact document each leg was read from
           auto_filled: [...new Set([...((prov.auto_filled as string[]) ?? []), f.metric])],
           confidence: 'medium',
+          fetched_at,
           agent_last_run: fetched_at,
         }
         filled += 1
