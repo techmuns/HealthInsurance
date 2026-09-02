@@ -10,7 +10,8 @@
       "basis_mismatch_ex_1n_adjusted": "ex-1/n / management-adjusted ratio superseded by the statutory 1/n value for the Excel cell",
       "superseded_by_statutory_filing": "as-originally-reported premium superseded by the statutory NL-1 filing (restated comparative); statutory value fills the cell",
       "period_unclear": "premium amount whose NL-form column basis does not match the cell's period (quarter vs full-period); withheld so it is not promoted into the wrong cell",
-      "fails_premium_invariant": "premium leg that breaks GWP >= NWP >= NEP for its period - the extractor read the wrong row of the filing; withheld (cell reads missing, never zero) instead of publishing a number that cannot be true"
+      "fails_premium_invariant": "premium leg that breaks GWP >= NWP >= NEP for its period - the extractor read the wrong row of the filing; withheld (cell reads missing, never zero) instead of publishing a number that cannot be true",
+      "provenance_missing": "value arrived without a named source and/or a source link (e.g. an agent pull that did not return where the figure came from); withheld until a linked source exists - the cell reads missing, never zero"
     }
   },
   "data": [
@@ -198,6 +199,91 @@
       "hold_reason": "fails_premium_invariant",
       "source_description": "Care Health Insurance IRDAI Public Disclosure Q1 FY24-25 (NL-1/NL-4)",
       "note": "breaks GWP >= NWP >= NEP for Q1FY25 (same filing reports GWP 1,931.12, NEP 1,445.22); the row read is not the one the cell needs, so the value is withheld rather than shown — the cell reads missing, never zero"
+    },
+    {
+      "company_id": "star-health",
+      "metric": "nep",
+      "raw_value": 3798.3,
+      "normalized_value": 3798.3,
+      "unit": "INR_cr",
+      "filing_period": "Q4FY25",
+      "document_type": null,
+      "document_title": null,
+      "filing_date": null,
+      "source_url": null,
+      "source_file": null,
+      "confidence": "medium",
+      "hold_reason": "provenance_missing",
+      "source_description": "Auto-filled by the muns web agent from company quarterly results",
+      "note": "no source link recorded for this value (official_snapshot); withheld until a linked source exists - the cell reads missing, never zero"
+    },
+    {
+      "company_id": "star-health",
+      "metric": "nep",
+      "raw_value": 4327.2,
+      "normalized_value": 4327.2,
+      "unit": "INR_cr",
+      "filing_period": "Q4FY26",
+      "document_type": null,
+      "document_title": null,
+      "filing_date": null,
+      "source_url": null,
+      "source_file": null,
+      "confidence": "medium",
+      "hold_reason": "provenance_missing",
+      "source_description": "Auto-filled by the muns web agent from company quarterly results",
+      "note": "no source link recorded for this value (official_snapshot); withheld until a linked source exists - the cell reads missing, never zero"
+    },
+    {
+      "company_id": "star-health",
+      "metric": "nwp",
+      "raw_value": 4360.91,
+      "normalized_value": 4360.91,
+      "unit": "INR_cr",
+      "filing_period": "Q3FY26",
+      "document_type": null,
+      "document_title": null,
+      "filing_date": null,
+      "source_url": null,
+      "source_file": null,
+      "confidence": "medium",
+      "hold_reason": "provenance_missing",
+      "source_description": "Auto-filled by the muns web agent from company quarterly results",
+      "note": "no source link recorded for this value (official_snapshot); withheld until a linked source exists - the cell reads missing, never zero"
+    },
+    {
+      "company_id": "star-health",
+      "metric": "nwp",
+      "raw_value": 4819.57,
+      "normalized_value": 4819.57,
+      "unit": "INR_cr",
+      "filing_period": "Q4FY25",
+      "document_type": null,
+      "document_title": null,
+      "filing_date": null,
+      "source_url": null,
+      "source_file": null,
+      "confidence": "medium",
+      "hold_reason": "provenance_missing",
+      "source_description": "Auto-filled by the muns web agent from company quarterly results",
+      "note": "no source link recorded for this value (official_snapshot); withheld until a linked source exists - the cell reads missing, never zero"
+    },
+    {
+      "company_id": "star-health",
+      "metric": "nwp",
+      "raw_value": 5598.57,
+      "normalized_value": 5598.57,
+      "unit": "INR_cr",
+      "filing_period": "Q4FY26",
+      "document_type": null,
+      "document_title": null,
+      "filing_date": null,
+      "source_url": null,
+      "source_file": null,
+      "confidence": "medium",
+      "hold_reason": "provenance_missing",
+      "source_description": "Auto-filled by the muns web agent from company quarterly results",
+      "note": "no source link recorded for this value (official_snapshot); withheld until a linked source exists - the cell reads missing, never zero"
     }
   ]
 }
