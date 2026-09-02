@@ -22,7 +22,7 @@
 import { readdir, readFile } from 'node:fs/promises'
 import { resolve } from 'node:path'
 import type { Fetcher, FetchResult, SnapshotRecord } from './types'
-import { appendLog, ensureDir, isOfflineMode, nowIso, readSnapshot, RAW_ROOT } from './util'
+import { appendLog, ensureDir, isOfflineMode, normalizeSourceUrl, nowIso, readSnapshot, RAW_ROOT } from './util'
 import { fetchHtml, fetchOrLoadRaw, findLinks, parsePdf } from './parsers'
 import { extractDisclosure } from './disclosure-extract'
 
@@ -115,7 +115,8 @@ export const ingestQuarterlyDisclosures: Fetcher = {
               values: { ...values, period_type: 'quarterly' },
               provenance: {
                 source_name: `${t.company_id} ${quarter} ${fy} public disclosure`,
-                source_url: pdfUrl,
+                // Care's CMS links carry backslashes + spaces; store the browser-valid form.
+                source_url: normalizeSourceUrl(pdfUrl) ?? pdfUrl,
                 source_file: raw_file,
                 source_period: `${quarter} ${fy}`,
                 fetched_at,

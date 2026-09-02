@@ -245,6 +245,51 @@ jobs:
       - name: QA gate (fails the run on a hard violation, e.g. unsourced value)
         run: python3 scripts/excel/qa_checks.py
 
+      # A hard QA violation must never be silent again: two weeks of red runs
+      # went unnoticed because the gate failed quietly before the commit step.
+      # On failure, open / refresh one issue naming the exact cells and why.
+      - name: Alert on QA-gate failure (open / refresh issue)
+        if: failure()
+        continue-on-error: true
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const p = `${process.env.RUNNER_TEMP}/excel-qa-report.json`;
+            if (!fs.existsSync(p)) { core.info('no QA report - the failure is upstream of the gate'); return; }
+            const rep = JSON.parse(fs.readFileSync(p, 'utf8'));
+            if (rep.passed) return;
+            const title = '⛔ Excel QA gate failing: data not committing';
+            const { owner, repo } = context.repo;
+            const open = await github.paginate(github.rest.issues.listForRepo, { owner, repo, state: 'open', per_page: 100 });
+            const existing = open.find((i) => i.title === title && !i.pull_request);
+            const body = [
+              `The Excel QA gate found **${rep.hard.length}** hard violation(s) on run [${context.runId}](${context.serverUrl}/${owner}/${repo}/actions/runs/${context.runId}) (workflow: ${context.workflow}, ${rep.generated_at}).`,
+              '', 'Until this is fixed, **no data from this workflow reaches the dashboard** - it keeps showing the last committed values.', '',
+              '**Violations**', ...rep.hard.map((h) => `- ${h}`), '',
+              '**What to do**: the value store already quarantines unsourced / out-of-range values, so a failure here is a structural one (a sheet, formula or partition problem). Fix the cause in scripts/excel and re-run the workflow.',
+            ].join('\n');
+            if (existing) {
+              await github.rest.issues.update({ owner, repo, issue_number: existing.number, body });
+              await github.rest.issues.createComment({ owner, repo, issue_number: existing.number, body: `🔄 Still failing on run ${context.runId} (${context.workflow}).` });
+            } else {
+              await github.rest.issues.create({ owner, repo, title, body });
+            }
+
+      - name: Close the QA-gate issue once green
+        if: success()
+        continue-on-error: true
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const title = '⛔ Excel QA gate failing: data not committing';
+            const { owner, repo } = context.repo;
+            const open = await github.paginate(github.rest.issues.listForRepo, { owner, repo, state: 'open', per_page: 100 });
+            const existing = open.find((i) => i.title === title && !i.pull_request);
+            if (!existing) return;
+            await github.rest.issues.createComment({ owner, repo, issue_number: existing.number, body: `✅ QA gate passing again on run ${context.runId} (${context.workflow}). Auto-closing.` });
+            await github.rest.issues.update({ owner, repo, issue_number: existing.number, state: 'closed' });
+
       - name: Commit changes
         run: |
           git config user.name "insurance-data-bot"

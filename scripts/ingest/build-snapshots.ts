@@ -12,7 +12,7 @@
 
 import type { FetchResult, SnapshotRecord } from './types'
 import { mergeRecords } from './snapshot-merge'
-import { appendLog, nowIso, readSnapshot, writeSnapshot } from './util'
+import { appendLog, normalizeSourceUrl, nowIso, readSnapshot, writeSnapshot } from './util'
 
 interface HealthFile {
   last_successful_run: string | null
@@ -65,7 +65,9 @@ export async function buildSnapshots(results: FetchResult[]) {
       const key = `${field}::${company}::${period}`
       provenance.entries[key] = {
         source_name: rec.provenance.source_name,
-        source_url: rec.provenance.source_url,
+        // Normalised so a backslash / stray-punctuation link from an upstream
+        // site never lands in a viewer-facing "view source" (check-source-links).
+        source_url: normalizeSourceUrl(rec.provenance.source_url) ?? rec.provenance.source_url,
         source_file: rec.provenance.source_file ?? null,
         source_period: rec.provenance.source_period ?? period,
         fetched_at: rec.provenance.fetched_at,

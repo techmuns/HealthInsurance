@@ -250,6 +250,18 @@ def main(filled_path: Path) -> int:
 
 
 def report(hard, soft) -> int:
+    # Machine-readable copy for the workflows' alert step: a hard failure must
+    # never be silent, so the runner opens / refreshes a GitHub issue from this.
+    import os
+    out_dir = os.environ.get("RUNNER_TEMP") or os.environ.get("QA_REPORT_DIR")
+    if out_dir:
+        try:
+            Path(out_dir).joinpath("excel-qa-report.json").write_text(json.dumps({
+                "generated_at": datetime.now().isoformat(timespec="seconds"),
+                "hard": hard, "soft": soft, "passed": not hard,
+            }, indent=2, ensure_ascii=False))
+        except OSError as e:
+            print(f"  (could not write QA report json: {e})")
     print("=" * 64)
     print("Excel QA report")
     print("=" * 64)

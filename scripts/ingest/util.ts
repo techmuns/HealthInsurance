@@ -124,3 +124,40 @@ export function normaliseFy(label: string): string {
   const yy = end.length === 4 ? end.slice(2) : end.padStart(2, '0')
   return `FY${yy}`
 }
+
+/**
+ * Normalise a source URL before it is stored anywhere a viewer can click it.
+ *
+ * Two real defects this repairs at the source (both froze check-source-links):
+ *   - Care Health's CMS emits links with Windows backslashes and literal spaces
+ *     ("uploads\\uploads\\public_disclosure/FY 24-25/..."). Browsers reject the
+ *     backslashes; the same path with "/" and "%20" resolves (verified HTTP 200).
+ *   - The muns agent returns markdown-style links, so a trailing ")" / "]" / ","
+ *     or "." rides along and turns a live article into a 404.
+ * Returns null for anything that is not an http(s) URL — callers must treat a
+ * null as "no link", never fabricate one.
+ */
+export function normalizeSourceUrl(raw: unknown): string | null {
+  if (typeof raw !== 'string') return null
+  let u = raw.trim()
+  if (!u) return null
+  u = u.replace(/\\/g, '/')
+  // Strip markdown / prose punctuation that cannot end a real URL. A trailing
+  // ")" is kept only while a "(" earlier in the URL balances it (wiki-style
+  // paths such as /Foo_(bar) are legitimate; the agent's "<url>)" is not).
+  for (;;) {
+    const before = u
+    u = u.replace(/[\]>,.;:'"]+$/g, '')
+    if (u.endsWith(')') && (u.split('(').length - 1) < (u.split(')').length - 1)) u = u.slice(0, -1)
+    if (u === before) break
+  }
+  if (!/^https?:\/\//i.test(u)) return null
+  try {
+    const parsed = new URL(u)
+    // Encode literal whitespace in the path (a space is never valid in a URL).
+    parsed.pathname = parsed.pathname.split('/').map((seg) => seg.replace(/ /g, '%20')).join('/')
+    return parsed.toString().replace(/%20/g, '%20')
+  } catch {
+    return null
+  }
+}

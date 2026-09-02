@@ -1140,6 +1140,57 @@ def withhold_unsourced_values(store):
     return held
 
 
+# Mirrors the QA gate's hard H4 unit bounds. A ratio printed as 68 instead of
+# 0.68, a share above 100%, a solvency of 249 - each is a unit / extraction slip
+# that would fail the gate for every pipeline; withhold it instead, with proof.
+QA_RATIO_METRICS = {"claims_ratio_igaap", "expense_ratio_igaap", "combined_ratio_igaap",
+                    "claims_ratio_ifrs", "expense_ratio_ifrs"}
+QA_YIELD_METRICS = {"investment_yield"}
+QA_SHARE_METRICS = {"overall_health_market_share", "retail_health_market_share"}
+
+
+def _unit_violation(metric, value):
+    if not isinstance(value, (int, float)) or isinstance(value, bool):
+        return None
+    base = str(metric).split("::")[0]
+    if base in QA_RATIO_METRICS and not (0 <= value <= 3):
+        return f"ratio {value} outside [0, 3]"
+    if base in QA_YIELD_METRICS and not (-0.5 <= value <= 3):
+        return f"yield {value} outside [-0.5, 3]"
+    if base in QA_SHARE_METRICS and not (0 <= value <= 1.02):
+        return f"share {value} outside [0, 1.02]"
+    if base == "solvency_ratio" and not (0 <= value <= 10):
+        return f"solvency {value} outside [0, 10]"
+    return None
+
+
+def withhold_out_of_range_values(store):
+    """Withhold any resolved value outside the physical range the QA gate enforces
+    (hard H4). Same contract as withhold_unsourced_values: the cell reads missing,
+    never zero; the figure lands on Blocked Data with full proof."""
+    held = []
+    for key in sorted(store):
+        v = store[key]
+        bad = _unit_violation(v.get("metric"), v.get("normalized_value"))
+        if not bad:
+            continue
+        entity, metric, period = key.split("::", 2)
+        store.pop(key)
+        held.append({
+            "company_id": entity, "metric": metric, "raw_value": v.get("raw_value"),
+            "normalized_value": v.get("normalized_value"), "unit": v.get("unit"),
+            "filing_period": period, "document_type": v.get("document_type"),
+            "document_title": v.get("document_title"), "filing_date": v.get("filing_date"),
+            "source_url": v.get("source_url"), "source_file": v.get("source_file"),
+            "confidence": v.get("confidence"),
+            "hold_reason": "unit_out_of_range",
+            "source_description": v.get("source_name"),
+            "note": (f"{bad} ({v.get('source_layer')}); a unit or extraction slip - "
+                     "withheld rather than shown, the cell reads missing, never zero"),
+        })
+    return held
+
+
 def main():
     collect_existing()
     collect_shareholding()  # rank-1 per-holder shareholding shares (Captable tab)
@@ -1162,6 +1213,9 @@ def main():
     # A value that cannot NAME its source and LINK to it is not shown (same rule
     # the QA gate enforces as hard H1) — it is withheld with whatever proof it has.
     held = held + withhold_unsourced_values(store)
+    # Same for a value outside its physical range (QA hard H4).
+    range_held = withhold_out_of_range_values(store)
+    held = held + range_held
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(json.dumps(store, indent=2, ensure_ascii=False))
     OUT_HELD.write_text(json.dumps({
@@ -1176,7 +1230,8 @@ def main():
                         "superseded_by_statutory_filing": "as-originally-reported premium superseded by the statutory NL-1 filing (restated comparative); statutory value fills the cell",
                         "period_unclear": "premium amount whose NL-form column basis does not match the cell's period (quarter vs full-period); withheld so it is not promoted into the wrong cell",
                         "fails_premium_invariant": "premium leg that breaks GWP >= NWP >= NEP for its period - the extractor read the wrong row of the filing; withheld (cell reads missing, never zero) instead of publishing a number that cannot be true",
-                        "provenance_missing": "value arrived without a named source and/or a source link (e.g. an agent pull that did not return where the figure came from); withheld until a linked source exists - the cell reads missing, never zero"},
+                        "provenance_missing": "value arrived without a named source and/or a source link (e.g. an agent pull that did not return where the figure came from); withheld until a linked source exists - the cell reads missing, never zero",
+                        "unit_out_of_range": "ratio / share / solvency / yield outside its physical range - a unit or extraction slip; withheld rather than shown (cell reads missing, never zero)"},
         },
         "data": held,
     }, indent=2, ensure_ascii=False))
@@ -1192,6 +1247,8 @@ def main():
           f"  |  conflicts flagged: {conflicts}  |  CF ratio candidates wired: {wired}  |  held-back: {len(held)}")
     for h in waterfall_held:
         print(f"  withheld (premium waterfall): {h['company_id']} {h['metric']} {h['filing_period']} = {h['normalized_value']}")
+    for h in range_held:
+        print(f"  withheld (unit out of range): {h['company_id']} {h['metric']} {h['filing_period']} = {h['normalized_value']}")
     by_metric = Counter(v["metric"].split("::")[0] for v in store.values())
     for metric, n in by_metric.most_common():
         print(f"    {metric:<32} {n}")

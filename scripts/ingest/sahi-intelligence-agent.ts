@@ -11,7 +11,7 @@
 //  is kept only if it has a headline. Token from MUNS_API_TOKEN.
 // ---------------------------------------------------------------------------
 
-import { writeSnapshot, readSnapshot, nowIso, appendLog } from './util'
+import { writeSnapshot, readSnapshot, nowIso, appendLog, normalizeSourceUrl } from './util'
 import { createHash } from 'node:crypto'
 
 const API_URL = process.env.MUNS_AGENT_URL || 'https://devde.muns.io/chat/chat-muns'
@@ -211,7 +211,9 @@ function parseItems(answer: string, today: string): IntelItem[] {
     const headline = clean(c[5])
     if (!headline || headline.length < 4) continue
     if (isSchemaEcho(headline)) continue // format echo, not a development
-    const sourceUrl = (c[7] || '').match(/https?:\/\/\S+/)?.[0] ?? null
+    // The agent answers in markdown, so the link often arrives as "<url>)" — the
+    // trailing bracket turned live articles into 404s. Normalise before storing.
+    const sourceUrl = normalizeSourceUrl((c[7] || '').match(/https?:\/\/\S+/)?.[0])
     const dateMatch = clean(c[1]).match(/\d{4}-\d{2}-\d{2}/)?.[0] ?? null
     // An evergreen explainer / guide / FAQ / IR "watch this page" landing carries no
     // real publication date; when the agent stamps one anyway (typically "today"), drop

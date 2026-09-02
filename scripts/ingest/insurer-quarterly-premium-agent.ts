@@ -13,7 +13,7 @@
 //  run leaves the file untouched. Token: MUNS_API_TOKEN.
 // ---------------------------------------------------------------------------
 
-import { writeSnapshot, readSnapshot, nowIso, appendLog } from './util'
+import { writeSnapshot, readSnapshot, nowIso, appendLog, normalizeSourceUrl } from './util'
 
 const SNAPSHOT_FILE = 'insurer-quarterly-financials.json'
 const API_URL = process.env.MUNS_AGENT_URL || 'https://devde.muns.io/chat/chat-muns'
@@ -115,8 +115,8 @@ export interface QFigure {
 // so an unlinked figure would only ever sit on Blocked Data. Better to leave the
 // cell honestly blank and try again next run.
 const urlOf = (s: string | undefined): string | null => {
-  const m = (s ?? '').match(/https?:\/\/[^\s|<>"')\]]+/i)
-  return m ? m[0] : null
+  const m = (s ?? '').match(/https?:\/\/[^\s|<>"']+/i)
+  return m ? normalizeSourceUrl(m[0]) : null // strips markdown ")" / backslashes; null if not a real URL
 }
 
 export function parseFigures(answer: string): QFigure[] {

@@ -11,7 +11,8 @@
       "superseded_by_statutory_filing": "as-originally-reported premium superseded by the statutory NL-1 filing (restated comparative); statutory value fills the cell",
       "period_unclear": "premium amount whose NL-form column basis does not match the cell's period (quarter vs full-period); withheld so it is not promoted into the wrong cell",
       "fails_premium_invariant": "premium leg that breaks GWP >= NWP >= NEP for its period - the extractor read the wrong row of the filing; withheld (cell reads missing, never zero) instead of publishing a number that cannot be true",
-      "provenance_missing": "value arrived without a named source and/or a source link (e.g. an agent pull that did not return where the figure came from); withheld until a linked source exists - the cell reads missing, never zero"
+      "provenance_missing": "value arrived without a named source and/or a source link (e.g. an agent pull that did not return where the figure came from); withheld until a linked source exists - the cell reads missing, never zero",
+      "unit_out_of_range": "ratio / share / solvency / yield outside its physical range - a unit or extraction slip; withheld rather than shown (cell reads missing, never zero)"
     }
   },
   "data": [
