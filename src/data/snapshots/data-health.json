@@ -1,9 +1,9 @@
 {
   "last_successful_run": "2026-09-02T12:18:24.910Z",
   "last_failed_run": "2026-09-02T12:35:41.901Z",
-  "sources_checked": 12,
-  "sources_success": 4,
-  "sources_failed": 1,
+  "sources_checked": 36,
+  "sources_success": 11,
+  "sources_failed": 3,
   "metrics_updated": [
     "company.gwp::niva-bupa::Annual",
     "company.pat::niva-bupa::Annual",
@@ -24620,7 +24620,6 @@
     "[gicouncil_segmentwise_annual] 9MFY18: found 2/4 PSU rows — PSUs/Private left null.",
     "[gicouncil_segmentwise_annual] Q1FY20: found 2/4 PSU rows — PSUs/Private left null.",
     "[gicouncil_segmentwise_annual] Q1FY20: only 7/11 named retail rows found — \"Others\" left null.",
-    "[gicouncil_segmentwise_annual] Q1FY19: found 2/4 PSU rows — PSUs/Private left null.",
     "[gicouncil_segmentwise_annual] data/raw/gicouncil/segment/2019-09.xlsx: Health Portfolio: header row not found — format changed?",
     "[gicouncil_segmentwise_annual] data/raw/gicouncil/segment/2019-12.xlsx: Health Portfolio: header row not found — format changed?",
     "[gicouncil_segmentwise_annual] data/raw/gicouncil/segment/2020-06.xlsx: Health Portfolio: header row not found — format changed?",
@@ -24628,7 +24627,6 @@
     "[gicouncil_segmentwise_annual] 9MFY21: hdfc-ergo matched 2 rows in the sahi block — using the first.",
     "[gicouncil_segmentwise_annual] 9MFY20: hdfc-ergo matched 2 rows in the sahi block — using the first.",
     "[gicouncil_segmentwise_annual] 9MFY22: hdfc-ergo matched 2 rows in the sahi block — using the first.",
-    "[gicouncil_segmentwise_annual] 9MFY21: hdfc-ergo matched 2 rows in the sahi block — using the first.",
     "[gicouncil_segmentwise_annual] Q1FY23: only 6/11 named retail rows found — \"Others\" left null.",
     "[gicouncil_segmentwise_annual] H1FY23: only 6/11 named retail rows found — \"Others\" left null.",
     "[gicouncil_segmentwise_annual] Q1FY24: only 6/11 named retail rows found — \"Others\" left null.",
@@ -24666,29 +24664,21 @@
     "[gicouncil_segmentwise_annual] Feb-FY18: found 2/4 PSU rows — PSUs/Private left null.",
     "[gicouncil_segmentwise_annual] Apr-FY20: found 2/4 PSU rows — PSUs/Private left null.",
     "[gicouncil_segmentwise_annual] Apr-FY20: only 7/11 named retail rows found — \"Others\" left null.",
-    "[gicouncil_segmentwise_annual] Apr-FY19: found 2/4 PSU rows — PSUs/Private left null.",
     "[gicouncil_segmentwise_annual] May-FY20: found 2/4 PSU rows — PSUs/Private left null.",
     "[gicouncil_segmentwise_annual] May-FY20: only 7/11 named retail rows found — \"Others\" left null.",
-    "[gicouncil_segmentwise_annual] May-FY19: found 2/4 PSU rows — PSUs/Private left null.",
     "[gicouncil_segmentwise_annual] Jun-FY20: found 2/4 PSU rows — PSUs/Private left null.",
     "[gicouncil_segmentwise_annual] Jun-FY20: only 7/11 named retail rows found — \"Others\" left null.",
-    "[gicouncil_segmentwise_annual] Jun-FY19: found 2/4 PSU rows — PSUs/Private left null.",
     "[gicouncil_segmentwise_annual] Jul-FY20: found 2/4 PSU rows — PSUs/Private left null.",
     "[gicouncil_segmentwise_annual] Jul-FY20: only 7/11 named retail rows found — \"Others\" left null.",
-    "[gicouncil_segmentwise_annual] Jul-FY19: found 2/4 PSU rows — PSUs/Private left null.",
     "[gicouncil_segmentwise_annual] data/raw/gicouncil/segment/2019-08.xlsx: Health Portfolio: header row not found — format changed?",
-    "[gicouncil_segmentwise_annual] data/raw/gicouncil/segment/2019-09.xlsx: Health Portfolio: header row not found — format changed?",
     "[gicouncil_segmentwise_annual] data/raw/gicouncil/segment/2019-10.xlsx: Health Portfolio: header row not found — format changed?",
     "[gicouncil_segmentwise_annual] data/raw/gicouncil/segment/2019-11.xlsx: Health Portfolio: header row not found — format changed?",
-    "[gicouncil_segmentwise_annual] data/raw/gicouncil/segment/2019-12.xlsx: Health Portfolio: header row not found — format changed?",
     "[gicouncil_segmentwise_annual] data/raw/gicouncil/segment/2020-01.xlsx: Health Portfolio: header row not found — format changed?",
     "[gicouncil_segmentwise_annual] data/raw/gicouncil/segment/2020-02.xlsx: Health Portfolio: header row not found — format changed?",
     "[gicouncil_segmentwise_annual] data/raw/gicouncil/segment/2020-04.xlsx: Health Portfolio: header row not found — format changed?",
     "[gicouncil_segmentwise_annual] data/raw/gicouncil/segment/2020-05.xlsx: Health Portfolio: header row not found — format changed?",
-    "[gicouncil_segmentwise_annual] data/raw/gicouncil/segment/2020-06.xlsx: Health Portfolio: header row not found — format changed?",
     "[gicouncil_segmentwise_annual] data/raw/gicouncil/segment/2020-07.xlsx: Health Portfolio: header row not found — format changed?",
     "[gicouncil_segmentwise_annual] data/raw/gicouncil/segment/2020-08.xlsx: Health Portfolio: header row not found — format changed?",
-    "[gicouncil_segmentwise_annual] data/raw/gicouncil/segment/2020-09.xlsx: Health Portfolio: header row not found — format changed?",
     "[gicouncil_segmentwise_annual] data/raw/gicouncil/segment/2020-10.xlsx: Health Portfolio: header row not found — format changed?",
     "[gicouncil_segmentwise_annual] Nov-FY21: hdfc-ergo matched 2 rows in the sahi block — using the first.",
     "[gicouncil_segmentwise_annual] Nov-FY20: hdfc-ergo matched 2 rows in the sahi block — using the first.",
@@ -24701,9 +24691,7 @@
     "[gicouncil_segmentwise_annual] Jul-FY22: hdfc-ergo matched 2 rows in the sahi block — using the first.",
     "[gicouncil_segmentwise_annual] Jul-FY21: hdfc-ergo matched 2 rows in the sahi block — using the first.",
     "[gicouncil_segmentwise_annual] Dec-FY22: hdfc-ergo matched 2 rows in the sahi block — using the first.",
-    "[gicouncil_segmentwise_annual] Dec-FY21: hdfc-ergo matched 2 rows in the sahi block — using the first.",
     "[gicouncil_segmentwise_annual] Jan-FY22: hdfc-ergo matched 2 rows in the sahi block — using the first.",
-    "[gicouncil_segmentwise_annual] Jan-FY21: hdfc-ergo matched 2 rows in the sahi block — using the first.",
     "[gicouncil_segmentwise_annual] Apr-FY23: only 6/11 named retail rows found — \"Others\" left null.",
     "[gicouncil_segmentwise_annual] May-FY23: only 6/11 named retail rows found — \"Others\" left null.",
     "[gicouncil_segmentwise_annual] Jun-FY23: only 6/11 named retail rows found — \"Others\" left null.",
@@ -24828,10 +24816,117 @@
     "[validation-rejected] gic-health-quarterly H1FY21/bajaj-general/general: health_govt (-5.07) is negative — premium cannot be negative.",
     "[validation-rejected] gic-health-quarterly Q1FY21/bajaj-general/general: health_govt (-6.03) is negative — premium cannot be negative.",
     "[validation-rejected] gic-health-quarterly Q1FY21/reliance-health/sahi: health_retail (-0.01) is negative — premium cannot be negative.; health_total (-0.01) is negative — premium cannot be negative.",
-    "[validation-rejected] gic-health-quarterly H1FY18/bajaj-general/general: health_govt (-4.44) is negative — premium cannot be negative."
+    "[validation-rejected] gic-health-quarterly H1FY18/bajaj-general/general: health_govt (-4.44) is negative — premium cannot be negative.",
+    "[gicouncil_segmentwise_annual] muns agent discovery failed: terminated"
   ],
   "next_expected_update": "2026-06-01T05:00:00Z",
   "per_source": [
+    {
+      "source_id": "aditya_birla_health_ir",
+      "status": "success",
+      "last_attempt_at": "2026-05-28T10:05:00Z",
+      "last_success_at": "2026-05-28T10:05:00Z",
+      "records_fetched": 2
+    },
+    {
+      "source_id": "bajaj_general_ir",
+      "status": "pending",
+      "last_attempt_at": null,
+      "last_success_at": null,
+      "records_fetched": null
+    },
+    {
+      "source_id": "bse_quotes",
+      "status": "pending",
+      "last_attempt_at": null,
+      "last_success_at": null,
+      "records_fetched": null
+    },
+    {
+      "source_id": "care_health_ir",
+      "status": "success",
+      "last_attempt_at": "2026-05-28T10:05:00Z",
+      "last_success_at": "2026-05-28T10:05:00Z",
+      "records_fetched": 2
+    },
+    {
+      "source_id": "company_annual_history",
+      "status": "success",
+      "last_attempt_at": "2026-06-04T07:07:49.264Z",
+      "last_success_at": "2026-06-04T07:07:49.264Z",
+      "records_fetched": 4
+    },
+    {
+      "source_id": "company_disclosures_batch",
+      "status": "success",
+      "last_attempt_at": "2026-08-18T05:40:32.633Z",
+      "last_success_at": "2026-08-18T05:40:32.633Z",
+      "records_fetched": 5
+    },
+    {
+      "source_id": "company_quarterly_disclosures",
+      "status": "failed",
+      "last_attempt_at": "2026-08-18T05:48:46.701Z",
+      "last_success_at": "2026-06-02T17:35:00.498Z",
+      "records_fetched": 0,
+      "error": "fetcher timed out after 6 min (capped so the run always reaches snapshot merge + commit)"
+    },
+    {
+      "source_id": "distribution_extract",
+      "status": "success",
+      "last_attempt_at": "2026-08-18T05:48:46.702Z",
+      "last_success_at": "2026-08-18T05:48:46.702Z",
+      "records_fetched": 54
+    },
+    {
+      "source_id": "gi_council",
+      "status": "pending",
+      "last_attempt_at": null,
+      "last_success_at": null,
+      "records_fetched": null
+    },
+    {
+      "source_id": "gicouncil_flash_sahi",
+      "status": "pending",
+      "last_attempt_at": "2026-09-02T12:31:29.406Z",
+      "last_success_at": "2026-08-18T05:39:50.823Z",
+      "records_fetched": 0
+    },
+    {
+      "source_id": "gicouncil_segmentwise",
+      "status": "success",
+      "last_attempt_at": "2026-09-02T12:42:51.511Z",
+      "last_success_at": "2026-09-02T12:42:51.511Z",
+      "records_fetched": 117
+    },
+    {
+      "source_id": "gicouncil_segmentwise_annual",
+      "status": "success",
+      "last_attempt_at": "2026-09-02T12:34:11.822Z",
+      "last_success_at": "2026-09-02T12:34:11.822Z",
+      "records_fetched": 2745
+    },
+    {
+      "source_id": "hdfc_life_ir",
+      "status": "pending",
+      "last_attempt_at": null,
+      "last_success_at": null,
+      "records_fetched": null
+    },
+    {
+      "source_id": "icici_lombard_ir",
+      "status": "pending",
+      "last_attempt_at": null,
+      "last_success_at": null,
+      "records_fetched": null
+    },
+    {
+      "source_id": "irdai_annual_report",
+      "status": "pending",
+      "last_attempt_at": null,
+      "last_success_at": null,
+      "records_fetched": null
+    },
     {
       "source_id": "irdai_handbook",
       "status": "failed",
@@ -24849,6 +24944,13 @@
       "error": "No XLSX link discovered on https://irdai.gov.in/non-life"
     },
     {
+      "source_id": "irdai_nonlife_flash",
+      "status": "pending",
+      "last_attempt_at": "2026-09-02T12:31:27.008Z",
+      "last_success_at": null,
+      "records_fetched": 0
+    },
+    {
       "source_id": "irdai_public_disclosures",
       "status": "pending",
       "last_attempt_at": null,
@@ -24856,46 +24958,18 @@
       "records_fetched": null
     },
     {
-      "source_id": "irdai_annual_report",
+      "source_id": "irdai_quarterly_disclosures",
       "status": "pending",
-      "last_attempt_at": null,
+      "last_attempt_at": "2026-08-18T05:40:02.511Z",
       "last_success_at": null,
-      "records_fetched": null
+      "records_fetched": 0
     },
     {
-      "source_id": "gi_council",
+      "source_id": "management_events_feed",
       "status": "pending",
-      "last_attempt_at": null,
+      "last_attempt_at": "2026-06-17T19:01:55.791Z",
       "last_success_at": null,
-      "records_fetched": null
-    },
-    {
-      "source_id": "niva_bupa_ir",
-      "status": "success",
-      "last_attempt_at": "2026-05-28T10:05:00Z",
-      "last_success_at": "2026-05-28T10:05:00Z",
-      "records_fetched": 5
-    },
-    {
-      "source_id": "star_health_ir",
-      "status": "success",
-      "last_attempt_at": "2026-05-28T10:05:00Z",
-      "last_success_at": "2026-05-28T10:05:00Z",
-      "records_fetched": 4
-    },
-    {
-      "source_id": "care_health_ir",
-      "status": "success",
-      "last_attempt_at": "2026-05-28T10:05:00Z",
-      "last_success_at": "2026-05-28T10:05:00Z",
-      "records_fetched": 2
-    },
-    {
-      "source_id": "aditya_birla_health_ir",
-      "status": "success",
-      "last_attempt_at": "2026-05-28T10:05:00Z",
-      "last_success_at": "2026-05-28T10:05:00Z",
-      "records_fetched": 2
+      "records_fetched": 0
     },
     {
       "source_id": "manipalcigna_ir",
@@ -24905,32 +24979,40 @@
       "records_fetched": 0
     },
     {
-      "source_id": "icici_lombard_ir",
-      "status": "pending",
-      "last_attempt_at": null,
-      "last_success_at": null,
-      "records_fetched": null
+      "source_id": "moneycontrol_analyst",
+      "status": "success",
+      "last_attempt_at": "2026-09-02T12:34:14.797Z",
+      "last_success_at": "2026-09-02T12:34:14.797Z",
+      "records_fetched": 6
     },
     {
-      "source_id": "bajaj_general_ir",
-      "status": "pending",
-      "last_attempt_at": null,
-      "last_success_at": null,
-      "records_fetched": null
+      "source_id": "moneycontrol_stock_deals",
+      "status": "success",
+      "last_attempt_at": "2026-09-02T12:34:29.091Z",
+      "last_success_at": "2026-09-02T12:34:29.091Z",
+      "records_fetched": 0
     },
     {
-      "source_id": "hdfc_life_ir",
+      "source_id": "muns_market_data",
       "status": "pending",
-      "last_attempt_at": null,
-      "last_success_at": null,
-      "records_fetched": null
+      "last_attempt_at": "2026-09-02T12:34:37.944Z",
+      "last_success_at": "2026-08-20T04:10:05.015Z",
+      "records_fetched": 0,
+      "error": "fetcher timed out after 6 min (capped so the run always reaches snapshot merge + commit)"
     },
     {
-      "source_id": "sbi_life_ir",
+      "source_id": "niva_bupa_ir",
+      "status": "success",
+      "last_attempt_at": "2026-05-28T10:05:00Z",
+      "last_success_at": "2026-05-28T10:05:00Z",
+      "records_fetched": 5
+    },
+    {
+      "source_id": "nse_delivery",
       "status": "pending",
-      "last_attempt_at": null,
-      "last_success_at": null,
-      "records_fetched": null
+      "last_attempt_at": "2026-09-02T12:35:41.417Z",
+      "last_success_at": "2026-08-20T04:10:43.364Z",
+      "records_fetched": 0
     },
     {
       "source_id": "nse_quotes",
@@ -24938,27 +25020,6 @@
       "last_attempt_at": null,
       "last_success_at": null,
       "records_fetched": null
-    },
-    {
-      "source_id": "bse_quotes",
-      "status": "pending",
-      "last_attempt_at": null,
-      "last_success_at": null,
-      "records_fetched": null
-    },
-    {
-      "source_id": "company_disclosures_batch",
-      "status": "success",
-      "last_attempt_at": "2026-08-18T05:40:32.633Z",
-      "last_success_at": "2026-08-18T05:40:32.633Z",
-      "records_fetched": 5
-    },
-    {
-      "source_id": "distribution_extract",
-      "status": "success",
-      "last_attempt_at": "2026-08-18T05:48:46.702Z",
-      "last_success_at": "2026-08-18T05:48:46.702Z",
-      "records_fetched": 54
     },
     {
       "source_id": "ownership_quarterly",
@@ -24969,24 +25030,38 @@
       "error": "fetcher timed out after 6 min (capped so the run always reaches snapshot merge + commit)"
     },
     {
-      "source_id": "management_events_feed",
+      "source_id": "price_history",
       "status": "pending",
-      "last_attempt_at": "2026-06-17T19:01:55.791Z",
+      "last_attempt_at": "2026-09-02T12:35:38.600Z",
       "last_success_at": null,
-      "records_fetched": 0
-    },
-    {
-      "source_id": "company_quarterly_disclosures",
-      "status": "failed",
-      "last_attempt_at": "2026-08-18T05:48:46.701Z",
-      "last_success_at": "2026-06-02T17:35:00.498Z",
       "records_fetched": 0,
       "error": "fetcher timed out after 6 min (capped so the run always reaches snapshot merge + commit)"
     },
     {
-      "source_id": "irdai_quarterly_disclosures",
+      "source_id": "sbi_life_ir",
       "status": "pending",
-      "last_attempt_at": "2026-08-18T05:40:02.511Z",
+      "last_attempt_at": null,
+      "last_success_at": null,
+      "records_fetched": null
+    },
+    {
+      "source_id": "screener_crosscheck",
+      "status": "blocked",
+      "last_attempt_at": "2026-08-18T05:49:15.898Z",
+      "last_success_at": null,
+      "records_fetched": 0
+    },
+    {
+      "source_id": "star_health_ir",
+      "status": "success",
+      "last_attempt_at": "2026-05-28T10:05:00Z",
+      "last_success_at": "2026-05-28T10:05:00Z",
+      "records_fetched": 4
+    },
+    {
+      "source_id": "trendlyne_backup",
+      "status": "pending",
+      "last_attempt_at": "2026-08-18T05:49:17.649Z",
       "last_success_at": null,
       "records_fetched": 0
     },
@@ -24998,95 +25073,9 @@
       "records_fetched": 0
     },
     {
-      "source_id": "gicouncil_flash_sahi",
-      "status": "pending",
-      "last_attempt_at": "2026-09-02T12:31:29.406Z",
-      "last_success_at": "2026-08-18T05:39:50.823Z",
-      "records_fetched": 0
-    },
-    {
-      "source_id": "gicouncil_segmentwise",
-      "status": "success",
-      "last_attempt_at": "2026-09-02T12:31:34.069Z",
-      "last_success_at": "2026-09-02T12:31:34.069Z",
-      "records_fetched": 117
-    },
-    {
-      "source_id": "irdai_nonlife_flash",
-      "status": "pending",
-      "last_attempt_at": "2026-09-02T12:31:27.008Z",
-      "last_success_at": null,
-      "records_fetched": 0
-    },
-    {
-      "source_id": "company_annual_history",
-      "status": "success",
-      "last_attempt_at": "2026-06-04T07:07:49.264Z",
-      "last_success_at": "2026-06-04T07:07:49.264Z",
-      "records_fetched": 4
-    },
-    {
-      "source_id": "moneycontrol_analyst",
-      "status": "success",
-      "last_attempt_at": "2026-09-02T12:34:14.797Z",
-      "last_success_at": "2026-09-02T12:34:14.797Z",
-      "records_fetched": 6
-    },
-    {
-      "source_id": "price_history",
-      "status": "pending",
-      "last_attempt_at": "2026-09-02T12:35:38.600Z",
-      "last_success_at": null,
-      "records_fetched": 0,
-      "error": "fetcher timed out after 6 min (capped so the run always reaches snapshot merge + commit)"
-    },
-    {
-      "source_id": "gicouncil_segmentwise_annual",
-      "status": "success",
-      "last_attempt_at": "2026-09-02T12:33:04.552Z",
-      "last_success_at": "2026-09-02T12:33:04.552Z",
-      "records_fetched": 2745
-    },
-    {
-      "source_id": "muns_market_data",
-      "status": "pending",
-      "last_attempt_at": "2026-09-02T12:34:37.944Z",
-      "last_success_at": "2026-08-20T04:10:05.015Z",
-      "records_fetched": 0,
-      "error": "fetcher timed out after 6 min (capped so the run always reaches snapshot merge + commit)"
-    },
-    {
       "source_id": "yahoo_price",
       "status": "pending",
       "last_attempt_at": "2026-09-02T12:35:09.414Z",
-      "last_success_at": null,
-      "records_fetched": 0
-    },
-    {
-      "source_id": "nse_delivery",
-      "status": "pending",
-      "last_attempt_at": "2026-09-02T12:35:41.417Z",
-      "last_success_at": "2026-08-20T04:10:43.364Z",
-      "records_fetched": 0
-    },
-    {
-      "source_id": "moneycontrol_stock_deals",
-      "status": "success",
-      "last_attempt_at": "2026-09-02T12:34:29.091Z",
-      "last_success_at": "2026-09-02T12:34:29.091Z",
-      "records_fetched": 0
-    },
-    {
-      "source_id": "screener_crosscheck",
-      "status": "blocked",
-      "last_attempt_at": "2026-08-18T05:49:15.898Z",
-      "last_success_at": null,
-      "records_fetched": 0
-    },
-    {
-      "source_id": "trendlyne_backup",
-      "status": "pending",
-      "last_attempt_at": "2026-08-18T05:49:17.649Z",
       "last_success_at": null,
       "records_fetched": 0
     }
