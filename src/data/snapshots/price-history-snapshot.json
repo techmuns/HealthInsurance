@@ -5,10 +5,10 @@
     "schema_version": "1.1.0",
     "dataset": "official",
     "source_policy": "official-first (NSE). Investing.com is login-free backup only, tagged low-confidence.",
-    "last_successful_run": "2026-09-01T16:50:32.531Z",
+    "last_successful_run": "2026-09-03T08:16:03.558Z",
     "parser_status": "ready",
     "notes": "Daily close / traded / deliverable quantity per listed insurer. Workbook seed (NSE via S&P Capital IQ) for niva-bupa listing→Jul-2025; Yahoo Finance keeps it current (close + volume). Deliverable quantity is NSE-only — null where only Yahoo covers a day, until an NSE delivery file is staged.",
-    "last_updated": "2026-09-01T16:51:12.548Z",
+    "last_updated": "2026-09-03T08:16:08.201Z",
     "row_count": 2273,
     "companies": [
       "godigit",
@@ -22,7 +22,7 @@
       "to": "2026-09-01"
     },
     "seeded_from_workbook": "data/raw/exchanges/niva-bupa/niva-bupa-historical-stock-movement.xlsx",
-    "muns_last_run": "2026-09-01T16:50:32.531Z",
+    "muns_last_run": "2026-09-03T08:16:03.558Z",
     "nse_delivery_last_run": "2026-09-01T16:51:11.764Z"
   },
   "data": [
@@ -38653,17 +38653,17 @@
     {
       "company_id": "star-health",
       "date": "2026-09-01",
-      "close": null,
+      "close": 560.4,
       "traded_qty": 548526,
       "deliverable_qty": 183314,
       "provenance": {
-        "source_name": "NSE security-wise delivery",
-        "source_url": "https://archives.nseindia.com/archives/equities/mto/MTO_01092026.DAT",
-        "source_file": "https://archives.nseindia.com/archives/equities/mto/MTO_01092026.DAT",
+        "source_name": "muns market-data API — NSE daily history",
+        "source_url": "https://fastapi.muns.io/market_data",
+        "source_file": "https://fastapi.muns.io/market_data?ticker=STARHEALTH&start=2026-08-29&end=2026-09-02&country=India",
         "source_period": "2026-09-01",
-        "fetched_at": "2026-09-01T16:51:11.764Z",
-        "parsed_at": "2026-09-01T16:51:12.456Z",
-        "parser_name": "fetch-nse-delivery",
+        "fetched_at": "2026-09-03T08:16:03.558Z",
+        "parsed_at": "2026-09-03T08:16:05.385Z",
+        "parser_name": "fetch-muns-market-data",
         "confidence": "high"
       }
     }
