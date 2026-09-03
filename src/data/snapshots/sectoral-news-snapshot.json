@@ -3,14 +3,36 @@
     "snapshot_id": "sectoral-news-snapshot",
     "description": "Key Sectoral News feed — a permanent seed of 31 curated portfolio-pack updates, kept current by a scheduled muns web-search agent. Each item links its source. Seed items are curated; agent items are AI-gathered (web), clearly labelled and not audited.",
     "schema_version": "1.0.0",
-    "last_updated": "2026-08-27",
-    "last_successful_run": "2026-08-27T17:28:03.391Z",
+    "last_updated": "2026-09-03",
+    "last_successful_run": "2026-09-03T10:47:02.578Z",
     "seed_count": 31,
-    "agent_count": 213,
+    "agent_count": 226,
     "generated_by": "Seed: investor portfolio pack. Updates: AI (muns agent, web search).",
     "notes": "Seed floor can never be lost. Agent items are de-duped by subject+date and verified-before-acting."
   },
   "data": [
+    {
+      "sn": 245,
+      "category": "Regulatory",
+      "date": "2026-09-01",
+      "subject": "IRDAI proposes Public Insurance Registry (PIR)",
+      "summary": "IRDAI released a consultation paper for a population-scale digital registry covering the full policy lifecycle (issuance, claims, grievance redress); feedback due Sept 30, 2026. Could <span style=\"color:#22C55E;font-weight:600\">improve underwriting and fraud detection</span> for health insurers over time.",
+      "reference": "https://www.business-standard.com/finance/insurance/irdai-plans-public-insurance-registry-to-bridge-data-gaps-widen-coverage-126090101306_1.html",
+      "id": "11478d4d0ed857",
+      "origin": "agent",
+      "added_at": "2026-09-03"
+    },
+    {
+      "sn": 246,
+      "category": "Profitability",
+      "date": "2026-08-27",
+      "subject": "Insurers may revise fire premiums as discounts squeeze margins",
+      "summary": "General insurers are reconsidering aggressive discounting to protect underwriting margins — part of a sector-wide <span style=\"color:#F59E0B;font-weight:600\">pivot toward pricing discipline over volume growth</span> that also pressures health insurance pricing strategy.",
+      "reference": "https://www.business-standard.com/finance/insurance/general-insurers-may-revise-fire-premiums-as-discounts-weigh-on-profits-126082701188_1.html",
+      "id": "0f18eddbeb3318",
+      "origin": "agent",
+      "added_at": "2026-09-03"
+    },
     {
       "sn": 233,
       "category": "GST",
@@ -65,6 +87,17 @@
       "id": "05159beacb9a6d",
       "origin": "agent",
       "added_at": "2026-08-27"
+    },
+    {
+      "sn": 247,
+      "category": "Regulatory",
+      "date": "2026-08-19",
+      "subject": "<span style=\"background:#FEF2F2;padding:2px 6px;border-radius:4px;\">IRDAI warns Niva Bupa & Acko over EoM breaches, bars new offices for 6 months</span>",
+      "summary": "IRDAI found Niva Bupa exceeded its FY24-25 expenses-of-management limit by **₹248.37 crore** (vs allowable **₹2,403.75 crore**) and rejected its forbearance request, directing <span style=\"color:#EF4444;font-weight:600\">no new offices for 6 months</span> from Aug 19, 2026; Acko was similarly penalized (**₹334.78 crore** excess). Signals tougher regulatory scrutiny on distribution-cost discipline.",
+      "reference": "https://www.moneylife.in/article/irdai-warns-acko-general-and-niva-bupa-health-insurance-over-eom-limit-breaches-bars-from-opening-new-offices-for-6-months/81425.html",
+      "id": "19c9ada4289a64",
+      "origin": "agent",
+      "added_at": "2026-09-03"
     },
     {
       "sn": 238,
@@ -122,6 +155,28 @@
       "added_at": "2026-08-20"
     },
     {
+      "sn": 249,
+      "category": "GST",
+      "date": "2026-08-17",
+      "subject": "Health insurance growth accelerates to 17% post-GST rationalisation",
+      "summary": "Per BCG, health insurance segment growth <span style=\"color:#22C55E;font-weight:600\">accelerated to 17%</span> for FY26 (from 10% in H1) following the GST rate cut on individual health/life premiums, boosting affordability-driven demand for standalone health insurers.",
+      "reference": "https://fortuneindia.com/amp/story/business-news/indias-general-insurance-industry-grows-9-in-fy26-to-336-lakh-crore-bcg-report/154376",
+      "id": "069217faab6c8b",
+      "origin": "agent",
+      "added_at": "2026-09-03"
+    },
+    {
+      "sn": 248,
+      "category": "Profitability",
+      "date": "2026-08-17",
+      "subject": "Industry PAT falls 23% in FY26 despite 9% premium growth: BCG",
+      "summary": "BCG reported general insurance combined ratio rose 2pp to **113%** and ROE fell to **6%** from 9%; health insurance was the fastest-growing segment (**17%** growth) but carried an industry-wide health ROE of <span style=\"color:#EF4444;font-weight:600\">-7%</span> due to continued investment in retail distribution infrastructure.",
+      "reference": "https://fortuneindia.com/amp/story/business-news/indias-general-insurance-industry-grows-9-in-fy26-to-336-lakh-crore-bcg-report/154376",
+      "id": "1a5827c13284e2",
+      "origin": "agent",
+      "added_at": "2026-09-03"
+    },
+    {
       "sn": 226,
       "category": "Profitability",
       "date": "2026-08-17",
@@ -155,6 +210,17 @@
       "added_at": "2026-08-20"
     },
     {
+      "sn": 250,
+      "category": "General",
+      "date": "2026-08-12",
+      "subject": "Regulators weigh reforms to tackle rising medical costs",
+      "summary": "IRDAI and government sources signalled plans to intervene on hospital tariffs and standard treatment protocols to curb <span style=\"color:#EF4444;font-weight:600\">medical inflation</span> — a persistent structural pressure point on health insurers' claims ratios.",
+      "reference": "https://www.business-standard.com/industry/news/insurance-regulators-weigh-reforms-to-tackle-rising-medical-costs-126081200906_1.html",
+      "id": "006b15bf8617be",
+      "origin": "agent",
+      "added_at": "2026-09-03"
+    },
+    {
       "sn": 239,
       "category": "Regulatory",
       "date": "2026-08-12",
@@ -175,6 +241,28 @@
       "id": "0716f952f08000",
       "origin": "agent",
       "added_at": "2026-08-20"
+    },
+    {
+      "sn": 251,
+      "category": "General",
+      "date": "2026-08-10",
+      "subject": "Non-life insurance premium growth slows to 5.7% in July",
+      "summary": "Industry-wide premium growth <span style=\"color:#EF4444;font-weight:600\">decelerated sharply from 15.9%</span> in June to **5.7%** in July, indicating a moderation in demand momentum that could dampen near-term top-line growth for standalone health insurers.",
+      "reference": "https://www.business-standard.com/finance/insurance/non-life-insurers-premium-growth-slows-to-5-7-in-july-from-15-9-in-june-126081001361_1.html",
+      "id": "1da83e73a5fff8",
+      "origin": "agent",
+      "added_at": "2026-09-03"
+    },
+    {
+      "sn": 252,
+      "category": "Regulatory",
+      "date": "2026-08-09",
+      "subject": "SC's Motor TP direction may raise insurer commissions & costs",
+      "summary": "Supreme Court directions on motor third-party insurance are expected to raise commission payouts and consumer costs; while motor-specific, it reflects a broader trend of judicial/regulatory intervention in insurance pricing that health insurers are also monitoring.",
+      "reference": "https://www.business-standard.com/finance/insurance/sc-s-motor-tp-direction-may-raise-insurer-commissions-consumer-costs-126080900578_1.html",
+      "id": "16a9de85d7750d",
+      "origin": "agent",
+      "added_at": "2026-09-03"
     },
     {
       "sn": 240,
@@ -210,6 +298,17 @@
       "added_at": "2026-08-10"
     },
     {
+      "sn": 253,
+      "category": "Competition / Peers",
+      "date": "2026-08-07",
+      "subject": "Star Health to host analysts at Emkay Confluence 2026",
+      "summary": "Star Health engaged institutional investors in Mumbai on Aug 14, 2026 to discuss FY27 strategic outlook and operational performance, part of continued IR engagement following its strong Q1 print.",
+      "reference": "https://scanx.trade/stock-market-news/companies/star-health-insurance-to-host-analysts-at-emkay-confluence-2026/47644006",
+      "id": "1ac36cb1125bd6",
+      "origin": "agent",
+      "added_at": "2026-09-03"
+    },
+    {
       "sn": 208,
       "category": "General",
       "date": "2026-08-06",
@@ -219,6 +318,17 @@
       "id": "0da0b9427fd6b8",
       "origin": "agent",
       "added_at": "2026-08-10"
+    },
+    {
+      "sn": 254,
+      "category": "Competition / Peers",
+      "date": "2026-08-04",
+      "subject": "Star Health seeks reclassification of 97 promoter-group entities",
+      "summary": "Star Health filed for exchange approval to reclassify shares held by the late Rakesh Jhunjhunwala promoter-group entities to the public category, a move that would <span style=\"color:#22C55E;font-weight:600\">increase free float</span> and could affect stock liquidity/valuation.",
+      "reference": "https://scanx.trade/stock-market-news/companies/star-health-allied-insurance-receives-reclassification-requests-from-97-promoter-group-entities/46783776",
+      "id": "06bae0eaed029a",
+      "origin": "agent",
+      "added_at": "2026-09-03"
     },
     {
       "sn": 210,
@@ -318,6 +428,28 @@
       "id": "1865df84875033",
       "origin": "agent",
       "added_at": "2026-08-03"
+    },
+    {
+      "sn": 256,
+      "category": "Regulatory",
+      "date": "2026-07-30",
+      "subject": "100% FDI in insurance sector reform advances",
+      "summary": "Government-backed reforms under the Sabka Bima Sabki Raksha (Insurance Laws Amendment) push toward <span style=\"color:#F59E0B;font-weight:600\">100% FDI</span> in insurance, part of a broader liberalisation drive that could bring fresh capital and heightened competitive intensity to standalone health insurers.",
+      "reference": "https://vajiramandravi.com/current-affairs/100-fdi-in-insurance-sector/",
+      "id": "02e83e63ea057a",
+      "origin": "agent",
+      "added_at": "2026-09-03"
+    },
+    {
+      "sn": 255,
+      "category": "Profitability",
+      "date": "2026-07-30",
+      "subject": "<span style=\"background:#F0FDF4;padding:2px 6px;border-radius:4px;\">Niva Bupa Q1 FY27 profit nearly doubles to ₹137.8 crore</span>",
+      "summary": "Combined insurance service ratio <span style=\"color:#22C55E;font-weight:600\">improved 300bps YoY to 100.2%</span> as claims ratio fell to **63.0%** from 66.8%; retail health GWP surged **47.1%**, lifting retail market share to **11.1%** from 10.0%; management guided to mid-to-high-teens ROE by FY2029 (vs **11.8%** currently).",
+      "reference": "https://investing.com/news/company-news/niva-bupa-q1-fy2027-slides-profit-doubles-retail-share-climbs-93CH-4824825",
+      "id": "0b04cee6ef53aa",
+      "origin": "agent",
+      "added_at": "2026-09-03"
     },
     {
       "sn": 242,
@@ -428,6 +560,17 @@
       "id": "0dcf716bcfc58a",
       "origin": "agent",
       "added_at": "2026-07-20"
+    },
+    {
+      "sn": 257,
+      "category": "Profitability",
+      "date": "2026-07-29",
+      "subject": "<span style=\"background:#F0FDF4;padding:2px 6px;border-radius:4px;\">Star Health Q1 FY27 PAT rises 25% to ₹550 crore</span>",
+      "summary": "Underwriting profit <span style=\"color:#22C55E;font-weight:600\">surged sixfold to ₹111 crore</span> on disciplined pricing; combined operating ratio improved to **90.93%** from 92.00% and claims ratio eased to **67.48%** from 68.52%; normalised PAT (ex-investment swing) rose **44%** YoY to ₹386 crore, translating to an annualised ROE of ~**15.6%**.",
+      "reference": "https://scanx.trade/stock-market-news/companies/star-health-insurance-to-host-analysts-at-emkay-confluence-2026/47644006",
+      "id": "0173df03df6a96",
+      "origin": "agent",
+      "added_at": "2026-09-03"
     },
     {
       "sn": 243,
