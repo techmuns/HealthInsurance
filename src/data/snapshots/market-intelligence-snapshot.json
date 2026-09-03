@@ -4,8 +4,8 @@
     "description": "AI-generated market intelligence for the SAHI health insurers — investor meets, earnings/board dates, sector & regulatory news, share catalysts. Web-sourced; each item links its source. AI-generated, not audited.",
     "schema_version": "1.0.0",
     "dataset": "ai_generated",
-    "last_updated": "2026-09-02",
-    "last_successful_run": "2026-09-02T17:34:38.198Z",
+    "last_updated": "2026-09-03",
+    "last_successful_run": "2026-09-03T06:40:30.727Z",
     "upstream_sources": [
       "muns_agent_web"
     ],
@@ -14,6 +14,21 @@
     "notes": "Clearly labelled AI-generated intelligence — verify before acting. Items accumulate through the day and rank by investor impact, not recency."
   },
   "data": [
+    {
+      "id": "ee23a1cb7b",
+      "company_id": "sector",
+      "date": null,
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "<span style=\"color:#1E3A8A;font-weight:600\">watch</span>",
+      "detail": "IRDAI floats Public Insurance Registry (PIR) consultation paper; feedback due Sep 30, 2026",
+      "source_name": null,
+      "source_url": null,
+      "source_published_at": null,
+      "first_seen": "2026-09-03T06:40:30.727Z",
+      "discovered_at": "2026-09-03T06:40:30.727Z"
+    },
     {
       "id": "4ea823e336",
       "company_id": "sector",
@@ -898,21 +913,6 @@
       "source_published_at": "2026-07-29",
       "first_seen": "2026-08-03T16:14:42.232Z",
       "discovered_at": "2026-08-03T16:14:42.232Z"
-    },
-    {
-      "id": "48a1bd58eb",
-      "company_id": "sector",
-      "date": "2026-07-29",
-      "kind": "regulatory",
-      "horizon": "recent",
-      "impact": "watch",
-      "headline": "IRDAI board approves sweeping reforms — capital, M&A, penalty framework",
-      "detail": "New rules ease capital infusion, amalgamation and share-transfer norms while introducing a formal, structured penalty regime under the SBSR Act — directly affects capital-raising flexibility and M&A optionality for standalone health insurers like Niva Bupa.",
-      "source_name": "indianexpress.com",
-      "source_url": "https://indianexpress.com/article/business/irdai-insurance-reforms-2026-sbsr-act-100-percent-fdi-protect-general-10809303/",
-      "source_published_at": "2026-07-29",
-      "first_seen": "2026-08-04T11:56:31.908Z",
-      "discovered_at": "2026-08-04T11:56:31.908Z"
     }
   ]
 }
