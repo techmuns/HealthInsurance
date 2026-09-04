@@ -5,7 +5,7 @@
     "schema_version": "1.0.0",
     "dataset": "ai_generated",
     "last_updated": "2026-09-04",
-    "last_successful_run": "2026-09-04T06:48:12.197Z",
+    "last_successful_run": "2026-09-04T17:16:22.746Z",
     "upstream_sources": [
       "muns_agent_web"
     ],
@@ -193,6 +193,21 @@
       "source_published_at": null,
       "first_seen": "2026-08-31T17:20:05.801Z",
       "discovered_at": "2026-08-31T17:20:05.801Z"
+    },
+    {
+      "id": "74daeebe06",
+      "company_id": "sector",
+      "date": "2026-08-31",
+      "kind": "catalyst",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "Ace investor Ashish Dhawan buys <span style=\"color:#22C55E;font-weight:600\">▲ 35 lakh</span> Religare Enterprises shares in two sessions",
+      "detail": "Dhawan (existing 5.24% stake) added 18L shares (Aug 28) + 16.98L shares (Aug 31) at ₹232–237, lifting Religare (Care Health's parent) <span style=\"color:#22C55E;font-weight:600\">▲ ~9%</span> — a bullish valuation read-through for listed health-insurance peers, including Niva Bupa.",
+      "source_name": null,
+      "source_url": null,
+      "source_published_at": null,
+      "first_seen": "2026-09-04T17:16:22.746Z",
+      "discovered_at": "2026-09-04T17:16:22.746Z"
     },
     {
       "id": "e54fa65d10",
@@ -600,6 +615,36 @@
       "discovered_at": "2026-08-20T14:26:18.382Z"
     },
     {
+      "id": "76190b5e31",
+      "company_id": "sector",
+      "date": "2026-08-20",
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "Niva Bupa tops July non-life growth at <span style=\"color:#22C55E;font-weight:600\">▲ 34%</span> ex-crop GWP (Kotak)",
+      "detail": "Retail health GWP up <span style=\"color:#22C55E;font-weight:600\">▲ 47% YoY</span> in July vs. sector-wide health premium growth of 26%, reinforcing Niva Bupa's share-gain story vs. Star Health's steadier ~19%.",
+      "source_name": null,
+      "source_url": null,
+      "source_published_at": null,
+      "first_seen": "2026-09-04T17:16:22.746Z",
+      "discovered_at": "2026-09-04T17:16:22.746Z"
+    },
+    {
+      "id": "fb63425c8a",
+      "company_id": "sector",
+      "date": "2026-08-19",
+      "kind": "regulatory",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "IRDAI bars Niva Bupa from opening new offices for 6 months",
+      "detail": "Penalty for FY25 Expense-of-Management breaches; company says no financial impact and is EoM-compliant for FY26/Q1FY27, but it caps near-term branch/distribution expansion.",
+      "source_name": null,
+      "source_url": null,
+      "source_published_at": null,
+      "first_seen": "2026-09-04T17:16:22.746Z",
+      "discovered_at": "2026-09-04T17:16:22.746Z"
+    },
+    {
       "id": "744e54ff03",
       "company_id": "niva-bupa",
       "date": "2026-08-03",
@@ -613,6 +658,21 @@
       "source_published_at": "2026-08-03",
       "first_seen": "2026-08-03T16:14:42.232Z",
       "discovered_at": "2026-08-03T16:14:42.232Z"
+    },
+    {
+      "id": "a7ce846147",
+      "company_id": "sector",
+      "date": "2026-08-03",
+      "kind": "rating",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "Nomura reiterates Buy, TP <span style=\"color:#22C55E;font-weight:600\">₹105</span>",
+      "detail": "Cites <span style=\"color:#22C55E;font-weight:600\">▼ 382bps YoY loss-ratio improvement</span>; expects 23–25% premium CAGR FY27–28 and ROE moving toward 12–15.9% by FY29 (vs. 14.8% now).",
+      "source_name": null,
+      "source_url": null,
+      "source_published_at": null,
+      "first_seen": "2026-09-04T17:16:22.746Z",
+      "discovered_at": "2026-09-04T17:16:22.746Z"
     },
     {
       "id": "6375158b1f",
@@ -750,6 +810,21 @@
       "discovered_at": "2026-08-04T11:56:31.908Z"
     },
     {
+      "id": "1ecae846da",
+      "company_id": "sector",
+      "date": "2026-07-31",
+      "kind": "earnings",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "Care Health (Religare) Q1 FY27 GWP up <span style=\"color:#22C55E;font-weight:600\">▲ 37% YoY</span>, PBT up <span style=\"color:#22C55E;font-weight:600\">▲ 59% to ₹163 cr</span>",
+      "detail": "Strong underwriting improvement at a direct listed-peer strengthens the case that the entire SAHI category is out-executing PSU/general insurers.",
+      "source_name": null,
+      "source_url": null,
+      "source_published_at": null,
+      "first_seen": "2026-09-04T17:16:22.746Z",
+      "discovered_at": "2026-09-04T17:16:22.746Z"
+    },
+    {
       "id": "40c9dab923",
       "company_id": "niva-bupa",
       "date": "2026-07-30",
@@ -838,81 +913,6 @@
       "source_published_at": "2026-07-30",
       "first_seen": "2026-08-02T08:05:52.794Z",
       "discovered_at": "2026-08-02T08:05:52.794Z"
-    },
-    {
-      "id": "467ee5b945",
-      "company_id": "niva-bupa",
-      "date": "2026-07-30",
-      "kind": "earnings",
-      "horizon": "recent",
-      "impact": "positive",
-      "headline": "Q1 FY27 net profit doubles to ₹138 crore (Ind AS)",
-      "detail": "Insurance revenue up **28.5%** YoY to **₹2,274 crore**; company to raise up to **₹500 crore** via NCDs, signalling capital strength for retail expansion.",
-      "source_name": "ndtvprofit.com",
-      "source_url": "https://www.ndtvprofit.com/markets/niva-bupa-health-q1-results-profit-doubles-insurance-revenue-crosses-rs-2-200-crore-11843320",
-      "source_published_at": "2026-07-30",
-      "first_seen": "2026-08-03T16:14:42.232Z",
-      "discovered_at": "2026-08-03T16:14:42.232Z"
-    },
-    {
-      "id": "ada2879e51",
-      "company_id": "sector",
-      "date": "2026-07-30",
-      "kind": "regulatory",
-      "horizon": "recent",
-      "impact": "watch",
-      "headline": "IRDAI notifies new registration, shareholding & merger regulations in Gazette",
-      "detail": "The IRDAI (Registration, Capital Structure, Transfer of Shares and Amalgamation) Amendment Regulations 2026 set new approval thresholds (5%/10%/25%/50%/75%) for shareholding changes, ease SPV promoter norms, and enable holding-company mergers — material for future stake-sale/listing-linked moves at health insurers.",
-      "source_name": "cnbctv18.com",
-      "source_url": "https://www.cnbctv18.com/business/finance/insurance-sector-new-rulebook-irdai-registration-shareholding-merger-norms-19958730.htm",
-      "source_published_at": "2026-07-31",
-      "first_seen": "2026-08-04T11:56:31.908Z",
-      "discovered_at": "2026-08-04T11:56:31.908Z"
-    },
-    {
-      "id": "8b9c716cee",
-      "company_id": "sector",
-      "date": "2026-07-30",
-      "kind": "regulatory",
-      "horizon": "recent",
-      "impact": "neutral",
-      "headline": "IRDAI grants 4th new insurer registration of CY2026 (ProTec General); one health insurer license also approved in 2026",
-      "detail": "Confirms IRDAI's continued openness to new entrants (2 general insurers, 1 health insurer, 1 reinsurer registered in 2026), a mild dilution/competitive-intensity signal for incumbent standalone health insurers.",
-      "source_name": "indianexpress.com",
-      "source_url": "https://indianexpress.com/article/business/irdai-insurance-reforms-2026-sbsr-act-100-percent-fdi-protect-general-10809303/",
-      "source_published_at": "2026-07-29",
-      "first_seen": "2026-08-04T11:56:31.908Z",
-      "discovered_at": "2026-08-04T11:56:31.908Z"
-    },
-    {
-      "id": "bb563b80a3",
-      "company_id": "star-health",
-      "date": "2026-07-29",
-      "kind": "earnings",
-      "horizon": "recent",
-      "impact": "positive",
-      "headline": "Q1 FY27 profit jumps 25% to Rs 550 crore; underwriting profit surges to Rs 111 cr",
-      "detail": "GWP up 19% to Rs 4,287 cr and underwriting profit swung sharply higher from Rs 16 cr YoY, a key positive read for sector pricing",
-      "source_name": "economictimes.indiatimes.com",
-      "source_url": "https://economictimes.indiatimes.com/markets/stocks/earnings/star-health-insurance-q1-results-profit-jumps-25-to-rs-550-crore/articleshow/132716654.cms",
-      "source_published_at": "2026-07-29",
-      "first_seen": "2026-08-01T11:11:01.335Z",
-      "discovered_at": "2026-08-01T11:11:01.335Z"
-    },
-    {
-      "id": "936069906d",
-      "company_id": "star-health",
-      "date": "2026-07-29",
-      "kind": "catalyst",
-      "horizon": "recent",
-      "impact": "negative",
-      "headline": "Solvency ratio declines to 209% from 222% YoY",
-      "detail": "Falling solvency margin, even as profit grows, is a watch item for capital adequacy versus regulatory minimum (150%)",
-      "source_name": "economictimes.indiatimes.com",
-      "source_url": "https://economictimes.indiatimes.com/markets/stocks/earnings/star-health-insurance-q1-results-profit-jumps-25-to-rs-550-crore/articleshow/132716654.cms",
-      "source_published_at": "2026-07-29",
-      "first_seen": "2026-08-01T11:11:01.335Z",
-      "discovered_at": "2026-08-01T11:11:01.335Z"
     }
   ]
 }
