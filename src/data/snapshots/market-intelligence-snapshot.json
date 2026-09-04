@@ -4,8 +4,8 @@
     "description": "AI-generated market intelligence for the SAHI health insurers — investor meets, earnings/board dates, sector & regulatory news, share catalysts. Web-sourced; each item links its source. AI-generated, not audited.",
     "schema_version": "1.0.0",
     "dataset": "ai_generated",
-    "last_updated": "2026-09-03",
-    "last_successful_run": "2026-09-03T17:35:18.369Z",
+    "last_updated": "2026-09-04",
+    "last_successful_run": "2026-09-04T06:48:12.197Z",
     "upstream_sources": [
       "muns_agent_web"
     ],
@@ -14,6 +14,21 @@
     "notes": "Clearly labelled AI-generated intelligence — verify before acting. Items accumulate through the day and rank by investor impact, not recency."
   },
   "data": [
+    {
+      "id": "e916893379",
+      "company_id": "sector",
+      "date": null,
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "<span style=\"background:#EFF6FF;padding:2px 6px;border-radius:4px;color:#1E3A8A;font-weight:600\">neutral</span>",
+      "detail": "18th AGM: Chairperson role formalised; CFO/Deputy CEO reappointed",
+      "source_name": null,
+      "source_url": null,
+      "source_published_at": null,
+      "first_seen": "2026-09-04T06:48:12.197Z",
+      "discovered_at": "2026-09-04T06:48:12.197Z"
+    },
     {
       "id": "ee23a1cb7b",
       "company_id": "sector",
@@ -898,21 +913,6 @@
       "source_published_at": "2026-07-29",
       "first_seen": "2026-08-01T11:11:01.335Z",
       "discovered_at": "2026-08-01T11:11:01.335Z"
-    },
-    {
-      "id": "04d007c5f6",
-      "company_id": "star-health",
-      "date": "2026-07-29",
-      "kind": "earnings",
-      "horizon": "recent",
-      "impact": "positive",
-      "headline": "Q1 FY27 profit surges **25.5%** (Ind AS) / **44%** (normalised) to **₹550cr/₹386cr**",
-      "detail": "GWP grew **19%** YoY to **₹4,287cr**; Retail Health fresh GWP up **37%** YoY; Combined Insurance Service Ratio improved to **97.0%** from **98.7%**, best-in-class underwriting discipline among peers.",
-      "source_name": "ndtvprofit.com",
-      "source_url": "https://www.ndtvprofit.com/markets/star-health-q1-results-profit-surges-26-to-rs-550-crore-11839016",
-      "source_published_at": "2026-07-29",
-      "first_seen": "2026-08-03T16:14:42.232Z",
-      "discovered_at": "2026-08-03T16:14:42.232Z"
     }
   ]
 }
