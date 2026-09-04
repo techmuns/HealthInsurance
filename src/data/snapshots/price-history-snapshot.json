@@ -5,11 +5,11 @@
     "schema_version": "1.1.0",
     "dataset": "official",
     "source_policy": "official-first (NSE). Investing.com is login-free backup only, tagged low-confidence.",
-    "last_successful_run": "2026-09-03T16:37:47.130Z",
+    "last_successful_run": "2026-09-04T08:12:04.017Z",
     "parser_status": "ready",
     "notes": "Daily close / traded / deliverable quantity per listed insurer. Workbook seed (NSE via S&P Capital IQ) for niva-bupa listing→Jul-2025; Yahoo Finance keeps it current (close + volume). Deliverable quantity is NSE-only — null where only Yahoo covers a day, until an NSE delivery file is staged.",
-    "last_updated": "2026-09-03T16:38:23.133Z",
-    "row_count": 2281,
+    "last_updated": "2026-09-04T08:12:09.774Z",
+    "row_count": 2285,
     "companies": [
       "godigit",
       "icici-lombard",
@@ -19,10 +19,10 @@
     ],
     "coverage": {
       "from": "2024-11-01",
-      "to": "2026-09-03"
+      "to": "2026-09-04"
     },
     "seeded_from_workbook": "data/raw/exchanges/niva-bupa/niva-bupa-historical-stock-movement.xlsx",
-    "muns_last_run": "2026-09-03T16:37:47.130Z",
+    "muns_last_run": "2026-09-04T08:12:04.017Z",
     "nse_delivery_last_run": "2026-09-03T16:38:22.558Z"
   },
   "data": [
@@ -7798,17 +7798,17 @@
     {
       "company_id": "godigit",
       "date": "2026-09-02",
-      "close": null,
+      "close": 258.4,
       "traded_qty": 121329,
       "deliverable_qty": 56584,
       "provenance": {
-        "source_name": "NSE security-wise delivery",
-        "source_url": "https://archives.nseindia.com/archives/equities/mto/MTO_02092026.DAT",
-        "source_file": "https://archives.nseindia.com/archives/equities/mto/MTO_02092026.DAT",
+        "source_name": "muns market-data API — NSE daily history",
+        "source_url": "https://fastapi.muns.io/market_data",
+        "source_file": "https://fastapi.muns.io/market_data?ticker=GODIGIT&start=2026-08-31&end=2026-09-04&country=India",
         "source_period": "2026-09-02",
-        "fetched_at": "2026-09-03T09:11:31.199Z",
-        "parsed_at": "2026-09-03T09:11:32.472Z",
-        "parser_name": "fetch-nse-delivery",
+        "fetched_at": "2026-09-04T08:12:04.017Z",
+        "parsed_at": "2026-09-04T08:12:08.275Z",
+        "parser_name": "fetch-muns-market-data",
         "confidence": "high"
       }
     },
@@ -31001,6 +31001,74 @@
       }
     },
     {
+      "company_id": "religare-enterprises",
+      "date": "2026-09-01",
+      "close": 249.78,
+      "traded_qty": 2497774,
+      "deliverable_qty": null,
+      "provenance": {
+        "source_name": "muns market-data API — NSE daily history",
+        "source_url": "https://fastapi.muns.io/market_data",
+        "source_file": "https://fastapi.muns.io/market_data?ticker=RELIGARE&start=2026-09-01&end=2026-09-05&country=India",
+        "source_period": "2026-09-01",
+        "fetched_at": "2026-09-04T08:12:04.017Z",
+        "parsed_at": "2026-09-04T08:12:09.651Z",
+        "parser_name": "fetch-muns-market-data",
+        "confidence": "high"
+      }
+    },
+    {
+      "company_id": "religare-enterprises",
+      "date": "2026-09-02",
+      "close": 248.06,
+      "traded_qty": 576451,
+      "deliverable_qty": null,
+      "provenance": {
+        "source_name": "muns market-data API — NSE daily history",
+        "source_url": "https://fastapi.muns.io/market_data",
+        "source_file": "https://fastapi.muns.io/market_data?ticker=RELIGARE&start=2026-09-01&end=2026-09-05&country=India",
+        "source_period": "2026-09-02",
+        "fetched_at": "2026-09-04T08:12:04.017Z",
+        "parsed_at": "2026-09-04T08:12:09.651Z",
+        "parser_name": "fetch-muns-market-data",
+        "confidence": "high"
+      }
+    },
+    {
+      "company_id": "religare-enterprises",
+      "date": "2026-09-03",
+      "close": 251.89,
+      "traded_qty": 849016,
+      "deliverable_qty": null,
+      "provenance": {
+        "source_name": "muns market-data API — NSE daily history",
+        "source_url": "https://fastapi.muns.io/market_data",
+        "source_file": "https://fastapi.muns.io/market_data?ticker=RELIGARE&start=2026-09-01&end=2026-09-05&country=India",
+        "source_period": "2026-09-03",
+        "fetched_at": "2026-09-04T08:12:04.017Z",
+        "parsed_at": "2026-09-04T08:12:09.651Z",
+        "parser_name": "fetch-muns-market-data",
+        "confidence": "high"
+      }
+    },
+    {
+      "company_id": "religare-enterprises",
+      "date": "2026-09-04",
+      "close": 252.84,
+      "traded_qty": 1245315,
+      "deliverable_qty": null,
+      "provenance": {
+        "source_name": "muns market-data API — NSE daily history",
+        "source_url": "https://fastapi.muns.io/market_data",
+        "source_file": "https://fastapi.muns.io/market_data?ticker=RELIGARE&start=2026-09-01&end=2026-09-05&country=India",
+        "source_period": "2026-09-04",
+        "fetched_at": "2026-09-04T08:12:04.017Z",
+        "parsed_at": "2026-09-04T08:12:09.651Z",
+        "parser_name": "fetch-muns-market-data",
+        "confidence": "high"
+      }
+    },
+    {
       "company_id": "star-health",
       "date": "2024-11-01",
       "close": 511.75,
@@ -38789,7 +38857,7 @@
     {
       "company_id": "star-health",
       "date": "2026-09-03",
-      "close": 561.1,
+      "close": 559.35,
       "traded_qty": 169205,
       "deliverable_qty": 86606,
       "provenance": {
