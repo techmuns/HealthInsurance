@@ -5,7 +5,7 @@
     "schema_version": "1.0.0",
     "dataset": "ai_generated",
     "last_updated": "2026-09-05",
-    "last_successful_run": "2026-09-05T13:06:38.889Z",
+    "last_successful_run": "2026-09-05T16:23:27.480Z",
     "upstream_sources": [
       "muns_agent_web"
     ],
@@ -28,6 +28,21 @@
       "source_published_at": null,
       "first_seen": "2026-09-05T13:06:38.889Z",
       "discovered_at": "2026-09-05T13:06:38.889Z"
+    },
+    {
+      "id": "e2e6950863",
+      "company_id": "sector",
+      "date": null,
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "<span style=\"background:#FEF2F2;padding:2px 6px;border-radius:4px;color:#EF4444;font-weight:600\">▼ IRDAI bars new branch openings for 6 months</span>",
+      "detail": "FY25 EoM overspend of **₹248.37 cr** (allowed ₹2,403.75 cr vs actual ₹2,652.12 cr); forbearance rejected despite FY24 precedent, curbing near-term network expansion — company says no P&L impact and claims FY26/Q1FY27 compliance.",
+      "source_name": "bfsi.economictimes.indiatimes.com",
+      "source_url": "https://bfsi.economictimes.indiatimes.com/news/policy/irdai-bars-niva-bupa-health-insurance-from-opening-new-offices-for-six-months/133379321",
+      "source_published_at": "2026-08-20",
+      "first_seen": "2026-09-05T16:23:27.480Z",
+      "discovered_at": "2026-09-05T16:23:27.480Z"
     },
     {
       "id": "e916893379",
@@ -893,21 +908,6 @@
       "impact": "positive",
       "headline": "Q1 FY27 net profit doubles to ₹138 cr, up 93% YoY",
       "detail": "Insurance revenue up 28.5% to ₹2,274 cr; RoE improved to 3.7% from 2.1% YoY on Ind AS transition — a direct positive read-through for the stock.",
-      "source_name": "ndtvprofit.com",
-      "source_url": "https://www.ndtvprofit.com/markets/niva-bupa-health-q1-results-profit-doubles-insurance-revenue-crosses-rs-2-200-crore-11843320",
-      "source_published_at": "2026-07-30",
-      "first_seen": "2026-08-02T08:05:52.794Z",
-      "discovered_at": "2026-08-02T08:05:52.794Z"
-    },
-    {
-      "id": "871c3e4cad",
-      "company_id": "niva-bupa",
-      "date": "2026-07-30",
-      "kind": "board_meeting",
-      "horizon": "recent",
-      "impact": "neutral",
-      "headline": "Board approves ₹500 cr NCD fundraise plan",
-      "detail": "Debt issuance to shore up solvency/growth capital; modestly dilutive to leverage metrics but supports growth funding needs.",
       "source_name": "ndtvprofit.com",
       "source_url": "https://www.ndtvprofit.com/markets/niva-bupa-health-q1-results-profit-doubles-insurance-revenue-crosses-rs-2-200-crore-11843320",
       "source_published_at": "2026-07-30",
