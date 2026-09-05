@@ -5,7 +5,7 @@
     "schema_version": "1.0.0",
     "dataset": "ai_generated",
     "last_updated": "2026-09-05",
-    "last_successful_run": "2026-09-05T06:30:52.686Z",
+    "last_successful_run": "2026-09-05T13:06:38.889Z",
     "upstream_sources": [
       "muns_agent_web"
     ],
@@ -14,6 +14,21 @@
     "notes": "Clearly labelled AI-generated intelligence — verify before acting. Items accumulate through the day and rank by investor impact, not recency."
   },
   "data": [
+    {
+      "id": "1486da34de",
+      "company_id": "sector",
+      "date": null,
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "<span style=\"color:#F59E0B;font-weight:600\">~ watch</span>",
+      "detail": "IRDAI opens consultation on Public Insurance Registry (comments due Sep 30)",
+      "source_name": null,
+      "source_url": null,
+      "source_published_at": null,
+      "first_seen": "2026-09-05T13:06:38.889Z",
+      "discovered_at": "2026-09-05T13:06:38.889Z"
+    },
     {
       "id": "e916893379",
       "company_id": "sector",
@@ -895,21 +910,6 @@
       "detail": "Debt issuance to shore up solvency/growth capital; modestly dilutive to leverage metrics but supports growth funding needs.",
       "source_name": "ndtvprofit.com",
       "source_url": "https://www.ndtvprofit.com/markets/niva-bupa-health-q1-results-profit-doubles-insurance-revenue-crosses-rs-2-200-crore-11843320",
-      "source_published_at": "2026-07-30",
-      "first_seen": "2026-08-02T08:05:52.794Z",
-      "discovered_at": "2026-08-02T08:05:52.794Z"
-    },
-    {
-      "id": "d0c2bee03f",
-      "company_id": "star-health",
-      "date": "2026-07-30",
-      "kind": "earnings",
-      "horizon": "recent",
-      "impact": "positive",
-      "headline": "Q1 FY27 normalised PAT ₹386 cr, up 44% YoY",
-      "detail": "Underwriting profit surged to ₹111 cr (vs ₹16 cr YoY); combined ratio improved to 97.0%; Ind AS PAT ₹550 cr, up 25% YoY — positive read-across for sector peers including Niva Bupa.",
-      "source_name": "business-standard.com",
-      "source_url": "https://business-standard.com/content/press-releases-ani/star-health-reports-normalised-pat-of-386-crores-in-q1-fy27-up-44-yoy-underwriting-profit-increases-sharply-to-111-crores-compared-to-16-crores-in-q1-fy26-126073001368_1.html",
       "source_published_at": "2026-07-30",
       "first_seen": "2026-08-02T08:05:52.794Z",
       "discovered_at": "2026-08-02T08:05:52.794Z"
