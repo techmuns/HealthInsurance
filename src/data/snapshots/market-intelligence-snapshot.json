@@ -5,7 +5,7 @@
     "schema_version": "1.0.0",
     "dataset": "ai_generated",
     "last_updated": "2026-09-06",
-    "last_successful_run": "2026-09-06T13:18:02.207Z",
+    "last_successful_run": "2026-09-06T16:34:41.799Z",
     "upstream_sources": [
       "muns_agent_web"
     ],
@@ -14,6 +14,21 @@
     "notes": "Clearly labelled AI-generated intelligence — verify before acting. Items accumulate through the day and rank by investor impact, not recency."
   },
   "data": [
+    {
+      "id": "28da1a387c",
+      "company_id": "sector",
+      "date": null,
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "<span style=\"color:#22C55E;font-weight:600\">▲ watch/positive</span>",
+      "detail": "IRDAI confirms Ashwani Bhatia as Niva Bupa Chairperson",
+      "source_name": null,
+      "source_url": null,
+      "source_published_at": null,
+      "first_seen": "2026-09-06T16:34:41.799Z",
+      "discovered_at": "2026-09-06T16:34:41.799Z"
+    },
     {
       "id": "1486da34de",
       "company_id": "sector",
@@ -898,21 +913,6 @@
       "source_published_at": "2026-07-30",
       "first_seen": "2026-08-01T11:11:01.335Z",
       "discovered_at": "2026-08-01T11:11:01.335Z"
-    },
-    {
-      "id": "0fca67dab9",
-      "company_id": "niva-bupa",
-      "date": "2026-07-30",
-      "kind": "earnings",
-      "horizon": "recent",
-      "impact": "positive",
-      "headline": "Q1 FY27 net profit doubles to ₹138 cr, up 93% YoY",
-      "detail": "Insurance revenue up 28.5% to ₹2,274 cr; RoE improved to 3.7% from 2.1% YoY on Ind AS transition — a direct positive read-through for the stock.",
-      "source_name": "ndtvprofit.com",
-      "source_url": "https://www.ndtvprofit.com/markets/niva-bupa-health-q1-results-profit-doubles-insurance-revenue-crosses-rs-2-200-crore-11843320",
-      "source_published_at": "2026-07-30",
-      "first_seen": "2026-08-02T08:05:52.794Z",
-      "discovered_at": "2026-08-02T08:05:52.794Z"
     }
   ]
 }
