@@ -1,7 +1,17 @@
 {
   "company_quarterly_disclosures": {
-    "bad_runs": 24,
+    "bad_runs": 25,
     "bad_since": "2026-08-01T07:03:17.369Z",
     "kind": "regressed"
+  },
+  "gicouncil_segmentwise_annual": {
+    "bad_runs": 1,
+    "bad_since": "2026-09-07T09:40:16.207Z",
+    "kind": "regressed"
+  },
+  "moneycontrol_analyst": {
+    "bad_runs": 1,
+    "bad_since": "2026-09-07T09:40:16.207Z",
+    "kind": "empty"
   }
 }
