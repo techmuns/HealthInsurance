@@ -5,7 +5,7 @@
     "schema_version": "1.0.0",
     "dataset": "ai_generated",
     "last_updated": "2026-09-07",
-    "last_successful_run": "2026-09-07T06:48:06.742Z",
+    "last_successful_run": "2026-09-07T15:23:55.387Z",
     "upstream_sources": [
       "muns_agent_web"
     ],
@@ -14,6 +14,21 @@
     "notes": "Clearly labelled AI-generated intelligence — verify before acting. Items accumulate through the day and rank by investor impact, not recency."
   },
   "data": [
+    {
+      "id": "f9317129b4",
+      "company_id": "sector",
+      "date": null,
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "<span style=\"color:#F59E0B;font-weight:600\">mixed/watch</span>",
+      "detail": "Aditya Birla Health Insurance ties up with ICAI, covering 17 lakh CA members/students",
+      "source_name": null,
+      "source_url": null,
+      "source_published_at": null,
+      "first_seen": "2026-09-07T15:23:55.387Z",
+      "discovered_at": "2026-09-07T15:23:55.387Z"
+    },
     {
       "id": "28da1a387c",
       "company_id": "sector",
@@ -895,21 +910,6 @@
       "detail": "Debt-based capital raise alongside Q1 results could affect leverage/solvency ratios and dilution-free growth funding",
       "source_name": "groww.in",
       "source_url": "https://groww.in/stocks/niva-bupa-health-insurance-company-ltd",
-      "source_published_at": "2026-07-30",
-      "first_seen": "2026-08-01T11:11:01.335Z",
-      "discovered_at": "2026-08-01T11:11:01.335Z"
-    },
-    {
-      "id": "3d7b01a9cf",
-      "company_id": "star-health",
-      "date": "2026-07-30",
-      "kind": "earnings",
-      "horizon": "recent",
-      "impact": "positive",
-      "headline": "Normalised PAT of Rs 386 crore in Q1 FY27, up 44% YoY",
-      "detail": "Normalised earnings growth outpaces reported growth, underscoring improving core underwriting profitability per management",
-      "source_name": "business-standard.com",
-      "source_url": "https://www.business-standard.com/amp/content/press-releases-ani/star-health-reports-normalised-pat-of-386-crores-in-q1-fy27-up-44-yoy-underwriting-profit-increases-sharply-to-111-crores-compared-to-16-crores-in-q1-fy26-126073001368_1.html",
       "source_published_at": "2026-07-30",
       "first_seen": "2026-08-01T11:11:01.335Z",
       "discovered_at": "2026-08-01T11:11:01.335Z"
