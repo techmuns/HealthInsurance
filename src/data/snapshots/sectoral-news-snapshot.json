@@ -3,14 +3,25 @@
     "snapshot_id": "sectoral-news-snapshot",
     "description": "Key Sectoral News feed — a permanent seed of 31 curated portfolio-pack updates, kept current by a scheduled muns web-search agent. Each item links its source. Seed items are curated; agent items are AI-gathered (web), clearly labelled and not audited.",
     "schema_version": "1.0.0",
-    "last_updated": "2026-09-03",
-    "last_successful_run": "2026-09-03T10:47:02.578Z",
+    "last_updated": "2026-09-07",
+    "last_successful_run": "2026-09-07T11:45:05.715Z",
     "seed_count": 31,
-    "agent_count": 226,
+    "agent_count": 240,
     "generated_by": "Seed: investor portfolio pack. Updates: AI (muns agent, web search).",
     "notes": "Seed floor can never be lost. Agent items are de-duped by subject+date and verified-before-acting."
   },
   "data": [
+    {
+      "sn": 258,
+      "category": "General",
+      "date": "2026-09-01",
+      "subject": "Star Health settles 17 lakh+ claims worth ₹5,800cr in Kerala",
+      "summary": "Large-scale claims servicing in a high-penetration state underscores strong retail demand but also the <span style=\"color:#EF4444;font-weight:600\">rising rupee-cost of claims</span> that can pressure loss ratios.",
+      "reference": "",
+      "id": "07d27304fba56f",
+      "origin": "agent",
+      "added_at": "2026-09-07"
+    },
     {
       "sn": 245,
       "category": "Regulatory",
@@ -67,6 +78,17 @@
       "added_at": "2026-08-27"
     },
     {
+      "sn": 259,
+      "category": "Competition / Peers",
+      "date": "2026-08-21",
+      "subject": "Prudential HCL Health Insurance commences operations",
+      "summary": "New Prudential plc–HCL Group JV launched with a **~12,000-hospital** cashless network — a <span style=\"color:#EF4444;font-weight:600\">well-capitalised new entrant</span> intensifying competition for Star Health, Niva Bupa, Care Health and Aditya Birla Health.",
+      "reference": "",
+      "id": "140e287ca091dc",
+      "origin": "agent",
+      "added_at": "2026-09-07"
+    },
+    {
       "sn": 236,
       "category": "Competition / Peers",
       "date": "2026-08-21",
@@ -78,6 +100,28 @@
       "added_at": "2026-08-27"
     },
     {
+      "sn": 261,
+      "category": "Competition / Peers",
+      "date": "2026-08-20",
+      "subject": "Star Health hosts analyst meet with Hornbill Capital",
+      "summary": "Continued institutional engagement signals active Street scrutiny of Star Health's growth/margin trajectory amid a more competitive, more regulated market.",
+      "reference": "",
+      "id": "165c37815838b8",
+      "origin": "agent",
+      "added_at": "2026-09-07"
+    },
+    {
+      "sn": 260,
+      "category": "Competition / Peers",
+      "date": "2026-08-20",
+      "subject": "Jhunjhunwala promoter-group entities seek public reclassification at Star Health",
+      "summary": "Nine promoter-linked entities applied to move from \"promoter\" to \"public\" category — a change that could <span style=\"color:#F59E0B;font-weight:600\">materially alter free-float and index-weighting dynamics</span>.",
+      "reference": "",
+      "id": "0934a750a0c449",
+      "origin": "agent",
+      "added_at": "2026-09-07"
+    },
+    {
       "sn": 237,
       "category": "General",
       "date": "2026-08-20",
@@ -87,6 +131,17 @@
       "id": "05159beacb9a6d",
       "origin": "agent",
       "added_at": "2026-08-27"
+    },
+    {
+      "sn": 262,
+      "category": "Regulatory",
+      "date": "2026-08-19",
+      "subject": "IRDAI bars Niva Bupa from opening new offices for 6 months",
+      "summary": "<span style=\"color:#EF4444;font-weight:600\">Formal warning + 6-month branch-expansion ban</span> over FY25 Expense-of-Management breaches; insurer claims FY26/Q1FY27 compliance and no financial impact.",
+      "reference": "",
+      "id": "0cdda2c5594fdf",
+      "origin": "agent",
+      "added_at": "2026-09-07"
     },
     {
       "sn": 247,
@@ -210,6 +265,17 @@
       "added_at": "2026-08-20"
     },
     {
+      "sn": 263,
+      "category": "General",
+      "date": "2026-08-12",
+      "subject": "India weighs sweeping health-insurance reforms to curb medical inflation",
+      "summary": "IRDAI-chaired panel drafting benchmarked tariffs, a standard health product and a common admissible-treatments list to tame <span style=\"color:#EF4444;font-weight:600\">12–14% medical inflation</span> and ~10–15% fraudulent claims; recommendations due by year-end 2026.",
+      "reference": "",
+      "id": "1c0f0e24a3adab",
+      "origin": "agent",
+      "added_at": "2026-09-07"
+    },
+    {
       "sn": 250,
       "category": "General",
       "date": "2026-08-12",
@@ -241,6 +307,17 @@
       "id": "0716f952f08000",
       "origin": "agent",
       "added_at": "2026-08-20"
+    },
+    {
+      "sn": 264,
+      "category": "Regulatory",
+      "date": "2026-08-10",
+      "subject": "IRDAI opens consultation on Public Insurance Registry",
+      "summary": "Centralised registry aims to improve data transparency and grievance redressal — a governance positive, but raises near-term compliance/IT costs.",
+      "reference": "https://www.thehindu.com/business/Industry/irdai-kick-starts-consultation-for-public-insurance-registry/article71416152.ece",
+      "id": "06502b0d895ccf",
+      "origin": "agent",
+      "added_at": "2026-09-07"
     },
     {
       "sn": 251,
@@ -320,6 +397,17 @@
       "added_at": "2026-08-10"
     },
     {
+      "sn": 265,
+      "category": "General",
+      "date": "2026-08-05",
+      "subject": "Private hospitals threaten to suspend Ayushman Bharat services (Haryana)",
+      "summary": "Delayed government reimbursements highlight recurring <span style=\"color:#EF4444;font-weight:600\">payor-provider friction</span> relevant to private insurers' cashless-network negotiations and claim-turnaround times.",
+      "reference": "https://health.economictimes.indiatimes.com/news/insurance/private-hospitals-to-suspend-ayushman-services-over-payment-delays-in-haryana/133639249",
+      "id": "0a171ab4d76ff6",
+      "origin": "agent",
+      "added_at": "2026-09-07"
+    },
+    {
       "sn": 254,
       "category": "Competition / Peers",
       "date": "2026-08-04",
@@ -386,6 +474,17 @@
       "added_at": "2026-08-03"
     },
     {
+      "sn": 266,
+      "category": "GST",
+      "date": "2026-08-01",
+      "subject": "GST Council weighs ITC relief for employer group health/life policies",
+      "summary": "Proposed input-tax-credit relief could <span style=\"color:#22C55E;font-weight:600\">lower net cost of corporate covers</span>, a tailwind for Star Health, Care Health and Aditya Birla Health's group books.",
+      "reference": "https://a2ztaxcorp.net/gst-council-to-discuss-input-tax-credit-relief-for-employers-offering-group-health-life-insurance-policies",
+      "id": "1ae20ceb07e19d",
+      "origin": "agent",
+      "added_at": "2026-09-07"
+    },
+    {
       "sn": 241,
       "category": "Regulatory",
       "date": "2026-07-31",
@@ -428,6 +527,28 @@
       "id": "1865df84875033",
       "origin": "agent",
       "added_at": "2026-08-03"
+    },
+    {
+      "sn": 268,
+      "category": "Regulatory",
+      "date": "2026-07-30",
+      "subject": "IRDAI approves broad reform package: capital norms, PEPF, penalties, FDI push",
+      "summary": "Amendments ease investment/capital-raising norms, operationalise the Policyholders' Education & Protection Fund, add a transparent penalty framework, and confirm progress toward <span style=\"color:#22C55E;font-weight:600\">100% FDI</span> (two insurers already breached the prior 74% cap) under \"Insurance for All by 2047.",
+      "reference": "",
+      "id": "0a7c1f8fe9de8a",
+      "origin": "agent",
+      "added_at": "2026-09-07"
+    },
+    {
+      "sn": 267,
+      "category": "Profitability",
+      "date": "2026-07-30",
+      "subject": "Star Health posts sharp underwriting turnaround in Q1 FY27",
+      "summary": "Normalised PAT <span style=\"color:#22C55E;font-weight:600\">▲44% YoY to ₹386cr</span>; underwriting profit surged to ₹111cr from ₹16cr; Combined Insurance Service Ratio <span style=\"color:#22C55E;font-weight:600\">▼1.7pp to 97.0%</span> even as GWP grew <span style=\"color:#22C55E;font-weight:600\">▲19% YoY to ₹4,287cr</span>.",
+      "reference": "",
+      "id": "1d607f96717705",
+      "origin": "agent",
+      "added_at": "2026-09-07"
     },
     {
       "sn": 256,
@@ -560,6 +681,17 @@
       "id": "0dcf716bcfc58a",
       "origin": "agent",
       "added_at": "2026-07-20"
+    },
+    {
+      "sn": 269,
+      "category": "Regulatory",
+      "date": "2026-07-29",
+      "subject": "IRDAI grants licence to ProTec General Insurance — 4th approval of 2026",
+      "summary": "Fourth new insurer registered in 2026, signalling <span style=\"color:#F59E0B;font-weight:600\">intensifying competitive entry</span> into India's general/health insurance space.",
+      "reference": "https://www.business-standard.com/finance/insurance/irdai-grants-licence-to-protec-general-insurance-fourth-approval-in-2026-126072901490_1.html",
+      "id": "1e87b9ad03579a",
+      "origin": "agent",
+      "added_at": "2026-09-07"
     },
     {
       "sn": 257,
@@ -989,6 +1121,17 @@
       "id": "0c74548eb60dc9",
       "origin": "agent",
       "added_at": "2026-07-16"
+    },
+    {
+      "sn": 270,
+      "category": "GST",
+      "date": "2026-07-15",
+      "subject": "GST regime keeps individual health premiums at 0%, motor at 18%",
+      "summary": "Retail health premiums remain <span style=\"color:#22C55E;font-weight:600\">fully GST-exempt</span>, sustaining the affordability tailwind for Star Health, Niva Bupa and Care Health versus other insurance lines taxed at 18%.",
+      "reference": "https://taxgarden.in/blog/gst-on-insurance-premiums-india-2026-life-health-motor-rates-guide",
+      "id": "0f157e5a2b9fe9",
+      "origin": "agent",
+      "added_at": "2026-09-07"
     },
     {
       "sn": 216,
@@ -1506,6 +1649,17 @@
       "id": "0a4fde7b3df318",
       "origin": "agent",
       "added_at": "2026-06-18"
+    },
+    {
+      "sn": 271,
+      "category": "Competition / Peers",
+      "date": "2026-06-15",
+      "subject": "Aditya Birla Health Insurance ties up with ICAI (17 lakh CA members/students)",
+      "summary": "Distribution tie-up gives affinity access to a large professional body, sharpening competition for group/affinity mandates against Star Health, Care Health and Niva Bupa.",
+      "reference": "https://www.thehindubusinessline.com/money-and-banking/aditya-birla-health-insurance-ties-up-with-icai-to-offer-coverage-to-17-lakh-students-and-ca-members/article71388594.ece",
+      "id": "0d0b58dd62a7e3",
+      "origin": "agent",
+      "added_at": "2026-09-07"
     },
     {
       "sn": 189,
