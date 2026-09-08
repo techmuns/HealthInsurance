@@ -47554,10 +47554,10 @@
         "company": "Niva Bupa",
         "companyId": "niva-bupa",
         "generatedAt": "2026-09-08T07:05:37.136Z",
-        "lastUpdatedAt": "2026-09-08T07:05:37.136Z",
+        "lastUpdatedAt": "2026-09-08T14:05:59.154Z",
         "status": "Constructive",
         "sourceConfidence": "Low",
-        "itemCount": 17,
+        "itemCount": 14,
         "runs": [
           {
             "runTime": "2026-09-08T07:05:37.136Z",
@@ -47565,19 +47565,26 @@
             "sourceCount": 17,
             "ideas": 6,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-09-08T14:05:59.154Z",
+            "developments": 21,
+            "sourceCount": 14,
+            "ideas": 6,
+            "status": "ok"
           }
         ],
         "brief": {
-          "greeting": "Good morning",
+          "greeting": "Good afternoon",
           "narrative": "Regulatory pressure is the main watch item for health insurers today. Niva Bupa remains supported by premium growth and demand, but claims-cost and conduct scrutiny will decide whether the strength is sustainable.",
           "attentionCount": 6,
-          "developmentsCount": 24,
-          "sourcesCount": 17,
-          "domainsCount": 7,
+          "developmentsCount": 21,
+          "sourcesCount": 14,
+          "domainsCount": 5,
           "confidencePct": 65,
           "confidenceTier": "Low",
           "readingMins": 3,
-          "lastUpdatedLabel": "7 Sep, 03:23 pm"
+          "lastUpdatedLabel": "8 Sep, 02:00 pm"
         },
         "message": {
           "since": "No company-specific movement for Niva Bupa since the last brief — the read below is sector & regulatory context that applies across standalone health insurers.",
@@ -47659,14 +47666,14 @@
                 "url": "https://www.moneycontrol.com/news/business/buy-niva-bupa-target-of-rs-103-motilal-oswal-13990519.html"
               },
               {
-                "kind": "Analyst report",
-                "name": "moneycontrol.com",
-                "url": "https://www.moneycontrol.com/news/business/stocks/niva-bupa-gains-as-nomura-maintains-buy-sees-strong-premium-growth-outlook-13991858.html"
-              },
-              {
                 "kind": "Market data",
                 "name": "Derived from insurer-annual-snapshot + industry-segment-premium",
                 "url": "https://transactions.nivabupa.com/pages/doc/investor-relations/other-fin-disclosures/Press-Release-Results-March-2025.pdf"
+              },
+              {
+                "kind": "Market data",
+                "name": "3 curated source-backed insights",
+                "url": ""
               }
             ],
             "impact": "Positive",
@@ -47674,7 +47681,7 @@
             "companyId": "niva-bupa",
             "sourceUrl": "https://www.moneycontrol.com/news/business/stocks/niva-bupa-gains-as-nomura-maintains-buy-sees-strong-premium-growth-outlook-13991858.html/amp",
             "sourceConfidence": "Medium",
-            "clusterSize": 2,
+            "clusterSize": 1,
             "clusterSources": [
               {
                 "kind": "Analyst report",
@@ -47752,14 +47759,14 @@
                 "url": "https://www.moneycontrol.com/news/business/buy-niva-bupa-target-of-rs-103-motilal-oswal-13990519.html"
               },
               {
-                "kind": "Analyst report",
-                "name": "moneycontrol.com",
-                "url": "https://www.moneycontrol.com/news/business/stocks/niva-bupa-gains-as-nomura-maintains-buy-sees-strong-premium-growth-outlook-13991858.html"
-              },
-              {
                 "kind": "Market data",
                 "name": "Derived from insurer-annual-snapshot + industry-segment-premium",
                 "url": "https://transactions.nivabupa.com/pages/doc/investor-relations/other-fin-disclosures/Press-Release-Results-March-2025.pdf"
+              },
+              {
+                "kind": "Market data",
+                "name": "3 curated source-backed insights",
+                "url": ""
               }
             ],
             "impact": "Positive",
@@ -47773,74 +47780,6 @@
                 "kind": "Analyst report",
                 "name": "moneycontrol.com",
                 "url": "https://moneycontrol.com/news/business/buy-niva-bupa-target-of-rs-103-motilal-oswal-13990519.html"
-              }
-            ],
-            "independentSources": 1
-          },
-          {
-            "id": "40c9dab923",
-            "entity": "Niva Bupa",
-            "stars": 4,
-            "reasoning": [
-              "Insurance revenue rose 28.5% YoY to Rs 2,274 crore, GWP up 31.7%, signalling strong retail-led growth momentum for the stock",
-              "Retail and public the market cut their stake in Niva Bupa from 25.4% to 18.7% during Q1 FY26."
-            ],
-            "whatToWatch": "The next disclosure for confirmation of the trend.",
-            "confidencePct": 78,
-            "evidenceCount": 3,
-            "status": "Constructive",
-            "category": "Filing",
-            "why": {
-              "whatHappened": "Q1 FY27 net profit up 93% to Rs 138 cr; revenue crosses Rs 2,200 cr",
-              "whyItMatters": "Insurance revenue rose 28.5% YoY to Rs 2,274 crore, GWP up 31.7%, signalling strong retail-led growth momentum for the stock",
-              "whoAffected": "Niva Bupa directly — its premium growth, margins and shareholders.",
-              "historicalContext": "Retail and public the market cut their stake in Niva Bupa from 25.4% to 18.7% during Q1 FY26.",
-              "potentialImpact": "Next shareholding filing — Public reverting toward 25.4%.",
-              "whatToWatch": "The next disclosure for confirmation of the trend."
-            },
-            "action": {
-              "id": "source",
-              "label": "Verify Niva Bupa sources",
-              "icon": "source",
-              "target": {
-                "page": "audit",
-                "company": "niva-bupa"
-              }
-            },
-            "isBreaking": false,
-            "isNew": false,
-            "freshness": "existing",
-            "freshnessLabel": "Existing context",
-            "publishedLabel": "30 Jul",
-            "discoveredLabel": "1 Aug",
-            "sources": [
-              {
-                "kind": "Filing",
-                "name": "ndtvprofit.com",
-                "url": "https://www.ndtvprofit.com/markets/niva-bupa-health-q1-results-profit-doubles-insurance-revenue-crosses-rs-2-200-crore-11843320"
-              },
-              {
-                "kind": "Market data",
-                "name": "Q4 FY25 earnings call",
-                "url": "https://transactions.nivabupa.com/pages/doc/investor-relations/Earnings-Calls/2024-2025/Earnings-Call-Transcript-Q4-FY-2025.pdf"
-              },
-              {
-                "kind": "Market data",
-                "name": "1 curated source-backed insight",
-                "url": ""
-              }
-            ],
-            "impact": "Positive",
-            "scope": "company",
-            "companyId": "niva-bupa",
-            "sourceUrl": "https://www.ndtvprofit.com/markets/niva-bupa-health-q1-results-profit-doubles-insurance-revenue-crosses-rs-2-200-crore-11843320",
-            "sourceConfidence": "Medium",
-            "clusterSize": 1,
-            "clusterSources": [
-              {
-                "kind": "Filing",
-                "name": "ndtvprofit.com",
-                "url": "https://www.ndtvprofit.com/markets/niva-bupa-health-q1-results-profit-doubles-insurance-revenue-crosses-rs-2-200-crore-11843320"
               }
             ],
             "independentSources": 1
@@ -47924,89 +47863,6 @@
             "independentSources": 1
           },
           {
-            "id": "312170a2bf",
-            "entity": "Niva Bupa",
-            "stars": 3,
-            "reasoning": [
-              "Debt-based capital raise alongside Q1 results could affect leverage/solvency ratios and dilution-free growth funding",
-              "Retail and public the market cut their stake in Niva Bupa from 25.4% to 18.7% during Q1 FY26."
-            ],
-            "whatToWatch": "Execution and continuity after the leadership change.",
-            "confidencePct": 75,
-            "evidenceCount": 3,
-            "status": "Watch",
-            "category": "Management",
-            "why": {
-              "whatHappened": "Board approves plan to raise up to Rs 500 crore via NCDs",
-              "whyItMatters": "Debt-based capital raise alongside Q1 results could affect leverage/solvency ratios and dilution-free growth funding",
-              "whoAffected": "Niva Bupa's board, leadership continuity and its shareholders.",
-              "historicalContext": "Retail and public the market cut their stake in Niva Bupa from 25.4% to 18.7% during Q1 FY26.",
-              "potentialImpact": "Next shareholding filing — Public reverting toward 25.4%.",
-              "whatToWatch": "Execution and continuity after the leadership change."
-            },
-            "action": {
-              "id": "ownership",
-              "label": "Review Niva Bupa ownership",
-              "icon": "ownership",
-              "target": {
-                "page": "sahi",
-                "sahiTab": "governance",
-                "company": "niva-bupa",
-                "focus": {
-                  "id": "pulse-ownership",
-                  "metricKey": "promoter_holding",
-                  "metricLabel": "Promoter holding",
-                  "company": "niva-bupa",
-                  "companyLabel": "Niva Bupa",
-                  "comparisonType": "sequential",
-                  "tone": "neutral",
-                  "insightLabel": "Ownership — promoter holding trend",
-                  "unit": "%",
-                  "higherIsBetter": true,
-                  "sahiTab": "governance",
-                  "origin": "pulse"
-                }
-              }
-            },
-            "isBreaking": false,
-            "isNew": false,
-            "freshness": "existing",
-            "freshnessLabel": "Existing context",
-            "publishedLabel": "30 Jul",
-            "discoveredLabel": "1 Aug",
-            "sources": [
-              {
-                "kind": "Filing",
-                "name": "groww.in",
-                "url": "https://groww.in/stocks/niva-bupa-health-insurance-company-ltd"
-              },
-              {
-                "kind": "Market data",
-                "name": "Q4 FY25 earnings call",
-                "url": "https://transactions.nivabupa.com/pages/doc/investor-relations/Earnings-Calls/2024-2025/Earnings-Call-Transcript-Q4-FY-2025.pdf"
-              },
-              {
-                "kind": "Market data",
-                "name": "1 curated source-backed insight",
-                "url": ""
-              }
-            ],
-            "impact": "Watch",
-            "scope": "company",
-            "companyId": "niva-bupa",
-            "sourceUrl": "https://groww.in/stocks/niva-bupa-health-insurance-company-ltd",
-            "sourceConfidence": "Low",
-            "clusterSize": 1,
-            "clusterSources": [
-              {
-                "kind": "Filing",
-                "name": "groww.in",
-                "url": "https://groww.in/stocks/niva-bupa-health-insurance-company-ltd"
-              }
-            ],
-            "independentSources": 1
-          },
-          {
             "id": "c37fbcf9de",
             "entity": "IRDAI tightens intermediary rules, eases insurers' investment norms",
             "stars": 3,
@@ -48069,6 +47925,197 @@
               }
             ],
             "independentSources": 1
+          },
+          {
+            "id": "e2e6950863",
+            "entity": "<span style=\"background:#FEF2F2;padding:2px 6px;border-radius:4px;color:#EF4444;font-weight:600\">▼ IRDAI bars new branch openings for 6 months</span>",
+            "stars": 2,
+            "reasoning": [
+              "FY25 EoM overspend of **₹248.37 cr** (allowed ₹2,403.75 cr vs actual ₹2,652.12 cr); forbearance rejected despite FY24 precedent, curbing near-term network expansion — company says no P&L impact and claims FY26/Q1FY27…",
+              "Solvency 3.03x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency."
+            ],
+            "whatToWatch": "Whether the sector move feeds through to premium growth and pricing.",
+            "confidencePct": 64,
+            "evidenceCount": 5,
+            "status": "Neutral",
+            "category": "Sector Catalyst",
+            "why": {
+              "whatHappened": "<span style=\"background:#FEF2F2;padding:2px 6px;border-radius:4px;color:#EF4444;font-weight:600\">▼ IRDAI bars new branch openings for 6 months</span>",
+              "whyItMatters": "FY25 EoM overspend of **₹248.37 cr** (allowed ₹2,403.75 cr vs actual ₹2,652.12 cr); forbearance rejected despite FY24 precedent, curbing near-term network expansion — company says no P&L impact and…",
+              "whoAffected": "The broader health-insurance sector and its listed players.",
+              "historicalContext": "Solvency 3.03x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency.",
+              "potentialImpact": "Solvency vs the 1.5x regulatory floor",
+              "whatToWatch": "Whether the sector move feeds through to premium growth and pricing."
+            },
+            "action": {
+              "id": "margins",
+              "label": "Compare Niva Bupa margin",
+              "icon": "margins",
+              "target": {
+                "page": "sahi",
+                "sahiTab": "profitability",
+                "company": "niva-bupa",
+                "focus": {
+                  "id": "pulse-margins",
+                  "metricKey": "combined_ratio",
+                  "metricLabel": "Combined ratio",
+                  "company": "niva-bupa",
+                  "companyLabel": "Niva Bupa",
+                  "comparisonType": "YoY",
+                  "tone": "neutral",
+                  "insightLabel": "Underwriting margin — combined ratio",
+                  "unit": "%",
+                  "higherIsBetter": false,
+                  "sahiTab": "profitability",
+                  "origin": "pulse"
+                }
+              }
+            },
+            "isBreaking": false,
+            "isNew": false,
+            "freshness": "existing",
+            "freshnessLabel": "Existing context",
+            "publishedLabel": "20 Aug",
+            "discoveredLabel": "5 Sep",
+            "sources": [
+              {
+                "kind": "News",
+                "name": "bfsi.economictimes.indiatimes.com",
+                "url": "https://bfsi.economictimes.indiatimes.com/news/policy/irdai-bars-niva-bupa-health-insurance-from-opening-new-offices-for-six-months/133379321"
+              },
+              {
+                "kind": "News",
+                "name": "moneycontrol.com",
+                "url": "https://www.moneycontrol.com/news/business/stocks/nomura-retains-buy-on-star-health-niva-bupa-sees-more-predictable-loss-ratios-14019004.html"
+              },
+              {
+                "kind": "News",
+                "name": "mediabrief.com",
+                "url": "https://mediabrief.com/aditya-birla-health-insurance-expands-distribution/"
+              },
+              {
+                "kind": "News",
+                "name": "scanx.trade",
+                "url": "https://scanx.trade/stock-market-news/companies/niva-bupa-agm-approves-director-appointments-executive-pay-revisions/48098549"
+              },
+              {
+                "kind": "News",
+                "name": "moneycontrol.com",
+                "url": "https://moneycontrol.com/news/business/stocks/niva-bupa-gains-as-nomura-maintains-buy-sees-strong-premium-growth-outlook-13991858.html"
+              }
+            ],
+            "impact": "Neutral",
+            "scope": "sector",
+            "companyId": null,
+            "sourceUrl": "https://bfsi.economictimes.indiatimes.com/news/policy/irdai-bars-niva-bupa-health-insurance-from-opening-new-offices-for-six-months/133379321",
+            "sourceConfidence": "Medium",
+            "clusterSize": 1,
+            "clusterSources": [
+              {
+                "kind": "News",
+                "name": "bfsi.economictimes.indiatimes.com",
+                "url": "https://bfsi.economictimes.indiatimes.com/news/policy/irdai-bars-niva-bupa-health-insurance-from-opening-new-offices-for-six-months/133379321"
+              }
+            ],
+            "independentSources": 1
+          },
+          {
+            "id": "4ea823e336",
+            "entity": "<span style=\"color:#22C55E;font-weight:600\">Nomura retains 'Buy' on Star Health & Niva Bupa</span>",
+            "stars": 2,
+            "reasoning": [
+              "Nomura's \"21st Century Mahabharat\" thesis flags **more predictable loss ratios** sector-wide, reinforcing its bullish stance on both listed insurers.",
+              "Solvency 3.03x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency."
+            ],
+            "whatToWatch": "Whether the sector move feeds through to premium growth and pricing.",
+            "confidencePct": 60,
+            "evidenceCount": 5,
+            "status": "Neutral",
+            "category": "Sector Catalyst",
+            "why": {
+              "whatHappened": "<span style=\"color:#22C55E;font-weight:600\">Nomura retains 'Buy' on Star Health & Niva Bupa</span>",
+              "whyItMatters": "Nomura's \"21st Century Mahabharat\" thesis flags **more predictable loss ratios** sector-wide, reinforcing its bullish stance on both listed insurers.",
+              "whoAffected": "The broader health-insurance sector and its listed players.",
+              "historicalContext": "Solvency 3.03x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency.",
+              "potentialImpact": "Solvency vs the 1.5x regulatory floor",
+              "whatToWatch": "Whether the sector move feeds through to premium growth and pricing."
+            },
+            "action": {
+              "id": "margins",
+              "label": "Compare Niva Bupa margin",
+              "icon": "margins",
+              "target": {
+                "page": "sahi",
+                "sahiTab": "profitability",
+                "company": "niva-bupa",
+                "focus": {
+                  "id": "pulse-margins",
+                  "metricKey": "combined_ratio",
+                  "metricLabel": "Combined ratio",
+                  "company": "niva-bupa",
+                  "companyLabel": "Niva Bupa",
+                  "comparisonType": "YoY",
+                  "tone": "neutral",
+                  "insightLabel": "Underwriting margin — combined ratio",
+                  "unit": "%",
+                  "higherIsBetter": false,
+                  "sahiTab": "profitability",
+                  "origin": "pulse"
+                }
+              }
+            },
+            "isBreaking": false,
+            "isNew": false,
+            "freshness": "existing",
+            "freshnessLabel": "Existing context",
+            "publishedLabel": "—",
+            "discoveredLabel": "1 Sep",
+            "sources": [
+              {
+                "kind": "News",
+                "name": "moneycontrol.com",
+                "url": "https://www.moneycontrol.com/news/business/stocks/nomura-retains-buy-on-star-health-niva-bupa-sees-more-predictable-loss-ratios-14019004.html"
+              },
+              {
+                "kind": "News",
+                "name": "bfsi.economictimes.indiatimes.com",
+                "url": "https://bfsi.economictimes.indiatimes.com/news/policy/irdai-bars-niva-bupa-health-insurance-from-opening-new-offices-for-six-months/133379321"
+              },
+              {
+                "kind": "News",
+                "name": "mediabrief.com",
+                "url": "https://mediabrief.com/aditya-birla-health-insurance-expands-distribution/"
+              },
+              {
+                "kind": "News",
+                "name": "scanx.trade",
+                "url": "https://scanx.trade/stock-market-news/companies/niva-bupa-agm-approves-director-appointments-executive-pay-revisions/48098549"
+              },
+              {
+                "kind": "News",
+                "name": "moneycontrol.com",
+                "url": "https://moneycontrol.com/news/business/stocks/niva-bupa-gains-as-nomura-maintains-buy-sees-strong-premium-growth-outlook-13991858.html"
+              }
+            ],
+            "impact": "Neutral",
+            "scope": "sector",
+            "companyId": null,
+            "sourceUrl": "https://www.moneycontrol.com/news/business/stocks/nomura-retains-buy-on-star-health-niva-bupa-sees-more-predictable-loss-ratios-14019004.html",
+            "sourceConfidence": "Low",
+            "clusterSize": 4,
+            "clusterSources": [
+              {
+                "kind": "News",
+                "name": "moneycontrol.com",
+                "url": "https://www.moneycontrol.com/news/business/stocks/nomura-retains-buy-on-star-health-niva-bupa-sees-more-predictable-loss-ratios-14019004.html"
+              },
+              {
+                "kind": "News",
+                "name": "business-standard.com",
+                "url": "https://www.business-standard.com/amp/companies/news/bupa-open-to-raising-stake-in-niva-bupa-says-deputy-ceo-ankur-kharbanda-126072001360_1.html"
+              }
+            ],
+            "independentSources": 2
           }
         ],
         "sinceDeltas": [
@@ -95167,10 +95214,10 @@
         "company": "Star Health",
         "companyId": "star-health",
         "generatedAt": "2026-09-08T07:05:37.136Z",
-        "lastUpdatedAt": "2026-09-08T07:05:37.136Z",
+        "lastUpdatedAt": "2026-09-08T14:05:59.154Z",
         "status": "Constructive",
         "sourceConfidence": "Low",
-        "itemCount": 13,
+        "itemCount": 12,
         "runs": [
           {
             "runTime": "2026-09-08T07:05:37.136Z",
@@ -95178,19 +95225,26 @@
             "sourceCount": 13,
             "ideas": 6,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-09-08T14:05:59.154Z",
+            "developments": 14,
+            "sourceCount": 12,
+            "ideas": 6,
+            "status": "ok"
           }
         ],
         "brief": {
-          "greeting": "Good morning",
+          "greeting": "Good afternoon",
           "narrative": "Regulatory pressure is the main watch item for health insurers today. Star Health remains supported by premium growth and demand, but claims-cost and conduct scrutiny will decide whether the strength is sustainable.",
           "attentionCount": 6,
-          "developmentsCount": 15,
-          "sourcesCount": 13,
+          "developmentsCount": 14,
+          "sourcesCount": 12,
           "domainsCount": 5,
-          "confidencePct": 64,
+          "confidencePct": 63,
           "confidenceTier": "Low",
           "readingMins": 3,
-          "lastUpdatedLabel": "7 Sep, 03:23 pm"
+          "lastUpdatedLabel": "8 Sep, 02:00 pm"
         },
         "message": {
           "since": "No company-specific movement for Star Health since the last brief — the read below is sector & regulatory context that applies across standalone health insurers.",
@@ -95282,7 +95336,7 @@
             "companyId": "star-health",
             "sourceUrl": "https://www.moneycontrol.com/news/business/stocks/star-health-q1-profit-beats-estimates-nomura-raises-target-price-to-rs-700-maintains-buy-13989958.html",
             "sourceConfidence": "Medium",
-            "clusterSize": 2,
+            "clusterSize": 1,
             "clusterSources": [
               {
                 "kind": "Analyst report",
@@ -141593,7 +141647,7 @@
         "company": "Care Health",
         "companyId": "care-health",
         "generatedAt": "2026-09-08T07:05:37.136Z",
-        "lastUpdatedAt": "2026-09-08T07:05:37.136Z",
+        "lastUpdatedAt": "2026-09-08T14:05:59.154Z",
         "status": "Watch",
         "sourceConfidence": "Low",
         "itemCount": 10,
@@ -141604,10 +141658,17 @@
             "sourceCount": 10,
             "ideas": 6,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-09-08T14:05:59.154Z",
+            "developments": 12,
+            "sourceCount": 10,
+            "ideas": 6,
+            "status": "ok"
           }
         ],
         "brief": {
-          "greeting": "Good morning",
+          "greeting": "Good afternoon",
           "narrative": "Regulatory pressure is the main watch item for health insurers today. Care Health is under pressure on its market position, but claims-cost and conduct scrutiny will decide whether the strength is sustainable.",
           "attentionCount": 6,
           "developmentsCount": 12,
@@ -141616,7 +141677,7 @@
           "confidencePct": 60,
           "confidenceTier": "Low",
           "readingMins": 4,
-          "lastUpdatedLabel": "7 Sep, 03:23 pm"
+          "lastUpdatedLabel": "8 Sep, 02:00 pm"
         },
         "message": {
           "since": "No company-specific movement for Care Health since the last brief — the read below is sector & regulatory context that applies across standalone health insurers.",
@@ -187750,7 +187811,7 @@
         "company": "Aditya Birla",
         "companyId": "aditya-birla",
         "generatedAt": "2026-09-08T07:05:37.136Z",
-        "lastUpdatedAt": "2026-09-08T07:05:37.136Z",
+        "lastUpdatedAt": "2026-09-08T14:05:59.154Z",
         "status": "Constructive",
         "sourceConfidence": "Low",
         "itemCount": 11,
@@ -187761,10 +187822,17 @@
             "sourceCount": 11,
             "ideas": 6,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-09-08T14:05:59.154Z",
+            "developments": 11,
+            "sourceCount": 11,
+            "ideas": 6,
+            "status": "ok"
           }
         ],
         "brief": {
-          "greeting": "Good morning",
+          "greeting": "Good afternoon",
           "narrative": "Regulatory pressure is the main watch item for health insurers today. Aditya Birla remains supported by premium growth and demand, but claims-cost and conduct scrutiny will decide whether the strength is sustainable.",
           "attentionCount": 6,
           "developmentsCount": 11,
@@ -187773,7 +187841,7 @@
           "confidencePct": 61,
           "confidenceTier": "Low",
           "readingMins": 3,
-          "lastUpdatedLabel": "7 Sep, 03:23 pm"
+          "lastUpdatedLabel": "8 Sep, 02:00 pm"
         },
         "message": {
           "since": "No company-specific movement for Aditya Birla since the last brief — the read below is sector & regulatory context that applies across standalone health insurers.",
@@ -234362,7 +234430,7 @@
         "company": "ManipalCigna",
         "companyId": "manipalcigna",
         "generatedAt": "2026-09-08T07:05:37.136Z",
-        "lastUpdatedAt": "2026-09-08T07:05:37.136Z",
+        "lastUpdatedAt": "2026-09-08T14:05:59.154Z",
         "status": "Watch",
         "sourceConfidence": "Low",
         "itemCount": 10,
@@ -234373,10 +234441,17 @@
             "sourceCount": 10,
             "ideas": 6,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-09-08T14:05:59.154Z",
+            "developments": 12,
+            "sourceCount": 10,
+            "ideas": 6,
+            "status": "ok"
           }
         ],
         "brief": {
-          "greeting": "Good morning",
+          "greeting": "Good afternoon",
           "narrative": "Regulatory pressure is the main watch item for health insurers today. ManipalCigna is under pressure on its market position, but claims-cost and conduct scrutiny will decide whether the strength is sustainable.",
           "attentionCount": 6,
           "developmentsCount": 12,
@@ -234385,7 +234460,7 @@
           "confidencePct": 60,
           "confidenceTier": "Low",
           "readingMins": 3,
-          "lastUpdatedLabel": "7 Sep, 03:23 pm"
+          "lastUpdatedLabel": "8 Sep, 02:00 pm"
         },
         "message": {
           "since": "No company-specific movement for ManipalCigna since the last brief — the read below is sector & regulatory context that applies across standalone health insurers.",
@@ -235075,6 +235150,6 @@
     "snapshot_id": "pulse-brief-archive",
     "description": "Immutable per-calendar-day Pulse brief records (IST), one per company. Past days are frozen exactly as shown that day; the live Today view recomposes. Kept ~90 days per company.",
     "last_updated": "2026-09-08",
-    "last_successful_run": "2026-09-08T07:05:37.136Z"
+    "last_successful_run": "2026-09-08T14:05:59.154Z"
   }
 }
