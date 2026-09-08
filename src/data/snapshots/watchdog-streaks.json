@@ -1,12 +1,17 @@
 {
   "company_quarterly_disclosures": {
-    "bad_runs": 26,
+    "bad_runs": 27,
     "bad_since": "2026-08-01T07:03:17.369Z",
     "kind": "regressed"
   },
   "muns_market_data": {
-    "bad_runs": 1,
+    "bad_runs": 2,
     "bad_since": "2026-09-08T08:31:13.783Z",
+    "kind": "regressed"
+  },
+  "gicouncil_segmentwise_annual": {
+    "bad_runs": 1,
+    "bad_since": "2026-09-08T09:13:20.968Z",
     "kind": "regressed"
   }
 }
