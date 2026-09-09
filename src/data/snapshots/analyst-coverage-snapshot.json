@@ -4,7 +4,7 @@
     "description": "Dated broker research reports (target price + price at recommendation) for the Analyst coverage sheet. Aggregator-sourced: a headless Trendlyne scrape (ScraperAPI India IP) primary, the muns agent — the sanctioned low-confidence backup for broker targets (no official feed exists). Rows without a public source URL are never written. Missing is never zero.",
     "schema_version": "1.0.0",
     "dataset": "backup_aggregator",
-    "last_updated": "2026-09-08",
+    "last_updated": "2026-09-09",
     "upstream_sources": [
       "trendlyne_scrape",
       "muns_agent_web"
@@ -274,7 +274,7 @@
       "target_price": 90,
       "price_at_reco": 74.57,
       "source_url": "https://trendlyne.com/posts/5072603/strong-execution-delivering-sector-leading-performance",
-      "fetched_at": "2026-07-09T09:36:39.835Z"
+      "fetched_at": "2026-09-09T10:36:33.473Z"
     },
     {
       "company_id": "niva-bupa",
@@ -285,7 +285,7 @@
       "target_price": 100,
       "price_at_reco": 77.62,
       "source_url": "https://trendlyne.com/posts/5080108/citius-altius-fortius",
-      "fetched_at": "2026-07-09T09:36:39.835Z"
+      "fetched_at": "2026-09-09T10:36:33.473Z"
     },
     {
       "company_id": "niva-bupa",
@@ -296,7 +296,7 @@
       "target_price": 101,
       "price_at_reco": 87.55,
       "source_url": "https://trendlyne.com/posts/5239942/elevated-claims-ratio-hits-profitability",
-      "fetched_at": "2026-07-09T09:36:39.835Z"
+      "fetched_at": "2026-09-09T10:36:33.473Z"
     },
     {
       "company_id": "niva-bupa",
@@ -307,7 +307,7 @@
       "target_price": 101,
       "price_at_reco": 80.37,
       "source_url": "https://trendlyne.com/posts/5253046/sharpening-the-moat",
-      "fetched_at": "2026-07-09T09:36:39.835Z"
+      "fetched_at": "2026-09-09T10:36:33.473Z"
     },
     {
       "company_id": "niva-bupa",
@@ -318,7 +318,7 @@
       "target_price": 92,
       "price_at_reco": 79.65,
       "source_url": "https://trendlyne.com/posts/5269619/premium-and-earnings-growth-remain-strong-under-ifrs",
-      "fetched_at": "2026-07-09T09:36:39.835Z"
+      "fetched_at": "2026-09-09T10:36:33.473Z"
     },
     {
       "company_id": "niva-bupa",
@@ -329,7 +329,7 @@
       "target_price": 92,
       "price_at_reco": 74.06,
       "source_url": "https://trendlyne.com/posts/5389258/combined-ratio-hit-by-higher-opex-and-claims",
-      "fetched_at": "2026-07-09T09:36:39.835Z"
+      "fetched_at": "2026-09-09T10:36:33.473Z"
     },
     {
       "company_id": "niva-bupa",
@@ -340,7 +340,7 @@
       "target_price": 90,
       "price_at_reco": 75.43,
       "source_url": "https://trendlyne.com/posts/5398016/accelerated-volume-growth-a-positive-managing-gst-cost-impact-key-earnings-determinant",
-      "fetched_at": "2026-07-09T09:36:39.835Z"
+      "fetched_at": "2026-09-09T10:36:33.473Z"
     },
     {
       "company_id": "niva-bupa",
@@ -351,7 +351,40 @@
       "target_price": 92,
       "price_at_reco": 78.08,
       "source_url": "https://trendlyne.com/posts/5508840/elevated-claims-operating-efficiency-drives-a-beat-on-combined-ratio",
-      "fetched_at": "2026-07-09T09:36:39.835Z"
+      "fetched_at": "2026-09-09T10:36:33.473Z"
+    },
+    {
+      "company_id": "niva-bupa",
+      "broker": "Motilal Oswal",
+      "report_date": "2026-05-10",
+      "aggregator_date": null,
+      "rating": "Buy",
+      "target_price": 97,
+      "price_at_reco": 81.29,
+      "source_url": "https://trendlyne.com/posts/5661854/strong-performance-loss-ratio-and-combined-ratio-beat-estimates",
+      "fetched_at": "2026-09-09T10:36:33.473Z"
+    },
+    {
+      "company_id": "niva-bupa",
+      "broker": "Motilal Oswal",
+      "report_date": "2026-06-19",
+      "aggregator_date": null,
+      "rating": "Buy",
+      "target_price": 100,
+      "price_at_reco": 86.87,
+      "source_url": "https://trendlyne.com/posts/5697736/growth-without-compromise",
+      "fetched_at": "2026-09-09T10:36:33.473Z"
+    },
+    {
+      "company_id": "niva-bupa",
+      "broker": "Motilal Oswal",
+      "report_date": "2026-07-30",
+      "aggregator_date": null,
+      "rating": "Buy",
+      "target_price": 103,
+      "price_at_reco": 85.92,
+      "source_url": "https://trendlyne.com/posts/5760845/strong-operating-performance-leads-to-pat-beat",
+      "fetched_at": "2026-09-09T10:36:33.473Z"
     },
     {
       "company_id": "star-health",
@@ -362,7 +395,7 @@
       "target_price": 525,
       "price_at_reco": 571.6,
       "source_url": "https://trendlyne.com/posts/4550746/a-status-quo-quarter-reiterate-reduce",
-      "fetched_at": "2026-07-09T09:36:39.835Z"
+      "fetched_at": "2026-09-09T10:36:33.473Z"
     },
     {
       "company_id": "star-health",
@@ -373,7 +406,7 @@
       "target_price": 730,
       "price_at_reco": 558.65,
       "source_url": "https://trendlyne.com/posts/4632923/focusing-on-profitable-growth",
-      "fetched_at": "2026-07-09T09:36:39.835Z"
+      "fetched_at": "2026-09-09T10:36:33.473Z"
     },
     {
       "company_id": "star-health",
@@ -384,7 +417,7 @@
       "target_price": 738,
       "price_at_reco": 630.25,
       "source_url": "https://trendlyne.com/posts/4770285/star-health-and-allied-insurance-company-limited",
-      "fetched_at": "2026-07-09T09:36:39.835Z"
+      "fetched_at": "2026-09-09T10:36:33.473Z"
     },
     {
       "company_id": "star-health",
@@ -395,7 +428,7 @@
       "target_price": 600,
       "price_at_reco": 479.2,
       "source_url": "https://trendlyne.com/posts/4851795/star-health-allied-ins-co",
-      "fetched_at": "2026-07-09T09:36:39.835Z"
+      "fetched_at": "2026-09-09T10:36:33.473Z"
     },
     {
       "company_id": "star-health",
@@ -406,7 +439,7 @@
       "target_price": 525,
       "price_at_reco": 434.95,
       "source_url": "https://trendlyne.com/posts/4970412/arduous-journey-toward-gradual-recovery-in-claims-ratio",
-      "fetched_at": "2026-07-09T09:36:39.835Z"
+      "fetched_at": "2026-09-09T10:36:33.473Z"
     },
     {
       "company_id": "star-health",
@@ -417,7 +450,7 @@
       "target_price": 430,
       "price_at_reco": 397.15,
       "source_url": "https://trendlyne.com/posts/4994774/star-health-and-allied-insurance-company-limited",
-      "fetched_at": "2026-07-09T09:36:39.835Z"
+      "fetched_at": "2026-09-09T10:36:33.473Z"
     },
     {
       "company_id": "star-health",
@@ -428,7 +461,7 @@
       "target_price": 421,
       "price_at_reco": 403.6,
       "source_url": "https://trendlyne.com/posts/5141910/star-health-and-allied-insurance-company-limited",
-      "fetched_at": "2026-07-09T09:36:39.835Z"
+      "fetched_at": "2026-09-09T10:36:33.473Z"
     },
     {
       "company_id": "star-health",
@@ -439,7 +472,7 @@
       "target_price": 520,
       "price_at_reco": 447.8,
       "source_url": "https://trendlyne.com/posts/5233505/in-line-underwriting-performance",
-      "fetched_at": "2026-07-09T09:36:39.835Z"
+      "fetched_at": "2026-09-09T10:36:33.473Z"
     },
     {
       "company_id": "star-health",
@@ -450,7 +483,7 @@
       "target_price": 520,
       "price_at_reco": 443.5,
       "source_url": "https://trendlyne.com/posts/5284531/navigating-growth-with-caution",
-      "fetched_at": "2026-07-09T09:36:39.835Z"
+      "fetched_at": "2026-09-09T10:36:33.473Z"
     },
     {
       "company_id": "star-health",
@@ -461,7 +494,7 @@
       "target_price": 512,
       "price_at_reco": 452.05,
       "source_url": "https://trendlyne.com/posts/5299175/available-earning-levers-make-risk-reward-attractive",
-      "fetched_at": "2026-07-09T09:36:39.835Z"
+      "fetched_at": "2026-09-09T10:36:33.473Z"
     },
     {
       "company_id": "star-health",
@@ -472,7 +505,7 @@
       "target_price": 570,
       "price_at_reco": 480.45,
       "source_url": "https://trendlyne.com/posts/5382078/loss-ratio-improves-strong-growth-in-fresh-business",
-      "fetched_at": "2026-07-09T09:36:39.835Z"
+      "fetched_at": "2026-09-09T10:36:33.473Z"
     },
     {
       "company_id": "star-health",
@@ -483,7 +516,7 @@
       "target_price": 570,
       "price_at_reco": 486.7,
       "source_url": "https://trendlyne.com/posts/5398044/volume-loss-ratio-improvement-key-positives-managing-gst-cost-impact-will-be-vital",
-      "fetched_at": "2026-07-09T09:36:39.835Z"
+      "fetched_at": "2026-09-09T10:36:33.473Z"
     },
     {
       "company_id": "star-health",
@@ -494,7 +527,7 @@
       "target_price": 510,
       "price_at_reco": 451.85,
       "source_url": "https://trendlyne.com/posts/5472136/star-health-and-allied-insurance-company-limited",
-      "fetched_at": "2026-07-09T09:36:39.835Z"
+      "fetched_at": "2026-09-09T10:36:33.473Z"
     },
     {
       "company_id": "star-health",
@@ -505,7 +538,7 @@
       "target_price": 560,
       "price_at_reco": 450.5,
       "source_url": "https://trendlyne.com/posts/5508847/robust-underwriting-performance",
-      "fetched_at": "2026-07-09T09:36:39.835Z"
+      "fetched_at": "2026-09-09T10:36:33.473Z"
     },
     {
       "company_id": "star-health",
@@ -516,7 +549,7 @@
       "target_price": 650,
       "price_at_reco": 533.25,
       "source_url": "https://trendlyne.com/posts/5622528/continued-improvement-in-claims-ratio-to-drive-stock-re-rating",
-      "fetched_at": "2026-07-09T09:36:39.835Z"
+      "fetched_at": "2026-09-09T10:36:33.473Z"
     },
     {
       "company_id": "star-health",
@@ -527,7 +560,7 @@
       "target_price": 640,
       "price_at_reco": 533.25,
       "source_url": "https://trendlyne.com/posts/5622623/underwriting-performance-strengthens",
-      "fetched_at": "2026-07-09T09:36:39.835Z"
+      "fetched_at": "2026-09-09T10:36:33.473Z"
     },
     {
       "company_id": "star-health",
@@ -538,7 +571,7 @@
       "target_price": 644,
       "price_at_reco": 525.65,
       "source_url": "https://trendlyne.com/posts/5625417/strong-improvement-in-underwriting-results-coupled-with-volume-tailwinds-boosts-earnings-growth-outlook",
-      "fetched_at": "2026-07-09T09:36:39.835Z"
+      "fetched_at": "2026-09-09T10:36:33.473Z"
     }
   ]
 }
