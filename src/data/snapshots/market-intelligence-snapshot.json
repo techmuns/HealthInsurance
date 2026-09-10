@@ -5,7 +5,7 @@
     "schema_version": "1.0.0",
     "dataset": "ai_generated",
     "last_updated": "2026-09-10",
-    "last_successful_run": "2026-09-10T13:57:26.979Z",
+    "last_successful_run": "2026-09-10T17:27:05.230Z",
     "upstream_sources": [
       "muns_agent_web"
     ],
@@ -14,6 +14,36 @@
     "notes": "Clearly labelled AI-generated intelligence — verify before acting. Items accumulate through the day and rank by investor impact, not recency."
   },
   "data": [
+    {
+      "id": "b71aad9814",
+      "company_id": "sector",
+      "date": null,
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "<span style=\"color:#EF4444;font-weight:600;background:#FEF2F2;padding:2px 6px;border-radius:4px\">negative</span>",
+      "detail": "IRDAI bars new branch openings for <b>6 months</b>",
+      "source_name": null,
+      "source_url": null,
+      "source_published_at": null,
+      "first_seen": "2026-09-10T17:27:05.230Z",
+      "discovered_at": "2026-09-10T17:27:05.230Z"
+    },
+    {
+      "id": "3eefe918a4",
+      "company_id": "sector",
+      "date": null,
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "<span style=\"color:#22C55E;font-weight:600;background:#F0FDF4;padding:2px 6px;border-radius:4px\">positive</span>",
+      "detail": "Nomura reiterates <b>Buy</b>, TP <b>₹105</b>",
+      "source_name": null,
+      "source_url": null,
+      "source_published_at": null,
+      "first_seen": "2026-09-10T17:27:05.230Z",
+      "discovered_at": "2026-09-10T17:27:05.230Z"
+    },
     {
       "id": "fe395389ef",
       "company_id": "sector",
@@ -883,36 +913,6 @@
       "source_published_at": "2026-07-31",
       "first_seen": "2026-08-02T14:54:34.299Z",
       "discovered_at": "2026-08-02T14:54:34.299Z"
-    },
-    {
-      "id": "b1a306ab1b",
-      "company_id": "niva-bupa",
-      "date": "2026-07-31",
-      "kind": "sector_news",
-      "horizon": "recent",
-      "impact": "watch",
-      "headline": "Volumes spurt at Niva Bupa Health Insurance counter",
-      "detail": "Sudden trading-volume spike flagged by Business Standard's capital markets desk, typically signalling fresh news flow or institutional positioning around the stock.",
-      "source_name": "business-standard.com",
-      "source_url": "https://www.business-standard.com/amp/markets/capital-market-news/volumes-spurt-at-niva-bupa-health-insurance-company-ltd-counter-126073100826_1.html",
-      "source_published_at": "2026-07-31",
-      "first_seen": "2026-08-02T14:54:34.299Z",
-      "discovered_at": "2026-08-02T14:54:34.299Z"
-    },
-    {
-      "id": "2cff607e58",
-      "company_id": "niva-bupa",
-      "date": "2026-07-31",
-      "kind": "rating",
-      "horizon": "recent",
-      "impact": "positive",
-      "headline": "Motilal Oswal initiates coverage with Buy, TP ₹103",
-      "detail": "Valued at **30x** FY28E IFRS PAT; PAT grew **93%** YoY to **₹1.4bn**; combined ratio improved **300bps** YoY to **100.2%**; RoE improved to **3.7%** from **2.1%**.",
-      "source_name": "moneycontrol.com",
-      "source_url": "https://www.moneycontrol.com/news/business/buy-niva-bupa-target-of-rs-103-motilal-oswal-13990519.html",
-      "source_published_at": "2026-07-31",
-      "first_seen": "2026-08-03T16:14:42.232Z",
-      "discovered_at": "2026-08-03T16:14:42.232Z"
     }
   ]
 }
