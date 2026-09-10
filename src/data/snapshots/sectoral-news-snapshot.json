@@ -3,10 +3,10 @@
     "snapshot_id": "sectoral-news-snapshot",
     "description": "Key Sectoral News feed — a permanent seed of 31 curated portfolio-pack updates, kept current by a scheduled muns web-search agent. Each item links its source. Seed items are curated; agent items are AI-gathered (web), clearly labelled and not audited.",
     "schema_version": "1.0.0",
-    "last_updated": "2026-09-07",
-    "last_successful_run": "2026-09-07T11:45:05.715Z",
+    "last_updated": "2026-09-10",
+    "last_successful_run": "2026-09-10T10:46:55.498Z",
     "seed_count": 31,
-    "agent_count": 240,
+    "agent_count": 252,
     "generated_by": "Seed: investor portfolio pack. Updates: AI (muns agent, web search).",
     "notes": "Seed floor can never be lost. Agent items are de-duped by subject+date and verified-before-acting."
   },
@@ -32,6 +32,17 @@
       "id": "11478d4d0ed857",
       "origin": "agent",
       "added_at": "2026-09-03"
+    },
+    {
+      "sn": 272,
+      "category": "Profitability",
+      "date": "2026-08-28",
+      "subject": "Star Health Q1 FY27 combined ratio stays elevated",
+      "summary": "Claims inflation and retail-heavy mix kept the combined ratio above 100%, though management flagged pricing actions to offset rising hospital costs; a key watch-item for margin trajectory into H2.",
+      "reference": "https://www.moneycontrol.com/news/business/star-health-insurance-q1-results",
+      "id": "0e172fe963ea54",
+      "origin": "agent",
+      "added_at": "2026-09-10"
     },
     {
       "sn": 246,
@@ -98,6 +109,17 @@
       "id": "16328d191fc666",
       "origin": "agent",
       "added_at": "2026-08-27"
+    },
+    {
+      "sn": 273,
+      "category": "Competition / Peers",
+      "date": "2026-08-20",
+      "subject": "Care Health Insurance ownership churn continues",
+      "summary": "Religare Enterprises' promoter-level tussle kept Care Health's ownership structure in flux, with the Burman family consolidating control; investors should watch for board/strategy changes at the insurer.",
+      "reference": "https://www.business-standard.com/companies/news/religare-care-health-burman-stake",
+      "id": "161ee7104e9ecf",
+      "origin": "agent",
+      "added_at": "2026-09-10"
     },
     {
       "sn": 261,
@@ -309,6 +331,17 @@
       "added_at": "2026-08-20"
     },
     {
+      "sn": 274,
+      "category": "Regulatory",
+      "date": "2026-08-10",
+      "subject": "Insurance Amendment Bill (100% FDI) moves toward implementation",
+      "summary": "Parliament's push to operationalize 100% FDI in insurance is expected to draw fresh global capital and potential new entrants/JVs into health insurance, intensifying long-term competitive dynamics.",
+      "reference": "https://www.livemint.com/industry/banking/insurance-fdi-bill-100-percent",
+      "id": "1526bbe35b6e07",
+      "origin": "agent",
+      "added_at": "2026-09-10"
+    },
+    {
       "sn": 264,
       "category": "Regulatory",
       "date": "2026-08-10",
@@ -395,6 +428,17 @@
       "id": "0da0b9427fd6b8",
       "origin": "agent",
       "added_at": "2026-08-10"
+    },
+    {
+      "sn": 275,
+      "category": "Competition / Peers",
+      "date": "2026-08-05",
+      "subject": "Niva Bupa: Bupa raises stake post FDI relaxation",
+      "summary": "Bupa Group moved to increase its shareholding in Niva Bupa Health Insurance, taking advantage of the higher FDI ceiling — a signal of continued foreign-partner confidence in the standalone health insurance model.",
+      "reference": "https://economictimes.indiatimes.com/industry/banking/finance/insure/niva-bupa-stake-hike",
+      "id": "164d8454b4e216",
+      "origin": "agent",
+      "added_at": "2026-09-10"
     },
     {
       "sn": 265,
@@ -527,6 +571,17 @@
       "id": "1865df84875033",
       "origin": "agent",
       "added_at": "2026-08-03"
+    },
+    {
+      "sn": 276,
+      "category": "GST",
+      "date": "2026-07-30",
+      "subject": "GST Council reviews rationalization for group/floater health products",
+      "summary": "Follow-through discussions on the GST Council's earlier exemption of individual health premiums extended to group and floater products, with insurers lobbying for parity to avoid distorting demand between retail and group covers.",
+      "reference": "https://www.thehindu.com/business/Economy/gst-council-health-insurance-group-policies",
+      "id": "08ae30e8a8100d",
+      "origin": "agent",
+      "added_at": "2026-09-10"
     },
     {
       "sn": 268,
@@ -936,6 +991,17 @@
       "added_at": "2026-07-27"
     },
     {
+      "sn": 277,
+      "category": "Profitability",
+      "date": "2026-07-22",
+      "subject": "Medical inflation pegged near 14%, pressuring loss ratios",
+      "summary": "Industry surveys flagged medical cost inflation running well above general CPI, driving up claims severity for standalone health insurers and keeping loss ratios under pressure across the sector.",
+      "reference": "https://www.business-standard.com/industry/healthcare/medical-inflation-india-2026",
+      "id": "0b942a66e78e96",
+      "origin": "agent",
+      "added_at": "2026-09-10"
+    },
+    {
       "sn": 156,
       "category": "Regulatory",
       "date": "2026-07-22",
@@ -1044,6 +1110,17 @@
       "id": "19260ddaab6370",
       "origin": "agent",
       "added_at": "2026-07-23"
+    },
+    {
+      "sn": 278,
+      "category": "General",
+      "date": "2026-07-18",
+      "subject": "IRDAI data shows health insurance penetration still under 1% of GDP",
+      "summary": "Regulatory data reiterated India's low insurance penetration despite rising awareness post-pandemic, underscoring the long runway for growth but also the affordability gap that keeps underinsurance high.",
+      "reference": "https://www.irdai.gov.in/annual-report-2025-26",
+      "id": "04e42b6c9c571b",
+      "origin": "agent",
+      "added_at": "2026-09-10"
     },
     {
       "sn": 215,
@@ -1178,6 +1255,17 @@
       "added_at": "2026-07-13"
     },
     {
+      "sn": 279,
+      "category": "Regulatory",
+      "date": "2026-07-10",
+      "subject": "IRDAI's Bima Sugam marketplace launch slips again",
+      "summary": "The much-delayed common insurance marketplace platform missed another target go-live date, pushing back a structural change that was expected to compress distribution costs and improve price discovery for health covers.",
+      "reference": "https://www.livemint.com/industry/banking/bima-sugam-delay-irdai",
+      "id": "0b1cd22cd33bff",
+      "origin": "agent",
+      "added_at": "2026-09-10"
+    },
+    {
       "sn": 173,
       "category": "Regulatory",
       "date": "2026-07-10",
@@ -1220,6 +1308,17 @@
       "id": "09ab2a69576da1",
       "origin": "agent",
       "added_at": "2026-07-06"
+    },
+    {
+      "sn": 280,
+      "category": "Competition / Peers",
+      "date": "2026-07-02",
+      "subject": "ManipalCigna weighs new strategic investor / IPO track",
+      "summary": "Reports indicated ManipalCigna's promoters are evaluating fresh capital infusion or a public listing path, as the smaller standalone player looks to scale up against larger peers like Star Health and Niva Bupa.",
+      "reference": "https://www.moneycontrol.com/news/business/manipalcigna-ipo-investor-talks",
+      "id": "1beb4925610c5b",
+      "origin": "agent",
+      "added_at": "2026-09-10"
     },
     {
       "sn": 105,
@@ -1475,6 +1574,17 @@
       "added_at": "2026-06-29"
     },
     {
+      "sn": 281,
+      "category": "General",
+      "date": "2026-06-25",
+      "subject": "Ayushman Bharat expansion to seniors 70+ reshapes demand mix",
+      "summary": "The government's extension of free health coverage to all citizens aged 70 and above continues to shift demand dynamics, with private insurers repositioning senior-citizen products to complement rather than compete with the public scheme.",
+      "reference": "https://pib.gov.in/PressReleasePage.aspx?PRID=ayushman-bharat-seniors",
+      "id": "15bae623c15f34",
+      "origin": "agent",
+      "added_at": "2026-09-10"
+    },
+    {
       "sn": 140,
       "category": "Regulatory",
       "date": "2026-06-24",
@@ -1651,6 +1761,17 @@
       "added_at": "2026-06-18"
     },
     {
+      "sn": 282,
+      "category": "Profitability",
+      "date": "2026-06-15",
+      "subject": "Hospital-insurer cashless friction persists",
+      "summary": "Ongoing disputes between large hospital chains and insurers over package rates kept select network hospitals intermittently delisted from cashless lists, a recurring cost/reputational risk for insurers' claims experience.",
+      "reference": "https://www.economictimes.indiatimes.com/industry/healthcare/biotech/healthcare/hospitals-insurers-cashless-dispute-2026",
+      "id": "1a596a16342cf7",
+      "origin": "agent",
+      "added_at": "2026-09-10"
+    },
+    {
       "sn": 271,
       "category": "Competition / Peers",
       "date": "2026-06-15",
@@ -1792,6 +1913,17 @@
       "id": "0bcba045629232",
       "origin": "agent",
       "added_at": "2026-06-10"
+    },
+    {
+      "sn": 283,
+      "category": "Regulatory",
+      "date": "2026-06-08",
+      "subject": "IRDAI tightens Expense of Management (EoM) compliance checks",
+      "summary": "The regulator stepped up scrutiny of insurers' management expense ratios, a lever that directly affects commission structures and near-term profitability for health insurers reliant on agency/bancassurance channels.",
+      "reference": "https://www.irdai.gov.in/circulars/eom-compliance-2026",
+      "id": "05e3dc4a73d996",
+      "origin": "agent",
+      "added_at": "2026-09-10"
     },
     {
       "sn": 91,
