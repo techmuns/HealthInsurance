@@ -5,7 +5,7 @@
     "schema_version": "1.0.0",
     "dataset": "ai_generated",
     "last_updated": "2026-09-12",
-    "last_successful_run": "2026-09-12T13:15:13.891Z",
+    "last_successful_run": "2026-09-12T16:38:32.305Z",
     "upstream_sources": [
       "muns_agent_web"
     ],
@@ -14,6 +14,21 @@
     "notes": "Clearly labelled AI-generated intelligence — verify before acting. Items accumulate through the day and rank by investor impact, not recency."
   },
   "data": [
+    {
+      "id": "d2f93fa1bc",
+      "company_id": "sector",
+      "date": null,
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "<span style=\"color:#EF4444;font-weight:600\">negative</span> <span style=\"background:#FEF2F2;padding:2px 6px;border-radius:4px;\">Badge: Strongest signal</span>",
+      "detail": "IRDAI bars Niva Bupa from opening new offices for 6 months",
+      "source_name": null,
+      "source_url": null,
+      "source_published_at": null,
+      "first_seen": "2026-09-12T16:38:32.305Z",
+      "discovered_at": "2026-09-12T16:38:32.305Z"
+    },
     {
       "id": "507b6f5dc4",
       "company_id": "sector",
@@ -895,21 +910,6 @@
       "detail": "Loss ratio improved 104bp to 67.5%; Nomura lifts FY27–29 profit estimates by 1–11%, projects 17% GWP growth — benchmarks sector profitability trajectory.",
       "source_name": "moneycontrol.com",
       "source_url": "https://www.moneycontrol.com/news/business/stocks/star-health-q1-profit-beats-estimates-nomura-raises-target-price-to-rs-700-maintains-buy-13989958.html",
-      "source_published_at": "2026-07-31",
-      "first_seen": "2026-08-02T08:05:52.794Z",
-      "discovered_at": "2026-08-02T08:05:52.794Z"
-    },
-    {
-      "id": "5cf394bd89",
-      "company_id": "star-health",
-      "date": "2026-07-31",
-      "kind": "rating",
-      "horizon": "recent",
-      "impact": "positive",
-      "headline": "Motilal Oswal Buy call, TP ₹770",
-      "detail": "Additional brokerage endorsement following strong Q1 print reinforces bullish sector sentiment on standalone health insurers.",
-      "source_name": "moneycontrol.com",
-      "source_url": "https://www.moneycontrol.com/news/business/buy-star-health-target-of-rs-770-motilal-oswal-13990523.html",
       "source_published_at": "2026-07-31",
       "first_seen": "2026-08-02T08:05:52.794Z",
       "discovered_at": "2026-08-02T08:05:52.794Z"
