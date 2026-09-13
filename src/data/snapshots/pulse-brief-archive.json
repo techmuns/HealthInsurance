@@ -51223,7 +51223,7 @@
         "company": "Niva Bupa",
         "companyId": "niva-bupa",
         "generatedAt": "2026-09-13T07:20:12.163Z",
-        "lastUpdatedAt": "2026-09-13T14:03:53.589Z",
+        "lastUpdatedAt": "2026-09-13T17:21:37.483Z",
         "status": "Constructive",
         "sourceConfidence": "Low",
         "itemCount": 13,
@@ -51241,10 +51241,17 @@
             "sourceCount": 13,
             "ideas": 6,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-09-13T17:21:37.483Z",
+            "developments": 20,
+            "sourceCount": 13,
+            "ideas": 6,
+            "status": "ok"
           }
         ],
         "brief": {
-          "greeting": "Good afternoon",
+          "greeting": "Good evening",
           "narrative": "Premium momentum is keeping the tone constructive across health insurers today. Niva Bupa remains supported by premium growth and demand, but how margins hold as the book grows will decide whether the strength is sustainable.",
           "attentionCount": 6,
           "developmentsCount": 20,
@@ -51253,7 +51260,7 @@
           "confidencePct": 64,
           "confidenceTier": "Low",
           "readingMins": 3,
-          "lastUpdatedLabel": "13 Sep, 01:58 pm"
+          "lastUpdatedLabel": "13 Sep, 05:16 pm"
         },
         "message": {
           "since": "No movement for Niva Bupa since the last brief. The previous thesis remains live.",
@@ -102559,10 +102566,10 @@
         "company": "Star Health",
         "companyId": "star-health",
         "generatedAt": "2026-09-13T07:20:12.163Z",
-        "lastUpdatedAt": "2026-09-13T14:03:53.589Z",
-        "status": "Constructive",
+        "lastUpdatedAt": "2026-09-13T17:21:37.483Z",
+        "status": "Neutral",
         "sourceConfidence": "Low",
-        "itemCount": 12,
+        "itemCount": 11,
         "runs": [
           {
             "runTime": "2026-09-13T07:20:12.163Z",
@@ -102577,115 +102584,39 @@
             "sourceCount": 12,
             "ideas": 6,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-09-13T17:21:37.483Z",
+            "developments": 13,
+            "sourceCount": 11,
+            "ideas": 6,
+            "status": "ok"
           }
         ],
         "brief": {
-          "greeting": "Good afternoon",
-          "narrative": "Premium momentum is keeping the tone constructive across health insurers today. Star Health remains supported by premium growth and demand, but how margins hold as the book grows will decide whether the strength is sustainable.",
+          "greeting": "Good evening",
+          "narrative": "Signals are mixed across health insurers today, with no single dominant driver. Star Health remains supported by its market position, but how margins hold as the book grows will decide whether the strength is sustainable.",
           "attentionCount": 6,
-          "developmentsCount": 14,
-          "sourcesCount": 12,
+          "developmentsCount": 13,
+          "sourcesCount": 11,
           "domainsCount": 7,
-          "confidencePct": 63,
+          "confidencePct": 61,
           "confidenceTier": "Low",
           "readingMins": 3,
-          "lastUpdatedLabel": "13 Sep, 01:58 pm"
+          "lastUpdatedLabel": "13 Sep, 05:16 pm"
         },
         "message": {
           "since": "No movement for Star Health since the last brief. The previous thesis remains live.",
-          "keyThing": "Loss ratio improved 104bp to 67.5%; Nomura lifts FY27–29 profit estimates by 1–11%, projects 17% GWP growth — benchmarks sector profitability trajectory.",
-          "why": "Premium momentum is real; the test is whether margins hold as the book scales.",
+          "keyThing": "Finance Ministry notifies **100% FDI** in insurance sector",
+          "why": "The picture is steady rather than directional for now.",
           "watch": "expense-ratio movement",
           "nothing": false
         },
         "one": {
-          "sentence": "Loss ratio improved 104bp to 67.5%; Nomura lifts FY27–29 profit estimates by 1–11%, projects 17% GWP growth — benchmarks sector profitability trajectory.",
-          "status": "Constructive"
+          "sentence": "Finance Ministry notifies **100% FDI** in insurance sector",
+          "status": "Neutral"
         },
         "ideas": [
-          {
-            "id": "22b7817da6",
-            "entity": "Star Health",
-            "stars": 4,
-            "reasoning": [
-              "Loss ratio improved 104bp to 67.5%; Nomura lifts FY27–29 profit estimates by 1–11%, projects 17% GWP growth — benchmarks sector profitability trajectory.",
-              "Star Health's market value is 4.66 times its statutory book value, but the company currently earns just 7.3% on that book (return on equity)."
-            ],
-            "whatToWatch": "Whether the next results confirm the rating and the price target.",
-            "confidencePct": 78,
-            "evidenceCount": 3,
-            "status": "Constructive",
-            "category": "Analyst Action",
-            "why": {
-              "whatHappened": "Nomura raises TP to ₹700 (from ₹675), maintains Buy",
-              "whyItMatters": "Loss ratio improved 104bp to 67.5%; Nomura lifts FY27–29 profit estimates by 1–11%, projects 17% GWP growth — benchmarks sector profitability trajectory.",
-              "whoAffected": "Star Health shareholders and anyone tracking its re-rating.",
-              "historicalContext": "Star Health's market value is 4.66 times its statutory book value, but the company currently earns just 7.3% on that book (return on equity).",
-              "potentialImpact": "Share gains only help the thesis if they are profitable share — watch the claims ratio as the book grows, not just the share number.",
-              "whatToWatch": "Whether the next results confirm the rating and the price target."
-            },
-            "action": {
-              "id": "margins",
-              "label": "Compare Star Health margin",
-              "icon": "margins",
-              "target": {
-                "page": "sahi",
-                "sahiTab": "profitability",
-                "company": "star-health",
-                "focus": {
-                  "id": "pulse-margins",
-                  "metricKey": "combined_ratio",
-                  "metricLabel": "Combined ratio",
-                  "company": "star-health",
-                  "companyLabel": "Star Health",
-                  "comparisonType": "YoY",
-                  "tone": "neutral",
-                  "insightLabel": "Underwriting margin — combined ratio",
-                  "unit": "%",
-                  "higherIsBetter": false,
-                  "sahiTab": "profitability",
-                  "origin": "pulse"
-                }
-              }
-            },
-            "isBreaking": false,
-            "isNew": false,
-            "freshness": "existing",
-            "freshnessLabel": "Existing context",
-            "publishedLabel": "31 Jul",
-            "discoveredLabel": "2 Aug",
-            "sources": [
-              {
-                "kind": "Analyst report",
-                "name": "moneycontrol.com",
-                "url": "https://www.moneycontrol.com/news/business/stocks/star-health-q1-profit-beats-estimates-nomura-raises-target-price-to-rs-700-maintains-buy-13989958.html"
-              },
-              {
-                "kind": "Market data",
-                "name": "Derived from insurer-annual-snapshot + industry-segment-premium",
-                "url": "https://www.prnewswire.com/in/news-releases/star-health-insurance-reports-strong-performance-q1fy26-pat-grows-44-to-inr-438-cr-ifrs-premium-grows-13-302517057.html"
-              },
-              {
-                "kind": "Market data",
-                "name": "7 curated source-backed insights",
-                "url": ""
-              }
-            ],
-            "impact": "Positive",
-            "scope": "company",
-            "companyId": "star-health",
-            "sourceUrl": "https://www.moneycontrol.com/news/business/stocks/star-health-q1-profit-beats-estimates-nomura-raises-target-price-to-rs-700-maintains-buy-13989958.html",
-            "sourceConfidence": "Medium",
-            "clusterSize": 1,
-            "clusterSources": [
-              {
-                "kind": "Analyst report",
-                "name": "moneycontrol.com",
-                "url": "https://www.moneycontrol.com/news/business/stocks/star-health-q1-profit-beats-estimates-nomura-raises-target-price-to-rs-700-maintains-buy-13989958.html"
-              }
-            ],
-            "independentSources": 1
-          },
           {
             "id": "507b6f5dc4",
             "entity": "<span style=\"background:#F0FDF4;color:#22C55E;font-weight:600;padding:2px 6px;border-radius:4px;\">▲ Positive</span>",
@@ -103160,6 +103091,99 @@
               }
             ],
             "independentSources": 1
+          },
+          {
+            "id": "3ff44d9331",
+            "entity": "<span style=\"color:#22C55E;font-weight:600\">Q1 FY27 net profit surges to ₹137.8 cr</span>",
+            "stars": 2,
+            "reasoning": [
+              "Up **~93–250% YoY**; retail health premium **▲35.5%**, loss ratio improved **382 bps** YoY to **63%** — the key margin-trajectory signal the market are watching.",
+              "Solvency 2.2x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency."
+            ],
+            "whatToWatch": "Whether the sector move feeds through to premium growth and pricing.",
+            "confidencePct": 60,
+            "evidenceCount": 5,
+            "status": "Neutral",
+            "category": "Sector Catalyst",
+            "why": {
+              "whatHappened": "<span style=\"color:#22C55E;font-weight:600\">Q1 FY27 net profit surges to ₹137.8 cr</span>",
+              "whyItMatters": "Up **~93–250% YoY**; retail health premium **▲35.5%**, loss ratio improved **382 bps** YoY to **63%** — the key margin-trajectory signal the market are watching.",
+              "whoAffected": "The broader health-insurance sector and its listed players.",
+              "historicalContext": "Solvency 2.2x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency.",
+              "potentialImpact": "Solvency vs the 1.5x regulatory floor",
+              "whatToWatch": "Whether the sector move feeds through to premium growth and pricing."
+            },
+            "action": {
+              "id": "margins",
+              "label": "Compare Star Health margin",
+              "icon": "margins",
+              "target": {
+                "page": "sahi",
+                "sahiTab": "profitability",
+                "company": "star-health",
+                "focus": {
+                  "id": "pulse-margins",
+                  "metricKey": "combined_ratio",
+                  "metricLabel": "Combined ratio",
+                  "company": "star-health",
+                  "companyLabel": "Star Health",
+                  "comparisonType": "YoY",
+                  "tone": "neutral",
+                  "insightLabel": "Underwriting margin — combined ratio",
+                  "unit": "%",
+                  "higherIsBetter": false,
+                  "sahiTab": "profitability",
+                  "origin": "pulse"
+                }
+              }
+            },
+            "isBreaking": false,
+            "isNew": false,
+            "freshness": "existing",
+            "freshnessLabel": "Existing context",
+            "publishedLabel": "—",
+            "discoveredLabel": "1 Sep",
+            "sources": [
+              {
+                "kind": "News",
+                "name": "moneycontrol.com",
+                "url": "https://www.moneycontrol.com/news/business/earnings/niva-bupa-healt-standalone-june-2026-net-sales-at-rs-2471-26-crore-up-80-24-y-o-y-13997378.html"
+              },
+              {
+                "kind": "News",
+                "name": "thehindu.com",
+                "url": "https://www.thehindu.com/business/finance-ministry-notifies-100-fdi-in-insurance-sector-fema-rules-lic-cap/article70932095.ece"
+              },
+              {
+                "kind": "News",
+                "name": "indiatoday.in",
+                "url": "https://www.indiatoday.in/business/story/irdai-likely-launches-low-cost-health-insurance-policies-performance-scorecards-report-2889470-2026-03-31"
+              },
+              {
+                "kind": "News",
+                "name": "bfsi.economictimes.indiatimes.com",
+                "url": "https://bfsi.economictimes.indiatimes.com/news/policy/irdai-bars-niva-bupa-health-insurance-from-opening-new-offices-for-six-months/133379321"
+              },
+              {
+                "kind": "News",
+                "name": "moneycontrol.com",
+                "url": "https://www.moneycontrol.com/news/business/stocks/nomura-retains-buy-on-star-health-niva-bupa-sees-more-predictable-loss-ratios-14019004.html"
+              }
+            ],
+            "impact": "Neutral",
+            "scope": "sector",
+            "companyId": null,
+            "sourceUrl": "https://www.moneycontrol.com/news/business/earnings/niva-bupa-healt-standalone-june-2026-net-sales-at-rs-2471-26-crore-up-80-24-y-o-y-13997378.html",
+            "sourceConfidence": "Low",
+            "clusterSize": 1,
+            "clusterSources": [
+              {
+                "kind": "News",
+                "name": "moneycontrol.com",
+                "url": "https://www.moneycontrol.com/news/business/earnings/niva-bupa-healt-standalone-june-2026-net-sales-at-rs-2471-26-crore-up-80-24-y-o-y-13997378.html"
+              }
+            ],
+            "independentSources": 1
           }
         ],
         "sinceDeltas": [
@@ -103220,30 +103244,6 @@
         ],
         "events": [],
         "actions": [
-          {
-            "id": "ownership",
-            "label": "Review Star Health ownership",
-            "icon": "ownership",
-            "target": {
-              "page": "sahi",
-              "sahiTab": "governance",
-              "company": "star-health",
-              "focus": {
-                "id": "pulse-ownership",
-                "metricKey": "promoter_holding",
-                "metricLabel": "Promoter holding",
-                "company": "star-health",
-                "companyLabel": "Star Health",
-                "comparisonType": "sequential",
-                "tone": "neutral",
-                "insightLabel": "Ownership — promoter holding trend",
-                "unit": "%",
-                "higherIsBetter": true,
-                "sahiTab": "governance",
-                "origin": "pulse"
-              }
-            }
-          },
           {
             "id": "margins",
             "label": "Compare Star Health margin",
@@ -152608,7 +152608,7 @@
         "company": "Care Health",
         "companyId": "care-health",
         "generatedAt": "2026-09-13T07:20:12.163Z",
-        "lastUpdatedAt": "2026-09-13T14:03:53.589Z",
+        "lastUpdatedAt": "2026-09-13T17:21:37.483Z",
         "status": "Neutral",
         "sourceConfidence": "Low",
         "itemCount": 11,
@@ -152626,10 +152626,17 @@
             "sourceCount": 11,
             "ideas": 6,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-09-13T17:21:37.483Z",
+            "developments": 13,
+            "sourceCount": 11,
+            "ideas": 6,
+            "status": "ok"
           }
         ],
         "brief": {
-          "greeting": "Good afternoon",
+          "greeting": "Good evening",
           "narrative": "Signals are mixed across health insurers today, with no single dominant driver. Care Health remains supported by its market position, but how margins hold as the book grows will decide whether the strength is sustainable.",
           "attentionCount": 6,
           "developmentsCount": 13,
@@ -152638,7 +152645,7 @@
           "confidencePct": 61,
           "confidenceTier": "Low",
           "readingMins": 4,
-          "lastUpdatedLabel": "13 Sep, 01:58 pm"
+          "lastUpdatedLabel": "13 Sep, 05:16 pm"
         },
         "message": {
           "since": "No movement for Care Health since the last brief. The previous thesis remains live.",
@@ -202335,7 +202342,7 @@
         "company": "Aditya Birla",
         "companyId": "aditya-birla",
         "generatedAt": "2026-09-13T07:20:12.163Z",
-        "lastUpdatedAt": "2026-09-13T14:03:53.589Z",
+        "lastUpdatedAt": "2026-09-13T17:21:37.483Z",
         "status": "Neutral",
         "sourceConfidence": "Low",
         "itemCount": 11,
@@ -202353,10 +202360,17 @@
             "sourceCount": 11,
             "ideas": 6,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-09-13T17:21:37.483Z",
+            "developments": 11,
+            "sourceCount": 11,
+            "ideas": 6,
+            "status": "ok"
           }
         ],
         "brief": {
-          "greeting": "Good afternoon",
+          "greeting": "Good evening",
           "narrative": "Signals are mixed across health insurers today, with no single dominant driver. Aditya Birla remains supported by its market position, but how margins hold as the book grows will decide whether the strength is sustainable.",
           "attentionCount": 6,
           "developmentsCount": 11,
@@ -202365,7 +202379,7 @@
           "confidencePct": 61,
           "confidenceTier": "Low",
           "readingMins": 3,
-          "lastUpdatedLabel": "13 Sep, 01:58 pm"
+          "lastUpdatedLabel": "13 Sep, 05:16 pm"
         },
         "message": {
           "since": "No movement for Aditya Birla since the last brief. The previous thesis remains live.",
@@ -252566,7 +252580,7 @@
         "company": "ManipalCigna",
         "companyId": "manipalcigna",
         "generatedAt": "2026-09-13T07:20:12.163Z",
-        "lastUpdatedAt": "2026-09-13T14:03:53.589Z",
+        "lastUpdatedAt": "2026-09-13T17:21:37.483Z",
         "status": "Neutral",
         "sourceConfidence": "Low",
         "itemCount": 11,
@@ -252584,10 +252598,17 @@
             "sourceCount": 11,
             "ideas": 6,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-09-13T17:21:37.483Z",
+            "developments": 13,
+            "sourceCount": 11,
+            "ideas": 6,
+            "status": "ok"
           }
         ],
         "brief": {
-          "greeting": "Good afternoon",
+          "greeting": "Good evening",
           "narrative": "Signals are mixed across health insurers today, with no single dominant driver. ManipalCigna remains supported by its market position, but how margins hold as the book grows will decide whether the strength is sustainable.",
           "attentionCount": 6,
           "developmentsCount": 13,
@@ -252596,7 +252617,7 @@
           "confidencePct": 61,
           "confidenceTier": "Low",
           "readingMins": 3,
-          "lastUpdatedLabel": "13 Sep, 01:58 pm"
+          "lastUpdatedLabel": "13 Sep, 05:16 pm"
         },
         "message": {
           "since": "No movement for ManipalCigna since the last brief. The previous thesis remains live.",
@@ -253278,6 +253299,6 @@
     "snapshot_id": "pulse-brief-archive",
     "description": "Immutable per-calendar-day Pulse brief records (IST), one per company. Past days are frozen exactly as shown that day; the live Today view recomposes. Kept ~90 days per company.",
     "last_updated": "2026-09-13",
-    "last_successful_run": "2026-09-13T14:03:53.589Z"
+    "last_successful_run": "2026-09-13T17:21:37.483Z"
   }
 }
