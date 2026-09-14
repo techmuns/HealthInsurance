@@ -4,8 +4,8 @@
     "description": "AI-generated market intelligence for the SAHI health insurers — investor meets, earnings/board dates, sector & regulatory news, share catalysts. Web-sourced; each item links its source. AI-generated, not audited.",
     "schema_version": "1.0.0",
     "dataset": "ai_generated",
-    "last_updated": "2026-09-13",
-    "last_successful_run": "2026-09-13T17:16:25.077Z",
+    "last_updated": "2026-09-14",
+    "last_successful_run": "2026-09-14T16:03:43.947Z",
     "upstream_sources": [
       "muns_agent_web"
     ],
@@ -14,6 +14,36 @@
     "notes": "Clearly labelled AI-generated intelligence — verify before acting. Items accumulate through the day and rank by investor impact, not recency."
   },
   "data": [
+    {
+      "id": "98cebc7e9d",
+      "company_id": "sector",
+      "date": null,
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "<span style=\"color:#EF4444;font-weight:600\">negative</span> <span style=\"background:#FEF2F2;padding:2px 6px;border-radius:4px;\">strongest sector-specific overhang</span>",
+      "detail": "IRDAI bars Niva Bupa from opening new offices for **6 months**",
+      "source_name": null,
+      "source_url": null,
+      "source_published_at": null,
+      "first_seen": "2026-09-14T16:03:43.947Z",
+      "discovered_at": "2026-09-14T16:03:43.947Z"
+    },
+    {
+      "id": "0f883d7098",
+      "company_id": "sector",
+      "date": null,
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "<span style=\"color:#22C55E;font-weight:600\">positive</span> <span style=\"background:#F0FDF4;padding:2px 6px;border-radius:4px;\">strongest positive signal</span>",
+      "detail": "Q1 FY27 PAT surges <span style=\"color:#22C55E;font-weight:600\">▲93%</span> YoY to **₹137.8 cr**",
+      "source_name": null,
+      "source_url": null,
+      "source_published_at": null,
+      "first_seen": "2026-09-14T16:03:43.947Z",
+      "discovered_at": "2026-09-14T16:03:43.947Z"
+    },
     {
       "id": "d2f93fa1bc",
       "company_id": "sector",
@@ -883,36 +913,6 @@
       "source_published_at": "2026-08-03",
       "first_seen": "2026-08-03T16:14:42.232Z",
       "discovered_at": "2026-08-03T16:14:42.232Z"
-    },
-    {
-      "id": "a7ce846147",
-      "company_id": "sector",
-      "date": "2026-08-03",
-      "kind": "rating",
-      "horizon": "recent",
-      "impact": "neutral",
-      "headline": "Nomura reiterates Buy, TP <span style=\"color:#22C55E;font-weight:600\">₹105</span>",
-      "detail": "Cites <span style=\"color:#22C55E;font-weight:600\">▼ 382bps YoY loss-ratio improvement</span>; expects 23–25% premium CAGR FY27–28 and ROE moving toward 12–15.9% by FY29 (vs. 14.8% now).",
-      "source_name": null,
-      "source_url": null,
-      "source_published_at": null,
-      "first_seen": "2026-09-04T17:16:22.746Z",
-      "discovered_at": "2026-09-04T17:16:22.746Z"
-    },
-    {
-      "id": "6375158b1f",
-      "company_id": "niva-bupa",
-      "date": "2026-07-31",
-      "kind": "rating",
-      "horizon": "recent",
-      "impact": "positive",
-      "headline": "Motilal Oswal initiates Buy, TP ₹103",
-      "detail": "Gross premium +32% YoY, retail health GWP +47% YoY, combined ratio improved 300bp to 100.2% — bullish valuation call at 30x FY28E IFRS PAT.",
-      "source_name": "moneycontrol.com",
-      "source_url": "https://moneycontrol.com/news/business/buy-niva-bupa-target-of-rs-103-motilal-oswal-13990519.html",
-      "source_published_at": "2026-07-31",
-      "first_seen": "2026-08-02T08:05:52.794Z",
-      "discovered_at": "2026-08-02T08:05:52.794Z"
     }
   ]
 }

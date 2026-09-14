@@ -51955,10 +51955,10 @@
         "company": "Niva Bupa",
         "companyId": "niva-bupa",
         "generatedAt": "2026-09-14T07:22:17.804Z",
-        "lastUpdatedAt": "2026-09-14T07:22:17.804Z",
+        "lastUpdatedAt": "2026-09-14T16:10:02.439Z",
         "status": "Constructive",
         "sourceConfidence": "Low",
-        "itemCount": 13,
+        "itemCount": 12,
         "runs": [
           {
             "runTime": "2026-09-14T07:22:17.804Z",
@@ -51966,19 +51966,26 @@
             "sourceCount": 13,
             "ideas": 6,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-09-14T16:10:02.439Z",
+            "developments": 19,
+            "sourceCount": 12,
+            "ideas": 6,
+            "status": "ok"
           }
         ],
         "brief": {
-          "greeting": "Good morning",
+          "greeting": "Good afternoon",
           "narrative": "Premium momentum is keeping the tone constructive across health insurers today. Niva Bupa remains supported by premium growth and demand, but how margins hold as the book grows will decide whether the strength is sustainable.",
           "attentionCount": 6,
-          "developmentsCount": 20,
-          "sourcesCount": 13,
+          "developmentsCount": 19,
+          "sourcesCount": 12,
           "domainsCount": 7,
-          "confidencePct": 64,
+          "confidencePct": 63,
           "confidenceTier": "Low",
           "readingMins": 3,
-          "lastUpdatedLabel": "13 Sep, 05:16 pm"
+          "lastUpdatedLabel": "14 Sep, 04:03 pm"
         },
         "message": {
           "since": "No movement for Niva Bupa since the last brief. The previous thesis remains live.",
@@ -51995,14 +52002,14 @@
           {
             "id": "744e54ff03",
             "entity": "Niva Bupa",
-            "stars": 5,
+            "stars": 4,
             "reasoning": [
               "Nomura cites improving loss ratio (**63%**, -382bps YoY) and **23-25%** premium growth outlook for FY27-28; expects ROE to reach **12-15.9%** by FY29 vs **14.8%** in Q1 FY27.",
               "Niva Bupa's market value is 4.98 times its statutory book value, but the company currently earns just 4.1% on that book (return on equity)."
             ],
             "whatToWatch": "Whether the next results confirm the rating and the price target.",
             "confidencePct": 78,
-            "evidenceCount": 4,
+            "evidenceCount": 3,
             "status": "Constructive",
             "category": "Analyst Action",
             "why": {
@@ -52050,11 +52057,6 @@
                 "url": "https://www.moneycontrol.com/news/business/stocks/niva-bupa-gains-as-nomura-maintains-buy-sees-strong-premium-growth-outlook-13991858.html/amp"
               },
               {
-                "kind": "Analyst report",
-                "name": "moneycontrol.com",
-                "url": "https://moneycontrol.com/news/business/buy-niva-bupa-target-of-rs-103-motilal-oswal-13990519.html"
-              },
-              {
                 "kind": "Market data",
                 "name": "Derived from insurer-annual-snapshot + industry-segment-premium",
                 "url": "https://transactions.nivabupa.com/pages/doc/investor-relations/other-fin-disclosures/Press-Release-Results-March-2025.pdf"
@@ -52076,94 +52078,6 @@
                 "kind": "Analyst report",
                 "name": "moneycontrol.com",
                 "url": "https://www.moneycontrol.com/news/business/stocks/niva-bupa-gains-as-nomura-maintains-buy-sees-strong-premium-growth-outlook-13991858.html/amp"
-              }
-            ],
-            "independentSources": 1
-          },
-          {
-            "id": "6375158b1f",
-            "entity": "Niva Bupa",
-            "stars": 5,
-            "reasoning": [
-              "Gross premium +32% YoY, retail health GWP +47% YoY, combined ratio improved 300bp to 100.2% — bullish valuation call at 30x FY28E IFRS PAT.",
-              "Niva Bupa's market value is 4.98 times its statutory book value, but the company currently earns just 4.1% on that book (return on equity)."
-            ],
-            "whatToWatch": "Whether the next results confirm the rating and the price target.",
-            "confidencePct": 78,
-            "evidenceCount": 4,
-            "status": "Constructive",
-            "category": "Analyst Action",
-            "why": {
-              "whatHappened": "Motilal Oswal initiates Buy, TP ₹103",
-              "whyItMatters": "Gross premium +32% YoY, retail health GWP +47% YoY, combined ratio improved 300bp to 100.2% — bullish valuation call at 30x FY28E IFRS PAT.",
-              "whoAffected": "Niva Bupa shareholders and anyone tracking its re-rating.",
-              "historicalContext": "Niva Bupa's market value is 4.98 times its statutory book value, but the company currently earns just 4.1% on that book (return on equity).",
-              "potentialImpact": "Share gains only help the thesis if they are profitable share — watch the claims ratio as the book grows, not just the share number.",
-              "whatToWatch": "Whether the next results confirm the rating and the price target."
-            },
-            "action": {
-              "id": "margins",
-              "label": "Compare Niva Bupa margin",
-              "icon": "margins",
-              "target": {
-                "page": "sahi",
-                "sahiTab": "profitability",
-                "company": "niva-bupa",
-                "focus": {
-                  "id": "pulse-margins",
-                  "metricKey": "combined_ratio",
-                  "metricLabel": "Combined ratio",
-                  "company": "niva-bupa",
-                  "companyLabel": "Niva Bupa",
-                  "comparisonType": "YoY",
-                  "tone": "neutral",
-                  "insightLabel": "Underwriting margin — combined ratio",
-                  "unit": "%",
-                  "higherIsBetter": false,
-                  "sahiTab": "profitability",
-                  "origin": "pulse"
-                }
-              }
-            },
-            "isBreaking": false,
-            "isNew": false,
-            "freshness": "existing",
-            "freshnessLabel": "Existing context",
-            "publishedLabel": "31 Jul",
-            "discoveredLabel": "2 Aug",
-            "sources": [
-              {
-                "kind": "Analyst report",
-                "name": "moneycontrol.com",
-                "url": "https://moneycontrol.com/news/business/buy-niva-bupa-target-of-rs-103-motilal-oswal-13990519.html"
-              },
-              {
-                "kind": "Analyst report",
-                "name": "moneycontrol.com",
-                "url": "https://www.moneycontrol.com/news/business/stocks/niva-bupa-gains-as-nomura-maintains-buy-sees-strong-premium-growth-outlook-13991858.html/amp"
-              },
-              {
-                "kind": "Market data",
-                "name": "Derived from insurer-annual-snapshot + industry-segment-premium",
-                "url": "https://transactions.nivabupa.com/pages/doc/investor-relations/other-fin-disclosures/Press-Release-Results-March-2025.pdf"
-              },
-              {
-                "kind": "Market data",
-                "name": "3 curated source-backed insights",
-                "url": ""
-              }
-            ],
-            "impact": "Positive",
-            "scope": "company",
-            "companyId": "niva-bupa",
-            "sourceUrl": "https://moneycontrol.com/news/business/buy-niva-bupa-target-of-rs-103-motilal-oswal-13990519.html",
-            "sourceConfidence": "Medium",
-            "clusterSize": 1,
-            "clusterSources": [
-              {
-                "kind": "Analyst report",
-                "name": "moneycontrol.com",
-                "url": "https://moneycontrol.com/news/business/buy-niva-bupa-target-of-rs-103-motilal-oswal-13990519.html"
               }
             ],
             "independentSources": 1
@@ -52549,9 +52463,134 @@
               }
             ],
             "independentSources": 1
+          },
+          {
+            "id": "0046ebe484",
+            "entity": "<span style=\"color:#1E3A8A;font-weight:600\">18th AGM approves director reappointments & pay revisions</span>",
+            "stars": 2,
+            "reasoning": [
+              "Shareholders cleared reappointment of CFO Vishwanath Mahendra & Deputy CEO Ankur Kharbanda plus FY27 remuneration hikes for MD&CEO Krishnan Ramachandran — signals **management continuity**.",
+              "Solvency 3.03x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency."
+            ],
+            "whatToWatch": "Whether the sector move feeds through to premium growth and pricing.",
+            "confidencePct": 60,
+            "evidenceCount": 5,
+            "status": "Neutral",
+            "category": "Sector Catalyst",
+            "why": {
+              "whatHappened": "<span style=\"color:#1E3A8A;font-weight:600\">18th AGM approves director reappointments & pay revisions</span>",
+              "whyItMatters": "Shareholders cleared reappointment of CFO Vishwanath Mahendra & Deputy CEO Ankur Kharbanda plus FY27 remuneration hikes for MD&CEO Krishnan Ramachandran — signals **management continuity**.",
+              "whoAffected": "The broader health-insurance sector and its listed players.",
+              "historicalContext": "Solvency 3.03x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency.",
+              "potentialImpact": "Solvency vs the 1.5x regulatory floor",
+              "whatToWatch": "Whether the sector move feeds through to premium growth and pricing."
+            },
+            "action": {
+              "id": "margins",
+              "label": "Compare Niva Bupa margin",
+              "icon": "margins",
+              "target": {
+                "page": "sahi",
+                "sahiTab": "profitability",
+                "company": "niva-bupa",
+                "focus": {
+                  "id": "pulse-margins",
+                  "metricKey": "combined_ratio",
+                  "metricLabel": "Combined ratio",
+                  "company": "niva-bupa",
+                  "companyLabel": "Niva Bupa",
+                  "comparisonType": "YoY",
+                  "tone": "neutral",
+                  "insightLabel": "Underwriting margin — combined ratio",
+                  "unit": "%",
+                  "higherIsBetter": false,
+                  "sahiTab": "profitability",
+                  "origin": "pulse"
+                }
+              }
+            },
+            "isBreaking": false,
+            "isNew": false,
+            "freshness": "existing",
+            "freshnessLabel": "Existing context",
+            "publishedLabel": "—",
+            "discoveredLabel": "1 Sep",
+            "sources": [
+              {
+                "kind": "News",
+                "name": "scanx.trade",
+                "url": "https://scanx.trade/stock-market-news/companies/niva-bupa-agm-approves-director-appointments-executive-pay-revisions/48098549"
+              },
+              {
+                "kind": "News",
+                "name": "thehindu.com",
+                "url": "https://www.thehindu.com/business/finance-ministry-notifies-100-fdi-in-insurance-sector-fema-rules-lic-cap/article70932095.ece"
+              },
+              {
+                "kind": "News",
+                "name": "indiatoday.in",
+                "url": "https://www.indiatoday.in/business/story/irdai-likely-launches-low-cost-health-insurance-policies-performance-scorecards-report-2889470-2026-03-31"
+              },
+              {
+                "kind": "News",
+                "name": "bfsi.economictimes.indiatimes.com",
+                "url": "https://bfsi.economictimes.indiatimes.com/news/policy/irdai-bars-niva-bupa-health-insurance-from-opening-new-offices-for-six-months/133379321"
+              },
+              {
+                "kind": "News",
+                "name": "moneycontrol.com",
+                "url": "https://www.moneycontrol.com/news/business/stocks/nomura-retains-buy-on-star-health-niva-bupa-sees-more-predictable-loss-ratios-14019004.html"
+              }
+            ],
+            "impact": "Neutral",
+            "scope": "sector",
+            "companyId": null,
+            "sourceUrl": "https://scanx.trade/stock-market-news/companies/niva-bupa-agm-approves-director-appointments-executive-pay-revisions/48098549",
+            "sourceConfidence": "Low",
+            "clusterSize": 1,
+            "clusterSources": [
+              {
+                "kind": "News",
+                "name": "scanx.trade",
+                "url": "https://scanx.trade/stock-market-news/companies/niva-bupa-agm-approves-director-appointments-executive-pay-revisions/48098549"
+              }
+            ],
+            "independentSources": 1
           }
         ],
         "sinceDeltas": [
+          {
+            "id": "reg",
+            "label": "newly surfaced regulatory updates",
+            "value": "5",
+            "direction": "up",
+            "tone": "Watch",
+            "target": {
+              "page": "sahi",
+              "sahiTab": "sector-news",
+              "company": "niva-bupa",
+              "focus": {
+                "id": "pulse-since-reg",
+                "kind": "locator",
+                "locatorKind": "regulatory",
+                "metricKey": "regulatory",
+                "metricLabel": "Regulatory updates",
+                "company": "niva-bupa",
+                "companyLabel": "Niva Bupa",
+                "comparisonType": "trend",
+                "tone": "neutral",
+                "insightLabel": "5 newly surfaced regulatory updates",
+                "unit": "",
+                "sahiTab": "sector-news",
+                "origin": "pulse",
+                "targetItemId": "073191f5c67978",
+                "targetMonth": "2026-09",
+                "sourceDate": "2026-09-11",
+                "surfacedAt": "2026-09-14",
+                "reasonShownToday": "Older source (dated 11 Sept 2026) — first added to the feed 14 Sept 2026, so it's newly surfaced, not newly published."
+              }
+            }
+          },
           {
             "id": "co",
             "label": "company-specific updates",
@@ -104002,7 +104041,7 @@
         "company": "Star Health",
         "companyId": "star-health",
         "generatedAt": "2026-09-14T07:22:17.804Z",
-        "lastUpdatedAt": "2026-09-14T07:22:17.804Z",
+        "lastUpdatedAt": "2026-09-14T16:10:02.439Z",
         "status": "Neutral",
         "sourceConfidence": "Low",
         "itemCount": 11,
@@ -104013,10 +104052,17 @@
             "sourceCount": 11,
             "ideas": 6,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-09-14T16:10:02.439Z",
+            "developments": 13,
+            "sourceCount": 11,
+            "ideas": 6,
+            "status": "ok"
           }
         ],
         "brief": {
-          "greeting": "Good morning",
+          "greeting": "Good afternoon",
           "narrative": "Signals are mixed across health insurers today, with no single dominant driver. Star Health remains supported by its market position, but how margins hold as the book grows will decide whether the strength is sustainable.",
           "attentionCount": 6,
           "developmentsCount": 13,
@@ -104025,7 +104071,7 @@
           "confidencePct": 61,
           "confidenceTier": "Low",
           "readingMins": 3,
-          "lastUpdatedLabel": "13 Sep, 05:16 pm"
+          "lastUpdatedLabel": "14 Sep, 04:03 pm"
         },
         "message": {
           "since": "No movement for Star Health since the last brief. The previous thesis remains live.",
@@ -104609,6 +104655,38 @@
           }
         ],
         "sinceDeltas": [
+          {
+            "id": "reg",
+            "label": "newly surfaced regulatory updates",
+            "value": "5",
+            "direction": "up",
+            "tone": "Watch",
+            "target": {
+              "page": "sahi",
+              "sahiTab": "sector-news",
+              "company": "star-health",
+              "focus": {
+                "id": "pulse-since-reg",
+                "kind": "locator",
+                "locatorKind": "regulatory",
+                "metricKey": "regulatory",
+                "metricLabel": "Regulatory updates",
+                "company": "star-health",
+                "companyLabel": "Star Health",
+                "comparisonType": "trend",
+                "tone": "neutral",
+                "insightLabel": "5 newly surfaced regulatory updates",
+                "unit": "",
+                "sahiTab": "sector-news",
+                "origin": "pulse",
+                "targetItemId": "073191f5c67978",
+                "targetMonth": "2026-09",
+                "sourceDate": "2026-09-11",
+                "surfacedAt": "2026-09-14",
+                "reasonShownToday": "Older source (dated 11 Sept 2026) — first added to the feed 14 Sept 2026, so it's newly surfaced, not newly published."
+              }
+            }
+          },
           {
             "id": "co",
             "label": "company-specific updates",
@@ -154748,7 +154826,7 @@
         "company": "Care Health",
         "companyId": "care-health",
         "generatedAt": "2026-09-14T07:22:17.804Z",
-        "lastUpdatedAt": "2026-09-14T07:22:17.804Z",
+        "lastUpdatedAt": "2026-09-14T16:10:02.439Z",
         "status": "Neutral",
         "sourceConfidence": "Low",
         "itemCount": 11,
@@ -154759,10 +154837,17 @@
             "sourceCount": 11,
             "ideas": 6,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-09-14T16:10:02.439Z",
+            "developments": 13,
+            "sourceCount": 11,
+            "ideas": 6,
+            "status": "ok"
           }
         ],
         "brief": {
-          "greeting": "Good morning",
+          "greeting": "Good afternoon",
           "narrative": "Signals are mixed across health insurers today, with no single dominant driver. Care Health remains supported by its market position, but how margins hold as the book grows will decide whether the strength is sustainable.",
           "attentionCount": 6,
           "developmentsCount": 13,
@@ -154771,7 +154856,7 @@
           "confidencePct": 61,
           "confidenceTier": "Low",
           "readingMins": 4,
-          "lastUpdatedLabel": "13 Sep, 05:16 pm"
+          "lastUpdatedLabel": "14 Sep, 04:03 pm"
         },
         "message": {
           "since": "No movement for Care Health since the last brief. The previous thesis remains live.",
@@ -155355,6 +155440,38 @@
           }
         ],
         "sinceDeltas": [
+          {
+            "id": "reg",
+            "label": "newly surfaced regulatory updates",
+            "value": "5",
+            "direction": "up",
+            "tone": "Watch",
+            "target": {
+              "page": "sahi",
+              "sahiTab": "sector-news",
+              "company": "care-health",
+              "focus": {
+                "id": "pulse-since-reg",
+                "kind": "locator",
+                "locatorKind": "regulatory",
+                "metricKey": "regulatory",
+                "metricLabel": "Regulatory updates",
+                "company": "care-health",
+                "companyLabel": "Care Health",
+                "comparisonType": "trend",
+                "tone": "neutral",
+                "insightLabel": "5 newly surfaced regulatory updates",
+                "unit": "",
+                "sahiTab": "sector-news",
+                "origin": "pulse",
+                "targetItemId": "073191f5c67978",
+                "targetMonth": "2026-09",
+                "sourceDate": "2026-09-11",
+                "surfacedAt": "2026-09-14",
+                "reasonShownToday": "Older source (dated 11 Sept 2026) — first added to the feed 14 Sept 2026, so it's newly surfaced, not newly published."
+              }
+            }
+          },
           {
             "id": "co",
             "label": "company-specific updates",
@@ -205186,7 +205303,7 @@
         "company": "Aditya Birla",
         "companyId": "aditya-birla",
         "generatedAt": "2026-09-14T07:22:17.804Z",
-        "lastUpdatedAt": "2026-09-14T07:22:17.804Z",
+        "lastUpdatedAt": "2026-09-14T16:10:02.439Z",
         "status": "Neutral",
         "sourceConfidence": "Low",
         "itemCount": 11,
@@ -205197,10 +205314,17 @@
             "sourceCount": 11,
             "ideas": 6,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-09-14T16:10:02.439Z",
+            "developments": 11,
+            "sourceCount": 11,
+            "ideas": 6,
+            "status": "ok"
           }
         ],
         "brief": {
-          "greeting": "Good morning",
+          "greeting": "Good afternoon",
           "narrative": "Signals are mixed across health insurers today, with no single dominant driver. Aditya Birla remains supported by its market position, but how margins hold as the book grows will decide whether the strength is sustainable.",
           "attentionCount": 6,
           "developmentsCount": 11,
@@ -205209,7 +205333,7 @@
           "confidencePct": 61,
           "confidenceTier": "Low",
           "readingMins": 3,
-          "lastUpdatedLabel": "13 Sep, 05:16 pm"
+          "lastUpdatedLabel": "14 Sep, 04:03 pm"
         },
         "message": {
           "since": "No movement for Aditya Birla since the last brief. The previous thesis remains live.",
@@ -205793,6 +205917,38 @@
           }
         ],
         "sinceDeltas": [
+          {
+            "id": "reg",
+            "label": "newly surfaced regulatory updates",
+            "value": "5",
+            "direction": "up",
+            "tone": "Watch",
+            "target": {
+              "page": "sahi",
+              "sahiTab": "sector-news",
+              "company": "aditya-birla",
+              "focus": {
+                "id": "pulse-since-reg",
+                "kind": "locator",
+                "locatorKind": "regulatory",
+                "metricKey": "regulatory",
+                "metricLabel": "Regulatory updates",
+                "company": "aditya-birla",
+                "companyLabel": "Aditya Birla",
+                "comparisonType": "trend",
+                "tone": "neutral",
+                "insightLabel": "5 newly surfaced regulatory updates",
+                "unit": "",
+                "sahiTab": "sector-news",
+                "origin": "pulse",
+                "targetItemId": "073191f5c67978",
+                "targetMonth": "2026-09",
+                "sourceDate": "2026-09-11",
+                "surfacedAt": "2026-09-14",
+                "reasonShownToday": "Older source (dated 11 Sept 2026) — first added to the feed 14 Sept 2026, so it's newly surfaced, not newly published."
+              }
+            }
+          },
           {
             "id": "co",
             "label": "company-specific updates",
@@ -256128,7 +256284,7 @@
         "company": "ManipalCigna",
         "companyId": "manipalcigna",
         "generatedAt": "2026-09-14T07:22:17.804Z",
-        "lastUpdatedAt": "2026-09-14T07:22:17.804Z",
+        "lastUpdatedAt": "2026-09-14T16:10:02.439Z",
         "status": "Neutral",
         "sourceConfidence": "Low",
         "itemCount": 11,
@@ -256139,10 +256295,17 @@
             "sourceCount": 11,
             "ideas": 6,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-09-14T16:10:02.439Z",
+            "developments": 13,
+            "sourceCount": 11,
+            "ideas": 6,
+            "status": "ok"
           }
         ],
         "brief": {
-          "greeting": "Good morning",
+          "greeting": "Good afternoon",
           "narrative": "Signals are mixed across health insurers today, with no single dominant driver. ManipalCigna remains supported by its market position, but how margins hold as the book grows will decide whether the strength is sustainable.",
           "attentionCount": 6,
           "developmentsCount": 13,
@@ -256151,7 +256314,7 @@
           "confidencePct": 61,
           "confidenceTier": "Low",
           "readingMins": 3,
-          "lastUpdatedLabel": "13 Sep, 05:16 pm"
+          "lastUpdatedLabel": "14 Sep, 04:03 pm"
         },
         "message": {
           "since": "No movement for ManipalCigna since the last brief. The previous thesis remains live.",
@@ -256736,6 +256899,38 @@
         ],
         "sinceDeltas": [
           {
+            "id": "reg",
+            "label": "newly surfaced regulatory updates",
+            "value": "5",
+            "direction": "up",
+            "tone": "Watch",
+            "target": {
+              "page": "sahi",
+              "sahiTab": "sector-news",
+              "company": "manipalcigna",
+              "focus": {
+                "id": "pulse-since-reg",
+                "kind": "locator",
+                "locatorKind": "regulatory",
+                "metricKey": "regulatory",
+                "metricLabel": "Regulatory updates",
+                "company": "manipalcigna",
+                "companyLabel": "ManipalCigna",
+                "comparisonType": "trend",
+                "tone": "neutral",
+                "insightLabel": "5 newly surfaced regulatory updates",
+                "unit": "",
+                "sahiTab": "sector-news",
+                "origin": "pulse",
+                "targetItemId": "073191f5c67978",
+                "targetMonth": "2026-09",
+                "sourceDate": "2026-09-11",
+                "surfacedAt": "2026-09-14",
+                "reasonShownToday": "Older source (dated 11 Sept 2026) — first added to the feed 14 Sept 2026, so it's newly surfaced, not newly published."
+              }
+            }
+          },
+          {
             "id": "co",
             "label": "company-specific updates",
             "value": "0",
@@ -256833,6 +257028,6 @@
     "snapshot_id": "pulse-brief-archive",
     "description": "Immutable per-calendar-day Pulse brief records (IST), one per company. Past days are frozen exactly as shown that day; the live Today view recomposes. Kept ~90 days per company.",
     "last_updated": "2026-09-14",
-    "last_successful_run": "2026-09-14T07:22:17.804Z"
+    "last_successful_run": "2026-09-14T16:10:02.439Z"
   }
 }
