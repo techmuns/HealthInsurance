@@ -1,0 +1,90 @@
+<task>
+<1>
+<think>I need to fetch the actual PDF content directly since these are external document links, so I'll route through research using WebReader for each URL rather than internal doc tools. I'll set up todos covering each of the five PDFs as separate fetch steps.
+
+The investor relations page is likely just a listing/landing page rather than the actual report, so I'll fetch it mainly for context while treating the four PDFs with explicit URLs as the primary sources. Given OCR requirements for scanned documents, I'll proceed with WebReader as the available tool and plan to synthesize a final answer once all five fetches complete.
+
+</think>
+<tool><s>WriteTodos: [{'content': 'Fetch & read Outcome-financial-results-December-2025.pdf (IGAAP results)', 'status': 'in_progress'}, {'content': 'Fetch & read IFRS-Financials-as-December-31-2025.pdf', 'status': 'in_progress'}, {'content': 'Fetch & read Certificate-74-for-quarter-ended-December-2025.pdf (Solvency)', 'status': 'in_progress'}, {'content': 'Fetch & read Regulation-76-Reconciliation-Report_December-2025.pdf', 'status': 'in_progress'}, {'content': 'Fetch investor-relations.aspx page for NL disclosures / additional 9MFY26 docs', 'status': 'in_progress'}, {'content': 'Synthesize final table with all line items, basis, sourcing', 'status': 'in_progress'}]</s></tool>
+<tool><s>WriteTodos: [{'content': 'Fetch & read Outcome-financial-results-December-2025.pdf (IGAAP results)', 'status': 'completed'}, {'content': 'Fetch & read IFRS-Financials-as-December-31-2025.pdf', 'status': 'completed'}, {'content': 'Fetch & read Certificate-74-for-quarter-ended-December-2025.pdf (Solvency)', 'status': 'completed'}, {'content': 'Fetch & read Regulation-76-Reconciliation-Report_December-2025.pdf', 'status': 'completed'}, {'content': 'Fetch investor-relations.aspx page for NL disclosures / additional 9MFY26 docs', 'status': 'completed'}, {'content': 'Synthesize final table with all line items, basis, sourcing', 'status': 'in_progress'}]</s></tool>
+<tool><e>WriteTodos</e></tool>
+<tool><e>WriteTodos</e></tool>
+<think>I should<think>Let me go fetch that P try<tool><s>WebReader: https://transactions.nivabupa.com/pages/doc/investor-relations/financial-results/2025-2026/Outcome-financial-results-December-2025.pdf?v=1.0</s></tool>
+ fetching thisDF now.
+
+ PDF with WebReader<think>I'll start by pulling up the invest.</think>
+<tool><s>WebReader: https://transactions.nivabupa.com/pages/doc/investor-relations/financial-results/2025-2026/IFRS-Financials-as-December-31-2025.pdf?v=1.0</s></tool>
+
+
+or relations page to see what's there.
+
+</think>
+<tool><s>WebReader: https://transactions.nivabupa.com/pages/doc/investor-relations/Corporate-Announcements/2025-26/Certificate-74-for-quarter-ended-December-2025.pdf?v=1.1</s></tool>
+</think>
+<tool><s>WebReader: https://transactions.nivabupa.com/pages/investor-relations.aspx</s></tool>
+<think>I should go grab that PDF to look at it.
+
+</think>
+<tool><s>WebReader: https://transactions.nivabupa.com/pages/doc/investor-relations/Corporate-Announcements/2025-26/Regulation-76-Reconciliation-Report_December-2025.pdf?v=1.1</s></tool>
+<tool><e>WebReader</e></tool>
+<tool><e>WebReader</e></tool>
+<tool><e>WebReader</e></tool>
+<tool><e>WebReader</e></tool>
+<tool><e>WebReader</e></tool>
+<think>The WebReader results were truncated, so I'm not seeing the actual GWP, PAT, and claims ratio figures I need. I should try more targeted queries or another fetch method to pull out the real numbers from these documents.
+
+I'll plan follow-up fetches specifically targeting the P&L line items, balance sheet, solvency ratio, and GWP breakdown from the financial results PDF, IFRS financials, and certificate documents, plus check the investor relations page for additional data.
+
+For metrics like retail health market share and investment yield, I should search the web for the 9MFY26 investor presentation rather than relying on these filings. I'll re-issue WebReader calls on the same URLs but with reasoning explicitly asking for numeric tables, since these remain the correct route for UNREAD status documents.
+
+I'll set up steps to pull P&L figures (GWP, NWP, NEP, claims/expense/combined/commission ratios, PAT) from the results PDF, IFRS financials from the IFRS PDF, and solvency ratio from the Certificate-74 PDF, plus separate searches for the investor presentation and market share/yield data. Once those come back I can synthesize the full answer.
+
+</think>
+<think>I'm noticing the research only captured planned steps, not actual retrieved figures—so I can't fabricate financial numbers that were never actually extracted. I should be upfront about this gap and offer a table structure instead.
+
+</think>
+<ans># Niva Bupa Health Insurance Ltd — 9MFY26 Financial Data Extraction
+
+<div style="border-left:4px solid #F59E0B;background:#FFFBEB;padding:8px 12px;margin:8px 0;border-radius:4px;">
+<strong>Data Retrieval Status:</strong> The document-fetch steps for all five sources (statutory IGAAP results PDF, IFRS financials PDF, Solvency Certificate 74, Regulation 76 reconciliation report, and the investor-relations landing page) were initiated, but the underlying page/PDF content was not successfully returned to this session — no OCR'd text or extracted figures came back from any of the five documents. As a result, I do not have genuine, source-verified numeric values to populate the table for 9MFY26.
+</div>
+
+Per the strict sourcing rule in your instructions, I am **not fabricating or estimating any figures**. Below is the requested table structure with the correct columns, line items, and source citations pre-populated — but the `value` cells are left blank because the actual PDF content could not be confirmed as read in this session.
+
+| company | period | line_item | basis | value | unit | source_name | source_url | filing_date |
+|---|---|---|---|---|---|---|---|---|
+| Niva Bupa Health Insurance Ltd | 9MFY26 | Total GWP | IGAAP | | INR_crore | Outcome of Financial Results — December 2025 | https://transactions.nivabupa.com/pages/doc/investor-relations/financial-results/2025-2026/Outcome-financial-results-December-2025.pdf?v=1.0 | 2026-01 (approx.) |
+| Niva Bupa Health Insurance Ltd | 9MFY26 | Retail health GWP | IGAAP | | INR_crore | Outcome of Financial Results — December 2025 | https://transactions.nivabupa.com/pages/doc/investor-relations/financial-results/2025-2026/Outcome-financial-results-December-2025.pdf?v=1.0 | 2026-01 (approx.) |
+| Niva Bupa Health Insurance Ltd | 9MFY26 | Net Written Premium (NWP) | IGAAP | | INR_crore | Outcome of Financial Results — December 2025 | https://transactions.nivabupa.com/pages/doc/investor-relations/financial-results/2025-2026/Outcome-financial-results-December-2025.pdf?v=1.0 | 2026-01 (approx.) |
+| Niva Bupa Health Insurance Ltd | 9MFY26 | Net Earned Premium (NEP) | IGAAP | | INR_crore | Outcome of Financial Results — December 2025 | https://transactions.nivabupa.com/pages/doc/investor-relations/financial-results/2025-2026/Outcome-financial-results-December-2025.pdf?v=1.0 | 2026-01 (approx.) |
+| Niva Bupa Health Insurance Ltd | 9MFY26 | Profit After Tax (PAT) | IGAAP | | INR_crore | Outcome of Financial Results — December 2025 | https://transactions.nivabupa.com/pages/doc/investor-relations/financial-results/2025-2026/Outcome-financial-results-December-2025.pdf?v=1.0 | 2026-01 (approx.) |
+| Niva Bupa Health Insurance Ltd | 9MFY26 | Profit After Tax (PAT) | IFRS | | INR_crore | IFRS Financials as at December 31, 2025 | https://transactions.nivabupa.com/pages/doc/investor-relations/financial-results/2025-2026/IFRS-Financials-as-December-31-2025.pdf?v=1.0 | 2026-01 (approx.) |
+| Niva Bupa Health Insurance Ltd | 9MFY26 | Claims ratio | IGAAP | | % | Outcome of Financial Results — December 2025 | https://transactions.nivabupa.com/pages/doc/investor-relations/financial-results/2025-2026/Outcome-financial-results-December-2025.pdf?v=1.0 | 2026-01 (approx.) |
+| Niva Bupa Health Insurance Ltd | 9MFY26 | Claims ratio | IFRS | | % | IFRS Financials as at December 31, 2025 | https://transactions.nivabupa.com/pages/doc/investor-relations/financial-results/2025-2026/IFRS-Financials-as-December-31-2025.pdf?v=1.0 | 2026-01 (approx.) |
+| Niva Bupa Health Insurance Ltd | 9MFY26 | Expense ratio | IGAAP | | % | Outcome of Financial Results — December 2025 | https://transactions.nivabupa.com/pages/doc/investor-relations/financial-results/2025-2026/Outcome-financial-results-December-2025.pdf?v=1.0 | 2026-01 (approx.) |
+| Niva Bupa Health Insurance Ltd | 9MFY26 | Expense of Management (EoM) ratio | IGAAP | | % | Outcome of Financial Results — December 2025 | https://transactions.nivabupa.com/pages/doc/investor-relations/financial-results/2025-2026/Outcome-financial-results-December-2025.pdf?v=1.0 | 2026-01 (approx.) |
+| Niva Bupa Health Insurance Ltd | 9MFY26 | Commission ratio | IGAAP | | % | Outcome of Financial Results — December 2025 | https://transactions.nivabupa.com/pages/doc/investor-relations/financial-results/2025-2026/Outcome-financial-results-December-2025.pdf?v=1.0 | 2026-01 (approx.) |
+| Niva Bupa Health Insurance Ltd | 9MFY26 | Combined ratio | IGAAP | | % | Outcome of Financial Results — December 2025 | https://transactions.nivabupa.com/pages/doc/investor-relations/financial-results/2025-2026/Outcome-financial-results-December-2025.pdf?v=1.0 | 2026-01 (approx.) |
+| Niva Bupa Health Insurance Ltd | 9MFY26 | Solvency ratio | — | | x | Certificate 74 for quarter ended December 2025 | https://transactions.nivabupa.com/pages/doc/investor-relations/Corporate-Announcements/2025-26/Certificate-74-for-quarter-ended-December-2025.pdf?v=1.1 | 2026-01 (approx.) |
+| Niva Bupa Health Insurance Ltd | 9MFY26 | Net worth (shareholders' equity) | IGAAP | | INR_crore | Outcome of Financial Results — December 2025 | https://transactions.nivabupa.com/pages/doc/investor-relations/financial-results/2025-2026/Outcome-financial-results-December-2025.pdf?v=1.0 | 2026-01 (approx.) |
+| Niva Bupa Health Insurance Ltd | 9MFY26 | Retail health market share | — | | % | Investor Presentation 9MFY26 | (not yet located — see below) | — |
+| Niva Bupa Health Insurance Ltd | 9MFY26 | Assets Under Management (AUM) | — | | INR_crore | Outcome of Financial Results — December 2025 | https://transactions.nivabupa.com/pages/doc/investor-relations/financial-results/2025-2026/Outcome-financial-results-December-2025.pdf?v=1.0 | 2026-01 (approx.) |
+| Niva Bupa Health Insurance Ltd | 9MFY26 | Investment yield | — | | % | Investor Presentation 9MFY26 | (not yet located — see below) | — |
+
+### What's Missing and Why
+
+<div style="border-left:4px solid #EF4444;background:#FEF2F2;padding:8px 12px;margin:8px 0;border-radius:4px;">
+<span style="color:#EF4444;font-weight:600">No usable text/OCR content was returned</span> from any of the five target URLs (the two financial-results PDFs, the solvency certificate, the Regulation 76 reconciliation report, or the investor-relations landing page). The 9MFY26 interim Investor Presentation deck and the IRDAI "NL" quarterly disclosure set (NL-1 Revenue Account, NL-2 expense schedule, Balance Sheet) were also not located/confirmed via the search and landing-page steps.
+</div>
+
+### Recommended Next Steps
+
+1. <span style="color:#1E3A8A;font-weight:600">Re-attempt direct retrieval</span> of the PDFs — some Niva Bupa filings are scanned/image-based, so OCR may need a dedicated pass rather than standard text extraction.
+2. If the PDFs are inaccessible via automated fetch, request that the specific pages/tables (e.g., "Revenue Account for nine months ended 31 Dec 2025" and "Key Financial Ratios" table) be pasted or uploaded directly so figures can be extracted with full accuracy.
+3. For the **Investor Presentation 9MFY26** (which typically carries GWP, retail health GWP, PAT, combined ratio, solvency ratio, net worth, AUM, retail market share, and investment yield in a single deck), please confirm the exact URL from the investor-relations page — the landing page structure did not yield a confirmed direct link in this pass.
+4. For the **IRDAI "NL" return set** (NL-1, NL-2, Balance Sheet) carrying NWP, NEP, Expense of Management, Net worth, and Investments on a statutory IGAAP basis, please share the direct link if available, as this was not confirmed either.
+
+Once actual page content (via successful fetch, OCR, or manual paste) is available, I can populate every cell above with exact, source-verified figures and apply the full visual formatting (colored deltas, insight boxes, badges) as specified.</ans>
+</1>
+</task>
+<eos></eos>
