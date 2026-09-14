@@ -3,14 +3,102 @@
     "snapshot_id": "sectoral-news-snapshot",
     "description": "Key Sectoral News feed — a permanent seed of 31 curated portfolio-pack updates, kept current by a scheduled muns web-search agent. Each item links its source. Seed items are curated; agent items are AI-gathered (web), clearly labelled and not audited.",
     "schema_version": "1.0.0",
-    "last_updated": "2026-09-10",
-    "last_successful_run": "2026-09-10T10:46:55.498Z",
+    "last_updated": "2026-09-14",
+    "last_successful_run": "2026-09-14T11:59:41.227Z",
     "seed_count": 31,
-    "agent_count": 252,
+    "agent_count": 265,
     "generated_by": "Seed: investor portfolio pack. Updates: AI (muns agent, web search).",
     "notes": "Seed floor can never be lost. Agent items are de-duped by subject+date and verified-before-acting."
   },
   "data": [
+    {
+      "sn": 284,
+      "category": "Competition / Peers",
+      "date": "2026-09-14",
+      "subject": "Niva Bupa migrates core systems to Oracle Cloud",
+      "summary": "Niva Bupa is shifting on-prem core policy-admin systems to Oracle Cloud Infrastructure to improve resilience/scalability and enable AI adoption — a tech-modernization move relevant to cost/service competitiveness vs. peers.",
+      "reference": "https://smestreet.in/cloud/niva-bupa-health-insurance-modernizes-core-systems-on-oracle-cloud-infrastructure-12531270",
+      "id": "0c3ea7f917d38a",
+      "origin": "agent",
+      "added_at": "2026-09-14"
+    },
+    {
+      "sn": 289,
+      "category": "Regulatory",
+      "date": "2026-09-11",
+      "subject": "IRDAI mandates 1-hour claim approval, 3-hour discharge timelines",
+      "summary": "IRDAI tightened cashless-claims norms: hospital pre-auth must be answered within 1 hour and discharge cleared within 3 hours, with insurers liable for hospital charges caused by delay — a near-term compliance/ops cost but a consumer-facing positive.",
+      "reference": "https://abplive.com/utility-news/irdai-major-relief-for-health-insurance-policyholders-discharge-within-3-hours-and-claim-approval-within-1-hour-3186905",
+      "id": "073191f5c67978",
+      "origin": "agent",
+      "added_at": "2026-09-14"
+    },
+    {
+      "sn": 288,
+      "category": "Profitability",
+      "date": "2026-09-11",
+      "subject": "Star Health shows most disciplined underwriting among peers",
+      "summary": "Star Health's FY26 underwriting loss rose only <span style=\"color:#22C55E;font-weight:600\">▲10.6% YoY to ₹418.54cr</span> — the smallest increase among major standalone insurers, reflecting relatively better risk selection/expense discipline vs. Care Health and Niva Bupa.",
+      "reference": "https://www.business-standard.com/finance/insurance/non-life-insurers-underwriting-losses-surge-50-to-rs-45-279-cr-126091101098_1.html",
+      "id": "075d4e1d292c88",
+      "origin": "agent",
+      "added_at": "2026-09-14"
+    },
+    {
+      "sn": 287,
+      "category": "Profitability",
+      "date": "2026-09-11",
+      "subject": "Niva Bupa's FY26 underwriting loss widens 87% YoY",
+      "summary": "Niva Bupa's FY26 underwriting loss rose <span style=\"color:#EF4444;font-weight:600\">▲87.2% YoY to ₹467.66cr</span> per GI Council data — but this contrasts sharply with a <span style=\"color:#22C55E;font-weight:600\">strong Q1 FY27 profit recovery</span> reported separately, flagging FY26 as a weak base year.",
+      "reference": "https://www.business-standard.com/finance/insurance/non-life-insurers-underwriting-losses-surge-50-to-rs-45-279-cr-126091101098_1.html",
+      "id": "00c3c2c3143fde",
+      "origin": "agent",
+      "added_at": "2026-09-14"
+    },
+    {
+      "sn": 286,
+      "category": "Profitability",
+      "date": "2026-09-11",
+      "subject": "Care Health posts steepest underwriting loss in FY26",
+      "summary": "Care Health's underwriting loss <span style=\"color:#EF4444;font-weight:600\">▲101.3% YoY to ₹660.13cr</span> — the worst among standalone peers, underscoring intensifying claims/loss-ratio stress for smaller-scale players.",
+      "reference": "https://www.business-standard.com/finance/insurance/non-life-insurers-underwriting-losses-surge-50-to-rs-45-279-cr-126091101098_1.html",
+      "id": "132be3f189aa53",
+      "origin": "agent",
+      "added_at": "2026-09-14"
+    },
+    {
+      "sn": 285,
+      "category": "Profitability",
+      "date": "2026-09-11",
+      "subject": "Non-life insurers' FY26 underwriting losses jump 50%",
+      "summary": "Industry-wide underwriting losses <span style=\"color:#EF4444;font-weight:600\">▲50% to ₹45,279cr</span> in FY26 despite ~9% premium growth post-GST rationalization; standalone health insurers' losses <span style=\"color:#EF4444;font-weight:600\">▲63% YoY to ₹2,666.84cr</span>, signaling continued pricing/claims pressure sector-wide.",
+      "reference": "https://www.business-standard.com/finance/insurance/non-life-insurers-underwriting-losses-surge-50-to-rs-45-279-cr-126091101098_1.html",
+      "id": "0a604a0d9f8f05",
+      "origin": "agent",
+      "added_at": "2026-09-14"
+    },
+    {
+      "sn": 290,
+      "category": "Regulatory",
+      "date": "2026-09-02",
+      "subject": "IRDAI's proposed insurance registry to link policyholder data",
+      "summary": "IRDAI is building a public data registry consolidating policyholder/claims data across insurers to close data gaps and widen coverage — a structural transparency push affecting standalone health insurers' reporting obligations.",
+      "reference": "https://www.business-standard.com/finance/insurance/irdai-insurance-registry-what-data-will-it-link-who-can-access-it-126090200681_1.html",
+      "id": "1c9af5d3566c7d",
+      "origin": "agent",
+      "added_at": "2026-09-14"
+    },
+    {
+      "sn": 291,
+      "category": "Regulatory",
+      "date": "2026-09-01",
+      "subject": "IRDAI plans public insurance registry to widen coverage",
+      "summary": "Companion report on the registry initiative, framed as part of a broader push to bridge insurance-data gaps and expand penetration — could affect distribution/underwriting practices industry-wide.",
+      "reference": "https://www.business-standard.com/finance/insurance/irdai-plans-public-insurance-registry-to-bridge-data-gaps-widen-coverage-126090101306_1.html",
+      "id": "1ef66196c9f332",
+      "origin": "agent",
+      "added_at": "2026-09-14"
+    },
     {
       "sn": 258,
       "category": "General",
@@ -32,6 +120,17 @@
       "id": "11478d4d0ed857",
       "origin": "agent",
       "added_at": "2026-09-03"
+    },
+    {
+      "sn": 292,
+      "category": "Regulatory",
+      "date": "2026-08-29",
+      "subject": "IRDAI sub-committee pushes for simpler, transparent health covers",
+      "summary": "An IRDAI advisory sub-committee (chaired by Ajay Seth) discussed simplifying policy wording, strengthening point-of-sale underwriting, incentivizing NHCX onboarding, and reviewing exclusions — signaling upcoming product/claims-process reforms.",
+      "reference": "https://thehindu.com/business/irdai-panel-calls-for-simpler-transparent-easier-to-use-health-covers/article71405207.ece/amp",
+      "id": "05dfb7e49a124c",
+      "origin": "agent",
+      "added_at": "2026-09-14"
     },
     {
       "sn": 272,
@@ -285,6 +384,17 @@
       "id": "0bc12359c0d1eb",
       "origin": "agent",
       "added_at": "2026-08-20"
+    },
+    {
+      "sn": 293,
+      "category": "Regulatory",
+      "date": "2026-08-15",
+      "subject": "Parliamentary panel flags rising premiums, claim rejections",
+      "summary": "The Parliamentary Standing Committee on Health & Family Welfare recommended mandatory NHCX integration for insurers/TPAs/hospitals and stricter penalties for arbitrary pricing/claim manipulation — a potential standardization tailwind but a compliance overhang.",
+      "reference": "https://thehindu.com/business/irdai-panel-calls-for-simpler-transparent-easier-to-use-health-covers/article71405207.ece/amp",
+      "id": "07c5e399599c9c",
+      "origin": "agent",
+      "added_at": "2026-09-14"
     },
     {
       "sn": 263,
@@ -571,6 +681,28 @@
       "id": "1865df84875033",
       "origin": "agent",
       "added_at": "2026-08-03"
+    },
+    {
+      "sn": 295,
+      "category": "Profitability",
+      "date": "2026-07-30",
+      "subject": "Niva Bupa Q1 FY27: profit nearly doubles, CISR improves to 100.2%",
+      "summary": "Ind AS PAT <span style=\"color:#22C55E;font-weight:600\">▲93% YoY to ₹137.8cr</span>; CISR improved <span style=\"color:#22C55E;font-weight:600\">300bps to 100.2%</span> on lower claims ratio (63.0% vs 66.8%); Retail Health GWP <span style=\"color:#22C55E;font-weight:600\">▲47.1%</span> and retail market share <span style=\"color:#22C55E;font-weight:600\">▲to 11.1% from 10.0%</span> — a decisive profitable pivot toward retail health.",
+      "reference": "https://www.investing.com/news/company-news/niva-bupa-q1-fy2027-slides-profit-doubles-retail-share-climbs-93CH-4824825",
+      "id": "1e54b63ce351b7",
+      "origin": "agent",
+      "added_at": "2026-09-14"
+    },
+    {
+      "sn": 294,
+      "category": "Profitability",
+      "date": "2026-07-30",
+      "subject": "Star Health Q1 FY27: PAT up 44%, underwriting profit surges 6x",
+      "summary": "Normalised PAT of ₹386cr (Ind AS PAT <span style=\"color:#22C55E;font-weight:600\">▲25% YoY to ₹550cr</span>); underwriting profit jumped to ₹111cr vs ₹16cr YoY; Combined Insurance Service Ratio improved <span style=\"color:#22C55E;font-weight:600\">1.7pp to 97.0%</span>; GWP <span style=\"color:#22C55E;font-weight:600\">▲19% YoY</span> — a strong profitability turn for the largest standalone health insurer.",
+      "reference": "https://www.prnewswire.com/in/news-releases/star-health-reports-normalised-pat-of--386-crores-in-q1-fy27-up-44-yoy-underwriting-profit-increases-sharply-to--111-crores-compared-to--16-crores-in-q1-fy26-302838942.html",
+      "id": "1362129bf568ec",
+      "origin": "agent",
+      "added_at": "2026-09-14"
     },
     {
       "sn": 276,
@@ -1330,6 +1462,17 @@
       "id": "0ddff3b4a37b6d",
       "origin": "agent",
       "added_at": "2026-07-06"
+    },
+    {
+      "sn": 296,
+      "category": "Competition / Peers",
+      "date": "2026-07-01",
+      "subject": "IRDAI grants licence to Prudential-HCL Health Insurance — 8th standalone health insurer",
+      "summary": "IRDAI approved a Certificate of Registration for Prudential HCL Health Insurance (a UK Prudential–HCL Group JV), the third insurance licence issued in 2026 and the eighth standalone health insurer nationally — a new entrant that could intensify medium-term competition for retail health share.",
+      "reference": "https://bfsi.economictimes.indiatimes.com/articles/prudential-hcl-health-insurance-receives-irdai-license-a-milestone-in-indias-health-insurance-market/132118031",
+      "id": "0e0a9994c3cbb2",
+      "origin": "agent",
+      "added_at": "2026-09-14"
     },
     {
       "sn": 204,
