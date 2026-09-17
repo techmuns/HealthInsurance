@@ -3,14 +3,36 @@
     "snapshot_id": "sectoral-news-snapshot",
     "description": "Key Sectoral News feed — a permanent seed of 31 curated portfolio-pack updates, kept current by a scheduled muns web-search agent. Each item links its source. Seed items are curated; agent items are AI-gathered (web), clearly labelled and not audited.",
     "schema_version": "1.0.0",
-    "last_updated": "2026-09-14",
-    "last_successful_run": "2026-09-14T11:59:41.227Z",
+    "last_updated": "2026-09-17",
+    "last_successful_run": "2026-09-17T11:06:42.439Z",
     "seed_count": 31,
-    "agent_count": 265,
+    "agent_count": 275,
     "generated_by": "Seed: investor portfolio pack. Updates: AI (muns agent, web search).",
     "notes": "Seed floor can never be lost. Agent items are de-duped by subject+date and verified-before-acting."
   },
   "data": [
+    {
+      "sn": 298,
+      "category": "General",
+      "date": "2026-09-15",
+      "subject": "Non-life sector FY27 YTD: health insurers post 31.5% growth, outpacing overall 9.6%",
+      "summary": "April–August FY27 gross direct premium for non-life insurers rose 9.58% YoY to ₹1.47 trillion; standalone health insurers posted 31.46% growth to ₹21,204.3 cr, confirming health insurance remains the fastest-growing non-life segment even as specialised insurers (agri) saw a ~53% decline.",
+      "reference": "https://www.business-standard.com/finance/insurance/non-life-insurance-premium-rises-10-to-27-454-5-crore-in-august-126091500820_1.html",
+      "id": "1bcdc50c5a81f3",
+      "origin": "agent",
+      "added_at": "2026-09-17"
+    },
+    {
+      "sn": 297,
+      "category": "General",
+      "date": "2026-09-15",
+      "subject": "Non-life insurance premium rises 10% to ₹27,454.5 cr in August; standalone health insurers up 30.4%",
+      "summary": "Standalone health insurers grew premiums 30.4% YoY to ₹4,377.14 cr in August, far outpacing multi-line insurers (8.7%); Care Health (+40.9%), Niva Bupa (+37.5%) and Star Health (+19.9%) all posted strong growth, evidencing continued robust demand momentum in retail health.",
+      "reference": "https://www.business-standard.com/finance/insurance/non-life-insurance-premium-rises-10-to-27-454-5-crore-in-august-126091500820_1.html",
+      "id": "12ae3220f348db",
+      "origin": "agent",
+      "added_at": "2026-09-17"
+    },
     {
       "sn": 284,
       "category": "Competition / Peers",
@@ -21,6 +43,17 @@
       "id": "0c3ea7f917d38a",
       "origin": "agent",
       "added_at": "2026-09-14"
+    },
+    {
+      "sn": 299,
+      "category": "Profitability",
+      "date": "2026-09-11",
+      "subject": "Non-life insurers' underwriting losses jump 50% to ₹45,279 cr in FY26; health insurers worst hit",
+      "summary": "Standalone health insurers' underwriting losses rose 63% YoY to ₹2,666.84 cr in FY26; Care Health posted the largest loss (₹660.13 cr, +101% YoY), followed by Niva Bupa (₹467.66 cr, +87% YoY) and Star Health (₹418.54 cr, +11% YoY), highlighting persistent underwriting pressure sector-wide despite premium growth.",
+      "reference": "https://www.business-standard.com/finance/insurance/non-life-insurers-underwriting-losses-surge-50-to-rs-45-279-cr-126091101098_1.html",
+      "id": "1811728cedff33",
+      "origin": "agent",
+      "added_at": "2026-09-17"
     },
     {
       "sn": 289,
@@ -89,6 +122,17 @@
       "added_at": "2026-09-14"
     },
     {
+      "sn": 300,
+      "category": "GST",
+      "date": "2026-09-01",
+      "subject": "GST-exemption anniversary effect set to moderate health/term insurance growth in H2 FY27",
+      "summary": "Following last year's GST waiver on individual health/life premiums, insurers (incl. Star Health management) flagged that growth will moderate in H2 FY27 as the base effect of the GST exemption anniversaries, even as the exemption itself continues to structurally support policy affordability and demand versus the pre-exemption regime.",
+      "reference": "https://www.investing.com/news/company-news/star-health-q1-fy27-slides-underwriting-profit-surges-digital-accelerates-93CH-4822335",
+      "id": "01596a17903663",
+      "origin": "agent",
+      "added_at": "2026-09-17"
+    },
+    {
       "sn": 291,
       "category": "Regulatory",
       "date": "2026-09-01",
@@ -120,6 +164,17 @@
       "id": "11478d4d0ed857",
       "origin": "agent",
       "added_at": "2026-09-03"
+    },
+    {
+      "sn": 301,
+      "category": "Profitability",
+      "date": "2026-08-31",
+      "subject": "Nomura reiterates 'Buy' on Star Health, Niva Bupa; loss ratios becoming more predictable",
+      "summary": "Following a hospital-industry briefing, Nomura said regulatory/industry initiatives (hospital categorisation, joint code of conduct, NHCX, standard treatment guidelines) plus insurer measures like annual and cohort-based repricing should make health insurers' loss ratios \"far more predictable,\" supporting its bullish stance on both stocks.",
+      "reference": "https://www.tradingview.com/news/moneycontrol:27d429e96094b:0-nomura-retains-buy-on-star-health-niva-bupa-sees-more-predictable-loss-ratios/",
+      "id": "146afaa635ceb7",
+      "origin": "agent",
+      "added_at": "2026-09-17"
     },
     {
       "sn": 292,
@@ -177,6 +232,17 @@
       "added_at": "2026-08-27"
     },
     {
+      "sn": 302,
+      "category": "Competition / Peers",
+      "date": "2026-08-25",
+      "subject": "Aditya Birla Health Insurance ties up with ICAI for 17 lakh students/CA members",
+      "summary": "ABHICL partnered with ICAI to offer four tailored products (Activ Yuva, Activ One Max, Activ One VYTL, etc.) to over 12.32 lakh CA students and 4.67 lakh CA members, extending its wellness-linked HealthReturns model into a large, low-risk professional cohort — a distribution-led growth move rather than pure pricing competition.",
+      "reference": "https://www.thehindubusinessline.com/money-and-banking/aditya-birla-health-insurance-ties-up-with-icai-to-offer-coverage-to-17-lakh-students-and-ca-members/article71388594.ece",
+      "id": "0c5f5d8497de02",
+      "origin": "agent",
+      "added_at": "2026-09-17"
+    },
+    {
       "sn": 235,
       "category": "Competition / Peers",
       "date": "2026-08-25",
@@ -208,6 +274,28 @@
       "id": "16328d191fc666",
       "origin": "agent",
       "added_at": "2026-08-27"
+    },
+    {
+      "sn": 304,
+      "category": "Regulatory",
+      "date": "2026-08-20",
+      "subject": "100% FDI now permitted in Indian insurers; composite licence NOT introduced",
+      "summary": "The Sabka Bima Sabki Raksha (Amendment) Act 2025 (in force from Feb 5, 2026) plus FEMA Amendment Rules (May 2026) raised the FDI cap to 100% for insurers and intermediaries and eased governance/residency norms, but composite licensing (single entity underwriting life+health/general) was NOT included — meaning standalone health insurers remain separately licensed but now open to full foreign ownership, a potential driver of M&A/consolidation.",
+      "reference": "https://touchstonepartners.com/key-changes-under-indias-amended-insurance-laws-regime/",
+      "id": "061f814da5e048",
+      "origin": "agent",
+      "added_at": "2026-09-17"
+    },
+    {
+      "sn": 303,
+      "category": "Competition / Peers",
+      "date": "2026-08-20",
+      "subject": "Prudential Health India (Prudential–HCL JV) commences operations",
+      "summary": "The new standalone health insurer, a 70:30 JV between Prudential plc and HCL Group, received its Certificate of Registration on July 1, 2026 and launched with a tech-first, AI-enabled omnichannel model and access to 12,000+ hospitals, adding a well-capitalized new entrant to an already crowded market.",
+      "reference": "https://www.business-standard.com/india-news/prudential-health-india-commences-operations-with-tech-led-health-cover-126082000804_1.html",
+      "id": "08be61ca084567",
+      "origin": "agent",
+      "added_at": "2026-09-17"
     },
     {
       "sn": 273,
@@ -681,6 +769,28 @@
       "id": "1865df84875033",
       "origin": "agent",
       "added_at": "2026-08-03"
+    },
+    {
+      "sn": 306,
+      "category": "Profitability",
+      "date": "2026-07-30",
+      "subject": "Niva Bupa Q1 FY27: PAT nearly doubles to ₹137.8 cr, CISR improves to 100.2%",
+      "summary": "Reported GWP rose 31.7% YoY to ₹2,150 cr; retail health GWP surged 47.1% lifting retail market share to 11.1% from 10.0%; claims ratio improved to 63.0% from 66.8%, though expense ratio rose slightly to 37.2%; board also approved raising up to ₹500 cr in debt.",
+      "reference": "https://www.investing.com/news/company-news/niva-bupa-q1-fy2027-slides-profit-doubles-retail-share-climbs-93CH-4824825",
+      "id": "084c45c2f57063",
+      "origin": "agent",
+      "added_at": "2026-09-17"
+    },
+    {
+      "sn": 305,
+      "category": "Profitability",
+      "date": "2026-07-30",
+      "subject": "Star Health Q1 FY27: underwriting profit surges ~7x, CISR improves to 97.0%",
+      "summary": "GWP grew 19% YoY to ₹4,287 cr; underwriting profit rose to ₹111 cr from ₹16 cr; PAT up 25% to ₹550 cr; loss ratio improved to 67.5% from 68.5% and expense ratio fell to 29.5%; management flagged some growth moderation in H2 FY27 as the GST-waiver-driven demand anniversaries.",
+      "reference": "https://www.investing.com/news/company-news/star-health-q1-fy27-slides-underwriting-profit-surges-digital-accelerates-93CH-4822335",
+      "id": "0b2147aaf709c0",
+      "origin": "agent",
+      "added_at": "2026-09-17"
     },
     {
       "sn": 295,
