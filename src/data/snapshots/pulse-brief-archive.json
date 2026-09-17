@@ -54194,7 +54194,7 @@
         "company": "Niva Bupa",
         "companyId": "niva-bupa",
         "generatedAt": "2026-09-17T07:01:58.319Z",
-        "lastUpdatedAt": "2026-09-17T07:01:58.319Z",
+        "lastUpdatedAt": "2026-09-17T14:41:08.069Z",
         "status": "Constructive",
         "sourceConfidence": "Low",
         "itemCount": 12,
@@ -54205,10 +54205,17 @@
             "sourceCount": 12,
             "ideas": 6,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-09-17T14:41:08.069Z",
+            "developments": 19,
+            "sourceCount": 12,
+            "ideas": 6,
+            "status": "ok"
           }
         ],
         "brief": {
-          "greeting": "Good morning",
+          "greeting": "Good afternoon",
           "narrative": "Premium momentum is keeping the tone constructive across health insurers today. Niva Bupa remains supported by premium growth and demand, but how margins hold as the book grows will decide whether the strength is sustainable.",
           "attentionCount": 6,
           "developmentsCount": 19,
@@ -54217,7 +54224,7 @@
           "confidencePct": 63,
           "confidenceTier": "Low",
           "readingMins": 3,
-          "lastUpdatedLabel": "17 Sep, 06:56 am"
+          "lastUpdatedLabel": "17 Sep, 02:35 pm"
         },
         "message": {
           "since": "No movement for Niva Bupa since the last brief. The previous thesis remains live.",
@@ -54791,6 +54798,38 @@
           }
         ],
         "sinceDeltas": [
+          {
+            "id": "reg",
+            "label": "newly surfaced regulatory update",
+            "value": "1",
+            "direction": "up",
+            "tone": "Watch",
+            "target": {
+              "page": "sahi",
+              "sahiTab": "sector-news",
+              "company": "niva-bupa",
+              "focus": {
+                "id": "pulse-since-reg",
+                "kind": "locator",
+                "locatorKind": "regulatory",
+                "metricKey": "regulatory",
+                "metricLabel": "Regulatory updates",
+                "company": "niva-bupa",
+                "companyLabel": "Niva Bupa",
+                "comparisonType": "trend",
+                "tone": "neutral",
+                "insightLabel": "1 newly surfaced regulatory update",
+                "unit": "",
+                "sahiTab": "sector-news",
+                "origin": "pulse",
+                "targetItemId": "061f814da5e048",
+                "targetMonth": "2026-08",
+                "sourceDate": "2026-08-20",
+                "surfacedAt": "2026-09-17",
+                "reasonShownToday": "Older source (dated 20 Aug 2026) — first added to the feed 17 Sept 2026, so it's newly surfaced, not newly published."
+              }
+            }
+          },
           {
             "id": "co",
             "label": "company-specific updates",
@@ -108438,7 +108477,7 @@
         "company": "Star Health",
         "companyId": "star-health",
         "generatedAt": "2026-09-17T07:01:58.319Z",
-        "lastUpdatedAt": "2026-09-17T07:01:58.319Z",
+        "lastUpdatedAt": "2026-09-17T14:41:08.069Z",
         "status": "Neutral",
         "sourceConfidence": "Low",
         "itemCount": 11,
@@ -108449,10 +108488,17 @@
             "sourceCount": 11,
             "ideas": 6,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-09-17T14:41:08.069Z",
+            "developments": 13,
+            "sourceCount": 11,
+            "ideas": 6,
+            "status": "ok"
           }
         ],
         "brief": {
-          "greeting": "Good morning",
+          "greeting": "Good afternoon",
           "narrative": "Signals are mixed across health insurers today, with no single dominant driver. Star Health remains supported by its market position, but how margins hold as the book grows will decide whether the strength is sustainable.",
           "attentionCount": 6,
           "developmentsCount": 13,
@@ -108461,7 +108507,7 @@
           "confidencePct": 61,
           "confidenceTier": "Low",
           "readingMins": 3,
-          "lastUpdatedLabel": "17 Sep, 06:56 am"
+          "lastUpdatedLabel": "17 Sep, 02:35 pm"
         },
         "message": {
           "since": "No movement for Star Health since the last brief. The previous thesis remains live.",
@@ -109045,6 +109091,38 @@
           }
         ],
         "sinceDeltas": [
+          {
+            "id": "reg",
+            "label": "newly surfaced regulatory update",
+            "value": "1",
+            "direction": "up",
+            "tone": "Watch",
+            "target": {
+              "page": "sahi",
+              "sahiTab": "sector-news",
+              "company": "star-health",
+              "focus": {
+                "id": "pulse-since-reg",
+                "kind": "locator",
+                "locatorKind": "regulatory",
+                "metricKey": "regulatory",
+                "metricLabel": "Regulatory updates",
+                "company": "star-health",
+                "companyLabel": "Star Health",
+                "comparisonType": "trend",
+                "tone": "neutral",
+                "insightLabel": "1 newly surfaced regulatory update",
+                "unit": "",
+                "sahiTab": "sector-news",
+                "origin": "pulse",
+                "targetItemId": "061f814da5e048",
+                "targetMonth": "2026-08",
+                "sourceDate": "2026-08-20",
+                "surfacedAt": "2026-09-17",
+                "reasonShownToday": "Older source (dated 20 Aug 2026) — first added to the feed 17 Sept 2026, so it's newly surfaced, not newly published."
+              }
+            }
+          },
           {
             "id": "co",
             "label": "company-specific updates",
@@ -161381,7 +161459,7 @@
         "company": "Care Health",
         "companyId": "care-health",
         "generatedAt": "2026-09-17T07:01:58.319Z",
-        "lastUpdatedAt": "2026-09-17T07:01:58.319Z",
+        "lastUpdatedAt": "2026-09-17T14:41:08.069Z",
         "status": "Neutral",
         "sourceConfidence": "Low",
         "itemCount": 11,
@@ -161392,10 +161470,17 @@
             "sourceCount": 11,
             "ideas": 6,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-09-17T14:41:08.069Z",
+            "developments": 13,
+            "sourceCount": 11,
+            "ideas": 6,
+            "status": "ok"
           }
         ],
         "brief": {
-          "greeting": "Good morning",
+          "greeting": "Good afternoon",
           "narrative": "Signals are mixed across health insurers today, with no single dominant driver. Care Health remains supported by its market position, but how margins hold as the book grows will decide whether the strength is sustainable.",
           "attentionCount": 6,
           "developmentsCount": 13,
@@ -161404,7 +161489,7 @@
           "confidencePct": 61,
           "confidenceTier": "Low",
           "readingMins": 4,
-          "lastUpdatedLabel": "17 Sep, 06:56 am"
+          "lastUpdatedLabel": "17 Sep, 02:35 pm"
         },
         "message": {
           "since": "No movement for Care Health since the last brief. The previous thesis remains live.",
@@ -161988,6 +162073,38 @@
           }
         ],
         "sinceDeltas": [
+          {
+            "id": "reg",
+            "label": "newly surfaced regulatory update",
+            "value": "1",
+            "direction": "up",
+            "tone": "Watch",
+            "target": {
+              "page": "sahi",
+              "sahiTab": "sector-news",
+              "company": "care-health",
+              "focus": {
+                "id": "pulse-since-reg",
+                "kind": "locator",
+                "locatorKind": "regulatory",
+                "metricKey": "regulatory",
+                "metricLabel": "Regulatory updates",
+                "company": "care-health",
+                "companyLabel": "Care Health",
+                "comparisonType": "trend",
+                "tone": "neutral",
+                "insightLabel": "1 newly surfaced regulatory update",
+                "unit": "",
+                "sahiTab": "sector-news",
+                "origin": "pulse",
+                "targetItemId": "061f814da5e048",
+                "targetMonth": "2026-08",
+                "sourceDate": "2026-08-20",
+                "surfacedAt": "2026-09-17",
+                "reasonShownToday": "Older source (dated 20 Aug 2026) — first added to the feed 17 Sept 2026, so it's newly surfaced, not newly published."
+              }
+            }
+          },
           {
             "id": "co",
             "label": "company-specific updates",
@@ -214016,7 +214133,7 @@
         "company": "Aditya Birla",
         "companyId": "aditya-birla",
         "generatedAt": "2026-09-17T07:01:58.319Z",
-        "lastUpdatedAt": "2026-09-17T07:01:58.319Z",
+        "lastUpdatedAt": "2026-09-17T14:41:08.069Z",
         "status": "Neutral",
         "sourceConfidence": "Low",
         "itemCount": 11,
@@ -214027,10 +214144,17 @@
             "sourceCount": 11,
             "ideas": 6,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-09-17T14:41:08.069Z",
+            "developments": 11,
+            "sourceCount": 11,
+            "ideas": 6,
+            "status": "ok"
           }
         ],
         "brief": {
-          "greeting": "Good morning",
+          "greeting": "Good afternoon",
           "narrative": "Signals are mixed across health insurers today, with no single dominant driver. Aditya Birla remains supported by its market position, but how margins hold as the book grows will decide whether the strength is sustainable.",
           "attentionCount": 6,
           "developmentsCount": 11,
@@ -214039,7 +214163,7 @@
           "confidencePct": 61,
           "confidenceTier": "Low",
           "readingMins": 3,
-          "lastUpdatedLabel": "17 Sep, 06:56 am"
+          "lastUpdatedLabel": "17 Sep, 02:35 pm"
         },
         "message": {
           "since": "No movement for Aditya Birla since the last brief. The previous thesis remains live.",
@@ -214623,6 +214747,38 @@
           }
         ],
         "sinceDeltas": [
+          {
+            "id": "reg",
+            "label": "newly surfaced regulatory update",
+            "value": "1",
+            "direction": "up",
+            "tone": "Watch",
+            "target": {
+              "page": "sahi",
+              "sahiTab": "sector-news",
+              "company": "aditya-birla",
+              "focus": {
+                "id": "pulse-since-reg",
+                "kind": "locator",
+                "locatorKind": "regulatory",
+                "metricKey": "regulatory",
+                "metricLabel": "Regulatory updates",
+                "company": "aditya-birla",
+                "companyLabel": "Aditya Birla",
+                "comparisonType": "trend",
+                "tone": "neutral",
+                "insightLabel": "1 newly surfaced regulatory update",
+                "unit": "",
+                "sahiTab": "sector-news",
+                "origin": "pulse",
+                "targetItemId": "061f814da5e048",
+                "targetMonth": "2026-08",
+                "sourceDate": "2026-08-20",
+                "surfacedAt": "2026-09-17",
+                "reasonShownToday": "Older source (dated 20 Aug 2026) — first added to the feed 17 Sept 2026, so it's newly surfaced, not newly published."
+              }
+            }
+          },
           {
             "id": "co",
             "label": "company-specific updates",
@@ -267155,7 +267311,7 @@
         "company": "ManipalCigna",
         "companyId": "manipalcigna",
         "generatedAt": "2026-09-17T07:01:58.319Z",
-        "lastUpdatedAt": "2026-09-17T07:01:58.319Z",
+        "lastUpdatedAt": "2026-09-17T14:41:08.069Z",
         "status": "Neutral",
         "sourceConfidence": "Low",
         "itemCount": 11,
@@ -267166,10 +267322,17 @@
             "sourceCount": 11,
             "ideas": 6,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-09-17T14:41:08.069Z",
+            "developments": 13,
+            "sourceCount": 11,
+            "ideas": 6,
+            "status": "ok"
           }
         ],
         "brief": {
-          "greeting": "Good morning",
+          "greeting": "Good afternoon",
           "narrative": "Signals are mixed across health insurers today, with no single dominant driver. ManipalCigna remains supported by its market position, but how margins hold as the book grows will decide whether the strength is sustainable.",
           "attentionCount": 6,
           "developmentsCount": 13,
@@ -267178,7 +267341,7 @@
           "confidencePct": 61,
           "confidenceTier": "Low",
           "readingMins": 3,
-          "lastUpdatedLabel": "17 Sep, 06:56 am"
+          "lastUpdatedLabel": "17 Sep, 02:35 pm"
         },
         "message": {
           "since": "No movement for ManipalCigna since the last brief. The previous thesis remains live.",
@@ -267763,6 +267926,38 @@
         ],
         "sinceDeltas": [
           {
+            "id": "reg",
+            "label": "newly surfaced regulatory update",
+            "value": "1",
+            "direction": "up",
+            "tone": "Watch",
+            "target": {
+              "page": "sahi",
+              "sahiTab": "sector-news",
+              "company": "manipalcigna",
+              "focus": {
+                "id": "pulse-since-reg",
+                "kind": "locator",
+                "locatorKind": "regulatory",
+                "metricKey": "regulatory",
+                "metricLabel": "Regulatory updates",
+                "company": "manipalcigna",
+                "companyLabel": "ManipalCigna",
+                "comparisonType": "trend",
+                "tone": "neutral",
+                "insightLabel": "1 newly surfaced regulatory update",
+                "unit": "",
+                "sahiTab": "sector-news",
+                "origin": "pulse",
+                "targetItemId": "061f814da5e048",
+                "targetMonth": "2026-08",
+                "sourceDate": "2026-08-20",
+                "surfacedAt": "2026-09-17",
+                "reasonShownToday": "Older source (dated 20 Aug 2026) — first added to the feed 17 Sept 2026, so it's newly surfaced, not newly published."
+              }
+            }
+          },
+          {
             "id": "co",
             "label": "company-specific updates",
             "value": "0",
@@ -267860,6 +268055,6 @@
     "snapshot_id": "pulse-brief-archive",
     "description": "Immutable per-calendar-day Pulse brief records (IST), one per company. Past days are frozen exactly as shown that day; the live Today view recomposes. Kept ~90 days per company.",
     "last_updated": "2026-09-17",
-    "last_successful_run": "2026-09-17T07:01:58.319Z"
+    "last_successful_run": "2026-09-17T14:41:08.069Z"
   }
 }
