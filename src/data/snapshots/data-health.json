@@ -2,7 +2,7 @@
   "last_successful_run": "2026-09-02T12:18:24.910Z",
   "last_failed_run": "2026-09-15T09:37:36.474Z",
   "sources_checked": 7,
-  "sources_success": 4,
+  "sources_success": 3,
   "sources_failed": 0,
   "metrics_updated": [
     "company.gwp::niva-bupa::Annual",
@@ -24573,7 +24573,6 @@
     "[valuation_daily] godigit: HTTP 403 for https://www.nseindia.com/api/quote-equity?symbol=GODIGIT",
     "[valuation_daily] new-india: HTTP 403 for https://www.nseindia.com/api/quote-equity?symbol=NIACL",
     "[valuation_daily] religare-enterprises: HTTP 403 for https://www.nseindia.com/api/quote-equity?symbol=RELIGARE",
-    "[moneycontrol_analyst] Broker Research page fetched but no broker cards matched (DOM may have changed).",
     "[moneycontrol_analyst] Forecast endpoint 0 failed: HTTP 422 for https://api.moneycontrol.com/mcapi/v1/stock/estimates/price-forecast?scId=NBH&deviceType=W",
     "[moneycontrol_analyst] Forecast endpoint 1 failed: HTTP 422 for https://api.moneycontrol.com/mcapi/v1/stock/estimates/analyst-rating?scId=NBH&deviceType=W",
     "[moneycontrol_analyst] Forecast endpoint 2 failed: HTTP 404 for https://api.moneycontrol.com/mcapi/v1/stock/estimates/recommendation?scId=NBH&deviceType=W",
@@ -24583,7 +24582,7 @@
     "[yahoo_price] star-health: HTTP 429 for https://query1.finance.yahoo.com/v8/finance/chart/STARHEALTH.NS?range=2y&interval=1d. Source: https://finance.yahoo.com/quote/STARHEALTH.NS/history/",
     "[yahoo_price] icici-lombard: HTTP 429 for https://query1.finance.yahoo.com/v8/finance/chart/ICICIGI.NS?range=2y&interval=1d. Source: https://finance.yahoo.com/quote/ICICIGI.NS/history/",
     "[yahoo_price] godigit: HTTP 429 for https://query1.finance.yahoo.com/v8/finance/chart/GODIGIT.NS?range=2y&interval=1d. Source: https://finance.yahoo.com/quote/GODIGIT.NS/history/",
-    "[nse_delivery] 2026-09-16: no NSE settlement file (MTO + bhavdata both absent — likely a non-trading day)"
+    "[nse_delivery] 2026-09-17: no NSE settlement file (MTO + bhavdata both absent — likely a non-trading day)"
   ],
   "next_expected_update": "2026-06-01T05:00:00Z",
   "per_source": [
@@ -24748,23 +24747,23 @@
     {
       "source_id": "moneycontrol_analyst",
       "status": "success",
-      "last_attempt_at": "2026-09-16T08:48:40.332Z",
-      "last_success_at": "2026-09-16T08:48:40.332Z",
-      "records_fetched": 0
+      "last_attempt_at": "2026-09-17T08:53:38.855Z",
+      "last_success_at": "2026-09-17T08:53:38.855Z",
+      "records_fetched": 6
     },
     {
       "source_id": "moneycontrol_stock_deals",
       "status": "success",
-      "last_attempt_at": "2026-09-16T08:48:53.544Z",
-      "last_success_at": "2026-09-16T08:48:53.544Z",
+      "last_attempt_at": "2026-09-17T08:53:53.585Z",
+      "last_success_at": "2026-09-17T08:53:53.585Z",
       "records_fetched": 0
     },
     {
       "source_id": "muns_market_data",
       "status": "success",
-      "last_attempt_at": "2026-09-16T08:49:02.042Z",
-      "last_success_at": "2026-09-16T08:49:02.042Z",
-      "records_fetched": 9,
+      "last_attempt_at": "2026-09-17T08:54:03.062Z",
+      "last_success_at": "2026-09-17T08:54:03.062Z",
+      "records_fetched": 5,
       "error": "fetcher timed out after 6 min (capped so the run always reaches snapshot merge + commit)"
     },
     {
@@ -24776,10 +24775,10 @@
     },
     {
       "source_id": "nse_delivery",
-      "status": "success",
-      "last_attempt_at": "2026-09-16T08:49:39.283Z",
+      "status": "pending",
+      "last_attempt_at": "2026-09-17T08:54:39.472Z",
       "last_success_at": "2026-09-16T08:49:39.283Z",
-      "records_fetched": 4
+      "records_fetched": 0
     },
     {
       "source_id": "nse_quotes",
@@ -24799,7 +24798,7 @@
     {
       "source_id": "price_history",
       "status": "pending",
-      "last_attempt_at": "2026-09-16T08:49:36.824Z",
+      "last_attempt_at": "2026-09-17T08:54:37.699Z",
       "last_success_at": null,
       "records_fetched": 0,
       "error": "fetcher timed out after 6 min (capped so the run always reaches snapshot merge + commit)"
@@ -24835,7 +24834,7 @@
     {
       "source_id": "valuation_daily",
       "status": "pending",
-      "last_attempt_at": "2026-09-16T08:48:38.893Z",
+      "last_attempt_at": "2026-09-17T08:53:33.200Z",
       "last_success_at": null,
       "records_fetched": 0,
       "error": "fetcher timed out after 6 min (capped so the run always reaches snapshot merge + commit)"
@@ -24843,7 +24842,7 @@
     {
       "source_id": "yahoo_price",
       "status": "pending",
-      "last_attempt_at": "2026-09-16T08:49:08.333Z",
+      "last_attempt_at": "2026-09-17T08:54:09.103Z",
       "last_success_at": null,
       "records_fetched": 0
     }
