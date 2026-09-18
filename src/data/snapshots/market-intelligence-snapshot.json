@@ -4,8 +4,8 @@
     "description": "AI-generated market intelligence for the SAHI health insurers — investor meets, earnings/board dates, sector & regulatory news, share catalysts. Web-sourced; each item links its source. AI-generated, not audited.",
     "schema_version": "1.0.0",
     "dataset": "ai_generated",
-    "last_updated": "2026-09-17",
-    "last_successful_run": "2026-09-17T14:35:27.977Z",
+    "last_updated": "2026-09-18",
+    "last_successful_run": "2026-09-18T06:52:19.553Z",
     "upstream_sources": [
       "muns_agent_web"
     ],
@@ -14,6 +14,21 @@
     "notes": "Clearly labelled AI-generated intelligence — verify before acting. Items accumulate through the day and rank by investor impact, not recency."
   },
   "data": [
+    {
+      "id": "6d40787911",
+      "company_id": "sector",
+      "date": null,
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "<span style=\"color:#22C55E;font-weight:600\">▲ positive</span> <span style=\"background:#F0FDF4;padding:2px 6px;border-radius:4px;\">strongest signal</span>",
+      "detail": "AM Best assigns A- (Excellent) FSR, aaa.IN national scale rating",
+      "source_name": "investywise.com",
+      "source_url": "https://investywise.com/niva-bupa-credit-ratings-upgraded-by-am-best",
+      "source_published_at": null,
+      "first_seen": "2026-09-18T06:52:19.553Z",
+      "discovered_at": "2026-09-18T06:52:19.553Z"
+    },
     {
       "id": "98cebc7e9d",
       "company_id": "sector",
@@ -898,21 +913,6 @@
       "source_published_at": null,
       "first_seen": "2026-09-04T17:16:22.746Z",
       "discovered_at": "2026-09-04T17:16:22.746Z"
-    },
-    {
-      "id": "744e54ff03",
-      "company_id": "niva-bupa",
-      "date": "2026-08-03",
-      "kind": "rating",
-      "horizon": "recent",
-      "impact": "positive",
-      "headline": "Nomura maintains 'Buy', TP ₹105 on Niva Bupa",
-      "detail": "Nomura cites improving loss ratio (**63%**, -382bps YoY) and **23-25%** premium growth outlook for FY27-28; expects ROE to reach **12-15.9%** by FY29 vs **14.8%** in Q1 FY27.",
-      "source_name": "moneycontrol.com",
-      "source_url": "https://www.moneycontrol.com/news/business/stocks/niva-bupa-gains-as-nomura-maintains-buy-sees-strong-premium-growth-outlook-13991858.html/amp",
-      "source_published_at": "2026-08-03",
-      "first_seen": "2026-08-03T16:14:42.232Z",
-      "discovered_at": "2026-08-03T16:14:42.232Z"
     }
   ]
 }
