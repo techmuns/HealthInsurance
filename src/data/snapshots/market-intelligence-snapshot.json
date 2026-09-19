@@ -4,8 +4,8 @@
     "description": "AI-generated market intelligence for the SAHI health insurers — investor meets, earnings/board dates, sector & regulatory news, share catalysts. Web-sourced; each item links its source. AI-generated, not audited.",
     "schema_version": "1.0.0",
     "dataset": "ai_generated",
-    "last_updated": "2026-09-18",
-    "last_successful_run": "2026-09-18T17:33:34.153Z",
+    "last_updated": "2026-09-19",
+    "last_successful_run": "2026-09-19T13:35:09.114Z",
     "upstream_sources": [
       "muns_agent_web"
     ],
@@ -14,6 +14,21 @@
     "notes": "Clearly labelled AI-generated intelligence — verify before acting. Items accumulate through the day and rank by investor impact, not recency."
   },
   "data": [
+    {
+      "id": "62d6dfe7a0",
+      "company_id": "sector",
+      "date": null,
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "<span style=\"color:#EF4444;font-weight:600\">watch (peer benchmark)</span>",
+      "detail": "Q1 FY27 net profit <span style=\"color:#22C55E;font-weight:600\">▲25%</span> to ₹550 cr; underwriting profit surges <span style=\"color:#22C55E;font-weight:600\">~7x</span> to ₹111 cr",
+      "source_name": null,
+      "source_url": null,
+      "source_published_at": null,
+      "first_seen": "2026-09-19T13:35:09.114Z",
+      "discovered_at": "2026-09-19T13:35:09.114Z"
+    },
     {
       "id": "6d40787911",
       "company_id": "sector",
@@ -893,21 +908,6 @@
       "impact": "neutral",
       "headline": "Niva Bupa tops July non-life growth at <span style=\"color:#22C55E;font-weight:600\">▲ 34%</span> ex-crop GWP (Kotak)",
       "detail": "Retail health GWP up <span style=\"color:#22C55E;font-weight:600\">▲ 47% YoY</span> in July vs. sector-wide health premium growth of 26%, reinforcing Niva Bupa's share-gain story vs. Star Health's steadier ~19%.",
-      "source_name": null,
-      "source_url": null,
-      "source_published_at": null,
-      "first_seen": "2026-09-04T17:16:22.746Z",
-      "discovered_at": "2026-09-04T17:16:22.746Z"
-    },
-    {
-      "id": "fb63425c8a",
-      "company_id": "sector",
-      "date": "2026-08-19",
-      "kind": "regulatory",
-      "horizon": "recent",
-      "impact": "neutral",
-      "headline": "IRDAI bars Niva Bupa from opening new offices for 6 months",
-      "detail": "Penalty for FY25 Expense-of-Management breaches; company says no financial impact and is EoM-compliant for FY26/Q1FY27, but it caps near-term branch/distribution expansion.",
       "source_name": null,
       "source_url": null,
       "source_published_at": null,
