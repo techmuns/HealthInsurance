@@ -4,8 +4,8 @@
     "description": "AI-generated market intelligence for the SAHI health insurers — investor meets, earnings/board dates, sector & regulatory news, share catalysts. Web-sourced; each item links its source. AI-generated, not audited.",
     "schema_version": "1.0.0",
     "dataset": "ai_generated",
-    "last_updated": "2026-09-19",
-    "last_successful_run": "2026-09-19T16:54:29.854Z",
+    "last_updated": "2026-09-20",
+    "last_successful_run": "2026-09-20T07:15:39.151Z",
     "upstream_sources": [
       "muns_agent_web"
     ],
@@ -14,6 +14,21 @@
     "notes": "Clearly labelled AI-generated intelligence — verify before acting. Items accumulate through the day and rank by investor impact, not recency."
   },
   "data": [
+    {
+      "id": "08f4df67f6",
+      "company_id": "sector",
+      "date": null,
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "<span style=\"color:#6B7280;font-weight:600\">neutral</span>",
+      "detail": "MarketsMojo rates Star Health <strong>'Hold'</strong>; flags \"very expensive\" P/B of <strong>4.4x</strong>",
+      "source_name": null,
+      "source_url": null,
+      "source_published_at": null,
+      "first_seen": "2026-09-20T07:15:39.151Z",
+      "discovered_at": "2026-09-20T07:15:39.151Z"
+    },
     {
       "id": "62d6dfe7a0",
       "company_id": "sector",
@@ -893,21 +908,6 @@
       "impact": "neutral",
       "headline": "<span style=\"background:#FEF2F2;padding:2px 6px;border-radius:4px;color:#EF4444;font-weight:600\">negative</span>",
       "detail": "Acko General Insurance also barred for identical EoM breach",
-      "source_name": null,
-      "source_url": null,
-      "source_published_at": null,
-      "first_seen": "2026-08-20T14:26:18.382Z",
-      "discovered_at": "2026-08-20T14:26:18.382Z"
-    },
-    {
-      "id": "f0f79067a1",
-      "company_id": "sector",
-      "date": null,
-      "kind": "sector_news",
-      "horizon": "recent",
-      "impact": "neutral",
-      "headline": "<span style=\"background:#F0FDF4;padding:2px 6px;border-radius:4px;color:#22C55E;font-weight:600\">positive</span>",
-      "detail": "Two insurers cross 74% foreign-ownership cap under new 100%-FDI regime",
       "source_name": null,
       "source_url": null,
       "source_published_at": null,
