@@ -5,7 +5,7 @@
     "schema_version": "1.0.0",
     "dataset": "ai_generated",
     "last_updated": "2026-09-20",
-    "last_successful_run": "2026-09-20T07:15:39.151Z",
+    "last_successful_run": "2026-09-20T13:49:15.627Z",
     "upstream_sources": [
       "muns_agent_web"
     ],
@@ -14,6 +14,21 @@
     "notes": "Clearly labelled AI-generated intelligence — verify before acting. Items accumulate through the day and rank by investor impact, not recency."
   },
   "data": [
+    {
+      "id": "5c5dea9f98",
+      "company_id": "sector",
+      "date": "2026-09-22",
+      "kind": "sector_news",
+      "horizon": "upcoming",
+      "impact": "watch",
+      "headline": "<b>Care Health (CHIL)</b> allots ₹100 cr subordinated NCDs, NSE listing Sep 22",
+      "detail": "10-year unsecured subordinated debentures at 10% coupon bolster CHIL's capital base — mirrors Niva Bupa's own capital-raising playbook, a modest solvency positive but adds finance-cost drag.",
+      "source_name": null,
+      "source_url": null,
+      "source_published_at": null,
+      "first_seen": "2026-09-20T13:49:15.627Z",
+      "discovered_at": "2026-09-20T13:49:15.627Z"
+    },
     {
       "id": "08f4df67f6",
       "company_id": "sector",
@@ -90,6 +105,51 @@
       "discovered_at": "2026-09-18T06:52:19.553Z"
     },
     {
+      "id": "a458aeeee9",
+      "company_id": "sector",
+      "date": "2026-09-17",
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "AM Best assigns <b>A- (Excellent)</b>, aaa.IN National Scale Rating",
+      "detail": "Stable-outlook rating reflects strongest-level risk-adjusted capitalisation (FY26 RoE <b>10.7%</b>, combined ratio <b>102%</b>), supportive for cost-of-credit and investor confidence.",
+      "source_name": null,
+      "source_url": null,
+      "source_published_at": null,
+      "first_seen": "2026-09-20T13:49:15.627Z",
+      "discovered_at": "2026-09-20T13:49:15.627Z"
+    },
+    {
+      "id": "9ffbc27a45",
+      "company_id": "sector",
+      "date": "2026-09-16",
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "CIO Vikas Jain moves to new <b>Chief Transformation Officer</b> role; <b>Karan Bhatia</b> named CIO",
+      "detail": "Reshuffle in a key investment function follows a string of C-suite changes (Deputy CEO elevation, new Bupa-nominated NEDs); internal promotion suggests continuity, but warrants monitoring.",
+      "source_name": null,
+      "source_url": null,
+      "source_published_at": null,
+      "first_seen": "2026-09-20T13:49:15.627Z",
+      "discovered_at": "2026-09-20T13:49:15.627Z"
+    },
+    {
+      "id": "9d817f5e69",
+      "company_id": "sector",
+      "date": "2026-09-15",
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "<b>Star Health & Allied</b> rated 'Hold' by MarketsMojo",
+      "detail": "Cites \"very expensive\" <b>4.4x P/B</b> valuation and <span style=\"color:#EF4444;font-weight:600\">-48.82% net-sales growth</span> despite 19.6% profit CAGR — a valuation caution flag that could pressure sector re-rating multiples, including Niva Bupa's relative valuation.",
+      "source_name": null,
+      "source_url": null,
+      "source_published_at": null,
+      "first_seen": "2026-09-20T13:49:15.627Z",
+      "discovered_at": "2026-09-20T13:49:15.627Z"
+    },
+    {
       "id": "98cebc7e9d",
       "company_id": "sector",
       "date": null,
@@ -118,6 +178,21 @@
       "source_published_at": null,
       "first_seen": "2026-09-14T16:03:43.947Z",
       "discovered_at": "2026-09-14T16:03:43.947Z"
+    },
+    {
+      "id": "e2ce32c8f1",
+      "company_id": "sector",
+      "date": "2026-09-14",
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "Migrates core policy-admin systems to <b>Oracle Cloud Infrastructure</b>",
+      "detail": "Tech modernization for efficiency/scalability/AI-readiness; a longer-term cost lever rather than an immediate earnings catalyst.",
+      "source_name": null,
+      "source_url": null,
+      "source_published_at": null,
+      "first_seen": "2026-09-20T13:49:15.627Z",
+      "discovered_at": "2026-09-20T13:49:15.627Z"
     },
     {
       "id": "d2f93fa1bc",
@@ -838,81 +913,6 @@
       "source_published_at": null,
       "first_seen": "2026-08-21T10:20:14.158Z",
       "discovered_at": "2026-08-21T10:20:14.158Z"
-    },
-    {
-      "id": "62fef7c19b",
-      "company_id": "sector",
-      "date": null,
-      "kind": "sector_news",
-      "horizon": "recent",
-      "impact": "neutral",
-      "headline": "<span style=\"color:#1E3A8A;font-weight:600\">neutral</span>",
-      "detail": "IRDAI eases insurer investment norms; allows private-company & infra-SPV debt exposure",
-      "source_name": null,
-      "source_url": null,
-      "source_published_at": null,
-      "first_seen": "2026-08-21T14:25:10.999Z",
-      "discovered_at": "2026-08-21T14:25:10.999Z"
-    },
-    {
-      "id": "c3d9bdf855",
-      "company_id": "sector",
-      "date": null,
-      "kind": "sector_news",
-      "horizon": "recent",
-      "impact": "neutral",
-      "headline": "<span style=\"color:#EF4444;font-weight:600\">negative</span>",
-      "detail": "IRDAI bars Niva Bupa from opening new offices for 6 months",
-      "source_name": null,
-      "source_url": null,
-      "source_published_at": null,
-      "first_seen": "2026-08-20T14:26:18.382Z",
-      "discovered_at": "2026-08-20T14:26:18.382Z"
-    },
-    {
-      "id": "dbd87ecf69",
-      "company_id": "sector",
-      "date": null,
-      "kind": "sector_news",
-      "horizon": "recent",
-      "impact": "neutral",
-      "headline": "<span style=\"color:#22C55E;font-weight:600\">positive</span>",
-      "detail": "Nomura maintains Buy, TP ₹105",
-      "source_name": null,
-      "source_url": null,
-      "source_published_at": null,
-      "first_seen": "2026-08-20T14:26:18.382Z",
-      "discovered_at": "2026-08-20T14:26:18.382Z"
-    },
-    {
-      "id": "58779baf3d",
-      "company_id": "sector",
-      "date": null,
-      "kind": "sector_news",
-      "horizon": "recent",
-      "impact": "neutral",
-      "headline": "<span style=\"color:#F59E0B;font-weight:600\">watch</span>",
-      "detail": "Aditya Birla Health targets faster-than-industry growth, launches 'Activ Yuva",
-      "source_name": null,
-      "source_url": null,
-      "source_published_at": null,
-      "first_seen": "2026-08-20T14:26:18.382Z",
-      "discovered_at": "2026-08-20T14:26:18.382Z"
-    },
-    {
-      "id": "ee6424bfd1",
-      "company_id": "sector",
-      "date": null,
-      "kind": "sector_news",
-      "horizon": "recent",
-      "impact": "neutral",
-      "headline": "<span style=\"background:#FEF2F2;padding:2px 6px;border-radius:4px;color:#EF4444;font-weight:600\">negative</span>",
-      "detail": "Acko General Insurance also barred for identical EoM breach",
-      "source_name": null,
-      "source_url": null,
-      "source_published_at": null,
-      "first_seen": "2026-08-20T14:26:18.382Z",
-      "discovered_at": "2026-08-20T14:26:18.382Z"
     }
   ]
 }
