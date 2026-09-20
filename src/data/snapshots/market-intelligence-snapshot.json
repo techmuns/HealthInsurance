@@ -5,7 +5,7 @@
     "schema_version": "1.0.0",
     "dataset": "ai_generated",
     "last_updated": "2026-09-20",
-    "last_successful_run": "2026-09-20T13:49:15.627Z",
+    "last_successful_run": "2026-09-20T17:08:15.032Z",
     "upstream_sources": [
       "muns_agent_web"
     ],
@@ -43,6 +43,51 @@
       "source_published_at": null,
       "first_seen": "2026-09-20T07:15:39.151Z",
       "discovered_at": "2026-09-20T07:15:39.151Z"
+    },
+    {
+      "id": "dbd87ecf69",
+      "company_id": "sector",
+      "date": null,
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "<span style=\"color:#22C55E;font-weight:600\">positive</span>",
+      "detail": "Religare Enterprises likely to demerge & separately list Care Health Insurance (**~₹16,000cr** valuation)",
+      "source_name": null,
+      "source_url": null,
+      "source_published_at": null,
+      "first_seen": "2026-09-20T17:08:15.032Z",
+      "discovered_at": "2026-09-20T17:08:15.032Z"
+    },
+    {
+      "id": "c3d9bdf855",
+      "company_id": "sector",
+      "date": null,
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "<span style=\"color:#EF4444;font-weight:600\">negative</span>",
+      "detail": "IRDAI slaps <b>₹1 crore</b> penalty on ICICI Lombard for outsourcing/governance lapses",
+      "source_name": null,
+      "source_url": null,
+      "source_published_at": null,
+      "first_seen": "2026-09-20T17:08:15.032Z",
+      "discovered_at": "2026-09-20T17:08:15.032Z"
+    },
+    {
+      "id": "58779baf3d",
+      "company_id": "sector",
+      "date": null,
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "<span style=\"color:#F59E0B;font-weight:600\">watch</span>",
+      "detail": "Star Health rated \"Hold\" — valuation seen as stretched (<b>P/B 4.4x</b>, PEG 3.9x) vs <b>11.1% RoE</b>",
+      "source_name": null,
+      "source_url": null,
+      "source_published_at": null,
+      "first_seen": "2026-09-20T17:08:15.032Z",
+      "discovered_at": "2026-09-20T17:08:15.032Z"
     },
     {
       "id": "62d6dfe7a0",
@@ -868,51 +913,6 @@
       "source_published_at": null,
       "first_seen": "2026-08-22T14:12:02.142Z",
       "discovered_at": "2026-08-22T14:12:02.142Z"
-    },
-    {
-      "id": "effc13dfb2",
-      "company_id": "sector",
-      "date": null,
-      "kind": "sector_news",
-      "horizon": "recent",
-      "impact": "neutral",
-      "headline": "<span style=\"background:#FEF2F2;color:#EF4444;padding:2px 6px;border-radius:4px;font-weight:600\">negative</span>",
-      "detail": "RBI declines to approve Religare's insurance/financial-services demerger",
-      "source_name": null,
-      "source_url": null,
-      "source_published_at": null,
-      "first_seen": "2026-08-21T10:20:14.158Z",
-      "discovered_at": "2026-08-21T10:20:14.158Z"
-    },
-    {
-      "id": "5c4ccba351",
-      "company_id": "sector",
-      "date": null,
-      "kind": "sector_news",
-      "horizon": "recent",
-      "impact": "neutral",
-      "headline": "<span style=\"background:#FFFBEB;color:#F59E0B;padding:2px 6px;border-radius:4px;font-weight:600\">watch</span>",
-      "detail": "Q1 FY27 PAT **₹137.8cr** (▲93% YoY, ▼13.5% QoQ); revenue ▲28.6% YoY",
-      "source_name": null,
-      "source_url": null,
-      "source_published_at": null,
-      "first_seen": "2026-08-21T10:20:14.158Z",
-      "discovered_at": "2026-08-21T10:20:14.158Z"
-    },
-    {
-      "id": "52f674d77e",
-      "company_id": "sector",
-      "date": null,
-      "kind": "sector_news",
-      "horizon": "recent",
-      "impact": "neutral",
-      "headline": "<span style=\"background:#F0FDF4;color:#22C55E;padding:2px 6px;border-radius:4px;font-weight:600\">positive</span>",
-      "detail": "Q1 profit beats estimates; Nomura hikes target to **₹700**, keeps Buy",
-      "source_name": null,
-      "source_url": null,
-      "source_published_at": null,
-      "first_seen": "2026-08-21T10:20:14.158Z",
-      "discovered_at": "2026-08-21T10:20:14.158Z"
     }
   ]
 }
