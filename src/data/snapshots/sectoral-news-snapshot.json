@@ -3,14 +3,80 @@
     "snapshot_id": "sectoral-news-snapshot",
     "description": "Key Sectoral News feed — a permanent seed of 31 curated portfolio-pack updates, kept current by a scheduled muns web-search agent. Each item links its source. Seed items are curated; agent items are AI-gathered (web), clearly labelled and not audited.",
     "schema_version": "1.0.0",
-    "last_updated": "2026-09-17",
-    "last_successful_run": "2026-09-17T11:06:42.439Z",
+    "last_updated": "2026-09-21",
+    "last_successful_run": "2026-09-21T12:10:20.204Z",
     "seed_count": 31,
-    "agent_count": 275,
+    "agent_count": 286,
     "generated_by": "Seed: investor portfolio pack. Updates: AI (muns agent, web search).",
     "notes": "Seed floor can never be lost. Agent items are de-duped by subject+date and verified-before-acting."
   },
   "data": [
+    {
+      "sn": 308,
+      "category": "Profitability",
+      "date": "2026-09-21",
+      "subject": "Medical inflation continues to push up healthcare costs",
+      "summary": "Private hospital bills for cardiac, ortho and cancer treatment keep rising due to imported equipment, specialist fees and advanced diagnostics, widening the gap between cover adequacy and actual treatment costs — a direct pressure point on <span style=\"color:#EF4444;font-weight:600\">claims ratios</span>.",
+      "reference": "https://medicalbuyer.co.in/medical-inflation-driving-up-healthcare-expenses-across-india",
+      "id": "12c323ad97b146",
+      "origin": "agent",
+      "added_at": "2026-09-21"
+    },
+    {
+      "sn": 307,
+      "category": "Regulatory",
+      "date": "2026-09-21",
+      "subject": "Insurance laws shield policies during M&A/restructuring",
+      "summary": "Sections 35/36/37A of the Insurance Act plus the Sabka Bima Sabki Raksha (Amendment) Act, 2025 require IRDAI approval for insurer mergers/hybrid ownership deals and enforce a **150%** solvency control level, insulating policyholder funds — relevant as FDI and consolidation activity rises in health insurance.",
+      "reference": "https://whalesbook.com/news/English/bankingfinance/How-Indias-Insurance-Laws-Protect-Policies-During-Restructuring/6ab07c7532997ce1de8ac726",
+      "id": "00d6bc2649f76e",
+      "origin": "agent",
+      "added_at": "2026-09-21"
+    },
+    {
+      "sn": 309,
+      "category": "GST",
+      "date": "2026-09-20",
+      "subject": "Kerala AAR: Govt-paid MEDISEP premium exempt from GST",
+      "summary": "Oriental Insurance's health cover for Kerala govt employees/pensioners under MEDISEP Phase-II ruled GST-exempt under Notification 12/2017 since the State Government pays the entire premium, reinforcing the \"total premium paid by Government\" exemption route for PSU health schemes.",
+      "reference": "https://taxguru.in/goods-and-service-tax/government-paid-medisep-insurance-premium-exempt-gst-kerala-aar.html",
+      "id": "088311c6aafaa6",
+      "origin": "agent",
+      "added_at": "2026-09-21"
+    },
+    {
+      "sn": 312,
+      "category": "Competition / Peers",
+      "date": "2026-09-15",
+      "subject": "Standalone health insurers outpace peers in August premium growth",
+      "summary": "Care Health premium jumped <span style=\"color:#22C55E;font-weight:600\">▲40.89%</span> YoY to **₹1,049.9 cr**, Niva Bupa rose **▲37.51%** to ₹842.8 cr and Star Health grew **▲19.9%** to ₹1,708.5 cr — Care Health and Niva Bupa are growing materially faster than market leader Star Health, signalling share-gain dynamics among standalones.",
+      "reference": "https://www.business-standard.com/finance/insurance/non-life-insurance-premium-rises-10-to-27-454-5-crore-in-august-126091500820_1.html",
+      "id": "10964a223026c8",
+      "origin": "agent",
+      "added_at": "2026-09-21"
+    },
+    {
+      "sn": 311,
+      "category": "General",
+      "date": "2026-09-15",
+      "subject": "Non-life premium growth doubles to <span style=\"color:#22C55E;font-weight:600\">▲10% YoY</span> in August",
+      "summary": "Gross direct premium rose to **₹27,454.5 cr**, nearly double July's 5.7% growth, driven mainly by standalone health insurers (**+30.4% YoY** to ₹4,377 cr) even as multi-line insurers grew a slower 8.7%.",
+      "reference": "https://www.business-standard.com/finance/insurance/non-life-insurance-premium-rises-10-to-27-454-5-crore-in-august-126091500820_1.html",
+      "id": "0cb0601be21db6",
+      "origin": "agent",
+      "added_at": "2026-09-21"
+    },
+    {
+      "sn": 310,
+      "category": "Profitability",
+      "date": "2026-09-15",
+      "subject": "Niva Bupa Q1 FY27 profit surges <span style=\"color:#22C55E;font-weight:600\">▲410.9% YoY</span>",
+      "summary": "Niva Bupa posted PAT of **₹137.8 cr** on record net sales of **₹2,471.26 cr** and PBDIT of **₹184.23 cr** for the June-2026 quarter; valuation remains \"expensive\" at P/B **3.9x** with ROE of just **4.6%**, per a Hold rating.",
+      "reference": "https://marketsmojo.com/news/stock-recommendation/niva-bupa-health-insurance-company-ltd-is-rated-hold-4199839",
+      "id": "110c4902397bde",
+      "origin": "agent",
+      "added_at": "2026-09-21"
+    },
     {
       "sn": 298,
       "category": "General",
@@ -43,6 +109,17 @@
       "id": "0c3ea7f917d38a",
       "origin": "agent",
       "added_at": "2026-09-14"
+    },
+    {
+      "sn": 313,
+      "category": "Profitability",
+      "date": "2026-09-11",
+      "subject": "Non-life insurers' underwriting losses jump <span style=\"color:#EF4444;font-weight:600\">▲50%</span> to ₹45,279 cr in FY26",
+      "summary": "Sector-wide underwriting losses ballooned amid rising claims costs, underscoring persistent combined-ratio pressure across the general/health insurance industry despite strong topline premium growth.",
+      "reference": "https://www.business-standard.com/finance/insurance/non-life-insurers-underwriting-losses-surge-50-to-rs-45-279-cr-126091101098_1.html",
+      "id": "076f4432289cfd",
+      "origin": "agent",
+      "added_at": "2026-09-21"
     },
     {
       "sn": 299,
@@ -109,6 +186,17 @@
       "id": "0a604a0d9f8f05",
       "origin": "agent",
       "added_at": "2026-09-14"
+    },
+    {
+      "sn": 314,
+      "category": "Regulatory",
+      "date": "2026-09-02",
+      "subject": "IRDAI details PIR data scope and access rules",
+      "summary": "Follow-up reporting clarifies which policy, claims and nominee data will be linked and which entities (insurers, banks, government) can access it, with the Insurance Information Bureau to be restructured into a not-for-profit IRDAI-owned body for neutral governance.",
+      "reference": "https://www.business-standard.com/finance/insurance/irdai-insurance-registry-what-data-will-it-link-who-can-access-it-126090200681_1.html",
+      "id": "0c9511bcdcf3a8",
+      "origin": "agent",
+      "added_at": "2026-09-21"
     },
     {
       "sn": 290,
@@ -199,6 +287,17 @@
       "added_at": "2026-09-10"
     },
     {
+      "sn": 315,
+      "category": "Profitability",
+      "date": "2026-08-27",
+      "subject": "Average cancer claim size up <span style=\"color:#EF4444;font-weight:600\">▲81%</span> in five years",
+      "summary": "Rising cancer treatment costs are outstripping typical health cover limits, prompting questions on whether existing sum-insured levels remain adequate — a key driver of both claims inflation and upsell/top-up product demand.",
+      "reference": "https://www.business-standard.com/finance/personal-finance/average-cancer-claim-rises-81-in-5-years-how-much-health-cover-is-enough-126082700884_1.html",
+      "id": "1c2174d35c4e64",
+      "origin": "agent",
+      "added_at": "2026-09-21"
+    },
+    {
       "sn": 246,
       "category": "Profitability",
       "date": "2026-08-27",
@@ -274,6 +373,17 @@
       "id": "16328d191fc666",
       "origin": "agent",
       "added_at": "2026-08-27"
+    },
+    {
+      "sn": 316,
+      "category": "Competition / Peers",
+      "date": "2026-08-20",
+      "subject": "Prudential Health India launches tech-led health cover",
+      "summary": "Prudential Health India commenced operations with a technology-first approach to distribution and underwriting, marking a new standalone entrant into an already crowded space alongside Niva Bupa, Star Health, Care Health, Aditya Birla Health and ManipalCigna.",
+      "reference": "https://www.business-standard.com/india-news/prudential-health-india-commences-operations-with-tech-led-health-cover-126082000804_1.html",
+      "id": "12c4a654e63709",
+      "origin": "agent",
+      "added_at": "2026-09-21"
     },
     {
       "sn": 304,
@@ -483,6 +593,17 @@
       "id": "07c5e399599c9c",
       "origin": "agent",
       "added_at": "2026-09-14"
+    },
+    {
+      "sn": 317,
+      "category": "Regulatory",
+      "date": "2026-08-12",
+      "subject": "IRDAI weighs reforms to tackle rising medical costs",
+      "summary": "Regulators are reportedly examining measures to address escalating treatment costs straining insurer loss ratios and policyholder affordability, potentially including hospital pricing transparency and package-rate standardisation.",
+      "reference": "https://www.business-standard.com/industry/news/insurance-regulators-weigh-reforms-to-tackle-rising-medical-costs-126081200906_1.html",
+      "id": "0ecd3c518175e9",
+      "origin": "agent",
+      "added_at": "2026-09-21"
     },
     {
       "sn": 263,
