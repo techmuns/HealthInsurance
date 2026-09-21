@@ -4,8 +4,8 @@
     "description": "AI-generated market intelligence for the SAHI health insurers — investor meets, earnings/board dates, sector & regulatory news, share catalysts. Web-sourced; each item links its source. AI-generated, not audited.",
     "schema_version": "1.0.0",
     "dataset": "ai_generated",
-    "last_updated": "2026-09-20",
-    "last_successful_run": "2026-09-20T17:08:15.032Z",
+    "last_updated": "2026-09-21",
+    "last_successful_run": "2026-09-21T16:05:46.925Z",
     "upstream_sources": [
       "muns_agent_web"
     ],
@@ -28,6 +28,36 @@
       "source_published_at": null,
       "first_seen": "2026-09-20T13:49:15.627Z",
       "discovered_at": "2026-09-20T13:49:15.627Z"
+    },
+    {
+      "id": "0b37c32de5",
+      "company_id": "sector",
+      "date": null,
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "<span style=\"color:#22C55E;font-weight:600\">positive</span> <span style=\"background:#F0FDF4;padding:2px 6px;border-radius:4px;\">Buy reiterated</span>",
+      "detail": "Nomura reiterates 'Buy', TP <span style=\"color:#22C55E;font-weight:600\">₹105</span>",
+      "source_name": null,
+      "source_url": null,
+      "source_published_at": null,
+      "first_seen": "2026-09-21T16:05:46.925Z",
+      "discovered_at": "2026-09-21T16:05:46.925Z"
+    },
+    {
+      "id": "b6414ee28f",
+      "company_id": "sector",
+      "date": null,
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "<span style=\"color:#F59E0B;font-weight:600\">mixed / watch</span>",
+      "detail": "Insurance stocks rally on hopes of IRDAI commission caps",
+      "source_name": null,
+      "source_url": null,
+      "source_published_at": null,
+      "first_seen": "2026-09-21T16:05:46.925Z",
+      "discovered_at": "2026-09-21T16:05:46.925Z"
     },
     {
       "id": "08f4df67f6",
@@ -883,36 +913,6 @@
       "source_published_at": "2026-08-20",
       "first_seen": "2026-08-22T10:13:27.965Z",
       "discovered_at": "2026-08-22T10:13:27.965Z"
-    },
-    {
-      "id": "3a93d460b2",
-      "company_id": "sector",
-      "date": null,
-      "kind": "sector_news",
-      "horizon": "recent",
-      "impact": "neutral",
-      "headline": "<span style=\"background:#F0FDF4;color:#22C55E;font-weight:600;padding:2px 6px;border-radius:4px\">positive</span>",
-      "detail": "Q1 FY27 net profit **▲93% YoY** to ₹137.8cr",
-      "source_name": null,
-      "source_url": null,
-      "source_published_at": null,
-      "first_seen": "2026-08-22T10:13:27.965Z",
-      "discovered_at": "2026-08-22T10:13:27.965Z"
-    },
-    {
-      "id": "af98b0cfe2",
-      "company_id": "sector",
-      "date": null,
-      "kind": "sector_news",
-      "horizon": "recent",
-      "impact": "neutral",
-      "headline": "<span style=\"color:#F59E0B;font-weight:600\">neutral</span>",
-      "detail": "ABHICL launches \"Activ Yuva\" targeting 25-35 age cohort",
-      "source_name": null,
-      "source_url": null,
-      "source_published_at": null,
-      "first_seen": "2026-08-22T14:12:02.142Z",
-      "discovered_at": "2026-08-22T14:12:02.142Z"
     }
   ]
 }
