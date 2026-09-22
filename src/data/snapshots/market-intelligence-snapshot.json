@@ -5,7 +5,7 @@
     "schema_version": "1.0.0",
     "dataset": "ai_generated",
     "last_updated": "2026-09-22",
-    "last_successful_run": "2026-09-22T07:03:06.061Z",
+    "last_successful_run": "2026-09-22T14:15:48.711Z",
     "upstream_sources": [
       "muns_agent_web"
     ],
@@ -43,6 +43,51 @@
       "source_published_at": null,
       "first_seen": "2026-09-22T07:03:06.061Z",
       "discovered_at": "2026-09-22T07:03:06.061Z"
+    },
+    {
+      "id": "d6fc02aa70",
+      "company_id": "sector",
+      "date": null,
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "<span style=\"background:#F0FDF4;color:#22C55E;font-weight:600;padding:2px 6px;border-radius:4px\">positive ★</span>",
+      "detail": "**AM Best assigns A- rating** to Niva Bupa as underwriting results improve",
+      "source_name": null,
+      "source_url": null,
+      "source_published_at": null,
+      "first_seen": "2026-09-22T14:15:48.711Z",
+      "discovered_at": "2026-09-22T14:15:48.711Z"
+    },
+    {
+      "id": "b5ea95031e",
+      "company_id": "sector",
+      "date": null,
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "<span style=\"color:#F59E0B;font-weight:600\">watch</span> <span style=\"background:#FFFBEB;padding:2px 6px;border-radius:4px;\">Top signal</span>",
+      "detail": "IRDAI plans major overhaul to curb pricing wars & cap commissions",
+      "source_name": null,
+      "source_url": null,
+      "source_published_at": null,
+      "first_seen": "2026-09-22T14:15:48.711Z",
+      "discovered_at": "2026-09-22T14:15:48.711Z"
+    },
+    {
+      "id": "693a9eadc1",
+      "company_id": "sector",
+      "date": null,
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "<span style=\"color:#EF4444;font-weight:600\">negative</span> <span style=\"background:#FEF2F2;padding:2px 6px;border-radius:4px;\">Company-specific</span>",
+      "detail": "IRDAI bars Niva Bupa from opening new offices for six months",
+      "source_name": null,
+      "source_url": null,
+      "source_published_at": null,
+      "first_seen": "2026-09-22T14:15:48.711Z",
+      "discovered_at": "2026-09-22T14:15:48.711Z"
     },
     {
       "id": "0b37c32de5",
@@ -868,51 +913,6 @@
       "source_published_at": null,
       "first_seen": "2026-08-24T10:28:23.896Z",
       "discovered_at": "2026-08-24T10:28:23.896Z"
-    },
-    {
-      "id": "68245c83d6",
-      "company_id": "sector",
-      "date": null,
-      "kind": "sector_news",
-      "horizon": "recent",
-      "impact": "neutral",
-      "headline": "neutral / <span style=\"color:#F59E0B;font-weight:600\">watch</span>",
-      "detail": "Niva Bupa hosts Q1FY27 earnings call",
-      "source_name": null,
-      "source_url": null,
-      "source_published_at": null,
-      "first_seen": "2026-08-24T14:33:23.258Z",
-      "discovered_at": "2026-08-24T14:33:23.258Z"
-    },
-    {
-      "id": "91533b7530",
-      "company_id": "sector",
-      "date": null,
-      "kind": "sector_news",
-      "horizon": "recent",
-      "impact": "neutral",
-      "headline": "<span style=\"color:#22C55E;font-weight:600\">▲ positive</span>",
-      "detail": "Niva Bupa Q1 FY27 profit nearly doubles (**~93% YoY**)",
-      "source_name": null,
-      "source_url": null,
-      "source_published_at": null,
-      "first_seen": "2026-08-23T14:14:08.887Z",
-      "discovered_at": "2026-08-23T14:14:08.887Z"
-    },
-    {
-      "id": "dee8ef9e82",
-      "company_id": "sector",
-      "date": null,
-      "kind": "sector_news",
-      "horizon": "recent",
-      "impact": "neutral",
-      "headline": "<span style=\"color:#22C55E;font-weight:600;background:#F0FDF4;padding:2px 6px;border-radius:4px\">▲ positive</span>",
-      "detail": "Star Health Q1 FY27 profit up **25.5%** to ₹550 cr",
-      "source_name": null,
-      "source_url": null,
-      "source_published_at": null,
-      "first_seen": "2026-08-23T14:14:08.887Z",
-      "discovered_at": "2026-08-23T14:14:08.887Z"
     }
   ]
 }
