@@ -4,8 +4,8 @@
     "description": "AI-generated market intelligence for the SAHI health insurers — investor meets, earnings/board dates, sector & regulatory news, share catalysts. Web-sourced; each item links its source. AI-generated, not audited.",
     "schema_version": "1.0.0",
     "dataset": "ai_generated",
-    "last_updated": "2026-09-21",
-    "last_successful_run": "2026-09-21T16:05:46.925Z",
+    "last_updated": "2026-09-22",
+    "last_successful_run": "2026-09-22T07:03:06.061Z",
     "upstream_sources": [
       "muns_agent_web"
     ],
@@ -28,6 +28,21 @@
       "source_published_at": null,
       "first_seen": "2026-09-20T13:49:15.627Z",
       "discovered_at": "2026-09-20T13:49:15.627Z"
+    },
+    {
+      "id": "62fef7c19b",
+      "company_id": "sector",
+      "date": null,
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "<span style=\"color:#1E3A8A;font-weight:600\">neutral</span>",
+      "detail": "Niva Bupa AGM approves director appointments, FY27 pay revisions",
+      "source_name": null,
+      "source_url": null,
+      "source_published_at": null,
+      "first_seen": "2026-09-22T07:03:06.061Z",
+      "discovered_at": "2026-09-22T07:03:06.061Z"
     },
     {
       "id": "0b37c32de5",
@@ -898,21 +913,6 @@
       "source_published_at": null,
       "first_seen": "2026-08-23T14:14:08.887Z",
       "discovered_at": "2026-08-23T14:14:08.887Z"
-    },
-    {
-      "id": "868bb13f8f",
-      "company_id": "sector",
-      "date": null,
-      "kind": "sector_news",
-      "horizon": "recent",
-      "impact": "neutral",
-      "headline": "<span style=\"background:#FEF2F2;color:#EF4444;font-weight:600;padding:2px 6px;border-radius:4px\">negative</span>",
-      "detail": "IRDAI bars Niva Bupa from opening new branches for **6 months**",
-      "source_name": null,
-      "source_url": null,
-      "source_published_at": "2026-08-20",
-      "first_seen": "2026-08-22T10:13:27.965Z",
-      "discovered_at": "2026-08-22T10:13:27.965Z"
     }
   ]
 }
