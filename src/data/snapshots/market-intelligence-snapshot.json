@@ -4,8 +4,8 @@
     "description": "AI-generated market intelligence for the SAHI health insurers — investor meets, earnings/board dates, sector & regulatory news, share catalysts. Web-sourced; each item links its source. AI-generated, not audited.",
     "schema_version": "1.0.0",
     "dataset": "ai_generated",
-    "last_updated": "2026-09-22",
-    "last_successful_run": "2026-09-22T14:15:48.711Z",
+    "last_updated": "2026-09-23",
+    "last_successful_run": "2026-09-23T06:58:38.476Z",
     "upstream_sources": [
       "muns_agent_web"
     ],
@@ -14,6 +14,21 @@
     "notes": "Clearly labelled AI-generated intelligence — verify before acting. Items accumulate through the day and rank by investor impact, not recency."
   },
   "data": [
+    {
+      "id": "3476b34bc8",
+      "company_id": "sector",
+      "date": null,
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "<span style=\"background:#EFF6FF;color:#1E3A8A;font-weight:600;padding:2px 6px;border-radius:4px;\">neutral</span>",
+      "detail": "MarketsMOJO reiterates <span style=\"color:#1E3A8A;font-weight:600\">'Hold'</span> rating",
+      "source_name": null,
+      "source_url": null,
+      "source_published_at": null,
+      "first_seen": "2026-09-23T06:58:38.476Z",
+      "discovered_at": "2026-09-23T06:58:38.476Z"
+    },
     {
       "id": "5c5dea9f98",
       "company_id": "sector",
@@ -898,21 +913,6 @@
       "source_published_at": null,
       "first_seen": "2026-08-24T06:36:49.879Z",
       "discovered_at": "2026-08-24T06:36:49.879Z"
-    },
-    {
-      "id": "612185f7cd",
-      "company_id": "sector",
-      "date": null,
-      "kind": "sector_news",
-      "horizon": "recent",
-      "impact": "neutral",
-      "headline": "<span style=\"color:#F59E0B;font-weight:600\">mixed</span>",
-      "detail": "Religare posts Q1 FY27 consolidated loss despite Care Health growth",
-      "source_name": null,
-      "source_url": null,
-      "source_published_at": null,
-      "first_seen": "2026-08-24T10:28:23.896Z",
-      "discovered_at": "2026-08-24T10:28:23.896Z"
     }
   ]
 }
