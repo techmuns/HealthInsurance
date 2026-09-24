@@ -3,14 +3,113 @@
     "snapshot_id": "sectoral-news-snapshot",
     "description": "Key Sectoral News feed — a permanent seed of 31 curated portfolio-pack updates, kept current by a scheduled muns web-search agent. Each item links its source. Seed items are curated; agent items are AI-gathered (web), clearly labelled and not audited.",
     "schema_version": "1.0.0",
-    "last_updated": "2026-09-21",
-    "last_successful_run": "2026-09-21T12:10:20.204Z",
+    "last_updated": "2026-09-24",
+    "last_successful_run": "2026-09-24T11:14:16.828Z",
     "seed_count": 31,
-    "agent_count": 286,
+    "agent_count": 298,
     "generated_by": "Seed: investor portfolio pack. Updates: AI (muns agent, web search).",
     "notes": "Seed floor can never be lost. Agent items are de-duped by subject+date and verified-before-acting."
   },
   "data": [
+    {
+      "sn": 321,
+      "category": "General",
+      "date": "2026-09-24",
+      "subject": "India's insurance penetration stuck at 3.7%, wide protection gap flagged",
+      "summary": "A McKinsey report cited by Business Today shows India's insurance penetration at just <span style=\"color:#1E3A8A;font-weight:600\">3.7% of GDP</span>, well below global peers, with the non-life/health protection gap especially large — underscoring long-term growth runway for health insurers despite near-term regulatory noise.",
+      "reference": "https://businesstoday.in/personal-finance/story/insurance-penetration-at-3-7-where-indias-biggest-protection-gap-lies-557515-2026-09-24",
+      "id": "003eeb397a7b17",
+      "origin": "agent",
+      "added_at": "2026-09-24"
+    },
+    {
+      "sn": 320,
+      "category": "Regulatory",
+      "date": "2026-09-24",
+      "subject": "IRDAI commission overhaul could halve health/term insurance payouts",
+      "summary": "The proposed effort-based commission framework could <span style=\"color:#EF4444;font-weight:600\">nearly halve payouts▼</span> on health and term products, squeezing broker/aggregator distributors while agency-led insurers (LIC, SBI Life) are seen as relative winners.",
+      "reference": "https://bfsi.economictimes.indiatimes.com/articles/irdais-proposed-commission-overhaul-may-halve-health-term-payouts-pb-fintech-turtlemint-face-earnings-risk/134455407",
+      "id": "0eb0099223a814",
+      "origin": "agent",
+      "added_at": "2026-09-24"
+    },
+    {
+      "sn": 319,
+      "category": "Regulatory",
+      "date": "2026-09-24",
+      "subject": "Insurance stocks tumble as IRDAI unveils distribution overhaul",
+      "summary": "Star Health, HDFC Life, Max Financial, SBI Life, ICICI Lombard and PB Fintech shares fell (<span style=\"color:#EF4444;font-weight:600\">PB Fintech down as much as 32%▼</span>) after brokerages (Jefferies, Macquarie, Bernstein, HSBC) flagged near-term earnings risk from the proposed commission/EoM changes.",
+      "reference": "https://www.ndtvprofit.com/markets/irdai-unveils-aggressive-five-year-expense-caps-on-insurers-brokerages-weight-sbi-life-lic-among-key-winners-12089871",
+      "id": "11a2509823c48e",
+      "origin": "agent",
+      "added_at": "2026-09-24"
+    },
+    {
+      "sn": 318,
+      "category": "Regulatory",
+      "date": "2026-09-24",
+      "subject": "IRDAI proposes sweeping overhaul of insurance distribution & commission caps",
+      "summary": "IRDAI's new consultation paper proposes <span style=\"color:#EF4444;font-weight:600\">tighter product-level commission caps</span>, a phased cut in EoM limits, and a ban on compulsory loan-linked insurance bundling by banks/NBFCs — aimed at curbing mis-selling but raising near-term cost pressure on insurers/distributors.",
+      "reference": "https://www.livemint.com/industry/irdai-proposes-sweeping-reset-of-insurance-distribution-system-11790178481620.html",
+      "id": "0da3c7e8ea8e2a",
+      "origin": "agent",
+      "added_at": "2026-09-24"
+    },
+    {
+      "sn": 323,
+      "category": "General",
+      "date": "2026-09-22",
+      "subject": "ABHI study: 87% of policyholders show stable/improved health via monitoring",
+      "summary": "Aditya Birla Health Insurance's research paper found <span style=\"color:#22C55E;font-weight:600\">87% of biometrically-monitored policyholders▲</span> had stable or improved health trajectories — data insurers may leverage to support wellness-linked underwriting and lower long-run claims costs.",
+      "reference": "https://www.pninews.com/87-policyholders-show-stable-or-improved-health-through-regular-monitoring-reveals-aditya-birla-health-insurance-study/",
+      "id": "144efa5891d1bc",
+      "origin": "agent",
+      "added_at": "2026-09-24"
+    },
+    {
+      "sn": 322,
+      "category": "GST",
+      "date": "2026-09-22",
+      "subject": "GST removal on individual health & life premiums continues boosting purchases",
+      "summary": "Since the GST exemption on individual health/life premiums (effective <b>22-Sep-2025</b>), insurers report <span style=\"color:#22C55E;font-weight:600\">higher new-policy purchases▲</span> and larger sum-insured levels, though the initial demand surge has moderated from an elevated base.",
+      "reference": "https://www.rediff.com/business/report/gst-removal-on-health-life-insurance-boosts-policy-purchases--coverage/20260922.htm",
+      "id": "1167f777b25593",
+      "origin": "agent",
+      "added_at": "2026-09-24"
+    },
+    {
+      "sn": 326,
+      "category": "Competition / Peers",
+      "date": "2026-09-21",
+      "subject": "Manipal Health clears ₹5,310 crore debt using IPO proceeds",
+      "summary": "Manipal Health Enterprises repaid outstanding NCD principal, accrued interest and prepayment costs using IPO proceeds, freeing balance-sheet capacity for expansion and tech investment — relevant to the hospital-network partners that drive health insurers' claims costs.",
+      "reference": "https://businesstoday.in/markets/story/manipal-health-clears-rs5310-crore-debt-using-ipo-proceeds-eyes-expansion-technology-push-556885-2026-09-22",
+      "id": "0446b50ecccf79",
+      "origin": "agent",
+      "added_at": "2026-09-24"
+    },
+    {
+      "sn": 325,
+      "category": "Profitability",
+      "date": "2026-09-21",
+      "subject": "Medical inflation continues pushing up Indian healthcare costs",
+      "summary": "Heavy reliance on costlier private hospitals (due to public-hospital capacity constraints) is driving <span style=\"color:#EF4444;font-weight:600\">medical inflation higher▲</span> — a persistent cost pressure that directly feeds into health insurers' loss ratios and future pricing decisions.",
+      "reference": "https://medicalbuyer.co.in/medical-inflation-driving-up-healthcare-expenses-across-india",
+      "id": "1b287579051610",
+      "origin": "agent",
+      "added_at": "2026-09-24"
+    },
+    {
+      "sn": 324,
+      "category": "GST",
+      "date": "2026-09-21",
+      "subject": "GST cut keeps lifting insurance demand, expanding customer base",
+      "summary": "Insurers/distributors say the GST exemption on individual health and life premiums has <span style=\"color:#22C55E;font-weight:600\">structurally expanded the customer base▲</span> and coverage levels versus pre-exemption levels, even as the initial post-exemption spike cools.",
+      "reference": "https://www.business-standard.com/amp/finance/insurance/gst-cut-lifts-insurance-demand-expands-customer-base-boosts-coverage-126092101150_1.html",
+      "id": "039e2537fb827c",
+      "origin": "agent",
+      "added_at": "2026-09-24"
+    },
     {
       "sn": 308,
       "category": "Profitability",
@@ -43,6 +142,17 @@
       "id": "088311c6aafaa6",
       "origin": "agent",
       "added_at": "2026-09-21"
+    },
+    {
+      "sn": 327,
+      "category": "Competition / Peers",
+      "date": "2026-09-18",
+      "subject": "Care Health Insurance (Religare) raises ₹100 crore via debentures",
+      "summary": "Religare subsidiary Care Health Insurance raised <b>₹100 crore</b> through debentures at a <b>10%</b> coupon, reportedly to strengthen its solvency buffer in line with IRDAI capital norms.",
+      "reference": "https://www.whalesbook.com/corporate-news/Hindi/bankingfinance/Religare-Subsidiary-Care-Health-Insurance-Raises-Rs-100-Crore-via-Debentures/6aad3360f2017017ae6d924d",
+      "id": "02986112d34ee2",
+      "origin": "agent",
+      "added_at": "2026-09-24"
     },
     {
       "sn": 312,
@@ -329,6 +439,17 @@
       "id": "03c45b91c4afb9",
       "origin": "agent",
       "added_at": "2026-08-27"
+    },
+    {
+      "sn": 328,
+      "category": "Competition / Peers",
+      "date": "2026-08-25",
+      "subject": "Aditya Birla Health Insurance ties up with ICAI for 17 lakh CA members/students",
+      "summary": "ABHI partnered with ICAI to offer tailored health coverage to over <b>17 lakh</b> Chartered Accountants and students, <span style=\"color:#22C55E;font-weight:600\">expanding its affinity/group distribution channel▲</span> and peer-comparison footprint versus Star Health, Niva Bupa and Care Health.",
+      "reference": "https://www.thehindubusinessline.com/money-and-banking/aditya-birla-health-insurance-ties-up-with-icai-to-offer-coverage-to-17-lakh-students-and-ca-members/article71388594.ece",
+      "id": "172ee125f1afb5",
+      "origin": "agent",
+      "added_at": "2026-09-24"
     },
     {
       "sn": 302,
@@ -890,6 +1011,17 @@
       "id": "1865df84875033",
       "origin": "agent",
       "added_at": "2026-08-03"
+    },
+    {
+      "sn": 329,
+      "category": "Profitability",
+      "date": "2026-07-30",
+      "subject": "Niva Bupa swings to ₹137.8 crore standalone Q1FY27 net profit",
+      "summary": "Niva Bupa reported a standalone net profit of <span style=\"color:#22C55E;font-weight:600\">₹137.80 crore▲</span> for the quarter ended June 2026, versus a net loss of <span style=\"color:#EF4444;font-weight:600\">₹91.44 crore</span> in the year-ago quarter — signalling improving underwriting and investment performance after prior margin pressure.",
+      "reference": "https://www.business-standard.com/amp/markets/capital-market-news/niva-bupa-health-insurance-company-reports-standalone-net-profit-of-rs-137-80-crore-in-the-june-2026-quarter-126073001204_1.html",
+      "id": "04ad517e784dbc",
+      "origin": "agent",
+      "added_at": "2026-09-24"
     },
     {
       "sn": 306,
