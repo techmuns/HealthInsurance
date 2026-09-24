@@ -4,8 +4,8 @@
     "description": "AI-generated market intelligence for the SAHI health insurers — investor meets, earnings/board dates, sector & regulatory news, share catalysts. Web-sourced; each item links its source. AI-generated, not audited.",
     "schema_version": "1.0.0",
     "dataset": "ai_generated",
-    "last_updated": "2026-09-23",
-    "last_successful_run": "2026-09-23T14:32:40.002Z",
+    "last_updated": "2026-09-24",
+    "last_successful_run": "2026-09-24T14:31:32.057Z",
     "upstream_sources": [
       "muns_agent_web"
     ],
@@ -14,6 +14,51 @@
     "notes": "Clearly labelled AI-generated intelligence — verify before acting. Items accumulate through the day and rank by investor impact, not recency."
   },
   "data": [
+    {
+      "id": "c82f727ae6",
+      "company_id": "niva-bupa",
+      "date": "2026-09-24",
+      "kind": "rating",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "<span style=\"background:#FEF2F2;padding:2px 6px;border-radius:4px;\">Jefferies flags Niva Bupa's bank-channel exposure under IRDAI EOM proposal</span>",
+      "detail": "Brokerage says reliance on bank-led group-health distribution makes Niva Bupa more vulnerable to proposed commission/expense caps than agency-heavy Star Health; stock fell <span style=\"color:#EF4444;font-weight:600\">▼~4%</span> intraday on the read-through.",
+      "source_name": "financialexpress.com",
+      "source_url": "https://financialexpress.com/market/pb-fintech-crashes-32-on-irdai-commission-rules-jefferies-reveals-top-insurance-picks-now-4346352",
+      "source_published_at": "2026-09-24",
+      "first_seen": "2026-09-24T14:31:32.057Z",
+      "discovered_at": "2026-09-24T14:31:32.057Z"
+    },
+    {
+      "id": "93eec0aed4",
+      "company_id": "niva-bupa",
+      "date": "2026-09-24",
+      "kind": "investor_meet",
+      "horizon": "upcoming",
+      "impact": "neutral",
+      "headline": "Analyst & investor meeting held Sep 24",
+      "detail": "Management interaction lands right after the AM Best upgrade and amid the EOM distribution-cost debate; commentary here could swing sentiment either way.",
+      "source_name": "sahi.com",
+      "source_url": "https://sahi.com/news/niva-bupa-to-host-analyst-and-investor-meeting-on-september-24",
+      "source_published_at": "2026-09-24",
+      "first_seen": "2026-09-24T14:31:32.057Z",
+      "discovered_at": "2026-09-24T14:31:32.057Z"
+    },
+    {
+      "id": "c9906b6192",
+      "company_id": "care-health",
+      "date": "2026-09-24",
+      "kind": "catalyst",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "Care Health GWP up <span style=\"color:#22C55E;font-weight:600\">▲22% YoY</span> to ₹10,416 cr; Religare AGM held",
+      "detail": "42nd AGM disclosed strong premium growth alongside a recent ₹100 cr subordinated-debt raise, both incremental positives for the group's health-insurance capital base.",
+      "source_name": "multibagg.ai",
+      "source_url": "https://multibagg.ai/market-pulse/articles/religare-enterprises-agm-2026-voting-cmufk61y6000a2uo6nwhytdir",
+      "source_published_at": "2026-09-24",
+      "first_seen": "2026-09-24T14:31:32.057Z",
+      "discovered_at": "2026-09-24T14:31:32.057Z"
+    },
     {
       "id": "3476b34bc8",
       "company_id": "sector",
@@ -43,6 +88,21 @@
       "source_published_at": null,
       "first_seen": "2026-09-23T14:32:40.002Z",
       "discovered_at": "2026-09-23T14:32:40.002Z"
+    },
+    {
+      "id": "df01ad3a3a",
+      "company_id": "niva-bupa",
+      "date": "2026-09-23",
+      "kind": "catalyst",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "LICHFL Financial Services becomes a Niva Bupa corporate agent",
+      "detail": "New bancassurance-style tie-up widens the retail-health distribution footprint, a modest incremental positive for premium growth.",
+      "source_name": "asiainsurancepost.com",
+      "source_url": "https://asiainsurancepost.com/archives/84078",
+      "source_published_at": "2026-09-23",
+      "first_seen": "2026-09-24T14:31:32.057Z",
+      "discovered_at": "2026-09-24T14:31:32.057Z"
     },
     {
       "id": "5c5dea9f98",
@@ -285,6 +345,21 @@
       "discovered_at": "2026-09-20T13:49:15.627Z"
     },
     {
+      "id": "fd429218c8",
+      "company_id": "niva-bupa",
+      "date": "2026-09-17",
+      "kind": "rating",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "<span style=\"background:#F0FDF4;padding:2px 6px;border-radius:4px;\">AM Best upgrades Niva Bupa to A- (Excellent) financial strength</span>",
+      "detail": "Upgrade cites improving underwriting performance and a lower expense ratio — a balance-sheet-quality positive, though earnings still lean on investment income.",
+      "source_name": "investywise.com",
+      "source_url": "https://www.investywise.com/niva-bupa-credit-ratings-upgraded-by-am-best",
+      "source_published_at": "2026-09-17",
+      "first_seen": "2026-09-24T14:31:32.057Z",
+      "discovered_at": "2026-09-24T14:31:32.057Z"
+    },
+    {
       "id": "9ffbc27a45",
       "company_id": "sector",
       "date": "2026-09-16",
@@ -313,6 +388,21 @@
       "source_published_at": null,
       "first_seen": "2026-09-20T13:49:15.627Z",
       "discovered_at": "2026-09-20T13:49:15.627Z"
+    },
+    {
+      "id": "9d557bb6e9",
+      "company_id": "niva-bupa",
+      "date": "2026-09-15",
+      "kind": "rating",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "MarketsMojo reiterates \"Hold\" on Niva Bupa",
+      "detail": "Balanced quality/valuation/technical scorecard signals no strong near-term directional trigger from this source.",
+      "source_name": "marketsmojo.com",
+      "source_url": "https://www.marketsmojo.com/news/stock-recommendation/niva-bupa-health-insurance-company-ltd-is-rated-hold-4199839",
+      "source_published_at": "2026-09-21",
+      "first_seen": "2026-09-24T14:31:32.057Z",
+      "discovered_at": "2026-09-24T14:31:32.057Z"
     },
     {
       "id": "98cebc7e9d",
@@ -823,96 +913,6 @@
       "source_published_at": null,
       "first_seen": "2026-08-27T23:21:58.739Z",
       "discovered_at": "2026-08-27T23:21:58.739Z"
-    },
-    {
-      "id": "9904e3643d",
-      "company_id": "sector",
-      "date": null,
-      "kind": "sector_news",
-      "horizon": "recent",
-      "impact": "neutral",
-      "headline": "<span style=\"color:#F59E0B;font-weight:600\">◆ watch</span>",
-      "detail": "Fresh push for GST/medical-insurance structural reform over senior-citizen premium costs",
-      "source_name": null,
-      "source_url": null,
-      "source_published_at": null,
-      "first_seen": "2026-08-27T23:21:58.739Z",
-      "discovered_at": "2026-08-27T23:21:58.739Z"
-    },
-    {
-      "id": "d316a38b40",
-      "company_id": "sector",
-      "date": null,
-      "kind": "sector_news",
-      "horizon": "recent",
-      "impact": "neutral",
-      "headline": "<span style=\"background:#F0FDF4;color:#22C55E;font-weight:600;padding:2px 6px;border-radius:4px;\">neutral</span>",
-      "detail": "IRDAI approves Ashwani Bhatia as Chairperson",
-      "source_name": null,
-      "source_url": null,
-      "source_published_at": null,
-      "first_seen": "2026-08-25T06:28:35.370Z",
-      "discovered_at": "2026-08-25T06:28:35.370Z"
-    },
-    {
-      "id": "ea09da9a7f",
-      "company_id": "sector",
-      "date": null,
-      "kind": "sector_news",
-      "horizon": "recent",
-      "impact": "neutral",
-      "headline": "<span style=\"background:#F0FDF4;color:#22C55E;font-weight:600;padding:2px 6px;border-radius:4px;\">positive</span>",
-      "detail": "Star Health Q1 FY27 profit up <strong>~26%</strong> to ₹550 cr",
-      "source_name": null,
-      "source_url": null,
-      "source_published_at": null,
-      "first_seen": "2026-08-25T06:28:35.370Z",
-      "discovered_at": "2026-08-25T06:28:35.370Z"
-    },
-    {
-      "id": "b5c590ac6a",
-      "company_id": "sector",
-      "date": null,
-      "kind": "sector_news",
-      "horizon": "recent",
-      "impact": "neutral",
-      "headline": "<span style=\"background:#FFFBEB;color:#F59E0B;font-weight:600;padding:2px 6px;border-radius:4px;\">watch</span>",
-      "detail": "Aditya Birla Health reports ~<strong>50%</strong> Q1 growth, launches \"Activ Yuva",
-      "source_name": null,
-      "source_url": null,
-      "source_published_at": null,
-      "first_seen": "2026-08-25T06:28:35.370Z",
-      "discovered_at": "2026-08-25T06:28:35.370Z"
-    },
-    {
-      "id": "95e970d1a6",
-      "company_id": "sector",
-      "date": null,
-      "kind": "sector_news",
-      "horizon": "recent",
-      "impact": "neutral",
-      "headline": "<span style=\"color:#22C55E;font-weight:600\">positive</span> <span style=\"background:#F0FDF4;padding:2px 6px;border-radius:4px;\">strongest signal</span>",
-      "detail": "Q1 FY27 PAT surges **93% YoY** to ₹137.8 cr",
-      "source_name": null,
-      "source_url": null,
-      "source_published_at": null,
-      "first_seen": "2026-08-25T10:21:51.097Z",
-      "discovered_at": "2026-08-25T10:21:51.097Z"
-    },
-    {
-      "id": "a4843cffe9",
-      "company_id": "sector",
-      "date": null,
-      "kind": "sector_news",
-      "horizon": "recent",
-      "impact": "neutral",
-      "headline": "<span style=\"background:#FEF2F2;padding:2px 6px;border-radius:4px;color:#EF4444;font-weight:600\">▼ negative</span>",
-      "detail": "Non-life insurer premium growth slows sharply to 5.7% in July from 15.9% in June",
-      "source_name": null,
-      "source_url": null,
-      "source_published_at": null,
-      "first_seen": "2026-08-24T06:36:49.879Z",
-      "discovered_at": "2026-08-24T06:36:49.879Z"
     }
   ]
 }
