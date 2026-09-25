@@ -4,8 +4,8 @@
     "description": "AI-generated market intelligence for the SAHI health insurers — investor meets, earnings/board dates, sector & regulatory news, share catalysts. Web-sourced; each item links its source. AI-generated, not audited.",
     "schema_version": "1.0.0",
     "dataset": "ai_generated",
-    "last_updated": "2026-09-24",
-    "last_successful_run": "2026-09-24T14:31:32.057Z",
+    "last_updated": "2026-09-25",
+    "last_successful_run": "2026-09-25T06:51:14.815Z",
     "upstream_sources": [
       "muns_agent_web"
     ],
@@ -14,6 +14,51 @@
     "notes": "Clearly labelled AI-generated intelligence — verify before acting. Items accumulate through the day and rank by investor impact, not recency."
   },
   "data": [
+    {
+      "id": "e8d08970ba",
+      "company_id": "sector",
+      "date": null,
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "<span style=\"color:#22C55E;font-weight:600\">positive</span> <span style=\"background:#F0FDF4;padding:2px 6px;border-radius:4px;color:#22C55E;font-weight:600\">Credit rating upgrade</span>",
+      "detail": "AM Best assigns A- (Excellent) Financial Strength Rating to Niva Bupa",
+      "source_name": null,
+      "source_url": null,
+      "source_published_at": null,
+      "first_seen": "2026-09-25T06:51:14.815Z",
+      "discovered_at": "2026-09-25T06:51:14.815Z"
+    },
+    {
+      "id": "af98b0cfe2",
+      "company_id": "sector",
+      "date": null,
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "<span style=\"color:#F59E0B;font-weight:600\">neutral</span>",
+      "detail": "MarketsMojo rates Star Health \"Hold",
+      "source_name": null,
+      "source_url": null,
+      "source_published_at": null,
+      "first_seen": "2026-09-25T06:51:14.815Z",
+      "discovered_at": "2026-09-25T06:51:14.815Z"
+    },
+    {
+      "id": "868bb13f8f",
+      "company_id": "sector",
+      "date": null,
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "<span style=\"background:#FEF2F2;color:#EF4444;font-weight:600;padding:2px 6px;border-radius:4px\">negative</span>",
+      "detail": "[IRDAI issues sweeping insurance distribution reforms draft (EOM cuts, commission caps, bundling ban)](https://www.moneycontrol.com/banking/irdai-issues-consultation-paper-on-distribution-reforms-article-14036664.html)",
+      "source_name": null,
+      "source_url": null,
+      "source_published_at": "2026-09-23",
+      "first_seen": "2026-09-25T06:51:14.815Z",
+      "discovered_at": "2026-09-25T06:51:14.815Z"
+    },
     {
       "id": "c82f727ae6",
       "company_id": "niva-bupa",
@@ -868,51 +913,6 @@
       "source_published_at": null,
       "first_seen": "2026-09-04T17:16:22.746Z",
       "discovered_at": "2026-09-04T17:16:22.746Z"
-    },
-    {
-      "id": "e54fa65d10",
-      "company_id": "sector",
-      "date": null,
-      "kind": "sector_news",
-      "horizon": "recent",
-      "impact": "neutral",
-      "headline": "<span style=\"background:#FFFBEB;color:#F59E0B;font-weight:600;padding:2px 6px;border-radius:4px\">watch</span>",
-      "detail": "<span style=\"color:#F59E0B;font-weight:600\">◆ IRDAI sub-committee pushes simpler, more transparent health covers</span>",
-      "source_name": null,
-      "source_url": null,
-      "source_published_at": null,
-      "first_seen": "2026-08-30T07:40:04.892Z",
-      "discovered_at": "2026-08-30T07:40:04.892Z"
-    },
-    {
-      "id": "6ba7daeeb9",
-      "company_id": "sector",
-      "date": null,
-      "kind": "sector_news",
-      "horizon": "recent",
-      "impact": "neutral",
-      "headline": "<span style=\"background:#FEF2F2;color:#EF4444;font-weight:600;padding:2px 6px;border-radius:4px;\">negative</span>",
-      "detail": "IRDAI bars Niva Bupa from opening new offices for 6 months",
-      "source_name": null,
-      "source_url": null,
-      "source_published_at": null,
-      "first_seen": "2026-08-27T12:09:29.320Z",
-      "discovered_at": "2026-08-27T12:09:29.320Z"
-    },
-    {
-      "id": "c553b279f7",
-      "company_id": "sector",
-      "date": null,
-      "kind": "sector_news",
-      "horizon": "recent",
-      "impact": "neutral",
-      "headline": "<span style=\"color:#EF4444;font-weight:600\">▼ negative</span>",
-      "detail": "ProTec General Insurance gets 4th new-insurer registration of CY2026",
-      "source_name": null,
-      "source_url": null,
-      "source_published_at": null,
-      "first_seen": "2026-08-27T23:21:58.739Z",
-      "discovered_at": "2026-08-27T23:21:58.739Z"
     }
   ]
 }
