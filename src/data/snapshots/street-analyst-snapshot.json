@@ -12,31 +12,41 @@
       "Moneycontrol Price"
     ],
     "dataset": "official",
-    "last_updated": "2026-09-25",
-    "last_successful_run": "2026-09-25T09:03:19.355Z",
-    "last_fetched_at": "2026-09-25T09:03:19.355Z",
+    "last_updated": "2026-09-26",
+    "last_successful_run": "2026-09-26T08:48:11.957Z",
+    "last_fetched_at": "2026-09-26T08:48:11.957Z",
     "parser_status": "ready",
     "notes": "Live Moneycontrol pull from: Moneycontrol Broker Research, Moneycontrol Price. Missing fields stay null (never fabricated)."
   },
   "consensus": {
-    "current_price": 77.33,
-    "consensus_target_price": 96.5,
-    "highest_target_price": 103,
+    "current_price": 77.19,
+    "consensus_target_price": 95,
+    "highest_target_price": 100,
     "lowest_target_price": 90,
     "analyst_count": 2,
     "buy_count": 2,
     "hold_count": 0,
     "sell_count": 0,
-    "last_updated": "2026-09-25"
+    "last_updated": "2026-09-26"
   },
   "market": {
-    "current_price": 77.33,
+    "current_price": 77.19,
     "week_high_52": 91.4,
     "week_low_52": 67.5,
-    "price_change_pct": 1.5763,
-    "price_as_of": "2026-09-25 14:33:26"
+    "price_change_pct": 1.3924,
+    "price_as_of": "2026-09-25 15:59:37"
   },
   "reports": [
+    {
+      "brokerage": "Motilal Oswal",
+      "rating": "Buy",
+      "target_price": 100,
+      "report_date": "24 Sep, 2026",
+      "thesis": null,
+      "source_id": null,
+      "source_url": "https://images.moneycontrol.com/static-mcnews/2026/09/20260925060919_Niva-Bupa-Health-Insurance-2509026-moti.pdf",
+      "confidence": "secondary"
+    },
     {
       "brokerage": "Motilal Oswal",
       "rating": "Buy",
@@ -85,16 +95,6 @@
       "thesis": null,
       "source_id": null,
       "source_url": "https://images.moneycontrol.com/static-mcnews/2025/11/20251110060342_Niva-Bupa-Health-Insurance-Company_06112025_ICICI-Securities.pdf",
-      "confidence": "secondary"
-    },
-    {
-      "brokerage": "Motilal Oswal",
-      "rating": "Buy",
-      "target_price": 92,
-      "report_date": "—",
-      "thesis": null,
-      "source_id": null,
-      "source_url": "https://images.moneycontrol.com/static-mcnews/2025/11/20251104122823_Niva-Bupa_04112025_Motilal-Oswal.pdf",
       "confidence": "secondary"
     }
   ]
