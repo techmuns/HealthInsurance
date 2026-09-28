@@ -11,6 +11,16 @@
 //  per-holder share counts via the muns chat agent (web-search + filings access)
 //  and refreshes the snapshot the Captable cells read from.
 //
+//  FIRST CHOICE, AGENT-FREE (2026-09-28): the company's own quarterly IRDAI
+//  public disclosure, which the pipeline already stages. Its Form NL-9A names
+//  every holder above 1% (the same threshold as the exchange filing) and Form
+//  NL-9 gives the total, both certified by management - read by
+//  nl9a-shareholding.ts with its own tie-out gates. The agent is asked only for
+//  a quarter whose disclosure isn't staged or doesn't read cleanly (e.g. the
+//  2025 forms name mutual-fund schemes, not fund houses). On 2026-09-28 the
+//  agent answered "filing not found" for Jun-2026 while the disclosure was
+//  already on disk.
+//
 //  WHAT IT DOES NOW (backfill + merge): it fills EVERY filed quarter since the
 //  company listed — not just the latest — so the shareholding-trend view has a
 //  real period-on-period history. Each run pulls the quarters still missing
@@ -31,13 +41,15 @@
 //  A quarter that fails any gate is skipped; the rest of the run still proceeds and
 //  whatever passed is merged. Missing stays missing — we never partial-fill a quarter.
 //
-//  Token: MUNS_API_TOKEN (a GitHub Actions secret). Offline / no token → no-op
-//  that preserves the committed snapshot.
+//  Token: MUNS_API_TOKEN (a GitHub Actions secret), needed only for the agent
+//  fallback. Without it the staged disclosures are still read.
 // ---------------------------------------------------------------------------
 
 import { readFileSync, writeFileSync } from 'node:fs'
-import { resolve } from 'node:path'
-import { SNAPSHOTS_ROOT, nowIso, appendLog } from './util'
+import { basename, resolve } from 'node:path'
+import { REPO_ROOT, SNAPSHOTS_ROOT, nowIso, appendLog } from './util'
+import { parsePdf } from './parsers'
+import { parseNl9aShareholding, type Nl9aLine, type Nl9aShareholding } from './nl9a-shareholding'
 
 const API_URL = process.env.MUNS_AGENT_URL || 'https://devde.muns.io/chat/chat-muns'
 // The agent's answer time varies a lot (2026-09-28: three calls in a row hit a
@@ -59,6 +71,9 @@ const BSE = '544286'
 const SCREENER_URL = 'https://www.screener.in/company/NIVABUPA/#shareholding'
 const BSE_FILING_URL =
   'https://www.bseindia.com/stock-share-price/niva-bupa-health-insurance-company-ltd/nivabupa/544286/shareholding-pattern/'
+// Where the company publishes its quarterly IRDAI public disclosures.
+const DISCLOSURES_PAGE_URL = 'https://transactions.nivabupa.com/pages/investor-relations.aspx'
+const INVENTORY_PATH = resolve(REPO_ROOT, 'data/source-map/filings-inventory.json')
 
 // Niva Bupa listed in Nov 2024; its first shareholding pattern as a listed
 // company is the quarter ended 31 Dec 2024 — where the "since listing" backfill
@@ -195,7 +210,8 @@ function buildPayload(targetIso: string) {
         `If the only data you can find is for a different quarter, set AS_OF to that quarter's real date — ` +
         `do NOT relabel it as ${targetIso}.\n` +
         `• If that quarter's filing does not exist or you cannot find it, output only: AS_OF | NONE\n` +
-        `• "Other Mutual funds" = mutual-fund holders not named above; "Insurance Companies" = ` +
+        `• "Other Mutual funds" = mutual-fund AND alternative-investment-fund holders not named above; ` +
+        `"Insurance Companies" = ` +
         `insurer holders; "Others" = ALL remaining shares not separately named — set "Others" so ` +
         `that the 15 holder lines SUM EXACTLY to TOTAL.\n` +
         `• The filing names public holders only above 1%. If one of the holders listed above is NOT ` +
@@ -261,6 +277,10 @@ interface Parsed {
   holders: Map<string, number>
   missing: string[]
   notDisclosed: string[]
+  /** Where the answer came from: the company's own disclosure, or the agent. */
+  via?: 'disclosure' | 'agent'
+  /** The staged document read (repo-relative), for the disclosure path. */
+  sourceFile?: string | null
 }
 
 function parseAnswer(answer: string): Parsed {
@@ -285,6 +305,120 @@ function parseAnswer(answer: string): Parsed {
   return out
 }
 
+// ── First choice: the company's own quarterly disclosure (agent-free) ──────
+//
+// How the Form NL-9A lines fold into the Captable's rows. Checked against the
+// owner's master Captable for Mar-2026, where every row the filing names
+// reproduces to the share: Temasek holds through two vehicles (V-Sciences
+// Investments + Zulia Investments), Motilal Oswal Private Equity through India
+// Business Excellence Fund IV, and "Other Mutual funds" is every mutual-fund
+// AND alternative-investment-fund share not in a named row. A holder the form
+// doesn't name is "not separately disclosed" (validateQuarter decides whether
+// that's allowed); each printed line feeds at most one row, so no share is
+// ever counted twice.
+const NAMED_RULES: Array<{ holder: (typeof HOLDERS)[number]; vehicles: RegExp[] }> = [
+  { holder: 'Fettle Tone LLP', vehicles: [/Fettle\s*Tone/i] },
+  { holder: 'Temasek', vehicles: [/V-?\s*Sciences/i, /Zulia/i] },
+  { holder: 'DSP Mutual Fund', vehicles: [/\bDSP\b.*Mutual Fund/i] },
+  { holder: 'Motilal Oswal Private Equity', vehicles: [/India Business Excellence Fund/i] },
+  { holder: 'Nippon India Mutual Funds', vehicles: [/Nippon India Mutual Fund/i] },
+  { holder: 'Amansa Holdings', vehicles: [/Amansa/i] },
+  { holder: 'A91', vehicles: [/\bA91\b/i] },
+  { holder: 'Tata Mutual Fund', vehicles: [/\bTata Mutual Fund/i] },
+  { holder: 'SBI Mutual Fund', vehicles: [/\bSBI Mutual Fund/i] },
+  { holder: 'Pallonji', vehicles: [/Pallonji/i] },
+  { holder: 'Paragon', vehicles: [/Paragon/i] },
+]
+
+/** Fold one quarter's parsed forms into the Captable's 15 rows. */
+function captableFromNl9a(d: Nl9aShareholding): { parsed: Parsed | null; reason: string } {
+  const fail = (reason: string) => ({ parsed: null, reason })
+  const holders = new Map<string, number>()
+  const missing: string[] = []
+  const notDisclosed: string[] = []
+  const used = new Set<Nl9aLine>()
+
+  // Promoter group: Bupa Singapore Holdings (plus any nominee lines it files).
+  if (!d.promoters.every((l) => /Bupa/i.test(l.label))) return fail('a promoter line other than Bupa - unknown layout')
+  holders.set('Bupa Singapore Holdings', d.promoters.reduce((s, l) => s + l.shares, 0))
+
+  const namedLines = d.categories.flatMap((c) => c.named)
+  for (const rule of NAMED_RULES) {
+    const found: Nl9aLine[] = []
+    for (const re of rule.vehicles) {
+      const hits = namedLines.filter((l) => re.test(l.label))
+      if (hits.length > 1) return fail(`"${rule.holder}" matches ${hits.length} lines - ambiguous`)
+      if (hits[0]) found.push(hits[0])
+    }
+    if (found.some((l) => used.has(l))) return fail(`a line is claimed by two rows ("${rule.holder}")`)
+    found.forEach((l) => used.add(l))
+    if (found.length === rule.vehicles.length) holders.set(rule.holder, found.reduce((s, l) => s + l.shares, 0))
+    else if (found.length === 0) notDisclosed.push(rule.holder)
+    else missing.push(rule.holder) // only some of its vehicles named - never a partial count
+  }
+
+  const categoryOf = (re: RegExp) => d.categories.filter((c) => re.test(c.label))
+  const mf = categoryOf(/Mutual Funds?\b/i)
+  const aif = categoryOf(/Alternative Investment Fund/i)
+  const insurers = categoryOf(/Insurance Companies/i)
+  if (mf.length !== 1 || aif.length > 1 || insurers.length > 1) return fail('fund / insurer categories not found once each')
+  // The fund-house rows need fund-house naming ("DSP Mutual Fund Through various
+  // schemes"); a form that names single schemes can't give those totals.
+  if (!mf[0].named.every((l) => /Mutual Fund/i.test(l.label)))
+    return fail('its mutual funds are named by scheme, not by fund house - the fund-house rows can\'t be read')
+  const unclaimed = (c: (typeof mf)[number]) => c.shares - c.named.filter((l) => used.has(l)).reduce((s, l) => s + l.shares, 0)
+  holders.set('Other Mutual funds', unclaimed(mf[0]) + (aif[0] ? unclaimed(aif[0]) : 0))
+  if (insurers[0]) holders.set('Insurance Companies', insurers[0].shares)
+  else missing.push('Insurance Companies')
+
+  const namedSum = [...holders.values()].reduce((s, v) => s + v, 0)
+  if (namedSum >= d.total) return fail('named rows reach the total - nothing left for Others')
+  holders.set('Others', d.total - namedSum)
+
+  return {
+    parsed: { asOf: d.asOf, total: d.total, source: DISCLOSURES_PAGE_URL, holders, missing, notDisclosed, via: 'disclosure' },
+    reason: 'ok',
+  }
+}
+
+/** The staged public disclosure(s) for one quarter end, per the filings inventory. */
+function stagedDisclosures(q: string): string[] {
+  try {
+    const inv = JSON.parse(readFileSync(INVENTORY_PATH, 'utf8')) as {
+      data?: Array<{ company_id?: string; document_type?: string; period_end?: string | null; source_file?: string | null }>
+    }
+    return (inv.data ?? [])
+      .filter((r) => r.company_id === COMPANY_ID && r.document_type === 'public_disclosure' && r.period_end === q && r.source_file)
+      .map((r) => r.source_file as string)
+  } catch {
+    return []
+  }
+}
+
+/** One quarter from the company's own disclosure, or null + why not. */
+async function fromCompanyDisclosure(q: string): Promise<{ parsed: Parsed | null; reason: string }> {
+  const files = stagedDisclosures(q)
+  if (!files.length) return { parsed: null, reason: 'no public disclosure staged for this quarter yet' }
+  const reasons: string[] = []
+  for (const file of files) {
+    let text: string
+    try {
+      text = (await parsePdf(readFileSync(resolve(REPO_ROOT, file)))).text
+    } catch (err) {
+      reasons.push(`${basename(file)}: unreadable (${err instanceof Error ? err.message : String(err)})`)
+      continue
+    }
+    const { data, reason } = parseNl9aShareholding(text)
+    if (!data) { reasons.push(`${basename(file)}: ${reason}`); continue }
+    if (data.asOf !== q) { reasons.push(`${basename(file)}: its forms are for ${data.asOf}, not ${q}`); continue }
+    const mapped = captableFromNl9a(data)
+    if (!mapped.parsed) { reasons.push(`${basename(file)}: ${mapped.reason}`); continue }
+    mapped.parsed.sourceFile = file
+    return mapped
+  }
+  return { parsed: null, reason: reasons.join('; ') }
+}
+
 /** The 15 rows for one validated quarter — a number for every holder the
  *  filing names, and a "not separately disclosed" row (no number) for any it
  *  doesn't (`unnamed`; their shares are inside Others). */
@@ -294,13 +428,20 @@ function buildQuarterRows(p: Parsed, unnamed: string[]): HolderRow[] {
   const filing_period = quarterLabel(asOf)
   const fetched_at = nowIso()
   const named = HOLDERS.length - unnamed.length
+  const tieOut =
+    `the ${named} holder lines sum exactly to the ${total.toLocaleString('en-IN')} total shares` +
+    (unnamed.length
+      ? ` (${unnamed.join(', ')} not separately named in the filing — below its 1% naming threshold, counted within the unnamed holders)`
+      : '')
+  // "Form NL-9A" in the disclosure text is also what the audit grid keys its
+  // IRDAI-pipeline label on (AuditSpreadsheet.tsx, fromNl9a) - keep it.
   const source_name =
-    `${COMPANY_NAME} — Shareholding pattern, quarter ended ${asOf} (${filing_period}), as filed with BSE/NSE ` +
-    `(Reg. 31 LODR). Auto-fetched via the muns filings agent and verified: the ${named} holder lines sum exactly to the ` +
-    `${total.toLocaleString('en-IN')} total shares` +
-    (unnamed.length ? ` (${unnamed.join(', ')} not separately named in the filing — below its 1% naming threshold, counted inside Others)` : '') +
-    `. The named per-holder list is not on Screener's public page ` +
-    `(login-only there); the exchange filing is the source. Cross-reference: ${SCREENER_URL}`
+    p.via === 'disclosure'
+      ? `${COMPANY_NAME} — Shareholding pattern, quarter ended ${asOf} (${filing_period}), from the company's quarterly ` +
+        `IRDAI public disclosure (Form NL-9A names every holder above 1%; total shares from Form NL-9). Verified: ${tieOut}.`
+      : `${COMPANY_NAME} — Shareholding pattern, quarter ended ${asOf} (${filing_period}), as filed with BSE/NSE ` +
+        `(Reg. 31 LODR). Auto-fetched via the muns filings agent and verified: ${tieOut}. The named per-holder list is ` +
+        `not on Screener's public page (login-only there); the exchange filing is the source. Cross-reference: ${SCREENER_URL}`
   return HOLDERS.map((holder) => {
     if (unnamed.includes(holder)) {
       return {
@@ -314,7 +455,7 @@ function buildQuarterRows(p: Parsed, unnamed: string[]): HolderRow[] {
         provenance: {
           source_name,
           source_url: p.source || BSE_FILING_URL,
-          source_file: null,
+          source_file: p.sourceFile ?? null,
           fetched_at,
           confidence: 'high',
           source_status: 'not_separately_disclosed',
@@ -332,7 +473,7 @@ function buildQuarterRows(p: Parsed, unnamed: string[]): HolderRow[] {
       provenance: {
         source_name,
         source_url: p.source || BSE_FILING_URL,
-        source_file: null,
+        source_file: p.sourceFile ?? null,
         fetched_at,
         confidence: 'high',
         source_status: 'available',
@@ -445,11 +586,10 @@ function stampAttempt(prior: Snapshot | null, status: string, note: string): voi
 
 async function main(): Promise<number> {
   const prior = readSnapshotFile()
+  // The agent is only the fallback now: without a token the staged company
+  // disclosures are still read.
   const token = (process.env.MUNS_API_TOKEN || '').trim()
-  if (!token) {
-    console.warn('MUNS_API_TOKEN not set — preserving the committed shareholding snapshot (no fresh pull).')
-    return 0
-  }
+  if (!token) console.warn('MUNS_API_TOKEN not set — reading the staged company disclosures only (no agent calls).')
 
   const startedAt = Date.now()
 
@@ -490,23 +630,35 @@ async function main(): Promise<number> {
   const fetched = new Map<string, HolderRow[]>()
   let held = 0
   for (const q of toProcess) {
-    const remaining = RUN_BUDGET_MS - (Date.now() - startedAt)
-    if (remaining < MIN_CALL_MS) {
-      console.warn(`run budget reached — stopping before ${q}; the rest fills on the next run.`)
-      break
+    // First choice: the company's own quarterly disclosure (official, agent-free).
+    const staged = await fromCompanyDisclosure(q)
+    let parsed = staged.parsed
+    if (parsed) {
+      console.log(`  · ${quarterLabel(q)} (${q}): read from the company's IRDAI public disclosure (Form NL-9A)`)
+    } else {
+      console.log(`  · ${quarterLabel(q)} (${q}): company disclosure not usable — ${staged.reason}`)
+      if (!token) {
+        held++
+        continue
+      }
+      const remaining = RUN_BUDGET_MS - (Date.now() - startedAt)
+      if (remaining < MIN_CALL_MS) {
+        console.warn(`run budget reached — stopping before ${q}; the rest fills on the next run.`)
+        break
+      }
+      let raw: string
+      try {
+        console.log(`  · asking the muns agent for ${quarterLabel(q)} (${q}) …`)
+        raw = await callAgent(token, q, Math.min(q === latest ? LATEST_CALL_TIMEOUT_MS : PER_CALL_TIMEOUT_MS, remaining))
+      } catch (err) {
+        const reason = err instanceof Error ? err.message : String(err)
+        console.error(`  ✗ ${q}: agent call failed — ${reason}`)
+        await appendLog('fetch-shareholding.log', { company_id: COMPANY_ID, status: 'error', quarter: q, reason })
+        held++
+        continue
+      }
+      parsed = { ...parseAnswer(extractAnswer(raw)), via: 'agent' }
     }
-    let raw: string
-    try {
-      console.log(`  · asking the muns agent for ${quarterLabel(q)} (${q}) …`)
-      raw = await callAgent(token, q, Math.min(q === latest ? LATEST_CALL_TIMEOUT_MS : PER_CALL_TIMEOUT_MS, remaining))
-    } catch (err) {
-      const reason = err instanceof Error ? err.message : String(err)
-      console.error(`  ✗ ${q}: agent call failed — ${reason}`)
-      await appendLog('fetch-shareholding.log', { company_id: COMPANY_ID, status: 'error', quarter: q, reason })
-      held++
-      continue
-    }
-    const parsed = parseAnswer(extractAnswer(raw))
     const { rows, total, reason } = validateQuarter(parsed, q, nearestKnownTotal(q, knownTotals), lastPct)
     if (!rows) {
       console.warn(`  ⃠ ${q}: held — ${reason}`)

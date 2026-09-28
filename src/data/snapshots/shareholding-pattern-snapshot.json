@@ -1,16 +1,29 @@
 {
   "_meta": {
     "snapshot_id": "shareholding-pattern-snapshot",
-    "description": "Per-holder shareholding pattern (share counts) for listed SAHIs, from the quarterly exchange shareholding-pattern filing. Feeds the Captable tab's shareholding_shares::<holder> cells via build_value_store.py (rank-1 official filing). Missing stays missing — never 0; a holder is written only with a real sourced count.",
-    "schema_version": "1.0.0",
+    "description": "Per-holder shareholding pattern (share counts) for listed SAHIs, across every filed quarter since listing, from the quarterly exchange shareholding-pattern filing. Feeds the Captable tab (latest quarter, via sync_captable_period.py + build_value_store.py) and the shareholding-trend view (all quarters). Each quarter is independently gated — its 15 holders sum exactly to that quarter's disclosed total. Missing stays missing — never 0; a holder is written only with a real sourced count.",
+    "schema_version": "1.1.0",
     "company_id": "niva-bupa",
-    "as_of": "2026-03-31",
-    "period_label": "Q4 FY26 (Mar 2026)",
-    "total_shares": 1847456771,
+    "as_of": "2026-06-30",
+    "period_label": "Q1FY27 (Jun 2026)",
+    "total_shares": 1849233703,
     "holders_sum_ties_to_total": true,
-    "last_successful_run": "2026-06-10T20:47:59.243806+00:00",
+    "periods": [
+      {
+        "period": "2026-03-31",
+        "filing_period": "Q4FY26",
+        "total_shares": 1847456771
+      },
+      {
+        "period": "2026-06-30",
+        "filing_period": "Q1FY27",
+        "total_shares": 1849233703
+      }
+    ],
+    "periods_count": 2,
+    "last_successful_run": "2026-09-28T13:59:31.295Z",
     "parser_status": "ready",
-    "source_policy": "Official exchange shareholding-pattern filing is authoritative (rank 1). The named per-holder breakdown is NOT on Screener's public page (login-only there), so the filing is the source; Screener's four category totals are kept below as a public cross-check only.",
+    "source_policy": "Official exchange shareholding-pattern filing is authoritative (rank 1). The named per-holder breakdown is NOT on Screener's public page (login-only there), so the filing is the source; Screener's category totals are kept below as a public cross-check only.",
     "category_totals_pct": {
       "as_of": "2026-03-31",
       "promoters": 55.36,
@@ -22,9 +35,9 @@
       "source_url": "https://www.screener.in/company/NIVABUPA/#shareholding",
       "note": "Public Screener exposes only these four class totals + shareholder count; the named-holder list is login-only."
     },
-    "last_attempt": "2026-09-28T13:45:41.288Z",
+    "last_attempt": "2026-09-28T14:15:45.396Z",
     "last_attempt_status": "unchanged",
-    "last_attempt_note": "no new quarter available yet"
+    "last_attempt_note": "refetched quarter(s) identical to snapshot"
   },
   "data": [
     {
@@ -263,6 +276,247 @@
         "source_url": "https://www.bseindia.com/stock-share-price/niva-bupa-health-insurance-company-ltd/nivabupa/544286/shareholding-pattern/",
         "source_file": null,
         "fetched_at": "2026-06-10T20:47:59.243806+00:00",
+        "confidence": "high",
+        "source_status": "available"
+      }
+    },
+    {
+      "company_id": "niva-bupa",
+      "holder": "Bupa Singapore Holdings",
+      "period": "2026-06-30",
+      "filing_period": "Q1FY27",
+      "shares": 1022690470,
+      "pct": 55.3,
+      "provenance": {
+        "source_name": "Niva Bupa Health Insurance — Shareholding pattern, quarter ended 2026-06-30 (Q1FY27), from the company's quarterly IRDAI public disclosure (Form NL-9A names every holder above 1%; total shares from Form NL-9). Verified: the 14 holder lines sum exactly to the 1,84,92,33,703 total shares (Paragon not separately named in the filing — below its 1% naming threshold, counted within the unnamed holders).",
+        "source_url": "https://transactions.nivabupa.com/pages/investor-relations.aspx",
+        "source_file": "data/raw/companies/niva-bupa/niva-bupa-Website-Public-Disclosures-Jun-2026.pdf",
+        "fetched_at": "2026-09-28T13:59:29.926Z",
+        "confidence": "high",
+        "source_status": "available"
+      }
+    },
+    {
+      "company_id": "niva-bupa",
+      "holder": "Fettle Tone LLP",
+      "period": "2026-06-30",
+      "filing_period": "Q1FY27",
+      "shares": 132702091,
+      "pct": 7.18,
+      "provenance": {
+        "source_name": "Niva Bupa Health Insurance — Shareholding pattern, quarter ended 2026-06-30 (Q1FY27), from the company's quarterly IRDAI public disclosure (Form NL-9A names every holder above 1%; total shares from Form NL-9). Verified: the 14 holder lines sum exactly to the 1,84,92,33,703 total shares (Paragon not separately named in the filing — below its 1% naming threshold, counted within the unnamed holders).",
+        "source_url": "https://transactions.nivabupa.com/pages/investor-relations.aspx",
+        "source_file": "data/raw/companies/niva-bupa/niva-bupa-Website-Public-Disclosures-Jun-2026.pdf",
+        "fetched_at": "2026-09-28T13:59:29.926Z",
+        "confidence": "high",
+        "source_status": "available"
+      }
+    },
+    {
+      "company_id": "niva-bupa",
+      "holder": "Temasek",
+      "period": "2026-06-30",
+      "filing_period": "Q1FY27",
+      "shares": 82454426,
+      "pct": 4.46,
+      "provenance": {
+        "source_name": "Niva Bupa Health Insurance — Shareholding pattern, quarter ended 2026-06-30 (Q1FY27), from the company's quarterly IRDAI public disclosure (Form NL-9A names every holder above 1%; total shares from Form NL-9). Verified: the 14 holder lines sum exactly to the 1,84,92,33,703 total shares (Paragon not separately named in the filing — below its 1% naming threshold, counted within the unnamed holders).",
+        "source_url": "https://transactions.nivabupa.com/pages/investor-relations.aspx",
+        "source_file": "data/raw/companies/niva-bupa/niva-bupa-Website-Public-Disclosures-Jun-2026.pdf",
+        "fetched_at": "2026-09-28T13:59:29.926Z",
+        "confidence": "high",
+        "source_status": "available"
+      }
+    },
+    {
+      "company_id": "niva-bupa",
+      "holder": "DSP Mutual Fund",
+      "period": "2026-06-30",
+      "filing_period": "Q1FY27",
+      "shares": 29012273,
+      "pct": 1.57,
+      "provenance": {
+        "source_name": "Niva Bupa Health Insurance — Shareholding pattern, quarter ended 2026-06-30 (Q1FY27), from the company's quarterly IRDAI public disclosure (Form NL-9A names every holder above 1%; total shares from Form NL-9). Verified: the 14 holder lines sum exactly to the 1,84,92,33,703 total shares (Paragon not separately named in the filing — below its 1% naming threshold, counted within the unnamed holders).",
+        "source_url": "https://transactions.nivabupa.com/pages/investor-relations.aspx",
+        "source_file": "data/raw/companies/niva-bupa/niva-bupa-Website-Public-Disclosures-Jun-2026.pdf",
+        "fetched_at": "2026-09-28T13:59:29.926Z",
+        "confidence": "high",
+        "source_status": "available"
+      }
+    },
+    {
+      "company_id": "niva-bupa",
+      "holder": "Motilal Oswal Private Equity",
+      "period": "2026-06-30",
+      "filing_period": "Q1FY27",
+      "shares": 48399106,
+      "pct": 2.62,
+      "provenance": {
+        "source_name": "Niva Bupa Health Insurance — Shareholding pattern, quarter ended 2026-06-30 (Q1FY27), from the company's quarterly IRDAI public disclosure (Form NL-9A names every holder above 1%; total shares from Form NL-9). Verified: the 14 holder lines sum exactly to the 1,84,92,33,703 total shares (Paragon not separately named in the filing — below its 1% naming threshold, counted within the unnamed holders).",
+        "source_url": "https://transactions.nivabupa.com/pages/investor-relations.aspx",
+        "source_file": "data/raw/companies/niva-bupa/niva-bupa-Website-Public-Disclosures-Jun-2026.pdf",
+        "fetched_at": "2026-09-28T13:59:29.926Z",
+        "confidence": "high",
+        "source_status": "available"
+      }
+    },
+    {
+      "company_id": "niva-bupa",
+      "holder": "Nippon India Mutual Funds",
+      "period": "2026-06-30",
+      "filing_period": "Q1FY27",
+      "shares": 57575426,
+      "pct": 3.11,
+      "provenance": {
+        "source_name": "Niva Bupa Health Insurance — Shareholding pattern, quarter ended 2026-06-30 (Q1FY27), from the company's quarterly IRDAI public disclosure (Form NL-9A names every holder above 1%; total shares from Form NL-9). Verified: the 14 holder lines sum exactly to the 1,84,92,33,703 total shares (Paragon not separately named in the filing — below its 1% naming threshold, counted within the unnamed holders).",
+        "source_url": "https://transactions.nivabupa.com/pages/investor-relations.aspx",
+        "source_file": "data/raw/companies/niva-bupa/niva-bupa-Website-Public-Disclosures-Jun-2026.pdf",
+        "fetched_at": "2026-09-28T13:59:29.926Z",
+        "confidence": "high",
+        "source_status": "available"
+      }
+    },
+    {
+      "company_id": "niva-bupa",
+      "holder": "Amansa Holdings",
+      "period": "2026-06-30",
+      "filing_period": "Q1FY27",
+      "shares": 42291644,
+      "pct": 2.29,
+      "provenance": {
+        "source_name": "Niva Bupa Health Insurance — Shareholding pattern, quarter ended 2026-06-30 (Q1FY27), from the company's quarterly IRDAI public disclosure (Form NL-9A names every holder above 1%; total shares from Form NL-9). Verified: the 14 holder lines sum exactly to the 1,84,92,33,703 total shares (Paragon not separately named in the filing — below its 1% naming threshold, counted within the unnamed holders).",
+        "source_url": "https://transactions.nivabupa.com/pages/investor-relations.aspx",
+        "source_file": "data/raw/companies/niva-bupa/niva-bupa-Website-Public-Disclosures-Jun-2026.pdf",
+        "fetched_at": "2026-09-28T13:59:29.926Z",
+        "confidence": "high",
+        "source_status": "available"
+      }
+    },
+    {
+      "company_id": "niva-bupa",
+      "holder": "A91",
+      "period": "2026-06-30",
+      "filing_period": "Q1FY27",
+      "shares": 39035360,
+      "pct": 2.11,
+      "provenance": {
+        "source_name": "Niva Bupa Health Insurance — Shareholding pattern, quarter ended 2026-06-30 (Q1FY27), from the company's quarterly IRDAI public disclosure (Form NL-9A names every holder above 1%; total shares from Form NL-9). Verified: the 14 holder lines sum exactly to the 1,84,92,33,703 total shares (Paragon not separately named in the filing — below its 1% naming threshold, counted within the unnamed holders).",
+        "source_url": "https://transactions.nivabupa.com/pages/investor-relations.aspx",
+        "source_file": "data/raw/companies/niva-bupa/niva-bupa-Website-Public-Disclosures-Jun-2026.pdf",
+        "fetched_at": "2026-09-28T13:59:29.926Z",
+        "confidence": "high",
+        "source_status": "available"
+      }
+    },
+    {
+      "company_id": "niva-bupa",
+      "holder": "Tata Mutual Fund",
+      "period": "2026-06-30",
+      "filing_period": "Q1FY27",
+      "shares": 28098770,
+      "pct": 1.52,
+      "provenance": {
+        "source_name": "Niva Bupa Health Insurance — Shareholding pattern, quarter ended 2026-06-30 (Q1FY27), from the company's quarterly IRDAI public disclosure (Form NL-9A names every holder above 1%; total shares from Form NL-9). Verified: the 14 holder lines sum exactly to the 1,84,92,33,703 total shares (Paragon not separately named in the filing — below its 1% naming threshold, counted within the unnamed holders).",
+        "source_url": "https://transactions.nivabupa.com/pages/investor-relations.aspx",
+        "source_file": "data/raw/companies/niva-bupa/niva-bupa-Website-Public-Disclosures-Jun-2026.pdf",
+        "fetched_at": "2026-09-28T13:59:29.926Z",
+        "confidence": "high",
+        "source_status": "available"
+      }
+    },
+    {
+      "company_id": "niva-bupa",
+      "holder": "SBI Mutual Fund",
+      "period": "2026-06-30",
+      "filing_period": "Q1FY27",
+      "shares": 25711520,
+      "pct": 1.39,
+      "provenance": {
+        "source_name": "Niva Bupa Health Insurance — Shareholding pattern, quarter ended 2026-06-30 (Q1FY27), from the company's quarterly IRDAI public disclosure (Form NL-9A names every holder above 1%; total shares from Form NL-9). Verified: the 14 holder lines sum exactly to the 1,84,92,33,703 total shares (Paragon not separately named in the filing — below its 1% naming threshold, counted within the unnamed holders).",
+        "source_url": "https://transactions.nivabupa.com/pages/investor-relations.aspx",
+        "source_file": "data/raw/companies/niva-bupa/niva-bupa-Website-Public-Disclosures-Jun-2026.pdf",
+        "fetched_at": "2026-09-28T13:59:29.926Z",
+        "confidence": "high",
+        "source_status": "available"
+      }
+    },
+    {
+      "company_id": "niva-bupa",
+      "holder": "Insurance Companies",
+      "period": "2026-06-30",
+      "filing_period": "Q1FY27",
+      "shares": 19333427,
+      "pct": 1.05,
+      "provenance": {
+        "source_name": "Niva Bupa Health Insurance — Shareholding pattern, quarter ended 2026-06-30 (Q1FY27), from the company's quarterly IRDAI public disclosure (Form NL-9A names every holder above 1%; total shares from Form NL-9). Verified: the 14 holder lines sum exactly to the 1,84,92,33,703 total shares (Paragon not separately named in the filing — below its 1% naming threshold, counted within the unnamed holders).",
+        "source_url": "https://transactions.nivabupa.com/pages/investor-relations.aspx",
+        "source_file": "data/raw/companies/niva-bupa/niva-bupa-Website-Public-Disclosures-Jun-2026.pdf",
+        "fetched_at": "2026-09-28T13:59:29.926Z",
+        "confidence": "high",
+        "source_status": "available"
+      }
+    },
+    {
+      "company_id": "niva-bupa",
+      "holder": "Pallonji",
+      "period": "2026-06-30",
+      "filing_period": "Q1FY27",
+      "shares": 21817963,
+      "pct": 1.18,
+      "provenance": {
+        "source_name": "Niva Bupa Health Insurance — Shareholding pattern, quarter ended 2026-06-30 (Q1FY27), from the company's quarterly IRDAI public disclosure (Form NL-9A names every holder above 1%; total shares from Form NL-9). Verified: the 14 holder lines sum exactly to the 1,84,92,33,703 total shares (Paragon not separately named in the filing — below its 1% naming threshold, counted within the unnamed holders).",
+        "source_url": "https://transactions.nivabupa.com/pages/investor-relations.aspx",
+        "source_file": "data/raw/companies/niva-bupa/niva-bupa-Website-Public-Disclosures-Jun-2026.pdf",
+        "fetched_at": "2026-09-28T13:59:29.926Z",
+        "confidence": "high",
+        "source_status": "available"
+      }
+    },
+    {
+      "company_id": "niva-bupa",
+      "holder": "Other Mutual funds",
+      "period": "2026-06-30",
+      "filing_period": "Q1FY27",
+      "shares": 51123221,
+      "pct": 2.76,
+      "provenance": {
+        "source_name": "Niva Bupa Health Insurance — Shareholding pattern, quarter ended 2026-06-30 (Q1FY27), from the company's quarterly IRDAI public disclosure (Form NL-9A names every holder above 1%; total shares from Form NL-9). Verified: the 14 holder lines sum exactly to the 1,84,92,33,703 total shares (Paragon not separately named in the filing — below its 1% naming threshold, counted within the unnamed holders).",
+        "source_url": "https://transactions.nivabupa.com/pages/investor-relations.aspx",
+        "source_file": "data/raw/companies/niva-bupa/niva-bupa-Website-Public-Disclosures-Jun-2026.pdf",
+        "fetched_at": "2026-09-28T13:59:29.926Z",
+        "confidence": "high",
+        "source_status": "available"
+      }
+    },
+    {
+      "company_id": "niva-bupa",
+      "holder": "Paragon",
+      "period": "2026-06-30",
+      "filing_period": "Q1FY27",
+      "shares": null,
+      "pct": null,
+      "not_disclosed": true,
+      "provenance": {
+        "source_name": "Niva Bupa Health Insurance — Shareholding pattern, quarter ended 2026-06-30 (Q1FY27), from the company's quarterly IRDAI public disclosure (Form NL-9A names every holder above 1%; total shares from Form NL-9). Verified: the 14 holder lines sum exactly to the 1,84,92,33,703 total shares (Paragon not separately named in the filing — below its 1% naming threshold, counted within the unnamed holders).",
+        "source_url": "https://transactions.nivabupa.com/pages/investor-relations.aspx",
+        "source_file": "data/raw/companies/niva-bupa/niva-bupa-Website-Public-Disclosures-Jun-2026.pdf",
+        "fetched_at": "2026-09-28T13:59:29.926Z",
+        "confidence": "high",
+        "source_status": "not_separately_disclosed"
+      }
+    },
+    {
+      "company_id": "niva-bupa",
+      "holder": "Others",
+      "period": "2026-06-30",
+      "filing_period": "Q1FY27",
+      "shares": 248988006,
+      "pct": 13.46,
+      "provenance": {
+        "source_name": "Niva Bupa Health Insurance — Shareholding pattern, quarter ended 2026-06-30 (Q1FY27), from the company's quarterly IRDAI public disclosure (Form NL-9A names every holder above 1%; total shares from Form NL-9). Verified: the 14 holder lines sum exactly to the 1,84,92,33,703 total shares (Paragon not separately named in the filing — below its 1% naming threshold, counted within the unnamed holders).",
+        "source_url": "https://transactions.nivabupa.com/pages/investor-relations.aspx",
+        "source_file": "data/raw/companies/niva-bupa/niva-bupa-Website-Public-Disclosures-Jun-2026.pdf",
+        "fetched_at": "2026-09-28T13:59:29.926Z",
         "confidence": "high",
         "source_status": "available"
       }

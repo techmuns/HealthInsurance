@@ -137,8 +137,17 @@ const CAPITALIQ_METRICS = new Set(['enterprise_value', 'pe_3yr_avg'])
 const EXCHANGE_METRICS = new Set(['market_cap', 'share_price', 'close_price', 'traded_quantity', 'deliverable_quantity'])
 // Valuation multiples computed in-sheet from market cap + reported financials.
 const COMPUTED_RATIO_RE = /^(price_to_|pe_|pb_|roe_)/
+// Captable holders read from the company's quarterly IRDAI public disclosure
+// (fetch-shareholding.ts names "Form NL-9A" in the source) come through the
+// IRDAI-forms pipeline, like the NL-36 channel figures from the same PDF - not
+// the exchange's. A % cell follows the share count it is calculated from.
+const NL9A_SOURCE_RE = /\bForm NL-9A\b/
+function fromNl9a(cell: AuditCell): boolean {
+  return NL9A_SOURCE_RE.test(cell.sourceName ?? '') || (cell.inputs ?? []).some((i) => NL9A_SOURCE_RE.test(i.sourceName ?? ''))
+}
 function pipelineOf(cell: AuditCell): PipelineKey {
   const m = cell.metricId
+  if (cell.role === 'shareholding' && fromNl9a(cell)) return 'irdai'
   // Capital IQ: the CIQ-plug-in metrics themselves, or a cell left blank ONLY
   // because one of its inputs is a Capital-IQ-only metric (attribute the gap to
   // CIQ, not to a public source we could otherwise fetch).
@@ -323,7 +332,10 @@ function CellDetail({ cell, onClose, verifyRow, onBackToVerifier }: { cell: Audi
   // Period still running / release not due yet — same calm grey, tagged with
   // the expected release month.
   const upcoming = !fetched && cell.status === 'not_released'
-  const blocked = !fetched && (cell.status === 'web_blocked' || cell.status === 'not_in_ppt' || upcoming)
+  // Read, but not named separately in the filing (below its 1% line): there is
+  // no number to fetch, so no pipeline / expected source either.
+  const notDisclosed = !fetched && cell.status === 'not_disclosed'
+  const blocked = !fetched && (cell.status === 'web_blocked' || cell.status === 'not_in_ppt' || upcoming || notDisclosed)
   const blockTag = cell.blankTag
     ?? (cell.status === 'web_blocked' ? 'IRDAI' : cell.status === 'not_in_ppt' ? 'Not in PPT' : 'Awaiting source file')
   // not-applicable (the insurer didn't exist this period) renders calm grey with NO
@@ -399,7 +411,7 @@ function CellDetail({ cell, onClose, verifyRow, onBackToVerifier }: { cell: Audi
         {/* Source pipeline + source row are meaningless for a not-applicable cell
             (the insurer didn't exist) or a calculated cell (no pipeline feeds a
             formula) — show only the reason, never a source tag. */}
-        {!notApplicable && !calcMissing && (<>
+        {!notApplicable && !notDisclosed && !calcMissing && (<>
         {/* Pipeline — the real source for a row the deck doesn't publish */}
         <DetailField label="Source pipeline">
           {gap ? (
@@ -976,14 +988,18 @@ function GridView({ group, fullColumns, companyLabel, isFiltered, raw, onRawChan
     // Periods whose source isn't published yet aren't a pipeline gap — counted
     // on their own so they never inflate a pipeline's "missing" tally.
     let notOut = 0
+    // Holders the filing doesn't name separately (below its 1% line) — read,
+    // not a gap, so kept out of the "missing" tally too.
+    let notDisclosed = 0
     for (const c of group.cells) {
       if (deckGap(c)) { notInDeck += 1; continue }
       if (c.status === 'not_released') { notOut += 1; continue }
+      if (c.status === 'not_disclosed' && !isFetched(c)) { notDisclosed += 1; continue }
       const p = pipelineOf(c)
       pipes[p].total += 1
       if (isFetched(c)) pipes[p].fetched += 1
     }
-    return { pipes, notInDeck, notOut }
+    return { pipes, notInDeck, notOut, notDisclosed }
   }, [group])
 
   if (isFiltered && !group.cells.length) {
@@ -1035,6 +1051,16 @@ function GridView({ group, fullColumns, companyLabel, isFiltered, raw, onRawChan
             <span className="h-2 w-2 rounded-full bg-slate-300" />
             <span className="font-semibold text-navy-deep">Not out yet</span>
             <span className="text-ink-secondary">{pipeStats.notOut} cells</span>
+          </span>
+        )}
+        {pipeStats.notDisclosed > 0 && (
+          <span
+            className="inline-flex items-center gap-1.5 rounded-full border border-soft-border bg-white px-2 py-0.5 text-[10.5px]"
+            title="The shareholding filing names holders only above 1%. These holders aren't named this quarter, so there is no separate number to fetch — their shares sit inside the unnamed-holder rows. Nothing is missing."
+          >
+            <span className="h-2 w-2 rounded-full bg-slate-300" />
+            <span className="font-semibold text-navy-deep">Not disclosed</span>
+            <span className="text-ink-secondary">{pipeStats.notDisclosed} cells</span>
           </span>
         )}
 

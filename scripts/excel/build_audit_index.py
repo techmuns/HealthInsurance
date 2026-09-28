@@ -740,11 +740,12 @@ def main() -> None:
                     cell["blank_tag"] = tag
 
     # --- Captable holders not separately disclosed ------------------------
-    # The quarterly exchange shareholding pattern names public holders only
-    # above 1%. fetch-shareholding.ts records a template holder the filing
-    # doesn't name as not_disclosed (no number; its shares are inside Others,
-    # which the sheet itself computes as total - named). Both of its cells read
-    # grey "Not disclosed (<1%)" instead of a red "missing" or a fake 0.
+    # A quarter's shareholding filing (the company's Form NL-9A, or the exchange
+    # pattern) names public holders only above 1%. fetch-shareholding.ts records
+    # a template holder the filing doesn't name as not_disclosed (no number; its
+    # shares sit in the unnamed-holder rows - Other Mutual funds for a fund,
+    # else Others, which the sheet computes as total - named). Both of its cells
+    # read grey "Not disclosed (<1%)" instead of a red "missing" or a fake 0.
     try:
         shp_rows = json.loads((REPO / "src" / "data" / "snapshots" / "shareholding-pattern-snapshot.json").read_text()).get("data", [])
     except Exception:
@@ -763,11 +764,13 @@ def main() -> None:
                 v = store.get(f'{cell.get("entity")}::{metric}::{cell.get("period")}')
                 if (v and v.get("normalized_value") is not None) or cell.get("calculated_value") is not None:
                     continue
-                cell["source_status"] = "web_blocked"
+                # Its own status: the filing WAS read - there is simply no
+                # separate number to fetch (not a blocked or pending source).
+                cell["source_status"] = "not_disclosed"
                 cell["blank_tag"] = "Not disclosed (<1%)"
-                cell["na_reason"] = (f"{holder} isn't named separately in this quarter's exchange shareholding "
-                                     "filing - the filing lists public holders only above 1%. Its shares are "
-                                     "counted inside Others. Shown as not disclosed, never 0.")
+                cell["na_reason"] = (f"{holder} isn't named separately in this quarter's shareholding filing - "
+                                     "holders are named only above 1%. Its shares are counted within the unnamed "
+                                     "holders (Other Mutual funds / Others). Shown as not disclosed, never 0.")
 
     # --- Structural blanks in auto-appended SAHIs-comparison columns -------
     # A period column extend_template_periods.py appends carries no curated tag

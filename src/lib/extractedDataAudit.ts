@@ -207,6 +207,7 @@ export type AuditStatus =
   | 'not_applicable'
   | 'not_in_ppt'
   | 'not_released'
+  | 'not_disclosed'
   | 'unused'
 
 /** Cell-level QA colour (the owner's legend). `info` = neutral context (unused). */
@@ -240,6 +241,9 @@ export const STATUS_META: Record<AuditStatus, StatusMeta> = {
   // The period hasn't ended, or its official release isn't due yet — nothing
   // exists to fetch, so it's a calm grey "not out yet", never a red gap.
   not_released: { key: 'not_released', label: 'Not out yet', color: 'grey' },
+  // The filing was read and doesn't name this holder (shareholding filings name
+  // holders only above 1%) — a resolved grey blank, never a red gap or a 0.
+  not_disclosed: { key: 'not_disclosed', label: 'Not separately disclosed', color: 'grey' },
   unused: { key: 'unused', label: 'Extra — not used', color: 'info' },
 }
 
@@ -258,6 +262,8 @@ export interface FormulaInput {
   value: number | string | null
   unit?: string
   sourceUrl?: string | null
+  /** Source description of this input's value (null when it isn't itself fetched). */
+  sourceName?: string | null
 }
 
 export interface AuditCell {
@@ -813,6 +819,11 @@ export function buildAudit(): AuditModel {
         if (b.cell_kind === 'formula') {
           note = note ? `${note} The sheet also calculates it.` : 'We have this number; the sheet also calculates it.'
         }
+      } else if (b.cell_kind === 'formula' && b.source_status === 'not_disclosed' && b.calculated_value == null) {
+        // The % of a holder the filing doesn't name separately: nothing to
+        // calculate from — the same resolved grey as its share count.
+        status = 'not_disclosed'
+        note = b.na_reason ?? 'Not named separately in the filing — holders are named only above 1%.'
       } else if (b.cell_kind === 'formula') {
         status = 'computed'
         note = 'Calculated from other cells (for example, claims + expense). Nothing to fetch.'
@@ -841,6 +852,9 @@ export function buildAudit(): AuditModel {
         // (2026-06-11); a statutory filing can still fill the cell later.
         status = 'not_in_ppt'
         note = b.na_reason ?? 'Searched the investor presentations — this number is not disclosed there.'
+      } else if ((b.source_status ?? '') === 'not_disclosed') {
+        status = 'not_disclosed'
+        note = b.na_reason ?? 'Not named separately in the filing — holders are named only above 1%.'
       } else if ((b.source_status ?? '') === 'web_blocked') {
         status = 'web_blocked'
         // A curated per-cell reason (source-blocked-cells.json) explains exactly
@@ -885,6 +899,7 @@ export function buildAudit(): AuditModel {
           value: v?.normalized_value ?? null,
           unit: v?.unit ?? undefined,
           sourceUrl: v?.source_url ?? null,
+          sourceName: v?.source_name ?? null,
         }
       })
 
@@ -1126,6 +1141,7 @@ function tally(cells: AuditCell[]): SheetStats {
       case 'blocked': s.blocked++; break
       case 'not_applicable': s.notApplicable++; break
       case 'not_in_ppt': s.notApplicable++; break // grey family — searched, not disclosed
+      case 'not_disclosed': s.notApplicable++; break // grey family — read, not named separately
       case 'not_released': s.notReleased++; break
       default: break
     }
