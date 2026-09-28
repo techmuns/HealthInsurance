@@ -323,7 +323,11 @@ run `python3 scripts/excel/build_filings_inventory.py` first to stage them.
   from Niva's Form NL-9A (agent-free); Paragon "Not disclosed (<1%)". Pallonji,
   SBI MF, Tata MF (1.15–1.52%) get the same treatment automatically if they drop
   below 1%. Next quarter (Sep-2026) lands when its public disclosure is staged
-  (~mid-Nov) - the 8th/22nd schedule picks it up.
+  (~mid-Nov) - the 8th/22nd schedule picks it up. Durable: build_schema_map.py
+  binds the Captable to the latest filed quarter (it used to re-read the
+  template's 31-Mar date on every ingest, undoing the advance); the Excel
+  export's Captable date (C2) + total (D19) follow it. Verified through a full
+  ingest run (e9c1083).
   Open for Neha (flagged, not changed):
   - Mar-2026 Captable column (her master seed) carries Paragon at 7,818,694
     shares - Paragon Partners Growth Fund II's PRE-IPO count (Sep-2024 NL-9A),
@@ -339,6 +343,10 @@ run `python3 scripts/excel/build_filings_inventory.py` first to stage them.
     NL-9A forms name MF schemes (not fund houses) or read with glued numbers,
     so they're refused rather than guessed.
 - ~~SAHIs comparison + Channel Mix period columns~~ **DONE** (2026-09-28).
+- **check-source-links red (pre-existing, every run on 2026-09-28)**: three
+  source PDFs now 404 - a BSE AttachLive filing (957fe837-…, audit-overlay),
+  and the IndusInd / Reliance General "notified-hospital-or-black-list" PDFs
+  (data-provenance, insurer-annual-snapshot). Needs their current URLs.
 - **Q1 FY27 company results — partly done.** Niva + Care fill agent-free from their
   staged Jun-2026 disclosures. Still blank: Star / ManipalCigna / ABHI (no Jun-2026
   disclosure staged — Star's site 403s), Care NEP (the NL-1 parser blocks Care's
