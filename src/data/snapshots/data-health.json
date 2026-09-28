@@ -1,6 +1,6 @@
 {
   "last_successful_run": "2026-09-18T12:46:07.245Z",
-  "last_failed_run": "2026-09-28T10:43:40.874Z",
+  "last_failed_run": "2026-09-28T11:02:52.693Z",
   "sources_checked": 12,
   "sources_success": 6,
   "sources_failed": 1,
@@ -24864,9 +24864,6 @@
     "[gicouncil_segmentwise_annual] staged file not recognised as a segment report (skipped): FY25-march.xlsx",
     "[gicouncil_segmentwise_annual] staged file not recognised as a segment report (skipped): FY26-march.xlsx",
     "[gicouncil_segmentwise_annual] listing fetch failed on every route (https://www.gicouncil.in/statistics/industry-statistics/segment-wise-report-on-homepage/): all routes failed for https://www.gicouncil.in/statistics/industry-statistics/segment-wise-report-on-homepage/ — direct fetch returned a non-listing response (block page?); all relay routes failed or returned non-file responses; wayback snapshot fetch failed or returned invalid bytes",
-    "[gicouncil_segmentwise_annual] muns agent returned no usable gicouncil links",
-    "[gicouncil_segmentwise_annual] listing unreadable (attempt 1/4) — retrying in 5s",
-    "[gicouncil_segmentwise_annual] listing fetch failed on every route (https://www.gicouncil.in/statistics/industry-statistics/segment-wise-report-on-homepage/): all routes failed for https://www.gicouncil.in/statistics/industry-statistics/segment-wise-report-on-homepage/ — direct fetch returned a non-listing response (block page?); all relay routes failed or returned non-file responses; wayback snapshot fetch failed or returned invalid bytes",
     "[gicouncil_segmentwise_annual] listing discovered via muns agent (13 links) — direct + relay + archive routes were all blocked",
     "[gicouncil_segmentwise_annual] FY19: found 2/4 PSU rows — PSUs/Private left null.",
     "[gicouncil_segmentwise_annual] FY19: only 7/11 named retail rows found — \"Others\" left null.",
@@ -25152,22 +25149,22 @@
     {
       "source_id": "gicouncil_flash_sahi",
       "status": "success",
-      "last_attempt_at": "2026-09-28T10:37:11.641Z",
-      "last_success_at": "2026-09-28T10:37:11.641Z",
+      "last_attempt_at": "2026-09-28T10:55:34.473Z",
+      "last_success_at": "2026-09-28T10:55:34.473Z",
       "records_fetched": 91
     },
     {
       "source_id": "gicouncil_segmentwise",
       "status": "success",
-      "last_attempt_at": "2026-09-28T10:37:19.289Z",
-      "last_success_at": "2026-09-28T10:37:19.289Z",
+      "last_attempt_at": "2026-09-28T10:55:41.483Z",
+      "last_success_at": "2026-09-28T10:55:41.483Z",
       "records_fetched": 124
     },
     {
       "source_id": "gicouncil_segmentwise_annual",
       "status": "success",
-      "last_attempt_at": "2026-09-28T10:38:33.917Z",
-      "last_success_at": "2026-09-28T10:38:33.917Z",
+      "last_attempt_at": "2026-09-28T10:56:31.906Z",
+      "last_success_at": "2026-09-28T10:56:31.906Z",
       "records_fetched": 2767,
       "error": "fetcher timed out after 6 min (capped so the run always reaches snapshot merge + commit)"
     },
@@ -25203,7 +25200,7 @@
     {
       "source_id": "irdai_monthly_business",
       "status": "failed",
-      "last_attempt_at": "2026-09-28T10:37:06.332Z",
+      "last_attempt_at": "2026-09-28T10:55:29.364Z",
       "last_success_at": null,
       "records_fetched": 0,
       "error": "No XLSX link discovered on https://irdai.gov.in/non-life"
@@ -25211,7 +25208,7 @@
     {
       "source_id": "irdai_nonlife_flash",
       "status": "pending",
-      "last_attempt_at": "2026-09-28T10:37:08.891Z",
+      "last_attempt_at": "2026-09-28T10:55:31.947Z",
       "last_success_at": null,
       "records_fetched": 0
     },
@@ -25246,23 +25243,23 @@
     {
       "source_id": "moneycontrol_analyst",
       "status": "success",
-      "last_attempt_at": "2026-09-28T10:42:42.215Z",
-      "last_success_at": "2026-09-28T10:42:42.215Z",
+      "last_attempt_at": "2026-09-28T11:01:54.915Z",
+      "last_success_at": "2026-09-28T11:01:54.915Z",
       "records_fetched": 6
     },
     {
       "source_id": "moneycontrol_stock_deals",
       "status": "success",
-      "last_attempt_at": "2026-09-28T10:42:55.981Z",
-      "last_success_at": "2026-09-28T10:42:55.981Z",
+      "last_attempt_at": "2026-09-28T11:02:08.361Z",
+      "last_success_at": "2026-09-28T11:02:08.361Z",
       "records_fetched": 0
     },
     {
       "source_id": "muns_market_data",
       "status": "success",
-      "last_attempt_at": "2026-09-28T10:43:04.945Z",
-      "last_success_at": "2026-09-28T10:43:04.945Z",
-      "records_fetched": 3,
+      "last_attempt_at": "2026-09-28T11:02:16.880Z",
+      "last_success_at": "2026-09-28T11:02:16.880Z",
+      "records_fetched": 0,
       "error": "fetcher timed out after 6 min (capped so the run always reaches snapshot merge + commit)"
     },
     {
@@ -25275,7 +25272,7 @@
     {
       "source_id": "nse_delivery",
       "status": "pending",
-      "last_attempt_at": "2026-09-28T10:43:39.274Z",
+      "last_attempt_at": "2026-09-28T11:02:51.084Z",
       "last_success_at": "2026-09-16T08:49:39.283Z",
       "records_fetched": 0
     },
@@ -25297,7 +25294,7 @@
     {
       "source_id": "price_history",
       "status": "pending",
-      "last_attempt_at": "2026-09-28T10:43:37.346Z",
+      "last_attempt_at": "2026-09-28T11:02:48.701Z",
       "last_success_at": null,
       "records_fetched": 0,
       "error": "fetcher timed out after 6 min (capped so the run always reaches snapshot merge + commit)"
@@ -25333,7 +25330,7 @@
     {
       "source_id": "valuation_daily",
       "status": "pending",
-      "last_attempt_at": "2026-09-28T10:42:40.174Z",
+      "last_attempt_at": "2026-09-28T11:01:52.660Z",
       "last_success_at": null,
       "records_fetched": 0,
       "error": "fetcher timed out after 6 min (capped so the run always reaches snapshot merge + commit)"
@@ -25341,7 +25338,7 @@
     {
       "source_id": "yahoo_price",
       "status": "pending",
-      "last_attempt_at": "2026-09-28T10:43:08.253Z",
+      "last_attempt_at": "2026-09-28T11:02:20.016Z",
       "last_success_at": null,
       "records_fetched": 0
     }
