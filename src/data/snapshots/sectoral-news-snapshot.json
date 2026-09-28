@@ -3,14 +3,113 @@
     "snapshot_id": "sectoral-news-snapshot",
     "description": "Key Sectoral News feed — a permanent seed of 31 curated portfolio-pack updates, kept current by a scheduled muns web-search agent. Each item links its source. Seed items are curated; agent items are AI-gathered (web), clearly labelled and not audited.",
     "schema_version": "1.0.0",
-    "last_updated": "2026-09-24",
-    "last_successful_run": "2026-09-24T11:14:16.828Z",
+    "last_updated": "2026-09-28",
+    "last_successful_run": "2026-09-28T13:05:34.557Z",
     "seed_count": 31,
-    "agent_count": 298,
+    "agent_count": 311,
     "generated_by": "Seed: investor portfolio pack. Updates: AI (muns agent, web search).",
     "notes": "Seed floor can never be lost. Agent items are de-duped by subject+date and verified-before-acting."
   },
   "data": [
+    {
+      "sn": 333,
+      "category": "General",
+      "date": "2026-09-28",
+      "subject": "IRDAI push tied to low insurance penetration (3.7% vs 7.3% global)",
+      "summary": "Commentary notes India's life+health+property insurance penetration at 3.7% of GDP against a 7.3% global average, framing IRDAI's distribution overhaul as an attempt to close this gap by 2047.",
+      "reference": "https://finshots.in/archive/irdai-wants-to-change-how-insurance-is-sold",
+      "id": "1cd516fb320ff0",
+      "origin": "agent",
+      "added_at": "2026-09-28"
+    },
+    {
+      "sn": 332,
+      "category": "General",
+      "date": "2026-09-28",
+      "subject": "India's insurance penetration stuck near 1% of GDP",
+      "summary": "General insurance penetration in India remains around 1% of GDP versus a much higher global average, underscoring the long runway for growth (and the risk of slow near-term demand conversion) for health/general insurers.",
+      "reference": "https://whalesbook.com/news/English/bankingfinance/Indias-1percent-Insurance-Penetration-Gap-A-Long-Term-Growth-Story/6ab9c7a15aacb956d0821ed1",
+      "id": "17674b83934b82",
+      "origin": "agent",
+      "added_at": "2026-09-28"
+    },
+    {
+      "sn": 331,
+      "category": "Competition / Peers",
+      "date": "2026-09-28",
+      "subject": "Policybazaar, Turtlemint face margin squeeze from commission caps",
+      "summary": "IRDAI's proposed commission caps threaten the growth engines of digital insurance aggregators Policybazaar and Turtlemint, while potentially benefiting direct insurers like Go Digit and Acko.",
+      "reference": "https://inc42.com/features/policybazaar-turtlemint-feel-the-squeeze",
+      "id": "0388f04054614d",
+      "origin": "agent",
+      "added_at": "2026-09-28"
+    },
+    {
+      "sn": 330,
+      "category": "Competition / Peers",
+      "date": "2026-09-28",
+      "subject": "Nomura maps IRDAI cost pressure across insurers",
+      "summary": "Nomura's note compares expense-of-management (EOM) pressure from IRDAI's proposed distribution rules on SBI Life, Niva Bupa and Star Health, flagging differing margin impacts across the three.",
+      "reference": "https://financialexpress.com/market/sbi-life-niva-bupa-to-star-health-nomura-maps-cost-pressure-from-irdais-proposed-rules-4348645",
+      "id": "136d1efb494dce",
+      "origin": "agent",
+      "added_at": "2026-09-28"
+    },
+    {
+      "sn": 336,
+      "category": "GST",
+      "date": "2026-09-27",
+      "subject": "Star Health retail policy base up <span style=\"color:#22C55E;font-weight:600\">11%</span> post GST exemption",
+      "summary": "Following the GST exemption on individual health insurance premiums, Star Health reported an 11% rise in retail policy adoption and higher average sum insured on new policies, evidencing a demand tailwind from the tax reform.",
+      "reference": "https://m.economictimes.com/industry/banking/finance/insure/after-gst-exemption-retail-policy-base-rises-11-for-star-health/amp_articleshow/134522981.cms",
+      "id": "1f2534d156cf1b",
+      "origin": "agent",
+      "added_at": "2026-09-28"
+    },
+    {
+      "sn": 335,
+      "category": "Regulatory",
+      "date": "2026-09-27",
+      "subject": "IRDAI's distribution overhaul proposes commission caps, tighter expense limits",
+      "summary": "IRDAI's consultation paper proposes commission caps and stronger mis-selling safeguards; impact on insurer margins and whether it actually lowers consumer premiums remains uncertain pending implementation.",
+      "reference": "https://livemint.com/money/personal-finance/irdais-distribution-overhaul-will-it-make-insurance-cheaper-curb-misselling-11790485109995.html",
+      "id": "043b5f43bb18dc",
+      "origin": "agent",
+      "added_at": "2026-09-28"
+    },
+    {
+      "sn": 334,
+      "category": "Regulatory",
+      "date": "2026-09-27",
+      "subject": "<span style=\"background:#EFF6FF;padding:2px 6px;border-radius:4px;\">IRDAI's Bima Sugam digital marketplace to launch by November</span>",
+      "summary": "IRDAI Chairman confirmed the \"Bima Sugam\" digital insurance marketplace — envisioned as insurance's equivalent of UPI — is likely to go live by November 2026, standardizing how policies are bought/serviced across insurers.",
+      "reference": "https://moneycontrol.com/news/business/insurance/bima-sugam-marketplace-likely-to-launch-by-november-irdai-14039089.html",
+      "id": "1dedbd84ddc126",
+      "origin": "agent",
+      "added_at": "2026-09-28"
+    },
+    {
+      "sn": 337,
+      "category": "Competition / Peers",
+      "date": "2026-09-25",
+      "subject": "Motilal Oswal issues <span style=\"color:#22C55E;font-weight:600\">Buy</span> on Niva Bupa with ₹100 target",
+      "summary": "Motilal Oswal's Sept 24, 2026 report initiated/reiterated a Buy rating on Niva Bupa Health Insurance with a target price of ₹100, implying meaningful upside versus a stock that had recently corrected.",
+      "reference": "https://www.moneycontrol.com/news/business/stocks/buy-niva-bupa-health-insurance-target-of-rs-100-motilal-oswal-2-14038104.html",
+      "id": "16879dcd37e41e",
+      "origin": "agent",
+      "added_at": "2026-09-28"
+    },
+    {
+      "sn": 338,
+      "category": "Regulatory",
+      "date": "2026-09-24",
+      "subject": "IRDAI proposes sweeping changes to insurance distribution rules",
+      "summary": "A new consultation paper from IRDAI outlines wide-ranging reforms to commission disclosure, product bundling and distribution practices across the insurance value chain, likely reshaping insurer-agent economics.",
+      "reference": "https://www.indiatoday.in/business/story/irdai-insurance-distribution-draft-paper-reforms-commission-disclosure-mis-selling-bundling-3001663-2026-09-24",
+      "id": "16162004570cb9",
+      "origin": "agent",
+      "added_at": "2026-09-28"
+    },
     {
       "sn": 321,
       "category": "General",
@@ -54,6 +153,17 @@
       "id": "0da3c7e8ea8e2a",
       "origin": "agent",
       "added_at": "2026-09-24"
+    },
+    {
+      "sn": 339,
+      "category": "GST",
+      "date": "2026-09-23",
+      "subject": "<span style=\"background:#F0FDF4;padding:2px 6px;border-radius:4px;\">GST 2.0 reform exempts individual life & health premiums</span>",
+      "summary": "Following the 56th GST Council meeting, individual life and health insurance premiums were exempted from GST (effective Sept 22, 2025) as part of \"GST 2.0\" reforms, a structural tailwind for retail health insurance affordability and volumes.",
+      "reference": "https://taxguru.in/goods-and-service-tax/gst-exemptions-relief-taxpayers-impact-tax-system.html",
+      "id": "076db25a17c488",
+      "origin": "agent",
+      "added_at": "2026-09-28"
     },
     {
       "sn": 323,
@@ -210,6 +320,17 @@
       "added_at": "2026-09-17"
     },
     {
+      "sn": 340,
+      "category": "Profitability",
+      "date": "2026-09-14",
+      "subject": "Star Health claim settlement ratio at 89.3%, high complaint ranking",
+      "summary": "IRDAI data shows Star Health settling 89.3% of health claims but ranking <span style=\"color:#EF4444;font-weight:600\">28th of 30</span> insurers on complaints per 10,000 claims (53.9), a red flag on service quality that could pressure retention/regulatory scrutiny.",
+      "reference": "https://nyvo.in/resources/claim-settlement-ratio/star-health",
+      "id": "1af1e7ea10d85c",
+      "origin": "agent",
+      "added_at": "2026-09-28"
+    },
+    {
       "sn": 284,
       "category": "Competition / Peers",
       "date": "2026-09-14",
@@ -296,6 +417,17 @@
       "id": "0a604a0d9f8f05",
       "origin": "agent",
       "added_at": "2026-09-14"
+    },
+    {
+      "sn": 341,
+      "category": "Profitability",
+      "date": "2026-09-04",
+      "subject": "Niva Bupa raising premiums <span style=\"color:#F59E0B;font-weight:600\">8–9%</span> annually amid medical inflation",
+      "summary": "Niva Bupa CFO Vishwanath Mahendra stated the insurer has been raising premiums by 8–9% annually to offset rising medical costs, raising questions on whether even ₹5 lakh cover remains adequate for policyholders.",
+      "reference": "https://hellobanker.in/premiums-of-health-insurance-rising-in-india-is-rs-5-lakh-enough",
+      "id": "05fdb92a43313f",
+      "origin": "agent",
+      "added_at": "2026-09-28"
     },
     {
       "sn": 314,
@@ -472,6 +604,17 @@
       "id": "0e8be9284a33b8",
       "origin": "agent",
       "added_at": "2026-08-27"
+    },
+    {
+      "sn": 342,
+      "category": "Profitability",
+      "date": "2026-08-21",
+      "subject": "Star Health CEO calls for universal ICMR treatment protocols to curb costs",
+      "summary": "Star Health's CEO advocated adoption of standard ICMR clinical protocols nationally to control unchecked hospital/treatment cost escalation, directly targeting claims-ratio and margin pressure highlighted in Q1 FY27 results.",
+      "reference": "https://whalesbook.com/news/English/bankingfinance/Star-Health-CEO-Seeks-Universal-ICMR-Protocol-Adoption-to-Curb-Costs/6a87c97684d2dd5c12debf8c",
+      "id": "08248b23e5c49b",
+      "origin": "agent",
+      "added_at": "2026-09-28"
     },
     {
       "sn": 259,
