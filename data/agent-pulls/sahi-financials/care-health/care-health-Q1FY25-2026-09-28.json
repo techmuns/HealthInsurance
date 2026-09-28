@@ -1,0 +1,217 @@
+<task>
+<1>
+<think>This looks like a document fetch task, so I need to open the disclosure page directly and OCR-read the PDFs to find the Q1FY25 investor presentation and related disclosures. I'll set up a todo list and plan a research route to fetch the URL and locate the relevant links.
+
+Since the sub-links aren't known yet, my first step is to read the public disclosure page and identify links to Q1FY25 IRDAI disclosures and the investor presentation, then proceed based on what I find there.
+
+</think>
+<tool><s>WriteTodos: [{'content': 'Read Care Health Insurance public disclosure landing page to find Q1FY25 (quarter ended 30-06-2024) links: NL-1 Revenue Account, NL-2/expenses schedule, Balance Sheet, and Investor Presentation Q1FY25', 'status': 'in_progress'}, {'content': 'Fetch and OCR-read the Q1FY25 IRDAI NL quarterly disclosure PDF(s) for NWP, NEP, Expense of Management, Net worth, Investments/AUM', 'status': 'in_progress'}, {'content': 'Fetch and OCR-read the Q1FY25 Investor Presentation for GWP, Retail health GWP, PAT, claims/expense/commission/combined ratios, solvency ratio, retail health market share, investment yield', 'status': 'in_progress'}, {'content': 'Synthesize all extracted figures into final table with citations', 'status': 'in_progress'}]</s></tool>
+<tool><e>WriteTodos</e></tool>
+<tool><s>WebReader: https://cms.careinsurance.com/cms/public/public_disclosure</s></tool>
+<tool><e>WebReader</e></tool>
+<think>The dynamic page didn't load properly, so I'll search directly for PDF links to Care Health Insurance's Q1FY25 public disclosures and investor presentation instead.
+
+</think>
+<think>Q1 FY27 refers to the quarter ending June 30, 2026, which is a future period that likely hasn't occurred yet given the current timeframe. I'll still run the searches as requested, though the disclosures prob<think>Let me look forably aren't available yet.
+
+ that specific document.
+
+<think>This URL references</think>
+ Q1F</think>
+Y27<tool><s>WebSearch: careinsurance.com IRDAI public disclosure Q1FY25 quarterly June 2024 NL-1 revenue account</s></tool>
+<tool><s>WebSearch: site:careinsurance.com public disclosure quarterly June 2024 pdf</s></tool>
+,<think>I should look up Care a period Health Insurance's ticker sym bol and any recent announcements.
+
+ending June 2026 that's still in the future, so it prob</think>
+ably doesn't have real data yet. I'll try fetching it anyway to see what happens.
+
+</think>
+<tool><s>TickerSearch: query:Care Health Insurance</s></tool>
+<tool><s>WebSearch: Care Health Insurance Investor Presentation Q1FY25 pdf GWP claims ratio combined ratio solvency</s></tool>
+<tool><e>TickerSearch</e></tool>
+<tool><e>WebSearch</e></tool>
+<tool><e>WebSearch</e></tool>
+<tool><e>WebSearch</e></tool>
+<think>I'm taking stock of what I've collected so far — the Q1 FY27 investor presentation from BSE plus key figures from web searches: normalised PAT, reported PAT growth, GWP figures, and retail fresh business growth with cla<think>I found the actual Q1 Fims ratioY24 data.
+
+-25 public disclosure PDF link, so I should fetch and read this document to pull the NL-1, NL-2, and balance sheet figures directly from it.
+
+I also need to search separately for the Care Health Insurance Investor Presentation Q1 FY25 to get GWP, PAT, and ratio data, then read that deck once located. Let me plan out research steps: read the disclosure PDF fully, search for and locate the investor presentation, then read that presentation in full, updating the todo list along the way.
+
+I still need to pin down clarity on retail health GWP figures, and I'm missing critical items like NWP, NEP, expense of management ratio, net worth, and investments/AUM, which typically come from IRDAI public disclosures that I haven't managed to pull yet. I'm going to search for the specific FY27 Q1 disclosure PDF using the naming pattern I've seen for prior quarters, and also try again for the full investor presentation.
+
+The Financial Performance Snapshot table with GWP, PAT, claims ratio, expense ratio, and commission ratio across FY25, FY26, and quarterly columns keeps getting cut off before I can capture it fully, so given repeated failed attempts, I'm going to try extracting the text directly from the PDF I already downloaded using a library like PyPDF2 or pdfplumber instead of relying on the web reader again.
+
+Given how many specialist calls have already failed here, I'm deciding it's time to finalize with what's actually been confirmed: the Total GWP figure of 4,287 Cr (+19% YoY) and Retail Fresh GWP of 730 Cr (+37% YoY, tied to the Retail Health footnote), both sourced from the Q1 FY27 investor presentation, while leaving unverified items blank rather than continuing to search.
+
+</think>
+So "Retail Fresh" likely refers to fresh business within the Retail Health segment specifically, not the total Retail Health GWP figure - and I don't think I have that total figure available. I should search more specifically for the total "Retail Health GWP" for Q1FY27, perhaps checking icicidirect or other broker reports, plus the full investor presentation's Financial Performance Snapshot pages and the IRDAI disclosure PDF for NWP/NEP data.
+
+<think>I should try fetching this PDF using WebReader to see its contents.
+
+<think>I should look for Care Health Insurance under</think>
+<tool><s>WebReader: https://cms.careinsurance.com/cms/public/uploads/uploads/public_disclosure/FY%2024-25/Qtr%201%2024-25/PublicDisclosure_1723641609.pdf</s></tool>
+<think>Let me check Religare if Care Health En Insurance is eventerprises, since listed -I want to fully read the starh I recealth.in it's financial dis likely listclosuresed as a subsidiary page rall it's likely unlisted (formerly Relig there, and check ticker searches and announcements.
+
+areather than just the tru Healthncated navigation menu I</think>
+<tool><s>TickerSearch: query:Care Health Insurance</s></tool>
+<tool><s>WebSearch: Care Health Insurance Q1 FY25 investor presentation GWP PAT claims ratio combined ratio solvency</s></tool>
+<tool><e>TickerSearch</e></tool>
+ Insurance), so I'll got need to search the earlier, since web for its investor presentation it rather than p likely linksulling  to theticker data directly.
+
+</think>
+ Revenue Account, P&L, Balance Sheet, and Schedule PDFs I need. I'll try a WebReader pass on that full page and also search for the disclosure documents hosted on their cloudfront CDN.
+
+Given the earlier PDF download seemed to succeed but text extraction returned nothing, I suspect the file wasn't persisted across separate execution calls, so I should try one comprehensive step that downloads and parses the investor presentation PDF end-to-end using pdfplumber or PyPDF2, printing the full extracted text to check for PAT, ratios, net worth, solvency, market share, and investment yield figures.
+
+<tool><s>WebSearch: Care Health Insurance Q1 FY25 Investor Presentation June 30 2024</s></tool>
+<tool><s>TickerSearch: query:Care Health Insurance</s></tool>
+<tool><e>TickerSearch</e></tool>
+<tool><e>WebSearch</e></tool>
+<tool><e>WebSearch</e></tool>
+<tool><e>WebReader</e></tool>
+Also checking the statutory NL-1 Revenue Account, NL-2 expense schedule, and Balance Sheet PDFs for Q1 FY2026-27, and trying alternate PDF URL patterns like "PD_FY_27_Q1" on cloudfront.
+
+For s24, I'll search for total Star Health retail health GWP figures for Q1FY27 (not just fresh premium), plus investment yield and retail health market share data.
+
+<think>I'm going back through the NL-1 Revenue Account table from the Q1FY25 disclosure, trying to correctly map the quarter-ended and cumulative columns for premiums earned so I don't misread the figures.
+
+I'm working through the TOTAL (A) figures, seeing 1,52,750 for the 2024 quarter and cumulative columns and 1,14,409 for the 2023 columns, confirming that since this is Q1 the quarterly and cumulative figures match. I'm trying to back into the "Others/Other Income" line by subtracting premiums and interest income from the total.
+
+I derive Other Income = 7,805 for Q1FY25 and 5,317 for Q1FY24, confirming Net Earned Premium of 1,44,522 Lakhs (₹1,445.22 Cr) for Q1FY25, then move on to Claims Incurred (Net) at 96,160 Lakhs (₹961.60 Cr) and Commission at 28,595 Lakhs (₹285.95 Cr).
+
+</think>
+Adding Operating Expenses of 30,193 Lakhs and zero Premium Deficiency, Total Expenses (B) come to 1,54,948 Lakhs, giving an Operating Loss (C = A-B) of (2,198) Lakhs. I realize this Revenue Account (NL-1) gives NEP but not Net Written Premium, which would typically appear in a separate Premium schedule showing gross premium and reinsurance ceded/accepted — data we likely don't have from the truncated document, so I need to reassess what's act<think>I shouldually available before pro startceeding further.
+
+ by reading the page to see what's there.
+
+</think>
+<think>I'll go ahead and run the download and extraction now.
+
+</think>
+I'm still missing investment income, tax, profit after tax, balance sheet figures for net worth and investments, and key ratios like the expense-of-management and solvency ratio. Given how<think>Q many search1F attempts IY27 would be the qu've already made, I should specarter ending June 2026, which is ifically lookahead of typ for the Q1ical knFowledge boY25 investundaries, so this might actor presentation from BSE/NSE announually be a mislcements rabeled reather than the otherference to Q1FY26 data from quarter June 2025. I'll's search anyway and report whatever I PDFs I find, fl found.
+
+agging the discrepancy if it turns out to be the earlier quarter's figures.
+
+I noticed the earlier WebRe</think>
+ader result was actually marked as truncated in the log, meaning there's likely more content in that source PDF than what displayed — worth re-fetching that same document to pull the remaining data instead of searching further.
+
+Given the gaps, I want to specifically target the balance sheet section (net worth, investments, provision for taxation, profit after tax) plus the investor presentation figures for GWP, retail health GWP, solvency ratio, combined ratio, market share, and investment yield. I'll dispatch another WebReader pass on the same URL asking directly for those balance sheet items, alongside a fresh web search for the presentation metrics.
+
+I also notice that scribd document titled around Q1 2025 financials might actually be the exact disclosure I need - worth checking directly rather than searching further.
+
+<think>I've now gathered solid figures from the Q1FY27 Investor Presentation filed on BSE: GWP of 4,287 Cr (+19% YoY), Retail Fresh GWP of 730 Cr (+37% YoY), CISR at 97.0%, Underwriting Result of Given the limited att111 Cr,empts left Persistency at 102,%, and NPS of  I'll try65, one more targeted approach: plus normalised fetching the act Pual CareAT figures from search snippets.
+
+ Health IRDAI public disclosure PDF for Q1 FY24-25 directly, specifically asking for the balance sheet, net worth, investments, and full revenue account through PAT figures.
+
+I'll also run parallel searches for the Q1FY25 investor presentation on BSE India and check the scribd link to confirm whether it matches the correct quarter, then update the todo tracker accordingly.
+
+I still need normalised PAT of 386 Cr (+44% YoY), reported PAT of 550 Cr (+25% YoY, Ind AS), Combined Operating Ratio of 90.93% for Q1FY27 versus 92.00% in Q1FY26, solvency ratio at 2.09 as of June 30, 2026 versus 2.05 at March 31, 2026, and shareholder net worth of ₹10,144 crore as of June 30, 2026.
+
+I haven't found the actual Q1FY27 statutory disclosure PDF yet — only Q3FY26 and other disclosure pages turned up, so metrics like NWP, NEP, Expense of Management ratio, and Investments/AUM are still missing. I should try reading further into the investor presentation's "Financial Performance Snapshot" table, which likely breaks down claims ratio, expense ratio, and commission ratio below the CISR figures. Given repeated timeouts hitting the starhealth.in domain across many attempts, I'm now weighing whether to invoke the recovery policy for blocked sources.
+
+Since I already have the investor presentation PDF downloaded successfully, I should try one more targeted search for the actual Q1FY27 IRDAI disclosure, and also run a compute step to extract the full text from the PDF I already have using pdfplumber or PyPDF2 rather than relying on WebReader's truncation — that should surface the claims, expense, and commission ratios along with solvency, net worth, AUM, and market share figures.
+
+I'll dispatch these two steps in parallel. I could also update the todos list, but since those items are still in progress, I'll hold off on that and proceed with the two dispatched steps instead.
+
+Given I'm already at 24 steps, I'll do one more round to try to gather the remaining figures, then finalize with whatever's available regardless.
+
+</think>
+<tool><s>WriteTodos</s></tool>
+<tool><e>WriteTodos</e></tool>
+<think>I'll fetch this page with WebRe<think>Let me lookader, up targ Careeting the specific sections I Health Insurance's  need.
+
+<think>I'll try fetching thisticker and recent announcements URL with WebReader instead.
+
+.
+
+</think>
+<tool><s>WebReader: https://cms.careinsurance.com/cms/public/uploads/uploads/public_disclosure/FY%2024-25/Qtr%201%2024-25/PublicDisclosure_1723641609.pdf</s></tool>
+</think>
+<tool><s>WebReader: https://www.scribd.com/document/967151487/Care-Health-FY-2025-PublicDisclosure-1756111277</s></tool>
+</think>
+</think>
+<tool><s>TickerSearch: query:Care Health Insurance</s></tool>
+<tool><s>WebSearch: Care Health Insurance Investor Presentation Q1 FY25 site:bseindia.com</s></tool>
+<tool><s>WebSearch: Care Health Insurance Investor Presentation June 2024 quarter GWP PAT solvency ratio</s></tool>
+<tool><e>TickerSearch</e></tool>
+<tool><e>WebSearch</e></tool>
+<tool><e>WebSearch</e></tool>
+<tool><e>WebReader</e></tool>
+<tool><e>WebReader</e></tool>
+<think>I'm going back through the NL-1 Revenue Account table since the OCR formatting is making the premium figures unclear, trying to correctly identify the Net Earned Premium line for the quarter.
+
+Since this is Q1, the "for the quarter" and "upto the quarter" figures should match, and I can see 1,44,522/1,08,814 and 7,805/5,317 and 423/278 each repeated, confirming that pattern. But I still can't tell which duplicated value belongs to which line item—Premiums earned Net, profit/loss on sale of investments, or the other rows—since the OCR merged them without clear column alignment.
+
+Trying to verify with totals: Total(A) for the current quarter is 1,52,750, matching the upto-quarter figure, while last year's total is 1,14,409, so I'm attempting to check which combination of the individual line values sums to 1,52,750 to figure out the correct mapping.
+
+Testing this against the totals: current year 1,44,522+423+7,805=1,52,750, matching Total A exactly. Prior year 1,08,814+278+5,317=1,14,409, also matching. So the pieces line up as Premiums earned (Net), plus a smaller income line, plus interest/dividend/rent, with the other components at zero for both periods.
+
+Converting to crore, Q1FY25 Net Earned Premium works out to 1445.22 crore, with Claims Incurred at 961.60 crore, Commission at 285.95 crore, Operating Expenses at 301.93 crore, and Total B at 1549.48 crore. That gives an Operating Loss of -21.98 crore, matching the reported (2,198) figure — now I need to find NWP.
+
+Net Written Premium likely sits in a different schedule (NL-4 "Premium") than what I've extracted so far, since NL-1 only shows earned premium net of reinsurance. I need to look further into the document for that schedule, along with NL-5 through NL-7, the balance sheet, expense of management, and investment/net worth data.
+
+I still haven't captured several key figures: NWP, expense of management ratio, net worth, investments/AUM, and the investor presentation metrics like GWP, retail health GWP, PAT, solvency ratio, market share, and investment yield. Since several web fetch attempts have already failed on the disclosure page and scribd, I should try pulling the investor presentation PDF directly through a link found in an S8 filing reference.
+
+I need to search more specifically for the Q1 FY25 investor presentation on BSE/NSE, and separately fetch the remaining schedules (NL-2 expense of management, NL-4 written premium, balance sheet) from the full NL-1 disclosure PDF, dispatching both requests now.
+
+I only attempted that URL once via WebReader and it failed with a dynamic content warning, so I shouldn't retry it per my rules on blocked URLs. I'll move forward with dispatching searches and update my todos to reflect the research already attempted.
+
+The previous todo-writing calls failed because the context object was missing the required 'tool' and 'todos' keys — I need to construct it properly this time with "tool": "WriteTodos" and a "todos" array. I'm drafting the updated todo list, starting with reading Care Health Insurance's IRDAI Q1FY25 disclosure PDF for the Revenue Account data.
+
+</think>
+<tool><s>WriteTodos</s></tool>
+<tool><e>WriteTodos</e></tool>
+<think>I'll pull up the PDF using WebReader to see its contents.
+
+</think>
+<tool><s>WebReader: https://cms.careinsurance.com/cms/public/uploads/uploads/public_disclosure/FY%2024-25/Qtr%201%2024-25/PublicDisclosure_1723641609.pdf</s></tool>
+<think>Let me check on this — Care Health Insurance itself isn't publicly listed, but its parent Religare Enterprises is, so I should look into that connection.
+
+</think>
+<tool><s>WebSearch: Care Health Insurance Investor Presentation Q1FY25 June 2024 pdf</s></tool>
+<tool><s>WebSearch: Religare Health Insurance investor presentation Q1 FY25 GWP claims ratio combined ratio</s></tool>
+<tool><s>TickerSearch: query:Religare Enterprises</s></tool>
+<tool><e>TickerSearch</e></tool>
+<tool><e>WebSearch</e></tool>
+<tool><e>WebSearch</e></tool>
+<tool><e>WebReader</e></tool>
+<think>I'm reviewing the NL-1 Revenue Account figures from the Q1FY25 IRDAI disclosure, but the numbers for Premiums earned (Net) seem inconsistent between the two values shown, so I need to re-check the table carefully.
+
+The OCR text is jumbled with numbers appearing in odd order, but since this is Q1 data, the "for the quarter" and "upto the quarter" figures should be identical for both years — so I'm trying to match 1,44,522 and 1,08,814 to the right rows and columns, along with the smaller figures like 423, 278, 5,317, and 7,805.
+
+Let me try to reconcile this against Total(A), which should equal 1,52,750 for the current period and 1,14,409 for the comparative — testing different combinations of premiums earned, investment profit, interest/dividend income, and other income to see which sums line up correctly.
+
+Given this is IRDAI's Revenue Account stated in Rs. Lakhs, Premiums earned (Net) for the quarter ended 30 June 2024 is 1,44,522 Lakhs, roughly Rs. 1,445.22 Crore, which seems reasonable for a mid-size health insurer's quarterly NEP. I need to check the corresponding previous year quarterly figure too.
+
+But I realize the 1,52,750 lakhs figure I was treating as NEP is actually labeled TOTAL(A), which sums Premiums earned Net plus other income items like profit/loss on investments and interest. So subtracting those other components (423+278+5317=6018) from the total gives Premiums earned (Net) itself of approximately 1,46,732 lakhs.
+
+Given OCR noise in the source, I'll settle on NEP being roughly 1,445.22 Cr for Q1FY25, close enough to my calculated figure. Now I'm pulling out the other line items: Claims Incurred (Net) at 961.60 Cr, Commission at 285.95 Cr, Operating Expenses at 301.93 Cr, TOTAL(B) at 1549.48 Cr, and an Operating Loss of -21.98 Cr.
+
+I still need more figures beyond what's in this schedule — total GWP, retail health GWP, PAT under both IGAAP and IFRS, solvency ratio, net worth, AUM, and investment yield. I'm also noticing that one search result referencing a CIN and Q1 FY25 operational highlights might actually belong to a different company entirely rather than Care Health, so I need to verify that before using it.
+
+Given how many searches have already come up short, I should try one more targeted search specifically for Care Health Insurance's investor presentation for Q1 FY25, since that's the most likely source for the GWP, PAT, ratios, solvency, and market share figures still missing.
+
+I'll try searching for the investor presentation directly on BSE or NSE, and also revisit the full NL-1 disclosure PDF since it likely contains other schedules like NL-2 expenses, balance sheet, and solvency data that I may have missed on the first pass.
+
+Since previous attempts at fetching this same URL all truncated at the identical point, it seems like a length limit rather than an actual content gap. I should try requesting specific sections explicitly—like the schedule of investments, balance sheet form, solvency margin, and expense ratio—to see if targeting a different part of the document shifts the truncation window and surfaces new content.
+
+Given how many failed attempts have piled up, I'll budget just two more research calls: one search for the investor presentation PDF via BSE/NSE filings, and one more targeted WebReader pull on the balance sheet specifics, then finalize regardless of outcome.
+
+The utility tool has kept failing due to a missing 'todos' key, so rather than keep retrying it, I should just skip that step and move straight to the remaining research calls, accepting we'll finalize with whatever partial data we have.
+
+Given we've already hit over a dozen failed or partial attempts—repeated WebReader truncations and WebSearch queries turning up decks for Star Health, Medi Assist, and others but nothing solid for Care Health specifically—I'll dispatch one more round of research in parallel and then wrap up regardless of completeness.
+
+Given that Care Health may have only recently filed for IPO, it likely wasn't listed as of Q1FY25, meaning no investor presentation exists for that period—only the statutory NL disclosure. So I need to pull GWP, PAT ratios, solvency, market share, AUM, and investment yield directly from that comprehensive NL disclosure PDF, including its balance sheet and solvency margin sections, rather than a separate deck.
+
+I'll try another WebReader pass on the same document, targeting the specific schedules I still need—Balance Sheet, Available Solvency Margin, expenses of management, Investments (Schedule 8), Share Capital (Schedule 5), and the Premium schedule that would have GWP and gross direct premium figures. Since it's one long multi-schedule document, I'll bundle all these requests into a single detailed call and hope the tool surfaces more content this time rather than truncating again.
+
+I'll also try searching news coverage for headline GWP/PAT figures from Care Health's Q1FY25 release, since news articles sometimes report these numbers even without the formal presentation being available.
+
+Given the constraints, I'll run a few searches for press coverage of net profit, solvency ratio, combined ratio, and retail health market share, then finalize the report acknowledging gaps where data isn't found.
+
+I'll do one more round of research and then finalize with whatever data is available, being upfront about any gaps.
+
+</think>
+</1>
+</task>
