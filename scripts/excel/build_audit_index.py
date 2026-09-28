@@ -739,6 +739,36 @@ def main() -> None:
                 if tag:
                     cell["blank_tag"] = tag
 
+    # --- Captable holders not separately disclosed ------------------------
+    # The quarterly exchange shareholding pattern names public holders only
+    # above 1%. fetch-shareholding.ts records a template holder the filing
+    # doesn't name as not_disclosed (no number; its shares are inside Others,
+    # which the sheet itself computes as total - named). Both of its cells read
+    # grey "Not disclosed (<1%)" instead of a red "missing" or a fake 0.
+    try:
+        shp_rows = json.loads((REPO / "src" / "data" / "snapshots" / "shareholding-pattern-snapshot.json").read_text()).get("data", [])
+    except Exception:
+        shp_rows = []
+    undisclosed = {(r.get("company_id"), r.get("holder"), r.get("period"))
+                   for r in shp_rows if isinstance(r, dict) and r.get("not_disclosed")}
+    if undisclosed:
+        for sh in sheets:
+            if sh.get("role") != "shareholding":
+                continue
+            for cell in sh["cells"]:
+                metric = cell.get("metric") or ""
+                holder = metric.split("::", 1)[1] if "::" in metric else None
+                if (cell.get("entity"), holder, cell.get("period")) not in undisclosed:
+                    continue
+                v = store.get(f'{cell.get("entity")}::{metric}::{cell.get("period")}')
+                if (v and v.get("normalized_value") is not None) or cell.get("calculated_value") is not None:
+                    continue
+                cell["source_status"] = "web_blocked"
+                cell["blank_tag"] = "Not disclosed (<1%)"
+                cell["na_reason"] = (f"{holder} isn't named separately in this quarter's exchange shareholding "
+                                     "filing - the filing lists public holders only above 1%. Its shares are "
+                                     "counted inside Others. Shown as not disclosed, never 0.")
+
     # --- Structural blanks in auto-appended SAHIs-comparison columns -------
     # A period column extend_template_periods.py appends carries no curated tag
     # yet. Where a company has NEVER had a value for a row in any of its

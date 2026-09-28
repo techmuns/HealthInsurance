@@ -73,6 +73,9 @@ const HOLDER_INDEX = new Map<string, number>(HOLDERS.map((h, i) => [h, i]))
 // to the disclosed total and (b) the returned AS_OF matching the quarter asked
 // for. The band only sanity-checks each quarter's total against the nearest
 // known quarter to catch gross scale errors (shares move only via issuance/ESOP).
+// A holder may be "not separately disclosed" in a quarter only if its last
+// recorded stake was below this (the filing names public holders above 1%).
+const UNNAMED_MAX_PCT = 2
 const BAND_LOW = 0.7
 const BAND_HIGH = 1.4
 
@@ -81,8 +84,10 @@ interface HolderRow {
   holder: string
   period: string
   filing_period: string
-  shares: number
-  pct: number
+  /** null = not separately disclosed in that quarter's filing (never 0). */
+  shares: number | null
+  pct: number | null
+  not_disclosed?: boolean
   provenance: Record<string, unknown>
 }
 interface Snapshot {
@@ -186,6 +191,9 @@ function buildPayload(targetIso: string) {
         `• "Other Mutual funds" = mutual-fund holders not named above; "Insurance Companies" = ` +
         `insurer holders; "Others" = ALL remaining shares not separately named — set "Others" so ` +
         `that the 15 holder lines SUM EXACTLY to TOTAL.\n` +
+        `• The filing names public holders only above 1%. If one of the holders listed above is NOT ` +
+        `separately named in that quarter's filing, write the single word NOT_DISCLOSED for it and count ` +
+        `its shares inside "Others".\n` +
         `• If you cannot get a holder's exact share count from that quarter's filing, write the single ` +
         `word MISSING for it — never guess, never 0.\n` +
         `• Do not fabricate. Keep the holder names and order exactly as given.`,
@@ -245,10 +253,11 @@ interface Parsed {
   source: string | null
   holders: Map<string, number>
   missing: string[]
+  notDisclosed: string[]
 }
 
 function parseAnswer(answer: string): Parsed {
-  const out: Parsed = { asOf: null, total: null, source: null, holders: new Map(), missing: [] }
+  const out: Parsed = { asOf: null, total: null, source: null, holders: new Map(), missing: [], notDisclosed: [] }
   const byLabel = new Map(HOLDERS.map((h) => [h.toLowerCase(), h]))
   for (const line of answer.split('\n')) {
     if (!line.includes('|')) continue
@@ -262,24 +271,49 @@ function parseAnswer(answer: string): Parsed {
     const canonical = byLabel.get(key)
     if (!canonical) continue
     if (/^missing$/i.test(rest)) { out.missing.push(canonical); continue }
+    if (/^not[_ ]?disclosed$/i.test(rest)) { out.notDisclosed.push(canonical); continue }
     const n = parseInt0(rest.split('|')[0])
     if (n != null) out.holders.set(canonical, n)
   }
   return out
 }
 
-/** The 15 source-backed rows for one validated quarter. */
-function buildQuarterRows(p: Parsed): HolderRow[] {
+/** The 15 rows for one validated quarter — a number for every holder the
+ *  filing names, and a "not separately disclosed" row (no number) for any it
+ *  doesn't (`unnamed`; their shares are inside Others). */
+function buildQuarterRows(p: Parsed, unnamed: string[]): HolderRow[] {
   const asOf = p.asOf!
   const total = p.total!
   const filing_period = quarterLabel(asOf)
   const fetched_at = nowIso()
+  const named = HOLDERS.length - unnamed.length
   const source_name =
     `${COMPANY_NAME} — Shareholding pattern, quarter ended ${asOf} (${filing_period}), as filed with BSE/NSE ` +
-    `(Reg. 31 LODR). Auto-fetched via the muns filings agent and verified: the 15 holders sum exactly to the ` +
-    `${total.toLocaleString('en-IN')} total shares. The named per-holder list is not on Screener's public page ` +
+    `(Reg. 31 LODR). Auto-fetched via the muns filings agent and verified: the ${named} holder lines sum exactly to the ` +
+    `${total.toLocaleString('en-IN')} total shares` +
+    (unnamed.length ? ` (${unnamed.join(', ')} not separately named in the filing — below its 1% naming threshold, counted inside Others)` : '') +
+    `. The named per-holder list is not on Screener's public page ` +
     `(login-only there); the exchange filing is the source. Cross-reference: ${SCREENER_URL}`
   return HOLDERS.map((holder) => {
+    if (unnamed.includes(holder)) {
+      return {
+        company_id: COMPANY_ID,
+        holder,
+        period: asOf,
+        filing_period,
+        shares: null,
+        pct: null,
+        not_disclosed: true,
+        provenance: {
+          source_name,
+          source_url: p.source || BSE_FILING_URL,
+          source_file: null,
+          fetched_at,
+          confidence: 'high',
+          source_status: 'not_separately_disclosed',
+        },
+      }
+    }
     const shares = p.holders.get(holder)!
     return {
       company_id: COMPANY_ID,
@@ -305,15 +339,24 @@ function validateQuarter(
   p: Parsed,
   requestedIso: string,
   nearestTotal: number | null,
+  lastPct: Map<string, number>,
 ): { rows: HolderRow[] | null; total: number | null; reason: string } {
   const tag = `${quarterLabel(requestedIso)} (${requestedIso})`
   if (p.asOf == null && !p.holders.size && !p.total)
     return { rows: null, total: null, reason: `${tag}: filing not found / no data returned` }
   if (p.asOf && p.asOf !== requestedIso)
     return { rows: null, total: null, reason: `${tag}: agent returned a different quarter (${p.asOf}) — not stored` }
-  if (p.missing.length)
-    return { rows: null, total: null, reason: `${tag}: holder(s) MISSING (won't guess): ${p.missing.join(', ')}` }
-  const absent = HOLDERS.filter((h) => !p.holders.has(h))
+  // The shareholding pattern names public holders only above 1%, so a small
+  // holder can simply be absent from a quarter's filing (Paragon: 0.42% in
+  // Mar-2026, never named). That holder is "not separately disclosed" — no
+  // number, its shares inside Others — never guessed, never 0. Allowed only
+  // for a holder last seen below UNNAMED_MAX_PCT: a large holder vanishing is
+  // an error, and the quarter is held. The exact sum gate below still binds.
+  const unnamed = [...new Set([...p.notDisclosed, ...p.missing])]
+  const blocking = unnamed.filter((h) => h === 'Others' || !((lastPct.get(h) ?? Infinity) < UNNAMED_MAX_PCT))
+  if (blocking.length)
+    return { rows: null, total: null, reason: `${tag}: holder(s) MISSING (won't guess): ${blocking.join(', ')}` }
+  const absent = HOLDERS.filter((h) => !p.holders.has(h) && !unnamed.includes(h))
   if (absent.length) return { rows: null, total: null, reason: `${tag}: holder(s) absent from answer: ${absent.join(', ')}` }
   if (!p.total) return { rows: null, total: null, reason: `${tag}: no parseable TOTAL shares` }
   if (!p.source) return { rows: null, total: null, reason: `${tag}: no SOURCE url` }
@@ -326,7 +369,7 @@ function validateQuarter(
   if (nearestTotal && (p.total < nearestTotal * BAND_LOW || p.total > nearestTotal * BAND_HIGH))
     return { rows: null, total: null, reason: `${tag}: total ${p.total.toLocaleString('en-IN')} outside sane band of nearest known ${nearestTotal.toLocaleString('en-IN')}` }
 
-  return { rows: buildQuarterRows(p), total: p.total, reason: 'ok' }
+  return { rows: buildQuarterRows(p, unnamed), total: p.total, reason: unnamed.length ? `ok (not separately disclosed: ${unnamed.join(', ')})` : 'ok' }
 }
 
 /** Assemble the merged multi-quarter snapshot. `as_of`/`total_shares` always
@@ -411,6 +454,12 @@ async function main(): Promise<number> {
     a.push(r)
     byPeriod.set(r.period, a)
   }
+  // Each holder's most recent recorded stake — decides whether it may be
+  // "not separately disclosed" in a newer quarter.
+  const lastPct = new Map<string, number>()
+  for (const period of [...byPeriod.keys()].sort()) {
+    for (const r of byPeriod.get(period) ?? []) if (typeof r.pct === 'number') lastPct.set(r.holder, r.pct)
+  }
   const knownTotals = new Map<string, number>()
   for (const [period, rows] of byPeriod) {
     const t = rows.reduce((s, r) => s + (typeof r.shares === 'number' ? r.shares : 0), 0)
@@ -450,7 +499,7 @@ async function main(): Promise<number> {
       continue
     }
     const parsed = parseAnswer(extractAnswer(raw))
-    const { rows, total, reason } = validateQuarter(parsed, q, nearestKnownTotal(q, knownTotals))
+    const { rows, total, reason } = validateQuarter(parsed, q, nearestKnownTotal(q, knownTotals), lastPct)
     if (!rows) {
       console.warn(`  ⃠ ${q}: held — ${reason}`)
       await appendLog('fetch-shareholding.log', { company_id: COMPANY_ID, status: 'held', quarter: q, reason })
@@ -459,7 +508,7 @@ async function main(): Promise<number> {
     }
     fetched.set(q, rows)
     if (total) knownTotals.set(q, total) // feed the next quarter's sanity-band
-    console.log(`  ✓ ${q}: ${total?.toLocaleString('en-IN')} shares, 15 holders tie to total.`)
+    console.log(`  ✓ ${q}: ${total?.toLocaleString('en-IN')} shares, holders tie to total — ${reason}.`)
     await appendLog('fetch-shareholding.log', { company_id: COMPANY_ID, status: 'fetched', quarter: q, total })
   }
 
