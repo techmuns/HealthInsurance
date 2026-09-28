@@ -45,9 +45,20 @@ without re-deriving state.
     6.18%, Star 11.44% → 13.44% (Niva retail stays on its deck's 10.1%); EoM values
     curated as "33.7" (percent) had shown as 3,370% — the overlay loader now
     normalises EoM to a fraction.
-  Still open (see "PENDING — freshness"): Captable June quarter (Paragon <1% not
-  named — Neha's call), ownership trend history (`fetch-screener-shareholding.ts`
-  not scheduled), Star / ManipalCigna / ABHI Q1 FY27 disclosures not staged.
+  - Ownership (Neha's go-ahead, same day): the trend + group split are now
+    rebuilt WEEKLY from the Screener page `screener-fetch.yml` already saves
+    (`fetch-screener-shareholding.ts` parses #quarterly-shp / #yearly-shp from
+    the saved HTML, folds new columns into the staged history - never drops an
+    older quarter, a column must foot to ~100%, yearly keeps March year-ends -
+    and promotes the newest footing quarter into ownership-snapshot). Niva and
+    Star now run to Jun-2026 (Niva: 55.30 / 12.09 / 16.17 / 16.44).
+    `sahi-ownership-agent` never steps a company back a quarter.
+  - Captable (Neha chose option 1): a holder the filing doesn't name (public
+    holders are named only above 1%) is "not separately disclosed" - no number,
+    shares inside Others, cell grey "Not disclosed (<1%)" - allowed only for a
+    holder last seen below 2%; the exact sum-to-total gate still binds.
+  Still open (see "PENDING — freshness"): Star / ManipalCigna / ABHI Q1 FY27
+  disclosures not staged.
 - **Insights: instant-legibility copy + relevance feedback loop** (Neha, 2026-07-08):
   every card front now leads with the concrete fact in plain words, carries a
   from → to **key-move strip** (e.g. `Retail market share · 33.5% → 31.2%`), and
@@ -300,12 +311,11 @@ run `python3 scripts/excel/build_filings_inventory.py` first to stage them.
 ---
 
 ## PENDING — freshness (from the 2026-09-28 audit)
-- **Captable — Neha's call.** The Jun-2026 Niva Bupa filing names every holder
-  except Paragon (0.42% in Mar-2026; filings only name holders above 1%), so
-  `validateQuarter()` in `scripts/ingest/fetch-shareholding.ts` holds the whole
-  quarter. Options put to Neha: show Paragon as "not separately disclosed (<1%)"
-  inside Others (recommended) / keep March until she supplies the figure / drop
-  the row from June. Pallonji, SBI MF, Tata MF (1.15–1.49%) are next in line.
+- **Captable — rule shipped** (2026-09-28, Neha chose option 1): Paragon shows
+  "Not disclosed (<1%)", counted inside Others. Pallonji, SBI MF, Tata MF
+  (1.15–1.49%) get the same treatment automatically if they drop below 1%.
+  First live run (shareholding-fetch, dispatched 2026-09-28 12:53Z) fetching the
+  Jun-2026 quarter - confirm the Captable advanced to 2026-06-30.
 - ~~SAHIs comparison + Channel Mix period columns~~ **DONE** (2026-09-28).
 - **Q1 FY27 company results — partly done.** Niva + Care fill agent-free from their
   staged Jun-2026 disclosures. Still blank: Star / ManipalCigna / ABHI (no Jun-2026
@@ -314,11 +324,9 @@ run `python3 scripts/excel/build_filings_inventory.py` first to stage them.
   PAT ₹137.8 cr / claims 63.0% / expense 37.2% on deck p8 await the hand-
   transcribed `deck-sourced-values.json` step). The sahi-quarterly-backfill
   agent is failing (HTTP 500 / timeouts) — now a red run, not a silent green.
-- **Ownership trend history** (`ownership-trends.json` / `ownership-holdings.json`,
-  the Ownership page's line + donut) is written only by
-  `fetch-screener-shareholding.ts`, which no workflow runs → still Mar-2026.
-- Niva's Jun-2026 group split: the agent's 28-Sep answer didn't foot (90.64%), so
-  the snapshot keeps Niva's Mar-2026 split until a footing answer arrives.
+- ~~Ownership trend history~~ **DONE** (2026-09-28): weekly via screener-fetch.
+- ~~Niva's Jun-2026 group split~~ **DONE** (2026-09-28): from the Screener table
+  (the agent's answers that day didn't foot - 90.64% / 78.19% - and were refused).
 
 ## PENDING — your decision
 1. ~~Wire NEP into Excel?~~ **DONE** (Neha, 2026-06-08) — statutory NL-1 NEP wired
