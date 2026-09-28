@@ -1,8 +1,8 @@
 {
   "last_successful_run": "2026-09-18T12:46:07.245Z",
-  "last_failed_run": "2026-09-28T13:46:58.013Z",
+  "last_failed_run": "2026-09-28T14:27:47.481Z",
   "sources_checked": 12,
-  "sources_success": 5,
+  "sources_success": 6,
   "sources_failed": 1,
   "metrics_updated": [
     "company.gwp::niva-bupa::Annual",
@@ -24863,9 +24863,14 @@
     "[gicouncil_segmentwise_annual] staged file not recognised as a segment report (skipped): FY24-march.xlsx",
     "[gicouncil_segmentwise_annual] staged file not recognised as a segment report (skipped): FY25-march.xlsx",
     "[gicouncil_segmentwise_annual] staged file not recognised as a segment report (skipped): FY26-march.xlsx",
-    "[gicouncil_segmentwise_annual] listing fetch failed on every route (https://www.gicouncil.in/statistics/industry-statistics/segment-wise-report-on-homepage/): all routes failed for https://www.gicouncil.in/statistics/industry-statistics/segment-wise-report-on-homepage/ — direct fetch returned a non-listing response (block page?); all relay routes failed or returned non-file responses; wayback snapshot fetch failed or returned invalid bytes",
-    "[gicouncil_segmentwise_annual] listing discovered via muns agent (11 links) — direct + relay + archive routes were all blocked",
-    "[gicouncil_segmentwise_annual] data/raw/gicouncil/segment-annual/FY20-march.xlsx: Health Portfolio: header row not found — format changed?",
+    "[gicouncil_segmentwise_annual] listing fetch failed on every route (https://www.gicouncil.in/statistics/industry-statistics/segment-wise-report-on-homepage/): all routes failed for https://www.gicouncil.in/statistics/industry-statistics/segment-wise-report-on-homepage/ — direct fetch returned a non-listing response (block page?); all relay routes failed or returned non-file responses; no wayback snapshot available",
+    "[gicouncil_segmentwise_annual] muns agent returned no usable gicouncil links",
+    "[gicouncil_segmentwise_annual] listing unreadable (attempt 1/4) — retrying in 5s",
+    "[gicouncil_segmentwise_annual] listing fetch failed on every route (https://www.gicouncil.in/statistics/industry-statistics/segment-wise-report-on-homepage/): all routes failed for https://www.gicouncil.in/statistics/industry-statistics/segment-wise-report-on-homepage/ — direct fetch returned a non-listing response (block page?); all relay routes failed or returned non-file responses; no wayback snapshot available",
+    "[gicouncil_segmentwise_annual] muns agent returned no usable gicouncil links",
+    "[gicouncil_segmentwise_annual] listing unreadable (attempt 2/4) — retrying in 10s",
+    "[gicouncil_segmentwise_annual] listing fetch failed on every route (https://www.gicouncil.in/statistics/industry-statistics/segment-wise-report-on-homepage/): all routes failed for https://www.gicouncil.in/statistics/industry-statistics/segment-wise-report-on-homepage/ — direct fetch returned a non-listing response (block page?); all relay routes failed or returned non-file responses; no wayback snapshot available",
+    "[gicouncil_segmentwise_annual] listing discovered via muns agent (22 links) — direct + relay + archive routes were all blocked",
     "[gicouncil_segmentwise_annual] FY19: found 2/4 PSU rows — PSUs/Private left null.",
     "[gicouncil_segmentwise_annual] FY19: only 7/11 named retail rows found — \"Others\" left null.",
     "[gicouncil_segmentwise_annual] FY18: found 2/4 PSU rows — PSUs/Private left null.",
@@ -25074,11 +25079,6 @@
     "[moneycontrol_analyst] Forecast endpoint 2 failed: HTTP 404 for https://api.moneycontrol.com/mcapi/v1/stock/estimates/recommendation?scId=NBH&deviceType=W",
     "[moneycontrol_stock_deals] NBH API https://api.moneycontrol.com/mcapi/v1/stock/stock-deals?scId=NBH&deviceType=W: HTTP 404 for https://api.moneycontrol.com/mcapi/v1/stock/stock-deals?scId=NBH&deviceType=W",
     "[moneycontrol_stock_deals] NBH API https://api.moneycontrol.com/mcapi/v1/stock/deals?scId=NBH&deviceType=W: HTTP 404 for https://api.moneycontrol.com/mcapi/v1/stock/deals?scId=NBH&deviceType=W",
-    "[muns_market_data] niva-bupa: no rows over 1 windows from 2026-09-25. HTTP 502",
-    "[muns_market_data] star-health: no rows over 1 windows from 2026-09-25. HTTP 502",
-    "[muns_market_data] icici-lombard: no rows over 1 windows from 2026-09-25. HTTP 502",
-    "[muns_market_data] godigit: no rows over 1 windows from 2026-09-25. HTTP 502",
-    "[muns_market_data] religare-enterprises: no rows over 1 windows from 2026-09-25. HTTP 502",
     "[yahoo_price] niva-bupa: HTTP 429 for https://query1.finance.yahoo.com/v8/finance/chart/NIVABUPA.NS?range=2y&interval=1d. Source: https://finance.yahoo.com/quote/NIVABUPA.NS/history/",
     "[yahoo_price] star-health: HTTP 429 for https://query1.finance.yahoo.com/v8/finance/chart/STARHEALTH.NS?range=2y&interval=1d. Source: https://finance.yahoo.com/quote/STARHEALTH.NS/history/",
     "[yahoo_price] icici-lombard: HTTP 429 for https://query1.finance.yahoo.com/v8/finance/chart/ICICIGI.NS?range=2y&interval=1d. Source: https://finance.yahoo.com/quote/ICICIGI.NS/history/",
@@ -25154,22 +25154,22 @@
     {
       "source_id": "gicouncil_flash_sahi",
       "status": "success",
-      "last_attempt_at": "2026-09-28T13:42:08.886Z",
-      "last_success_at": "2026-09-28T13:42:08.886Z",
+      "last_attempt_at": "2026-09-28T14:20:50.692Z",
+      "last_success_at": "2026-09-28T14:20:50.692Z",
       "records_fetched": 91
     },
     {
       "source_id": "gicouncil_segmentwise",
       "status": "success",
-      "last_attempt_at": "2026-09-28T13:42:15.507Z",
-      "last_success_at": "2026-09-28T13:42:15.507Z",
+      "last_attempt_at": "2026-09-28T14:20:57.494Z",
+      "last_success_at": "2026-09-28T14:20:57.494Z",
       "records_fetched": 124
     },
     {
       "source_id": "gicouncil_segmentwise_annual",
       "status": "success",
-      "last_attempt_at": "2026-09-28T13:43:47.946Z",
-      "last_success_at": "2026-09-28T13:43:47.946Z",
+      "last_attempt_at": "2026-09-28T14:22:25.053Z",
+      "last_success_at": "2026-09-28T14:22:25.053Z",
       "records_fetched": 2767,
       "error": "fetcher timed out after 6 min (capped so the run always reaches snapshot merge + commit)"
     },
@@ -25205,7 +25205,7 @@
     {
       "source_id": "irdai_monthly_business",
       "status": "failed",
-      "last_attempt_at": "2026-09-28T13:42:03.881Z",
+      "last_attempt_at": "2026-09-28T14:19:21.487Z",
       "last_success_at": null,
       "records_fetched": 0,
       "error": "No XLSX link discovered on https://irdai.gov.in/non-life"
@@ -25213,7 +25213,7 @@
     {
       "source_id": "irdai_nonlife_flash",
       "status": "pending",
-      "last_attempt_at": "2026-09-28T13:42:06.463Z",
+      "last_attempt_at": "2026-09-28T14:19:41.053Z",
       "last_success_at": null,
       "records_fetched": 0
     },
@@ -25248,22 +25248,22 @@
     {
       "source_id": "moneycontrol_analyst",
       "status": "success",
-      "last_attempt_at": "2026-09-28T13:45:44.746Z",
-      "last_success_at": "2026-09-28T13:45:44.746Z",
+      "last_attempt_at": "2026-09-28T14:26:27.195Z",
+      "last_success_at": "2026-09-28T14:26:27.195Z",
       "records_fetched": 6
     },
     {
       "source_id": "moneycontrol_stock_deals",
       "status": "success",
-      "last_attempt_at": "2026-09-28T13:45:58.845Z",
-      "last_success_at": "2026-09-28T13:45:58.845Z",
+      "last_attempt_at": "2026-09-28T14:27:03.966Z",
+      "last_success_at": "2026-09-28T14:27:03.966Z",
       "records_fetched": 0
     },
     {
       "source_id": "muns_market_data",
-      "status": "pending",
-      "last_attempt_at": "2026-09-28T13:46:07.497Z",
-      "last_success_at": "2026-09-28T13:20:58.478Z",
+      "status": "success",
+      "last_attempt_at": "2026-09-28T14:27:12.755Z",
+      "last_success_at": "2026-09-28T14:27:12.755Z",
       "records_fetched": 0,
       "error": "fetcher timed out after 6 min (capped so the run always reaches snapshot merge + commit)"
     },
@@ -25277,7 +25277,7 @@
     {
       "source_id": "nse_delivery",
       "status": "pending",
-      "last_attempt_at": "2026-09-28T13:46:57.283Z",
+      "last_attempt_at": "2026-09-28T14:27:46.877Z",
       "last_success_at": "2026-09-28T11:34:08.368Z",
       "records_fetched": 0
     },
@@ -25299,7 +25299,7 @@
     {
       "source_id": "price_history",
       "status": "pending",
-      "last_attempt_at": "2026-09-28T13:46:52.230Z",
+      "last_attempt_at": "2026-09-28T14:27:45.266Z",
       "last_success_at": null,
       "records_fetched": 0,
       "error": "fetcher timed out after 6 min (capped so the run always reaches snapshot merge + commit)"
@@ -25335,7 +25335,7 @@
     {
       "source_id": "valuation_daily",
       "status": "pending",
-      "last_attempt_at": "2026-09-28T13:45:42.812Z",
+      "last_attempt_at": "2026-09-28T14:26:23.873Z",
       "last_success_at": null,
       "records_fetched": 0,
       "error": "fetcher timed out after 6 min (capped so the run always reaches snapshot merge + commit)"
@@ -25343,7 +25343,7 @@
     {
       "source_id": "yahoo_price",
       "status": "pending",
-      "last_attempt_at": "2026-09-28T13:46:23.612Z",
+      "last_attempt_at": "2026-09-28T14:27:16.225Z",
       "last_success_at": null,
       "records_fetched": 0
     }

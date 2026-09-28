@@ -2,7 +2,7 @@
  "_meta": {
   "artifact": "extracted-data-audit",
   "schema_version": "1.0.0",
-  "generated_at": "2026-09-28T14:16:25.278554+00:00",
+  "generated_at": "2026-09-28T14:28:23.416847+00:00",
   "description": "QA index for the Extracted Data Audit tab. A compact projection of schema-map.json (cell contract) + excel-values.json (normalized value store) + held-back + blocked-filings. The binding x value join (Fetched / Missing / Parser issue / Source unavailable / Manual override) is computed at read time in src/lib/extractedDataAudit.ts so no data logic is duplicated.",
   "template_file": "niva-bupa-portfolio-review.xlsx",
   "template_sha256": "1bb2ab2ebf841fd46047938175ef1ff36d7c6c3207b8a56279d3e6dc8e2b0432",
@@ -47929,7 +47929,7 @@
      "section": "Shareholding pattern",
      "entity": "niva-bupa",
      "metric": "shareholding_pct::Bupa Singapore Holdings",
-     "period": "2026-06-30",
+     "period": "2026-03-31",
      "period_type": "point_in_time",
      "unit": "ratio",
      "cell_kind": "formula",
@@ -47942,7 +47942,7 @@
       {
        "ref": "D4",
        "label": "Bupa Singapore Holdings",
-       "period": "2026-06-30",
+       "period": "2026-03-31",
        "entity": "niva-bupa",
        "metric": "shareholding_shares::Bupa Singapore Holdings"
       },
@@ -47951,14 +47951,14 @@
        "label": "Total"
       }
      ],
-     "calculated_value": 0.553035
+     "calculated_value": 0.553567
     },
     {
      "cell": "D4",
      "section": "Shareholding pattern",
      "entity": "niva-bupa",
      "metric": "shareholding_shares::Bupa Singapore Holdings",
-     "period": "2026-06-30",
+     "period": "2026-03-31",
      "period_type": "point_in_time",
      "unit": "shares",
      "cell_kind": "input",
@@ -47971,7 +47971,7 @@
      "section": "Shareholding pattern",
      "entity": "niva-bupa",
      "metric": "shareholding_pct::Fettle Tone LLP",
-     "period": "2026-06-30",
+     "period": "2026-03-31",
      "period_type": "point_in_time",
      "unit": "ratio",
      "cell_kind": "formula",
@@ -47984,7 +47984,7 @@
       {
        "ref": "D5",
        "label": "Fettle Tone LLP",
-       "period": "2026-06-30",
+       "period": "2026-03-31",
        "entity": "niva-bupa",
        "metric": "shareholding_shares::Fettle Tone LLP"
       },
@@ -47993,14 +47993,14 @@
        "label": "Total"
       }
      ],
-     "calculated_value": 0.071761
+     "calculated_value": 0.079137
     },
     {
      "cell": "D5",
      "section": "Shareholding pattern",
      "entity": "niva-bupa",
      "metric": "shareholding_shares::Fettle Tone LLP",
-     "period": "2026-06-30",
+     "period": "2026-03-31",
      "period_type": "point_in_time",
      "unit": "shares",
      "cell_kind": "input",
@@ -48013,7 +48013,7 @@
      "section": "Shareholding pattern",
      "entity": "niva-bupa",
      "metric": "shareholding_pct::Temasek",
-     "period": "2026-06-30",
+     "period": "2026-03-31",
      "period_type": "point_in_time",
      "unit": "ratio",
      "cell_kind": "formula",
@@ -48026,7 +48026,7 @@
       {
        "ref": "D6",
        "label": "Temasek",
-       "period": "2026-06-30",
+       "period": "2026-03-31",
        "entity": "niva-bupa",
        "metric": "shareholding_shares::Temasek"
       },
@@ -48035,14 +48035,14 @@
        "label": "Total"
       }
      ],
-     "calculated_value": 0.044588
+     "calculated_value": 0.044631
     },
     {
      "cell": "D6",
      "section": "Shareholding pattern",
      "entity": "niva-bupa",
      "metric": "shareholding_shares::Temasek",
-     "period": "2026-06-30",
+     "period": "2026-03-31",
      "period_type": "point_in_time",
      "unit": "shares",
      "cell_kind": "formula",
@@ -48058,7 +48058,7 @@
      "section": "Shareholding pattern",
      "entity": "niva-bupa",
      "metric": "shareholding_pct::DSP Mutual Fund",
-     "period": "2026-06-30",
+     "period": "2026-03-31",
      "period_type": "point_in_time",
      "unit": "ratio",
      "cell_kind": "formula",
@@ -48071,7 +48071,7 @@
       {
        "ref": "D7",
        "label": "DSP Mutual Fund",
-       "period": "2026-06-30",
+       "period": "2026-03-31",
        "entity": "niva-bupa",
        "metric": "shareholding_shares::DSP Mutual Fund"
       },
@@ -48080,14 +48080,14 @@
        "label": "Total"
       }
      ],
-     "calculated_value": 0.015689
+     "calculated_value": 0.03207
     },
     {
      "cell": "D7",
      "section": "Shareholding pattern",
      "entity": "niva-bupa",
      "metric": "shareholding_shares::DSP Mutual Fund",
-     "period": "2026-06-30",
+     "period": "2026-03-31",
      "period_type": "point_in_time",
      "unit": "shares",
      "cell_kind": "input",
@@ -48100,7 +48100,7 @@
      "section": "Shareholding pattern",
      "entity": "niva-bupa",
      "metric": "shareholding_pct::Motilal Oswal Private Equity",
-     "period": "2026-06-30",
+     "period": "2026-03-31",
      "period_type": "point_in_time",
      "unit": "ratio",
      "cell_kind": "formula",
@@ -48113,7 +48113,7 @@
       {
        "ref": "D8",
        "label": "Motilal Oswal Private Equity",
-       "period": "2026-06-30",
+       "period": "2026-03-31",
        "entity": "niva-bupa",
        "metric": "shareholding_shares::Motilal Oswal Private Equity"
       },
@@ -48122,14 +48122,14 @@
        "label": "Total"
       }
      ],
-     "calculated_value": 0.026173
+     "calculated_value": 0.026198
     },
     {
      "cell": "D8",
      "section": "Shareholding pattern",
      "entity": "niva-bupa",
      "metric": "shareholding_shares::Motilal Oswal Private Equity",
-     "period": "2026-06-30",
+     "period": "2026-03-31",
      "period_type": "point_in_time",
      "unit": "shares",
      "cell_kind": "input",
@@ -48142,7 +48142,7 @@
      "section": "Shareholding pattern",
      "entity": "niva-bupa",
      "metric": "shareholding_pct::Nippon India Mutual Funds",
-     "period": "2026-06-30",
+     "period": "2026-03-31",
      "period_type": "point_in_time",
      "unit": "ratio",
      "cell_kind": "formula",
@@ -48155,7 +48155,7 @@
       {
        "ref": "D9",
        "label": "Nippon India Mutual Funds",
-       "period": "2026-06-30",
+       "period": "2026-03-31",
        "entity": "niva-bupa",
        "metric": "shareholding_shares::Nippon India Mutual Funds"
       },
@@ -48164,14 +48164,14 @@
        "label": "Total"
       }
      ],
-     "calculated_value": 0.031135
+     "calculated_value": 0.025237
     },
     {
      "cell": "D9",
      "section": "Shareholding pattern",
      "entity": "niva-bupa",
      "metric": "shareholding_shares::Nippon India Mutual Funds",
-     "period": "2026-06-30",
+     "period": "2026-03-31",
      "period_type": "point_in_time",
      "unit": "shares",
      "cell_kind": "input",
@@ -48184,7 +48184,7 @@
      "section": "Shareholding pattern",
      "entity": "niva-bupa",
      "metric": "shareholding_pct::Amansa Holdings",
-     "period": "2026-06-30",
+     "period": "2026-03-31",
      "period_type": "point_in_time",
      "unit": "ratio",
      "cell_kind": "formula",
@@ -48197,7 +48197,7 @@
       {
        "ref": "D10",
        "label": "Amansa Holdings",
-       "period": "2026-06-30",
+       "period": "2026-03-31",
        "entity": "niva-bupa",
        "metric": "shareholding_shares::Amansa Holdings"
       },
@@ -48206,14 +48206,14 @@
        "label": "Total"
       }
      ],
-     "calculated_value": 0.02287
+     "calculated_value": 0.022892
     },
     {
      "cell": "D10",
      "section": "Shareholding pattern",
      "entity": "niva-bupa",
      "metric": "shareholding_shares::Amansa Holdings",
-     "period": "2026-06-30",
+     "period": "2026-03-31",
      "period_type": "point_in_time",
      "unit": "shares",
      "cell_kind": "input",
@@ -48226,7 +48226,7 @@
      "section": "Shareholding pattern",
      "entity": "niva-bupa",
      "metric": "shareholding_pct::A91",
-     "period": "2026-06-30",
+     "period": "2026-03-31",
      "period_type": "point_in_time",
      "unit": "ratio",
      "cell_kind": "formula",
@@ -48239,7 +48239,7 @@
       {
        "ref": "D11",
        "label": "A91",
-       "period": "2026-06-30",
+       "period": "2026-03-31",
        "entity": "niva-bupa",
        "metric": "shareholding_shares::A91"
       },
@@ -48248,14 +48248,14 @@
        "label": "Total"
       }
      ],
-     "calculated_value": 0.021109
+     "calculated_value": 0.021129
     },
     {
      "cell": "D11",
      "section": "Shareholding pattern",
      "entity": "niva-bupa",
      "metric": "shareholding_shares::A91",
-     "period": "2026-06-30",
+     "period": "2026-03-31",
      "period_type": "point_in_time",
      "unit": "shares",
      "cell_kind": "input",
@@ -48268,7 +48268,7 @@
      "section": "Shareholding pattern",
      "entity": "niva-bupa",
      "metric": "shareholding_pct::Tata Mutual Fund",
-     "period": "2026-06-30",
+     "period": "2026-03-31",
      "period_type": "point_in_time",
      "unit": "ratio",
      "cell_kind": "formula",
@@ -48281,7 +48281,7 @@
       {
        "ref": "D12",
        "label": "Tata Mutual Fund",
-       "period": "2026-06-30",
+       "period": "2026-03-31",
        "entity": "niva-bupa",
        "metric": "shareholding_shares::Tata Mutual Fund"
       },
@@ -48290,14 +48290,14 @@
        "label": "Total"
       }
      ],
-     "calculated_value": 0.015195
+     "calculated_value": 0.01493
     },
     {
      "cell": "D12",
      "section": "Shareholding pattern",
      "entity": "niva-bupa",
      "metric": "shareholding_shares::Tata Mutual Fund",
-     "period": "2026-06-30",
+     "period": "2026-03-31",
      "period_type": "point_in_time",
      "unit": "shares",
      "cell_kind": "input",
@@ -48310,7 +48310,7 @@
      "section": "Shareholding pattern",
      "entity": "niva-bupa",
      "metric": "shareholding_pct::SBI Mutual Fund",
-     "period": "2026-06-30",
+     "period": "2026-03-31",
      "period_type": "point_in_time",
      "unit": "ratio",
      "cell_kind": "formula",
@@ -48323,7 +48323,7 @@
       {
        "ref": "D13",
        "label": "SBI Mutual Fund",
-       "period": "2026-06-30",
+       "period": "2026-03-31",
        "entity": "niva-bupa",
        "metric": "shareholding_shares::SBI Mutual Fund"
       },
@@ -48332,14 +48332,14 @@
        "label": "Total"
       }
      ],
-     "calculated_value": 0.013904
+     "calculated_value": 0.01391
     },
     {
      "cell": "D13",
      "section": "Shareholding pattern",
      "entity": "niva-bupa",
      "metric": "shareholding_shares::SBI Mutual Fund",
-     "period": "2026-06-30",
+     "period": "2026-03-31",
      "period_type": "point_in_time",
      "unit": "shares",
      "cell_kind": "input",
@@ -48352,7 +48352,7 @@
      "section": "Shareholding pattern",
      "entity": "niva-bupa",
      "metric": "shareholding_pct::Insurance Companies",
-     "period": "2026-06-30",
+     "period": "2026-03-31",
      "period_type": "point_in_time",
      "unit": "ratio",
      "cell_kind": "formula",
@@ -48365,7 +48365,7 @@
       {
        "ref": "D14",
        "label": "Insurance Companies",
-       "period": "2026-06-30",
+       "period": "2026-03-31",
        "entity": "niva-bupa",
        "metric": "shareholding_shares::Insurance Companies"
       },
@@ -48374,14 +48374,14 @@
        "label": "Total"
       }
      ],
-     "calculated_value": 0.010455
+     "calculated_value": 0.009287
     },
     {
      "cell": "D14",
      "section": "Shareholding pattern",
      "entity": "niva-bupa",
      "metric": "shareholding_shares::Insurance Companies",
-     "period": "2026-06-30",
+     "period": "2026-03-31",
      "period_type": "point_in_time",
      "unit": "shares",
      "cell_kind": "input",
@@ -48394,7 +48394,7 @@
      "section": "Shareholding pattern",
      "entity": "niva-bupa",
      "metric": "shareholding_pct::Pallonji",
-     "period": "2026-06-30",
+     "period": "2026-03-31",
      "period_type": "point_in_time",
      "unit": "ratio",
      "cell_kind": "formula",
@@ -48407,7 +48407,7 @@
       {
        "ref": "D15",
        "label": "Pallonji",
-       "period": "2026-06-30",
+       "period": "2026-03-31",
        "entity": "niva-bupa",
        "metric": "shareholding_shares::Pallonji"
       },
@@ -48416,14 +48416,14 @@
        "label": "Total"
       }
      ],
-     "calculated_value": 0.011798
+     "calculated_value": 0.011519
     },
     {
      "cell": "D15",
      "section": "Shareholding pattern",
      "entity": "niva-bupa",
      "metric": "shareholding_shares::Pallonji",
-     "period": "2026-06-30",
+     "period": "2026-03-31",
      "period_type": "point_in_time",
      "unit": "shares",
      "cell_kind": "input",
@@ -48436,7 +48436,7 @@
      "section": "Shareholding pattern",
      "entity": "niva-bupa",
      "metric": "shareholding_pct::Other Mutual funds",
-     "period": "2026-06-30",
+     "period": "2026-03-31",
      "period_type": "point_in_time",
      "unit": "ratio",
      "cell_kind": "formula",
@@ -48449,7 +48449,7 @@
       {
        "ref": "D16",
        "label": "Other Mutual funds",
-       "period": "2026-06-30",
+       "period": "2026-03-31",
        "entity": "niva-bupa",
        "metric": "shareholding_shares::Other Mutual funds"
       },
@@ -48458,14 +48458,14 @@
        "label": "Total"
       }
      ],
-     "calculated_value": 0.027646
+     "calculated_value": 0.021795
     },
     {
      "cell": "D16",
      "section": "Shareholding pattern",
      "entity": "niva-bupa",
      "metric": "shareholding_shares::Other Mutual funds",
-     "period": "2026-06-30",
+     "period": "2026-03-31",
      "period_type": "point_in_time",
      "unit": "shares",
      "cell_kind": "input",
@@ -48478,20 +48478,20 @@
      "section": "Shareholding pattern",
      "entity": "niva-bupa",
      "metric": "shareholding_pct::Paragon",
-     "period": "2026-06-30",
+     "period": "2026-03-31",
      "period_type": "point_in_time",
      "unit": "ratio",
      "cell_kind": "formula",
      "fillable": false,
      "source_key": "shareholding",
-     "source_status": "not_disclosed",
+     "source_status": "available",
      "formula": "=D17/$D$19",
      "calc": "[Paragon] / [Total]",
      "inputs": [
       {
        "ref": "D17",
        "label": "Paragon",
-       "period": "2026-06-30",
+       "period": "2026-03-31",
        "entity": "niva-bupa",
        "metric": "shareholding_shares::Paragon"
       },
@@ -48500,30 +48500,27 @@
        "label": "Total"
       }
      ],
-     "blank_tag": "Not disclosed (<1%)",
-     "na_reason": "Paragon isn't named separately in this quarter's shareholding filing - holders are named only above 1%. Its shares are counted within the unnamed holders (Other Mutual funds / Others). Shown as not disclosed, never 0."
+     "calculated_value": 0.004232
     },
     {
      "cell": "D17",
      "section": "Shareholding pattern",
      "entity": "niva-bupa",
      "metric": "shareholding_shares::Paragon",
-     "period": "2026-06-30",
+     "period": "2026-03-31",
      "period_type": "point_in_time",
      "unit": "shares",
      "cell_kind": "input",
      "fillable": true,
      "source_key": "shareholding",
-     "source_status": "not_disclosed",
-     "blank_tag": "Not disclosed (<1%)",
-     "na_reason": "Paragon isn't named separately in this quarter's shareholding filing - holders are named only above 1%. Its shares are counted within the unnamed holders (Other Mutual funds / Others). Shown as not disclosed, never 0."
+     "source_status": "available"
     },
     {
      "cell": "C18",
      "section": "Shareholding pattern",
      "entity": "niva-bupa",
      "metric": "shareholding_pct::Others",
-     "period": "2026-06-30",
+     "period": "2026-03-31",
      "period_type": "point_in_time",
      "unit": "ratio",
      "cell_kind": "formula",
@@ -48536,7 +48533,7 @@
       {
        "ref": "D18",
        "label": "Others",
-       "period": "2026-06-30",
+       "period": "2026-03-31",
        "entity": "niva-bupa",
        "metric": "shareholding_shares::Others"
       },
@@ -48545,14 +48542,14 @@
        "label": "Total"
       }
      ],
-     "calculated_value": 0.134644
+     "calculated_value": 0.119465
     },
     {
      "cell": "D18",
      "section": "Shareholding pattern",
      "entity": "niva-bupa",
      "metric": "shareholding_shares::Others",
-     "period": "2026-06-30",
+     "period": "2026-03-31",
      "period_type": "point_in_time",
      "unit": "shares",
      "cell_kind": "formula",
@@ -48569,98 +48566,98 @@
       {
        "ref": "D4",
        "label": "Bupa Singapore Holdings",
-       "period": "2026-06-30",
+       "period": "2026-03-31",
        "entity": "niva-bupa",
        "metric": "shareholding_shares::Bupa Singapore Holdings"
       },
       {
        "ref": "D5",
        "label": "Fettle Tone LLP",
-       "period": "2026-06-30",
+       "period": "2026-03-31",
        "entity": "niva-bupa",
        "metric": "shareholding_shares::Fettle Tone LLP"
       },
       {
        "ref": "D6",
        "label": "Temasek",
-       "period": "2026-06-30",
+       "period": "2026-03-31",
        "entity": "niva-bupa",
        "metric": "shareholding_shares::Temasek"
       },
       {
        "ref": "D7",
        "label": "DSP Mutual Fund",
-       "period": "2026-06-30",
+       "period": "2026-03-31",
        "entity": "niva-bupa",
        "metric": "shareholding_shares::DSP Mutual Fund"
       },
       {
        "ref": "D8",
        "label": "Motilal Oswal Private Equity",
-       "period": "2026-06-30",
+       "period": "2026-03-31",
        "entity": "niva-bupa",
        "metric": "shareholding_shares::Motilal Oswal Private Equity"
       },
       {
        "ref": "D9",
        "label": "Nippon India Mutual Funds",
-       "period": "2026-06-30",
+       "period": "2026-03-31",
        "entity": "niva-bupa",
        "metric": "shareholding_shares::Nippon India Mutual Funds"
       },
       {
        "ref": "D10",
        "label": "Amansa Holdings",
-       "period": "2026-06-30",
+       "period": "2026-03-31",
        "entity": "niva-bupa",
        "metric": "shareholding_shares::Amansa Holdings"
       },
       {
        "ref": "D11",
        "label": "A91",
-       "period": "2026-06-30",
+       "period": "2026-03-31",
        "entity": "niva-bupa",
        "metric": "shareholding_shares::A91"
       },
       {
        "ref": "D12",
        "label": "Tata Mutual Fund",
-       "period": "2026-06-30",
+       "period": "2026-03-31",
        "entity": "niva-bupa",
        "metric": "shareholding_shares::Tata Mutual Fund"
       },
       {
        "ref": "D13",
        "label": "SBI Mutual Fund",
-       "period": "2026-06-30",
+       "period": "2026-03-31",
        "entity": "niva-bupa",
        "metric": "shareholding_shares::SBI Mutual Fund"
       },
       {
        "ref": "D14",
        "label": "Insurance Companies",
-       "period": "2026-06-30",
+       "period": "2026-03-31",
        "entity": "niva-bupa",
        "metric": "shareholding_shares::Insurance Companies"
       },
       {
        "ref": "D15",
        "label": "Pallonji",
-       "period": "2026-06-30",
+       "period": "2026-03-31",
        "entity": "niva-bupa",
        "metric": "shareholding_shares::Pallonji"
       },
       {
        "ref": "D16",
        "label": "Other Mutual funds",
-       "period": "2026-06-30",
+       "period": "2026-03-31",
        "entity": "niva-bupa",
        "metric": "shareholding_shares::Other Mutual funds"
       },
       {
        "ref": "D17",
        "label": "Paragon",
-       "period": "2026-06-30",
+       "period": "2026-03-31",
        "entity": "niva-bupa",
        "metric": "shareholding_shares::Paragon"
       }
@@ -68818,7 +68815,7 @@
    "transformation_used": "identity (value used as-is)",
    "source_name": "Motilal Oswal research note, 2026-09-24 (Moneycontrol broker research)",
    "source_url": "https://images.moneycontrol.com/static-mcnews/2026/09/20260925060919_Niva-Bupa-Health-Insurance-2509026-moti.pdf",
-   "fetched_at": "2026-09-28T13:45:44.746Z",
+   "fetched_at": "2026-09-28T14:26:27.195Z",
    "confidence": "low",
    "source_status": "backup",
    "source_layer": "analyst_aggregator",
@@ -68837,7 +68834,7 @@
    "transformation_used": "identity (value used as-is)",
    "source_name": "Motilal Oswal research note, 2026-09-24 (Moneycontrol broker research)",
    "source_url": "https://images.moneycontrol.com/static-mcnews/2026/09/20260925060919_Niva-Bupa-Health-Insurance-2509026-moti.pdf",
-   "fetched_at": "2026-09-28T13:45:44.746Z",
+   "fetched_at": "2026-09-28T14:26:27.195Z",
    "confidence": "low",
    "source_status": "backup",
    "source_layer": "analyst_aggregator",
@@ -68856,7 +68853,7 @@
    "transformation_used": "identity (value used as-is)",
    "source_name": "Motilal Oswal research note, 2026-07-30 (Moneycontrol broker research)",
    "source_url": "https://images.moneycontrol.com/static-mcnews/2026/07/20260731164316_Niva-Bupa-_31072026_Motilal-Oswal.pdf",
-   "fetched_at": "2026-09-28T13:45:44.746Z",
+   "fetched_at": "2026-09-28T14:26:27.195Z",
    "confidence": "low",
    "source_status": "backup",
    "source_layer": "analyst_aggregator",
@@ -68875,7 +68872,7 @@
    "transformation_used": "identity (value used as-is)",
    "source_name": "Motilal Oswal research note, 2026-06-19 (Moneycontrol broker research)",
    "source_url": "https://images.moneycontrol.com/static-mcnews/2026/06/20260622061924_Niva-Bupa-Health-Insurance-2206026-moti.pdf",
-   "fetched_at": "2026-09-28T13:45:44.746Z",
+   "fetched_at": "2026-09-28T14:26:27.195Z",
    "confidence": "low",
    "source_status": "backup",
    "source_layer": "analyst_aggregator",
@@ -68894,7 +68891,7 @@
    "transformation_used": "identity (value used as-is)",
    "source_name": "Motilal Oswal research note, 2026-05-10 (Moneycontrol broker research)",
    "source_url": "https://images.moneycontrol.com/static-mcnews/2026/05/20260526085124_Niva-BupaVMart-Retail-2605026-moti.pdf",
-   "fetched_at": "2026-09-28T13:45:44.746Z",
+   "fetched_at": "2026-09-28T14:26:27.195Z",
    "confidence": "low",
    "source_status": "backup",
    "source_layer": "analyst_aggregator",
@@ -68913,7 +68910,7 @@
    "transformation_used": "identity (value used as-is)",
    "source_name": "Motilal Oswal research note, 2026-01-29 (Moneycontrol broker research)",
    "source_url": "https://images.moneycontrol.com/static-mcnews/2026/02/20260202134824_Niva-Bupa_01022026_Motilal-Oswal.pdf",
-   "fetched_at": "2026-09-28T13:45:44.746Z",
+   "fetched_at": "2026-09-28T14:26:27.195Z",
    "confidence": "low",
    "source_status": "backup",
    "source_layer": "analyst_aggregator",
