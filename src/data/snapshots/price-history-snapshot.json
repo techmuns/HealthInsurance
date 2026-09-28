@@ -5,10 +5,10 @@
     "schema_version": "1.1.0",
     "dataset": "official",
     "source_policy": "official-first (NSE). Investing.com is login-free backup only, tagged low-confidence.",
-    "last_successful_run": "2026-09-28T10:07:20.210Z",
+    "last_successful_run": "2026-09-28T10:43:04.945Z",
     "parser_status": "ready",
     "notes": "Daily close / traded / deliverable quantity per listed insurer. Workbook seed (NSE via S&P Capital IQ) for niva-bupa listing→Jul-2025; Yahoo Finance keeps it current (close + volume). Deliverable quantity is NSE-only — null where only Yahoo covers a day, until an NSE delivery file is staged.",
-    "last_updated": "2026-09-28T10:07:26.538Z",
+    "last_updated": "2026-09-28T10:43:08.243Z",
     "row_count": 2369,
     "companies": [
       "godigit",
@@ -22,7 +22,7 @@
       "to": "2026-09-28"
     },
     "seeded_from_workbook": "data/raw/exchanges/niva-bupa/niva-bupa-historical-stock-movement.xlsx",
-    "muns_last_run": "2026-09-28T10:07:20.210Z",
+    "muns_last_run": "2026-09-28T10:43:04.945Z",
     "nse_delivery_last_run": "2026-09-25T17:28:28.673Z"
   },
   "data": [
@@ -8105,7 +8105,7 @@
       "company_id": "godigit",
       "date": "2026-09-28",
       "close": 263.25,
-      "traded_qty": 4342846,
+      "traded_qty": 4342694,
       "deliverable_qty": null,
       "provenance": {
         "source_name": "muns market-data API — NSE daily history",
@@ -24136,7 +24136,7 @@
       "company_id": "niva-bupa",
       "date": "2026-09-28",
       "close": 75.73,
-      "traded_qty": 863719,
+      "traded_qty": 863602,
       "deliverable_qty": null,
       "provenance": {
         "source_name": "muns market-data API — NSE daily history",
@@ -32194,7 +32194,7 @@
       "company_id": "religare-enterprises",
       "date": "2026-09-28",
       "close": 234.32,
-      "traded_qty": 221926,
+      "traded_qty": 221903,
       "deliverable_qty": null,
       "provenance": {
         "source_name": "muns market-data API — NSE daily history",
