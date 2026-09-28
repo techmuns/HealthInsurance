@@ -40,8 +40,12 @@ import { resolve } from 'node:path'
 import { SNAPSHOTS_ROOT, nowIso, appendLog } from './util'
 
 const API_URL = process.env.MUNS_AGENT_URL || 'https://devde.muns.io/chat/chat-muns'
-const PER_CALL_TIMEOUT_MS = 300_000 // 5-min hard ceiling on a single quarter call
-const RUN_BUDGET_MS = 13 * 60_000 // stop launching new calls past this (CI cap is 20 min)
+// The agent's answer time varies a lot (2026-09-28: three calls in a row hit a
+// 5-min ceiling unanswered). 8 min per call, never past the run budget, so
+// the job always ends inside its 30-min CI cap.
+const PER_CALL_TIMEOUT_MS = 480_000
+const RUN_BUDGET_MS = 24 * 60_000 // stop launching new calls past this (CI cap is 30 min)
+const MIN_CALL_MS = 120_000 // don't start a call with less time left than this
 const MAX_QUARTERS_PER_RUN = Math.max(1, Number(process.env.SHAREHOLDING_MAX_QUARTERS) || 4)
 const SNAPSHOT_PATH = resolve(SNAPSHOTS_ROOT, 'shareholding-pattern-snapshot.json')
 
@@ -217,9 +221,9 @@ function buildPayload(targetIso: string) {
   }
 }
 
-async function callAgent(token: string, targetIso: string): Promise<string> {
+async function callAgent(token: string, targetIso: string, timeoutMs: number): Promise<string> {
   const ctrl = new AbortController()
-  const timer = setTimeout(() => ctrl.abort(), PER_CALL_TIMEOUT_MS)
+  const timer = setTimeout(() => ctrl.abort(), timeoutMs)
   try {
     const res = await fetch(API_URL, {
       method: 'POST',
@@ -483,14 +487,15 @@ async function main(): Promise<number> {
   const fetched = new Map<string, HolderRow[]>()
   let held = 0
   for (const q of toProcess) {
-    if (Date.now() - startedAt > RUN_BUDGET_MS) {
+    const remaining = RUN_BUDGET_MS - (Date.now() - startedAt)
+    if (remaining < MIN_CALL_MS) {
       console.warn(`run budget reached — stopping before ${q}; the rest fills on the next run.`)
       break
     }
     let raw: string
     try {
       console.log(`  · asking the muns agent for ${quarterLabel(q)} (${q}) …`)
-      raw = await callAgent(token, q)
+      raw = await callAgent(token, q, Math.min(PER_CALL_TIMEOUT_MS, remaining))
     } catch (err) {
       const reason = err instanceof Error ? err.message : String(err)
       console.error(`  ✗ ${q}: agent call failed — ${reason}`)
