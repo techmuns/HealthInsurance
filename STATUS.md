@@ -1,12 +1,34 @@
 # Project Status — Official Filings → Excel Pipeline
 
-_Last updated: 2026-07-08. Branch: `main`._
+_Last updated: 2026-09-28. Branch: `main`._
 
 This is the handoff/status doc for the official-filings → Excel-fill work. The
 container is ephemeral, so this lives in the repo so the next session can pick up
 without re-deriving state.
 
 ## Where it stands
+- **Freshness audit — "is the data up to date and all live?"** (Neha, 2026-09-28).
+  GI Council premium data is current (monthly to Aug-2026, quarter to Q1 FY27; the
+  Sep edition lands ~late Oct). Fixed and pushed:
+  - FY26 GWP / Q1'26 GWP: future periods (Q2 FY27 → FY27) no longer paint red
+    "missing" — a release calendar (`notYetReleased` in
+    `src/lib/extractedDataAudit.ts`: period end + source lag) shows grey
+    "Due Oct '26" and they turn red only if still empty after the due date.
+  - GIC row check (`validateGicHealthPortfolioRow`) kept rows with a printed
+    negative sub-split (a refund line) only if they re-add to the printed total —
+    recovered National Insurance + "Others" Q1 FY27 (and 8 older cells).
+  - Agent answers turned into decorated markdown in Aug → valuation (Comps) and
+    ownership parsed 0 rows while reporting green. Shared reader
+    `scripts/ingest/agent-table.ts` on every numeric agent-table fetcher; valuation
+    / ownership now exit 1 on zero rows; ownership rejects splits that don't foot
+    to 100% (keeps the last footing row). Comps now at today's close.
+  - `scripts/ci/push-with-retry.sh` rebases with `--autostash` (shareholding
+    fetch had been losing its commits).
+  Still open (see "PENDING — freshness"): Captable June quarter (Paragon <1% not
+  named — Neha's call), SAHIs comparison + Channel Mix have no Q1 FY27 / FY26
+  columns (being added to `extend_template_periods.py`), Q1 FY27 company results
+  (PDFs staged, agent-free parser unscheduled), ownership trend history
+  (`fetch-screener-shareholding.ts` not scheduled).
 - **Insights: instant-legibility copy + relevance feedback loop** (Neha, 2026-07-08):
   every card front now leads with the concrete fact in plain words, carries a
   from → to **key-move strip** (e.g. `Retail market share · 33.5% → 31.2%`), and
@@ -257,6 +279,29 @@ run `python3 scripts/excel/build_filings_inventory.py` first to stage them.
   **Source Automation & Fallback** module (warning badge + verification status).
 
 ---
+
+## PENDING — freshness (from the 2026-09-28 audit)
+- **Captable — Neha's call.** The Jun-2026 Niva Bupa filing names every holder
+  except Paragon (0.42% in Mar-2026; filings only name holders above 1%), so
+  `validateQuarter()` in `scripts/ingest/fetch-shareholding.ts` holds the whole
+  quarter. Options put to Neha: show Paragon as "not separately disclosed (<1%)"
+  inside Others (recommended) / keep March until she supplies the figure / drop
+  the row from June. Pallonji, SBI MF, Tata MF (1.15–1.49%) are next in line.
+- **SAHIs comparison + Channel Mix period columns.** Both sheets' column lists are
+  hard-coded (`SAHI_CMP_BLOCKS`, `CHANNEL_AXIS_COLS` in `build_schema_map.py`;
+  `_add_full_grid` in `build_audit_index.py`) and `extend_template_periods.py`
+  only extends Industry Growth / FY26 GWP / Q1'26 GWP. Q1 FY27 GIC values (all 5
+  SAHIs) and Care FY26 / Niva Q1 FY27 channel values sit in the store unshown.
+- **Q1 FY27 company results.** Niva + Care Jun-2026 public disclosures (and Niva's
+  Q1 FY27 deck) are staged by fetch-rendered, but `build_filings_inventory.py` →
+  `npm run ingest:filings` is in no workflow, and `MONTH_Y4`'s `\b` mislabels
+  "June_2026_1786…" as FY17. `sahi-quarterly-backfill.yml` only asks for completed
+  FYs and its agent calls fail (HTTP 500 / timeouts) behind `set +e`.
+- **Ownership trend history** (`ownership-trends.json` / `ownership-holdings.json`,
+  the Ownership page's line + donut) is written only by
+  `fetch-screener-shareholding.ts`, which no workflow runs → still Mar-2026.
+- Niva's Jun-2026 group split: the agent's 28-Sep answer didn't foot (90.64%), so
+  the snapshot keeps Niva's Mar-2026 split until a footing answer arrives.
 
 ## PENDING — your decision
 1. ~~Wire NEP into Excel?~~ **DONE** (Neha, 2026-06-08) — statutory NL-1 NEP wired
