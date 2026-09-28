@@ -1,12 +1,17 @@
 {
   "company_quarterly_disclosures": {
-    "bad_runs": 53,
+    "bad_runs": 54,
     "bad_since": "2026-08-01T07:03:17.369Z",
     "kind": "regressed"
   },
   "moneycontrol_analyst": {
-    "bad_runs": 1,
+    "bad_runs": 2,
     "bad_since": "2026-09-28T12:55:47.768Z",
+    "kind": "empty"
+  },
+  "muns_market_data": {
+    "bad_runs": 1,
+    "bad_since": "2026-09-28T13:21:33.836Z",
     "kind": "empty"
   }
 }
