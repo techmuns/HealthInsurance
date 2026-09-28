@@ -55,8 +55,16 @@ without re-deriving state.
     `sahi-ownership-agent` never steps a company back a quarter.
   - Captable (Neha chose option 1): a holder the filing doesn't name (public
     holders are named only above 1%) is "not separately disclosed" - no number,
-    shares inside Others, cell grey "Not disclosed (<1%)" - allowed only for a
-    holder last seen below 2%; the exact sum-to-total gate still binds.
+    shares within the unnamed rows, cell grey "Not disclosed (<1%)" - allowed
+    only for a holder last seen below 2%; the exact sum-to-total gate still binds.
+    **Now at 30 Jun 2026 (Q1 FY27)**, read agent-free from Niva's own quarterly
+    IRDAI public disclosure (Form NL-9A names every holder above 1%; total from
+    Form NL-9) - `nl9a-shareholding.ts`, first choice in `fetch-shareholding.ts`;
+    the muns agent (which answered "filing not found" for Jun-2026) is only the
+    fallback. 14 holders tie exactly to 1,84,92,33,703 shares; Paragon grey;
+    Others 13.46%. Audit grid: new `not_disclosed` status (not counted as
+    missing, own chip, no pending-source pipeline); NL-9A cells sit under the
+    IRDAI pipeline.
   Still open (see "PENDING — freshness"): Star / ManipalCigna / ABHI Q1 FY27
   disclosures not staged.
 - **Insights: instant-legibility copy + relevance feedback loop** (Neha, 2026-07-08):
@@ -311,11 +319,25 @@ run `python3 scripts/excel/build_filings_inventory.py` first to stage them.
 ---
 
 ## PENDING — freshness (from the 2026-09-28 audit)
-- **Captable — rule shipped** (2026-09-28, Neha chose option 1): Paragon shows
-  "Not disclosed (<1%)", counted inside Others. Pallonji, SBI MF, Tata MF
-  (1.15–1.49%) get the same treatment automatically if they drop below 1%.
-  First live run (shareholding-fetch, dispatched 2026-09-28 12:53Z) fetching the
-  Jun-2026 quarter - confirm the Captable advanced to 2026-06-30.
+- ~~Captable — Jun-2026 quarter~~ **DONE** (2026-09-28): advanced to 2026-06-30
+  from Niva's Form NL-9A (agent-free); Paragon "Not disclosed (<1%)". Pallonji,
+  SBI MF, Tata MF (1.15–1.52%) get the same treatment automatically if they drop
+  below 1%. Next quarter (Sep-2026) lands when its public disclosure is staged
+  (~mid-Nov) - the 8th/22nd schedule picks it up.
+  Open for Neha (flagged, not changed):
+  - Mar-2026 Captable column (her master seed) carries Paragon at 7,818,694
+    shares - Paragon Partners Growth Fund II's PRE-IPO count (Sep-2024 NL-9A),
+    not a Mar-2026 figure; the Mar-2026 filing doesn't name Paragon. As an AIF
+    its shares (if still held) are also inside "Other Mutual funds" there, so
+    Mar-2026 Others (11.95%) is 0.42 pts low. Not displayed now (the Captable
+    shows the latest quarter). Fix = mark Mar-2026 Paragon not disclosed ->
+    Others 12.37%.
+  - Temasek's share cell (Captable D6) is a fixed template formula
+    `=44676098+37778328` (V-Sciences + Zulia) - right for Jun-2026, but it won't
+    move if Temasek trades. Fix = bind D6 to the fetched value like the others.
+  - History quarters Dec-24 .. Dec-25 still come only from the agent: their
+    NL-9A forms name MF schemes (not fund houses) or read with glued numbers,
+    so they're refused rather than guessed.
 - ~~SAHIs comparison + Channel Mix period columns~~ **DONE** (2026-09-28).
 - **Q1 FY27 company results — partly done.** Niva + Care fill agent-free from their
   staged Jun-2026 disclosures. Still blank: Star / ManipalCigna / ABHI (no Jun-2026
