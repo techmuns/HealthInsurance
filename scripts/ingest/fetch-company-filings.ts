@@ -27,7 +27,7 @@
 
 import { readFile } from 'node:fs/promises'
 import { basename, resolve } from 'node:path'
-import { REPO_ROOT, writeSnapshot, nowIso } from './util'
+import { REPO_ROOT, SNAPSHOTS_ROOT, writeSnapshot, nowIso } from './util'
 import { parsePdf, extractByPatterns } from './parsers'
 import { extractDisclosure, isPublicDisclosureForm } from './disclosure-extract'
 import { QUARTERLY_PATTERNS, sanitiseQuarterly } from './quarterly-extract'
@@ -38,6 +38,7 @@ const REGISTRY = resolve(REPO_ROOT, 'data/source-map/company-source-registry.jso
 const MASTER = resolve(REPO_ROOT, 'src/data/snapshots/company-master.json')
 const INVENTORY = resolve(REPO_ROOT, 'data/source-map/filings-inventory.json')
 const ANNUAL_REF = resolve(REPO_ROOT, 'src/data/snapshots/insurer-annual-snapshot.json')
+const SNAPSHOT_FILE = 'company-filings-snapshot.json'
 
 const FINANCIAL_TYPES = new Set([
   'annual_report', 'public_disclosure', 'quarterly_results', 'quarterly_ppt', 'investor_presentation',
@@ -47,11 +48,13 @@ const INR_CR_METRICS = new Set(['gwp', 'nwp', 'nep', 'pat', 'net_worth', 'invest
 const RATIO_METRICS = new Set(['claims_ratio', 'expense_ratio', 'combined_ratio', 'commission_ratio', 'roe'])
 const RECENT_PERIOD_FROM = '2022-04-01'
 const RECENT_FILING_FROM = '2023-01-01'
-// Raised from 8: once the inventory period labels were corrected (Chunk 2F), a
-// company like Niva has 10+ correctly-recent disclosures, and a cap of 8 dropped
-// the quarterly ones when the year-end files were (correctly) admitted. 14 keeps
-// the quarterly + year-end public disclosures without losing coverage.
-const PER_COMPANY_CAP = 14
+// No per-company COUNT cap (was 14, before that 8): this snapshot is rewritten
+// wholesale on every run, so a newest-N cap silently dropped the oldest parsed
+// filings - and every value they carried - each time a new quarter was staged
+// (Q1 FY27's three new Niva files would have evicted the Jun-24 / Mar-24
+// disclosures, i.e. NEP Q1FY25 / Q4FY24 / restated FY23). The date window above
+// is the bound. Byte-identical copies of one PDF (the same filing staged under
+// two names) are parsed once, so duplicates neither double-count nor crowd out.
 
 interface InvRow {
   company_id: string; document_title: string; document_type: string
@@ -131,16 +134,25 @@ async function loadRefGwp(): Promise<Map<string, number>> {
 }
 
 function selectDocs(inv: InvRow[], excluded: Set<string>): InvRow[] {
-  const recent = inv.filter((r) =>
-    r.fetch_status === 'staged_local' && FINANCIAL_TYPES.has(r.document_type) &&
-    !r.exclude_from_metrics && !excluded.has(r.company_id) &&
-    ((r.period_end && r.period_end >= RECENT_PERIOD_FROM) || (r.filing_date && r.filing_date >= RECENT_FILING_FROM)))
+  const seen = new Set<string>()
+  const recent = inv.filter((r) => {
+    if (!(r.fetch_status === 'staged_local' && FINANCIAL_TYPES.has(r.document_type) &&
+      !r.exclude_from_metrics && !excluded.has(r.company_id) &&
+      ((r.period_end && r.period_end >= RECENT_PERIOD_FROM) || (r.filing_date && r.filing_date >= RECENT_FILING_FROM)))) return false
+    // Same bytes staged twice (e.g. "Qtr 1 24-25\X.pdf" and "Qtr_1_24-25_X.pdf"):
+    // keep the first row in inventory order, drop the copy.
+    if (r.checksum_sha256) {
+      if (seen.has(r.checksum_sha256)) return false
+      seen.add(r.checksum_sha256)
+    }
+    return true
+  })
   const byCompany = new Map<string, InvRow[]>()
   for (const r of recent) { const a = byCompany.get(r.company_id) ?? []; a.push(r); byCompany.set(r.company_id, a) }
   const out: InvRow[] = []
   for (const a of byCompany.values()) {
     a.sort((x, y) => (y.period_end ?? y.filing_date ?? '').localeCompare(x.period_end ?? x.filing_date ?? ''))
-    out.push(...a.slice(0, PER_COMPANY_CAP))
+    out.push(...a)
   }
   return out
 }
@@ -357,6 +369,28 @@ function buildNl1Records(
   return out
 }
 
+/**
+ * A record re-parsed IDENTICALLY (same file checksum, period, column, value,
+ * notes - everything but the parse timestamp) keeps its original parsed_at, and
+ * the snapshot keeps its generated_at when nothing at all changed. The scheduled
+ * ingest re-runs this daily, so without this every run would re-stamp every
+ * value (a daily diff, and a misleading "fetched" date on filings months old).
+ */
+async function carryOverParseTimes(records: FilingRecord[]): Promise<string | null> {
+  let prev: { _meta?: { generated_at?: string }; data?: FilingRecord[] }
+  try { prev = await readJson(resolve(SNAPSHOTS_ROOT, SNAPSHOT_FILE)) } catch { return null }
+  const sig = (r: FilingRecord) => JSON.stringify({ ...r, provenance: { ...r.provenance, parsed_at: null } })
+  const prior = new Map<string, string>()
+  for (const r of prev.data ?? []) if (r?.provenance?.parsed_at) prior.set(sig(r), r.provenance.parsed_at)
+  let unchanged = (prev.data ?? []).length === records.length
+  for (const r of records) {
+    const t = prior.get(sig(r))
+    if (t) r.provenance.parsed_at = t
+    else unchanged = false
+  }
+  return unchanged ? (prev._meta?.generated_at ?? null) : null
+}
+
 export async function runCompanyFilings(): Promise<{ records: FilingRecord[]; warnings: string[] }> {
   const fetched_at = nowIso()
   const registry = (await readJson<{ data: RegRow[] }>(REGISTRY)).data
@@ -510,7 +544,8 @@ export async function runCompanyFilings(): Promise<{ records: FilingRecord[]; wa
     records.push(...docRecords)
   }
 
-  await writeSnapshot('company-filings-snapshot.json', {
+  const priorGeneratedAt = await carryOverParseTimes(records)
+  await writeSnapshot(SNAPSHOT_FILE, {
     _meta: {
       snapshot_id: 'company-filings-snapshot',
       description: 'Chunk 2A (hardened): metrics extracted from staged official filings, safety-gated. Rich review sidecar; NOT merged into insurer snapshots or the Excel value store.',
@@ -519,7 +554,7 @@ export async function runCompanyFilings(): Promise<{ records: FilingRecord[]; wa
       unit_convention: 'ratios -> fraction (0.65); solvency -> multiple (3.03x); premiums/PAT -> INR crore. transformation_used recorded per value.',
       governing_objective: 'accuracy > coverage; only eligible_for_excel values may later enter the workbook; every eligible value carries dashboard-ready source proof.',
       parser: PARSER_NAME,
-      generated_at: fetched_at,
+      generated_at: priorGeneratedAt ?? fetched_at,
       docs_parsed: docs.length,
       records: records.length,
       eligible_for_excel: records.filter((r) => r.eligible_for_excel).length,

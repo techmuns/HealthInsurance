@@ -247,6 +247,15 @@ function buildGrid(group: AuditGroup): { columns: GridCol[]; rows: GridRow[]; en
 
   // Does the entity vary across COLUMNS (column-block layout) or across ROWS?
   const entityByColumn = new Set(columns.map((c) => c.entity).filter(Boolean)).size > 1
+  // Column-block sheets: a period column the pipeline appended after the used
+  // range (e.g. a company's Q1 FY27) belongs with its company, not after the
+  // last block. Blocks keep their first-appearance order; within a block,
+  // columns stay in sheet order. Sheets already contiguous are unchanged.
+  if (entityByColumn) {
+    const blocks = new Map<string, GridCol[]>()
+    for (const c of columns) (blocks.get(c.entityId) ?? blocks.set(c.entityId, []).get(c.entityId)!).push(c)
+    columns = [...blocks.values()].flat()
+  }
   const rowEntities = new Set([...rowMap.values()].map((rc) => rc[0].entityLabel))
   const entityByRow = !entityByColumn && rowEntities.size > 1
   const singleEntity = rowEntities.size <= 1

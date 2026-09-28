@@ -24,11 +24,30 @@ without re-deriving state.
     to 100% (keeps the last footing row). Comps now at today's close.
   - `scripts/ci/push-with-retry.sh` rebases with `--autostash` (shareholding
     fetch had been losing its commits).
+  - Same day, second pass: `extend_template_periods.py` now also grows the
+    **SAHIs comparison** (one column per company × new period; Q1 FY27 for all
+    five, FY26 for ManipalCigna / ABHI) and **Channel Mix** (Niva Q1 FY27, Care
+    FY26) — `sahi_cmp_blocks` / `channel_mix_blocks` in `build_schema_map.py`
+    bind appended columns from their header rows; the grid keeps them inside
+    their company's block. A new column is added only for a finished period with
+    at least one real value. Rows a company has never published (e.g. IFRS for
+    unlisted ManipalCigna / ABHI) inherit the grey tag; everything else blank is
+    red = published but not fetched yet.
+  - Q1 FY27 results now read agent-free from the staged public disclosures
+    (daily in `insurance-data-ingest.yml`): Niva claims 78.82% / combined 118.06% /
+    commission 16.74% / solvency 2.25 / NEP ₹1,473 cr; Care 0.77 / 1.11 / 0.16 /
+    1.58 — each checked against the printed page. `fetch-company-filings.ts` lost
+    its newest-14 cap (it was evicting older quarters) and skips byte-identical
+    copies; `MONTH_Y4` fixed; `sahi-quarterly-backfill.yml` asks for the current
+    FY's finished quarters and fails when every agent call fails.
+  - Corrected: FY26 market shares (curated from the Apr–Jul 2025 edition, filed as
+    FY26) now use the full-year March-2026 GIC figures — e.g. Niva overall 5.05% →
+    6.18%, Star 11.44% → 13.44% (Niva retail stays on its deck's 10.1%); EoM values
+    curated as "33.7" (percent) had shown as 3,370% — the overlay loader now
+    normalises EoM to a fraction.
   Still open (see "PENDING — freshness"): Captable June quarter (Paragon <1% not
-  named — Neha's call), SAHIs comparison + Channel Mix have no Q1 FY27 / FY26
-  columns (being added to `extend_template_periods.py`), Q1 FY27 company results
-  (PDFs staged, agent-free parser unscheduled), ownership trend history
-  (`fetch-screener-shareholding.ts` not scheduled).
+  named — Neha's call), ownership trend history (`fetch-screener-shareholding.ts`
+  not scheduled), Star / ManipalCigna / ABHI Q1 FY27 disclosures not staged.
 - **Insights: instant-legibility copy + relevance feedback loop** (Neha, 2026-07-08):
   every card front now leads with the concrete fact in plain words, carries a
   from → to **key-move strip** (e.g. `Retail market share · 33.5% → 31.2%`), and
@@ -287,16 +306,14 @@ run `python3 scripts/excel/build_filings_inventory.py` first to stage them.
   quarter. Options put to Neha: show Paragon as "not separately disclosed (<1%)"
   inside Others (recommended) / keep March until she supplies the figure / drop
   the row from June. Pallonji, SBI MF, Tata MF (1.15–1.49%) are next in line.
-- **SAHIs comparison + Channel Mix period columns.** Both sheets' column lists are
-  hard-coded (`SAHI_CMP_BLOCKS`, `CHANNEL_AXIS_COLS` in `build_schema_map.py`;
-  `_add_full_grid` in `build_audit_index.py`) and `extend_template_periods.py`
-  only extends Industry Growth / FY26 GWP / Q1'26 GWP. Q1 FY27 GIC values (all 5
-  SAHIs) and Care FY26 / Niva Q1 FY27 channel values sit in the store unshown.
-- **Q1 FY27 company results.** Niva + Care Jun-2026 public disclosures (and Niva's
-  Q1 FY27 deck) are staged by fetch-rendered, but `build_filings_inventory.py` →
-  `npm run ingest:filings` is in no workflow, and `MONTH_Y4`'s `\b` mislabels
-  "June_2026_1786…" as FY17. `sahi-quarterly-backfill.yml` only asks for completed
-  FYs and its agent calls fail (HTTP 500 / timeouts) behind `set +e`.
+- ~~SAHIs comparison + Channel Mix period columns~~ **DONE** (2026-09-28).
+- **Q1 FY27 company results — partly done.** Niva + Care fill agent-free from their
+  staged Jun-2026 disclosures. Still blank: Star / ManipalCigna / ABHI (no Jun-2026
+  disclosure staged — Star's site 403s), Care NEP (the NL-1 parser blocks Care's
+  layout), and deck-only rows (total GWP, NWP, PAT, EoM; Niva's Q1 FY27 IFRS
+  PAT ₹137.8 cr / claims 63.0% / expense 37.2% on deck p8 await the hand-
+  transcribed `deck-sourced-values.json` step). The sahi-quarterly-backfill
+  agent is failing (HTTP 500 / timeouts) — now a red run, not a silent green.
 - **Ownership trend history** (`ownership-trends.json` / `ownership-holdings.json`,
   the Ownership page's line + donut) is written only by
   `fetch-screener-shareholding.ts`, which no workflow runs → still Mar-2026.

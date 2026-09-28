@@ -222,6 +222,16 @@ def collect_overlay():
         norm = pct_to_fraction(val) if is_pct else val
         label = "percent -> fraction (value / 100)" if is_pct else "identity (value used as-is)"
         unit = "ratio" if is_pct else ("x" if metric == "solvency_ratio" else "INR_cr")
+        if metric == "eom_igaap" and isinstance(val, (int, float)):
+            # EoM (expense of management ÷ premium) was curated in two forms under
+            # one "%" label: as printed (33.7) and as the workbook's fraction
+            # (0.3021). Stored untouched with unit INR_cr, the percent form showed
+            # as "3,370%". As a fraction this ratio lives in ~0.15-0.7, so only a
+            # value above 1.5 can be the percent form.
+            is_pct = val > 1.5
+            norm = pct_to_fraction(val) if is_pct else val
+            label = "percent -> fraction (value / 100)" if is_pct else "identity (already a fraction)"
+            unit = "ratio"
         prov = {
             "source_name": e.get("source_name"), "source_url": e.get("source_url"),
             "source_file": e.get("source_file"), "fetched_at": e.get("fetched_at"),
@@ -1191,12 +1201,20 @@ def withhold_out_of_range_values(store):
     return held
 
 
-def main():
+def build_store():
+    """Collect, resolve and gate every value — the whole store, in memory.
+
+    Returns (store, held, stats) and writes nothing. main() writes it out;
+    extend_template_periods.py calls it to see which cells a real value will
+    fill on THIS run, so a new period column is appended only when data for it
+    exists (the store does not depend on the template, so the answer is the
+    same one the fill step gets)."""
+    CANDIDATES.clear()  # module-level accumulator: a second call must start clean
     collect_existing()
     collect_shareholding()  # rank-1 per-holder shareholding shares (Captable tab)
     wired, held = collect_company_filings()
-    deck = collect_deck_sourced()
-    ar = collect_annual_report()
+    collect_deck_sourced()
+    collect_annual_report()
     screener = collect_screener()
     collect_overlay()  # curated gap-fills, last so it only fills cells still empty
     collect_workbook_seed()  # rank-8 history seed — only wins where nothing official exists
@@ -1216,6 +1234,17 @@ def main():
     # Same for a value outside its physical range (QA hard H4).
     range_held = withhold_out_of_range_values(store)
     held = held + range_held
+    stats = {"wired": wired, "screener": screener, "conflicts": conflicts,
+             "others_derived": others_derived, "nl_linked": nl_linked,
+             "waterfall_held": waterfall_held, "range_held": range_held}
+    return store, held, stats
+
+
+def main():
+    store, held, stats = build_store()
+    wired, screener, conflicts = stats["wired"], stats["screener"], stats["conflicts"]
+    others_derived, nl_linked = stats["others_derived"], stats["nl_linked"]
+    waterfall_held, range_held = stats["waterfall_held"], stats["range_held"]
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(json.dumps(store, indent=2, ensure_ascii=False))
     OUT_HELD.write_text(json.dumps({

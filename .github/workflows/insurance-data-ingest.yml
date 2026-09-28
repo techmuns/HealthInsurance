@@ -216,6 +216,21 @@ jobs:
       - name: Install Excel build deps
         run: pip install openpyxl
 
+      # ─── Company filings (agent-free) ────────────────────────────────────
+      # Every official disclosure PDF already staged under data/raw/companies/
+      # (weekly fetch-rendered, monthly fetch-company-pdfs, or a manual drop)
+      # flows into the grid hands-off: inventory (period label + checksum per
+      # file) → column-aware NL-20 / NL-1 parse → company-filings-snapshot.json,
+      # which the value store below projects. Idempotent (no new or changed
+      # filing → no diff). Non-fatal: on any error the previous inventory and
+      # snapshot stay in place and the build carries on with them.
+      - name: Parse staged company filings (inventory → NL-form parse)
+        timeout-minutes: 5
+        continue-on-error: true
+        run: |
+          python3 scripts/excel/build_filings_inventory.py
+          npm run ingest:filings
+
       - name: Build filled workbook (extend periods → schema-map → value store → fill → audit index)
         run: |
           # Standing instruction (Neha, 2026-06-11): when data exists for a new

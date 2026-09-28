@@ -60,6 +60,7 @@ jobs:
       - run: pip install --quiet --disable-pip-version-check openpyxl
 
       - name: Fetch + clean the interim decks
+        id: fetch
         env:
           MUNS_API_TOKEN: ${{ secrets.MUNS_API_TOKEN }}
           MUNS_AGENT_URL: ${{ secrets.MUNS_AGENT_URL }}
@@ -78,24 +79,45 @@ jobs:
           # manual dispatch can still override via the workflow inputs.
           NOWY=$(date -u +%Y); NOWM=$(date -u +%m); BASEFY=$NOWY; [ "$((10#$NOWM))" -ge 4 ] && BASEFY=$((NOWY+1))
           fa=FY$(printf '%02d' $(((BASEFY-1)%100))); fb=FY$(printf '%02d' $(((BASEFY-2)%100)))
-          PERIODS_NIVA_STAR="${PERIODS_NIVA_STAR:-H1$fb 9M$fb H1$fa 9M$fa}"
-          PERIODS_CARE="${PERIODS_CARE:-Q1$fb 9M$fb Q1$fa 9M$fa}"
-          PERIODS_Q1="${PERIODS_Q1:-Q1$fb Q1$fa}"
+          # ...plus the CURRENT fiscal year's elapsed quarters, for every insurer:
+          # cumulative Q1 -> H1 -> 9M, each added once its quarter has ended
+          # (Apr-Jun none, Jul-Sep Q1, Oct-Dec +H1, Jan-Mar +9M). Without this the
+          # year in progress (e.g. Q1FY27) was never requested until it closed.
+          fc=FY$(printf '%02d' $((BASEFY%100)))
+          QDONE=$(( ((10#$NOWM + 8) % 12) / 3 ))
+          CUR=""
+          [ "$QDONE" -ge 1 ] && CUR="Q1$fc"
+          [ "$QDONE" -ge 2 ] && CUR="$CUR H1$fc"
+          [ "$QDONE" -ge 3 ] && CUR="$CUR 9M$fc"
+          PERIODS_NIVA_STAR="${PERIODS_NIVA_STAR:-H1$fb 9M$fb H1$fa 9M$fa $CUR}"
+          PERIODS_CARE="${PERIODS_CARE:-Q1$fb 9M$fb Q1$fa 9M$fa $CUR}"
+          PERIODS_Q1="${PERIODS_Q1:-Q1$fb Q1$fa $CUR}"
+          echo "periods: niva/star=[$PERIODS_NIVA_STAR] care=[$PERIODS_CARE] aditya/manipal=[$PERIODS_Q1]"
           declare -A PERIODS
           PERIODS[niva-bupa]="$PERIODS_NIVA_STAR"
           PERIODS[star-health]="$PERIODS_NIVA_STAR"
           PERIODS[care-health]="$PERIODS_CARE"
           PERIODS[aditya-birla]="$PERIODS_Q1"
           PERIODS[manipalcigna]="$PERIODS_Q1"
+          TOTAL=0; OK=0
           for company in niva-bupa star-health care-health aditya-birla manipalcigna; do
             for period in ${PERIODS[$company]}; do
               echo "::group::$company $period"
-              FETCH_COMPANY_ID="$company" FETCH_PERIOD="$period" \
-                timeout 360 npx tsx scripts/ingest/sahi-financials-agent.ts || echo "fetch skipped/timed-out: $company $period"
+              TOTAL=$((TOTAL+1))
+              if FETCH_COMPANY_ID="$company" FETCH_PERIOD="$period" \
+                timeout 360 npx tsx scripts/ingest/sahi-financials-agent.ts; then
+                OK=$((OK+1))
+              else
+                echo "fetch skipped/timed-out: $company $period"
+              fi
               npx tsx scripts/ingest/sahi-financials-clean.ts "$company" "$period" || echo "clean failed: $company $period"
               echo "::endgroup::"
             done
           done
+          echo "agent calls succeeded: $OK / $TOTAL"
+          # Keep going so the publish step still lands anything already cleaned,
+          # but flag a run where NOTHING came back so it cannot pass as green.
+          if [ "$TOTAL" -gt 0 ] && [ "$OK" -eq 0 ]; then echo "all_failed=true" >> "$GITHUB_OUTPUT"; fi
           exit 0
 
       - name: Publish — land pulls, then re-apply fills onto latest main
@@ -132,3 +154,9 @@ jobs:
             echo "publish retry $i"; sleep 5
           done
           echo "ERROR: publish failed after retries"; exit 1
+
+      - name: Fail the run when every agent call failed
+        if: steps.fetch.outputs.all_failed == 'true'
+        run: |
+          echo "::error::Every muns agent call failed this run (HTTP errors / timeouts) - no interim figures were fetched."
+          exit 1

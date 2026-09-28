@@ -49,6 +49,10 @@ TYPE_RULES = [
 
 FY_PATTERNS = [re.compile(r"20(\d{2})[-_](?:20)?(\d{2})"), re.compile(r"FY[-_ ]?20?(\d{2})", re.I)]
 QTR_PATTERN = re.compile(r"\bQ([1-4])\b.*?FY?[-_ ]?(\d{2})", re.I)
+# Quarter + split fiscal year ("Q1_FY-2026-27", "Q1-FY2026-27" -> Q1FY27). Tried
+# before QTR_PATTERN, which reads the "20" of "2026" as the year (-> Q1FY20) and
+# misses "_Q1_" (no \b between "_" and "Q"), so a Q1 results file fell to "FY27".
+QTR_SPLIT_FY = re.compile(r"(?<![A-Za-z0-9])Q([1-4])[-_ ]*FY[-_ ]?20\d{2}[-_](\d{2})(?!\d)", re.I)
 MONTH_NUM = {"jan": 1, "feb": 2, "mar": 3, "apr": 4, "may": 5, "jun": 6,
              "jul": 7, "aug": 8, "sep": 9, "oct": 10, "nov": 11, "dec": 12}
 # Calendar month + year (from "<Month>-<YYYY|YY>" filenames) -> Indian fiscal
@@ -57,8 +61,11 @@ MONTH_NUM = {"jan": 1, "feb": 2, "mar": 3, "apr": 4, "may": 5, "jun": 6,
 # reads the YEAR 2022, not the day 30; Y2 handles "Sep-24". The previous pattern
 # took only 2 digits ("Mar-2025" -> "20" -> Q4FY20) and never did the calendar->FY
 # shift ("Sep-2024" -> Q2FY24 instead of the correct Q2FY25).
+# The year must end at a non-digit, not a word boundary: "June_2026_1786655903" /
+# "December2024_1738647983" put "_" (a word char) after the year, so a trailing \b
+# never matched and the name fell through to FY_PATTERNS ("2026_17" -> FY17).
 _MON = r"(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*"
-MONTH_Y4 = re.compile(_MON + r"[-_ ]?(?:\d{1,2}(?:st|nd|rd|th)?[-_ ]+)?(\d{4})\b", re.I)
+MONTH_Y4 = re.compile(_MON + r"[-_ ]?(?:\d{1,2}(?:st|nd|rd|th)?[-_ ]+)?(\d{4})(?!\d)", re.I)
 MONTH_Y2 = re.compile(_MON + r"[-_ ]?(\d{2})(?!\d)", re.I)
 
 
@@ -89,7 +96,7 @@ def infer_period(name: str) -> str | None:
     m = OLD_NL.search(name)
     if m:
         return f"Q{m.group(3)}FY{m.group(2)}"
-    m = QTR_PATTERN.search(name)
+    m = QTR_SPLIT_FY.search(name) or QTR_PATTERN.search(name)
     if m:
         return f"Q{m.group(1)}FY{m.group(2)}"
     m = MONTH_Y4.search(name) or MONTH_Y2.search(name)

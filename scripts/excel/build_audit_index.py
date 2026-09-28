@@ -30,6 +30,7 @@ Usage:
 from __future__ import annotations
 
 import json
+from collections import Counter
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -465,15 +466,24 @@ def _add_full_grid(sheets) -> int:
     try:
         import sys as _sys
         _sys.path.insert(0, str(Path(__file__).resolve().parent))
-        from build_schema_map import SAHI_CMP_BLOCKS, SAHI_CMP_ROWS
+        from build_schema_map import SAHI_CMP_BLOCKS, SAHI_CMP_ROWS, sahi_cmp_blocks
     except Exception:
         return 0
     sheet = next((s for s in sheets if s["sheet"] == "SAHIs comparison"), None)
     if not sheet:
         return 0
+    # The fixed blocks plus any period column extend_template_periods.py has
+    # appended since (read from the template's own headers, the same way the
+    # schema builder binds them). No template / openpyxl -> the fixed blocks.
+    blocks = SAHI_CMP_BLOCKS
+    try:
+        import openpyxl
+        blocks, _ = sahi_cmp_blocks(openpyxl.load_workbook(TEMPLATE)["SAHIs comparison"])
+    except Exception:
+        pass
     have = {c["cell"] for c in sheet["cells"]}
     added = 0
-    for entity, axis in SAHI_CMP_BLOCKS:
+    for entity, axis in blocks:
         for row, (metric, unit, source_key) in SAHI_CMP_ROWS.items():
             for col, period in axis.items():
                 ref = f"{col}{row}"
@@ -728,6 +738,51 @@ def main() -> None:
                 cell["na_reason"] = reason
                 if tag:
                     cell["blank_tag"] = tag
+
+    # --- Structural blanks in auto-appended SAHIs-comparison columns -------
+    # A period column extend_template_periods.py appends carries no curated tag
+    # yet. Where a company has NEVER had a value for a row in any of its
+    # existing columns and every one of those blanks carries a curated grey tag
+    # (e.g. IFRS profit for an unlisted insurer that reports Ind-AS only), the
+    # new period is the same structural gap: it inherits that tag rather than
+    # reading as a red "missing" that nothing can ever fill. A row with any real
+    # value stays red when blank — that number is published, just not fetched.
+    grey = ("not_applicable", "not_in_ppt", "web_blocked")
+    try:
+        import sys as _sys
+        import openpyxl
+        _sys.path.insert(0, str(Path(__file__).resolve().parent))
+        from build_schema_map import sahi_cmp_blocks
+        _, appended = sahi_cmp_blocks(openpyxl.load_workbook(TEMPLATE)["SAHIs comparison"])
+    except Exception:
+        appended = set()
+    sahi_sheet = next((s for s in sheets if s["sheet"] == "SAHIs comparison"), None)
+    if appended and sahi_sheet:
+        def has_value(c):
+            v = store.get(f'{c.get("entity")}::{c.get("metric")}::{c.get("period")}')
+            return bool(v and v.get("normalized_value") is not None) or c.get("calculated_value") is not None
+        col_of = lambda c: "".join(ch for ch in c["cell"] if ch.isalpha())
+        rows = {}
+        for c in sahi_sheet["cells"]:
+            if col_of(c) not in appended:
+                rows.setdefault((c.get("entity"), c.get("metric")), []).append(c)
+        for c in sahi_sheet["cells"]:
+            if col_of(c) not in appended or has_value(c) or c.get("source_status") in grey:
+                continue
+            prior = rows.get((c.get("entity"), c.get("metric")), [])
+            if not prior or any(has_value(p) or p.get("source_status") not in grey for p in prior):
+                continue
+            # Majority by the short tag (per-cell reasons vary in wording). The
+            # curated reasons name their own period / workbook cell, so the new
+            # cell gets a generic reason instead of a copy that would mislabel it.
+            status, tag = Counter((p["source_status"], p.get("blank_tag")) for p in prior).most_common(1)[0][0]
+            label = tag or {"not_in_ppt": "Not found in PPT", "not_applicable": "Not applicable"}.get(status, "Awaiting source file")
+            c["source_status"] = status
+            if tag:
+                c["blank_tag"] = tag
+            c["na_reason"] = (f'Blank in every earlier period for this company ("{label}") - it has never '
+                              "been published, so this new period is treated the same. It fills in "
+                              "automatically if a real figure ever appears.")
 
     # --- Value store (trimmed) -------------------------------------------
     values = {key: pick(entry, VALUE_FIELDS) for key, entry in store.items()}

@@ -308,6 +308,60 @@ SAHI_CMP_ROWS = {
     36: ("investment_yield", "ratio", "company_financials"),
 }
 
+# Auto-appended SAHIs-comparison columns (standing instruction, Neha,
+# 2026-06-11). extend_template_periods.py appends a company's new period
+# column AFTER the fixed blocks (it never inserts into them, so nothing
+# shifts), writing the company name in the block-header row and the period in
+# the period row. Both are read back here, so the new column binds the same
+# SAHI_CMP_ROWS metrics as that company's own block on the very next build.
+SAHI_CMP_COMPANY_ROW = 3
+SAHI_CMP_PERIOD_ROW = 4
+_SAHI_PERIOD_RES = [
+    (re.compile(r"^FY(\d{2})$"), lambda m: f"FY{m.group(1)}"),
+    (re.compile(r"^Q([1-4]) ?FY(\d{2})$"), lambda m: f"Q{m.group(1)}FY{m.group(2)}"),
+    (re.compile(r"^H1 ?FY(\d{2})$"), lambda m: f"H1FY{m.group(1)}"),
+    # The sheet spells nine months three ways: 'upto Q3FY25', 'YTD Q3 FY25', '9M FY26'.
+    (re.compile(r"^(?:9M|upto Q3|YTD Q3) ?FY(\d{2})$", re.I), lambda m: f"9MFY{m.group(1)}"),
+]
+
+
+def _parse_sahi_period(v):
+    """'Q1FY27' / 'upto Q3FY26' / 'YTD Q3 FY25' / 'FY26' -> period id; growth
+    and YoY headers ('FY26 growth', 'Q4 Growth') -> None."""
+    s = " ".join(str(v or "").split())
+    for rex, mk in _SAHI_PERIOD_RES:
+        m = rex.match(s)
+        if m:
+            return mk(m)
+    return None
+
+
+def sahi_cmp_blocks(ws):
+    """SAHI_CMP_BLOCKS plus every period column appended after them.
+
+    Returns (blocks, appended): blocks as [(entity, {col: period})] in sheet
+    order, with each appended column added to its company's block; appended =
+    the appended column letters (blank by design -> kept as fillable inputs).
+    A column is taken only when its header names a known company AND a period,
+    so growth / spacer columns are never mistaken for data."""
+    blocks = [(entity, dict(axis)) for entity, axis in SAHI_CMP_BLOCKS]
+    by_entity = dict(blocks)
+    appended: set[str] = set()
+    last_fixed = max(column_index_from_string(c) for _, axis in SAHI_CMP_BLOCKS for c in axis)
+    for col in range(last_fixed + 1, ws.max_column + 1):
+        entity = entity_from_label(str(ws.cell(row=SAHI_CMP_COMPANY_ROW, column=col).value or ""))
+        period = _parse_sahi_period(ws.cell(row=SAHI_CMP_PERIOD_ROW, column=col).value)
+        if not (entity and period):
+            continue
+        if entity not in by_entity:
+            by_entity[entity] = {}
+            blocks.append((entity, by_entity[entity]))
+        letter = get_column_letter(col)
+        by_entity[entity][letter] = period
+        appended.add(letter)
+    return blocks, appended
+
+
 # Comps: metric per column (col -> (metric, unit, source_key)).
 COMPS_COLS = {
     "C": ("market_cap", "INR_cr", "market_cap"),
@@ -357,6 +411,53 @@ CHANNEL_AGENT_ROWS = {  # row -> (metric, unit)
     34: ("individual_agents_policies", "thousand"),
     35: ("policies_per_active_agent", "count"),
 }
+
+# Auto-appended Channel Mix columns (standing instruction, Neha, 2026-06-11):
+# company in row 1 (as on every column of the sheet), period in the section
+# header rows (3 / 12 / 21 — row 3 is read). An appended column binds ONLY the
+# rows an automated source fills — the IRDAI NL-36/NL-40 parse behind
+# distribution-channel-mix.json gives channel mix %, avg premium per policy,
+# agents' GWP and agents' policies (build_value_store.CHANNEL_MAP /
+# CHANNEL_AVG_MAP + agent_premium_cr / agent_policies). '% commission' and
+# '# Individual Agents' come only from Neha's workbook seed, which holds no
+# new periods, and the active-agent / per-agent rows are in-sheet formulas
+# that are never cloned. Binding those would paint a red gap nothing can ever
+# fill, so — exactly like a blank template cell — they carry no contract there.
+CHANNEL_COMPANY_ROW = 1
+CHANNEL_PERIOD_ROW = 3
+CHANNEL_AUTOMATED_SECTIONS = {"channel_gwp_mix", "avg_premium_per_policy"}
+CHANNEL_AUTOMATED_AGENT_METRICS = {"individual_agents_gwp", "individual_agents_policies"}
+_CHANNEL_PERIOD_RE = re.compile(r"^(?:(Q1|H1|9M) ?)?FY(\d{2})$")
+
+
+def _parse_channel_period(v):
+    """'FY26' -> 'FY26'; '9M FY26' / 'Q1 FY27' / 'H1 FY27' -> year-to-date id."""
+    m = _CHANNEL_PERIOD_RE.match(" ".join(str(v or "").split()))
+    return f"{m.group(1) or ''}FY{m.group(2)}" if m else None
+
+
+def channel_mix_blocks(ws):
+    """The fixed CHANNEL_BLOCKS plus every period column appended after them.
+    Returns (blocks, appended) — same contract as sahi_cmp_blocks."""
+    blocks = []
+    for entity, start_col in CHANNEL_BLOCKS:
+        base = column_index_from_string(start_col)
+        blocks.append((entity, {get_column_letter(base + i): p for i, p in enumerate(CHANNEL_AXIS_COLS)}))
+    by_entity = dict(blocks)
+    appended: set[str] = set()
+    last_fixed = max(column_index_from_string(c) for _, axis in blocks for c in axis)
+    for col in range(last_fixed + 1, ws.max_column + 1):
+        entity = entity_from_label(str(ws.cell(row=CHANNEL_COMPANY_ROW, column=col).value or ""))
+        period = _parse_channel_period(ws.cell(row=CHANNEL_PERIOD_ROW, column=col).value)
+        if not (entity and period):
+            continue
+        if entity not in by_entity:
+            by_entity[entity] = {}
+            blocks.append((entity, by_entity[entity]))
+        letter = get_column_letter(col)
+        by_entity[entity][letter] = period
+        appended.add(letter)
+    return blocks, appended
 
 
 def entity_from_label(label: str) -> str:
@@ -602,7 +703,8 @@ def build_q1_gwp(ws_v, ws_f):
 
 def build_sahis_comparison(ws_v, ws_f):
     out = []
-    for entity, axis in SAHI_CMP_BLOCKS:
+    blocks, appended = sahi_cmp_blocks(ws_v)
+    for entity, axis in blocks:
         for row, (metric, unit, source_key) in SAHI_CMP_ROWS.items():
             for col, period in axis.items():
                 ptype = "annual" if period.startswith("FY") else "quarterly"
@@ -612,7 +714,7 @@ def build_sahis_comparison(ws_v, ws_f):
                     period_type=ptype, unit=unit, source_key=source_key,
                     section="SAHI detailed comparison",
                 ))
-    return _keep_bindings(out)
+    return _keep_bindings(out, appended)
 
 
 def build_comps(ws_v, ws_f):
@@ -661,10 +763,12 @@ def build_captable(ws_v, ws_f):
 
 def build_channel_mix(ws_v, ws_f):
     out = []
-    for entity, start_col in CHANNEL_BLOCKS:
-        base = column_index_from_string(start_col)
-        period_cols = {get_column_letter(base + i): CHANNEL_AXIS_COLS[i] for i in range(len(CHANNEL_AXIS_COLS))}
+    blocks, appended = channel_mix_blocks(ws_v)
+    for entity, all_cols in blocks:
         for hdr_row, (metric, unit) in CHANNEL_SECTIONS.items():
+            # Appended columns carry only the automatically-sourced sections.
+            period_cols = {c: p for c, p in all_cols.items()
+                           if c not in appended or metric in CHANNEL_AUTOMATED_SECTIONS}
             for off, channel in CHANNEL_CHANNEL_ROWS.items():
                 row = hdr_row + off
                 for col, period in period_cols.items():
@@ -676,6 +780,8 @@ def build_channel_mix(ws_v, ws_f):
                         section="Channel mix", conf="medium",
                     ))
         for row, (metric, unit) in CHANNEL_AGENT_ROWS.items():
+            period_cols = {c: p for c, p in all_cols.items()
+                           if c not in appended or metric in CHANNEL_AUTOMATED_AGENT_METRICS}
             for col, period in period_cols.items():
                 ptype = "annual" if period.startswith("FY") else "quarterly_cumulative"
                 out.append(_binding(
@@ -684,7 +790,7 @@ def build_channel_mix(ws_v, ws_f):
                     period_type=ptype, unit=unit, source_key="distribution",
                     section="Agent productivity", conf="medium",
                 ))
-    return _keep_bindings(out)
+    return _keep_bindings(out, appended)
 
 
 def build_hist_stock(ws_v, ws_f):
