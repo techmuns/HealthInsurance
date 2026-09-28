@@ -8,7 +8,8 @@
     "last_successful_run": "2026-09-28T10:51:58.297Z",
     "upstream_sources": [
       "muns_agent",
-      "nse_bse_shareholding"
+      "nse_bse_shareholding",
+      "screener_public_page"
     ],
     "parser_status": "ready",
     "notes": "Listed SAHIs only (Star Health, Niva Bupa). Unlisted insurers do not disclose a shareholding pattern. Each leg null where the source does not split it out — never 0."
@@ -38,23 +39,23 @@
     },
     {
       "company_id": "niva-bupa",
-      "quarter": "Q4",
-      "fiscal_year": "FY26",
-      "promoter_share": 55.36,
-      "fii_share": 10.6,
-      "dii_share": 16.49,
-      "mf_share": 9.8,
-      "public_share": 17.55,
+      "quarter": "Q1",
+      "fiscal_year": "FY27",
+      "promoter_share": 55.3,
+      "fii_share": 12.09,
+      "dii_share": 16.17,
+      "mf_share": null,
+      "public_share": 16.44,
       "sponsor_share": null,
       "top_holders": [],
       "pledge_share": null,
       "provenance": {
-        "source_name": "Quarterly shareholding pattern — Niva Bupa Mar 2026 (via muns agent)",
-        "source_url": "https://www.marketsmojo.com/stocks-analysis/financial-shareholding/niva-bupa-health-10039453-0",
-        "source_period": "Mar 2026",
-        "fetched_at": "2026-07-12T07:08:17.701Z",
-        "parsed_at": "2026-07-12T07:09:23.873Z",
-        "parser_name": "sahi-ownership-agent",
+        "source_name": "Screener — Investors / Shareholding Pattern (quarterly), Niva Bupa Health Insurance Company Ltd Jun 2026",
+        "source_url": "https://www.screener.in/company/NIVABUPA/#shareholding",
+        "source_period": "Jun 2026",
+        "fetched_at": "2026-09-24",
+        "parsed_at": "2026-09-28T12:45:59.333Z",
+        "parser_name": "fetch-screener-shareholding",
         "confidence": "medium"
       }
     }

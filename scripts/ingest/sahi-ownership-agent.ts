@@ -220,8 +220,21 @@ async function main(): Promise<number> {
 
   // A company whose split didn't come back usable keeps its previous row
   // (labelled with its own, older quarter) instead of vanishing.
-  const fresh = new Set(rows.map((r) => r.company_id))
   const prior = await readSnapshot<{ data?: OwnershipRow[] }>('ownership-snapshot.json').catch(() => null)
+  // Never step a company back a quarter: the weekly Screener pass may already
+  // have filed a newer quarter than this answer carries.
+  const rank = (r: OwnershipRow) =>
+    Number((r.fiscal_year.match(/\d{2}$/) ?? ['0'])[0]) * 10 + Number((r.quarter.match(/[1-4]/) ?? ['0'])[0])
+  const priorBy = new Map((prior?.data ?? []).map((r) => [r.company_id, r]))
+  const current = rows.filter((r) => {
+    const p = priorBy.get(r.company_id)
+    if (p && rank(p) > rank(r)) {
+      console.log(`  ↺ ${r.company_id}: answer is ${r.quarter} ${r.fiscal_year}, snapshot already holds ${p.quarter} ${p.fiscal_year} — kept`)
+      return false
+    }
+    return true
+  })
+  const fresh = new Set(current.map((r) => r.company_id))
   const carried = (prior?.data ?? []).filter((r) => !fresh.has(r.company_id))
   for (const r of carried) console.log(`  = ${r.company_id}: kept previous ${r.quarter} ${r.fiscal_year} split`)
 
@@ -237,9 +250,9 @@ async function main(): Promise<number> {
       parser_status: 'ready',
       notes: 'Listed SAHIs only (Star Health, Niva Bupa). Unlisted insurers do not disclose a shareholding pattern. Each leg null where the source does not split it out — never 0.',
     },
-    data: [...rows, ...carried],
+    data: [...current, ...carried],
   })
-  console.log(`ownership-snapshot: wrote ${rows.length} fresh row(s), kept ${carried.length}.`)
+  console.log(`ownership-snapshot: wrote ${current.length} fresh row(s), kept ${carried.length}.`)
   return 0
 }
 

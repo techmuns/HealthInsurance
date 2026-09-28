@@ -28,7 +28,7 @@
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import { readFile } from 'node:fs/promises'
+import { readFile, readdir, writeFile } from 'node:fs/promises'
 import { resolve } from 'node:path'
 import * as cheerio from 'cheerio'
 import { nowIso, writeSnapshot, appendLog, readSnapshot, RAW_ROOT, detectAccessBlock } from './util'
@@ -145,7 +145,9 @@ function normaliseHoldings(
       for (const group of GROUP_ORDER) {
         const series = table.groups[group]
         if (!series) continue
-        const raw = series[i]
+        // A blank / unparseable cell is missing, never a number (NaN would read
+        // as a "decrease" in the trend maths).
+        const raw = Number.isFinite(series[i]) ? series[i] : null
         const isShareholderRow = group === SHAREHOLDER_ROW
         rows.push({
           company_id: co.company_id,
@@ -269,6 +271,110 @@ function computeTrends(holdings: OwnershipHoldingRow[]): OwnershipTrendRow[] {
   return out
 }
 
+// ─── Screener tables: canonical groups, saved pages, history merge ────────────
+
+/** Map a table's row labels ("Promoters +", "FIIs +", …) onto the canonical
+ *  holder groups; null unless all four % groups are present. */
+function canonicalTable(table: ScreenerTable): ScreenerTable | null {
+  const norm: Record<string, number[]> = {}
+  const find = (re: RegExp) => Object.keys(table.groups).find((k) => re.test(k))
+  const map: [OwnershipHolderGroup, RegExp][] = [
+    ['Promoters', /promoter/i],
+    ['FIIs', /\bfii|foreign/i],
+    ['DIIs', /\bdii|domestic/i],
+    ['Public', /public/i],
+    ['No. of Shareholders', /shareholder/i],
+  ]
+  for (const [canon, re] of map) {
+    const k = find(re)
+    if (k) norm[canon] = table.groups[k]
+  }
+  if (!PCT_GROUPS.every((g) => norm[g]?.length)) return null
+  return { periods: table.periods, groups: norm }
+}
+
+/** Parse the shareholding section of a SAVED Screener company page — the
+ *  weekly screener-fetch workflow downloads the public page through the
+ *  India-IP proxy into data/raw/screener/<company_id>/. The page carries both
+ *  tables server-rendered (#quarterly-shp, #yearly-shp), so no browser is
+ *  needed: the same group rows the live scrape reads. */
+export function parseSavedScreenerPage(html: string): { quarterly: ScreenerTable; yearly: ScreenerTable } | null {
+  const $ = cheerio.load(html)
+  const read = (sel: string): ScreenerTable | null => {
+    const table = $(`${sel} table`).first()
+    if (!table.length) return null
+    const periods = table.find('thead th').slice(1).map((_, th) => $(th).text().trim()).get().filter(Boolean)
+    const groups: Record<string, number[]> = {}
+    table.find('tbody tr').each((_, tr) => {
+      const cells = $(tr).find('td')
+      if (!cells.length) return
+      const label = $(cells[0]).text().replace(/\s+/g, ' ').replace(/[-+]\s*$/, '').trim()
+      const nums = cells.slice(1).map((_, td) => {
+        const v = parseFloat($(td).text().replace(/[%,\s]/g, ''))
+        return Number.isFinite(v) ? v : NaN
+      }).get()
+      if (label) groups[label] = nums
+    })
+    return periods.length ? canonicalTable({ periods, groups }) : null
+  }
+  const quarterly = read('#quarterly-shp')
+  const yearly = read('#yearly-shp')
+  return quarterly && yearly ? { quarterly, yearly } : null
+}
+
+/** Newest saved Screener page for a company ("<id>-screener-YYYY-MM-DD.html"). */
+async function latestSavedPage(co: CompanyCfg): Promise<{ file: string; date: string; html: string } | null> {
+  const dir = resolve(RAW_ROOT, 'screener', co.company_id)
+  const re = new RegExp(`^${co.company_id}-screener-(\\d{4}-\\d{2}-\\d{2})\\.html$`)
+  const files = (await readdir(dir).catch(() => [] as string[])).filter((f) => re.test(f)).sort()
+  const file = files[files.length - 1]
+  if (!file) return null
+  return { file: `data/raw/screener/${co.company_id}/${file}`, date: file.match(re)![1], html: await readFile(resolve(dir, file), 'utf8') }
+}
+
+/** Promoters + FIIs + DIIs + Public for one column must be the whole register. */
+function columnFoots(table: ScreenerTable, i: number): boolean {
+  const legs = PCT_GROUPS.map((g) => table.groups[g]?.[i])
+  if (legs.some((v) => v == null || Number.isNaN(v))) return false
+  return Math.abs((legs as number[]).reduce((a, b) => a + b, 0) - 100) <= 1
+}
+
+/**
+ * Fold a saved page's columns into the staged history (the source-of-record).
+ * Screener's page shows only the most recent columns, so the history is the
+ * union: a newer page adds new periods and wins on overlapping ones (a
+ * restated column); older periods it no longer shows are kept. A column that
+ * doesn't foot to ~100% is never taken. The yearly table keeps fiscal
+ * year-ends (March) only — Screener appends the latest quarter to its yearly
+ * view, and that column is not a full year (it lives in the quarterly table).
+ */
+function mergeScreenerTables(staged: ScreenerTable, page: ScreenerTable, yearly: boolean): { table: ScreenerTable; added: string[] } {
+  const keyOf = (label: string) => normalisePeriod(label, 'quarterly').endDate
+  const cols = new Map<string, { label: string; values: Record<string, number | undefined> }>()
+  const put = (t: ScreenerTable, i: number) => {
+    const label = t.periods[i]
+    if (yearly && !/^mar/i.test(label.trim())) return
+    const key = keyOf(label)
+    if (!key) return
+    const values: Record<string, number | undefined> = {}
+    for (const g of GROUP_ORDER) values[g] = t.groups[g]?.[i]
+    cols.set(key, { label, values })
+  }
+  staged.periods.forEach((_, i) => put(staged, i))
+  const before = new Set(cols.keys())
+  page.periods.forEach((_, i) => { if (columnFoots(page, i)) put(page, i) })
+  const keys = [...cols.keys()].sort()
+  const groups: Record<string, number[]> = {}
+  for (const g of GROUP_ORDER) {
+    if (!keys.some((k) => cols.get(k)!.values[g] != null)) continue
+    groups[g] = keys.map((k) => cols.get(k)!.values[g] ?? NaN)
+  }
+  return {
+    table: { periods: keys.map((k) => cols.get(k)!.label), groups },
+    added: keys.filter((k) => !before.has(k)).map((k) => cols.get(k)!.label),
+  }
+}
+
 // ─── live scrape (Playwright) — best-effort, self-fencing, per company ─────────
 
 async function scrapeScreenerLive(scrapeUrl: string): Promise<{ source: ScreenerSource; investorRowsAvailable: boolean } | null> {
@@ -347,25 +453,8 @@ async function scrapeScreenerLive(scrapeUrl: string): Promise<{ source: Screener
     const yearly = await readTab('Yearly')
     if (!quarterly || !yearly || !quarterly.periods.length) return null
 
-    const pick = (table: ScreenerTable): ScreenerTable | null => {
-      const norm: Record<string, number[]> = {}
-      const find = (re: RegExp) => Object.keys(table.groups).find((k) => re.test(k))
-      const map: [OwnershipHolderGroup, RegExp][] = [
-        ['Promoters', /promoter/i],
-        ['FIIs', /\bfii|foreign/i],
-        ['DIIs', /\bdii|domestic/i],
-        ['Public', /public/i],
-        ['No. of Shareholders', /shareholder/i],
-      ]
-      for (const [canon, re] of map) {
-        const k = find(re)
-        if (k) norm[canon] = table.groups[k]
-      }
-      if (!['Promoters', 'FIIs', 'DIIs', 'Public'].every((g) => norm[g]?.length)) return null
-      return { periods: table.periods, groups: norm }
-    }
-    const q = pick(quarterly)
-    const y = pick(yearly)
+    const q = canonicalTable(quarterly)
+    const y = canonicalTable(yearly)
     if (!q || !y) return null
 
     const investorRowsAvailable =
@@ -686,6 +775,86 @@ async function loadStagedScreenerTrades(co: CompanyCfg): Promise<{ deals: RawDea
 
 // ─── run ──────────────────────────────────────────────────────────────────────
 
+interface OwnershipSnapshotRow {
+  company_id: string
+  quarter: string
+  fiscal_year: string
+  promoter_share: number | null
+  fii_share: number | null
+  dii_share: number | null
+  mf_share: number | null
+  public_share: number | null
+  sponsor_share: number | null
+  top_holders: unknown[]
+  pledge_share: number | null
+  provenance: Record<string, unknown>
+}
+
+/** "Q1" + "FY27" → a sortable number (FY27 Q1 → 271). */
+const quarterRank = (quarter: string, fy: string): number =>
+  Number((fy.match(/\d{2}$/) ?? ['0'])[0]) * 10 + Number((quarter.match(/[1-4]/) ?? ['0'])[0])
+
+/**
+ * Keep the group split (ownership-snapshot.json — promoter / FII / DII / public)
+ * as current as the trend it sits beside. The monthly agent pull sometimes
+ * returns a split that doesn't foot and is rejected, leaving a company a
+ * quarter behind while Screener's public table already shows the new quarter.
+ * For each company, the newest quarterly column that foots to ~100% replaces
+ * the snapshot row only when that row is an OLDER quarter (or absent) — a
+ * same-quarter row (which may carry the MF sub-split) is never overwritten.
+ */
+async function promoteLatestSplit(per: PerCompany[], scrapedAt: string): Promise<string[]> {
+  let snap: { _meta: Record<string, unknown>; data: OwnershipSnapshotRow[] }
+  try { snap = await readSnapshot('ownership-snapshot.json') } catch { return [] }
+  const out: string[] = []
+  for (const p of per) {
+    const t = p.src.quarterly
+    let i = t.periods.length - 1
+    while (i >= 0 && !columnFoots(t, i)) i--
+    if (i < 0) continue
+    const label = t.periods[i]
+    const fiscal = normalisePeriod(label, 'quarterly').fiscal // "Q1 FY27"
+    const m = fiscal.match(/^(Q[1-4]) (FY\d{2})$/)
+    if (!m) continue
+    const [, quarter, fiscal_year] = m
+    const idx = snap.data.findIndex((r) => r.company_id === p.co.company_id)
+    const cur = idx >= 0 ? snap.data[idx] : null
+    if (cur && quarterRank(cur.quarter, cur.fiscal_year) >= quarterRank(quarter, fiscal_year)) continue
+    const at = (g: OwnershipHolderGroup) => (Number.isFinite(t.groups[g]?.[i]) ? t.groups[g][i] : null)
+    const row: OwnershipSnapshotRow = {
+      company_id: p.co.company_id,
+      quarter,
+      fiscal_year,
+      promoter_share: at('Promoters'),
+      fii_share: at('FIIs'),
+      dii_share: at('DIIs'),
+      mf_share: null, // Screener's public table doesn't split MF out of DII — n/a, never 0
+      public_share: at('Public'),
+      sponsor_share: null,
+      top_holders: [],
+      pledge_share: null,
+      provenance: {
+        source_name: `Screener — ${SOURCE_SECTION} (quarterly), ${p.co.company_name} ${label}`,
+        source_url: screenerPageUrl(p.co.ticker),
+        source_period: label,
+        fetched_at: (p.src._meta.latest_page_captured as string | undefined) ?? scrapedAt,
+        parsed_at: scrapedAt,
+        parser_name: 'fetch-screener-shareholding',
+        confidence: 'medium',
+      },
+    }
+    if (idx >= 0) snap.data[idx] = row
+    else snap.data.push(row)
+    out.push(`${p.co.company_id} ${quarter} ${fiscal_year} (was ${cur ? `${cur.quarter} ${cur.fiscal_year}` : 'absent'})`)
+  }
+  if (out.length) {
+    const upstream = new Set([...((snap._meta.upstream_sources as string[] | undefined) ?? []), 'screener_public_page'])
+    snap._meta = { ...snap._meta, last_updated: scrapedAt.slice(0, 10), upstream_sources: [...upstream] }
+    await writeSnapshot('ownership-snapshot.json', snap)
+  }
+  return out
+}
+
 async function loadStaged(file: string): Promise<ScreenerSource> {
   const text = await readFile(resolve(RAW_ROOT, 'screener', file), 'utf8')
   return JSON.parse(text) as ScreenerSource
@@ -712,9 +881,33 @@ async function run(): Promise<void> {
   const per: PerCompany[] = []
   const allHoldings: OwnershipHoldingRow[] = []
   const allTrends: OwnershipTrendRow[] = []
+  const pagesUsed: string[] = []
   for (const co of COMPANIES) {
     const live = await scrapeScreenerLive(screenerScrapeUrl(co.ticker)).catch(() => null)
-    const src: ScreenerSource = live ? live.source : await loadStaged(co.staged)
+    let src: ScreenerSource = live ? live.source : await loadStaged(co.staged)
+    if (!live) {
+      // Offline: fold in the newest page the weekly screener-fetch saved, and
+      // keep the merged history as the source-of-record for the next run.
+      const page = await latestSavedPage(co).catch(() => null)
+      const parsed = page ? parseSavedScreenerPage(page.html) : null
+      if (page && parsed) {
+        const q = mergeScreenerTables(src.quarterly, parsed.quarterly, false)
+        const y = mergeScreenerTables(src.yearly, parsed.yearly, true)
+        src = {
+          ...src,
+          _meta: { ...src._meta, latest_page: page.file, latest_page_captured: page.date },
+          quarterly: q.table,
+          yearly: y.table,
+        }
+        // Flat value lists stay on one line, as the hand-staged file writes them.
+        const text = JSON.stringify(src, null, 2).replace(/\[\s+([^[\]{}]*?)\s+\]/g, (_, inner: string) => `[${inner.split(/,\s+/).join(', ')}]`)
+        await writeFile(resolve(RAW_ROOT, 'screener', co.staged), text + '\n')
+        pagesUsed.push(`${co.ticker} ← ${page.file}`)
+        log(`  ${co.ticker}: saved page ${page.date} → +${q.added.length} quarter(s) ${q.added.join(', ')}; +${y.added.length} year(s) ${y.added.join(', ')}`)
+      } else if (page) {
+        log(`  ${co.ticker}: saved page ${page.file} has no readable shareholding table — staged history kept`)
+      }
+    }
     const expandedAvailable = live ? live.investorRowsAvailable : !!src._meta.expanded_investor_rows_available
     const validationStatus: OwnershipHoldingRow['validation_status'] = expandedAvailable ? 'scraped' : 'missing_expanded_rows'
     const holdings = normaliseHoldings(src, co, scrapedAt, validationStatus)
@@ -751,7 +944,9 @@ async function run(): Promise<void> {
     validation_status: per.every((p) => p.expandedAvailable) ? 'scraped' : 'missing_expanded_rows',
     notes: per.some((p) => p.usingLive)
       ? 'Captured via live Screener scrape (Playwright) where available; staged source-of-record otherwise.'
-      : 'Built from the staged Screener source-of-record (offline); live scrape unavailable in this environment.',
+      : pagesUsed.length
+        ? `Built from Screener's public shareholding tables as saved by the weekly screener-fetch (${pagesUsed.join('; ')}), folded into the staged source-of-record so older quarters the page no longer shows are kept.`
+        : 'Built from the staged Screener source-of-record (offline); live scrape unavailable in this environment.',
   }
 
   await writeSnapshot('ownership-holdings.json', { _meta: meta, data: allHoldings })
@@ -759,6 +954,8 @@ async function run(): Promise<void> {
     _meta: { ...meta, snapshot_id: 'ownership-trends', description: 'Period-over-period ownership movement derived from ownership-holdings.' },
     data: allTrends,
   })
+  const promoted = await promoteLatestSplit(per, scrapedAt)
+  for (const line of promoted) log(`  ownership-snapshot ← ${line}`)
   await appendLog('fetch-screener-shareholding.log', {
     source: 'screener_shareholding',
     companies: COMPANIES.map((c) => c.company_id),
@@ -766,6 +963,20 @@ async function run(): Promise<void> {
     holdings_rows: allHoldings.length,
     trend_rows: allTrends.length,
   })
+
+  // The scheduled weekly pass refreshes the shareholding trend only
+  // (SCREENER_TRADES=0): the deals timeline already merges the daily exchange
+  // pull (bulk-block-deals-snapshot.json) at read time, and an offline
+  // re-merge here only re-adds those same deals under other spellings / a
+  // T+1 date, which the add-only key below doesn't recognise.
+  if (process.env.SCREENER_TRADES === '0') {
+    for (const p of per) {
+      const t = p.src.quarterly
+      log(`  ${p.co.ticker}: quarterly ${t.periods[0]} → ${t.periods[t.periods.length - 1]} (${t.periods.length}) · yearly ${p.src.yearly.periods.join(', ')}`)
+    }
+    log('  trades: skipped (SCREENER_TRADES=0)')
+    return
+  }
 
   // ── Trades (bulk/block) → ownership_trade_disclosures (separate dataset) ─────
   // Sources merged per company, best-first: (1) live cookie read of Screener's

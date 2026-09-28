@@ -42,11 +42,24 @@ jobs:
           # secret — fetchBuffer() routes blocked hosts through {url}.
           INGEST_FETCH_PROXY: https://api.scraperapi.com/?api_key=${{ secrets.SCRAPER_KEY }}&country_code=in&url={url}
         run: npx tsx scripts/ingest/run-screener.ts
+      # Governance → Ownership trend: fold the pages just saved into the
+      # shareholding-pattern history (Promoters / FIIs / DIIs / Public by
+      # quarter) and move the group split (ownership-snapshot) up to the newest
+      # quarter that foots to 100%. A pure offline parse of the saved pages -
+      # no extra request. SCREENER_TRADES=0: the deals timeline reads the daily
+      # exchange pull directly, so it is left alone here.
+      - name: Refresh ownership trend from the saved Screener pages
+        continue-on-error: true
+        env:
+          SCREENER_TRADES: '0'
+        run: npx tsx scripts/ingest/fetch-screener-shareholding.ts
       - name: Commit results
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/raw/screener src/data/snapshots/screener-crosscheck-snapshot.json
+          git add data/raw/screener src/data/snapshots/screener-crosscheck-snapshot.json \
+            src/data/snapshots/ownership-holdings.json src/data/snapshots/ownership-trends.json \
+            src/data/snapshots/ownership-snapshot.json
           if git diff --staged --quiet; then echo "No change."; exit 0; fi
           git commit -m "screener: backup page fetch @ $(date -u +%Y-%m-%dT%H:%MZ)"
           # Push races are routine here; the retry loop this replaces could not
