@@ -12,8 +12,8 @@
     "expanded_investor_rows_note": "Screener exposes individual entity names when a shareholding line-item (Promoters / FIIs / DIIs / Public) is clicked, but those expanded rows require an authenticated Screener session and interactive expansion. They were not exposed during this capture, so only group-level rows are recorded. No investor-level data was invented; the named-holder breakdown comes from the authoritative exchange filing (shareholding-pattern-snapshot) for the latest period only.",
     "source_confidence": "screener_public_page",
     "captured_note": "Group-level shareholding-pattern values transcribed from the Screener public company page (company id 1285147), section Investors -> Shareholding Pattern. Used as the offline source-of-record for the ownership-trend ingestion when a live Screener scrape is unavailable (no Playwright / blocked network).",
-    "latest_page": "data/raw/screener/niva-bupa/niva-bupa-screener-2026-09-24.html",
-    "latest_page_captured": "2026-09-24"
+    "latest_page": "data/raw/screener/niva-bupa/niva-bupa-screener-2026-09-28.html",
+    "latest_page_captured": "2026-09-28"
   },
   "quarterly": {
     "periods": ["Dec 2024", "Mar 2025", "Jun 2025", "Sep 2025", "Dec 2025", "Mar 2026", "Jun 2026"],
