@@ -311,7 +311,10 @@ function CellDetail({ cell, onClose, verifyRow, onBackToVerifier }: { cell: Audi
   // Blocked / not-found blank — figure exists but the pipeline can't pull it;
   // a resolved, calm-grey state (with the reason + short tag), not a red "missing".
   const notApplicable = cell.status === 'not_applicable'
-  const blocked = !fetched && (cell.status === 'web_blocked' || cell.status === 'not_in_ppt')
+  // Period still running / release not due yet — same calm grey, tagged with
+  // the expected release month.
+  const upcoming = !fetched && cell.status === 'not_released'
+  const blocked = !fetched && (cell.status === 'web_blocked' || cell.status === 'not_in_ppt' || upcoming)
   const blockTag = cell.blankTag
     ?? (cell.status === 'web_blocked' ? 'IRDAI' : cell.status === 'not_in_ppt' ? 'Not in PPT' : 'Awaiting source file')
   // not-applicable (the insurer didn't exist this period) renders calm grey with NO
@@ -344,7 +347,7 @@ function CellDetail({ cell, onClose, verifyRow, onBackToVerifier }: { cell: Audi
             ? <Info className="h-4 w-4 shrink-0 text-slate-500" />
             : <AlertCircle className="h-4 w-4 shrink-0 text-coral" />}
         <span className={`text-[12px] font-semibold ${fetched ? 'text-emerald' : calm ? 'text-slate-600' : 'text-coral'}`}>
-          {fetched ? 'Fetched & verified' : gap ? 'Not published in the investor deck' : blocked ? blockTag : notApplicable ? 'Not applicable' : calcMissing ? 'Value for calculation not found' : 'Not fetched — cell empty'}
+          {fetched ? 'Fetched & verified' : gap ? 'Not published in the investor deck' : upcoming ? meta.label : blocked ? blockTag : notApplicable ? 'Not applicable' : calcMissing ? 'Value for calculation not found' : 'Not fetched — cell empty'}
         </span>
         <span className={`ml-auto inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[10px] font-semibold ${calm ? 'bg-slate-100 text-slate-500' : `${q.cell} ${q.text}`}`}>
           <span className="h-1.5 w-1.5 rounded-full" style={{ background: calm ? '#94A3B8' : q.dot }} />{gap ? 'Not in deck' : blocked ? blockTag : notApplicable ? 'Not applicable' : calcMissing ? 'Calculated' : meta.label}
@@ -961,13 +964,17 @@ function GridView({ group, fullColumns, companyLabel, isFiltered, raw, onRawChan
       aggregator: { fetched: 0, total: 0 }, capitaliq: { fetched: 0, total: 0 },
     }
     let notInDeck = 0
+    // Periods whose source isn't published yet aren't a pipeline gap — counted
+    // on their own so they never inflate a pipeline's "missing" tally.
+    let notOut = 0
     for (const c of group.cells) {
       if (deckGap(c)) { notInDeck += 1; continue }
+      if (c.status === 'not_released') { notOut += 1; continue }
       const p = pipelineOf(c)
       pipes[p].total += 1
       if (isFetched(c)) pipes[p].fetched += 1
     }
-    return { pipes, notInDeck }
+    return { pipes, notInDeck, notOut }
   }, [group])
 
   if (isFiltered && !group.cells.length) {
@@ -1009,6 +1016,16 @@ function GridView({ group, fullColumns, companyLabel, isFiltered, raw, onRawChan
             <span className="h-2 w-2 rounded-full bg-slate-300" />
             <span className="font-semibold text-navy-deep">Not in deck</span>
             <span className="text-ink-secondary">{pipeStats.notInDeck} cells</span>
+          </span>
+        )}
+        {pipeStats.notOut > 0 && (
+          <span
+            className="inline-flex items-center gap-1.5 rounded-full border border-soft-border bg-white px-2 py-0.5 text-[10.5px]"
+            title="These periods are still running, or their official figures aren't due yet — nothing is published to fetch. Each cell shows the month it's expected, and fills in automatically when it lands."
+          >
+            <span className="h-2 w-2 rounded-full bg-slate-300" />
+            <span className="font-semibold text-navy-deep">Not out yet</span>
+            <span className="text-ink-secondary">{pipeStats.notOut} cells</span>
           </span>
         )}
 

@@ -191,18 +191,33 @@ export function validateMonthlySegmentRow(row: Record<string, unknown>): Validat
  * Validate a GI Council health-portfolio row (annual, per insurer or carrier
  * aggregate): premiums cannot be negative; when the grand total and all four
  * sub-splits are present they must re-add (the GIC sheet prints both).
+ *
+ * One printed exception: GIC books reversals (e.g. a government-scheme refund)
+ * as a negative sub-split inside an otherwise normal row — National Insurance's
+ * Jun-2026 row prints Health-Government −68.59 and still re-adds exactly to its
+ * ₹1,422.15 Cr total. A negative sub-split in a row that re-adds to its printed,
+ * non-negative total is that genuine print, not a mis-parse: it is kept as a
+ * warning. Rejecting it blanked the insurer's valid total + retail figures (and
+ * every residual derived from them) for the whole period.
  */
 export function validateGicHealthPortfolioRow(row: Record<string, unknown>): ValidationIssue[] {
   const out: ValidationIssue[] = []
+  const total = row.health_total
+  const parts = [row.health_retail, row.health_group, row.health_govt, row.overseas_medical]
+  const reAddsToPrintedTotal =
+    typeof total === 'number' && total >= 0 && parts.every((v) => typeof v === 'number') &&
+    Math.abs((parts as number[]).reduce((a, b) => a + b, 0) - total) <= Math.max(Math.abs(total) * 0.0005, 0.05)
   const fields = ['health_retail', 'health_group', 'health_govt', 'overseas_medical', 'health_total']
   for (const f of fields) {
     const v = row[f]
     if (typeof v === 'number' && v < -0.005) {
-      out.push({ level: 'error', metric_id: f, message: `${f} (${v}) is negative — premium cannot be negative.` })
+      if (f !== 'health_total' && reAddsToPrintedTotal) {
+        out.push({ level: 'warning', metric_id: f, message: `${f} (${v}) is negative as printed — a reversal line in a row that re-adds to its printed total; kept.` })
+      } else {
+        out.push({ level: 'error', metric_id: f, message: `${f} (${v}) is negative — premium cannot be negative.` })
+      }
     }
   }
-  const total = row.health_total
-  const parts = [row.health_retail, row.health_group, row.health_govt, row.overseas_medical]
   if (typeof total === 'number' && parts.every((v) => typeof v === 'number')) {
     const sum = (parts as number[]).reduce((a, b) => a + b, 0)
     if (Math.abs(sum - total) > Math.max(Math.abs(total) * 0.02, 1)) {

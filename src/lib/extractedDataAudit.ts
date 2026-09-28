@@ -206,6 +206,7 @@ export type AuditStatus =
   | 'computed'
   | 'not_applicable'
   | 'not_in_ppt'
+  | 'not_released'
   | 'unused'
 
 /** Cell-level QA colour (the owner's legend). `info` = neutral context (unused). */
@@ -236,6 +237,9 @@ export const STATUS_META: Record<AuditStatus, StatusMeta> = {
   computed: { key: 'computed', label: 'Calculated', color: 'info' },
   not_applicable: { key: 'not_applicable', label: 'Not needed here', color: 'grey' },
   not_in_ppt: { key: 'not_in_ppt', label: 'Not found in PPT', color: 'grey' },
+  // The period hasn't ended, or its official release isn't due yet — nothing
+  // exists to fetch, so it's a calm grey "not out yet", never a red gap.
+  not_released: { key: 'not_released', label: 'Not out yet', color: 'grey' },
   unused: { key: 'unused', label: 'Extra — not used', color: 'info' },
 }
 
@@ -313,6 +317,8 @@ export interface SheetStats {
   sourceUnavailable: number
   blocked: number
   notApplicable: number
+  /** Blank because the period's source isn't out yet (not a gap). */
+  notReleased: number
   valuePresent: number
 }
 
@@ -610,6 +616,84 @@ const MISSING_REASON: Record<string, string> = {
   excluded_from_core: 'Outside the main data we track.',
 }
 
+// ─── Release calendar (has the source for this period been published yet?) ──
+// Template columns run ahead of the data (new fiscal-year groups are appended
+// as soon as their first quarter lands). A blank cell for a period that is
+// still running — or has ended but whose official release isn't due yet — is
+// not "missing": there is nothing to fetch. It reads grey "Not out yet" with
+// the expected release month, and only turns red if that date passes and the
+// cell is still empty (a real pipeline gap).
+
+const MONTH_ABBR = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+// Last month (0-based) of each fiscal-year period prefix, and whether it falls
+// in the FY's closing calendar year (Jan–Mar) or the opening one (Apr–Dec).
+const FY_PERIOD_END: Record<string, { month: number; closingYear: boolean }> = {
+  Q1: { month: 5, closingYear: false }, Q2: { month: 8, closingYear: false }, H1: { month: 8, closingYear: false },
+  Q3: { month: 11, closingYear: false }, '9M': { month: 11, closingYear: false },
+  Q4: { month: 2, closingYear: true }, FY: { month: 2, closingYear: true },
+}
+
+/** Last calendar day of a template period label (FY27, Q2FY27, H1FY27, 9MFY27,
+ *  Apr-FY27, 2026-06-30), or null when the label isn't a dated period. */
+export function periodEnd(period: string): Date | null {
+  let m = /^(Q[1-4]|H1|9M)?FY(\d{2})$/.exec(period)
+  if (m) {
+    const e = FY_PERIOD_END[m[1] ?? 'FY']
+    const year = 2000 + Number(m[2]) - (e.closingYear ? 0 : 1)
+    return new Date(Date.UTC(year, e.month + 1, 0))
+  }
+  m = /^([A-Z][a-z]{2})-FY(\d{2})$/.exec(period)
+  if (m) {
+    const month = MONTH_ABBR.indexOf(m[1])
+    if (month < 0) return null
+    const year = 2000 + Number(m[2]) - (month >= 3 ? 1 : 0)
+    return new Date(Date.UTC(year, month + 1, 0))
+  }
+  m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(period)
+  return m ? new Date(Date.UTC(Number(m[1]), Number(m[2]) - 1, Number(m[3]))) : null
+}
+
+// How long after a period ends its official source normally publishes, by sheet
+// role. Roles without an entry (analyst notes, comps, commentary) aren't
+// period-released, so they are never reclassified.
+const RELEASE_RULE: Record<string, { days: (period: string) => number; how: string }> = {
+  industry_premium: { days: () => 25, how: 'GI Council usually publishes about three weeks after a period ends' },
+  company_premium_quarterly: { days: () => 25, how: 'GI Council usually publishes about three weeks after a period ends' },
+  company_premium_monthly: { days: () => 25, how: 'GI Council usually publishes about three weeks after a month ends' },
+  company_financials: {
+    days: (p) => (/^(Q4)?FY/.test(p) ? 60 : 45),
+    how: 'insurers publish quarterly results within 45 days of the quarter-end (60 for the full year)',
+  },
+  distribution: {
+    days: (p) => (/^(Q4)?FY/.test(p) ? 60 : 45),
+    how: 'insurers publish their IRDAI disclosures within 45 days of the quarter-end (60 for the full year)',
+  },
+  shareholding: { days: () => 21, how: 'companies file their shareholding pattern within 21 days of the quarter-end' },
+  market_quote: { days: () => 1, how: 'prices post after the trading day closes' },
+}
+
+function fmtDay(d: Date): string {
+  return `${d.getUTCDate()} ${MONTH_ABBR[d.getUTCMonth()]} ${d.getUTCFullYear()}`
+}
+
+/** For a period whose source isn't out yet (as of `now`): the in-cell tag and
+ *  the plain-English reason. Null once the release date has passed. */
+export function notYetReleased(period: string, role: string, now: Date = new Date()): { tag: string; note: string } | null {
+  const rule = RELEASE_RULE[role]
+  const end = periodEnd(period)
+  if (!rule || !end) return null
+  const due = new Date(end.getTime() + rule.days(period) * 86_400_000)
+  if (now.getTime() >= due.getTime()) return null
+  const tag = `Due ${MONTH_ABBR[due.getUTCMonth()]} '${String(due.getUTCFullYear()).slice(2)}`
+  const when = now.getTime() <= end.getTime()
+    ? `${period} is still running (it ends ${fmtDay(end)})`
+    : `${period} ended ${fmtDay(end)}, but its figures aren't out yet`
+  return {
+    tag,
+    note: `Not out yet — ${when}. ${rule.how[0].toUpperCase()}${rule.how.slice(1)}, so expect it around ${fmtDay(due)}. It fills in automatically when it lands.`,
+  }
+}
+
 function numbersDiffer(a: unknown, b: unknown): boolean {
   if (typeof a === 'number' && typeof b === 'number') return Math.abs(a - b) > 1e-9
   return a !== b
@@ -693,6 +777,7 @@ export function buildAudit(): AuditModel {
       let normalizedValue: number | string | null = null
       let transformation: string | null = null
       let confidence: string | null = null
+      let blankTag = b.blank_tag
 
       if (b.cell_kind === 'input_na') {
         status = 'not_applicable'
@@ -771,8 +856,15 @@ export function buildAudit(): AuditModel {
           'It auto-fills from the daily NSE delivery (MTO) file; this day is only blank if that file is not published yet.'
       } else {
         const ss = b.source_status ?? 'available'
-        status = ss === 'backup' || ss === 'excluded_from_core' ? 'source_unavailable' : 'missing'
-        note = MISSING_REASON[ss] ?? 'No source value yet.'
+        const upcoming = ss === 'available' || ss === 'partial' ? notYetReleased(period, sheet.role) : null
+        if (upcoming) {
+          status = 'not_released'
+          note = upcoming.note
+          blankTag = upcoming.tag
+        } else {
+          status = ss === 'backup' || ss === 'excluded_from_core' ? 'source_unavailable' : 'missing'
+          note = MISSING_REASON[ss] ?? 'No source value yet.'
+        }
       }
 
       if (!sourceName) sourceName = INDEX.sources[b.source_key ?? '']?.primary_source ?? null
@@ -840,7 +932,7 @@ export function buildAudit(): AuditModel {
         qaColor: STATUS_META[status].color,
         confidence,
         note,
-        blankTag: b.blank_tag,
+        blankTag,
         formula: b.formula,
         calc: b.calc,
         inputs,
@@ -1020,7 +1112,7 @@ export function buildAudit(): AuditModel {
 function tally(cells: AuditCell[]): SheetStats {
   const s: SheetStats = {
     total: cells.length, fetched: 0, transformed: 0, manualOverride: 0, missing: 0,
-    parserIssue: 0, sourceUnavailable: 0, blocked: 0, notApplicable: 0, valuePresent: 0,
+    parserIssue: 0, sourceUnavailable: 0, blocked: 0, notApplicable: 0, notReleased: 0, valuePresent: 0,
   }
   for (const c of cells) {
     if (c.normalizedValue !== null && c.normalizedValue !== undefined) s.valuePresent++
@@ -1034,6 +1126,7 @@ function tally(cells: AuditCell[]): SheetStats {
       case 'blocked': s.blocked++; break
       case 'not_applicable': s.notApplicable++; break
       case 'not_in_ppt': s.notApplicable++; break // grey family — searched, not disclosed
+      case 'not_released': s.notReleased++; break
       default: break
     }
   }
