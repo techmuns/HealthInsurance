@@ -2,7 +2,7 @@
  "_meta": {
   "artifact": "extracted-data-audit",
   "schema_version": "1.0.0",
-  "generated_at": "2026-09-28T10:43:57.032468+00:00",
+  "generated_at": "2026-09-28T10:49:55.860345+00:00",
   "description": "QA index for the Extracted Data Audit tab. A compact projection of schema-map.json (cell contract) + excel-values.json (normalized value store) + held-back + blocked-filings. The binding x value join (Fetched / Missing / Parser issue / Source unavailable / Manual override) is computed at read time in src/lib/extractedDataAudit.ts so no data logic is duplicated.",
   "template_file": "niva-bupa-portfolio-review.xlsx",
   "template_sha256": "71785902b0623ee05abe849eb68d5cfae7d05ef421684e81bf0bb01276ff9efb",
@@ -44760,7 +44760,7 @@
        "metric": "gwp"
       }
      ],
-     "calculated_value": 1.865384
+     "calculated_value": 1.631438
     },
     {
      "cell": "K4",
@@ -44792,7 +44792,7 @@
        "metric": "pat_igaap"
       }
      ],
-     "calculated_value": 122.446483
+     "calculated_value": 107.089908
     },
     {
      "cell": "L4",
@@ -44824,7 +44824,7 @@
        "metric": "net_worth_igaap"
       }
      ],
-     "calculated_value": 4.975458
+     "calculated_value": 4.351463
     },
     {
      "cell": "M4",
@@ -44888,7 +44888,7 @@
        "metric": "pat_ifrs"
       }
      ],
-     "calculated_value": 43.74761
+     "calculated_value": 38.261022
     },
     {
      "cell": "O4",
@@ -44920,7 +44920,7 @@
        "metric": "net_worth_ifrs"
       }
      ],
-     "calculated_value": 4.470746
+     "calculated_value": 3.910049
     },
     {
      "cell": "P4",
@@ -45196,7 +45196,7 @@
        "metric": "gwp"
       }
      ],
-     "calculated_value": 1.901209
+     "calculated_value": 1.747292
     },
     {
      "cell": "K5",
@@ -45228,7 +45228,7 @@
        "metric": "pat_igaap"
       }
      ],
-     "calculated_value": 63.506284
+     "calculated_value": 58.364973
     },
     {
      "cell": "L5",
@@ -45260,7 +45260,7 @@
        "metric": "net_worth_igaap"
       }
      ],
-     "calculated_value": 4.661297
+     "calculated_value": 4.28393
     },
     {
      "cell": "M5",
@@ -45324,7 +45324,7 @@
        "metric": "pat_ifrs"
       }
      ],
-     "calculated_value": 38.82876
+     "calculated_value": 35.68528
     },
     {
      "cell": "O5",
@@ -45356,7 +45356,7 @@
        "metric": "net_worth_ifrs"
       }
      ],
-     "calculated_value": 3.693151
+     "calculated_value": 3.394163
     },
     {
      "cell": "P5",
@@ -45572,7 +45572,7 @@
        "metric": "gwp"
       }
      ],
-     "calculated_value": 2.867569
+     "calculated_value": 2.679696
     },
     {
      "cell": "K6",
@@ -45604,7 +45604,7 @@
        "metric": "pat_igaap"
       }
      ],
-     "calculated_value": 29.702381
+     "calculated_value": 27.756378
     },
     {
      "cell": "L6",
@@ -45636,7 +45636,7 @@
        "metric": "net_worth_igaap"
       }
      ],
-     "calculated_value": 4.888381
+     "calculated_value": 4.56811
     },
     {
      "cell": "M6",
@@ -45945,7 +45945,7 @@
        "metric": "gwp"
       }
      ],
-     "calculated_value": 2.467878
+     "calculated_value": 2.471782
     },
     {
      "cell": "K7",
@@ -45977,7 +45977,7 @@
        "metric": "pat_igaap"
       }
      ],
-     "calculated_value": 44.667279
+     "calculated_value": 44.737941
     },
     {
      "cell": "L7",
@@ -46009,7 +46009,7 @@
        "metric": "net_worth_igaap"
       }
      ],
-     "calculated_value": 5.298517
+     "calculated_value": 5.306899
     },
     {
      "cell": "M7",
@@ -279211,12 +279211,12 @@
    "metric": "market_cap",
    "period": "as_on_run_date",
    "unit": "INR_cr",
-   "raw_value": 35373,
-   "normalized_value": 35373,
+   "raw_value": 32509.29,
+   "normalized_value": 32509.29,
    "transformation_used": "identity (value used as-is)",
    "source_name": "Star Health valuation multiples (via muns agent)",
-   "source_url": "https://economictimes.indiatimes.com/star-health-and-allied-insurance-company-ltd/stocks/companyid-24968.cms",
-   "fetched_at": "2026-08-04T06:20:50.928Z",
+   "source_url": "https://www.icicidirect.com/stocks/star-health-and-allied-insurance-company-ltd-share-price",
+   "fetched_at": "2026-09-28T10:42:24.417Z",
    "confidence": "medium",
    "source_status": "available",
    "source_layer": "official_snapshot",
@@ -279229,12 +279229,12 @@
    "metric": "market_cap",
    "period": "as_on_run_date",
    "unit": "INR_cr",
-   "raw_value": 16016,
-   "normalized_value": 16016,
+   "raw_value": 14007.36,
+   "normalized_value": 14007.36,
    "transformation_used": "identity (value used as-is)",
    "source_name": "Niva Bupa valuation multiples (via muns agent)",
-   "source_url": "https://www.screener.in/company/NIVABUPA/",
-   "fetched_at": "2026-08-04T06:20:50.928Z",
+   "source_url": "https://www.icicidirect.com/stocks/niva-bupa-health-insurance-company-ltd-share-price",
+   "fetched_at": "2026-09-28T10:42:24.417Z",
    "confidence": "medium",
    "source_status": "available",
    "source_layer": "official_snapshot",
@@ -279247,12 +279247,12 @@
    "metric": "market_cap",
    "period": "as_on_run_date",
    "unit": "INR_cr",
-   "raw_value": 82335,
-   "normalized_value": 82335,
+   "raw_value": 76940.68,
+   "normalized_value": 76940.68,
    "transformation_used": "identity (value used as-is)",
    "source_name": "ICICI Lombard valuation multiples (via muns agent)",
-   "source_url": "https://economictimes.indiatimes.com/icici-lombard-general-insurance-company-ltd/stocks/companyid-1883.cms",
-   "fetched_at": "2026-08-04T06:20:50.928Z",
+   "source_url": "https://www.icicidirect.com/stocks/icicilombard-share-price",
+   "fetched_at": "2026-09-28T10:42:24.417Z",
    "confidence": "medium",
    "source_status": "available",
    "source_layer": "official_snapshot",
@@ -279265,12 +279265,12 @@
    "metric": "market_cap",
    "period": "as_on_run_date",
    "unit": "INR_cr",
-   "raw_value": 24299,
-   "normalized_value": 24299,
+   "raw_value": 24337.44,
+   "normalized_value": 24337.44,
    "transformation_used": "identity (value used as-is)",
    "source_name": "Go Digit valuation multiples (via muns agent)",
-   "source_url": "https://www.screener.in/company/GODIGIT/",
-   "fetched_at": "2026-08-04T06:20:50.928Z",
+   "source_url": "https://dhan.co/stocks/go-digit-general-insurance-ltd-share-price/",
+   "fetched_at": "2026-09-28T10:42:24.417Z",
    "confidence": "medium",
    "source_status": "available",
    "source_layer": "official_snapshot",

@@ -12,7 +12,7 @@
 //  Token from MUNS_API_TOKEN (a GitHub Actions secret).
 // ---------------------------------------------------------------------------
 
-import { writeSnapshot, nowIso, appendLog } from './util'
+import { writeSnapshot, readSnapshot, nowIso, appendLog } from './util'
 import { tableRow } from './agent-table'
 
 const API_URL = process.env.MUNS_AGENT_URL || 'https://devde.muns.io/chat/chat-muns'
@@ -131,7 +131,6 @@ function parseRows(answer: string, fetched_at: string): OwnershipRow[] {
     const promoter = num(cells[2])
     const fii = num(cells[3])
     if (promoter == null && fii == null) continue // no real split → skip
-    seen.add(company_id)
     const { quarter, fiscal_year } = splitPeriod(cells[1])
     const sourceUrl = (cells[7] || '').match(/https?:\/\/\S+/)?.[0] ?? null
     const dii = num(cells[4])
@@ -148,6 +147,20 @@ function parseRows(answer: string, fetched_at: string): OwnershipRow[] {
       pub = mf
       mf = null
     }
+    // Footing gate: promoter + FII + DII + public is the whole register (MF is a
+    // subset of DII, so it's not added). A split that doesn't foot to ~100% has
+    // a mis-bucketed leg — e.g. Niva Jun-2026 came back once with FII 2.73 + MF
+    // 9.35 (together the true 12.09) and footed to 90.64. Never store it; the
+    // company keeps its last split that did foot.
+    const legs = [promoter, fii, dii, pub]
+    if (legs.every((v) => v != null)) {
+      const total = (legs as number[]).reduce((a, b) => a + b, 0)
+      if (Math.abs(total - 100) > 1) {
+        console.error(`  ✗ ${company_id} ${quarter} ${fiscal_year}: promoter+FII+DII+public = ${total.toFixed(2)}% — doesn't foot to 100, not stored`)
+        continue
+      }
+    }
+    seen.add(company_id)
     out.push({
       company_id,
       quarter,
@@ -205,6 +218,13 @@ async function main(): Promise<number> {
     return 1
   }
 
+  // A company whose split didn't come back usable keeps its previous row
+  // (labelled with its own, older quarter) instead of vanishing.
+  const fresh = new Set(rows.map((r) => r.company_id))
+  const prior = await readSnapshot<{ data?: OwnershipRow[] }>('ownership-snapshot.json').catch(() => null)
+  const carried = (prior?.data ?? []).filter((r) => !fresh.has(r.company_id))
+  for (const r of carried) console.log(`  = ${r.company_id}: kept previous ${r.quarter} ${r.fiscal_year} split`)
+
   await writeSnapshot('ownership-snapshot.json', {
     _meta: {
       snapshot_id: 'ownership-snapshot',
@@ -217,9 +237,9 @@ async function main(): Promise<number> {
       parser_status: 'ready',
       notes: 'Listed SAHIs only (Star Health, Niva Bupa). Unlisted insurers do not disclose a shareholding pattern. Each leg null where the source does not split it out — never 0.',
     },
-    data: rows,
+    data: [...rows, ...carried],
   })
-  console.log(`ownership-snapshot: wrote ${rows.length} row(s).`)
+  console.log(`ownership-snapshot: wrote ${rows.length} fresh row(s), kept ${carried.length}.`)
   return 0
 }
 

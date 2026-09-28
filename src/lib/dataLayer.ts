@@ -293,6 +293,18 @@ export function getNamedHolders(companyId: string): NamedHolder[] {
     .map((r) => ({ name: r.holder, type: inferHolderType(r.holder), share: r.pct, change: null }))
 }
 
+/** The filed quarter the named-holder list comes from ("Q4 FY26"), so its
+ *  caption can never borrow another source's (possibly newer) quarter. */
+export function getNamedHoldersPeriod(companyId: string): string | null {
+  const rows = ((shareholdingPatternSnapshot as { data?: ShareholdingPatternRow[] }).data ?? []).filter(
+    (r) => r.company_id === companyId && r.pct != null,
+  )
+  if (!rows.length) return null
+  const latest = rows.reduce((p, r) => ((r.period ?? '') > p ? r.period ?? '' : p), '')
+  const filed = rows.find((r) => r.period === latest)?.filing_period
+  return filed ? filed.replace(/^(Q\d|H\d|9M)(FY\d{2})$/, '$1 $2') : latest || null
+}
+
 export function getOwnershipData(companyId: string) {
   const base =
     (ownershipSnapshot.data as Array<{ company_id: string; top_holders?: unknown[] }>).find(

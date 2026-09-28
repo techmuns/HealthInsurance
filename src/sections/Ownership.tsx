@@ -6,7 +6,7 @@ import { LockedPanel } from '@/components/LockedPanel'
 import { DataEmptyState } from '@/components/DataEmptyState'
 import { VerdictStrip } from '@/components/VerdictStrip'
 import { useActiveCompany, useFilters } from '@/state/filters'
-import { getCompanyMaster, getOwnershipData, getTradeDisclosures, summarizeTradeDisclosures, getNamedHolders, type TradeDisclosuresView } from '@/lib/dataLayer'
+import { getCompanyMaster, getOwnershipData, getTradeDisclosures, summarizeTradeDisclosures, getNamedHolders, getNamedHoldersPeriod, type TradeDisclosuresView } from '@/lib/dataLayer'
 import {
   getOwnershipTrendView,
   groupInsight,
@@ -975,6 +975,9 @@ function DirectionBadge({ dir }: { dir: string }) {
 
 function InvestorMovementTable({ view, companyId, latestExchangePeriod }: { view: OwnershipTrendView; companyId: string; latestExchangePeriod: string }) {
   const named = useMemo(() => getNamedHolders(companyId), [companyId])
+  // Caption the list with ITS OWN filed quarter — the group split can move to a
+  // newer quarter before the named-holder filing is refreshed.
+  const namedPeriod = getNamedHoldersPeriod(companyId) ?? latestExchangePeriod
   const investorAvailable = named.length > 0
   const [mode, setMode] = useState<'group' | 'investor'>('group')
   const view2 = mode === 'investor' && !investorAvailable ? 'group' : mode
@@ -990,7 +993,7 @@ function InvestorMovementTable({ view, companyId, latestExchangePeriod }: { view
           <p className="mt-0.5 text-[11px] text-ink-secondary">
             {view2 === 'group'
               ? `Who is adding and who is trimming — ${view.previous?.fiscal ?? '—'} → ${view.latest?.fiscal ?? '—'}, sorted by biggest move`
-              : `Named holders — latest exchange filing (${latestExchangePeriod})`}
+              : `Named holders — latest exchange filing (${namedPeriod})`}
           </p>
         </div>
         {/* Group / Investor view toggle */}
@@ -1029,7 +1032,7 @@ function InvestorMovementTable({ view, companyId, latestExchangePeriod }: { view
       {view2 === 'investor' && (
         <p className="mb-2.5 flex items-start gap-1.5 rounded-lg bg-ice/60 px-2.5 py-1.5 text-[11px] leading-snug text-ink-secondary ring-1 ring-soft-border">
           <Info className="mt-px h-3.5 w-3.5 shrink-0 text-navy-primary/70" />
-          Named holders are from the latest exchange shareholding filing ({latestExchangePeriod}). Screener’s public page lists only the four group totals (individual names are login-only), so investor-level movement is a single-period snapshot — the trend activates after another comparable filing is available.
+          Named holders are from the latest exchange shareholding filing ({namedPeriod}). Screener’s public page lists only the four group totals (individual names are login-only), so investor-level movement is a single-period snapshot — the trend activates after another comparable filing is available.
         </p>
       )}
 
