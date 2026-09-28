@@ -22,6 +22,7 @@ import { readFile, writeFile, mkdir } from 'node:fs/promises'
 import { dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { chromium, type Browser, type BrowserContext } from 'playwright'
+import { tableRow } from './agent-table'
 
 const HERE = dirname(fileURLToPath(import.meta.url))
 const REPO_ROOT = resolve(HERE, '..', '..')
@@ -101,7 +102,7 @@ interface AggRow { company_id: string; broker: string; date: string; rating: str
 function parseAggregatorRows(text: string): AggRow[] {
   const out: AggRow[] = []
   for (const line of text.split(/\r?\n/)) {
-    const cells = line.split('|').map((c) => c.trim())
+    const cells = tableRow(line) ?? []
     if (cells.length < 7) continue
     const ticker = cells[0].toUpperCase().replace(/[^A-Z]/g, '')
     const company_id = TICKER_TO_ID[ticker]

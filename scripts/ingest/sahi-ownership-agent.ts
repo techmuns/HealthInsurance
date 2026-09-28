@@ -13,6 +13,7 @@
 // ---------------------------------------------------------------------------
 
 import { writeSnapshot, nowIso, appendLog } from './util'
+import { tableRow } from './agent-table'
 
 const API_URL = process.env.MUNS_AGENT_URL || 'https://devde.muns.io/chat/chat-muns'
 const API_TIMEOUT_MS = 600_000
@@ -122,9 +123,8 @@ function parseRows(answer: string, fetched_at: string): OwnershipRow[] {
   const out: OwnershipRow[] = []
   const seen = new Set<string>()
   for (const line of answer.split('\n')) {
-    if (!line.includes('|')) continue
-    const cells = line.split('|').map((c) => c.trim())
-    if (cells.length < 7) continue
+    const cells = tableRow(line)
+    if (!cells || cells.length < 7) continue
     const company_id = ID_BY_NAME[cells[0].toLowerCase().replace(/health.*$|bupa.*$/, (s) => (s.startsWith('health') ? 'health' : 'bupa'))]
       ?? ID_BY_NAME[Object.keys(ID_BY_NAME).find((k) => cells[0].toLowerCase().includes(k)) ?? '']
     if (!company_id || seen.has(company_id)) continue
@@ -198,8 +198,11 @@ async function main(): Promise<number> {
   }
 
   if (rows.length === 0) {
+    // Both listed SAHIs always file a shareholding pattern — zero rows means
+    // the answer couldn't be read, never "nothing new". Fail loudly: a green
+    // run here once hid a snapshot stuck on the March quarter.
     console.error('No parseable rows — leaving ownership-snapshot.json untouched. Raw answer follows:\n' + answer.slice(0, 1500))
-    return 0
+    return 1
   }
 
   await writeSnapshot('ownership-snapshot.json', {

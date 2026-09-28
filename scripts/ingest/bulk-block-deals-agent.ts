@@ -13,6 +13,7 @@
 // ---------------------------------------------------------------------------
 
 import { writeSnapshot, readSnapshot, nowIso, appendLog } from './util'
+import { tableRow } from './agent-table'
 
 const SNAPSHOT_FILE = 'bulk-block-deals-snapshot.json'
 const API_URL = process.env.MUNS_AGENT_URL || 'https://devde.muns.io/chat/chat-muns'
@@ -106,8 +107,8 @@ export const keyOf = (d: Deal) => `${d.company_id}::${d.deal_kind}::${d.date}::$
 export function parseDeals(answer: string): Deal[] {
   const out: Deal[] = []
   for (const line of answer.split('\n')) {
-    if (!line.includes('|')) continue
-    const cells = line.split('|').map(clean)
+    const cells = tableRow(line)
+    if (!cells) continue
     while (cells.length && cells[0] === '') cells.shift()
     while (cells.length && cells[cells.length - 1] === '') cells.pop()
     if (cells.length < 7) continue

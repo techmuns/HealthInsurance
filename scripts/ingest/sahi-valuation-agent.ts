@@ -15,6 +15,7 @@
 
 import { writeSnapshot, readSnapshot, nowIso, appendLog } from './util'
 import type { InsurerAnnualRow, SnapshotEnvelope } from '../../src/data/snapshots/_schemas'
+import { tableRow } from './agent-table'
 
 const API_URL = process.env.MUNS_AGENT_URL || 'https://devde.muns.io/chat/chat-muns'
 const API_TIMEOUT_MS = 600_000
@@ -123,9 +124,8 @@ async function main(): Promise<number> {
   const rows = []
   const seen = new Set<string>()
   for (const line of answer.split('\n')) {
-    if (!line.includes('|')) continue
-    const c = line.split('|').map((x) => x.trim())
-    if (c.length < 5) continue
+    const c = tableRow(line)
+    if (!c || c.length < 5) continue
     const company_id = ID_BY_NAME[Object.keys(ID_BY_NAME).find((k) => c[0].toLowerCase().includes(k)) ?? '']
     if (!company_id || seen.has(company_id)) continue
     const pe = num(c[1], 1000)
@@ -163,8 +163,11 @@ async function main(): Promise<number> {
   }
 
   if (rows.length === 0) {
+    // Four listed insurers always have a quote — zero rows means the answer
+    // couldn't be read, never "nothing new". Fail loudly: a green run here once
+    // hid a snapshot frozen for seven weeks.
     console.error('No parseable valuation rows — leaving valuation-snapshot.json untouched. Raw answer:\n' + answer.slice(0, 1500))
-    return 0
+    return 1
   }
 
   await writeSnapshot('valuation-snapshot.json', {

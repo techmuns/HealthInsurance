@@ -14,6 +14,7 @@
 // ---------------------------------------------------------------------------
 
 import { writeSnapshot, readSnapshot, nowIso, appendLog, normalizeSourceUrl } from './util'
+import { tableRow } from './agent-table'
 
 const SNAPSHOT_FILE = 'insurer-quarterly-financials.json'
 const API_URL = process.env.MUNS_AGENT_URL || 'https://devde.muns.io/chat/chat-muns'
@@ -122,8 +123,8 @@ const urlOf = (s: string | undefined): string | null => {
 export function parseFigures(answer: string): QFigure[] {
   const out: QFigure[] = []
   for (const line of answer.split('\n')) {
-    if (!line.includes('|')) continue
-    const cells = line.split('|').map(clean)
+    const cells = tableRow(line)
+    if (!cells) continue
     while (cells.length && cells[0] === '') cells.shift()
     while (cells.length && cells[cells.length - 1] === '') cells.pop()
     if (cells.length < 5) continue

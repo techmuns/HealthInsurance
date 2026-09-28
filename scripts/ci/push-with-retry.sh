@@ -51,7 +51,12 @@ for i in $(seq 1 "$ATTEMPTS"); do
     echo "attempt $i: fetch failed; retrying ..."; sleep 5; continue
   fi
 
-  if git rebase origin/main; then
+  # --autostash: a workflow that stages only its own snapshot still leaves the
+  # other artefacts its run rewrote (ifrs-valuation-multiples.json,
+  # excel-held-back.json) modified in the tree, and a plain rebase refuses to
+  # start ("You have unstaged changes") - the shareholding fetch lost its
+  # 2026-08-22 and 2026-09-08 commits that way, five "attempts" in a row.
+  if git rebase --autostash origin/main; then
     rebuild_and_stage
   else
     unmerged="$(git diff --name-only --diff-filter=U)"

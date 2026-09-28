@@ -24,6 +24,7 @@
 // ---------------------------------------------------------------------------
 
 import { writeSnapshot, readSnapshot, nowIso, appendLog } from './util'
+import { tableRow } from './agent-table'
 
 const SNAPSHOT_FILE = 'life-industry-premium.json'
 const SEGMENT_FILE = 'industry-segment-premium.json'
@@ -151,8 +152,8 @@ export interface AgentFigure {
 export function parseFigures(answer: string, validFys: Set<string>): AgentFigure[] {
   const out: AgentFigure[] = []
   for (const line of answer.split('\n')) {
-    if (!line.includes('|')) continue
-    const cells = line.split('|').map(clean)
+    const cells = tableRow(line)
+    if (!cells) continue
     while (cells.length && cells[0] === '') cells.shift()
     while (cells.length && cells[cells.length - 1] === '') cells.pop()
     if (cells.length < 3) continue
