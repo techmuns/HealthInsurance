@@ -44,6 +44,9 @@ const API_URL = process.env.MUNS_AGENT_URL || 'https://devde.muns.io/chat/chat-m
 // 5-min ceiling unanswered). 8 min per call, never past the run budget, so
 // the job always ends inside its 30-min CI cap.
 const PER_CALL_TIMEOUT_MS = 480_000
+// The newest filed quarter is the one the Captable shows, so its call gets the
+// most patience (the agent took >8 min for it on 2026-09-28).
+const LATEST_CALL_TIMEOUT_MS = 900_000
 const RUN_BUDGET_MS = 24 * 60_000 // stop launching new calls past this (CI cap is 30 min)
 const MIN_CALL_MS = 120_000 // don't start a call with less time left than this
 const MAX_QUARTERS_PER_RUN = Math.max(1, Number(process.env.SHAREHOLDING_MAX_QUARTERS) || 4)
@@ -495,7 +498,7 @@ async function main(): Promise<number> {
     let raw: string
     try {
       console.log(`  · asking the muns agent for ${quarterLabel(q)} (${q}) …`)
-      raw = await callAgent(token, q, Math.min(PER_CALL_TIMEOUT_MS, remaining))
+      raw = await callAgent(token, q, Math.min(q === latest ? LATEST_CALL_TIMEOUT_MS : PER_CALL_TIMEOUT_MS, remaining))
     } catch (err) {
       const reason = err instanceof Error ? err.message : String(err)
       console.error(`  ✗ ${q}: agent call failed — ${reason}`)
