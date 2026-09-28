@@ -734,10 +734,28 @@ def build_comps(ws_v, ws_f):
     return _keep_bindings(out)
 
 
+SHAREHOLDING_SNAPSHOT = REPO / "src" / "data" / "snapshots" / "shareholding-pattern-snapshot.json"
+
+
+def captable_period(ws_v) -> str:
+    """The quarter the Captable shows: the latest filed quarter on record
+    (shareholding-pattern-snapshot as_of), else the template's own C2 date.
+    Every rebuild of this map binds it - so the Captable can't slip back to the
+    template's quarter between shareholding runs (sync_captable_period.py only
+    patched the built map, and the next rebuild reset it)."""
+    try:
+        as_of = json.loads(SHAREHOLDING_SNAPSHOT.read_text())["_meta"]["as_of"]
+        if isinstance(as_of, str) and re.fullmatch(r"\d{4}-\d{2}-\d{2}", as_of):
+            return as_of
+    except Exception:  # noqa: BLE001 - no snapshot yet: the template decides
+        pass
+    c2 = ws_v["C2"].value
+    return c2.date().isoformat() if isinstance(c2, datetime) else "as_of_filing"
+
+
 def build_captable(ws_v, ws_f):
     out = []
-    as_of = ws_v["C2"].value
-    period = as_of.date().isoformat() if isinstance(as_of, datetime) else "as_of_filing"
+    period = captable_period(ws_v)
     for row in range(4, 19):  # investors; row 19 = Total (formula)
         label = ws_v[f"B{row}"].value
         if not label:

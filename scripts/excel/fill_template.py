@@ -180,6 +180,28 @@ def main(template_path: Path, out_path: Path) -> None:
                     "unavailable_publicly" if status in ("backup", "excluded_from_core") else "pending_fetch",
                 ])
 
+    # --- Captable header: date + total follow the bound quarter ------------
+    # The template's Captable carries its own quarter's date (C2) and total
+    # shares (D19, which the % and Others formulas divide / subtract from). When
+    # the bindings have moved to a newer filed quarter, both must move with them
+    # or the export mixes that quarter's holders with an older total.
+    cap = next((s for s in schema["sheets"] if s["sheet"] == "Captable"), None)
+    if cap and "Captable" in wb.sheetnames and cap.get("bindings"):
+        period = cap["bindings"][0].get("period") or ""
+        try:
+            meta = json.loads((REPO / "src" / "data" / "snapshots" / "shareholding-pattern-snapshot.json").read_text())["_meta"]
+        except Exception:  # noqa: BLE001
+            meta = {}
+        totals = {p.get("period"): p.get("total_shares") for p in meta.get("periods") or []}
+        if meta.get("as_of"):
+            totals.setdefault(meta["as_of"], meta.get("total_shares"))
+        total = totals.get(period)
+        cws = wb["Captable"]
+        c2 = cws["C2"].value
+        if isinstance(total, int) and total > 0 and isinstance(c2, datetime) and c2.date().isoformat() != period:
+            cws["C2"] = datetime.strptime(period, "%Y-%m-%d")
+            cws["D19"] = total
+
     # --- Blocked Data: held-back (basis/scope) + blocked filings records ----
     for h in held:
         blocked_rows.append([
