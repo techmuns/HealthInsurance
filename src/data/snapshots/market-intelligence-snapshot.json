@@ -5,7 +5,7 @@
     "schema_version": "1.0.0",
     "dataset": "ai_generated",
     "last_updated": "2026-09-28",
-    "last_successful_run": "2026-09-28T07:57:47.859Z",
+    "last_successful_run": "2026-09-28T17:52:52.264Z",
     "upstream_sources": [
       "muns_agent_web"
     ],
@@ -14,6 +14,36 @@
     "notes": "Clearly labelled AI-generated intelligence — verify before acting. Items accumulate through the day and rank by investor impact, not recency."
   },
   "data": [
+    {
+      "id": "636375022f",
+      "company_id": "sector",
+      "date": null,
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "<span style=\"color:#22C55E;font-weight:600\">positive</span> <span style=\"background:#F0FDF4;padding:2px 6px;border-radius:4px;\">Top signal</span>",
+      "detail": "Nomura keeps Buy, quantifies EOM cost-cut path",
+      "source_name": null,
+      "source_url": null,
+      "source_published_at": null,
+      "first_seen": "2026-09-28T17:52:52.264Z",
+      "discovered_at": "2026-09-28T17:52:52.264Z"
+    },
+    {
+      "id": "8e89d1d62c",
+      "company_id": "sector",
+      "date": null,
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "<span style=\"background:#FFFBEB;padding:2px 6px;border-radius:4px;color:#F59E0B;font-weight:600\">watch</span>",
+      "detail": "IRDAI floats draft to cap insurance distribution commissions",
+      "source_name": null,
+      "source_url": null,
+      "source_published_at": null,
+      "first_seen": "2026-09-28T17:52:52.264Z",
+      "discovered_at": "2026-09-28T17:52:52.264Z"
+    },
     {
       "id": "ea09da9a7f",
       "company_id": "sector",
@@ -883,21 +913,6 @@
       "source_published_at": null,
       "first_seen": "2026-09-03T06:40:30.727Z",
       "discovered_at": "2026-09-03T06:40:30.727Z"
-    },
-    {
-      "id": "4ea823e336",
-      "company_id": "sector",
-      "date": null,
-      "kind": "sector_news",
-      "horizon": "recent",
-      "impact": "neutral",
-      "headline": "<span style=\"color:#22C55E;font-weight:600\">Nomura retains 'Buy' on Star Health & Niva Bupa</span>",
-      "detail": "Nomura's \"21st Century Mahabharat\" thesis flags **more predictable loss ratios** sector-wide, reinforcing its bullish stance on both listed insurers.",
-      "source_name": "moneycontrol.com",
-      "source_url": "https://www.moneycontrol.com/news/business/stocks/nomura-retains-buy-on-star-health-niva-bupa-sees-more-predictable-loss-ratios-14019004.html",
-      "source_published_at": null,
-      "first_seen": "2026-09-01T14:24:29.309Z",
-      "discovered_at": "2026-09-01T14:24:29.309Z"
     }
   ]
 }
