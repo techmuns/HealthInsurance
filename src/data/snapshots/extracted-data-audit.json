@@ -2,7 +2,7 @@
  "_meta": {
   "artifact": "extracted-data-audit",
   "schema_version": "1.0.0",
-  "generated_at": "2026-09-29T10:06:54.208443+00:00",
+  "generated_at": "2026-09-29T10:56:40.636376+00:00",
   "description": "QA index for the Extracted Data Audit tab. A compact projection of schema-map.json (cell contract) + excel-values.json (normalized value store) + held-back + blocked-filings. The binding x value join (Fetched / Missing / Parser issue / Source unavailable / Manual override) is computed at read time in src/lib/extractedDataAudit.ts so no data logic is duplicated.",
   "template_file": "niva-bupa-portfolio-review.xlsx",
   "template_sha256": "1bb2ab2ebf841fd46047938175ef1ff36d7c6c3207b8a56279d3e6dc8e2b0432",
@@ -28,7 +28,7 @@
    "sheets": 9,
    "audit_cells": 3648,
    "computed_cells": 690,
-   "value_store_entries": 13532,
+   "value_store_entries": 13531,
    "held_back": 16,
    "blocked_filings": 34
   }
@@ -46507,7 +46507,7 @@
        "metric": "gwp"
       }
      ],
-     "calculated_value": 1.631438
+     "calculated_value": 1.578635
     },
     {
      "cell": "K4",
@@ -46539,7 +46539,7 @@
        "metric": "pat_igaap"
       }
      ],
-     "calculated_value": 107.089908
+     "calculated_value": 103.623853
     },
     {
      "cell": "L4",
@@ -46571,7 +46571,7 @@
        "metric": "net_worth_igaap"
       }
      ],
-     "calculated_value": 4.351463
+     "calculated_value": 4.210624
     },
     {
      "cell": "M4",
@@ -46635,7 +46635,7 @@
        "metric": "pat_ifrs"
       }
      ],
-     "calculated_value": 38.261022
+     "calculated_value": 37.022671
     },
     {
      "cell": "O4",
@@ -46667,7 +46667,7 @@
        "metric": "net_worth_ifrs"
       }
      ],
-     "calculated_value": 3.910049
+     "calculated_value": 3.783497
     },
     {
      "cell": "P4",
@@ -46943,7 +46943,7 @@
        "metric": "gwp"
       }
      ],
-     "calculated_value": 1.747292
+     "calculated_value": 1.701752
     },
     {
      "cell": "K5",
@@ -46975,7 +46975,7 @@
        "metric": "pat_igaap"
       }
      ],
-     "calculated_value": 58.364973
+     "calculated_value": 56.843806
     },
     {
      "cell": "L5",
@@ -47007,7 +47007,7 @@
        "metric": "net_worth_igaap"
       }
      ],
-     "calculated_value": 4.28393
+     "calculated_value": 4.172278
     },
     {
      "cell": "M5",
@@ -47071,7 +47071,7 @@
        "metric": "pat_ifrs"
       }
      ],
-     "calculated_value": 35.68528
+     "calculated_value": 34.755214
     },
     {
      "cell": "O5",
@@ -47103,7 +47103,7 @@
        "metric": "net_worth_ifrs"
       }
      ],
-     "calculated_value": 3.394163
+     "calculated_value": 3.305701
     },
     {
      "cell": "P5",
@@ -47318,8 +47318,7 @@
        "entity": "icici-lombard",
        "metric": "gwp"
       }
-     ],
-     "calculated_value": 2.679696
+     ]
     },
     {
      "cell": "K6",
@@ -47350,8 +47349,7 @@
        "entity": "icici-lombard",
        "metric": "pat_igaap"
       }
-     ],
-     "calculated_value": 27.756378
+     ]
     },
     {
      "cell": "L6",
@@ -47382,8 +47380,7 @@
        "entity": "icici-lombard",
        "metric": "net_worth_igaap"
       }
-     ],
-     "calculated_value": 4.56811
+     ]
     },
     {
      "cell": "M6",
@@ -47692,7 +47689,7 @@
        "metric": "gwp"
       }
      ],
-     "calculated_value": 2.471782
+     "calculated_value": 2.377386
     },
     {
      "cell": "K7",
@@ -47724,7 +47721,7 @@
        "metric": "pat_igaap"
       }
      ],
-     "calculated_value": 44.737941
+     "calculated_value": 43.029412
     },
     {
      "cell": "L7",
@@ -47756,7 +47753,7 @@
        "metric": "net_worth_igaap"
       }
      ],
-     "calculated_value": 5.306899
+     "calculated_value": 5.10423
     },
     {
      "cell": "M7",
@@ -68818,7 +68815,7 @@
    "transformation_used": "identity (value used as-is)",
    "source_name": "Motilal Oswal research note, 2026-09-24 (Moneycontrol broker research)",
    "source_url": "https://images.moneycontrol.com/static-mcnews/2026/09/20260925060919_Niva-Bupa-Health-Insurance-2509026-moti.pdf",
-   "fetched_at": "2026-09-29T10:05:18.725Z",
+   "fetched_at": "2026-09-29T10:54:55.988Z",
    "confidence": "low",
    "source_status": "backup",
    "source_layer": "analyst_aggregator",
@@ -68837,7 +68834,7 @@
    "transformation_used": "identity (value used as-is)",
    "source_name": "Motilal Oswal research note, 2026-09-24 (Moneycontrol broker research)",
    "source_url": "https://images.moneycontrol.com/static-mcnews/2026/09/20260925060919_Niva-Bupa-Health-Insurance-2509026-moti.pdf",
-   "fetched_at": "2026-09-29T10:05:18.725Z",
+   "fetched_at": "2026-09-29T10:54:55.988Z",
    "confidence": "low",
    "source_status": "backup",
    "source_layer": "analyst_aggregator",
@@ -68856,7 +68853,7 @@
    "transformation_used": "identity (value used as-is)",
    "source_name": "Motilal Oswal research note, 2026-07-30 (Moneycontrol broker research)",
    "source_url": "https://images.moneycontrol.com/static-mcnews/2026/07/20260731164316_Niva-Bupa-_31072026_Motilal-Oswal.pdf",
-   "fetched_at": "2026-09-29T10:05:18.725Z",
+   "fetched_at": "2026-09-29T10:54:55.988Z",
    "confidence": "low",
    "source_status": "backup",
    "source_layer": "analyst_aggregator",
@@ -68875,7 +68872,7 @@
    "transformation_used": "identity (value used as-is)",
    "source_name": "Motilal Oswal research note, 2026-06-19 (Moneycontrol broker research)",
    "source_url": "https://images.moneycontrol.com/static-mcnews/2026/06/20260622061924_Niva-Bupa-Health-Insurance-2206026-moti.pdf",
-   "fetched_at": "2026-09-29T10:05:18.725Z",
+   "fetched_at": "2026-09-29T10:54:55.988Z",
    "confidence": "low",
    "source_status": "backup",
    "source_layer": "analyst_aggregator",
@@ -68894,7 +68891,7 @@
    "transformation_used": "identity (value used as-is)",
    "source_name": "Motilal Oswal research note, 2026-05-10 (Moneycontrol broker research)",
    "source_url": "https://images.moneycontrol.com/static-mcnews/2026/05/20260526085124_Niva-BupaVMart-Retail-2605026-moti.pdf",
-   "fetched_at": "2026-09-29T10:05:18.725Z",
+   "fetched_at": "2026-09-29T10:54:55.988Z",
    "confidence": "low",
    "source_status": "backup",
    "source_layer": "analyst_aggregator",
@@ -68913,7 +68910,7 @@
    "transformation_used": "identity (value used as-is)",
    "source_name": "Motilal Oswal research note, 2026-01-29 (Moneycontrol broker research)",
    "source_url": "https://images.moneycontrol.com/static-mcnews/2026/02/20260202134824_Niva-Bupa_01022026_Motilal-Oswal.pdf",
-   "fetched_at": "2026-09-29T10:05:18.725Z",
+   "fetched_at": "2026-09-29T10:54:55.988Z",
    "confidence": "low",
    "source_status": "backup",
    "source_layer": "analyst_aggregator",
@@ -281643,12 +281640,12 @@
    "metric": "market_cap",
    "period": "as_on_run_date",
    "unit": "INR_cr",
-   "raw_value": 32509.29,
-   "normalized_value": 32509.29,
+   "raw_value": 31662,
+   "normalized_value": 31662,
    "transformation_used": "identity (value used as-is)",
    "source_name": "Star Health valuation multiples (via muns agent)",
-   "source_url": "https://www.icicidirect.com/stocks/star-health-and-allied-insurance-company-ltd-share-price",
-   "fetched_at": "2026-09-28T10:42:24.417Z",
+   "source_url": "https://www.screener.in/company/STARHEALTH/",
+   "fetched_at": "2026-09-29T10:15:50.701Z",
    "confidence": "medium",
    "source_status": "available",
    "source_layer": "official_snapshot",
@@ -281661,30 +281658,12 @@
    "metric": "market_cap",
    "period": "as_on_run_date",
    "unit": "INR_cr",
-   "raw_value": 14007.36,
-   "normalized_value": 14007.36,
+   "raw_value": 13554,
+   "normalized_value": 13554,
    "transformation_used": "identity (value used as-is)",
    "source_name": "Niva Bupa valuation multiples (via muns agent)",
-   "source_url": "https://www.icicidirect.com/stocks/niva-bupa-health-insurance-company-ltd-share-price",
-   "fetched_at": "2026-09-28T10:42:24.417Z",
-   "confidence": "medium",
-   "source_status": "available",
-   "source_layer": "official_snapshot",
-   "priority_rank": 3,
-   "conflict_status": "none",
-   "eligible_for_excel": true
-  },
-  "icici-lombard::market_cap::as_on_run_date": {
-   "entity": "icici-lombard",
-   "metric": "market_cap",
-   "period": "as_on_run_date",
-   "unit": "INR_cr",
-   "raw_value": 76940.68,
-   "normalized_value": 76940.68,
-   "transformation_used": "identity (value used as-is)",
-   "source_name": "ICICI Lombard valuation multiples (via muns agent)",
-   "source_url": "https://www.icicidirect.com/stocks/icicilombard-share-price",
-   "fetched_at": "2026-09-28T10:42:24.417Z",
+   "source_url": "https://www.screener.in/company/NIVABUPA/",
+   "fetched_at": "2026-09-29T10:15:50.701Z",
    "confidence": "medium",
    "source_status": "available",
    "source_layer": "official_snapshot",
@@ -281697,12 +281676,12 @@
    "metric": "market_cap",
    "period": "as_on_run_date",
    "unit": "INR_cr",
-   "raw_value": 24337.44,
-   "normalized_value": 24337.44,
+   "raw_value": 23408,
+   "normalized_value": 23408,
    "transformation_used": "identity (value used as-is)",
    "source_name": "Go Digit valuation multiples (via muns agent)",
-   "source_url": "https://dhan.co/stocks/go-digit-general-insurance-ltd-share-price/",
-   "fetched_at": "2026-09-28T10:42:24.417Z",
+   "source_url": "https://www.screener.in/company/GODIGIT/",
+   "fetched_at": "2026-09-29T10:15:50.701Z",
    "confidence": "medium",
    "source_status": "available",
    "source_layer": "official_snapshot",
