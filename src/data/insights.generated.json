@@ -1,10 +1,10 @@
 {
   "meta": {
-    "generatedAt": "2026-09-29T10:07:52.052Z",
+    "generatedAt": "2026-09-29T10:23:38.251Z",
     "dataAsOf": "Q1 FY27",
     "model": "insight-engine v2 — deterministic detector battery (no AI, no key; quarterly + monthly + annual)",
     "signalsComputed": 316,
-    "signalHash": "sig_c2c0ee61",
+    "signalHash": "sig_20b157aa",
     "coverage": [
       {
         "insurer": "niva-bupa",
@@ -38,22 +38,22 @@
       "id": "valuation-dislocation-niva-bupa-fy26",
       "rank": 1,
       "category": "valuation",
-      "headline": "Niva Bupa trades at 4.35x book value but earns 4.1% on that book — the price only works at a ~25.4% return",
+      "headline": "Niva Bupa trades at 4.21x book value but earns 4.1% on that book — the price only works at a ~24.8% return",
       "shortHeadline": "Niva Bupa's price assumes profits it doesn't make yet",
-      "summary": "Niva Bupa's market value is 4.35 times its statutory book value, but the company currently earns just 4.1% on that book (return on equity). Run the arithmetic backwards — with a 12% cost of equity and 8% long-run growth — and today's price only makes sense if returns rise to roughly 25.4%. That is a 21.3pp gap between what the company earns and what the price is already paying for, measured on one accounting basis end-to-end.",
-      "thesis": "The multiple is a promise: the equity only works if returns climb from 4.1% toward 25.4% on schedule. That path runs through underwriting profitability and cost leverage — both visible quarter by quarter — so the promise is testable at every print, and every print that fails to close the gap shortens the market's patience.",
-      "whatConsensusMisses": "Multiples get debated as 'expensive or cheap vs peers'. Solved backwards into the return they require, 4.35x book is a ~25.4% ROE claim standing against 4.1% actually delivered — a concrete forecast most holders have never worked out.",
+      "summary": "Niva Bupa's market value is 4.21 times its statutory book value, but the company currently earns just 4.1% on that book (return on equity). Run the arithmetic backwards — with a 12% cost of equity and 8% long-run growth — and today's price only makes sense if returns rise to roughly 24.8%. That is a 20.7pp gap between what the company earns and what the price is already paying for, measured on one accounting basis end-to-end.",
+      "thesis": "The multiple is a promise: the equity only works if returns climb from 4.1% toward 24.8% on schedule. That path runs through underwriting profitability and cost leverage — both visible quarter by quarter — so the promise is testable at every print, and every print that fails to close the gap shortens the market's patience.",
+      "whatConsensusMisses": "Multiples get debated as 'expensive or cheap vs peers'. Solved backwards into the return they require, 4.21x book is a ~24.8% ROE claim standing against 4.1% actually delivered — a concrete forecast most holders have never worked out.",
       "tier": "goldmine",
-      "consensusView": "4.35x book is discussed by peer comparison, not solved for the return path it demands.",
-      "variantBasis": "Inverting the multiple turns the price into a testable claim: ~25.4% required vs 4.1% delivered — a 21.3pp execution gap with a clock on it.",
+      "consensusView": "4.21x book is discussed by peer comparison, not solved for the return path it demands.",
+      "variantBasis": "Inverting the multiple turns the price into a testable claim: ~24.8% required vs 4.1% delivered — a 20.7pp execution gap with a clock on it.",
       "steelman": "Young insurance books earn depressed statutory returns while customer-acquisition costs are charged upfront — on the IFRS lens the same year's profit is materially higher, so the gap narrows on that basis. Handled: the read holds ONE basis end-to-end (statutory book, statutory return) and shows the IFRS multiple separately; the direction of the gap survives the lens change even where its size does not.",
       "evidence": [
         {
           "insurer": "niva-bupa",
           "metric": "P/B (statutory net worth)",
-          "value": 4.35,
+          "value": 4.21,
           "unit": "x",
-          "context": "market cap ₹14007 cr over ₹3219 cr FY26 net worth, as of 2026-09-28",
+          "context": "market cap ₹13554 cr over ₹3219 cr FY26 net worth, as of 2026-09-29",
           "layers": [
             "exchange"
           ],
@@ -73,7 +73,7 @@
         {
           "insurer": "niva-bupa",
           "metric": "Implied steady-state ROE (reverse Gordon)",
-          "value": 25.4,
+          "value": 24.8,
           "unit": "%",
           "context": "at 12% CoE and 8% terminal growth",
           "layers": [
@@ -95,7 +95,7 @@
       ],
       "conviction": "high",
       "horizon": "medium",
-      "falsifier": "Delivered ROE climbs decisively toward 25.4% over the coming prints — the price's assumption starts being earned.",
+      "falsifier": "Delivered ROE climbs decisively toward 24.8% over the coming prints — the price's assumption starts being earned.",
       "affectedInsurers": [
         "niva-bupa"
       ],
@@ -120,7 +120,7 @@
       "keyMove": {
         "label": "Return on equity: delivered vs what the price needs",
         "from": 4.1,
-        "to": 25.4,
+        "to": 24.8,
         "unit": "%",
         "divider": "vs"
       },
@@ -133,12 +133,12 @@
             "refTag": "Expectations investing",
             "gloss": "Invert the statutory book multiple into the steady-state ROE the current price requires, then compare with the statutory ROE actually delivered — one accounting basis end-to-end.",
             "formulaTeX": "ROE^{*} = CoE \\cdot \\frac{P}{B} - g\\left(\\frac{P}{B}-1\\right)",
-            "instanceTeX": "ROE^{*} = 12\\cdot 4.35 - 8(4.35-1) = 25.4\\%",
+            "instanceTeX": "ROE^{*} = 12\\cdot 4.21 - 8(4.21-1) = 24.8\\%",
             "inputs": [
               {
                 "symbol": "P/B",
                 "label": "market cap over statutory net worth",
-                "value": 4.35,
+                "value": 4.21,
                 "unit": "x",
                 "insurer": "niva-bupa",
                 "period": "Sep FY27",
@@ -174,15 +174,15 @@
             ],
             "statistic": {
               "symbol": "ROE^{*}",
-              "value": 25.4,
+              "value": 24.8,
               "unit": "%"
             },
             "threshold": {
               "rule": "delivered ≥ implied ⇒ earned",
-              "value": 25.4,
+              "value": 24.8,
               "passed": false
             },
-            "robustness": "The multiple front-runs returns: implied 25.4% vs 4.1% delivered — a 21.3pp gap the book has not yet earned."
+            "robustness": "The multiple front-runs returns: implied 24.8% vs 4.1% delivered — a 20.7pp gap the book has not yet earned."
           }
         ],
         "lenses": {
@@ -205,8 +205,8 @@
             "stepKeys": []
           }
         },
-        "payloadHash": "sig_63767319",
-        "computedAt": "2026-09-29T10:07:52.052Z",
+        "payloadHash": "sig_457c8005",
+        "computedAt": "2026-09-29T10:23:38.251Z",
         "isQuantitative": true
       },
       "application": {
@@ -214,7 +214,7 @@
         "uses": [
           {
             "angle": "Expectations gap",
-            "detail": "Track delivered ROE each print against the ~25.4% the price requires; the trend of the gap is the position signal."
+            "detail": "Track delivered ROE each print against the ~24.8% the price requires; the trend of the gap is the position signal."
           },
           {
             "angle": "Risk flag",
@@ -226,12 +226,12 @@
         "items": [
           {
             "trigger": "ROE trajectory",
-            "condition": "Delivered ROE climbing toward 25.4% — the gap closing through earnings, not through a falling price.",
+            "condition": "Delivered ROE climbing toward 24.8% — the gap closing through earnings, not through a falling price.",
             "direction": "invalidates"
           },
           {
             "trigger": "Multiple",
-            "condition": "The book multiple holding near 4.35x while the return gap persists.",
+            "condition": "The book multiple holding near 4.21x while the return gap persists.",
             "direction": "confirms"
           }
         ]
@@ -389,7 +389,7 @@
           }
         },
         "payloadHash": "sig_6a47c527",
-        "computedAt": "2026-09-29T10:07:52.052Z",
+        "computedAt": "2026-09-29T10:23:38.251Z",
         "isQuantitative": true
       },
       "application": {
@@ -571,7 +571,7 @@
           }
         },
         "payloadHash": "sig_c8a9e93",
-        "computedAt": "2026-09-29T10:07:52.052Z",
+        "computedAt": "2026-09-29T10:23:38.251Z",
         "isQuantitative": true
       },
       "application": {
@@ -603,211 +603,8 @@
       }
     },
     {
-      "id": "valuation-dislocation-star-health-fy26",
-      "rank": 4,
-      "category": "valuation",
-      "headline": "Star Health trades at 4.28x book value but earns 7.3% on that book — the price only works at a ~25.1% return",
-      "shortHeadline": "Star Health's price assumes profits it doesn't make yet",
-      "summary": "Star Health's market value is 4.28 times its statutory book value, but the company currently earns just 7.3% on that book (return on equity). Run the arithmetic backwards — with a 12% cost of equity and 8% long-run growth — and today's price only makes sense if returns rise to roughly 25.1%. That is a 17.8pp gap between what the company earns and what the price is already paying for, measured on one accounting basis end-to-end.",
-      "thesis": "The multiple is a promise: the equity only works if returns climb from 7.3% toward 25.1% on schedule. That path runs through underwriting profitability and cost leverage — both visible quarter by quarter — so the promise is testable at every print, and every print that fails to close the gap shortens the market's patience.",
-      "whatConsensusMisses": "Multiples get debated as 'expensive or cheap vs peers'. Solved backwards into the return they require, 4.28x book is a ~25.1% ROE claim standing against 7.3% actually delivered — a concrete forecast most holders have never worked out.",
-      "tier": "goldmine",
-      "consensusView": "4.28x book is discussed by peer comparison, not solved for the return path it demands.",
-      "variantBasis": "Inverting the multiple turns the price into a testable claim: ~25.1% required vs 7.3% delivered — a 17.8pp execution gap with a clock on it.",
-      "steelman": "Young insurance books earn depressed statutory returns while customer-acquisition costs are charged upfront — on the IFRS lens the same year's profit is materially higher, so the gap narrows on that basis. Handled: the read holds ONE basis end-to-end (statutory book, statutory return) and shows the IFRS multiple separately; the direction of the gap survives the lens change even where its size does not.",
-      "evidence": [
-        {
-          "insurer": "star-health",
-          "metric": "P/B (statutory net worth)",
-          "value": 4.28,
-          "unit": "x",
-          "context": "market cap ₹32509 cr over ₹7589 cr FY26 net worth, as of 2026-09-28",
-          "layers": [
-            "exchange"
-          ],
-          "period": "Sep FY27"
-        },
-        {
-          "insurer": "star-health",
-          "metric": "Delivered ROE (statutory)",
-          "value": 7.3,
-          "unit": "%",
-          "context": "statutory PAT over the same net worth — one basis end-to-end",
-          "layers": [
-            "statutory"
-          ],
-          "period": "FY26"
-        },
-        {
-          "insurer": "star-health",
-          "metric": "Implied steady-state ROE (reverse Gordon)",
-          "value": 25.1,
-          "unit": "%",
-          "context": "at 12% CoE and 8% terminal growth",
-          "layers": [
-            "derived"
-          ],
-          "period": "FY26"
-        },
-        {
-          "insurer": "star-health",
-          "metric": "P/B (IFRS net worth, secondary)",
-          "value": 3.39,
-          "unit": "x",
-          "context": "the dashboard's IFRS-basis multiple, shown for reference — never blended into the statutory read",
-          "layers": [
-            "exchange"
-          ],
-          "period": "Sep FY27"
-        }
-      ],
-      "conviction": "high",
-      "horizon": "medium",
-      "falsifier": "Delivered ROE climbs decisively toward 25.1% over the coming prints — the price's assumption starts being earned.",
-      "affectedInsurers": [
-        "star-health"
-      ],
-      "chart": {
-        "type": "scatter_dislocation",
-        "title": "P/B (statutory) vs delivered ROE",
-        "seriesKeys": [
-          "val:roe",
-          "val:pb"
-        ],
-        "insurers": [
-          "niva-bupa",
-          "star-health",
-          "care-health"
-        ],
-        "period": "FY26"
-      },
-      "sourceNote": "The book multiple is the daily market cap over the newest reported statutory net worth, and the ROE is statutory PAT over that same net worth — the numerator and denominator never mix accounting bases. The IFRS multiple, where published, is shown as separate reference evidence.",
-      "period": "FY26",
-      "cadence": "annual",
-      "family": "valuation_dislocation",
-      "keyMove": {
-        "label": "Return on equity: delivered vs what the price needs",
-        "from": 7.3,
-        "to": 25.1,
-        "unit": "%",
-        "divider": "vs"
-      },
-      "methodology": {
-        "steps": [
-          {
-            "key": "implied_roe",
-            "lens": "fundamental",
-            "name": "Reverse the price (Gordon)",
-            "refTag": "Expectations investing",
-            "gloss": "Invert the statutory book multiple into the steady-state ROE the current price requires, then compare with the statutory ROE actually delivered — one accounting basis end-to-end.",
-            "formulaTeX": "ROE^{*} = CoE \\cdot \\frac{P}{B} - g\\left(\\frac{P}{B}-1\\right)",
-            "instanceTeX": "ROE^{*} = 12\\cdot 4.28 - 8(4.28-1) = 25.1\\%",
-            "inputs": [
-              {
-                "symbol": "P/B",
-                "label": "market cap over statutory net worth",
-                "value": 4.28,
-                "unit": "x",
-                "insurer": "star-health",
-                "period": "Sep FY27",
-                "layer": "exchange"
-              },
-              {
-                "symbol": "CoE",
-                "label": "cost of equity (assumption)",
-                "value": 12,
-                "unit": "%",
-                "insurer": "star-health",
-                "period": "FY26",
-                "layer": "derived"
-              },
-              {
-                "symbol": "g",
-                "label": "terminal growth (assumption)",
-                "value": 8,
-                "unit": "%",
-                "insurer": "star-health",
-                "period": "FY26",
-                "layer": "derived"
-              },
-              {
-                "symbol": "ROE_{del}",
-                "label": "delivered statutory ROE",
-                "value": 7.3,
-                "unit": "%",
-                "insurer": "star-health",
-                "period": "FY26",
-                "layer": "statutory"
-              }
-            ],
-            "statistic": {
-              "symbol": "ROE^{*}",
-              "value": 25.1,
-              "unit": "%"
-            },
-            "threshold": {
-              "rule": "delivered ≥ implied ⇒ earned",
-              "value": 25.1,
-              "passed": false
-            },
-            "robustness": "The multiple front-runs returns: implied 25.1% vs 7.3% delivered — a 17.8pp gap the book has not yet earned."
-          }
-        ],
-        "lenses": {
-          "fundamental": {
-            "status": "populated",
-            "stepKeys": [
-              "implied_roe"
-            ]
-          },
-          "technical": {
-            "status": "no_signal",
-            "stepKeys": []
-          },
-          "sentiment": {
-            "status": "no_signal",
-            "stepKeys": []
-          },
-          "macro": {
-            "status": "no_signal",
-            "stepKeys": []
-          }
-        },
-        "payloadHash": "sig_716f7c5b",
-        "computedAt": "2026-09-29T10:07:52.052Z",
-        "isQuantitative": true
-      },
-      "application": {
-        "framing": "An expectations read on Star Health.",
-        "uses": [
-          {
-            "angle": "Expectations gap",
-            "detail": "Track delivered ROE each print against the ~25.1% the price requires; the trend of the gap is the position signal."
-          },
-          {
-            "angle": "Risk flag",
-            "detail": "Prices that assume a profit ramp leave no room for slips — small misses produce outsized falls."
-          }
-        ]
-      },
-      "watch": {
-        "items": [
-          {
-            "trigger": "ROE trajectory",
-            "condition": "Delivered ROE climbing toward 25.1% — the gap closing through earnings, not through a falling price.",
-            "direction": "invalidates"
-          },
-          {
-            "trigger": "Multiple",
-            "condition": "The book multiple holding near 4.28x while the return gap persists.",
-            "direction": "confirms"
-          }
-        ]
-      }
-    },
-    {
       "id": "price-fundamentals-care-health-q4fy26",
-      "rank": 5,
+      "rank": 4,
       "category": "valuation",
       "headline": "Care Health's listed proxy (Religare) fell 18.1% in Q4 FY26 — the same quarter retail premium grew 42%",
       "shortHeadline": "Care Health: stock down, business up",
@@ -975,7 +772,7 @@
           }
         },
         "payloadHash": "sig_f1d3e47b",
-        "computedAt": "2026-09-29T10:07:52.052Z",
+        "computedAt": "2026-09-29T10:23:38.251Z",
         "isQuantitative": true
       },
       "application": {
@@ -1001,6 +798,209 @@
           {
             "trigger": "Premium persistence",
             "condition": "Retail growth holding near 42% at the next quarterly print.",
+            "direction": "confirms"
+          }
+        ]
+      }
+    },
+    {
+      "id": "valuation-dislocation-star-health-fy26",
+      "rank": 5,
+      "category": "valuation",
+      "headline": "Star Health trades at 4.17x book value but earns 7.3% on that book — the price only works at a ~24.7% return",
+      "shortHeadline": "Star Health's price assumes profits it doesn't make yet",
+      "summary": "Star Health's market value is 4.17 times its statutory book value, but the company currently earns just 7.3% on that book (return on equity). Run the arithmetic backwards — with a 12% cost of equity and 8% long-run growth — and today's price only makes sense if returns rise to roughly 24.7%. That is a 17.4pp gap between what the company earns and what the price is already paying for, measured on one accounting basis end-to-end.",
+      "thesis": "The multiple is a promise: the equity only works if returns climb from 7.3% toward 24.7% on schedule. That path runs through underwriting profitability and cost leverage — both visible quarter by quarter — so the promise is testable at every print, and every print that fails to close the gap shortens the market's patience.",
+      "whatConsensusMisses": "Multiples get debated as 'expensive or cheap vs peers'. Solved backwards into the return they require, 4.17x book is a ~24.7% ROE claim standing against 7.3% actually delivered — a concrete forecast most holders have never worked out.",
+      "tier": "goldmine",
+      "consensusView": "4.17x book is discussed by peer comparison, not solved for the return path it demands.",
+      "variantBasis": "Inverting the multiple turns the price into a testable claim: ~24.7% required vs 7.3% delivered — a 17.4pp execution gap with a clock on it.",
+      "steelman": "Young insurance books earn depressed statutory returns while customer-acquisition costs are charged upfront — on the IFRS lens the same year's profit is materially higher, so the gap narrows on that basis. Handled: the read holds ONE basis end-to-end (statutory book, statutory return) and shows the IFRS multiple separately; the direction of the gap survives the lens change even where its size does not.",
+      "evidence": [
+        {
+          "insurer": "star-health",
+          "metric": "P/B (statutory net worth)",
+          "value": 4.17,
+          "unit": "x",
+          "context": "market cap ₹31662 cr over ₹7589 cr FY26 net worth, as of 2026-09-29",
+          "layers": [
+            "exchange"
+          ],
+          "period": "Sep FY27"
+        },
+        {
+          "insurer": "star-health",
+          "metric": "Delivered ROE (statutory)",
+          "value": 7.3,
+          "unit": "%",
+          "context": "statutory PAT over the same net worth — one basis end-to-end",
+          "layers": [
+            "statutory"
+          ],
+          "period": "FY26"
+        },
+        {
+          "insurer": "star-health",
+          "metric": "Implied steady-state ROE (reverse Gordon)",
+          "value": 24.7,
+          "unit": "%",
+          "context": "at 12% CoE and 8% terminal growth",
+          "layers": [
+            "derived"
+          ],
+          "period": "FY26"
+        },
+        {
+          "insurer": "star-health",
+          "metric": "P/B (IFRS net worth, secondary)",
+          "value": 3.39,
+          "unit": "x",
+          "context": "the dashboard's IFRS-basis multiple, shown for reference — never blended into the statutory read",
+          "layers": [
+            "exchange"
+          ],
+          "period": "Sep FY27"
+        }
+      ],
+      "conviction": "high",
+      "horizon": "medium",
+      "falsifier": "Delivered ROE climbs decisively toward 24.7% over the coming prints — the price's assumption starts being earned.",
+      "affectedInsurers": [
+        "star-health"
+      ],
+      "chart": {
+        "type": "scatter_dislocation",
+        "title": "P/B (statutory) vs delivered ROE",
+        "seriesKeys": [
+          "val:roe",
+          "val:pb"
+        ],
+        "insurers": [
+          "niva-bupa",
+          "star-health",
+          "care-health"
+        ],
+        "period": "FY26"
+      },
+      "sourceNote": "The book multiple is the daily market cap over the newest reported statutory net worth, and the ROE is statutory PAT over that same net worth — the numerator and denominator never mix accounting bases. The IFRS multiple, where published, is shown as separate reference evidence.",
+      "period": "FY26",
+      "cadence": "annual",
+      "family": "valuation_dislocation",
+      "keyMove": {
+        "label": "Return on equity: delivered vs what the price needs",
+        "from": 7.3,
+        "to": 24.7,
+        "unit": "%",
+        "divider": "vs"
+      },
+      "methodology": {
+        "steps": [
+          {
+            "key": "implied_roe",
+            "lens": "fundamental",
+            "name": "Reverse the price (Gordon)",
+            "refTag": "Expectations investing",
+            "gloss": "Invert the statutory book multiple into the steady-state ROE the current price requires, then compare with the statutory ROE actually delivered — one accounting basis end-to-end.",
+            "formulaTeX": "ROE^{*} = CoE \\cdot \\frac{P}{B} - g\\left(\\frac{P}{B}-1\\right)",
+            "instanceTeX": "ROE^{*} = 12\\cdot 4.17 - 8(4.17-1) = 24.7\\%",
+            "inputs": [
+              {
+                "symbol": "P/B",
+                "label": "market cap over statutory net worth",
+                "value": 4.17,
+                "unit": "x",
+                "insurer": "star-health",
+                "period": "Sep FY27",
+                "layer": "exchange"
+              },
+              {
+                "symbol": "CoE",
+                "label": "cost of equity (assumption)",
+                "value": 12,
+                "unit": "%",
+                "insurer": "star-health",
+                "period": "FY26",
+                "layer": "derived"
+              },
+              {
+                "symbol": "g",
+                "label": "terminal growth (assumption)",
+                "value": 8,
+                "unit": "%",
+                "insurer": "star-health",
+                "period": "FY26",
+                "layer": "derived"
+              },
+              {
+                "symbol": "ROE_{del}",
+                "label": "delivered statutory ROE",
+                "value": 7.3,
+                "unit": "%",
+                "insurer": "star-health",
+                "period": "FY26",
+                "layer": "statutory"
+              }
+            ],
+            "statistic": {
+              "symbol": "ROE^{*}",
+              "value": 24.7,
+              "unit": "%"
+            },
+            "threshold": {
+              "rule": "delivered ≥ implied ⇒ earned",
+              "value": 24.7,
+              "passed": false
+            },
+            "robustness": "The multiple front-runs returns: implied 24.7% vs 7.3% delivered — a 17.4pp gap the book has not yet earned."
+          }
+        ],
+        "lenses": {
+          "fundamental": {
+            "status": "populated",
+            "stepKeys": [
+              "implied_roe"
+            ]
+          },
+          "technical": {
+            "status": "no_signal",
+            "stepKeys": []
+          },
+          "sentiment": {
+            "status": "no_signal",
+            "stepKeys": []
+          },
+          "macro": {
+            "status": "no_signal",
+            "stepKeys": []
+          }
+        },
+        "payloadHash": "sig_79b4d71c",
+        "computedAt": "2026-09-29T10:23:38.251Z",
+        "isQuantitative": true
+      },
+      "application": {
+        "framing": "An expectations read on Star Health.",
+        "uses": [
+          {
+            "angle": "Expectations gap",
+            "detail": "Track delivered ROE each print against the ~24.7% the price requires; the trend of the gap is the position signal."
+          },
+          {
+            "angle": "Risk flag",
+            "detail": "Prices that assume a profit ramp leave no room for slips — small misses produce outsized falls."
+          }
+        ]
+      },
+      "watch": {
+        "items": [
+          {
+            "trigger": "ROE trajectory",
+            "condition": "Delivered ROE climbing toward 24.7% — the gap closing through earnings, not through a falling price.",
+            "direction": "invalidates"
+          },
+          {
+            "trigger": "Multiple",
+            "condition": "The book multiple holding near 4.17x while the return gap persists.",
             "direction": "confirms"
           }
         ]
@@ -1157,7 +1157,7 @@
           }
         },
         "payloadHash": "sig_32747194",
-        "computedAt": "2026-09-29T10:07:52.052Z",
+        "computedAt": "2026-09-29T10:23:38.251Z",
         "isQuantitative": true
       },
       "application": {
@@ -1339,7 +1339,7 @@
           }
         },
         "payloadHash": "sig_585adc2e",
-        "computedAt": "2026-09-29T10:07:52.052Z",
+        "computedAt": "2026-09-29T10:23:38.251Z",
         "isQuantitative": true
       },
       "application": {
@@ -1506,7 +1506,7 @@
           }
         },
         "payloadHash": "sig_b130f166",
-        "computedAt": "2026-09-29T10:07:52.052Z",
+        "computedAt": "2026-09-29T10:23:38.251Z",
         "isQuantitative": true
       },
       "application": {
@@ -1712,7 +1712,7 @@
           }
         },
         "payloadHash": "sig_d1d1e10b",
-        "computedAt": "2026-09-29T10:07:52.052Z",
+        "computedAt": "2026-09-29T10:23:38.251Z",
         "isQuantitative": true
       },
       "application": {
@@ -1899,7 +1899,7 @@
           }
         },
         "payloadHash": "sig_67ae5a8",
-        "computedAt": "2026-09-29T10:07:52.052Z",
+        "computedAt": "2026-09-29T10:23:38.251Z",
         "isQuantitative": true
       },
       "application": {
@@ -2106,7 +2106,7 @@
           }
         },
         "payloadHash": "sig_fd2ef82f",
-        "computedAt": "2026-09-29T10:07:52.052Z",
+        "computedAt": "2026-09-29T10:23:38.251Z",
         "isQuantitative": true
       },
       "application": {
@@ -2321,7 +2321,7 @@
           }
         },
         "payloadHash": "sig_f039104a",
-        "computedAt": "2026-09-29T10:07:52.052Z",
+        "computedAt": "2026-09-29T10:23:38.251Z",
         "isQuantitative": true
       },
       "application": {
@@ -2549,7 +2549,7 @@
           }
         },
         "payloadHash": "sig_834b23a5",
-        "computedAt": "2026-09-29T10:07:52.052Z",
+        "computedAt": "2026-09-29T10:23:38.251Z",
         "isQuantitative": true
       },
       "application": {
@@ -2716,7 +2716,7 @@
           }
         },
         "payloadHash": "sig_cce71ded",
-        "computedAt": "2026-09-29T10:07:52.052Z",
+        "computedAt": "2026-09-29T10:23:38.251Z",
         "isQuantitative": true
       },
       "application": {
@@ -2895,7 +2895,7 @@
           }
         },
         "payloadHash": "sig_770d08ea",
-        "computedAt": "2026-09-29T10:07:52.052Z",
+        "computedAt": "2026-09-29T10:23:38.251Z",
         "isQuantitative": true
       },
       "application": {
@@ -3101,7 +3101,7 @@
           }
         },
         "payloadHash": "sig_5cd89c04",
-        "computedAt": "2026-09-29T10:07:52.052Z",
+        "computedAt": "2026-09-29T10:23:38.251Z",
         "isQuantitative": true
       },
       "application": {
@@ -3298,7 +3298,7 @@
           }
         },
         "payloadHash": "sig_3bddbca",
-        "computedAt": "2026-09-29T10:07:52.052Z",
+        "computedAt": "2026-09-29T10:23:38.251Z",
         "isQuantitative": true
       },
       "application": {
@@ -3465,7 +3465,7 @@
           }
         },
         "payloadHash": "sig_c8e8bcd3",
-        "computedAt": "2026-09-29T10:07:52.052Z",
+        "computedAt": "2026-09-29T10:23:38.251Z",
         "isQuantitative": true
       },
       "application": {
@@ -3632,7 +3632,7 @@
           }
         },
         "payloadHash": "sig_26c49fd7",
-        "computedAt": "2026-09-29T10:07:52.052Z",
+        "computedAt": "2026-09-29T10:23:38.251Z",
         "isQuantitative": true
       },
       "application": {
@@ -3852,7 +3852,7 @@
           }
         },
         "payloadHash": "sig_b3e86a7b",
-        "computedAt": "2026-09-29T10:07:52.052Z",
+        "computedAt": "2026-09-29T10:23:38.251Z",
         "isQuantitative": true
       },
       "application": {
@@ -4059,7 +4059,7 @@
           }
         },
         "payloadHash": "sig_bc9ce4c1",
-        "computedAt": "2026-09-29T10:07:52.052Z",
+        "computedAt": "2026-09-29T10:23:38.251Z",
         "isQuantitative": true
       },
       "application": {
@@ -4274,7 +4274,7 @@
           }
         },
         "payloadHash": "sig_9d69304f",
-        "computedAt": "2026-09-29T10:07:52.052Z",
+        "computedAt": "2026-09-29T10:23:38.251Z",
         "isQuantitative": true
       },
       "application": {
@@ -4502,7 +4502,7 @@
           }
         },
         "payloadHash": "sig_fab7a5b1",
-        "computedAt": "2026-09-29T10:07:52.052Z",
+        "computedAt": "2026-09-29T10:23:38.251Z",
         "isQuantitative": true
       },
       "application": {
@@ -4707,7 +4707,7 @@
           }
         },
         "payloadHash": "sig_924192e",
-        "computedAt": "2026-09-29T10:07:52.052Z",
+        "computedAt": "2026-09-29T10:23:38.251Z",
         "isQuantitative": true
       },
       "application": {
@@ -4886,7 +4886,7 @@
           }
         },
         "payloadHash": "sig_bb757477",
-        "computedAt": "2026-09-29T10:07:52.052Z",
+        "computedAt": "2026-09-29T10:23:38.251Z",
         "isQuantitative": true
       },
       "application": {
@@ -5065,7 +5065,7 @@
           }
         },
         "payloadHash": "sig_9251923d",
-        "computedAt": "2026-09-29T10:07:52.052Z",
+        "computedAt": "2026-09-29T10:23:38.251Z",
         "isQuantitative": true
       },
       "application": {
@@ -5271,7 +5271,7 @@
           }
         },
         "payloadHash": "sig_8b1cafd0",
-        "computedAt": "2026-09-29T10:07:52.052Z",
+        "computedAt": "2026-09-29T10:23:38.251Z",
         "isQuantitative": true
       },
       "application": {
@@ -5500,7 +5500,7 @@
           }
         },
         "payloadHash": "sig_1337b936",
-        "computedAt": "2026-09-29T10:07:52.052Z",
+        "computedAt": "2026-09-29T10:23:38.251Z",
         "isQuantitative": true
       },
       "application": {
@@ -5720,7 +5720,7 @@
           }
         },
         "payloadHash": "sig_3ababd56",
-        "computedAt": "2026-09-29T10:07:52.052Z",
+        "computedAt": "2026-09-29T10:23:38.251Z",
         "isQuantitative": true
       },
       "application": {
@@ -5898,7 +5898,7 @@
           }
         },
         "payloadHash": "sig_2c091d21",
-        "computedAt": "2026-09-29T10:07:52.052Z",
+        "computedAt": "2026-09-29T10:23:38.251Z",
         "isQuantitative": true
       },
       "application": {
@@ -6121,7 +6121,7 @@
           }
         },
         "payloadHash": "sig_817c4e85",
-        "computedAt": "2026-09-29T10:07:52.052Z",
+        "computedAt": "2026-09-29T10:23:38.251Z",
         "isQuantitative": true
       },
       "application": {
@@ -6343,7 +6343,7 @@
           }
         },
         "payloadHash": "sig_31f285df",
-        "computedAt": "2026-09-29T10:07:52.052Z",
+        "computedAt": "2026-09-29T10:23:38.251Z",
         "isQuantitative": true
       },
       "application": {
@@ -6565,7 +6565,7 @@
           }
         },
         "payloadHash": "sig_cf288c18",
-        "computedAt": "2026-09-29T10:07:52.052Z",
+        "computedAt": "2026-09-29T10:23:38.251Z",
         "isQuantitative": true
       },
       "application": {
@@ -6770,7 +6770,7 @@
           }
         },
         "payloadHash": "sig_6802420a",
-        "computedAt": "2026-09-29T10:07:52.052Z",
+        "computedAt": "2026-09-29T10:23:38.251Z",
         "isQuantitative": true
       },
       "application": {
@@ -6975,7 +6975,7 @@
           }
         },
         "payloadHash": "sig_a8e27109",
-        "computedAt": "2026-09-29T10:07:52.052Z",
+        "computedAt": "2026-09-29T10:23:38.251Z",
         "isQuantitative": true
       },
       "application": {
@@ -7179,7 +7179,7 @@
           }
         },
         "payloadHash": "sig_61927dad",
-        "computedAt": "2026-09-29T10:07:52.052Z",
+        "computedAt": "2026-09-29T10:23:38.251Z",
         "isQuantitative": true
       },
       "application": {
@@ -7383,7 +7383,7 @@
           }
         },
         "payloadHash": "sig_6a511735",
-        "computedAt": "2026-09-29T10:07:52.052Z",
+        "computedAt": "2026-09-29T10:23:38.251Z",
         "isQuantitative": true
       },
       "application": {
@@ -7605,7 +7605,7 @@
           }
         },
         "payloadHash": "sig_3a2a499f",
-        "computedAt": "2026-09-29T10:07:52.052Z",
+        "computedAt": "2026-09-29T10:23:38.251Z",
         "isQuantitative": true
       },
       "application": {
@@ -7810,7 +7810,7 @@
           }
         },
         "payloadHash": "sig_25db14f7",
-        "computedAt": "2026-09-29T10:07:52.052Z",
+        "computedAt": "2026-09-29T10:23:38.251Z",
         "isQuantitative": true
       },
       "application": {
@@ -8015,7 +8015,7 @@
           }
         },
         "payloadHash": "sig_cff66028",
-        "computedAt": "2026-09-29T10:07:52.052Z",
+        "computedAt": "2026-09-29T10:23:38.251Z",
         "isQuantitative": true
       },
       "application": {
@@ -8220,7 +8220,7 @@
           }
         },
         "payloadHash": "sig_d0827e6c",
-        "computedAt": "2026-09-29T10:07:52.052Z",
+        "computedAt": "2026-09-29T10:23:38.251Z",
         "isQuantitative": true
       },
       "application": {
@@ -8425,7 +8425,7 @@
           }
         },
         "payloadHash": "sig_a9c61d66",
-        "computedAt": "2026-09-29T10:07:52.052Z",
+        "computedAt": "2026-09-29T10:23:38.251Z",
         "isQuantitative": true
       },
       "application": {
@@ -8629,7 +8629,7 @@
           }
         },
         "payloadHash": "sig_c5311462",
-        "computedAt": "2026-09-29T10:07:52.052Z",
+        "computedAt": "2026-09-29T10:23:38.251Z",
         "isQuantitative": true
       },
       "application": {
@@ -8838,7 +8838,7 @@
           }
         },
         "payloadHash": "sig_cc3b255d",
-        "computedAt": "2026-09-29T10:07:52.052Z",
+        "computedAt": "2026-09-29T10:23:38.251Z",
         "isQuantitative": true
       },
       "application": {
@@ -9047,7 +9047,7 @@
           }
         },
         "payloadHash": "sig_6c6b1248",
-        "computedAt": "2026-09-29T10:07:52.052Z",
+        "computedAt": "2026-09-29T10:23:38.251Z",
         "isQuantitative": true
       },
       "application": {
@@ -9270,7 +9270,7 @@
           }
         },
         "payloadHash": "sig_e77b7707",
-        "computedAt": "2026-09-29T10:07:52.052Z",
+        "computedAt": "2026-09-29T10:23:38.251Z",
         "isQuantitative": true
       },
       "application": {
@@ -9480,7 +9480,7 @@
           }
         },
         "payloadHash": "sig_94959fa3",
-        "computedAt": "2026-09-29T10:07:52.052Z",
+        "computedAt": "2026-09-29T10:23:38.251Z",
         "isQuantitative": true
       },
       "application": {
@@ -9690,7 +9690,7 @@
           }
         },
         "payloadHash": "sig_98861e1f",
-        "computedAt": "2026-09-29T10:07:52.052Z",
+        "computedAt": "2026-09-29T10:23:38.251Z",
         "isQuantitative": true
       },
       "application": {
@@ -9900,7 +9900,7 @@
           }
         },
         "payloadHash": "sig_316a9f75",
-        "computedAt": "2026-09-29T10:07:52.052Z",
+        "computedAt": "2026-09-29T10:23:38.251Z",
         "isQuantitative": true
       },
       "application": {
@@ -10053,7 +10053,7 @@
           }
         },
         "payloadHash": "sig_ebf972f7",
-        "computedAt": "2026-09-29T10:07:52.052Z",
+        "computedAt": "2026-09-29T10:23:38.251Z",
         "isQuantitative": true
       },
       "application": {
@@ -10206,7 +10206,7 @@
           }
         },
         "payloadHash": "sig_817f0498",
-        "computedAt": "2026-09-29T10:07:52.052Z",
+        "computedAt": "2026-09-29T10:23:38.251Z",
         "isQuantitative": true
       },
       "application": {
@@ -10416,7 +10416,7 @@
           }
         },
         "payloadHash": "sig_a8c57c06",
-        "computedAt": "2026-09-29T10:07:52.052Z",
+        "computedAt": "2026-09-29T10:23:38.251Z",
         "isQuantitative": true
       },
       "application": {
