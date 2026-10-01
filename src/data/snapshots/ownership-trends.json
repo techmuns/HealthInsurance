@@ -11,9 +11,9 @@
     "source_url": "https://www.screener.in",
     "screener_company_id": 0,
     "dataset": "official",
-    "last_updated": "2026-09-28",
-    "last_successful_run": "2026-09-28T12:50:17.821Z",
-    "scraped_at": "2026-09-28T12:50:17.821Z",
+    "last_updated": "2026-10-01",
+    "last_successful_run": "2026-10-01T10:50:20.286Z",
+    "scraped_at": "2026-10-01T10:50:20.286Z",
     "classification_note": "Classifications might have changed from Sep 2022 onwards. The new XBRL format added more details to the shareholding pattern from that point on.",
     "expanded_investor_rows_available": false,
     "expanded_investor_rows_note": "Screener exposes individual entity names when a shareholding line-item is clicked, but those expanded rows require an authenticated session + interactive expansion. Group-level rows only; no investor-level data invented.",
@@ -41,7 +41,7 @@
       "Mar 2024"
     ],
     "validation_status": "missing_expanded_rows",
-    "notes": "Built from Screener's public shareholding tables as saved by the weekly screener-fetch (NIVABUPA ← data/raw/screener/niva-bupa/niva-bupa-screener-2026-09-28.html; STARHEALTH ← data/raw/screener/star-health/star-health-screener-2026-09-28.html), folded into the staged source-of-record so older quarters the page no longer shows are kept."
+    "notes": "Built from Screener's public shareholding tables as saved by the weekly screener-fetch (NIVABUPA ← data/raw/screener/niva-bupa/niva-bupa-screener-2026-10-01.html; STARHEALTH ← data/raw/screener/star-health/star-health-screener-2026-10-01.html), folded into the staged source-of-record so older quarters the page no longer shows are kept."
   },
   "data": [
     {
