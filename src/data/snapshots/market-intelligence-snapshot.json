@@ -4,8 +4,8 @@
     "description": "AI-generated market intelligence for the SAHI health insurers — investor meets, earnings/board dates, sector & regulatory news, share catalysts. Web-sourced; each item links its source. AI-generated, not audited.",
     "schema_version": "1.0.0",
     "dataset": "ai_generated",
-    "last_updated": "2026-09-30",
-    "last_successful_run": "2026-09-30T16:10:00.771Z",
+    "last_updated": "2026-10-01",
+    "last_successful_run": "2026-10-01T08:01:28.793Z",
     "upstream_sources": [
       "muns_agent_web"
     ],
@@ -14,6 +14,36 @@
     "notes": "Clearly labelled AI-generated intelligence — verify before acting. Items accumulate through the day and rank by investor impact, not recency."
   },
   "data": [
+    {
+      "id": "f0f79067a1",
+      "company_id": "sector",
+      "date": null,
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "<span style=\"background:#F0FDF4;padding:2px 6px;border-radius:4px;color:#22C55E;font-weight:600\">positive</span>",
+      "detail": "Star Health reports **11%** rise in retail policy base after GST exemption on premiums",
+      "source_name": null,
+      "source_url": null,
+      "source_published_at": null,
+      "first_seen": "2026-10-01T08:01:28.793Z",
+      "discovered_at": "2026-10-01T08:01:28.793Z"
+    },
+    {
+      "id": "ee6424bfd1",
+      "company_id": "sector",
+      "date": null,
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "<span style=\"background:#FEF2F2;padding:2px 6px;border-radius:4px;color:#EF4444;font-weight:600\">negative</span>",
+      "detail": "Insurance Brokers Association (IBAI) warns IRDAI commission caps could hit jobs, insurance reach",
+      "source_name": null,
+      "source_url": null,
+      "source_published_at": null,
+      "first_seen": "2026-10-01T08:01:28.793Z",
+      "discovered_at": "2026-10-01T08:01:28.793Z"
+    },
     {
       "id": "7621394db8",
       "company_id": "sector",
@@ -883,36 +913,6 @@
       "source_published_at": null,
       "first_seen": "2026-09-05T13:06:38.889Z",
       "discovered_at": "2026-09-05T13:06:38.889Z"
-    },
-    {
-      "id": "e2e6950863",
-      "company_id": "sector",
-      "date": null,
-      "kind": "sector_news",
-      "horizon": "recent",
-      "impact": "neutral",
-      "headline": "<span style=\"background:#FEF2F2;padding:2px 6px;border-radius:4px;color:#EF4444;font-weight:600\">▼ IRDAI bars new branch openings for 6 months</span>",
-      "detail": "FY25 EoM overspend of **₹248.37 cr** (allowed ₹2,403.75 cr vs actual ₹2,652.12 cr); forbearance rejected despite FY24 precedent, curbing near-term network expansion — company says no P&L impact and claims FY26/Q1FY27 compliance.",
-      "source_name": "bfsi.economictimes.indiatimes.com",
-      "source_url": "https://bfsi.economictimes.indiatimes.com/news/policy/irdai-bars-niva-bupa-health-insurance-from-opening-new-offices-for-six-months/133379321",
-      "source_published_at": "2026-08-20",
-      "first_seen": "2026-09-05T16:23:27.480Z",
-      "discovered_at": "2026-09-05T16:23:27.480Z"
-    },
-    {
-      "id": "e916893379",
-      "company_id": "sector",
-      "date": null,
-      "kind": "sector_news",
-      "horizon": "recent",
-      "impact": "neutral",
-      "headline": "<span style=\"background:#EFF6FF;padding:2px 6px;border-radius:4px;color:#1E3A8A;font-weight:600\">neutral</span>",
-      "detail": "18th AGM: Chairperson role formalised; CFO/Deputy CEO reappointed",
-      "source_name": null,
-      "source_url": null,
-      "source_published_at": null,
-      "first_seen": "2026-09-04T06:48:12.197Z",
-      "discovered_at": "2026-09-04T06:48:12.197Z"
     }
   ]
 }
