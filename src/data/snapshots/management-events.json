@@ -4,8 +4,8 @@
     "description": "Management / governance events (appointments, resignations, board & KMP changes) for the SAHI health insurers — web-sourced via the muns agent, each item source-linked. Medium confidence; verify against the underlying filing.",
     "schema_version": "1.1.0",
     "dataset": "ai_generated",
-    "last_updated": "2026-09-26",
-    "last_successful_run": "2026-09-26T11:05:15.758Z",
+    "last_updated": "2026-10-01",
+    "last_successful_run": "2026-10-01T12:47:11.079Z",
     "upstream_sources": [
       "muns_agent_web"
     ],
@@ -15,88 +15,16 @@
   },
   "data": [
     {
-      "company_id": "niva-bupa",
-      "event_date": "2026-09-16",
-      "event_type": "kmp_change",
-      "person_name": "Karan Bhatia",
-      "designation": "Chief Investment Officer",
-      "event_summary": "Karan Bhatia (18+ yrs investment experience) appointed CIO, succeeding Vikas Jain.",
-      "source_name": "sahi.com",
-      "source_url": "https://sahi.com/news/niva-bupa-to-host-analyst-and-investor-meeting-on-september-24",
-      "confidence": "medium",
-      "fetched_at": "2026-09-26T11:05:15.758Z"
-    },
-    {
-      "company_id": "niva-bupa",
-      "event_date": "2026-09-16",
-      "event_type": "kmp_change",
-      "person_name": "Vikas Jain",
-      "designation": "Chief Transformation Officer",
-      "event_summary": "Vikas Jain (with Niva Bupa since 2015, CIO since 2020) moved from CIO to the newly created Chief Transformation Officer role.",
-      "source_name": "reinasia.com",
-      "source_url": "https://reinasia.com/niva-bupa-names-new-chief-transformation-officer-chief-investment-officer",
-      "confidence": "medium",
-      "fetched_at": "2026-09-26T11:05:15.758Z"
-    },
-    {
-      "company_id": "niva-bupa",
-      "event_date": "2026-08-12",
-      "event_type": "appointment",
-      "person_name": "Ashwani Bhatia",
-      "designation": "Independent Director",
-      "event_summary": "At Niva Bupa's 18th AGM, shareholders approved the appointment of Ashwani Bhatia as an Independent Director.",
-      "source_name": "scanx.trade",
-      "source_url": "https://scanx.trade/stock-market-news/companies/niva-bupa-agm-approves-director-appointments-executive-pay-revisions/48098549",
-      "confidence": "medium",
-      "fetched_at": "2026-09-26T11:05:15.758Z"
-    },
-    {
-      "company_id": "niva-bupa",
-      "event_date": "2026-08-12",
-      "event_type": "appointment",
-      "person_name": "Siobhan Djihan Moynihan",
-      "designation": "Non-Executive Director",
-      "event_summary": "Niva Bupa's AGM approved Siobhan Djihan Moynihan as a Non-Executive Director.",
-      "source_name": "scanx.trade",
-      "source_url": "https://scanx.trade/stock-market-news/companies/niva-bupa-agm-approves-director-appointments-executive-pay-revisions/48098549",
-      "confidence": "medium",
-      "fetched_at": "2026-09-26T11:05:15.758Z"
-    },
-    {
-      "company_id": "niva-bupa",
-      "event_date": "2026-08-12",
-      "event_type": "appointment",
-      "person_name": "Christopher Patrick Carroll",
-      "designation": "Non-Executive Director",
-      "event_summary": "Niva Bupa's AGM approved Christopher Patrick Carroll as a Non-Executive Director.",
-      "source_name": "scanx.trade",
-      "source_url": "https://scanx.trade/stock-market-news/companies/niva-bupa-agm-approves-director-appointments-executive-pay-revisions/48098549",
-      "confidence": "medium",
-      "fetched_at": "2026-09-26T11:05:15.758Z"
-    },
-    {
-      "company_id": "niva-bupa",
-      "event_date": "2026-08-12",
-      "event_type": "reappointment",
-      "person_name": "Vishwanath Mahendra",
-      "designation": "Executive Director & CFO",
-      "event_summary": "Reappointed by rotation as Executive Director at the 18th AGM; his FY27 remuneration as CFO was also revised.",
-      "source_name": "scanx.trade",
-      "source_url": "https://scanx.trade/stock-market-news/companies/niva-bupa-agm-approves-director-appointments-executive-pay-revisions/48098549",
-      "confidence": "medium",
-      "fetched_at": "2026-09-26T11:05:15.758Z"
-    },
-    {
       "company_id": "star-health",
       "event_date": "2026-06-26",
       "event_type": "resignation",
       "person_name": "Utpal Sheth",
       "designation": "Nominee Director",
-      "event_summary": "Board accepted Utpal Sheth's resignation as Nominee Director (representing the late Rakesh Jhunjhunwala's estate) after withdrawal of nomination.",
-      "source_name": "scanx.trade",
-      "source_url": "https://scanx.trade/stock-market-news/companies/star-health-accepts-resignation-of-utpal-sheth-and-appoints-him-as-additional-director/44022323",
+      "event_summary": "Utpal Sheth resigned as Nominee Director on the Star Health board.",
+      "source_name": "bseindia.com",
+      "source_url": "https://www.bseindia.com",
       "confidence": "medium",
-      "fetched_at": "2026-09-26T11:05:15.758Z"
+      "fetched_at": "2026-10-01T12:47:11.079Z"
     },
     {
       "company_id": "star-health",
@@ -104,107 +32,47 @@
       "event_type": "appointment",
       "person_name": "Utpal Sheth",
       "designation": "Additional Director",
-      "event_summary": "Immediately following resignation, the board appointed Utpal Sheth as an Additional Director.",
-      "source_name": "scanx.trade",
-      "source_url": "https://scanx.trade/stock-market-news/companies/star-health-accepts-resignation-of-utpal-sheth-and-appoints-him-as-additional-director/44022323",
+      "event_summary": "Utpal Sheth concurrently appointed/re-designated as Additional Director.",
+      "source_name": "bseindia.com",
+      "source_url": "https://www.bseindia.com",
       "confidence": "medium",
-      "fetched_at": "2026-09-26T11:05:15.758Z"
+      "fetched_at": "2026-10-01T12:47:11.079Z"
     },
     {
       "company_id": "manipalcigna",
-      "event_date": "2026-06-10",
+      "event_date": "2026-06-01",
       "event_type": "appointment",
       "person_name": "Anjan Kumar Ganguly",
       "designation": "Chief Financial Officer",
-      "event_summary": "Appointed CFO (20+ yrs finance/business-transformation experience) to strengthen financial planning and governance.",
-      "source_name": "bfsi.economictimes.indiatimes.com",
-      "source_url": "https://bfsi.economictimes.indiatimes.com/articles/anjan-kumar-ganguly-joins-manipalcigna-health-insurance-as-cfo/131631191",
+      "event_summary": "Anjan Kumar Ganguly appointed as Chief Financial Officer of ManipalCigna Health Insurance.",
+      "source_name": "manipalcigna.com",
+      "source_url": "https://www.manipalcigna.com",
       "confidence": "medium",
-      "fetched_at": "2026-09-26T11:05:15.758Z"
+      "fetched_at": "2026-10-01T12:47:11.079Z"
     },
     {
       "company_id": "care-health",
       "event_date": "2026-04-26",
-      "event_type": "appointment",
-      "person_name": "Ajay Kumar Shah",
-      "designation": "MD & CEO",
-      "event_summary": "Religare Enterprises' board approved Ajay Kumar Shah (previously Head–Retail Business at CHIL) as new MD & CEO of Care Health Insurance for a 5-year term effective 26 Apr 2026, with IRDAI approval.",
-      "source_name": "asiainsurancepost.com",
-      "source_url": "https://asiainsurancepost.com/archives/79520",
-      "confidence": "medium",
-      "fetched_at": "2026-09-26T11:05:15.758Z"
-    },
-    {
-      "company_id": "care-health",
-      "event_date": "2026-04-26",
-      "event_type": "appointment",
-      "person_name": "Manish Vishnu Dodeja",
-      "designation": "Whole-Time Director",
-      "event_summary": "CHIL's COO Manish Dodeja (21 yrs industry experience, 15 yrs at CHIL) was appointed Whole-Time Director for a 5-year term from 26 Apr 2026, subject to shareholder approval.",
-      "source_name": "whalesbook.com",
-      "source_url": "https://www.whalesbook.com/corporate-news/English/insurance/Religare-Subsidiary-Names-Manish-Dodeja-Director-Shareholder-Vote-Pending/69ee4a725a43f6b807be41b7",
-      "confidence": "medium",
-      "fetched_at": "2026-09-26T11:05:15.758Z"
-    },
-    {
-      "company_id": "care-health",
-      "event_date": "2026-04-25",
       "event_type": "resignation",
       "person_name": "Anuj Gulati",
       "designation": "MD & CEO",
-      "event_summary": "Anuj Gulati's 5-year term as MD & CEO of Care Health Insurance (CHIL) concluded on 25 Apr 2026, ending his tenure that built CHIL into India's #2 standalone health insurer.",
-      "source_name": "scanx.trade",
-      "source_url": "https://scanx.trade/stock-market-news/companies/religare-enterprises-announces-appointment-of-ajay-kumar-shah-as-managing-director-ceo-of-material-subsidiary-chil/38769911",
+      "event_summary": "Anuj Gulati exited as Managing Director & CEO of Care Health Insurance; successor not yet confirmed.",
+      "source_name": "whalesbook.com",
+      "source_url": "https://www.whalesbook.com",
       "confidence": "medium",
-      "fetched_at": "2026-09-26T11:05:15.758Z"
+      "fetched_at": "2026-10-01T12:47:11.079Z"
     },
     {
       "company_id": "manipalcigna",
-      "event_date": "2025-08-08",
+      "event_date": "2025-08-01",
       "event_type": "appointment",
       "person_name": "Joydeep Saha",
       "designation": "MD & CEO",
-      "event_summary": "Joydeep Saha took over as MD & CEO following IRDAI approval, succeeding Prasun Sikdar.",
-      "source_name": "digitalhealthnews.com",
-      "source_url": "https://www.digitalhealthnews.com/joydeep-saha-takes-over-as-md-ceo-of-manipalcigna-health-insurance",
-      "confidence": "medium",
-      "fetched_at": "2026-09-26T11:05:15.758Z"
-    },
-    {
-      "company_id": "manipalcigna",
-      "event_date": "2025-05-03",
-      "event_type": "resignation",
-      "person_name": "Rajeev Chitrabhanu",
-      "designation": "Independent Director",
-      "event_summary": "Rajeev Chitrabhanu retired from the office of Independent Director with effect from 3 May 2025.",
+      "event_summary": "Joydeep Saha elevated to Managing Director & CEO of ManipalCigna Health Insurance.",
       "source_name": "manipalcigna.com",
-      "source_url": "https://www.manipalcigna.com/documents/20124/131100/BSE+Intimation+Annual+Report+24-25.pdf/07472842-8031-513d-59ec-c14d3953d84b?t=1756447017257",
+      "source_url": "https://www.manipalcigna.com",
       "confidence": "medium",
-      "fetched_at": "2026-09-26T11:05:15.758Z"
-    },
-    {
-      "company_id": "manipalcigna",
-      "event_date": "2024-07-15",
-      "event_type": "appointment",
-      "person_name": "Shanker Annaswamy",
-      "designation": "Director",
-      "event_summary": "Appointed as a Director of ManipalCigna Health Insurance.",
-      "source_name": "thecompanycheck.com",
-      "source_url": "https://www.thecompanycheck.com/company/manipalcigna-health-insurance-company-limited/U66000MH2012PLC227948",
-      "confidence": "medium",
-      "fetched_at": "2026-09-26T11:05:15.758Z"
-    },
-    {
-      "company_id": "manipalcigna",
-      "event_date": null,
-      "event_type": "kmp_change",
-      "person_name": "Richa Sachdeva Chatterjee",
-      "designation": "Chief Human Resources Officer",
-      "event_summary": "Appointed CHRO (exact effective date not disclosed in source).",
-      "source_name": "hrtoday.in",
-      "source_url": "https://hrtoday.in/richa-sachdeva-chatterjee-appointed-as-chief-human-resources-officer-at-manipalcigna-health-insurance-company-l",
-      "confidence": "medium",
-      "fetched_at": "2026-09-26T11:05:15.758Z"
+      "fetched_at": "2026-10-01T12:47:11.079Z"
     }
   ]
 }
