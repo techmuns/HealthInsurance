@@ -5,10 +5,10 @@
     "schema_version": "1.1.0",
     "dataset": "official",
     "source_policy": "official-first (NSE). Investing.com is login-free backup only, tagged low-confidence.",
-    "last_successful_run": "2026-10-01T18:32:37.260Z",
+    "last_successful_run": "2026-10-02T10:01:56.740Z",
     "parser_status": "ready",
     "notes": "Daily close / traded / deliverable quantity per listed insurer. Workbook seed (NSE via S&P Capital IQ) for niva-bupa listing→Jul-2025; Yahoo Finance keeps it current (close + volume). Deliverable quantity is NSE-only — null where only Yahoo covers a day, until an NSE delivery file is staged.",
-    "last_updated": "2026-10-01T18:33:11.521Z",
+    "last_updated": "2026-10-02T10:02:01.976Z",
     "row_count": 2384,
     "companies": [
       "godigit",
@@ -22,7 +22,7 @@
       "to": "2026-10-01"
     },
     "seeded_from_workbook": "data/raw/exchanges/niva-bupa/niva-bupa-historical-stock-movement.xlsx",
-    "muns_last_run": "2026-10-01T18:32:37.260Z",
+    "muns_last_run": "2026-10-02T10:01:56.740Z",
     "nse_delivery_last_run": "2026-10-01T18:33:10.887Z"
   },
   "data": [
@@ -8155,7 +8155,7 @@
     {
       "company_id": "godigit",
       "date": "2026-10-01",
-      "close": 256.3,
+      "close": 255.35,
       "traded_qty": 305077,
       "deliverable_qty": 145445,
       "provenance": {
@@ -16299,7 +16299,7 @@
       "company_id": "icici-lombard",
       "date": "2026-10-01",
       "close": 1563,
-      "traded_qty": 1189772,
+      "traded_qty": 1189581,
       "deliverable_qty": 720274,
       "provenance": {
         "source_name": "muns market-data API — NSE daily history",
@@ -24288,7 +24288,7 @@
     {
       "company_id": "niva-bupa",
       "date": "2026-10-01",
-      "close": 72.98,
+      "close": 72.59,
       "traded_qty": 908237,
       "deliverable_qty": 540036,
       "provenance": {
@@ -32397,7 +32397,7 @@
     {
       "company_id": "religare-enterprises",
       "date": "2026-10-01",
-      "close": 224.59,
+      "close": 224,
       "traded_qty": 840402,
       "deliverable_qty": null,
       "provenance": {
@@ -40540,7 +40540,7 @@
     {
       "company_id": "star-health",
       "date": "2026-10-01",
-      "close": 537.7,
+      "close": 539.5,
       "traded_qty": 1268853,
       "deliverable_qty": 882090,
       "provenance": {
