@@ -4,8 +4,8 @@
     "description": "AI-generated market intelligence for the SAHI health insurers — investor meets, earnings/board dates, sector & regulatory news, share catalysts. Web-sourced; each item links its source. AI-generated, not audited.",
     "schema_version": "1.0.0",
     "dataset": "ai_generated",
-    "last_updated": "2026-10-03",
-    "last_successful_run": "2026-10-03T14:29:01.402Z",
+    "last_updated": "2026-10-04",
+    "last_successful_run": "2026-10-04T07:34:58.195Z",
     "upstream_sources": [
       "muns_agent_web"
     ],
@@ -14,6 +14,21 @@
     "notes": "Clearly labelled AI-generated intelligence — verify before acting. Items accumulate through the day and rank by investor impact, not recency."
   },
   "data": [
+    {
+      "id": "dab2374e8f",
+      "company_id": "sector",
+      "date": null,
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "<span style=\"background:#F0FDF4;padding:2px 6px;border-radius:4px;color:#22C55E;font-weight:600\">positive — strongest signal</span>",
+      "detail": "Q1 FY27 PAT surges <span style=\"color:#22C55E;font-weight:600\">93% YoY to ₹137.8 cr</span>; GWP up <span style=\"color:#22C55E;font-weight:600\">31.7%</span>; ₹500 cr NCD raise approved",
+      "source_name": null,
+      "source_url": null,
+      "source_published_at": null,
+      "first_seen": "2026-10-04T07:34:58.195Z",
+      "discovered_at": "2026-10-04T07:34:58.195Z"
+    },
     {
       "id": "f0f79067a1",
       "company_id": "sector",
@@ -893,21 +908,6 @@
       "impact": "neutral",
       "headline": "<span style=\"background:#EFF6FF;color:#1E3A8A;font-weight:600;padding:2px 6px;border-radius:4px\">watch</span>",
       "detail": "CFO: premiums being hiked 8–9% annually to offset medical inflation",
-      "source_name": null,
-      "source_url": null,
-      "source_published_at": null,
-      "first_seen": "2026-09-08T14:00:02.405Z",
-      "discovered_at": "2026-09-08T14:00:02.405Z"
-    },
-    {
-      "id": "5cc41674cd",
-      "company_id": "sector",
-      "date": null,
-      "kind": "sector_news",
-      "horizon": "recent",
-      "impact": "neutral",
-      "headline": "<span style=\"background:#EFF6FF;color:#1E3A8A;font-weight:600;padding:2px 6px;border-radius:4px\">neutral</span>",
-      "detail": "AGM approves director appointments & FY27 pay revisions (CEO Krishnan Ramachandran, CFO Vishwanath Mahendra, Deputy CEO Ankur Kharbanda)",
       "source_name": null,
       "source_url": null,
       "source_published_at": null,
