@@ -3,14 +3,146 @@
     "snapshot_id": "sectoral-news-snapshot",
     "description": "Key Sectoral News feed — a permanent seed of 31 curated portfolio-pack updates, kept current by a scheduled muns web-search agent. Each item links its source. Seed items are curated; agent items are AI-gathered (web), clearly labelled and not audited.",
     "schema_version": "1.0.0",
-    "last_updated": "2026-10-01",
-    "last_successful_run": "2026-10-01T12:34:39.050Z",
+    "last_updated": "2026-10-05",
+    "last_successful_run": "2026-10-05T13:51:03.604Z",
     "seed_count": 31,
-    "agent_count": 321,
+    "agent_count": 334,
     "generated_by": "Seed: investor portfolio pack. Updates: AI (muns agent, web search).",
     "notes": "Seed floor can never be lost. Agent items are de-duped by subject+date and verified-before-acting."
   },
   "data": [
+    {
+      "sn": 358,
+      "category": "GST",
+      "date": "2026-10-05",
+      "subject": "GST cut on health insurance: did premiums actually fall?",
+      "summary": "Review of the Sept 2025 GST Council decision zero-rating individual health/life premiums (from 18%) finds <span style=\"color:#F59E0B;font-weight:600\">inconsistent pass-through</span> of the benefit to policyholders — a pricing/compliance watch item.",
+      "reference": "https://www.thestatesman.com/business/the-gst-cut-on-health-insurance-did-premiums-actually-fall-1503646969.html",
+      "id": "11fe84f46b048c",
+      "origin": "agent",
+      "added_at": "2026-10-05"
+    },
+    {
+      "sn": 357,
+      "category": "Regulatory",
+      "date": "2026-10-05",
+      "subject": "SBI Life seen as best-placed insurer as new IRDAI distribution rules pressure rivals",
+      "summary": "Bernstein flags SBI Life as relatively insulated from proposed IRDAI commission/expense-of-management changes, while <span style=\"color:#EF4444;font-weight:600\">HDFC Life, Max Life and distributors face margin pressure</span> — a template for how similar EoM tightening could reshape health-insurer agency economics.",
+      "reference": "https://cnbctv18.com/business/companies/sbi-life-hdfc-max-life-irdai-changes-private-insurers-bernstein-20004755.htm",
+      "id": "1298e72aa8d320",
+      "origin": "agent",
+      "added_at": "2026-10-05"
+    },
+    {
+      "sn": 356,
+      "category": "Competition / Peers",
+      "date": "2026-10-05",
+      "subject": "Star Health data-breach case: Supreme Court refuses to quash proceedings",
+      "summary": "SC declined to quash criminal proceedings tied to the 2024 Star Health data breach, keeping <span style=\"color:#EF4444;font-weight:600\">cyber/legal/reputational risk live</span> for the insurer.",
+      "reference": "https://lawchakra.in/supreme-court/sc-star-health-data-breach-himanshu-pathak/",
+      "id": "0a19250d6a48a3",
+      "origin": "agent",
+      "added_at": "2026-10-05"
+    },
+    {
+      "sn": 355,
+      "category": "Competition / Peers",
+      "date": "2026-10-05",
+      "subject": "Niva Bupa debt committee to review ₹150 crore NCD call option",
+      "summary": "Niva Bupa's Debt Raising Committee meets <b>Oct 9, 2026</b> to decide on exercising a call option on ₹150 crore NCDs — a routine but trackable capital-management/cost-of-funds signal.",
+      "reference": "https://sahi.com/news/niva-bupa-debt-committee-to-discuss-call-option-on-150-crore-ncds",
+      "id": "070e2fb32527e9",
+      "origin": "agent",
+      "added_at": "2026-10-05"
+    },
+    {
+      "sn": 354,
+      "category": "General",
+      "date": "2026-10-05",
+      "subject": "India's hospital boom: $10bn global PE investment fuels growth and cost concerns",
+      "summary": "Blackstone, KKR, TPG, General Atlantic and others have poured ~<b>$10bn</b> into Indian hospital chains over five years, expanding capacity but also raising affordability concerns that <span style=\"color:#EF4444;font-weight:600\">directly pressure insurers' loss ratios</span>.",
+      "reference": "https://thehindubusinessline.com/markets/wall-street-pours-10-billion-into-indian-hospitals-but-who-will-pay-the-rising-bills/article71545983.ece",
+      "id": "0f9dafadb441ce",
+      "origin": "agent",
+      "added_at": "2026-10-05"
+    },
+    {
+      "sn": 353,
+      "category": "Profitability",
+      "date": "2026-10-05",
+      "subject": "Wall Street's $10bn hospital bet sparks \"blame game\" over bills",
+      "summary": "Hospitals and insurers are clashing over rising treatment costs; <span style=\"color:#EF4444;font-weight:600\">Niva Bupa's COO Bhabatosh Mishra</span> called for evidence-based treatment protocols to make coverage decisions, underscoring industry-wide claims-cost pressure.",
+      "reference": "https://timesofindia.indiatimes.com/business/india-business/wall-streets-10-billion-bet-on-indian-hospitals-becomes-a-blame-game-among-stakeholders/articleshow/134700050.cms",
+      "id": "0238c177807b71",
+      "origin": "agent",
+      "added_at": "2026-10-05"
+    },
+    {
+      "sn": 361,
+      "category": "GST",
+      "date": "2026-10-04",
+      "subject": "GST Council may allow input-tax-credit relief on employer group health/life cover",
+      "summary": "A proposal under the 57th GST Council meeting would let employers claim ITC on group health/life premiums (still taxed at 18%, unlike exempt individual policies), <span style=\"color:#22C55E;font-weight:600\">potentially lowering net costs</span> for corporate health-insurance buyers.",
+      "reference": "https://financialexpress.com/business/news/group-life-health-insurance-may-get-gst-credit-relief/4353566",
+      "id": "1813b2882fb4d3",
+      "origin": "agent",
+      "added_at": "2026-10-05"
+    },
+    {
+      "sn": 360,
+      "category": "Regulatory",
+      "date": "2026-10-04",
+      "subject": "ACKO CEO: IRDAI distribution reforms may hurt smaller insurers",
+      "summary": "ACKO's EoM ratio hit <b>38.69%</b> in FY26 (vs IRDAI's <b>30%</b> cap), and the regulator already barred new-office openings for six months on FY25 breaches — illustrating <span style=\"color:#EF4444;font-weight:600\">stricter EoM enforcement</span> reshaping competitive dynamics among smaller/digital insurers.",
+      "reference": "https://www.business-standard.com/amp/finance/insurance/finance-insurance-irdai-distribution-reforms-good-for-consumers-may-hit-smaller-insurers-126100400317_1.html",
+      "id": "0731038e403e1b",
+      "origin": "agent",
+      "added_at": "2026-10-05"
+    },
+    {
+      "sn": 359,
+      "category": "Regulatory",
+      "date": "2026-10-04",
+      "subject": "IBAI warns IRDAI distribution overhaul could put 1mn broker livelihoods at risk",
+      "summary": "The Insurance Brokers Association of India warned the proposed distribution-reform package could disrupt broker-led distribution, with knock-on effects on insurers' <span style=\"color:#EF4444;font-weight:600\">acquisition costs and reach</span>.",
+      "reference": "https://www.business-standard.com/amp/finance/insurance/ibai-warns-irdai-distribution-overhaul-may-put-1-mn-livelihoods-at-risk-126100400432_1.html",
+      "id": "15b714520f7fcd",
+      "origin": "agent",
+      "added_at": "2026-10-05"
+    },
+    {
+      "sn": 362,
+      "category": "Regulatory",
+      "date": "2026-10-03",
+      "subject": "Insurers push for mandatory 10% co-pay on retail health claims from Jan 2027",
+      "summary": "Non-life insurers propose a mandatory <b>10%</b> policyholder co-payment (capped at ₹5 lakh/claim) in exchange for lower premiums — a structural shift that could <span style=\"color:#22C55E;font-weight:600\">improve loss ratios</span> if approved.",
+      "reference": "https://timesofindia.indiatimes.com/india/insurance-companies-want-policyholders-to-pay-10-of-health-claims/articleshow/134668355.cms",
+      "id": "0026c30284de1b",
+      "origin": "agent",
+      "added_at": "2026-10-05"
+    },
+    {
+      "sn": 363,
+      "category": "Competition / Peers",
+      "date": "2026-10-02",
+      "subject": "Star Health expands cashless-claims push in Rajahmundry",
+      "summary": "Star Health engaged 100+ hospital leaders to streamline cashless hospitalization claims, part of a broader hospital-network and claims-servicing expansion strategy.",
+      "reference": "https://www.thehansindia.com/business/star-health-steps-up-cashless-healthcare-push-in-rajahmundry-1128226",
+      "id": "164bb248d0209b",
+      "origin": "agent",
+      "added_at": "2026-10-05"
+    },
+    {
+      "sn": 364,
+      "category": "Profitability",
+      "date": "2026-10-01",
+      "subject": "McKinsey: insurer operating costs rising faster than premium growth",
+      "summary": "Indian insurers' operating expenses are <span style=\"color:#EF4444;font-weight:600\">outpacing new-business premium growth</span>, squeezing underwriting margins across life and health insurers and reinforcing the need for distribution-cost discipline.",
+      "reference": "https://bfsi.economictimes.indiatimes.com/articles/insurance-penetration-stays-low-as-operating-costs-rise-faster-than-premiums-mckinsey/134614411",
+      "id": "0536c2fadb7346",
+      "origin": "agent",
+      "added_at": "2026-10-05"
+    },
     {
       "sn": 333,
       "category": "General",
@@ -98,6 +230,17 @@
       "id": "16879dcd37e41e",
       "origin": "agent",
       "added_at": "2026-09-28"
+    },
+    {
+      "sn": 365,
+      "category": "General",
+      "date": "2026-09-24",
+      "subject": "India's insurance penetration stuck at 3.7% despite large protection gap",
+      "summary": "McKinsey data shows penetration remains well below global levels, especially in non-life/health — a large <span style=\"color:#1E3A8A;font-weight:600\">under-served market opportunity</span>, but also a structural demand-growth risk.",
+      "reference": "https://businesstoday.in/personal-finance/story/insurance-penetration-at-3-7-where-indias-biggest-protection-gap-lies-557515-2026-09-24",
+      "id": "1455ca3ed10109",
+      "origin": "agent",
+      "added_at": "2026-10-05"
     },
     {
       "sn": 338,
