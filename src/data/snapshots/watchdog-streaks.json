@@ -1,22 +1,12 @@
 {
   "company_quarterly_disclosures": {
-    "bad_runs": 72,
+    "bad_runs": 73,
     "bad_since": "2026-08-01T07:03:17.369Z",
     "kind": "regressed"
   },
   "distribution_extract": {
-    "bad_runs": 8,
+    "bad_runs": 9,
     "bad_since": "2026-10-03T09:24:58.485Z",
     "kind": "stale"
-  },
-  "gicouncil_segmentwise_annual": {
-    "bad_runs": 1,
-    "bad_since": "2026-10-06T11:33:26.534Z",
-    "kind": "regressed"
-  },
-  "muns_market_data": {
-    "bad_runs": 1,
-    "bad_since": "2026-10-06T11:33:26.535Z",
-    "kind": "empty"
   }
 }
