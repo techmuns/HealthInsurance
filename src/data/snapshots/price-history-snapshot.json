@@ -5,10 +5,10 @@
     "schema_version": "1.1.0",
     "dataset": "official",
     "source_policy": "official-first (NSE). Investing.com is login-free backup only, tagged low-confidence.",
-    "last_successful_run": "2026-10-08T10:53:09.093Z",
+    "last_successful_run": "2026-10-08T18:58:23.039Z",
     "parser_status": "ready",
     "notes": "Daily close / traded / deliverable quantity per listed insurer. Workbook seed (NSE via S&P Capital IQ) for niva-bupa listing→Jul-2025; Yahoo Finance keeps it current (close + volume). Deliverable quantity is NSE-only — null where only Yahoo covers a day, until an NSE delivery file is staged.",
-    "last_updated": "2026-10-08T10:53:15.523Z",
+    "last_updated": "2026-10-08T18:58:57.852Z",
     "row_count": 2408,
     "companies": [
       "godigit",
@@ -22,8 +22,8 @@
       "to": "2026-10-08"
     },
     "seeded_from_workbook": "data/raw/exchanges/niva-bupa/niva-bupa-historical-stock-movement.xlsx",
-    "muns_last_run": "2026-10-08T10:53:09.093Z",
-    "nse_delivery_last_run": "2026-10-07T11:19:28.174Z"
+    "muns_last_run": "2026-10-08T18:58:23.039Z",
+    "nse_delivery_last_run": "2026-10-08T18:58:57.196Z"
   },
   "data": [
     {
@@ -8241,8 +8241,8 @@
       "company_id": "godigit",
       "date": "2026-10-08",
       "close": 261.45,
-      "traded_qty": 280799,
-      "deliverable_qty": null,
+      "traded_qty": 280849,
+      "deliverable_qty": 132701,
       "provenance": {
         "source_name": "muns market-data API — NSE daily history",
         "source_url": "https://fastapi.muns.io/market_data",
@@ -16469,8 +16469,8 @@
       "company_id": "icici-lombard",
       "date": "2026-10-08",
       "close": 1624,
-      "traded_qty": 895783,
-      "deliverable_qty": null,
+      "traded_qty": 896637,
+      "deliverable_qty": 451232,
       "provenance": {
         "source_name": "muns market-data API — NSE daily history",
         "source_url": "https://fastapi.muns.io/market_data",
@@ -24544,8 +24544,8 @@
       "company_id": "niva-bupa",
       "date": "2026-10-08",
       "close": 77.83,
-      "traded_qty": 10991656,
-      "deliverable_qty": null,
+      "traded_qty": 10991966,
+      "deliverable_qty": 1255279,
       "provenance": {
         "source_name": "muns market-data API — NSE daily history",
         "source_url": "https://fastapi.muns.io/market_data",
@@ -40949,8 +40949,8 @@
       "company_id": "star-health",
       "date": "2026-10-08",
       "close": 545.5,
-      "traded_qty": 407436,
-      "deliverable_qty": null,
+      "traded_qty": 407450,
+      "deliverable_qty": 186047,
       "provenance": {
         "source_name": "muns market-data API — NSE daily history",
         "source_url": "https://fastapi.muns.io/market_data",
