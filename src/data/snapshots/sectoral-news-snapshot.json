@@ -3,14 +3,58 @@
     "snapshot_id": "sectoral-news-snapshot",
     "description": "Key Sectoral News feed — a permanent seed of 31 curated portfolio-pack updates, kept current by a scheduled muns web-search agent. Each item links its source. Seed items are curated; agent items are AI-gathered (web), clearly labelled and not audited.",
     "schema_version": "1.0.0",
-    "last_updated": "2026-10-05",
-    "last_successful_run": "2026-10-05T13:51:03.604Z",
+    "last_updated": "2026-10-08",
+    "last_successful_run": "2026-10-08T12:56:01.079Z",
     "seed_count": 31,
-    "agent_count": 334,
+    "agent_count": 343,
     "generated_by": "Seed: investor portfolio pack. Updates: AI (muns agent, web search).",
     "notes": "Seed floor can never be lost. Agent items are de-duped by subject+date and verified-before-acting."
   },
   "data": [
+    {
+      "sn": 367,
+      "category": "General",
+      "date": "2026-10-08",
+      "subject": "Health leads first-half premium growth",
+      "summary": "Non-life insurance premiums reportedly rose 8.92% to approximately ₹1.80 lakh crore in H1 FY27, with health insurance a leading growth driver. This supports the sector’s demand outlook, but premium growth alone does not establish improved underwriting profitability.",
+      "reference": "https://thehindubusinessline.com/money-and-banking/non-life-insurance-industry-premium-rises-892-in-h1-fy27-agriculture-insurance-plunges/article71558756.ece",
+      "id": "0f44302c1799b0",
+      "origin": "agent",
+      "added_at": "2026-10-08"
+    },
+    {
+      "sn": 366,
+      "category": "Regulatory",
+      "date": "2026-10-08",
+      "subject": "Distribution reforms could slow growth",
+      "summary": "ICRA reportedly warned that proposed commission caps and expense limits could weigh on insurance growth, with effects becoming more visible in FY28. Health insurers and smaller players could face greater pressure on distribution economics; these remain proposed measures rather than final rules.",
+      "reference": "https://business-standard.com/amp/finance/insurance/insurance-distribution-reforms-may-weigh-on-near-term-growth-icra-126100801049_1.html",
+      "id": "18c3b453453ed5",
+      "origin": "agent",
+      "added_at": "2026-10-08"
+    },
+    {
+      "sn": 368,
+      "category": "GST",
+      "date": "2026-10-07",
+      "subject": "Insurance GST relief faces pass-through scrutiny",
+      "summary": "Business Today reportedly found that consumers were still awaiting the full premium benefit of the 2025 insurance GST changes. Investors should monitor whether improved affordability supports new sales and renewals, or whether underlying premium increases offset the tax benefit.",
+      "reference": "https://www.businesstoday.in/latest/corporate/story/gst-cuts-insurance-tax-rates-in-2025-a-year-on-consumers-still-await-the-full-benefit-in-premiums-560240-2026-10-07",
+      "id": "0574c263425650",
+      "origin": "agent",
+      "added_at": "2026-10-08"
+    },
+    {
+      "sn": 369,
+      "category": "Profitability",
+      "date": "2026-10-05",
+      "subject": "Hospital investment raises claims-cost concerns",
+      "summary": "Global investors reportedly invested about $10 billion in Indian hospital chains over five years, prompting debate over rising treatment bills. Expanded capacity can improve access, but higher hospital pricing could increase insurers’ claims costs and pressure underwriting margins.",
+      "reference": "https://business-standard.com/amp/industry/news/wall-street-s-10-billion-india-hospital-bet-sparks-a-fight-over-bills-126100500181_1.html",
+      "id": "15d25592bae1e3",
+      "origin": "agent",
+      "added_at": "2026-10-08"
+    },
     {
       "sn": 358,
       "category": "GST",
@@ -408,6 +452,17 @@
       "added_at": "2026-09-24"
     },
     {
+      "sn": 370,
+      "category": "General",
+      "date": "2026-09-15",
+      "subject": "Niva Bupa and Star among premium-growth leaders",
+      "summary": "General-insurance premiums reportedly increased approximately 10% to ₹27,454 crore in August, with Niva Bupa and Star Health highlighted among growth leaders alongside Acko. The update indicates premium-growth momentum, although investors should separately assess policy volumes, pricing and claims experience.",
+      "reference": "https://ndtvprofit.com/business/general-insurance-premiums-rise-10-in-august-acko-niva-bupa-star-health-lead-growth-12048566",
+      "id": "0d13b8eaa82c6f",
+      "origin": "agent",
+      "added_at": "2026-10-08"
+    },
+    {
       "sn": 343,
       "category": "Profitability",
       "date": "2026-09-15",
@@ -571,6 +626,17 @@
       "id": "0a604a0d9f8f05",
       "origin": "agent",
       "added_at": "2026-09-14"
+    },
+    {
+      "sn": 371,
+      "category": "Regulatory",
+      "date": "2026-09-10",
+      "subject": "Eleven insurers begin Ind AS adoption",
+      "summary": "An update on IRDAI’s accounting transition reported that 11 insurers were adopting Ind AS from FY2026–27. Investors should confirm each company’s adoption status and reconcile accounting changes before comparing earnings, equity and valuation multiples across insurers.",
+      "reference": "https://taxguru.in/corporate-law/irdai-facilitates-ind-implementation-11-insurers-adopt-ind-fy-2026-27.html",
+      "id": "003f50278a11f8",
+      "origin": "agent",
+      "added_at": "2026-10-08"
     },
     {
       "sn": 344,
@@ -802,6 +868,17 @@
       "id": "16328d191fc666",
       "origin": "agent",
       "added_at": "2026-08-27"
+    },
+    {
+      "sn": 372,
+      "category": "Competition / Peers",
+      "date": "2026-08-20",
+      "subject": "Prudential–HCL insurer begins operations",
+      "summary": "The Prudential–HCL-backed health insurer reportedly began operations in India with a technology-first positioning. Its entry adds competition for customers and distribution, although its effect on incumbent market shares and acquisition costs remains to be demonstrated.",
+      "reference": "https://reinasia.com/prudential-hcl-backed-health-insurer-begins-operations-in-india",
+      "id": "00d57498fe4050",
+      "origin": "agent",
+      "added_at": "2026-10-08"
     },
     {
       "sn": 345,
@@ -1088,6 +1165,17 @@
       "id": "0716f952f08000",
       "origin": "agent",
       "added_at": "2026-08-20"
+    },
+    {
+      "sn": 373,
+      "category": "Competition / Peers",
+      "date": "2026-08-11",
+      "subject": "Niva Bupa receives chairperson approval",
+      "summary": "Niva Bupa’s supplied exchange-filing link concerns IRDAI approval for Ashwani Bhatia’s appointment as chairperson. The leadership change matters for governance and strategic oversight, rather than establishing an immediate change in operating performance.",
+      "reference": "https://nsearchives.nseindia.com/corporate/MAXBUPA_11082026113612_Disclosure__Reg_30IRDAI_approval_Final.pdf",
+      "id": "1052546f8c1af4",
+      "origin": "agent",
+      "added_at": "2026-10-08"
     },
     {
       "sn": 274,
@@ -2199,6 +2287,17 @@
       "id": "0ddff3b4a37b6d",
       "origin": "agent",
       "added_at": "2026-07-06"
+    },
+    {
+      "sn": 374,
+      "category": "Regulatory",
+      "date": "2026-07-01",
+      "subject": "IRDAI licenses Prudential–HCL venture",
+      "summary": "IRDAI reportedly granted a health-insurance licence to the Prudential–HCL joint venture, making it India’s eighth standalone health insurer. The approval enabled its subsequent operating launch and expanded the specialist competitive landscape facing established insurers.",
+      "reference": "https://business-standard.com/amp/finance/insurance/irdai-grants-health-insurance-licence-to-prudential-hcl-joint-venture-126070101348_1.html",
+      "id": "15daa18844dd60",
+      "origin": "agent",
+      "added_at": "2026-10-08"
     },
     {
       "sn": 352,
