@@ -64340,10 +64340,10 @@
         "company": "Niva Bupa",
         "companyId": "niva-bupa",
         "generatedAt": "2026-10-10T08:04:40.756Z",
-        "lastUpdatedAt": "2026-10-10T08:04:40.756Z",
+        "lastUpdatedAt": "2026-10-10T15:47:57.611Z",
         "status": "Neutral",
         "sourceConfidence": "Medium",
-        "itemCount": 6,
+        "itemCount": 5,
         "runs": [
           {
             "runTime": "2026-10-10T08:04:40.756Z",
@@ -64351,19 +64351,26 @@
             "sourceCount": 6,
             "ideas": 5,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-10-10T15:47:57.611Z",
+            "developments": 5,
+            "sourceCount": 5,
+            "ideas": 5,
+            "status": "ok"
           }
         ],
         "brief": {
-          "greeting": "Good morning",
+          "greeting": "Good afternoon",
           "narrative": "Signals are mixed across health insurers today, with no single dominant driver. Niva Bupa remains supported by its market position, but how margins hold as the book grows will decide whether the strength is sustainable.",
           "attentionCount": 5,
-          "developmentsCount": 6,
-          "sourcesCount": 6,
-          "domainsCount": 5,
-          "confidencePct": 73,
+          "developmentsCount": 5,
+          "sourcesCount": 5,
+          "domainsCount": 4,
+          "confidencePct": 72,
           "confidenceTier": "Medium",
           "readingMins": 3,
-          "lastUpdatedLabel": "10 Oct, 07:54 am"
+          "lastUpdatedLabel": "10 Oct, 03:38 pm"
         },
         "message": {
           "since": "No movement for Niva Bupa since the last brief. The previous thesis remains live.",
@@ -64750,21 +64757,21 @@
             "independentSources": 1
           },
           {
-            "id": "507b6f5dc4",
-            "entity": "<span style=\"background:#F0FDF4;color:#22C55E;font-weight:600;padding:2px 6px;border-radius:4px;\">▲ Positive</span>",
-            "stars": 2,
+            "id": "6d40787911",
+            "entity": "<span style=\"color:#22C55E;font-weight:600\">▲ positive</span> <span style=\"background:#F0FDF4;padding:2px 6px;border-radius:4px;\">strongest signal</span>",
+            "stars": 1,
             "reasoning": [
-              "Finance Ministry notifies **100% FDI** in insurance sector",
+              "AM Best assigns A- (Excellent) FSR, aaa.IN national scale rating",
               "Solvency 3.03x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency."
             ],
             "whatToWatch": "Whether the sector move feeds through to premium growth and pricing.",
-            "confidencePct": 63,
-            "evidenceCount": 3,
+            "confidencePct": 57,
+            "evidenceCount": 2,
             "status": "Neutral",
             "category": "Sector Catalyst",
             "why": {
-              "whatHappened": "<span style=\"background:#F0FDF4;color:#22C55E;font-weight:600;padding:2px 6px;border-radius:4px;\">▲ Positive</span>",
-              "whyItMatters": "Finance Ministry notifies **100% FDI** in insurance sector",
+              "whatHappened": "<span style=\"color:#22C55E;font-weight:600\">▲ positive</span> <span style=\"background:#F0FDF4;padding:2px 6px;border-radius:4px;\">strongest…",
+              "whyItMatters": "AM Best assigns A- (Excellent) FSR, aaa.IN national scale rating",
               "whoAffected": "The broader health-insurance sector and its listed players.",
               "historicalContext": "Solvency 3.03x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency.",
               "potentialImpact": "Solvency vs the 1.5x regulatory floor",
@@ -64798,14 +64805,9 @@
             "isNew": false,
             "freshness": "existing",
             "freshnessLabel": "Existing context",
-            "publishedLabel": "2 May",
-            "discoveredLabel": "11 Sep",
+            "publishedLabel": "—",
+            "discoveredLabel": "18 Sep",
             "sources": [
-              {
-                "kind": "News",
-                "name": "thehindu.com",
-                "url": "https://www.thehindu.com/business/finance-ministry-notifies-100-fdi-in-insurance-sector-fema-rules-lic-cap/article70932095.ece"
-              },
               {
                 "kind": "News",
                 "name": "investywise.com",
@@ -64820,22 +64822,17 @@
             "impact": "Neutral",
             "scope": "sector",
             "companyId": null,
-            "sourceUrl": "https://www.thehindu.com/business/finance-ministry-notifies-100-fdi-in-insurance-sector-fema-rules-lic-cap/article70932095.ece",
-            "sourceConfidence": "Medium",
-            "clusterSize": 2,
+            "sourceUrl": "https://investywise.com/niva-bupa-credit-ratings-upgraded-by-am-best",
+            "sourceConfidence": "Low",
+            "clusterSize": 1,
             "clusterSources": [
-              {
-                "kind": "News",
-                "name": "thehindu.com",
-                "url": "https://www.thehindu.com/business/finance-ministry-notifies-100-fdi-in-insurance-sector-fema-rules-lic-cap/article70932095.ece"
-              },
               {
                 "kind": "News",
                 "name": "investywise.com",
                 "url": "https://investywise.com/niva-bupa-credit-ratings-upgraded-by-am-best"
               }
             ],
-            "independentSources": 2
+            "independentSources": 1
           }
         ],
         "sinceDeltas": [
@@ -123467,10 +123464,10 @@
         "company": "Star Health",
         "companyId": "star-health",
         "generatedAt": "2026-10-10T08:04:40.756Z",
-        "lastUpdatedAt": "2026-10-10T08:04:40.756Z",
+        "lastUpdatedAt": "2026-10-10T15:47:57.611Z",
         "status": "Neutral",
         "sourceConfidence": "Low",
-        "itemCount": 2,
+        "itemCount": 1,
         "runs": [
           {
             "runTime": "2026-10-10T08:04:40.756Z",
@@ -123478,48 +123475,55 @@
             "sourceCount": 2,
             "ideas": 1,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-10-10T15:47:57.611Z",
+            "developments": 3,
+            "sourceCount": 1,
+            "ideas": 1,
+            "status": "ok"
           }
         ],
         "brief": {
-          "greeting": "Good morning",
+          "greeting": "Good afternoon",
           "narrative": "Signals are mixed across health insurers today, with no single dominant driver. Star Health remains supported by its market position, but how margins hold as the book grows will decide whether the strength is sustainable.",
           "attentionCount": 1,
-          "developmentsCount": 4,
-          "sourcesCount": 2,
-          "domainsCount": 2,
-          "confidencePct": 66,
-          "confidenceTier": "Medium",
+          "developmentsCount": 3,
+          "sourcesCount": 1,
+          "domainsCount": 1,
+          "confidencePct": 56,
+          "confidenceTier": "Low",
           "readingMins": 1,
-          "lastUpdatedLabel": "10 Oct, 07:54 am"
+          "lastUpdatedLabel": "10 Oct, 03:38 pm"
         },
         "message": {
           "since": "No movement for Star Health since the last brief. The previous thesis remains live.",
-          "keyThing": "Finance Ministry notifies **100% FDI** in insurance sector",
+          "keyThing": "AM Best assigns A- (Excellent) FSR, aaa.IN national scale rating",
           "why": "The picture is steady rather than directional for now.",
           "watch": "expense-ratio movement",
           "nothing": false
         },
         "one": {
-          "sentence": "Finance Ministry notifies **100% FDI** in insurance sector",
+          "sentence": "AM Best assigns A- (Excellent) FSR, aaa.IN national scale rating",
           "status": "Neutral"
         },
         "ideas": [
           {
-            "id": "507b6f5dc4",
-            "entity": "<span style=\"background:#F0FDF4;color:#22C55E;font-weight:600;padding:2px 6px;border-radius:4px;\">▲ Positive</span>",
-            "stars": 2,
+            "id": "6d40787911",
+            "entity": "<span style=\"color:#22C55E;font-weight:600\">▲ positive</span> <span style=\"background:#F0FDF4;padding:2px 6px;border-radius:4px;\">strongest signal</span>",
+            "stars": 1,
             "reasoning": [
-              "Finance Ministry notifies **100% FDI** in insurance sector",
+              "AM Best assigns A- (Excellent) FSR, aaa.IN national scale rating",
               "Solvency 2.2x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency."
             ],
             "whatToWatch": "Whether the sector move feeds through to premium growth and pricing.",
-            "confidencePct": 63,
-            "evidenceCount": 3,
+            "confidencePct": 57,
+            "evidenceCount": 2,
             "status": "Neutral",
             "category": "Sector Catalyst",
             "why": {
-              "whatHappened": "<span style=\"background:#F0FDF4;color:#22C55E;font-weight:600;padding:2px 6px;border-radius:4px;\">▲ Positive</span>",
-              "whyItMatters": "Finance Ministry notifies **100% FDI** in insurance sector",
+              "whatHappened": "<span style=\"color:#22C55E;font-weight:600\">▲ positive</span> <span style=\"background:#F0FDF4;padding:2px 6px;border-radius:4px;\">strongest…",
+              "whyItMatters": "AM Best assigns A- (Excellent) FSR, aaa.IN national scale rating",
               "whoAffected": "The broader health-insurance sector and its listed players.",
               "historicalContext": "Solvency 2.2x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency.",
               "potentialImpact": "Solvency vs the 1.5x regulatory floor",
@@ -123553,14 +123557,9 @@
             "isNew": false,
             "freshness": "existing",
             "freshnessLabel": "Existing context",
-            "publishedLabel": "2 May",
-            "discoveredLabel": "11 Sep",
+            "publishedLabel": "—",
+            "discoveredLabel": "18 Sep",
             "sources": [
-              {
-                "kind": "News",
-                "name": "thehindu.com",
-                "url": "https://www.thehindu.com/business/finance-ministry-notifies-100-fdi-in-insurance-sector-fema-rules-lic-cap/article70932095.ece"
-              },
               {
                 "kind": "News",
                 "name": "investywise.com",
@@ -123575,22 +123574,17 @@
             "impact": "Neutral",
             "scope": "sector",
             "companyId": null,
-            "sourceUrl": "https://www.thehindu.com/business/finance-ministry-notifies-100-fdi-in-insurance-sector-fema-rules-lic-cap/article70932095.ece",
-            "sourceConfidence": "Medium",
-            "clusterSize": 2,
+            "sourceUrl": "https://investywise.com/niva-bupa-credit-ratings-upgraded-by-am-best",
+            "sourceConfidence": "Low",
+            "clusterSize": 1,
             "clusterSources": [
-              {
-                "kind": "News",
-                "name": "thehindu.com",
-                "url": "https://www.thehindu.com/business/finance-ministry-notifies-100-fdi-in-insurance-sector-fema-rules-lic-cap/article70932095.ece"
-              },
               {
                 "kind": "News",
                 "name": "investywise.com",
                 "url": "https://investywise.com/niva-bupa-credit-ratings-upgraded-by-am-best"
               }
             ],
-            "independentSources": 2
+            "independentSources": 1
           }
         ],
         "sinceDeltas": [
@@ -182169,10 +182163,10 @@
         "company": "Care Health",
         "companyId": "care-health",
         "generatedAt": "2026-10-10T08:04:40.756Z",
-        "lastUpdatedAt": "2026-10-10T08:04:40.756Z",
+        "lastUpdatedAt": "2026-10-10T15:47:57.611Z",
         "status": "Neutral",
-        "sourceConfidence": "Medium",
-        "itemCount": 3,
+        "sourceConfidence": "Low",
+        "itemCount": 2,
         "runs": [
           {
             "runTime": "2026-10-10T08:04:40.756Z",
@@ -182180,19 +182174,26 @@
             "sourceCount": 3,
             "ideas": 2,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-10-10T15:47:57.611Z",
+            "developments": 3,
+            "sourceCount": 2,
+            "ideas": 2,
+            "status": "ok"
           }
         ],
         "brief": {
-          "greeting": "Good morning",
+          "greeting": "Good afternoon",
           "narrative": "Signals are mixed across health insurers today, with no single dominant driver. Care Health remains supported by its market position, but how margins hold as the book grows will decide whether the strength is sustainable.",
           "attentionCount": 2,
-          "developmentsCount": 4,
-          "sourcesCount": 3,
-          "domainsCount": 3,
-          "confidencePct": 69,
+          "developmentsCount": 3,
+          "sourcesCount": 2,
+          "domainsCount": 2,
+          "confidencePct": 66,
           "confidenceTier": "Medium",
           "readingMins": 1,
-          "lastUpdatedLabel": "10 Oct, 07:54 am"
+          "lastUpdatedLabel": "10 Oct, 03:38 pm"
         },
         "message": {
           "since": "No movement for Care Health since the last brief. The previous thesis remains live.",
@@ -182300,21 +182301,21 @@
             "independentSources": 1
           },
           {
-            "id": "507b6f5dc4",
-            "entity": "<span style=\"background:#F0FDF4;color:#22C55E;font-weight:600;padding:2px 6px;border-radius:4px;\">▲ Positive</span>",
-            "stars": 2,
+            "id": "6d40787911",
+            "entity": "<span style=\"color:#22C55E;font-weight:600\">▲ positive</span> <span style=\"background:#F0FDF4;padding:2px 6px;border-radius:4px;\">strongest signal</span>",
+            "stars": 1,
             "reasoning": [
-              "Finance Ministry notifies **100% FDI** in insurance sector",
+              "AM Best assigns A- (Excellent) FSR, aaa.IN national scale rating",
               "Care Health's capital cushion (solvency ratio) stands at 1.68x against the regulator's 1.5x minimum — that sounds safe, but growing premium at 20.4% a year consumes capital mechanically."
             ],
             "whatToWatch": "Whether the sector move feeds through to premium growth and pricing.",
-            "confidencePct": 64,
-            "evidenceCount": 4,
+            "confidencePct": 59,
+            "evidenceCount": 3,
             "status": "Neutral",
             "category": "Sector Catalyst",
             "why": {
-              "whatHappened": "<span style=\"background:#F0FDF4;color:#22C55E;font-weight:600;padding:2px 6px;border-radius:4px;\">▲ Positive</span>",
-              "whyItMatters": "Finance Ministry notifies **100% FDI** in insurance sector",
+              "whatHappened": "<span style=\"color:#22C55E;font-weight:600\">▲ positive</span> <span style=\"background:#F0FDF4;padding:2px 6px;border-radius:4px;\">strongest…",
+              "whyItMatters": "AM Best assigns A- (Excellent) FSR, aaa.IN national scale rating",
               "whoAffected": "The broader health-insurance sector and its listed players.",
               "historicalContext": "Care Health's capital cushion (solvency ratio) stands at 1.68x against the regulator's 1.5x minimum — that sounds safe, but growing premium at 20.4% a year consumes capital mechanically.",
               "potentialImpact": "Solvency sits close enough to the floor that a capital raise or slower growth is a live possibility.",
@@ -182348,14 +182349,9 @@
             "isNew": false,
             "freshness": "existing",
             "freshnessLabel": "Existing context",
-            "publishedLabel": "2 May",
-            "discoveredLabel": "11 Sep",
+            "publishedLabel": "—",
+            "discoveredLabel": "18 Sep",
             "sources": [
-              {
-                "kind": "News",
-                "name": "thehindu.com",
-                "url": "https://www.thehindu.com/business/finance-ministry-notifies-100-fdi-in-insurance-sector-fema-rules-lic-cap/article70932095.ece"
-              },
               {
                 "kind": "News",
                 "name": "investywise.com",
@@ -182375,22 +182371,17 @@
             "impact": "Neutral",
             "scope": "sector",
             "companyId": null,
-            "sourceUrl": "https://www.thehindu.com/business/finance-ministry-notifies-100-fdi-in-insurance-sector-fema-rules-lic-cap/article70932095.ece",
-            "sourceConfidence": "Medium",
-            "clusterSize": 2,
+            "sourceUrl": "https://investywise.com/niva-bupa-credit-ratings-upgraded-by-am-best",
+            "sourceConfidence": "Low",
+            "clusterSize": 1,
             "clusterSources": [
-              {
-                "kind": "News",
-                "name": "thehindu.com",
-                "url": "https://www.thehindu.com/business/finance-ministry-notifies-100-fdi-in-insurance-sector-fema-rules-lic-cap/article70932095.ece"
-              },
               {
                 "kind": "News",
                 "name": "investywise.com",
                 "url": "https://investywise.com/niva-bupa-credit-ratings-upgraded-by-am-best"
               }
             ],
-            "independentSources": 2
+            "independentSources": 1
           }
         ],
         "sinceDeltas": [
@@ -239334,10 +239325,10 @@
         "company": "Aditya Birla",
         "companyId": "aditya-birla",
         "generatedAt": "2026-10-10T08:04:40.756Z",
-        "lastUpdatedAt": "2026-10-10T08:04:40.756Z",
+        "lastUpdatedAt": "2026-10-10T15:47:57.611Z",
         "status": "Neutral",
         "sourceConfidence": "Low",
-        "itemCount": 2,
+        "itemCount": 1,
         "runs": [
           {
             "runTime": "2026-10-10T08:04:40.756Z",
@@ -239345,48 +239336,55 @@
             "sourceCount": 2,
             "ideas": 1,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-10-10T15:47:57.611Z",
+            "developments": 1,
+            "sourceCount": 1,
+            "ideas": 1,
+            "status": "ok"
           }
         ],
         "brief": {
-          "greeting": "Good morning",
+          "greeting": "Good afternoon",
           "narrative": "Signals are mixed across health insurers today, with no single dominant driver. Aditya Birla remains supported by its market position, but how margins hold as the book grows will decide whether the strength is sustainable.",
           "attentionCount": 1,
-          "developmentsCount": 2,
-          "sourcesCount": 2,
-          "domainsCount": 2,
-          "confidencePct": 66,
-          "confidenceTier": "Medium",
+          "developmentsCount": 1,
+          "sourcesCount": 1,
+          "domainsCount": 1,
+          "confidencePct": 56,
+          "confidenceTier": "Low",
           "readingMins": 1,
-          "lastUpdatedLabel": "10 Oct, 07:54 am"
+          "lastUpdatedLabel": "10 Oct, 03:38 pm"
         },
         "message": {
           "since": "No movement for Aditya Birla since the last brief. The previous thesis remains live.",
-          "keyThing": "Finance Ministry notifies **100% FDI** in insurance sector",
+          "keyThing": "AM Best assigns A- (Excellent) FSR, aaa.IN national scale rating",
           "why": "The picture is steady rather than directional for now.",
           "watch": "expense-ratio movement",
           "nothing": false
         },
         "one": {
-          "sentence": "Finance Ministry notifies **100% FDI** in insurance sector",
+          "sentence": "AM Best assigns A- (Excellent) FSR, aaa.IN national scale rating",
           "status": "Neutral"
         },
         "ideas": [
           {
-            "id": "507b6f5dc4",
-            "entity": "<span style=\"background:#F0FDF4;color:#22C55E;font-weight:600;padding:2px 6px;border-radius:4px;\">▲ Positive</span>",
-            "stars": 2,
+            "id": "6d40787911",
+            "entity": "<span style=\"color:#22C55E;font-weight:600\">▲ positive</span> <span style=\"background:#F0FDF4;padding:2px 6px;border-radius:4px;\">strongest signal</span>",
+            "stars": 1,
             "reasoning": [
-              "Finance Ministry notifies **100% FDI** in insurance sector",
+              "AM Best assigns A- (Excellent) FSR, aaa.IN national scale rating",
               "Solvency 1.84x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency."
             ],
             "whatToWatch": "Whether the sector move feeds through to premium growth and pricing.",
-            "confidencePct": 63,
-            "evidenceCount": 3,
+            "confidencePct": 57,
+            "evidenceCount": 2,
             "status": "Neutral",
             "category": "Sector Catalyst",
             "why": {
-              "whatHappened": "<span style=\"background:#F0FDF4;color:#22C55E;font-weight:600;padding:2px 6px;border-radius:4px;\">▲ Positive</span>",
-              "whyItMatters": "Finance Ministry notifies **100% FDI** in insurance sector",
+              "whatHappened": "<span style=\"color:#22C55E;font-weight:600\">▲ positive</span> <span style=\"background:#F0FDF4;padding:2px 6px;border-radius:4px;\">strongest…",
+              "whyItMatters": "AM Best assigns A- (Excellent) FSR, aaa.IN national scale rating",
               "whoAffected": "The broader health-insurance sector and its listed players.",
               "historicalContext": "Solvency 1.84x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency.",
               "potentialImpact": "Solvency vs the 1.5x regulatory floor",
@@ -239420,14 +239418,9 @@
             "isNew": false,
             "freshness": "existing",
             "freshnessLabel": "Existing context",
-            "publishedLabel": "2 May",
-            "discoveredLabel": "11 Sep",
+            "publishedLabel": "—",
+            "discoveredLabel": "18 Sep",
             "sources": [
-              {
-                "kind": "News",
-                "name": "thehindu.com",
-                "url": "https://www.thehindu.com/business/finance-ministry-notifies-100-fdi-in-insurance-sector-fema-rules-lic-cap/article70932095.ece"
-              },
               {
                 "kind": "News",
                 "name": "investywise.com",
@@ -239442,22 +239435,17 @@
             "impact": "Neutral",
             "scope": "sector",
             "companyId": null,
-            "sourceUrl": "https://www.thehindu.com/business/finance-ministry-notifies-100-fdi-in-insurance-sector-fema-rules-lic-cap/article70932095.ece",
-            "sourceConfidence": "Medium",
-            "clusterSize": 2,
+            "sourceUrl": "https://investywise.com/niva-bupa-credit-ratings-upgraded-by-am-best",
+            "sourceConfidence": "Low",
+            "clusterSize": 1,
             "clusterSources": [
-              {
-                "kind": "News",
-                "name": "thehindu.com",
-                "url": "https://www.thehindu.com/business/finance-ministry-notifies-100-fdi-in-insurance-sector-fema-rules-lic-cap/article70932095.ece"
-              },
               {
                 "kind": "News",
                 "name": "investywise.com",
                 "url": "https://investywise.com/niva-bupa-credit-ratings-upgraded-by-am-best"
               }
             ],
-            "independentSources": 2
+            "independentSources": 1
           }
         ],
         "sinceDeltas": [
@@ -296961,10 +296949,10 @@
         "company": "ManipalCigna",
         "companyId": "manipalcigna",
         "generatedAt": "2026-10-10T08:04:40.756Z",
-        "lastUpdatedAt": "2026-10-10T08:04:40.756Z",
+        "lastUpdatedAt": "2026-10-10T15:47:57.611Z",
         "status": "Neutral",
         "sourceConfidence": "Low",
-        "itemCount": 2,
+        "itemCount": 1,
         "runs": [
           {
             "runTime": "2026-10-10T08:04:40.756Z",
@@ -296972,48 +296960,55 @@
             "sourceCount": 2,
             "ideas": 1,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-10-10T15:47:57.611Z",
+            "developments": 3,
+            "sourceCount": 1,
+            "ideas": 1,
+            "status": "ok"
           }
         ],
         "brief": {
-          "greeting": "Good morning",
+          "greeting": "Good afternoon",
           "narrative": "Signals are mixed across health insurers today, with no single dominant driver. ManipalCigna remains supported by its market position, but how margins hold as the book grows will decide whether the strength is sustainable.",
           "attentionCount": 1,
-          "developmentsCount": 4,
-          "sourcesCount": 2,
-          "domainsCount": 2,
-          "confidencePct": 66,
-          "confidenceTier": "Medium",
+          "developmentsCount": 3,
+          "sourcesCount": 1,
+          "domainsCount": 1,
+          "confidencePct": 56,
+          "confidenceTier": "Low",
           "readingMins": 1,
-          "lastUpdatedLabel": "10 Oct, 07:54 am"
+          "lastUpdatedLabel": "10 Oct, 03:38 pm"
         },
         "message": {
           "since": "No movement for ManipalCigna since the last brief. The previous thesis remains live.",
-          "keyThing": "Finance Ministry notifies **100% FDI** in insurance sector",
+          "keyThing": "AM Best assigns A- (Excellent) FSR, aaa.IN national scale rating",
           "why": "The picture is steady rather than directional for now.",
           "watch": "expense-ratio movement",
           "nothing": false
         },
         "one": {
-          "sentence": "Finance Ministry notifies **100% FDI** in insurance sector",
+          "sentence": "AM Best assigns A- (Excellent) FSR, aaa.IN national scale rating",
           "status": "Neutral"
         },
         "ideas": [
           {
-            "id": "507b6f5dc4",
-            "entity": "<span style=\"background:#F0FDF4;color:#22C55E;font-weight:600;padding:2px 6px;border-radius:4px;\">▲ Positive</span>",
-            "stars": 2,
+            "id": "6d40787911",
+            "entity": "<span style=\"color:#22C55E;font-weight:600\">▲ positive</span> <span style=\"background:#F0FDF4;padding:2px 6px;border-radius:4px;\">strongest signal</span>",
+            "stars": 1,
             "reasoning": [
-              "Finance Ministry notifies **100% FDI** in insurance sector",
+              "AM Best assigns A- (Excellent) FSR, aaa.IN national scale rating",
               "Solvency 1.7x vs the 1.5x floor — headroom is thinner; watch solvency alongside regulation."
             ],
             "whatToWatch": "Whether the sector move feeds through to premium growth and pricing.",
-            "confidencePct": 63,
-            "evidenceCount": 3,
+            "confidencePct": 57,
+            "evidenceCount": 2,
             "status": "Neutral",
             "category": "Sector Catalyst",
             "why": {
-              "whatHappened": "<span style=\"background:#F0FDF4;color:#22C55E;font-weight:600;padding:2px 6px;border-radius:4px;\">▲ Positive</span>",
-              "whyItMatters": "Finance Ministry notifies **100% FDI** in insurance sector",
+              "whatHappened": "<span style=\"color:#22C55E;font-weight:600\">▲ positive</span> <span style=\"background:#F0FDF4;padding:2px 6px;border-radius:4px;\">strongest…",
+              "whyItMatters": "AM Best assigns A- (Excellent) FSR, aaa.IN national scale rating",
               "whoAffected": "The broader health-insurance sector and its listed players.",
               "historicalContext": "Solvency 1.7x vs the 1.5x floor — headroom is thinner; watch solvency alongside regulation.",
               "potentialImpact": "Solvency sits close enough to the floor that a capital raise or slower growth is a live possibility.",
@@ -297047,14 +297042,9 @@
             "isNew": false,
             "freshness": "existing",
             "freshnessLabel": "Existing context",
-            "publishedLabel": "2 May",
-            "discoveredLabel": "11 Sep",
+            "publishedLabel": "—",
+            "discoveredLabel": "18 Sep",
             "sources": [
-              {
-                "kind": "News",
-                "name": "thehindu.com",
-                "url": "https://www.thehindu.com/business/finance-ministry-notifies-100-fdi-in-insurance-sector-fema-rules-lic-cap/article70932095.ece"
-              },
               {
                 "kind": "News",
                 "name": "investywise.com",
@@ -297069,22 +297059,17 @@
             "impact": "Neutral",
             "scope": "sector",
             "companyId": null,
-            "sourceUrl": "https://www.thehindu.com/business/finance-ministry-notifies-100-fdi-in-insurance-sector-fema-rules-lic-cap/article70932095.ece",
-            "sourceConfidence": "Medium",
-            "clusterSize": 2,
+            "sourceUrl": "https://investywise.com/niva-bupa-credit-ratings-upgraded-by-am-best",
+            "sourceConfidence": "Low",
+            "clusterSize": 1,
             "clusterSources": [
-              {
-                "kind": "News",
-                "name": "thehindu.com",
-                "url": "https://www.thehindu.com/business/finance-ministry-notifies-100-fdi-in-insurance-sector-fema-rules-lic-cap/article70932095.ece"
-              },
               {
                 "kind": "News",
                 "name": "investywise.com",
                 "url": "https://investywise.com/niva-bupa-credit-ratings-upgraded-by-am-best"
               }
             ],
-            "independentSources": 2
+            "independentSources": 1
           }
         ],
         "sinceDeltas": [
@@ -297186,6 +297171,6 @@
     "snapshot_id": "pulse-brief-archive",
     "description": "Immutable per-calendar-day Pulse brief records (IST), one per company. Past days are frozen exactly as shown that day; the live Today view recomposes. Kept ~90 days per company.",
     "last_updated": "2026-10-10",
-    "last_successful_run": "2026-10-10T08:04:40.756Z"
+    "last_successful_run": "2026-10-10T15:47:57.611Z"
   }
 }
