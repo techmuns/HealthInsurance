@@ -4,8 +4,8 @@
     "description": "AI-generated market intelligence for the SAHI health insurers — investor meets, earnings/board dates, sector & regulatory news, share catalysts. Web-sourced; each item links its source. AI-generated, not audited.",
     "schema_version": "1.0.0",
     "dataset": "ai_generated",
-    "last_updated": "2026-10-10",
-    "last_successful_run": "2026-10-10T15:38:33.174Z",
+    "last_updated": "2026-10-11",
+    "last_successful_run": "2026-10-11T08:01:19.722Z",
     "upstream_sources": [
       "muns_agent_web"
     ],
@@ -14,6 +14,36 @@
     "notes": "Clearly labelled AI-generated intelligence — verify before acting. Items accumulate through the day and rank by investor impact, not recency."
   },
   "data": [
+    {
+      "id": "3a93d460b2",
+      "company_id": "sector",
+      "date": null,
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "<span style=\"background:#F0FDF4;color:#22C55E;font-weight:600;padding:2px 6px;border-radius:4px\">positive</span>",
+      "detail": "Care Health GDPI <span style=\"color:#22C55E;font-weight:600\">▲44%</span> in September to **₹1,042 crore**; market share to **3.45%**",
+      "source_name": null,
+      "source_url": null,
+      "source_published_at": null,
+      "first_seen": "2026-10-11T08:01:19.722Z",
+      "discovered_at": "2026-10-11T08:01:19.722Z"
+    },
+    {
+      "id": "5cc41674cd",
+      "company_id": "sector",
+      "date": null,
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "<span style=\"background:#EFF6FF;color:#1E3A8A;font-weight:600;padding:2px 6px;border-radius:4px\">neutral</span>",
+      "detail": "Debt committee to weigh call option on **₹150 crore** NCDs",
+      "source_name": null,
+      "source_url": null,
+      "source_published_at": null,
+      "first_seen": "2026-10-11T08:01:19.722Z",
+      "discovered_at": "2026-10-11T08:01:19.722Z"
+    },
     {
       "id": "9bb0b5cf03",
       "company_id": "sector",
@@ -883,36 +913,6 @@
       "source_published_at": null,
       "first_seen": "2026-09-20T13:49:15.627Z",
       "discovered_at": "2026-09-20T13:49:15.627Z"
-    },
-    {
-      "id": "65defe672c",
-      "company_id": "sector",
-      "date": "2026-09-14",
-      "kind": "catalyst",
-      "horizon": "recent",
-      "impact": "neutral",
-      "headline": "Religare Enterprises extends Rajender Mohan Malla as non-executive Chairperson",
-      "detail": "Leadership continuity at Care Health's parent ahead of AGM reduces governance-transition risk for the peer insurer.",
-      "source_name": null,
-      "source_url": null,
-      "source_published_at": null,
-      "first_seen": "2026-09-27T07:20:25.003Z",
-      "discovered_at": "2026-09-27T07:20:25.003Z"
-    },
-    {
-      "id": "d2f93fa1bc",
-      "company_id": "sector",
-      "date": null,
-      "kind": "sector_news",
-      "horizon": "recent",
-      "impact": "neutral",
-      "headline": "<span style=\"color:#EF4444;font-weight:600\">negative</span> <span style=\"background:#FEF2F2;padding:2px 6px;border-radius:4px;\">Badge: Strongest signal</span>",
-      "detail": "IRDAI bars Niva Bupa from opening new offices for 6 months",
-      "source_name": null,
-      "source_url": null,
-      "source_published_at": null,
-      "first_seen": "2026-09-12T16:38:32.305Z",
-      "discovered_at": "2026-09-12T16:38:32.305Z"
     }
   ]
 }
