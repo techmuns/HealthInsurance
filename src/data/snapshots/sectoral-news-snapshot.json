@@ -3,14 +3,124 @@
     "snapshot_id": "sectoral-news-snapshot",
     "description": "Key Sectoral News feed — a permanent seed of 31 curated portfolio-pack updates, kept current by a scheduled muns web-search agent. Each item links its source. Seed items are curated; agent items are AI-gathered (web), clearly labelled and not audited.",
     "schema_version": "1.0.0",
-    "last_updated": "2026-10-08",
-    "last_successful_run": "2026-10-08T12:56:01.079Z",
+    "last_updated": "2026-10-12",
+    "last_successful_run": "2026-10-12T14:38:27.201Z",
     "seed_count": 31,
-    "agent_count": 343,
+    "agent_count": 357,
     "generated_by": "Seed: investor portfolio pack. Updates: AI (muns agent, web search).",
     "notes": "Seed floor can never be lost. Agent items are de-duped by subject+date and verified-before-acting."
   },
   "data": [
+    {
+      "sn": 376,
+      "category": "Profitability",
+      "date": "2026-10-12",
+      "subject": "<span style=\"background:#F0FDF4;padding:2px 6px;border-radius:4px;\">Insurers face muted growth, claims pressure as regulatory changes loom</span>",
+      "summary": "Brokerages (Emkay, Nomura) expect Star Health GWP up <span style=\"color:#22C55E;font-weight:600\">▲19% YoY</span> with net profit <span style=\"color:#22C55E;font-weight:600\">▲56%</span> to **₹120 cr**, and Star Health/Niva Bupa premium growth of **19–25%** with loss ratios improving modestly as COVID/monsoon claim severity eases; investors should watch Q2 prints closely given the looming IRDAI commission-cap impact.",
+      "reference": "https://livemint.com/industry/insurers-face-muted-growth-claims-pressure-as-regulatory-changes-loom/amp-11791702672212.html",
+      "id": "00e83d0d71f946",
+      "origin": "agent",
+      "added_at": "2026-10-12"
+    },
+    {
+      "sn": 375,
+      "category": "Competition / Peers",
+      "date": "2026-10-12",
+      "subject": "Niva Bupa elevates Raman Goyal to SVP",
+      "summary": "Niva Bupa promoted Raman Goyal from VP to Senior Vice President in its marketing function, a minor leadership reshuffle signalling internal bench strength ahead of the Q2FY27 earnings season.",
+      "reference": "https://marketingmind.in/niva-bupa-health-insurance-elevates-raman-goyal-as-svp/",
+      "id": "18568476ce4678",
+      "origin": "agent",
+      "added_at": "2026-10-12"
+    },
+    {
+      "sn": 377,
+      "category": "Regulatory",
+      "date": "2026-10-11",
+      "subject": "Insurance sector reforms: Bima Sugam and PIR gain traction",
+      "summary": "An opinion piece likens Bima Sugam (electronic insurance exchange) and the Policyholder Information Repository to what depositories/credit bureaus did for capital markets and retail banking, framing them as structural reforms that could reshape distribution economics for health insurers.",
+      "reference": "https://business-standard.com/amp/opinion/columns/a-look-at-insurance-sector-reforms-126101100260_1.html",
+      "id": "12898c44daed27",
+      "origin": "agent",
+      "added_at": "2026-10-12"
+    },
+    {
+      "sn": 379,
+      "category": "Profitability",
+      "date": "2026-10-10",
+      "subject": "Rs 10 lakh health cover may not stay adequate",
+      "summary": "Medical cost inflation is outpacing static sum-insured levels; analysts urge buyers toward inflation-protection riders, and <span style=\"color:#EF4444;font-weight:600\">rising claim severity is a direct margin risk</span> for Niva Bupa, Star Health and Care Health.",
+      "reference": "https://moneycontrol.com/news/business/personal-finance/your-rs-10-lakh-health-cover-may-not-stay-enough-for-long-what-inflation-linked-protection-means-2-14049213.html/amp",
+      "id": "15cd72f0426fdf",
+      "origin": "agent",
+      "added_at": "2026-10-12"
+    },
+    {
+      "sn": 378,
+      "category": "Regulatory",
+      "date": "2026-10-10",
+      "subject": "Co-payment proposal for health insurance stirs debate",
+      "summary": "A proposed IRDAI/industry move toward mandatory patient co-payment is being scrutinized for moral-hazard rationale; critics argue it could <span style=\"color:#EF4444;font-weight:600\">reduce affordability</span> even as insurers see it as a lever to manage claims costs.",
+      "reference": "https://newindianexpress.com/explainers/2026/Oct/10/problematic-proposal-on-health-insurance-co-payment-by-patient",
+      "id": "13484662cbfac2",
+      "origin": "agent",
+      "added_at": "2026-10-12"
+    },
+    {
+      "sn": 382,
+      "category": "General",
+      "date": "2026-10-09",
+      "subject": "India's journey from health insurance to \"health security",
+      "summary": "Feature highlights rising burden of communicable/non-communicable diseases, framing health insurance expansion as central to Universal Healthcare Coverage goals — a long-term demand tailwind.",
+      "reference": "https://dailypioneer.com/news/slug-lite/closing-the-protection-gap-indias-journey-from-health-insurance-to-health-security?year=2026",
+      "id": "1126e9531f70b6",
+      "origin": "agent",
+      "added_at": "2026-10-12"
+    },
+    {
+      "sn": 381,
+      "category": "GST",
+      "date": "2026-10-09",
+      "subject": "<span style=\"background:#F0FDF4;padding:2px 6px;border-radius:4px;\">GST Council recommends ITC on group health/life premiums</span>",
+      "summary": "The GST Council recommended amending CGST Act Section 17(5) to remove input-tax-credit restrictions on group health/life insurance for employers — a potential <span style=\"color:#22C55E;font-weight:600\">demand boost</span> for Niva Bupa and Care Health's group channel once legally enacted.",
+      "reference": "https://www.business-standard.com/amp/finance/personal-finance/gst-relief-on-group-insurance-will-employees-get-higher-health-cover-126100900879_1.html",
+      "id": "041db56fb1fa59",
+      "origin": "agent",
+      "added_at": "2026-10-12"
+    },
+    {
+      "sn": 380,
+      "category": "Regulatory",
+      "date": "2026-10-09",
+      "subject": "<span style=\"background:#FEF2F2;padding:2px 6px;border-radius:4px;\">IRDAI may delay distribution reforms to Jan 2027 amid backlash</span>",
+      "summary": "IRDAI's proposed commission-cap/distribution reforms triggered a <span style=\"color:#EF4444;font-weight:600\">sharp selloff</span> in insurance-distribution-linked stocks; the regulator may now push implementation to **January 2027**, giving insurers more time to adjust.",
+      "reference": "https://business-standard.com/amp/industry/news/irdai-may-roll-out-insurance-distribution-reforms-in-jan-2027-amid-backlash-126100900175_1.html",
+      "id": "00e2979cb103f4",
+      "origin": "agent",
+      "added_at": "2026-10-12"
+    },
+    {
+      "sn": 384,
+      "category": "Profitability",
+      "date": "2026-10-08",
+      "subject": "Medical inflation reshaping buying decisions",
+      "summary": "Rising hospital/treatment costs push consumers toward higher sum-insured and top-up covers; sustained medical inflation is a <span style=\"color:#F59E0B;font-weight:600\">structural pressure point</span> on loss ratios unless pricing keeps pace.",
+      "reference": "https://ndtvprofit.com/personal-finance/medical-inflation-how-to-factor-it-while-choosing-health-insurance-12155144",
+      "id": "1117695077baa1",
+      "origin": "agent",
+      "added_at": "2026-10-12"
+    },
+    {
+      "sn": 383,
+      "category": "Competition / Peers",
+      "date": "2026-10-08",
+      "subject": "Care Health premium <span style=\"color:#22C55E;font-weight:600\">▲44% YoY</span>, Niva Bupa <span style=\"color:#22C55E;font-weight:600\">▲33%</span> in Sept data",
+      "summary": "September data showed Care Health premium up **44% YoY** to **₹1,041.64 cr**, Niva Bupa up **33.1%**, both far outpacing overall non-life industry growth of **6%** — continued share gains vs multi-line players.",
+      "reference": "https://www.business-standard.com/amp/finance/insurance/life-insurance-nbp-jumps-21-in-september-non-life-premium-up-6-126100801309_1.html",
+      "id": "1e010e3ecf2531",
+      "origin": "agent",
+      "added_at": "2026-10-12"
+    },
     {
       "sn": 367,
       "category": "General",
@@ -43,6 +153,28 @@
       "id": "0574c263425650",
       "origin": "agent",
       "added_at": "2026-10-08"
+    },
+    {
+      "sn": 386,
+      "category": "GST",
+      "date": "2026-10-06",
+      "subject": "GST Council likely to allow ITC on group insurance, ease rates on rare-disease drugs",
+      "summary": "Reports ahead of formal recommendation indicated the Council was weighing removal of the cost arbitrage from **18% GST** on group insurance vs GST-exempt individual policies — a potential tailwind for group health uptake.",
+      "reference": "https://www.moneycontrol.com/news/business/gst-council-likely-to-allow-itc-on-group-insurance-ease-rates-on-rare-disease-drugs-and-pharma-services-14045831.html",
+      "id": "1bce84065d98d9",
+      "origin": "agent",
+      "added_at": "2026-10-12"
+    },
+    {
+      "sn": 385,
+      "category": "Regulatory",
+      "date": "2026-10-06",
+      "subject": "Insurance brokers oppose IRDAI commission caps",
+      "summary": "Brokers wrote to PM/FM arguing proposed commission-cap rules across banks, brokers and agents could hurt distributor economics without benefiting policyholders — adds <span style=\"color:#EF4444;font-weight:600\">regulatory-overhang risk</span>.",
+      "reference": "https://www.livemint.com/money/personal-finance/irdai-commission-caps-insurance-brokers-write-to-pm-fm-say-proposed-rules-may-not-benefit-policyholders-11791281595261.html",
+      "id": "17dd1c6688ecf5",
+      "origin": "agent",
+      "added_at": "2026-10-12"
     },
     {
       "sn": 369,
@@ -177,6 +309,17 @@
       "added_at": "2026-10-05"
     },
     {
+      "sn": 387,
+      "category": "General",
+      "date": "2026-10-01",
+      "subject": "McKinsey: Operating costs outpacing premium growth",
+      "summary": "McKinsey flagged rising distribution/operating costs growing faster than premiums industry-wide — a headwind to profitable scale-up and expense ratios for standalone health insurers.",
+      "reference": "https://bfsi.economictimes.indiatimes.com/articles/insurance-penetration-stays-low-as-operating-costs-rise-faster-than-premiums-mckinsey/134614411",
+      "id": "032aaba3585b4b",
+      "origin": "agent",
+      "added_at": "2026-10-12"
+    },
+    {
       "sn": 364,
       "category": "Profitability",
       "date": "2026-10-01",
@@ -274,6 +417,17 @@
       "id": "16879dcd37e41e",
       "origin": "agent",
       "added_at": "2026-09-28"
+    },
+    {
+      "sn": 388,
+      "category": "General",
+      "date": "2026-09-24",
+      "subject": "India's insurance penetration stuck at <span style=\"color:#F59E0B;font-weight:600\">3.7%</span>",
+      "summary": "McKinsey/industry data show overall insurance penetration remains well below global peers, especially in non-life/health — underscoring the large structural growth runway for Niva Bupa, Star Health and Care Health.",
+      "reference": "https://businesstoday.in/personal-finance/story/insurance-penetration-at-3-7-where-indias-biggest-protection-gap-lies-557515-2026-09-24",
+      "id": "1be46f3c084ff7",
+      "origin": "agent",
+      "added_at": "2026-10-12"
     },
     {
       "sn": 365,
