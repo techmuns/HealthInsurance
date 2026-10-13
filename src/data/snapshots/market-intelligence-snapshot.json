@@ -4,8 +4,8 @@
     "description": "AI-generated market intelligence for the SAHI health insurers — investor meets, earnings/board dates, sector & regulatory news, share catalysts. Web-sourced; each item links its source. AI-generated, not audited.",
     "schema_version": "1.0.0",
     "dataset": "ai_generated",
-    "last_updated": "2026-10-12",
-    "last_successful_run": "2026-10-12T19:30:50.994Z",
+    "last_updated": "2026-10-13",
+    "last_successful_run": "2026-10-13T08:42:34.979Z",
     "upstream_sources": [
       "muns_agent_web"
     ],
@@ -14,6 +14,36 @@
     "notes": "Clearly labelled AI-generated intelligence — verify before acting. Items accumulate through the day and rank by investor impact, not recency."
   },
   "data": [
+    {
+      "id": "ee23a1cb7b",
+      "company_id": "sector",
+      "date": null,
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "<span style=\"color:#1E3A8A;font-weight:600\">watch</span>",
+      "detail": "Star Health in early talks with Japanese insurers over possible majority stake sale",
+      "source_name": null,
+      "source_url": null,
+      "source_published_at": null,
+      "first_seen": "2026-10-13T08:42:34.979Z",
+      "discovered_at": "2026-10-13T08:42:34.979Z"
+    },
+    {
+      "id": "c553b279f7",
+      "company_id": "sector",
+      "date": null,
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "<span style=\"color:#EF4444;font-weight:600\">▼ negative</span>",
+      "detail": "MarketsMojo rates Niva Bupa 'Sell",
+      "source_name": null,
+      "source_url": null,
+      "source_published_at": null,
+      "first_seen": "2026-10-13T08:42:34.979Z",
+      "discovered_at": "2026-10-13T08:42:34.979Z"
+    },
     {
       "id": "3a93d460b2",
       "company_id": "sector",
@@ -883,36 +913,6 @@
       "source_published_at": null,
       "first_seen": "2026-09-14T16:03:43.947Z",
       "discovered_at": "2026-09-14T16:03:43.947Z"
-    },
-    {
-      "id": "0f883d7098",
-      "company_id": "sector",
-      "date": null,
-      "kind": "sector_news",
-      "horizon": "recent",
-      "impact": "neutral",
-      "headline": "<span style=\"color:#22C55E;font-weight:600\">positive</span> <span style=\"background:#F0FDF4;padding:2px 6px;border-radius:4px;\">strongest positive signal</span>",
-      "detail": "Q1 FY27 PAT surges <span style=\"color:#22C55E;font-weight:600\">▲93%</span> YoY to **₹137.8 cr**",
-      "source_name": null,
-      "source_url": null,
-      "source_published_at": null,
-      "first_seen": "2026-09-14T16:03:43.947Z",
-      "discovered_at": "2026-09-14T16:03:43.947Z"
-    },
-    {
-      "id": "e2ce32c8f1",
-      "company_id": "sector",
-      "date": "2026-09-14",
-      "kind": "sector_news",
-      "horizon": "recent",
-      "impact": "neutral",
-      "headline": "Migrates core policy-admin systems to <b>Oracle Cloud Infrastructure</b>",
-      "detail": "Tech modernization for efficiency/scalability/AI-readiness; a longer-term cost lever rather than an immediate earnings catalyst.",
-      "source_name": null,
-      "source_url": null,
-      "source_published_at": null,
-      "first_seen": "2026-09-20T13:49:15.627Z",
-      "discovered_at": "2026-09-20T13:49:15.627Z"
     }
   ]
 }
