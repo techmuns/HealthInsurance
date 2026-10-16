@@ -5,8 +5,8 @@
     "source": "GI Council Segmentwise Report (Statistics → Industry Statistics)",
     "source_url": "https://www.gicouncil.in/statistics/industry-statistics/segment-wise-report-on-homepage/",
     "dataset": "official",
-    "last_fetched_at": "2026-10-14T13:24:15.807Z",
-    "last_updated": "2026-10-14",
+    "last_fetched_at": "2026-10-16T13:08:15.445Z",
+    "last_updated": "2026-10-16",
     "note": "monthly = (YTD up to this month) − (YTD up to previous month); April is its own month; up_to_month rows lack a predecessor.",
     "warnings": [
       "2025-04: columns not found (kept null, not estimated): motor_premium, fire_premium, crop_premium, marine_premium, other_premium",
@@ -26,6 +26,7 @@
       "2026-06: columns not found (kept null, not estimated): motor_premium, fire_premium, crop_premium, marine_premium, other_premium",
       "2026-07: columns not found (kept null, not estimated): motor_premium, fire_premium, crop_premium, marine_premium, other_premium",
       "2026-08: columns not found (kept null, not estimated): motor_premium, fire_premium, crop_premium, marine_premium, other_premium",
+      "2026-09: columns not found (kept null, not estimated): motor_premium, fire_premium, crop_premium, marine_premium, other_premium",
       "2025-10 ManipalCigna Health Insurance Co Ltd: overseas_medical_premium YTD fell vs prior month (0.76→0.64); monthly set null (restatement/mis-parse, not estimated).",
       "2026-02 ManipalCigna Health Insurance Co Ltd: overseas_medical_premium YTD fell vs prior month (2.21→1.88); monthly set null (restatement/mis-parse, not estimated)."
     ]
@@ -5970,6 +5971,343 @@
             "overseas_medical_premium": {
               "ytd": 740.3900000000001,
               "monthly": 139.76
+            },
+            "motor_premium": {
+              "ytd": null,
+              "monthly": null
+            },
+            "fire_premium": {
+              "ytd": null,
+              "monthly": null
+            },
+            "crop_premium": {
+              "ytd": null,
+              "monthly": null
+            },
+            "marine_premium": {
+              "ytd": null,
+              "monthly": null
+            },
+            "other_premium": {
+              "ytd": null,
+              "monthly": null
+            }
+          }
+        }
+      ]
+    },
+    {
+      "month": "2026-09",
+      "source_period": "For the period up to September 2026",
+      "source_url": "https://www.gicouncil.in/statistics/industry-statistics/segment-wise-report-on-homepage/",
+      "confidence": "high",
+      "rows": [
+        {
+          "company_id": "icici-lombard",
+          "insurer_name": "ICICI Lombard General Insurance Co Ltd",
+          "basis": "monthly",
+          "segments": {
+            "health_premium": {
+              "ytd": 5266.05,
+              "monthly": 717.1
+            },
+            "retail_health_premium": {
+              "ytd": 1496.16,
+              "monthly": 287.98
+            },
+            "group_health_premium": {
+              "ytd": 3612.07,
+              "monthly": 404.01
+            },
+            "government_health_premium": {
+              "ytd": 0,
+              "monthly": 0
+            },
+            "overseas_medical_premium": {
+              "ytd": 157.82,
+              "monthly": 25.11
+            },
+            "motor_premium": {
+              "ytd": null,
+              "monthly": null
+            },
+            "fire_premium": {
+              "ytd": null,
+              "monthly": null
+            },
+            "crop_premium": {
+              "ytd": null,
+              "monthly": null
+            },
+            "marine_premium": {
+              "ytd": null,
+              "monthly": null
+            },
+            "other_premium": {
+              "ytd": null,
+              "monthly": null
+            }
+          }
+        },
+        {
+          "company_id": "niva-bupa",
+          "insurer_name": "Niva bupa health insurance company limited",
+          "basis": "monthly",
+          "segments": {
+            "health_premium": {
+              "ytd": 4576.95,
+              "monthly": 779.18
+            },
+            "retail_health_premium": {
+              "ytd": 3483.45,
+              "monthly": 620.56
+            },
+            "group_health_premium": {
+              "ytd": 1083.72,
+              "monthly": 156.75
+            },
+            "government_health_premium": {
+              "ytd": 0,
+              "monthly": 0
+            },
+            "overseas_medical_premium": {
+              "ytd": 9.78,
+              "monthly": 1.87
+            },
+            "motor_premium": {
+              "ytd": null,
+              "monthly": null
+            },
+            "fire_premium": {
+              "ytd": null,
+              "monthly": null
+            },
+            "crop_premium": {
+              "ytd": null,
+              "monthly": null
+            },
+            "marine_premium": {
+              "ytd": null,
+              "monthly": null
+            },
+            "other_premium": {
+              "ytd": null,
+              "monthly": null
+            }
+          }
+        },
+        {
+          "company_id": "aditya-birla",
+          "insurer_name": "Aditya Birla Health Insurance Co Ltd",
+          "basis": "monthly",
+          "segments": {
+            "health_premium": {
+              "ytd": 3557.0499999999997,
+              "monthly": 537.58
+            },
+            "retail_health_premium": {
+              "ytd": 1419.93,
+              "monthly": 266.08
+            },
+            "group_health_premium": {
+              "ytd": 2130.14,
+              "monthly": 269.98
+            },
+            "government_health_premium": {
+              "ytd": 0,
+              "monthly": 0
+            },
+            "overseas_medical_premium": {
+              "ytd": 6.98,
+              "monthly": 1.52
+            },
+            "motor_premium": {
+              "ytd": null,
+              "monthly": null
+            },
+            "fire_premium": {
+              "ytd": null,
+              "monthly": null
+            },
+            "crop_premium": {
+              "ytd": null,
+              "monthly": null
+            },
+            "marine_premium": {
+              "ytd": null,
+              "monthly": null
+            },
+            "other_premium": {
+              "ytd": null,
+              "monthly": null
+            }
+          }
+        },
+        {
+          "company_id": "care-health",
+          "insurer_name": "Care Health Insurance Ltd",
+          "basis": "monthly",
+          "segments": {
+            "health_premium": {
+              "ytd": 6060.77,
+              "monthly": 1023.59
+            },
+            "retail_health_premium": {
+              "ytd": 4048.76,
+              "monthly": 723.14
+            },
+            "group_health_premium": {
+              "ytd": 1930.26,
+              "monthly": 288.54
+            },
+            "government_health_premium": {
+              "ytd": 0,
+              "monthly": 0
+            },
+            "overseas_medical_premium": {
+              "ytd": 81.75,
+              "monthly": 11.91
+            },
+            "motor_premium": {
+              "ytd": null,
+              "monthly": null
+            },
+            "fire_premium": {
+              "ytd": null,
+              "monthly": null
+            },
+            "crop_premium": {
+              "ytd": null,
+              "monthly": null
+            },
+            "marine_premium": {
+              "ytd": null,
+              "monthly": null
+            },
+            "other_premium": {
+              "ytd": null,
+              "monthly": null
+            }
+          }
+        },
+        {
+          "company_id": "manipalcigna",
+          "insurer_name": "ManipalCigna Health Insurance Co Ltd",
+          "basis": "monthly",
+          "segments": {
+            "health_premium": {
+              "ytd": 1298.41,
+              "monthly": 197.12
+            },
+            "retail_health_premium": {
+              "ytd": 660.96,
+              "monthly": 120.98
+            },
+            "group_health_premium": {
+              "ytd": 636.49,
+              "monthly": 76.01
+            },
+            "government_health_premium": {
+              "ytd": 0,
+              "monthly": 0
+            },
+            "overseas_medical_premium": {
+              "ytd": 0.96,
+              "monthly": 0.13
+            },
+            "motor_premium": {
+              "ytd": null,
+              "monthly": null
+            },
+            "fire_premium": {
+              "ytd": null,
+              "monthly": null
+            },
+            "crop_premium": {
+              "ytd": null,
+              "monthly": null
+            },
+            "marine_premium": {
+              "ytd": null,
+              "monthly": null
+            },
+            "other_premium": {
+              "ytd": null,
+              "monthly": null
+            }
+          }
+        },
+        {
+          "company_id": "star-health",
+          "insurer_name": "Star Health & Allied Insurance Co Ltd",
+          "basis": "monthly",
+          "segments": {
+            "health_premium": {
+              "ytd": 9496.39,
+              "monthly": 1751.29
+            },
+            "retail_health_premium": {
+              "ytd": 9266.52,
+              "monthly": 1709.96
+            },
+            "group_health_premium": {
+              "ytd": 226.14,
+              "monthly": 40.89
+            },
+            "government_health_premium": {
+              "ytd": 0,
+              "monthly": 0
+            },
+            "overseas_medical_premium": {
+              "ytd": 3.73,
+              "monthly": 0.44
+            },
+            "motor_premium": {
+              "ytd": null,
+              "monthly": null
+            },
+            "fire_premium": {
+              "ytd": null,
+              "monthly": null
+            },
+            "crop_premium": {
+              "ytd": null,
+              "monthly": null
+            },
+            "marine_premium": {
+              "ytd": null,
+              "monthly": null
+            },
+            "other_premium": {
+              "ytd": null,
+              "monthly": null
+            }
+          }
+        },
+        {
+          "company_id": "INDUSTRY",
+          "insurer_name": "Industry Total",
+          "basis": "monthly",
+          "segments": {
+            "health_premium": {
+              "ytd": 77494.13,
+              "monthly": 12847.3
+            },
+            "retail_health_premium": {
+              "ytd": 31707.03,
+              "monthly": 5736.84
+            },
+            "group_health_premium": {
+              "ytd": 40908.200000000004,
+              "monthly": 6553.09
+            },
+            "government_health_premium": {
+              "ytd": 3979.42,
+              "monthly": 398.28
+            },
+            "overseas_medical_premium": {
+              "ytd": 899.48,
+              "monthly": 159.09
             },
             "motor_premium": {
               "ytd": null,
