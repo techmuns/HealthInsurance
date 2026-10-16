@@ -24852,7 +24852,7 @@
     "[yahoo_price] star-health: HTTP 429 for https://query1.finance.yahoo.com/v8/finance/chart/STARHEALTH.NS?range=2y&interval=1d. Source: https://finance.yahoo.com/quote/STARHEALTH.NS/history/",
     "[yahoo_price] icici-lombard: HTTP 429 for https://query1.finance.yahoo.com/v8/finance/chart/ICICIGI.NS?range=2y&interval=1d. Source: https://finance.yahoo.com/quote/ICICIGI.NS/history/",
     "[yahoo_price] godigit: HTTP 429 for https://query1.finance.yahoo.com/v8/finance/chart/GODIGIT.NS?range=2y&interval=1d. Source: https://finance.yahoo.com/quote/GODIGIT.NS/history/",
-    "[nse_delivery] 2026-10-15: no NSE settlement file (MTO + bhavdata both absent — likely a non-trading day)"
+    "[nse_delivery] 2026-10-16: no NSE settlement file (MTO + bhavdata both absent — likely a non-trading day)"
   ],
   "next_expected_update": "2026-06-01T05:00:00Z",
   "per_source": [
@@ -25017,22 +25017,22 @@
     {
       "source_id": "moneycontrol_analyst",
       "status": "success",
-      "last_attempt_at": "2026-10-15T08:32:59.265Z",
-      "last_success_at": "2026-10-15T08:32:59.265Z",
+      "last_attempt_at": "2026-10-16T08:27:14.867Z",
+      "last_success_at": "2026-10-16T08:27:14.867Z",
       "records_fetched": 6
     },
     {
       "source_id": "moneycontrol_stock_deals",
       "status": "success",
-      "last_attempt_at": "2026-10-15T08:33:12.835Z",
-      "last_success_at": "2026-10-15T08:33:12.835Z",
+      "last_attempt_at": "2026-10-16T08:27:27.826Z",
+      "last_success_at": "2026-10-16T08:27:27.826Z",
       "records_fetched": 0
     },
     {
       "source_id": "muns_market_data",
       "status": "success",
-      "last_attempt_at": "2026-10-15T08:33:21.015Z",
-      "last_success_at": "2026-10-15T08:33:21.015Z",
+      "last_attempt_at": "2026-10-16T08:27:35.585Z",
+      "last_success_at": "2026-10-16T08:27:35.585Z",
       "records_fetched": 5,
       "error": "fetcher timed out after 6 min (capped so the run always reaches snapshot merge + commit)"
     },
@@ -25046,7 +25046,7 @@
     {
       "source_id": "nse_delivery",
       "status": "pending",
-      "last_attempt_at": "2026-10-15T08:33:56.785Z",
+      "last_attempt_at": "2026-10-16T08:28:11.734Z",
       "last_success_at": "2026-10-13T12:08:04.822Z",
       "records_fetched": 0
     },
@@ -25068,7 +25068,7 @@
     {
       "source_id": "price_history",
       "status": "pending",
-      "last_attempt_at": "2026-10-15T08:33:55.388Z",
+      "last_attempt_at": "2026-10-16T08:28:10.153Z",
       "last_success_at": null,
       "records_fetched": 0,
       "error": "fetcher timed out after 6 min (capped so the run always reaches snapshot merge + commit)"
@@ -25104,7 +25104,7 @@
     {
       "source_id": "valuation_daily",
       "status": "pending",
-      "last_attempt_at": "2026-10-15T08:32:57.141Z",
+      "last_attempt_at": "2026-10-16T08:27:12.851Z",
       "last_success_at": null,
       "records_fetched": 0,
       "error": "fetcher timed out after 6 min (capped so the run always reaches snapshot merge + commit)"
@@ -25112,7 +25112,7 @@
     {
       "source_id": "yahoo_price",
       "status": "pending",
-      "last_attempt_at": "2026-10-15T08:33:26.874Z",
+      "last_attempt_at": "2026-10-16T08:27:41.706Z",
       "last_success_at": null,
       "records_fetched": 0
     }
