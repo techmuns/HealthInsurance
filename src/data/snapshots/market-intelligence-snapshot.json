@@ -4,8 +4,8 @@
     "description": "AI-generated market intelligence for the SAHI health insurers — investor meets, earnings/board dates, sector & regulatory news, share catalysts. Web-sourced; each item links its source. AI-generated, not audited.",
     "schema_version": "1.0.0",
     "dataset": "ai_generated",
-    "last_updated": "2026-10-16",
-    "last_successful_run": "2026-10-16T06:34:10.606Z",
+    "last_updated": "2026-10-17",
+    "last_successful_run": "2026-10-17T06:23:35.987Z",
     "upstream_sources": [
       "muns_agent_web"
     ],
@@ -28,6 +28,36 @@
       "source_published_at": null,
       "first_seen": "2026-10-15T06:43:10.704Z",
       "discovered_at": "2026-10-15T06:43:10.704Z"
+    },
+    {
+      "id": "f440f3778f",
+      "company_id": "sector",
+      "date": "2026-10-15",
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "negative",
+      "headline": "Insurers seek gentler glide path for proposed expense cuts",
+      "detail": "Industry resistance highlights cost-restructuring and distribution risks for Niva Bupa and peers; final expense limits and transition periods remain key profitability catalysts.",
+      "source_name": "livemint.com",
+      "source_url": "https://livemint.com/industry/facing-steep-expense-cuts-under-proposed-irdai-caps-insurers-seek-gentler-glide-path-11791956066642.html",
+      "source_published_at": "2026-10-15",
+      "first_seen": "2026-10-17T06:23:35.987Z",
+      "discovered_at": "2026-10-17T06:23:35.987Z"
+    },
+    {
+      "id": "bac7967233",
+      "company_id": "sector",
+      "date": "2026-10-15",
+      "kind": "regulatory",
+      "horizon": "recent",
+      "impact": "positive",
+      "headline": "IRDAI chairman promises orderly transition to commission reforms",
+      "detail": "The regulator’s commitment to avoid disruption mitigates implementation concerns, but does not confirm softer final caps or an implementation timetable.",
+      "source_name": "economictimes.indiatimes.com",
+      "source_url": "https://economictimes.indiatimes.com/industry/banking/finance/insure/indias-insurance-regulator-promises-smooth-transition-to-new-commission-rules-amid-industry-concerns/articleshow/134966122.cms",
+      "source_published_at": "2026-10-15",
+      "first_seen": "2026-10-17T06:23:35.987Z",
+      "discovered_at": "2026-10-17T06:23:35.987Z"
     },
     {
       "id": "ee23a1cb7b",
@@ -615,6 +645,21 @@
       "discovered_at": "2026-09-24T14:31:32.057Z"
     },
     {
+      "id": "cbebdc5aaf",
+      "company_id": "sector",
+      "date": "2026-09-23",
+      "kind": "regulatory",
+      "horizon": "recent",
+      "impact": "watch",
+      "headline": "IRDAI proposes tighter expense limits and commission caps",
+      "detail": "Proposed expense and distribution reforms could reduce acquisition costs but disrupt sales incentives and require restructuring across health insurers; these are proposals, not final rules.",
+      "source_name": "business-standard.com",
+      "source_url": "https://www.business-standard.com/finance/insurance/irdai-proposes-tighter-expense-limits-new-commission-caps-for-insurers-126092301525_1.html",
+      "source_published_at": null,
+      "first_seen": "2026-10-17T06:23:35.987Z",
+      "discovered_at": "2026-10-17T06:23:35.987Z"
+    },
+    {
       "id": "62fef7c19b",
       "company_id": "sector",
       "date": null,
@@ -866,51 +911,6 @@
       "source_name": "investywise.com",
       "source_url": "https://www.investywise.com/niva-bupa-credit-ratings-upgraded-by-am-best",
       "source_published_at": "2026-09-17",
-      "first_seen": "2026-09-24T14:31:32.057Z",
-      "discovered_at": "2026-09-24T14:31:32.057Z"
-    },
-    {
-      "id": "9ffbc27a45",
-      "company_id": "sector",
-      "date": "2026-09-16",
-      "kind": "sector_news",
-      "horizon": "recent",
-      "impact": "neutral",
-      "headline": "CIO Vikas Jain moves to new <b>Chief Transformation Officer</b> role; <b>Karan Bhatia</b> named CIO",
-      "detail": "Reshuffle in a key investment function follows a string of C-suite changes (Deputy CEO elevation, new Bupa-nominated NEDs); internal promotion suggests continuity, but warrants monitoring.",
-      "source_name": null,
-      "source_url": null,
-      "source_published_at": null,
-      "first_seen": "2026-09-20T13:49:15.627Z",
-      "discovered_at": "2026-09-20T13:49:15.627Z"
-    },
-    {
-      "id": "9d817f5e69",
-      "company_id": "sector",
-      "date": "2026-09-15",
-      "kind": "sector_news",
-      "horizon": "recent",
-      "impact": "neutral",
-      "headline": "<b>Star Health & Allied</b> rated 'Hold' by MarketsMojo",
-      "detail": "Cites \"very expensive\" <b>4.4x P/B</b> valuation and <span style=\"color:#EF4444;font-weight:600\">-48.82% net-sales growth</span> despite 19.6% profit CAGR — a valuation caution flag that could pressure sector re-rating multiples, including Niva Bupa's relative valuation.",
-      "source_name": null,
-      "source_url": null,
-      "source_published_at": null,
-      "first_seen": "2026-09-20T13:49:15.627Z",
-      "discovered_at": "2026-09-20T13:49:15.627Z"
-    },
-    {
-      "id": "9d557bb6e9",
-      "company_id": "niva-bupa",
-      "date": "2026-09-15",
-      "kind": "rating",
-      "horizon": "recent",
-      "impact": "neutral",
-      "headline": "MarketsMojo reiterates \"Hold\" on Niva Bupa",
-      "detail": "Balanced quality/valuation/technical scorecard signals no strong near-term directional trigger from this source.",
-      "source_name": "marketsmojo.com",
-      "source_url": "https://www.marketsmojo.com/news/stock-recommendation/niva-bupa-health-insurance-company-ltd-is-rated-hold-4199839",
-      "source_published_at": "2026-09-21",
       "first_seen": "2026-09-24T14:31:32.057Z",
       "discovered_at": "2026-09-24T14:31:32.057Z"
     }
