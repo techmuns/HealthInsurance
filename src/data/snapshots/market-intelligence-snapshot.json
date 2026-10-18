@@ -4,8 +4,8 @@
     "description": "AI-generated market intelligence for the SAHI health insurers — investor meets, earnings/board dates, sector & regulatory news, share catalysts. Web-sourced; each item links its source. AI-generated, not audited.",
     "schema_version": "1.0.0",
     "dataset": "ai_generated",
-    "last_updated": "2026-10-17",
-    "last_successful_run": "2026-10-17T06:23:35.987Z",
+    "last_updated": "2026-10-18",
+    "last_successful_run": "2026-10-18T13:40:55.982Z",
     "upstream_sources": [
       "muns_agent_web"
     ],
@@ -14,6 +14,36 @@
     "notes": "Clearly labelled AI-generated intelligence — verify before acting. Items accumulate through the day and rank by investor impact, not recency."
   },
   "data": [
+    {
+      "id": "bed62a4df3",
+      "company_id": "niva-bupa",
+      "date": "2026-11-13",
+      "kind": "catalyst",
+      "horizon": "upcoming",
+      "impact": "watch",
+      "headline": "₹150 crore subordinated-debt redemption scheduled",
+      "detail": "The call-option notice schedules redemption at par, making liquidity deployment and replacement capital watchpoints rather than implying an automatic earnings benefit.",
+      "source_name": "nsearchives.nseindia.com",
+      "source_url": "https://nsearchives.nseindia.com/corporate/MAXBUPA_15102026164236_Call_Option_Intimation_and_Notice_Final.pdf",
+      "source_published_at": "2026-10-15",
+      "first_seen": "2026-10-18T13:40:55.982Z",
+      "discovered_at": "2026-10-18T13:40:55.982Z"
+    },
+    {
+      "id": "d200d71cd5",
+      "company_id": "sector",
+      "date": "2026-10-28",
+      "kind": "earnings",
+      "horizon": "upcoming",
+      "impact": "watch",
+      "headline": "Star Health Q2/H1 FY27 earnings call at 08:30 IST",
+      "detail": "September-quarter commentary will provide a peer read-through for Niva Bupa, particularly on claims experience, underwriting profitability and premium growth.",
+      "source_name": "nsearchives.nseindia.com",
+      "source_url": "https://nsearchives.nseindia.com/corporate/STARHEALTH_16102026164021_Earningcallintimation_Q2_FY_2027_SD.pdf",
+      "source_published_at": "2026-10-16",
+      "first_seen": "2026-10-18T13:40:55.982Z",
+      "discovered_at": "2026-10-18T13:40:55.982Z"
+    },
     {
       "id": "5dcc0da1b7",
       "company_id": "sector",
@@ -58,6 +88,21 @@
       "source_published_at": "2026-10-15",
       "first_seen": "2026-10-17T06:23:35.987Z",
       "discovered_at": "2026-10-17T06:23:35.987Z"
+    },
+    {
+      "id": "d2e911bd33",
+      "company_id": "niva-bupa",
+      "date": "2026-10-15",
+      "kind": "rating",
+      "horizon": "recent",
+      "impact": "positive",
+      "headline": "Proposed ₹500 crore subordinated debt rated IND AAA/Stable",
+      "detail": "The rating supports funding access, but the debt remained unissued, with financing completion and borrowing cost not confirmed.",
+      "source_name": "nsearchives.nseindia.com",
+      "source_url": "https://nsearchives.nseindia.com/corporate/MAXBUPA_15102026164611_Discosure_under_Regulation_30_-_India_Ratings.pdf",
+      "source_published_at": "2026-10-15",
+      "first_seen": "2026-10-18T13:40:55.982Z",
+      "discovered_at": "2026-10-18T13:40:55.982Z"
     },
     {
       "id": "ee23a1cb7b",
@@ -600,6 +645,21 @@
       "discovered_at": "2026-09-27T07:20:25.003Z"
     },
     {
+      "id": "52138b3219",
+      "company_id": "niva-bupa",
+      "date": "2026-09-24",
+      "kind": "rating",
+      "horizon": "recent",
+      "impact": "positive",
+      "headline": "Motilal Oswal recommends Buy with ₹100 target",
+      "detail": "The recommendation offers a bullish valuation reference, but the target is an analyst opinion—not company guidance or a guaranteed return.",
+      "source_name": "moneycontrol.com",
+      "source_url": "https://www.moneycontrol.com/news/business/stocks/buy-niva-bupa-health-insurance-target-of-rs-100-motilal-oswal-2-14038104.html",
+      "source_published_at": "2026-09-25",
+      "first_seen": "2026-10-18T13:40:55.982Z",
+      "discovered_at": "2026-10-18T13:40:55.982Z"
+    },
+    {
       "id": "3476b34bc8",
       "company_id": "sector",
       "date": null,
@@ -853,66 +913,6 @@
       "source_published_at": null,
       "first_seen": "2026-09-19T16:54:29.854Z",
       "discovered_at": "2026-09-19T16:54:29.854Z"
-    },
-    {
-      "id": "6d40787911",
-      "company_id": "sector",
-      "date": null,
-      "kind": "sector_news",
-      "horizon": "recent",
-      "impact": "neutral",
-      "headline": "<span style=\"color:#22C55E;font-weight:600\">▲ positive</span> <span style=\"background:#F0FDF4;padding:2px 6px;border-radius:4px;\">strongest signal</span>",
-      "detail": "AM Best assigns A- (Excellent) FSR, aaa.IN national scale rating",
-      "source_name": "investywise.com",
-      "source_url": "https://investywise.com/niva-bupa-credit-ratings-upgraded-by-am-best",
-      "source_published_at": null,
-      "first_seen": "2026-09-18T06:52:19.553Z",
-      "discovered_at": "2026-09-18T06:52:19.553Z"
-    },
-    {
-      "id": "cdf3865f9a",
-      "company_id": "sector",
-      "date": "2026-09-18",
-      "kind": "catalyst",
-      "horizon": "recent",
-      "impact": "neutral",
-      "headline": "Care Health raises <b>₹100 cr</b> via 10-yr subordinated NCDs (10% coupon)",
-      "detail": "Debt capital-raise strengthens CHIL's solvency buffer ahead of NSE debt-segment listing (Sep 22); signals peers actively shoring up capital amid growth/regulatory uncertainty.",
-      "source_name": null,
-      "source_url": null,
-      "source_published_at": null,
-      "first_seen": "2026-09-27T07:20:25.003Z",
-      "discovered_at": "2026-09-27T07:20:25.003Z"
-    },
-    {
-      "id": "a458aeeee9",
-      "company_id": "sector",
-      "date": "2026-09-17",
-      "kind": "sector_news",
-      "horizon": "recent",
-      "impact": "neutral",
-      "headline": "AM Best assigns <b>A- (Excellent)</b>, aaa.IN National Scale Rating",
-      "detail": "Stable-outlook rating reflects strongest-level risk-adjusted capitalisation (FY26 RoE <b>10.7%</b>, combined ratio <b>102%</b>), supportive for cost-of-credit and investor confidence.",
-      "source_name": null,
-      "source_url": null,
-      "source_published_at": null,
-      "first_seen": "2026-09-20T13:49:15.627Z",
-      "discovered_at": "2026-09-20T13:49:15.627Z"
-    },
-    {
-      "id": "fd429218c8",
-      "company_id": "niva-bupa",
-      "date": "2026-09-17",
-      "kind": "rating",
-      "horizon": "recent",
-      "impact": "neutral",
-      "headline": "<span style=\"background:#F0FDF4;padding:2px 6px;border-radius:4px;\">AM Best upgrades Niva Bupa to A- (Excellent) financial strength</span>",
-      "detail": "Upgrade cites improving underwriting performance and a lower expense ratio — a balance-sheet-quality positive, though earnings still lean on investment income.",
-      "source_name": "investywise.com",
-      "source_url": "https://www.investywise.com/niva-bupa-credit-ratings-upgraded-by-am-best",
-      "source_published_at": "2026-09-17",
-      "first_seen": "2026-09-24T14:31:32.057Z",
-      "discovered_at": "2026-09-24T14:31:32.057Z"
     }
   ]
 }

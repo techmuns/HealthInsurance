@@ -63402,8 +63402,8 @@
         "company": "Niva Bupa",
         "companyId": "niva-bupa",
         "generatedAt": "2026-10-18T06:53:53.317Z",
-        "lastUpdatedAt": "2026-10-18T06:53:53.317Z",
-        "status": "Watch",
+        "lastUpdatedAt": "2026-10-18T13:46:22.185Z",
+        "status": "Constructive",
         "sourceConfidence": "Medium",
         "itemCount": 7,
         "runs": [
@@ -63413,24 +63413,31 @@
             "sourceCount": 7,
             "ideas": 6,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-10-18T13:46:22.185Z",
+            "developments": 16,
+            "sourceCount": 9,
+            "ideas": 6,
+            "status": "ok"
           }
         ],
         "brief": {
-          "greeting": "Good morning",
-          "narrative": "Regulatory pressure is the main watch item for health insurers today. Niva Bupa is under pressure on premium growth and demand, but claims-cost and conduct scrutiny will decide whether the strength is sustainable.",
+          "greeting": "Good afternoon",
+          "narrative": "Regulatory pressure is the main watch item for health insurers today. Niva Bupa remains supported by premium growth and demand, but claims-cost and conduct scrutiny will decide whether the strength is sustainable.",
           "attentionCount": 6,
-          "developmentsCount": 14,
-          "sourcesCount": 7,
-          "domainsCount": 6,
-          "confidencePct": 73,
+          "developmentsCount": 16,
+          "sourcesCount": 9,
+          "domainsCount": 7,
+          "confidencePct": 79,
           "confidenceTier": "Medium",
           "readingMins": 3,
-          "lastUpdatedLabel": "17 Oct, 06:23 am"
+          "lastUpdatedLabel": "18 Oct, 01:40 pm"
         },
         "message": {
-          "since": "No company-specific movement for Niva Bupa since the last brief — the read below is sector & regulatory context that applies across standalone health insurers.",
+          "since": "Niva Bupa had recently surfaced positive analyst coverage, alongside older regulatory items now in view. No fresh company-specific update was published since the last brief.",
           "keyThing": "The regulator’s commitment to avoid disruption mitigates implementation concerns, but does not confirm softer final caps or an implementation timetable.",
-          "why": "The near-term read now turns on how the new rules land on pricing, commissions and cost.",
+          "why": "Growth is only as good as the claims and expense ratios behind it — that is the real question now.",
           "watch": "any fresh IRDAI clarification, and expense-ratio movement",
           "nothing": false
         },
@@ -63439,6 +63446,100 @@
           "status": "Constructive"
         },
         "ideas": [
+          {
+            "id": "d2e911bd33",
+            "entity": "Niva Bupa",
+            "stars": 5,
+            "reasoning": [
+              "The rating supports funding access, but the debt remained unissued, with financing completion and borrowing cost not confirmed.",
+              "Niva Bupa's shares fell 11.5% over Q2 FY27 (₹84.6 to ₹74.8) — while in exactly the same three months the retail health book grew 46.7% year-on-year."
+            ],
+            "whatToWatch": "Whether the next results confirm the rating and the price target.",
+            "confidencePct": 96,
+            "evidenceCount": 5,
+            "status": "Constructive",
+            "category": "Analyst Action",
+            "why": {
+              "whatHappened": "Proposed ₹500 crore subordinated debt rated IND AAA/Stable",
+              "whyItMatters": "The rating supports funding access, but the debt remained unissued, with financing completion and borrowing cost not confirmed.",
+              "whoAffected": "Niva Bupa shareholders and anyone tracking its re-rating.",
+              "historicalContext": "Niva Bupa's shares fell 11.5% over Q2 FY27 (₹84.6 to ₹74.8) — while in exactly the same three months the retail health book grew 46.7% year-on-year.",
+              "potentialImpact": "Share gains only help the thesis if they are profitable share — watch the claims ratio as the book grows, not just the share number.",
+              "whatToWatch": "Whether the next results confirm the rating and the price target."
+            },
+            "action": {
+              "id": "margins",
+              "label": "Compare Niva Bupa margin",
+              "icon": "margins",
+              "target": {
+                "page": "sahi",
+                "sahiTab": "profitability",
+                "company": "niva-bupa",
+                "focus": {
+                  "id": "pulse-margins",
+                  "metricKey": "combined_ratio",
+                  "metricLabel": "Combined ratio",
+                  "company": "niva-bupa",
+                  "companyLabel": "Niva Bupa",
+                  "comparisonType": "YoY",
+                  "tone": "neutral",
+                  "insightLabel": "Underwriting margin — combined ratio",
+                  "unit": "%",
+                  "higherIsBetter": false,
+                  "sahiTab": "profitability",
+                  "origin": "pulse"
+                }
+              }
+            },
+            "isBreaking": false,
+            "isNew": false,
+            "freshLabel": "Newly surfaced",
+            "freshness": "newly-surfaced",
+            "freshnessLabel": "Newly surfaced",
+            "publishedLabel": "15 Oct",
+            "discoveredLabel": "18 Oct",
+            "sources": [
+              {
+                "kind": "Analyst report",
+                "name": "nsearchives.nseindia.com",
+                "url": "https://nsearchives.nseindia.com/corporate/MAXBUPA_15102026164611_Discosure_under_Regulation_30_-_India_Ratings.pdf"
+              },
+              {
+                "kind": "Analyst report",
+                "name": "moneycontrol.com",
+                "url": "https://www.moneycontrol.com/news/business/stocks/buy-niva-bupa-health-insurance-target-of-rs-100-motilal-oswal-2-14038104.html"
+              },
+              {
+                "kind": "Analyst report",
+                "name": "financialexpress.com",
+                "url": "https://financialexpress.com/market/pb-fintech-crashes-32-on-irdai-commission-rules-jefferies-reveals-top-insurance-picks-now-4346352"
+              },
+              {
+                "kind": "Market data",
+                "name": "Derived from insurer-annual-snapshot + industry-segment-premium",
+                "url": "https://transactions.nivabupa.com/pages/doc/investor-relations/other-fin-disclosures/Press-Release-Results-March-2025.pdf"
+              },
+              {
+                "kind": "Market data",
+                "name": "3 curated source-backed insights",
+                "url": ""
+              }
+            ],
+            "impact": "Positive",
+            "scope": "company",
+            "companyId": "niva-bupa",
+            "sourceUrl": "https://nsearchives.nseindia.com/corporate/MAXBUPA_15102026164611_Discosure_under_Regulation_30_-_India_Ratings.pdf",
+            "sourceConfidence": "High",
+            "clusterSize": 1,
+            "clusterSources": [
+              {
+                "kind": "Analyst report",
+                "name": "nsearchives.nseindia.com",
+                "url": "https://nsearchives.nseindia.com/corporate/MAXBUPA_15102026164611_Discosure_under_Regulation_30_-_India_Ratings.pdf"
+              }
+            ],
+            "independentSources": 1
+          },
           {
             "id": "bac7967233",
             "entity": "IRDAI chairman promises orderly transition to commission reforms",
@@ -63510,6 +63611,100 @@
             "independentSources": 1
           },
           {
+            "id": "52138b3219",
+            "entity": "Niva Bupa",
+            "stars": 5,
+            "reasoning": [
+              "The recommendation offers a bullish valuation reference, but the target is an analyst opinion—not company guidance or a guaranteed return.",
+              "Niva Bupa's shares fell 11.5% over Q2 FY27 (₹84.6 to ₹74.8) — while in exactly the same three months the retail health book grew 46.7% year-on-year."
+            ],
+            "whatToWatch": "Whether the next results confirm the rating and the price target.",
+            "confidencePct": 78,
+            "evidenceCount": 5,
+            "status": "Constructive",
+            "category": "Analyst Action",
+            "why": {
+              "whatHappened": "Motilal Oswal recommends Buy with ₹100 target",
+              "whyItMatters": "The recommendation offers a bullish valuation reference, but the target is an analyst opinion—not company guidance or a guaranteed return.",
+              "whoAffected": "Niva Bupa shareholders and anyone tracking its re-rating.",
+              "historicalContext": "Niva Bupa's shares fell 11.5% over Q2 FY27 (₹84.6 to ₹74.8) — while in exactly the same three months the retail health book grew 46.7% year-on-year.",
+              "potentialImpact": "Share gains only help the thesis if they are profitable share — watch the claims ratio as the book grows, not just the share number.",
+              "whatToWatch": "Whether the next results confirm the rating and the price target."
+            },
+            "action": {
+              "id": "margins",
+              "label": "Compare Niva Bupa margin",
+              "icon": "margins",
+              "target": {
+                "page": "sahi",
+                "sahiTab": "profitability",
+                "company": "niva-bupa",
+                "focus": {
+                  "id": "pulse-margins",
+                  "metricKey": "combined_ratio",
+                  "metricLabel": "Combined ratio",
+                  "company": "niva-bupa",
+                  "companyLabel": "Niva Bupa",
+                  "comparisonType": "YoY",
+                  "tone": "neutral",
+                  "insightLabel": "Underwriting margin — combined ratio",
+                  "unit": "%",
+                  "higherIsBetter": false,
+                  "sahiTab": "profitability",
+                  "origin": "pulse"
+                }
+              }
+            },
+            "isBreaking": false,
+            "isNew": false,
+            "freshLabel": "Newly surfaced",
+            "freshness": "newly-surfaced",
+            "freshnessLabel": "Newly surfaced",
+            "publishedLabel": "25 Sep",
+            "discoveredLabel": "18 Oct",
+            "sources": [
+              {
+                "kind": "Analyst report",
+                "name": "moneycontrol.com",
+                "url": "https://www.moneycontrol.com/news/business/stocks/buy-niva-bupa-health-insurance-target-of-rs-100-motilal-oswal-2-14038104.html"
+              },
+              {
+                "kind": "Analyst report",
+                "name": "nsearchives.nseindia.com",
+                "url": "https://nsearchives.nseindia.com/corporate/MAXBUPA_15102026164611_Discosure_under_Regulation_30_-_India_Ratings.pdf"
+              },
+              {
+                "kind": "Analyst report",
+                "name": "financialexpress.com",
+                "url": "https://financialexpress.com/market/pb-fintech-crashes-32-on-irdai-commission-rules-jefferies-reveals-top-insurance-picks-now-4346352"
+              },
+              {
+                "kind": "Market data",
+                "name": "Derived from insurer-annual-snapshot + industry-segment-premium",
+                "url": "https://transactions.nivabupa.com/pages/doc/investor-relations/other-fin-disclosures/Press-Release-Results-March-2025.pdf"
+              },
+              {
+                "kind": "Market data",
+                "name": "3 curated source-backed insights",
+                "url": ""
+              }
+            ],
+            "impact": "Positive",
+            "scope": "company",
+            "companyId": "niva-bupa",
+            "sourceUrl": "https://www.moneycontrol.com/news/business/stocks/buy-niva-bupa-health-insurance-target-of-rs-100-motilal-oswal-2-14038104.html",
+            "sourceConfidence": "Medium",
+            "clusterSize": 1,
+            "clusterSources": [
+              {
+                "kind": "Analyst report",
+                "name": "moneycontrol.com",
+                "url": "https://www.moneycontrol.com/news/business/stocks/buy-niva-bupa-health-insurance-target-of-rs-100-motilal-oswal-2-14038104.html"
+              }
+            ],
+            "independentSources": 1
+          },
+          {
             "id": "f440f3778f",
             "entity": "Insurers seek gentler glide path for proposed expense cuts",
             "stars": 4,
@@ -63519,7 +63714,7 @@
             ],
             "whatToWatch": "IRDAI mis-selling / distribution-conduct rules",
             "confidencePct": 78,
-            "evidenceCount": 3,
+            "evidenceCount": 2,
             "status": "Risk",
             "category": "Sector Catalyst",
             "why": {
@@ -63568,11 +63763,6 @@
                 "url": "https://livemint.com/industry/facing-steep-expense-cuts-under-proposed-irdai-caps-insurers-seek-gentler-glide-path-11791956066642.html"
               },
               {
-                "kind": "News",
-                "name": "investywise.com",
-                "url": "https://investywise.com/niva-bupa-credit-ratings-upgraded-by-am-best"
-              },
-              {
                 "kind": "Market data",
                 "name": "Derived from insurer-annual-snapshot + industry-segment-premium",
                 "url": "https://transactions.nivabupa.com/pages/doc/investor-relations/other-fin-disclosures/Press-Release-Results-March-2025.pdf"
@@ -63603,7 +63793,7 @@
             ],
             "whatToWatch": "Whether the next results confirm the rating and the price target.",
             "confidencePct": 78,
-            "evidenceCount": 4,
+            "evidenceCount": 5,
             "status": "Neutral",
             "category": "Analyst Action",
             "why": {
@@ -63652,8 +63842,13 @@
               },
               {
                 "kind": "Analyst report",
-                "name": "investywise.com",
-                "url": "https://www.investywise.com/niva-bupa-credit-ratings-upgraded-by-am-best"
+                "name": "nsearchives.nseindia.com",
+                "url": "https://nsearchives.nseindia.com/corporate/MAXBUPA_15102026164611_Discosure_under_Regulation_30_-_India_Ratings.pdf"
+              },
+              {
+                "kind": "Analyst report",
+                "name": "moneycontrol.com",
+                "url": "https://www.moneycontrol.com/news/business/stocks/buy-niva-bupa-health-insurance-target-of-rs-100-motilal-oswal-2-14038104.html"
               },
               {
                 "kind": "Market data",
@@ -63677,94 +63872,6 @@
                 "kind": "Analyst report",
                 "name": "financialexpress.com",
                 "url": "https://financialexpress.com/market/pb-fintech-crashes-32-on-irdai-commission-rules-jefferies-reveals-top-insurance-picks-now-4346352"
-              }
-            ],
-            "independentSources": 1
-          },
-          {
-            "id": "fd429218c8",
-            "entity": "Niva Bupa",
-            "stars": 3,
-            "reasoning": [
-              "Upgrade cites improving underwriting performance and a lower expense ratio — a balance-sheet-quality positive, though earnings still lean on investment income.",
-              "Niva Bupa's shares fell 11.5% over Q2 FY27 (₹84.6 to ₹74.8) — while in exactly the same three months the retail health book grew 46.7% year-on-year."
-            ],
-            "whatToWatch": "Whether the next results confirm the rating and the price target.",
-            "confidencePct": 78,
-            "evidenceCount": 4,
-            "status": "Neutral",
-            "category": "Analyst Action",
-            "why": {
-              "whatHappened": "<span style=\"background:#F0FDF4;padding:2px 6px;border-radius:4px;\">AM Best upgrades Niva Bupa to A- (Excellent) financial strength</span>",
-              "whyItMatters": "Upgrade cites improving underwriting performance and a lower expense ratio — a balance-sheet-quality positive, though earnings still lean on investment income.",
-              "whoAffected": "Niva Bupa shareholders and anyone tracking its re-rating.",
-              "historicalContext": "Niva Bupa's shares fell 11.5% over Q2 FY27 (₹84.6 to ₹74.8) — while in exactly the same three months the retail health book grew 46.7% year-on-year.",
-              "potentialImpact": "Share gains only help the thesis if they are profitable share — watch the claims ratio as the book grows, not just the share number.",
-              "whatToWatch": "Whether the next results confirm the rating and the price target."
-            },
-            "action": {
-              "id": "margins",
-              "label": "Compare Niva Bupa margin",
-              "icon": "margins",
-              "target": {
-                "page": "sahi",
-                "sahiTab": "profitability",
-                "company": "niva-bupa",
-                "focus": {
-                  "id": "pulse-margins",
-                  "metricKey": "combined_ratio",
-                  "metricLabel": "Combined ratio",
-                  "company": "niva-bupa",
-                  "companyLabel": "Niva Bupa",
-                  "comparisonType": "YoY",
-                  "tone": "neutral",
-                  "insightLabel": "Underwriting margin — combined ratio",
-                  "unit": "%",
-                  "higherIsBetter": false,
-                  "sahiTab": "profitability",
-                  "origin": "pulse"
-                }
-              }
-            },
-            "isBreaking": false,
-            "isNew": false,
-            "freshness": "existing",
-            "freshnessLabel": "Existing context",
-            "publishedLabel": "17 Sep",
-            "discoveredLabel": "24 Sep",
-            "sources": [
-              {
-                "kind": "Analyst report",
-                "name": "investywise.com",
-                "url": "https://www.investywise.com/niva-bupa-credit-ratings-upgraded-by-am-best"
-              },
-              {
-                "kind": "Analyst report",
-                "name": "financialexpress.com",
-                "url": "https://financialexpress.com/market/pb-fintech-crashes-32-on-irdai-commission-rules-jefferies-reveals-top-insurance-picks-now-4346352"
-              },
-              {
-                "kind": "Market data",
-                "name": "Derived from insurer-annual-snapshot + industry-segment-premium",
-                "url": "https://transactions.nivabupa.com/pages/doc/investor-relations/other-fin-disclosures/Press-Release-Results-March-2025.pdf"
-              },
-              {
-                "kind": "Market data",
-                "name": "3 curated source-backed insights",
-                "url": ""
-              }
-            ],
-            "impact": "Neutral",
-            "scope": "company",
-            "companyId": "niva-bupa",
-            "sourceUrl": "https://www.investywise.com/niva-bupa-credit-ratings-upgraded-by-am-best",
-            "sourceConfidence": "Medium",
-            "clusterSize": 1,
-            "clusterSources": [
-              {
-                "kind": "Analyst report",
-                "name": "investywise.com",
-                "url": "https://www.investywise.com/niva-bupa-credit-ratings-upgraded-by-am-best"
               }
             ],
             "independentSources": 1
@@ -63861,84 +63968,14 @@
               }
             ],
             "independentSources": 1
-          },
-          {
-            "id": "cbebdc5aaf",
-            "entity": "IRDAI proposes tighter expense limits and commission caps",
-            "stars": 3,
-            "reasoning": [
-              "Proposed expense and distribution reforms could reduce acquisition costs but disrupt sales incentives and require restructuring across health insurers; these are proposals, not final rules.",
-              "Solvency 3.03x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency."
-            ],
-            "whatToWatch": "IRDAI mis-selling / distribution-conduct rules",
-            "confidencePct": 75,
-            "evidenceCount": 3,
-            "status": "Watch",
-            "category": "Regulatory",
-            "why": {
-              "whatHappened": "IRDAI proposes tighter expense limits and commission caps",
-              "whyItMatters": "Proposed expense and distribution reforms could reduce acquisition costs but disrupt sales incentives and require restructuring across health insurers; these are proposals, not final rules.",
-              "whoAffected": "Every standalone health insurer (SAHI) — pricing, product design and compliance cost.",
-              "historicalContext": "Solvency 3.03x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency.",
-              "potentialImpact": "Solvency vs the 1.5x regulatory floor",
-              "whatToWatch": "IRDAI mis-selling / distribution-conduct rules"
-            },
-            "action": {
-              "id": "regulation",
-              "label": "Check IRDAI on claims cost",
-              "icon": "regulation",
-              "target": {
-                "page": "sahi",
-                "sahiTab": "governance",
-                "company": "niva-bupa"
-              }
-            },
-            "isBreaking": false,
-            "isNew": false,
-            "freshLabel": "Newly surfaced",
-            "freshness": "newly-surfaced",
-            "freshnessLabel": "Newly surfaced",
-            "publishedLabel": "—",
-            "discoveredLabel": "17 Oct",
-            "sources": [
-              {
-                "kind": "Regulatory",
-                "name": "business-standard.com",
-                "url": "https://www.business-standard.com/finance/insurance/irdai-proposes-tighter-expense-limits-new-commission-caps-for-insurers-126092301525_1.html"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "economictimes.indiatimes.com",
-                "url": "https://economictimes.indiatimes.com/industry/banking/finance/insure/indias-insurance-regulator-promises-smooth-transition-to-new-commission-rules-amid-industry-concerns/articleshow/134966122.cms"
-              },
-              {
-                "kind": "Market data",
-                "name": "Derived from insurer-annual-snapshot + industry-segment-premium",
-                "url": "https://transactions.nivabupa.com/pages/doc/investor-relations/other-fin-disclosures/Press-Release-Results-March-2025.pdf"
-              }
-            ],
-            "impact": "Watch",
-            "scope": "sector",
-            "companyId": null,
-            "sourceUrl": "https://www.business-standard.com/finance/insurance/irdai-proposes-tighter-expense-limits-new-commission-caps-for-insurers-126092301525_1.html",
-            "sourceConfidence": "Medium",
-            "clusterSize": 1,
-            "clusterSources": [
-              {
-                "kind": "Regulatory",
-                "name": "business-standard.com",
-                "url": "https://www.business-standard.com/finance/insurance/irdai-proposes-tighter-expense-limits-new-commission-caps-for-insurers-126092301525_1.html"
-              }
-            ],
-            "independentSources": 1
           }
         ],
         "sinceDeltas": [
           {
             "id": "co",
-            "label": "company-specific updates",
-            "value": "0",
-            "direction": "flat",
+            "label": "newly surfaced relevant updates",
+            "value": "2",
+            "direction": "up",
             "tone": "Neutral",
             "target": {
               "page": "sahi",
@@ -63954,12 +63991,13 @@
                 "companyLabel": "Niva Bupa",
                 "comparisonType": "trend",
                 "tone": "neutral",
-                "insightLabel": "No Niva Bupa-specific updates",
+                "insightLabel": "2 newly surfaced Niva Bupa updates",
                 "unit": "",
                 "sahiTab": "companies",
                 "origin": "pulse"
               }
-            }
+            },
+            "href": "https://nsearchives.nseindia.com/corporate/MAXBUPA_15102026164611_Discosure_under_Regulation_30_-_India_Ratings.pdf"
           },
           {
             "id": "moves",
@@ -118643,10 +118681,10 @@
         "company": "Star Health",
         "companyId": "star-health",
         "generatedAt": "2026-10-18T06:53:53.317Z",
-        "lastUpdatedAt": "2026-10-18T06:53:53.317Z",
+        "lastUpdatedAt": "2026-10-18T13:46:22.185Z",
         "status": "Watch",
         "sourceConfidence": "Medium",
-        "itemCount": 4,
+        "itemCount": 3,
         "runs": [
           {
             "runTime": "2026-10-18T06:53:53.317Z",
@@ -118654,19 +118692,26 @@
             "sourceCount": 4,
             "ideas": 4,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-10-18T13:46:22.185Z",
+            "developments": 7,
+            "sourceCount": 4,
+            "ideas": 3,
+            "status": "ok"
           }
         ],
         "brief": {
-          "greeting": "Good morning",
+          "greeting": "Good afternoon",
           "narrative": "Regulatory pressure is the main watch item for health insurers today. Star Health is under pressure on premium growth and demand, but claims-cost and conduct scrutiny will decide whether the strength is sustainable.",
-          "attentionCount": 4,
+          "attentionCount": 3,
           "developmentsCount": 7,
           "sourcesCount": 4,
           "domainsCount": 4,
-          "confidencePct": 71,
+          "confidencePct": 76,
           "confidenceTier": "Medium",
-          "readingMins": 2,
-          "lastUpdatedLabel": "17 Oct, 06:23 am"
+          "readingMins": 1,
+          "lastUpdatedLabel": "18 Oct, 01:40 pm"
         },
         "message": {
           "since": "No company-specific movement for Star Health since the last brief — the read below is sector & regulatory context that applies across standalone health insurers.",
@@ -118760,7 +118805,7 @@
             ],
             "whatToWatch": "IRDAI mis-selling / distribution-conduct rules",
             "confidencePct": 78,
-            "evidenceCount": 3,
+            "evidenceCount": 2,
             "status": "Risk",
             "category": "Sector Catalyst",
             "why": {
@@ -118807,11 +118852,6 @@
                 "kind": "News",
                 "name": "livemint.com",
                 "url": "https://livemint.com/industry/facing-steep-expense-cuts-under-proposed-irdai-caps-insurers-seek-gentler-glide-path-11791956066642.html"
-              },
-              {
-                "kind": "News",
-                "name": "investywise.com",
-                "url": "https://investywise.com/niva-bupa-credit-ratings-upgraded-by-am-best"
               },
               {
                 "kind": "Market data",
@@ -118900,89 +118940,6 @@
                 "kind": "Regulatory",
                 "name": "business-standard.com",
                 "url": "https://www.business-standard.com/finance/insurance/irdai-proposes-tighter-expense-limits-new-commission-caps-for-insurers-126092301525_1.html"
-              }
-            ],
-            "independentSources": 1
-          },
-          {
-            "id": "6d40787911",
-            "entity": "<span style=\"color:#22C55E;font-weight:600\">▲ positive</span> <span style=\"background:#F0FDF4;padding:2px 6px;border-radius:4px;\">strongest signal</span>",
-            "stars": 1,
-            "reasoning": [
-              "AM Best assigns A- (Excellent) FSR, aaa.IN national scale rating",
-              "Solvency 2.2x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency."
-            ],
-            "whatToWatch": "Whether the sector move feeds through to premium growth and pricing.",
-            "confidencePct": 59,
-            "evidenceCount": 3,
-            "status": "Neutral",
-            "category": "Sector Catalyst",
-            "why": {
-              "whatHappened": "<span style=\"color:#22C55E;font-weight:600\">▲ positive</span> <span style=\"background:#F0FDF4;padding:2px 6px;border-radius:4px;\">strongest…",
-              "whyItMatters": "AM Best assigns A- (Excellent) FSR, aaa.IN national scale rating",
-              "whoAffected": "The broader health-insurance sector and its listed players.",
-              "historicalContext": "Solvency 2.2x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency.",
-              "potentialImpact": "Solvency vs the 1.5x regulatory floor",
-              "whatToWatch": "Whether the sector move feeds through to premium growth and pricing."
-            },
-            "action": {
-              "id": "margins",
-              "label": "Compare Star Health margin",
-              "icon": "margins",
-              "target": {
-                "page": "sahi",
-                "sahiTab": "profitability",
-                "company": "star-health",
-                "focus": {
-                  "id": "pulse-margins",
-                  "metricKey": "combined_ratio",
-                  "metricLabel": "Combined ratio",
-                  "company": "star-health",
-                  "companyLabel": "Star Health",
-                  "comparisonType": "YoY",
-                  "tone": "neutral",
-                  "insightLabel": "Underwriting margin — combined ratio",
-                  "unit": "%",
-                  "higherIsBetter": false,
-                  "sahiTab": "profitability",
-                  "origin": "pulse"
-                }
-              }
-            },
-            "isBreaking": false,
-            "isNew": false,
-            "freshness": "existing",
-            "freshnessLabel": "Existing context",
-            "publishedLabel": "—",
-            "discoveredLabel": "18 Sep",
-            "sources": [
-              {
-                "kind": "News",
-                "name": "investywise.com",
-                "url": "https://investywise.com/niva-bupa-credit-ratings-upgraded-by-am-best"
-              },
-              {
-                "kind": "News",
-                "name": "livemint.com",
-                "url": "https://livemint.com/industry/facing-steep-expense-cuts-under-proposed-irdai-caps-insurers-seek-gentler-glide-path-11791956066642.html"
-              },
-              {
-                "kind": "Market data",
-                "name": "Derived from insurer-annual-snapshot + industry-segment-premium",
-                "url": "https://www.prnewswire.com/in/news-releases/star-health-insurance-reports-strong-performance-q1fy26-pat-grows-44-to-inr-438-cr-ifrs-premium-grows-13-302517057.html"
-              }
-            ],
-            "impact": "Neutral",
-            "scope": "sector",
-            "companyId": null,
-            "sourceUrl": "https://investywise.com/niva-bupa-credit-ratings-upgraded-by-am-best",
-            "sourceConfidence": "Low",
-            "clusterSize": 1,
-            "clusterSources": [
-              {
-                "kind": "News",
-                "name": "investywise.com",
-                "url": "https://investywise.com/niva-bupa-credit-ratings-upgraded-by-am-best"
               }
             ],
             "independentSources": 1
@@ -174468,10 +174425,10 @@
         "company": "Care Health",
         "companyId": "care-health",
         "generatedAt": "2026-10-18T06:53:53.317Z",
-        "lastUpdatedAt": "2026-10-18T06:53:53.317Z",
+        "lastUpdatedAt": "2026-10-18T13:46:22.185Z",
         "status": "Watch",
         "sourceConfidence": "Medium",
-        "itemCount": 5,
+        "itemCount": 4,
         "runs": [
           {
             "runTime": "2026-10-18T06:53:53.317Z",
@@ -174479,19 +174436,26 @@
             "sourceCount": 5,
             "ideas": 5,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-10-18T13:46:22.185Z",
+            "developments": 9,
+            "sourceCount": 5,
+            "ideas": 4,
+            "status": "ok"
           }
         ],
         "brief": {
-          "greeting": "Good morning",
+          "greeting": "Good afternoon",
           "narrative": "Regulatory pressure is the main watch item for health insurers today. Care Health is under pressure on premium growth and demand, but claims-cost and conduct scrutiny will decide whether the strength is sustainable.",
-          "attentionCount": 5,
+          "attentionCount": 4,
           "developmentsCount": 9,
           "sourcesCount": 5,
           "domainsCount": 5,
-          "confidencePct": 72,
+          "confidencePct": 76,
           "confidenceTier": "Medium",
-          "readingMins": 3,
-          "lastUpdatedLabel": "17 Oct, 06:23 am"
+          "readingMins": 2,
+          "lastUpdatedLabel": "18 Oct, 01:40 pm"
         },
         "message": {
           "since": "No company-specific movement for Care Health since the last brief — the read below is sector & regulatory context that applies across standalone health insurers.",
@@ -174590,7 +174554,7 @@
             ],
             "whatToWatch": "Whether the sector move feeds through to premium growth and pricing.",
             "confidencePct": 78,
-            "evidenceCount": 4,
+            "evidenceCount": 3,
             "status": "Risk",
             "category": "Sector Catalyst",
             "why": {
@@ -174637,11 +174601,6 @@
                 "kind": "News",
                 "name": "livemint.com",
                 "url": "https://livemint.com/industry/facing-steep-expense-cuts-under-proposed-irdai-caps-insurers-seek-gentler-glide-path-11791956066642.html"
-              },
-              {
-                "kind": "News",
-                "name": "investywise.com",
-                "url": "https://investywise.com/niva-bupa-credit-ratings-upgraded-by-am-best"
               },
               {
                 "kind": "Market data",
@@ -174833,94 +174792,6 @@
                 "kind": "Market data",
                 "name": "multibagg.ai",
                 "url": "https://multibagg.ai/market-pulse/articles/religare-enterprises-agm-2026-voting-cmufk61y6000a2uo6nwhytdir"
-              }
-            ],
-            "independentSources": 1
-          },
-          {
-            "id": "6d40787911",
-            "entity": "<span style=\"color:#22C55E;font-weight:600\">▲ positive</span> <span style=\"background:#F0FDF4;padding:2px 6px;border-radius:4px;\">strongest signal</span>",
-            "stars": 2,
-            "reasoning": [
-              "AM Best assigns A- (Excellent) FSR, aaa.IN national scale rating",
-              "Care Health's capital cushion (solvency ratio) stands at 1.68x against the regulator's 1.5x minimum — that sounds safe, but growing premium at 20.4% a year consumes capital mechanically."
-            ],
-            "whatToWatch": "Whether the sector move feeds through to premium growth and pricing.",
-            "confidencePct": 60,
-            "evidenceCount": 4,
-            "status": "Neutral",
-            "category": "Sector Catalyst",
-            "why": {
-              "whatHappened": "<span style=\"color:#22C55E;font-weight:600\">▲ positive</span> <span style=\"background:#F0FDF4;padding:2px 6px;border-radius:4px;\">strongest…",
-              "whyItMatters": "AM Best assigns A- (Excellent) FSR, aaa.IN national scale rating",
-              "whoAffected": "The broader health-insurance sector and its listed players.",
-              "historicalContext": "Care Health's capital cushion (solvency ratio) stands at 1.68x against the regulator's 1.5x minimum — that sounds safe, but growing premium at 20.4% a year consumes capital mechanically.",
-              "potentialImpact": "Solvency sits close enough to the floor that a capital raise or slower growth is a live possibility.",
-              "whatToWatch": "Whether the sector move feeds through to premium growth and pricing."
-            },
-            "action": {
-              "id": "margins",
-              "label": "Compare Care Health margin",
-              "icon": "margins",
-              "target": {
-                "page": "sahi",
-                "sahiTab": "profitability",
-                "company": "care-health",
-                "focus": {
-                  "id": "pulse-margins",
-                  "metricKey": "combined_ratio",
-                  "metricLabel": "Combined ratio",
-                  "company": "care-health",
-                  "companyLabel": "Care Health",
-                  "comparisonType": "YoY",
-                  "tone": "neutral",
-                  "insightLabel": "Underwriting margin — combined ratio",
-                  "unit": "%",
-                  "higherIsBetter": false,
-                  "sahiTab": "profitability",
-                  "origin": "pulse"
-                }
-              }
-            },
-            "isBreaking": false,
-            "isNew": false,
-            "freshness": "existing",
-            "freshnessLabel": "Existing context",
-            "publishedLabel": "—",
-            "discoveredLabel": "18 Sep",
-            "sources": [
-              {
-                "kind": "News",
-                "name": "investywise.com",
-                "url": "https://investywise.com/niva-bupa-credit-ratings-upgraded-by-am-best"
-              },
-              {
-                "kind": "News",
-                "name": "livemint.com",
-                "url": "https://livemint.com/industry/facing-steep-expense-cuts-under-proposed-irdai-caps-insurers-seek-gentler-glide-path-11791956066642.html"
-              },
-              {
-                "kind": "Market data",
-                "name": "care-health disclosure",
-                "url": "https://cms.careinsurance.com/cms/public/uploads/uploads/public_disclosure/FY%2024-25/Qtr%203%2024-25/PublicDisclosuresDecember2024_1738647983.pdf"
-              },
-              {
-                "kind": "Market data",
-                "name": "1 curated source-backed insight",
-                "url": ""
-              }
-            ],
-            "impact": "Neutral",
-            "scope": "sector",
-            "companyId": null,
-            "sourceUrl": "https://investywise.com/niva-bupa-credit-ratings-upgraded-by-am-best",
-            "sourceConfidence": "Low",
-            "clusterSize": 1,
-            "clusterSources": [
-              {
-                "kind": "News",
-                "name": "investywise.com",
-                "url": "https://investywise.com/niva-bupa-credit-ratings-upgraded-by-am-best"
               }
             ],
             "independentSources": 1
@@ -227972,10 +227843,10 @@
         "company": "Aditya Birla",
         "companyId": "aditya-birla",
         "generatedAt": "2026-10-18T06:53:53.317Z",
-        "lastUpdatedAt": "2026-10-18T06:53:53.317Z",
+        "lastUpdatedAt": "2026-10-18T13:46:22.185Z",
         "status": "Watch",
         "sourceConfidence": "Medium",
-        "itemCount": 4,
+        "itemCount": 3,
         "runs": [
           {
             "runTime": "2026-10-18T06:53:53.317Z",
@@ -227983,19 +227854,26 @@
             "sourceCount": 4,
             "ideas": 4,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-10-18T13:46:22.185Z",
+            "developments": 4,
+            "sourceCount": 4,
+            "ideas": 3,
+            "status": "ok"
           }
         ],
         "brief": {
-          "greeting": "Good morning",
+          "greeting": "Good afternoon",
           "narrative": "Regulatory pressure is the main watch item for health insurers today. Aditya Birla is under pressure on premium growth and demand, but claims-cost and conduct scrutiny will decide whether the strength is sustainable.",
-          "attentionCount": 4,
+          "attentionCount": 3,
           "developmentsCount": 4,
           "sourcesCount": 4,
           "domainsCount": 4,
-          "confidencePct": 71,
+          "confidencePct": 76,
           "confidenceTier": "Medium",
-          "readingMins": 2,
-          "lastUpdatedLabel": "17 Oct, 06:23 am"
+          "readingMins": 1,
+          "lastUpdatedLabel": "18 Oct, 01:40 pm"
         },
         "message": {
           "since": "No company-specific movement for Aditya Birla since the last brief — the read below is sector & regulatory context that applies across standalone health insurers.",
@@ -228089,7 +227967,7 @@
             ],
             "whatToWatch": "IRDAI mis-selling / distribution-conduct rules",
             "confidencePct": 78,
-            "evidenceCount": 3,
+            "evidenceCount": 2,
             "status": "Risk",
             "category": "Sector Catalyst",
             "why": {
@@ -228136,11 +228014,6 @@
                 "kind": "News",
                 "name": "livemint.com",
                 "url": "https://livemint.com/industry/facing-steep-expense-cuts-under-proposed-irdai-caps-insurers-seek-gentler-glide-path-11791956066642.html"
-              },
-              {
-                "kind": "News",
-                "name": "investywise.com",
-                "url": "https://investywise.com/niva-bupa-credit-ratings-upgraded-by-am-best"
               },
               {
                 "kind": "Market data",
@@ -228229,89 +228102,6 @@
                 "kind": "Regulatory",
                 "name": "business-standard.com",
                 "url": "https://www.business-standard.com/finance/insurance/irdai-proposes-tighter-expense-limits-new-commission-caps-for-insurers-126092301525_1.html"
-              }
-            ],
-            "independentSources": 1
-          },
-          {
-            "id": "6d40787911",
-            "entity": "<span style=\"color:#22C55E;font-weight:600\">▲ positive</span> <span style=\"background:#F0FDF4;padding:2px 6px;border-radius:4px;\">strongest signal</span>",
-            "stars": 1,
-            "reasoning": [
-              "AM Best assigns A- (Excellent) FSR, aaa.IN national scale rating",
-              "Solvency 1.84x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency."
-            ],
-            "whatToWatch": "Whether the sector move feeds through to premium growth and pricing.",
-            "confidencePct": 59,
-            "evidenceCount": 3,
-            "status": "Neutral",
-            "category": "Sector Catalyst",
-            "why": {
-              "whatHappened": "<span style=\"color:#22C55E;font-weight:600\">▲ positive</span> <span style=\"background:#F0FDF4;padding:2px 6px;border-radius:4px;\">strongest…",
-              "whyItMatters": "AM Best assigns A- (Excellent) FSR, aaa.IN national scale rating",
-              "whoAffected": "The broader health-insurance sector and its listed players.",
-              "historicalContext": "Solvency 1.84x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency.",
-              "potentialImpact": "Solvency vs the 1.5x regulatory floor",
-              "whatToWatch": "Whether the sector move feeds through to premium growth and pricing."
-            },
-            "action": {
-              "id": "margins",
-              "label": "Compare Aditya Birla margin",
-              "icon": "margins",
-              "target": {
-                "page": "sahi",
-                "sahiTab": "profitability",
-                "company": "aditya-birla",
-                "focus": {
-                  "id": "pulse-margins",
-                  "metricKey": "combined_ratio",
-                  "metricLabel": "Combined ratio",
-                  "company": "aditya-birla",
-                  "companyLabel": "Aditya Birla",
-                  "comparisonType": "YoY",
-                  "tone": "neutral",
-                  "insightLabel": "Underwriting margin — combined ratio",
-                  "unit": "%",
-                  "higherIsBetter": false,
-                  "sahiTab": "profitability",
-                  "origin": "pulse"
-                }
-              }
-            },
-            "isBreaking": false,
-            "isNew": false,
-            "freshness": "existing",
-            "freshnessLabel": "Existing context",
-            "publishedLabel": "—",
-            "discoveredLabel": "18 Sep",
-            "sources": [
-              {
-                "kind": "News",
-                "name": "investywise.com",
-                "url": "https://investywise.com/niva-bupa-credit-ratings-upgraded-by-am-best"
-              },
-              {
-                "kind": "News",
-                "name": "livemint.com",
-                "url": "https://livemint.com/industry/facing-steep-expense-cuts-under-proposed-irdai-caps-insurers-seek-gentler-glide-path-11791956066642.html"
-              },
-              {
-                "kind": "Market data",
-                "name": "Aditya Birla Capital Q4 & FY25 Results Press Release",
-                "url": "https://www.adityabirlacapital.com/-/media/ABCL/pdf/Quarterly-Results/Q4-FY-25/130525_ABCL-Results-Press-Release.ashx"
-              }
-            ],
-            "impact": "Neutral",
-            "scope": "sector",
-            "companyId": null,
-            "sourceUrl": "https://investywise.com/niva-bupa-credit-ratings-upgraded-by-am-best",
-            "sourceConfidence": "Low",
-            "clusterSize": 1,
-            "clusterSources": [
-              {
-                "kind": "News",
-                "name": "investywise.com",
-                "url": "https://investywise.com/niva-bupa-credit-ratings-upgraded-by-am-best"
               }
             ],
             "independentSources": 1
@@ -281924,10 +281714,10 @@
         "company": "ManipalCigna",
         "companyId": "manipalcigna",
         "generatedAt": "2026-10-18T06:53:53.317Z",
-        "lastUpdatedAt": "2026-10-18T06:53:53.317Z",
+        "lastUpdatedAt": "2026-10-18T13:46:22.185Z",
         "status": "Watch",
         "sourceConfidence": "Medium",
-        "itemCount": 4,
+        "itemCount": 3,
         "runs": [
           {
             "runTime": "2026-10-18T06:53:53.317Z",
@@ -281935,19 +281725,26 @@
             "sourceCount": 4,
             "ideas": 4,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-10-18T13:46:22.185Z",
+            "developments": 6,
+            "sourceCount": 4,
+            "ideas": 3,
+            "status": "ok"
           }
         ],
         "brief": {
-          "greeting": "Good morning",
+          "greeting": "Good afternoon",
           "narrative": "Regulatory pressure is the main watch item for health insurers today. ManipalCigna is under pressure on premium growth and demand, but claims-cost and conduct scrutiny will decide whether the strength is sustainable.",
-          "attentionCount": 4,
+          "attentionCount": 3,
           "developmentsCount": 6,
           "sourcesCount": 4,
           "domainsCount": 4,
-          "confidencePct": 71,
+          "confidencePct": 76,
           "confidenceTier": "Medium",
-          "readingMins": 2,
-          "lastUpdatedLabel": "17 Oct, 06:23 am"
+          "readingMins": 1,
+          "lastUpdatedLabel": "18 Oct, 01:40 pm"
         },
         "message": {
           "since": "No company-specific movement for ManipalCigna since the last brief — the read below is sector & regulatory context that applies across standalone health insurers.",
@@ -282041,7 +281838,7 @@
             ],
             "whatToWatch": "IRDAI mis-selling / distribution-conduct rules",
             "confidencePct": 78,
-            "evidenceCount": 3,
+            "evidenceCount": 2,
             "status": "Risk",
             "category": "Sector Catalyst",
             "why": {
@@ -282088,11 +281885,6 @@
                 "kind": "News",
                 "name": "livemint.com",
                 "url": "https://livemint.com/industry/facing-steep-expense-cuts-under-proposed-irdai-caps-insurers-seek-gentler-glide-path-11791956066642.html"
-              },
-              {
-                "kind": "News",
-                "name": "investywise.com",
-                "url": "https://investywise.com/niva-bupa-credit-ratings-upgraded-by-am-best"
               },
               {
                 "kind": "Market data",
@@ -282181,89 +281973,6 @@
                 "kind": "Regulatory",
                 "name": "business-standard.com",
                 "url": "https://www.business-standard.com/finance/insurance/irdai-proposes-tighter-expense-limits-new-commission-caps-for-insurers-126092301525_1.html"
-              }
-            ],
-            "independentSources": 1
-          },
-          {
-            "id": "6d40787911",
-            "entity": "<span style=\"color:#22C55E;font-weight:600\">▲ positive</span> <span style=\"background:#F0FDF4;padding:2px 6px;border-radius:4px;\">strongest signal</span>",
-            "stars": 1,
-            "reasoning": [
-              "AM Best assigns A- (Excellent) FSR, aaa.IN national scale rating",
-              "Solvency 1.7x vs the 1.5x floor — headroom is thinner; watch solvency alongside regulation."
-            ],
-            "whatToWatch": "Whether the sector move feeds through to premium growth and pricing.",
-            "confidencePct": 59,
-            "evidenceCount": 3,
-            "status": "Neutral",
-            "category": "Sector Catalyst",
-            "why": {
-              "whatHappened": "<span style=\"color:#22C55E;font-weight:600\">▲ positive</span> <span style=\"background:#F0FDF4;padding:2px 6px;border-radius:4px;\">strongest…",
-              "whyItMatters": "AM Best assigns A- (Excellent) FSR, aaa.IN national scale rating",
-              "whoAffected": "The broader health-insurance sector and its listed players.",
-              "historicalContext": "Solvency 1.7x vs the 1.5x floor — headroom is thinner; watch solvency alongside regulation.",
-              "potentialImpact": "Solvency sits close enough to the floor that a capital raise or slower growth is a live possibility.",
-              "whatToWatch": "Whether the sector move feeds through to premium growth and pricing."
-            },
-            "action": {
-              "id": "margins",
-              "label": "Compare ManipalCigna margin",
-              "icon": "margins",
-              "target": {
-                "page": "sahi",
-                "sahiTab": "profitability",
-                "company": "manipalcigna",
-                "focus": {
-                  "id": "pulse-margins",
-                  "metricKey": "combined_ratio",
-                  "metricLabel": "Combined ratio",
-                  "company": "manipalcigna",
-                  "companyLabel": "ManipalCigna",
-                  "comparisonType": "YoY",
-                  "tone": "neutral",
-                  "insightLabel": "Underwriting margin — combined ratio",
-                  "unit": "%",
-                  "higherIsBetter": false,
-                  "sahiTab": "profitability",
-                  "origin": "pulse"
-                }
-              }
-            },
-            "isBreaking": false,
-            "isNew": false,
-            "freshness": "existing",
-            "freshnessLabel": "Existing context",
-            "publishedLabel": "—",
-            "discoveredLabel": "18 Sep",
-            "sources": [
-              {
-                "kind": "News",
-                "name": "investywise.com",
-                "url": "https://investywise.com/niva-bupa-credit-ratings-upgraded-by-am-best"
-              },
-              {
-                "kind": "News",
-                "name": "livemint.com",
-                "url": "https://livemint.com/industry/facing-steep-expense-cuts-under-proposed-irdai-caps-insurers-seek-gentler-glide-path-11791956066642.html"
-              },
-              {
-                "kind": "Market data",
-                "name": "ManipalCigna FY25 Public Disclosures",
-                "url": "https://www.manipalcigna.com/disclosures/public-disclosures"
-              }
-            ],
-            "impact": "Neutral",
-            "scope": "sector",
-            "companyId": null,
-            "sourceUrl": "https://investywise.com/niva-bupa-credit-ratings-upgraded-by-am-best",
-            "sourceConfidence": "Low",
-            "clusterSize": 1,
-            "clusterSources": [
-              {
-                "kind": "News",
-                "name": "investywise.com",
-                "url": "https://investywise.com/niva-bupa-credit-ratings-upgraded-by-am-best"
               }
             ],
             "independentSources": 1
@@ -282378,6 +282087,6 @@
     "snapshot_id": "pulse-brief-archive",
     "description": "Immutable per-calendar-day Pulse brief records (IST), one per company. Past days are frozen exactly as shown that day; the live Today view recomposes. Kept ~90 days per company.",
     "last_updated": "2026-10-18",
-    "last_successful_run": "2026-10-18T06:53:53.317Z"
+    "last_successful_run": "2026-10-18T13:46:22.185Z"
   }
 }
