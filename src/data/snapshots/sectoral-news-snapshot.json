@@ -3,14 +3,91 @@
     "snapshot_id": "sectoral-news-snapshot",
     "description": "Key Sectoral News feed — a permanent seed of 31 curated portfolio-pack updates, kept current by a scheduled muns web-search agent. Each item links its source. Seed items are curated; agent items are AI-gathered (web), clearly labelled and not audited.",
     "schema_version": "1.0.0",
-    "last_updated": "2026-10-12",
-    "last_successful_run": "2026-10-12T14:38:27.201Z",
+    "last_updated": "2026-10-22",
+    "last_successful_run": "2026-10-22T11:19:58.250Z",
     "seed_count": 31,
-    "agent_count": 357,
+    "agent_count": 370,
     "generated_by": "Seed: investor portfolio pack. Updates: AI (muns agent, web search).",
     "notes": "Seed floor can never be lost. Agent items are de-duped by subject+date and verified-before-acting."
   },
   "data": [
+    {
+      "sn": 390,
+      "category": "Regulatory",
+      "date": "2026-10-22",
+      "subject": "Ex-IRDAI chief urges policyholder-first commission reforms",
+      "summary": "Former IRDAI chairman N Rangachary argued proposed <span style=\"color:#F59E0B;font-weight:600\">agent-commission cuts and expense caps</span> should prioritize policyholders over distributor economics — keeps the contentious commission-reform debate (a distribution-cost driver for health insurers) in focus.",
+      "reference": "https://thefederal.com/the-federal-special/irdai-insurance-regulation-rangachary-interview-260336",
+      "id": "18ba7a919b7ed7",
+      "origin": "agent",
+      "added_at": "2026-10-22"
+    },
+    {
+      "sn": 389,
+      "category": "Competition / Peers",
+      "date": "2026-10-22",
+      "subject": "IndusInd General Insurance names new MD & CEO",
+      "summary": "Sharad Mathur (three decades of insurance/financial-services experience) was appointed MD & CEO, reflecting continued <span style=\"color:#1E3A8A;font-weight:600\">new-entrant activity</span> and leadership churn in general insurance, a space competing for capital and talent with standalone health insurers.",
+      "reference": "https://moneycontrol.com/news/business/wire-news/indusind-general-insurance-appoints-sharad-mathur-as-md-ceo-14056817.html/amp",
+      "id": "17c727f125dbcd",
+      "origin": "agent",
+      "added_at": "2026-10-22"
+    },
+    {
+      "sn": 393,
+      "category": "General",
+      "date": "2026-10-21",
+      "subject": "India hospital market projected for strong 2026-2034 growth",
+      "summary": "Industry report flags continued hospital-sector expansion (public/private/PPP) — a structural <span style=\"color:#22C55E;font-weight:600\">demand tailwind</span> for health insurance, but also a driver of rising hospitalization/claims costs.",
+      "reference": "https://openpr.com/news/4667817/indian-hospital-market-2026-2034-size-share-growth-trends",
+      "id": "13adf22ee75e79",
+      "origin": "agent",
+      "added_at": "2026-10-22"
+    },
+    {
+      "sn": 392,
+      "category": "GST",
+      "date": "2026-10-21",
+      "subject": "GST Council clarifies ITC eligibility for group health/life insurance",
+      "summary": "Guidance on CGST Section 17(5)(b)(i) post the 57th Council meeting: individual exempt policies <span style=\"color:#EF4444;font-weight:600\">won't</span> generate input tax credit, while taxable group policies <span style=\"color:#22C55E;font-weight:600\">may qualify</span> once the amendment is finalized — a nuance affecting corporate group health-insurance economics.",
+      "reference": "https://taxguru.in/goods-and-service-tax/57th-gst-council-health-life-insurance-itc-section-17-5-eligibility-practical-impact.html",
+      "id": "037310ce46796f",
+      "origin": "agent",
+      "added_at": "2026-10-22"
+    },
+    {
+      "sn": 391,
+      "category": "Regulatory",
+      "date": "2026-10-21",
+      "subject": "Insurers lobby to shield credit-life products from commission cuts",
+      "summary": "As IRDAI weighs a broad commission-cut overhaul, insurers are pushing to carve out loan-linked credit-life policies — signals industry <span style=\"color:#F59E0B;font-weight:600\">pushback</span> that could soften how aggressively reforms hit health/life distribution costs.",
+      "reference": "https://livemint.com/insurance/news/insurers-credit-life-policies-irdai-commission-cuts/amp-11792477243124.html",
+      "id": "0d03e6ca7d02a4",
+      "origin": "agent",
+      "added_at": "2026-10-22"
+    },
+    {
+      "sn": 394,
+      "category": "General",
+      "date": "2026-10-20",
+      "subject": "Niva Bupa rating cut to Sell on valuation concerns",
+      "summary": "MarketsMojo <span style=\"color:#EF4444;font-weight:600\">downgraded Niva Bupa from Hold to Sell</span> (19 Oct 2026) citing stretched valuation and weak technicals, despite acknowledging strong underlying operational growth — a key sentiment signal for investors tracking its PE/PB.",
+      "reference": "https://www.marketsmojo.com/news/stock-recommendation/niva-bupa-health-insurance-downgraded-to-sell-amid-technical-and-valuation-concerns-4230823",
+      "id": "15df77420cbce3",
+      "origin": "agent",
+      "added_at": "2026-10-22"
+    },
+    {
+      "sn": 395,
+      "category": "Profitability",
+      "date": "2026-10-15",
+      "subject": "ICICI Lombard's combined ratio deteriorates to 107% in H1",
+      "summary": "Rising fire and health loss ratios pushed the combined ratio to <span style=\"color:#EF4444;font-weight:600\">107%</span> and H1 profit <span style=\"color:#EF4444;font-weight:600\">down 13.9%</span>, even as gross direct premium grew 5.4% to ₹151.1bn — illustrates sector-wide underwriting margin pressure from claims inflation.",
+      "reference": "https://reinasia.com/icici-lombards-combined-ratio-worsens-to-107-in-h1-as-fire-and-health-loss-ratios-climb/",
+      "id": "159de5ef619ae4",
+      "origin": "agent",
+      "added_at": "2026-10-22"
+    },
     {
       "sn": 376,
       "category": "Profitability",
@@ -65,6 +142,28 @@
       "id": "13484662cbfac2",
       "origin": "agent",
       "added_at": "2026-10-12"
+    },
+    {
+      "sn": 397,
+      "category": "GST",
+      "date": "2026-10-09",
+      "subject": "GST Council recommends removing ITC block on group insurance",
+      "summary": "Council recommended amending CGST Act Section 17(5) to remove ITC restrictions on group health/life premiums — could <span style=\"color:#22C55E;font-weight:600\">narrow the cost arbitrage</span> versus the 18% GST levy and boost employer-sponsored group health uptake.",
+      "reference": "https://www.business-standard.com/amp/finance/personal-finance/gst-relief-on-group-insurance-will-employees-get-higher-health-cover-126100900879_1.html",
+      "id": "0841ce30ec9283",
+      "origin": "agent",
+      "added_at": "2026-10-22"
+    },
+    {
+      "sn": 396,
+      "category": "Regulatory",
+      "date": "2026-10-09",
+      "subject": "IRDAI may delay distribution/commission reforms to Jan 2027",
+      "summary": "Amid industry backlash, IRDAI is weighing Jan 1 or Apr 1, 2027 as the effective date for commission-cut reforms — gives insurers a <span style=\"color:#22C55E;font-weight:600\">longer runway</span> to adjust cost structures tied to agent/bancassurance commissions.",
+      "reference": "https://www.business-standard.com/amp/industry/news/irdai-may-roll-out-insurance-distribution-reforms-in-jan-2027-amid-backlash-126100900175_1.html",
+      "id": "0d15cbed8ab629",
+      "origin": "agent",
+      "added_at": "2026-10-22"
     },
     {
       "sn": 382,
@@ -142,6 +241,17 @@
       "id": "18c3b453453ed5",
       "origin": "agent",
       "added_at": "2026-10-08"
+    },
+    {
+      "sn": 398,
+      "category": "Regulatory",
+      "date": "2026-10-07",
+      "subject": "RBI to weigh in on IRDAI's commission overhaul",
+      "summary": "RBI Governor Sanjay Malhotra signaled the central bank will formally review IRDAI's proposed commission restructuring, adding an <span style=\"color:#F59E0B;font-weight:600\">inter-regulatory dimension</span> to a reform directly affecting health insurers' distribution expense ratios.",
+      "reference": "https://www.business-standard.com/amp/industry/banking/rbi-to-firm-up-views-on-irdai-s-proposed-insurance-commission-overhaul-126100701296_1.html",
+      "id": "03dad2f4e48b7e",
+      "origin": "agent",
+      "added_at": "2026-10-22"
     },
     {
       "sn": 368,
@@ -991,6 +1101,17 @@
       "added_at": "2026-08-27"
     },
     {
+      "sn": 400,
+      "category": "Profitability",
+      "date": "2026-08-21",
+      "subject": "Star Health CEO calls for uniform ICMR protocols to curb claims costs",
+      "summary": "Star Health's CEO advocated universal adoption of ICMR treatment protocols across hospitals to control medical cost escalation, targeting hospital pricing variability as a key margin-protection lever.",
+      "reference": "https://whalesbook.com/news/English/bankingfinance/Star-Health-CEO-Seeks-Universal-ICMR-Protocol-Adoption-to-Curb-Costs/6a87c97684d2dd5c12debf8c",
+      "id": "0042e913b3c396",
+      "origin": "agent",
+      "added_at": "2026-10-22"
+    },
+    {
       "sn": 342,
       "category": "Profitability",
       "date": "2026-08-21",
@@ -1121,6 +1242,17 @@
       "id": "05159beacb9a6d",
       "origin": "agent",
       "added_at": "2026-08-27"
+    },
+    {
+      "sn": 399,
+      "category": "Regulatory",
+      "date": "2026-08-19",
+      "subject": "IRDAI bars Niva Bupa and ACKO from new branches for 6 months",
+      "summary": "IRDAI restricted <span style=\"color:#EF4444;font-weight:600\">Niva Bupa and ACKO</span> from opening new places of business for six months (effective 19 Aug 2026) over Expense of Management (EoM) non-compliance — a direct regulatory headwind on Niva Bupa's near-term branch expansion.",
+      "reference": "https://bimabazaar.com/2026-insurance-times/insurance-regulator-update-for-october-2026",
+      "id": "0a3dbd21d9147b",
+      "origin": "agent",
+      "added_at": "2026-10-22"
     },
     {
       "sn": 262,
@@ -1539,6 +1671,17 @@
       "id": "1ae20ceb07e19d",
       "origin": "agent",
       "added_at": "2026-09-07"
+    },
+    {
+      "sn": 401,
+      "category": "Profitability",
+      "date": "2026-07-31",
+      "subject": "Star Health FY26 PAT up 16% to ₹911 cr as combined ratio improves",
+      "summary": "Consolidated PAT rose <span style=\"color:#22C55E;font-weight:600\">16% YoY to ₹911 crore</span>; combined ratio improved to <span style=\"color:#22C55E;font-weight:600\">98.8%</span> from 101.1% a year earlier — a positive underwriting-efficiency data point among the standalone health-insurance peer set.",
+      "reference": "https://www.whalesbook.com/corporate-news/English/bankingfinance/Star-Health-PAT-Rises-16percent-to-indian-rupee911-Cr-in-FY26-Combined-Ratio-Improves/6a6cb01710bce1fd20379570",
+      "id": "01846314220c6f",
+      "origin": "agent",
+      "added_at": "2026-10-22"
     },
     {
       "sn": 241,
