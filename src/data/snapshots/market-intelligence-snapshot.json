@@ -5,7 +5,7 @@
     "schema_version": "1.0.0",
     "dataset": "ai_generated",
     "last_updated": "2026-10-23",
-    "last_successful_run": "2026-10-23T06:44:11.415Z",
+    "last_successful_run": "2026-10-23T14:32:24.163Z",
     "upstream_sources": [
       "muns_agent_web"
     ],
@@ -150,6 +150,21 @@
       "discovered_at": "2026-10-21T06:47:50.767Z"
     },
     {
+      "id": "58ba82f4ff",
+      "company_id": "niva-bupa",
+      "date": "2026-10-21",
+      "kind": "catalyst",
+      "horizon": "recent",
+      "impact": "negative",
+      "headline": "Delhi High Court dismisses ₹5 crore suit against influencer",
+      "detail": "The reported dismissal with nominal ₹1 costs creates reputational risk, not a ₹5 crore financial penalty against the insurer.",
+      "source_name": "thehindu.com",
+      "source_url": "https://www.thehindu.com/news/cities/Delhi/delhi-high-court-imposes-1-cost-on-niva-bupa-over-5-crore-suit-against-influencer/article71604625.ece",
+      "source_published_at": null,
+      "first_seen": "2026-10-23T14:32:24.163Z",
+      "discovered_at": "2026-10-23T14:32:24.163Z"
+    },
+    {
       "id": "b2fd6618f7",
       "company_id": "niva-bupa",
       "date": "2026-10-19",
@@ -208,6 +223,21 @@
       "source_published_at": "2026-10-20",
       "first_seen": "2026-10-22T06:55:33.826Z",
       "discovered_at": "2026-10-22T06:55:33.826Z"
+    },
+    {
+      "id": "365b047ba9",
+      "company_id": "niva-bupa",
+      "date": "2026-10-19",
+      "kind": "rating",
+      "horizon": "recent",
+      "impact": "negative",
+      "headline": "MarketsMojo downgrades Niva Bupa from Hold to Sell",
+      "detail": "MarketsMojo cites valuation and technical concerns despite profit growth; this is a platform rating, not a verified brokerage recommendation or target-price revision.",
+      "source_name": "marketsmojo.com",
+      "source_url": "https://www.marketsmojo.com/news/stock-recommendation/niva-bupa-health-insurance-downgraded-to-sell-amid-technical-and-valuation-concerns-4230823",
+      "source_published_at": null,
+      "first_seen": "2026-10-23T14:32:24.163Z",
+      "discovered_at": "2026-10-23T14:32:24.163Z"
     },
     {
       "id": "093709f866",
@@ -883,36 +913,6 @@
       "source_published_at": "2026-09-24",
       "first_seen": "2026-09-24T14:31:32.057Z",
       "discovered_at": "2026-09-24T14:31:32.057Z"
-    },
-    {
-      "id": "c9906b6192",
-      "company_id": "care-health",
-      "date": "2026-09-24",
-      "kind": "catalyst",
-      "horizon": "recent",
-      "impact": "neutral",
-      "headline": "Care Health GWP up <span style=\"color:#22C55E;font-weight:600\">▲22% YoY</span> to ₹10,416 cr; Religare AGM held",
-      "detail": "42nd AGM disclosed strong premium growth alongside a recent ₹100 cr subordinated-debt raise, both incremental positives for the group's health-insurance capital base.",
-      "source_name": "multibagg.ai",
-      "source_url": "https://multibagg.ai/market-pulse/articles/religare-enterprises-agm-2026-voting-cmufk61y6000a2uo6nwhytdir",
-      "source_published_at": "2026-09-24",
-      "first_seen": "2026-09-24T14:31:32.057Z",
-      "discovered_at": "2026-09-24T14:31:32.057Z"
-    },
-    {
-      "id": "03dffcb386",
-      "company_id": "sector",
-      "date": "2026-09-24",
-      "kind": "rating",
-      "horizon": "recent",
-      "impact": "neutral",
-      "headline": "Motilal Oswal reiterates <span style=\"color:#22C55E;font-weight:600\">Buy</span>, TP <b>₹100</b> (<span style=\"color:#22C55E;font-weight:600\">▲~31% upside</span>)",
-      "detail": "Brokerage held estimates after Niva Bupa's own briefing on the IRDAI distribution consultation paper, framing it as a medium-term net positive despite near-term product/architecture disruption.",
-      "source_name": null,
-      "source_url": null,
-      "source_published_at": null,
-      "first_seen": "2026-09-27T07:20:25.003Z",
-      "discovered_at": "2026-09-27T07:20:25.003Z"
     }
   ]
 }
