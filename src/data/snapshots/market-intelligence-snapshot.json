@@ -4,8 +4,8 @@
     "description": "AI-generated market intelligence for the SAHI health insurers — investor meets, earnings/board dates, sector & regulatory news, share catalysts. Web-sourced; each item links its source. AI-generated, not audited.",
     "schema_version": "1.0.0",
     "dataset": "ai_generated",
-    "last_updated": "2026-10-23",
-    "last_successful_run": "2026-10-23T14:32:24.163Z",
+    "last_updated": "2026-10-24",
+    "last_successful_run": "2026-10-24T06:41:59.115Z",
     "upstream_sources": [
       "muns_agent_web"
     ],
@@ -14,6 +14,21 @@
     "notes": "Clearly labelled AI-generated intelligence — verify before acting. Items accumulate through the day and rank by investor impact, not recency."
   },
   "data": [
+    {
+      "id": "e3074d8679",
+      "company_id": "sector",
+      "date": "2027-01-01",
+      "kind": "regulatory",
+      "horizon": "upcoming",
+      "impact": "neutral",
+      "headline": "GI Council floats mandatory 10% co-pay on retail health claims from Jan 2027",
+      "detail": "Proposal caps policyholder co-payment (max ₹5L/claim) in exchange for lower premiums; could improve claims ratios for insurers incl. Niva Bupa but risks denting retail demand.",
+      "source_name": "timesofindia.indiatimes.com",
+      "source_url": "https://timesofindia.indiatimes.com/india/insurance-companies-want-policyholders-to-pay-10-of-health-claims/articleshow/134668355.cms",
+      "source_published_at": "2026-10-03",
+      "first_seen": "2026-10-24T06:41:59.115Z",
+      "discovered_at": "2026-10-24T06:41:59.115Z"
+    },
     {
       "id": "bed62a4df3",
       "company_id": "niva-bupa",
@@ -43,6 +58,21 @@
       "source_published_at": "2026-10-16",
       "first_seen": "2026-10-18T13:40:55.982Z",
       "discovered_at": "2026-10-18T13:40:55.982Z"
+    },
+    {
+      "id": "f0cbdb279d",
+      "company_id": "sector",
+      "date": "2026-10-25",
+      "kind": "regulatory",
+      "horizon": "upcoming",
+      "impact": "neutral",
+      "headline": "IRDAI distribution-reform feedback window closes Oct 25",
+      "detail": "Regulator is weighing a stakeholder-requested extension and a Jan/Apr 2027 phased rollout; final shape of EoM/commission caps remains the key swing factor for insurer cost structures this quarter.",
+      "source_name": "ndtvprofit.com",
+      "source_url": "https://www.ndtvprofit.com/personal-finance/irdai-weighs-more-time-on-distribution-reforms-as-brokers-seek-extension-fair-pay-sources-12218453",
+      "source_published_at": "2026-10-22",
+      "first_seen": "2026-10-24T06:41:59.115Z",
+      "discovered_at": "2026-10-24T06:41:59.115Z"
     },
     {
       "id": "0af4883451",
@@ -570,6 +600,21 @@
       "discovered_at": "2026-10-05T18:58:28.861Z"
     },
     {
+      "id": "1e17d138ae",
+      "company_id": "sector",
+      "date": "2026-10-05",
+      "kind": "catalyst",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "Star Health in advanced talks with Japanese strategic investors as WestBridge seeks exit",
+      "detail": "Potential majority stake sale in peer Star Health signals rising foreign/strategic interest in India's standalone health insurers — a sentiment read-through for sector valuations incl. Niva Bupa.",
+      "source_name": "moneycontrol.com",
+      "source_url": "https://moneycontrol.com/banking/star-health-likely-in-talks-with-potential-strategic-investors-japanese-players-in-the-fray-article-14045001.html",
+      "source_published_at": "2026-10-05",
+      "first_seen": "2026-10-24T06:41:59.115Z",
+      "discovered_at": "2026-10-24T06:41:59.115Z"
+    },
+    {
       "id": "dab2374e8f",
       "company_id": "sector",
       "date": null,
@@ -750,6 +795,21 @@
       "discovered_at": "2026-09-28T17:52:52.264Z"
     },
     {
+      "id": "2421f4c7ab",
+      "company_id": "niva-bupa",
+      "date": "2026-09-28",
+      "kind": "rating",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "Nomura maps EoM-driven cost pressure on SBI Life, Niva Bupa, Star Health",
+      "detail": "Brokerage note flags Niva Bupa among names facing a meaningful compliance/cost drag from IRDAI's proposed EoM caps versus peers.",
+      "source_name": "financialexpress.com",
+      "source_url": "https://financialexpress.com/market/sbi-life-niva-bupa-to-star-health-nomura-maps-cost-pressure-from-irdais-proposed-rules-4348645",
+      "source_published_at": "2026-09-28",
+      "first_seen": "2026-10-24T06:41:59.115Z",
+      "discovered_at": "2026-10-24T06:41:59.115Z"
+    },
+    {
       "id": "ea09da9a7f",
       "company_id": "sector",
       "date": null,
@@ -853,66 +913,6 @@
       "source_published_at": null,
       "first_seen": "2026-09-27T07:20:25.003Z",
       "discovered_at": "2026-09-27T07:20:25.003Z"
-    },
-    {
-      "id": "e8d08970ba",
-      "company_id": "sector",
-      "date": null,
-      "kind": "sector_news",
-      "horizon": "recent",
-      "impact": "neutral",
-      "headline": "<span style=\"color:#22C55E;font-weight:600\">positive</span> <span style=\"background:#F0FDF4;padding:2px 6px;border-radius:4px;color:#22C55E;font-weight:600\">Credit rating upgrade</span>",
-      "detail": "AM Best assigns A- (Excellent) Financial Strength Rating to Niva Bupa",
-      "source_name": null,
-      "source_url": null,
-      "source_published_at": null,
-      "first_seen": "2026-09-25T06:51:14.815Z",
-      "discovered_at": "2026-09-25T06:51:14.815Z"
-    },
-    {
-      "id": "af98b0cfe2",
-      "company_id": "sector",
-      "date": null,
-      "kind": "sector_news",
-      "horizon": "recent",
-      "impact": "neutral",
-      "headline": "<span style=\"color:#F59E0B;font-weight:600\">neutral</span>",
-      "detail": "MarketsMojo rates Star Health \"Hold",
-      "source_name": null,
-      "source_url": null,
-      "source_published_at": null,
-      "first_seen": "2026-09-25T06:51:14.815Z",
-      "discovered_at": "2026-09-25T06:51:14.815Z"
-    },
-    {
-      "id": "868bb13f8f",
-      "company_id": "sector",
-      "date": null,
-      "kind": "sector_news",
-      "horizon": "recent",
-      "impact": "neutral",
-      "headline": "<span style=\"background:#FEF2F2;color:#EF4444;font-weight:600;padding:2px 6px;border-radius:4px\">negative</span>",
-      "detail": "[IRDAI issues sweeping insurance distribution reforms draft (EOM cuts, commission caps, bundling ban)](https://www.moneycontrol.com/banking/irdai-issues-consultation-paper-on-distribution-reforms-article-14036664.html)",
-      "source_name": null,
-      "source_url": null,
-      "source_published_at": "2026-09-23",
-      "first_seen": "2026-09-25T06:51:14.815Z",
-      "discovered_at": "2026-09-25T06:51:14.815Z"
-    },
-    {
-      "id": "c82f727ae6",
-      "company_id": "niva-bupa",
-      "date": "2026-09-24",
-      "kind": "rating",
-      "horizon": "recent",
-      "impact": "neutral",
-      "headline": "<span style=\"background:#FEF2F2;padding:2px 6px;border-radius:4px;\">Jefferies flags Niva Bupa's bank-channel exposure under IRDAI EOM proposal</span>",
-      "detail": "Brokerage says reliance on bank-led group-health distribution makes Niva Bupa more vulnerable to proposed commission/expense caps than agency-heavy Star Health; stock fell <span style=\"color:#EF4444;font-weight:600\">▼~4%</span> intraday on the read-through.",
-      "source_name": "financialexpress.com",
-      "source_url": "https://financialexpress.com/market/pb-fintech-crashes-32-on-irdai-commission-rules-jefferies-reveals-top-insurance-picks-now-4346352",
-      "source_published_at": "2026-09-24",
-      "first_seen": "2026-09-24T14:31:32.057Z",
-      "discovered_at": "2026-09-24T14:31:32.057Z"
     }
   ]
 }
