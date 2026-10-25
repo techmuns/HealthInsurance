@@ -5,7 +5,7 @@
     "schema_version": "1.0.0",
     "dataset": "ai_generated",
     "last_updated": "2026-10-25",
-    "last_successful_run": "2026-10-25T07:06:39.131Z",
+    "last_successful_run": "2026-10-25T14:00:59.865Z",
     "upstream_sources": [
       "muns_agent_web"
     ],
@@ -88,6 +88,21 @@
       "source_published_at": "2026-10-22",
       "first_seen": "2026-10-24T06:41:59.115Z",
       "discovered_at": "2026-10-24T06:41:59.115Z"
+    },
+    {
+      "id": "3476b34bc8",
+      "company_id": "sector",
+      "date": null,
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "<span style=\"background:#EFF6FF;color:#1E3A8A;font-weight:600;padding:2px 6px;border-radius:4px;\">neutral</span>",
+      "detail": "Aditya Birla Health Insurance ties up with ICAI for 17-lakh member base",
+      "source_name": null,
+      "source_url": null,
+      "source_published_at": null,
+      "first_seen": "2026-10-25T14:00:59.865Z",
+      "discovered_at": "2026-10-25T14:00:59.865Z"
     },
     {
       "id": "0af4883451",
@@ -896,21 +911,6 @@
       "source_name": null,
       "source_url": null,
       "source_published_at": null,
-      "first_seen": "2026-09-27T14:54:48.705Z",
-      "discovered_at": "2026-09-27T14:54:48.705Z"
-    },
-    {
-      "id": "e54fa65d10",
-      "company_id": "sector",
-      "date": null,
-      "kind": "sector_news",
-      "horizon": "recent",
-      "impact": "neutral",
-      "headline": "<span style=\"background:#FFFBEB;color:#F59E0B;font-weight:600;padding:2px 6px;border-radius:4px\">watch</span>",
-      "detail": "IRDAI unveils two-tier IDE/IDP distribution architecture",
-      "source_name": null,
-      "source_url": null,
-      "source_published_at": "2026-09-26",
       "first_seen": "2026-09-27T14:54:48.705Z",
       "discovered_at": "2026-09-27T14:54:48.705Z"
     }
