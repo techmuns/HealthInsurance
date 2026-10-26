@@ -63199,7 +63199,7 @@
         "company": "Niva Bupa",
         "companyId": "niva-bupa",
         "generatedAt": "2026-10-26T07:17:34.585Z",
-        "lastUpdatedAt": "2026-10-26T07:17:34.585Z",
+        "lastUpdatedAt": "2026-10-26T16:30:38.619Z",
         "status": "Risk",
         "sourceConfidence": "Medium",
         "itemCount": 16,
@@ -63210,10 +63210,17 @@
             "sourceCount": 20,
             "ideas": 6,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-10-26T16:30:38.619Z",
+            "developments": 30,
+            "sourceCount": 20,
+            "ideas": 6,
+            "status": "ok"
           }
         ],
         "brief": {
-          "greeting": "Good morning",
+          "greeting": "Good afternoon",
           "narrative": "Regulatory pressure is the main watch item for health insurers today. Niva Bupa is under pressure on premium growth and demand, but claims-cost and conduct scrutiny and regulatory deadlines will decide whether the strength is sustainable.",
           "attentionCount": 6,
           "developmentsCount": 30,
@@ -63773,6 +63780,38 @@
         ],
         "sinceDeltas": [
           {
+            "id": "reg",
+            "label": "newly surfaced regulatory updates",
+            "value": "3",
+            "direction": "up",
+            "tone": "Watch",
+            "target": {
+              "page": "sahi",
+              "sahiTab": "sector-news",
+              "company": "niva-bupa",
+              "focus": {
+                "id": "pulse-since-reg",
+                "kind": "locator",
+                "locatorKind": "regulatory",
+                "metricKey": "regulatory",
+                "metricLabel": "Regulatory updates",
+                "company": "niva-bupa",
+                "companyLabel": "Niva Bupa",
+                "comparisonType": "trend",
+                "tone": "neutral",
+                "insightLabel": "3 newly surfaced regulatory updates",
+                "unit": "",
+                "sahiTab": "sector-news",
+                "origin": "pulse",
+                "targetItemId": "020df47f1a1291",
+                "targetMonth": "2026-10",
+                "sourceDate": "2026-10-25",
+                "surfacedAt": "2026-10-26",
+                "reasonShownToday": "Published 25 Oct 2026 — a genuinely new regulatory development."
+              }
+            }
+          },
+          {
             "id": "co",
             "label": "company-specific updates",
             "value": "0",
@@ -63837,7 +63876,7 @@
             "title": "IRDAI distribution-reform feedback window closes Oct 25",
             "context": "Regulator is weighing a stakeholder-requested extension and a Jan/Apr 2027 phased…",
             "url": "https://www.ndtvprofit.com/personal-finance/irdai-weighs-more-time-on-distribution-reforms-as-brokers-seek-extension-fair-pay-sources-12218453",
-            "whenLabel": "Today",
+            "whenLabel": "Active catalyst",
             "isFirm": false,
             "impact": "Neutral"
           }
@@ -117298,7 +117337,7 @@
         "company": "Star Health",
         "companyId": "star-health",
         "generatedAt": "2026-10-26T07:17:34.585Z",
-        "lastUpdatedAt": "2026-10-26T07:17:34.585Z",
+        "lastUpdatedAt": "2026-10-26T16:30:38.619Z",
         "status": "Neutral",
         "sourceConfidence": "Medium",
         "itemCount": 9,
@@ -117309,10 +117348,17 @@
             "sourceCount": 12,
             "ideas": 6,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-10-26T16:30:38.619Z",
+            "developments": 17,
+            "sourceCount": 12,
+            "ideas": 6,
+            "status": "ok"
           }
         ],
         "brief": {
-          "greeting": "Good morning",
+          "greeting": "Good afternoon",
           "narrative": "Regulatory pressure is the main watch item for health insurers today. Star Health remains supported by premium growth and demand, but claims-cost and conduct scrutiny and regulatory deadlines will decide whether the strength is sustainable.",
           "attentionCount": 6,
           "developmentsCount": 17,
@@ -117852,6 +117898,38 @@
         ],
         "sinceDeltas": [
           {
+            "id": "reg",
+            "label": "newly surfaced regulatory updates",
+            "value": "3",
+            "direction": "up",
+            "tone": "Watch",
+            "target": {
+              "page": "sahi",
+              "sahiTab": "sector-news",
+              "company": "star-health",
+              "focus": {
+                "id": "pulse-since-reg",
+                "kind": "locator",
+                "locatorKind": "regulatory",
+                "metricKey": "regulatory",
+                "metricLabel": "Regulatory updates",
+                "company": "star-health",
+                "companyLabel": "Star Health",
+                "comparisonType": "trend",
+                "tone": "neutral",
+                "insightLabel": "3 newly surfaced regulatory updates",
+                "unit": "",
+                "sahiTab": "sector-news",
+                "origin": "pulse",
+                "targetItemId": "020df47f1a1291",
+                "targetMonth": "2026-10",
+                "sourceDate": "2026-10-25",
+                "surfacedAt": "2026-10-26",
+                "reasonShownToday": "Published 25 Oct 2026 — a genuinely new regulatory development."
+              }
+            }
+          },
+          {
             "id": "co",
             "label": "company-specific updates",
             "value": "0",
@@ -117916,7 +117994,7 @@
             "title": "IRDAI distribution-reform feedback window closes Oct 25",
             "context": "Regulator is weighing a stakeholder-requested extension and a Jan/Apr 2027 phased…",
             "url": "https://www.ndtvprofit.com/personal-finance/irdai-weighs-more-time-on-distribution-reforms-as-brokers-seek-extension-fair-pay-sources-12218453",
-            "whenLabel": "Today",
+            "whenLabel": "Active catalyst",
             "isFirm": false,
             "impact": "Neutral"
           }
@@ -172550,7 +172628,7 @@
         "company": "Care Health",
         "companyId": "care-health",
         "generatedAt": "2026-10-26T07:17:34.585Z",
-        "lastUpdatedAt": "2026-10-26T07:17:34.585Z",
+        "lastUpdatedAt": "2026-10-26T16:30:38.619Z",
         "status": "Neutral",
         "sourceConfidence": "Medium",
         "itemCount": 8,
@@ -172561,10 +172639,17 @@
             "sourceCount": 11,
             "ideas": 6,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-10-26T16:30:38.619Z",
+            "developments": 13,
+            "sourceCount": 11,
+            "ideas": 6,
+            "status": "ok"
           }
         ],
         "brief": {
-          "greeting": "Good morning",
+          "greeting": "Good afternoon",
           "narrative": "Regulatory pressure is the main watch item for health insurers today. Care Health remains supported by premium growth and demand, but claims-cost and conduct scrutiny and regulatory deadlines will decide whether the strength is sustainable.",
           "attentionCount": 6,
           "developmentsCount": 13,
@@ -173114,6 +173199,38 @@
         ],
         "sinceDeltas": [
           {
+            "id": "reg",
+            "label": "newly surfaced regulatory updates",
+            "value": "3",
+            "direction": "up",
+            "tone": "Watch",
+            "target": {
+              "page": "sahi",
+              "sahiTab": "sector-news",
+              "company": "care-health",
+              "focus": {
+                "id": "pulse-since-reg",
+                "kind": "locator",
+                "locatorKind": "regulatory",
+                "metricKey": "regulatory",
+                "metricLabel": "Regulatory updates",
+                "company": "care-health",
+                "companyLabel": "Care Health",
+                "comparisonType": "trend",
+                "tone": "neutral",
+                "insightLabel": "3 newly surfaced regulatory updates",
+                "unit": "",
+                "sahiTab": "sector-news",
+                "origin": "pulse",
+                "targetItemId": "020df47f1a1291",
+                "targetMonth": "2026-10",
+                "sourceDate": "2026-10-25",
+                "surfacedAt": "2026-10-26",
+                "reasonShownToday": "Published 25 Oct 2026 — a genuinely new regulatory development."
+              }
+            }
+          },
+          {
             "id": "co",
             "label": "company-specific updates",
             "value": "0",
@@ -173178,7 +173295,7 @@
             "title": "IRDAI distribution-reform feedback window closes Oct 25",
             "context": "Regulator is weighing a stakeholder-requested extension and a Jan/Apr 2027 phased…",
             "url": "https://www.ndtvprofit.com/personal-finance/irdai-weighs-more-time-on-distribution-reforms-as-brokers-seek-extension-fair-pay-sources-12218453",
-            "whenLabel": "Today",
+            "whenLabel": "Active catalyst",
             "isFirm": false,
             "impact": "Neutral"
           }
@@ -224872,7 +224989,7 @@
         "company": "Aditya Birla",
         "companyId": "aditya-birla",
         "generatedAt": "2026-10-26T07:17:34.585Z",
-        "lastUpdatedAt": "2026-10-26T07:17:34.585Z",
+        "lastUpdatedAt": "2026-10-26T16:30:38.619Z",
         "status": "Neutral",
         "sourceConfidence": "Medium",
         "itemCount": 8,
@@ -224883,10 +225000,17 @@
             "sourceCount": 11,
             "ideas": 6,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-10-26T16:30:38.619Z",
+            "developments": 11,
+            "sourceCount": 11,
+            "ideas": 6,
+            "status": "ok"
           }
         ],
         "brief": {
-          "greeting": "Good morning",
+          "greeting": "Good afternoon",
           "narrative": "Regulatory pressure is the main watch item for health insurers today. Aditya Birla remains supported by premium growth and demand, but claims-cost and conduct scrutiny and regulatory deadlines will decide whether the strength is sustainable.",
           "attentionCount": 6,
           "developmentsCount": 11,
@@ -225436,6 +225560,38 @@
         ],
         "sinceDeltas": [
           {
+            "id": "reg",
+            "label": "newly surfaced regulatory updates",
+            "value": "3",
+            "direction": "up",
+            "tone": "Watch",
+            "target": {
+              "page": "sahi",
+              "sahiTab": "sector-news",
+              "company": "aditya-birla",
+              "focus": {
+                "id": "pulse-since-reg",
+                "kind": "locator",
+                "locatorKind": "regulatory",
+                "metricKey": "regulatory",
+                "metricLabel": "Regulatory updates",
+                "company": "aditya-birla",
+                "companyLabel": "Aditya Birla",
+                "comparisonType": "trend",
+                "tone": "neutral",
+                "insightLabel": "3 newly surfaced regulatory updates",
+                "unit": "",
+                "sahiTab": "sector-news",
+                "origin": "pulse",
+                "targetItemId": "020df47f1a1291",
+                "targetMonth": "2026-10",
+                "sourceDate": "2026-10-25",
+                "surfacedAt": "2026-10-26",
+                "reasonShownToday": "Published 25 Oct 2026 — a genuinely new regulatory development."
+              }
+            }
+          },
+          {
             "id": "co",
             "label": "company-specific updates",
             "value": "0",
@@ -225500,7 +225656,7 @@
             "title": "IRDAI distribution-reform feedback window closes Oct 25",
             "context": "Regulator is weighing a stakeholder-requested extension and a Jan/Apr 2027 phased…",
             "url": "https://www.ndtvprofit.com/personal-finance/irdai-weighs-more-time-on-distribution-reforms-as-brokers-seek-extension-fair-pay-sources-12218453",
-            "whenLabel": "Today",
+            "whenLabel": "Active catalyst",
             "isFirm": false,
             "impact": "Neutral"
           }
@@ -277757,7 +277913,7 @@
         "company": "ManipalCigna",
         "companyId": "manipalcigna",
         "generatedAt": "2026-10-26T07:17:34.585Z",
-        "lastUpdatedAt": "2026-10-26T07:17:34.585Z",
+        "lastUpdatedAt": "2026-10-26T16:30:38.619Z",
         "status": "Neutral",
         "sourceConfidence": "Medium",
         "itemCount": 7,
@@ -277768,10 +277924,17 @@
             "sourceCount": 10,
             "ideas": 6,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-10-26T16:30:38.619Z",
+            "developments": 12,
+            "sourceCount": 10,
+            "ideas": 6,
+            "status": "ok"
           }
         ],
         "brief": {
-          "greeting": "Good morning",
+          "greeting": "Good afternoon",
           "narrative": "Regulatory pressure is the main watch item for health insurers today. ManipalCigna remains supported by premium growth and demand, but claims-cost and conduct scrutiny and regulatory deadlines will decide whether the strength is sustainable.",
           "attentionCount": 6,
           "developmentsCount": 12,
@@ -278336,6 +278499,38 @@
         ],
         "sinceDeltas": [
           {
+            "id": "reg",
+            "label": "newly surfaced regulatory updates",
+            "value": "3",
+            "direction": "up",
+            "tone": "Watch",
+            "target": {
+              "page": "sahi",
+              "sahiTab": "sector-news",
+              "company": "manipalcigna",
+              "focus": {
+                "id": "pulse-since-reg",
+                "kind": "locator",
+                "locatorKind": "regulatory",
+                "metricKey": "regulatory",
+                "metricLabel": "Regulatory updates",
+                "company": "manipalcigna",
+                "companyLabel": "ManipalCigna",
+                "comparisonType": "trend",
+                "tone": "neutral",
+                "insightLabel": "3 newly surfaced regulatory updates",
+                "unit": "",
+                "sahiTab": "sector-news",
+                "origin": "pulse",
+                "targetItemId": "020df47f1a1291",
+                "targetMonth": "2026-10",
+                "sourceDate": "2026-10-25",
+                "surfacedAt": "2026-10-26",
+                "reasonShownToday": "Published 25 Oct 2026 — a genuinely new regulatory development."
+              }
+            }
+          },
+          {
             "id": "co",
             "label": "company-specific updates",
             "value": "0",
@@ -278400,7 +278595,7 @@
             "title": "IRDAI distribution-reform feedback window closes Oct 25",
             "context": "Regulator is weighing a stakeholder-requested extension and a Jan/Apr 2027 phased…",
             "url": "https://www.ndtvprofit.com/personal-finance/irdai-weighs-more-time-on-distribution-reforms-as-brokers-seek-extension-fair-pay-sources-12218453",
-            "whenLabel": "Today",
+            "whenLabel": "Active catalyst",
             "isFirm": false,
             "impact": "Neutral"
           }
@@ -278481,6 +278676,6 @@
     "snapshot_id": "pulse-brief-archive",
     "description": "Immutable per-calendar-day Pulse brief records (IST), one per company. Past days are frozen exactly as shown that day; the live Today view recomposes. Kept ~90 days per company.",
     "last_updated": "2026-10-26",
-    "last_successful_run": "2026-10-26T07:17:34.585Z"
+    "last_successful_run": "2026-10-26T16:30:38.619Z"
   }
 }
