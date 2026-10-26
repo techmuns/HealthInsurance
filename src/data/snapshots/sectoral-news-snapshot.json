@@ -3,14 +3,69 @@
     "snapshot_id": "sectoral-news-snapshot",
     "description": "Key Sectoral News feed — a permanent seed of 31 curated portfolio-pack updates, kept current by a scheduled muns web-search agent. Each item links its source. Seed items are curated; agent items are AI-gathered (web), clearly labelled and not audited.",
     "schema_version": "1.0.0",
-    "last_updated": "2026-10-22",
-    "last_successful_run": "2026-10-22T11:19:58.250Z",
+    "last_updated": "2026-10-26",
+    "last_successful_run": "2026-10-26T12:25:44.208Z",
     "seed_count": 31,
-    "agent_count": 370,
+    "agent_count": 385,
     "generated_by": "Seed: investor portfolio pack. Updates: AI (muns agent, web search).",
     "notes": "Seed floor can never be lost. Agent items are de-duped by subject+date and verified-before-acting."
   },
   "data": [
+    {
+      "sn": 403,
+      "category": "Profitability",
+      "date": "2026-10-25",
+      "subject": "Insurance agents flag hospital overbilling as driver of rising premiums",
+      "summary": "An agents' association told regulators that hospitals routinely charge insured patients far more than cash-paying patients for identical treatment, a key structural driver of <span style=\"color:#EF4444;font-weight:600\">rising claims costs</span> and premium hikes for health insurers.",
+      "reference": "https://indianexpress.com/article/business/rising-insurance-premiums-hospital-motor-repair-costs-10936342/",
+      "id": "07ac17c89022df",
+      "origin": "agent",
+      "added_at": "2026-10-26"
+    },
+    {
+      "sn": 402,
+      "category": "Regulatory",
+      "date": "2026-10-25",
+      "subject": "IRDAI extends insurance distribution reform feedback deadline to Oct 31",
+      "summary": "IRDAI pushed back the comment deadline on its \"Recalibrating Economics of Insurance Distribution\" paper (commission caps, expense limits) after receiving **650+** stakeholder comments; final rules could reshape health insurers' distribution costs and agent commissions.",
+      "reference": "https://business-standard.com/amp/finance/insurance/irdai-extends-feedback-window-for-proposed-insurance-distribution-reforms-126102500106_1.html",
+      "id": "020df47f1a1291",
+      "origin": "agent",
+      "added_at": "2026-10-26"
+    },
+    {
+      "sn": 404,
+      "category": "Competition / Peers",
+      "date": "2026-10-24",
+      "subject": "Star Health among major insurers reporting Q2 FY27 results this week",
+      "summary": "Star Health & Allied Insurance is scheduled to announce Q2 FY27 results between **Oct 26–30**, alongside SBI Life and other financials majors — a key near-term catalyst for sector earnings visibility and loss-ratio trends.",
+      "reference": "https://www.goodreturns.in/news/q2-results-next-week-october-26-to-30-tata-motors-maruti-suzuki-hul-paytm-more-to-announce-f-1543263.html",
+      "id": "037cc3c724cda6",
+      "origin": "agent",
+      "added_at": "2026-10-26"
+    },
+    {
+      "sn": 405,
+      "category": "Profitability",
+      "date": "2026-10-23",
+      "subject": "Centre admits to Supreme Court hospitals overcharge patients up to 700% on medicines",
+      "summary": "The government conceded in an SC affidavit that hospitals impose margins of **170–700%+** on drugs/consumables, acknowledging a core cost pressure fueling <span style=\"color:#EF4444;font-weight:600\">medical inflation</span> and higher claims payouts for health insurers.",
+      "reference": "https://economictimes.indiatimes.com/news/new-updates/hospitals-overcharge-patients-upto-700-on-medicines-while-india-makes-some-of-the-worlds-lowest-priced-drugs-centre-admits-to-sc/articleshow/135140079.cms",
+      "id": "07b9f875d1b5ff",
+      "origin": "agent",
+      "added_at": "2026-10-26"
+    },
+    {
+      "sn": 407,
+      "category": "General",
+      "date": "2026-10-22",
+      "subject": "India's general insurance industry outlook modest for FY27 amid pricing pressures",
+      "summary": "Industry reports note retail health demand remains the key growth driver offsetting weak fire/crop/commercial lines, though overall non-life growth stays <span style=\"color:#EF4444;font-weight:600\">muted</span> amid intense motor pricing competition.",
+      "reference": "https://thehindubusinessline.com/money-and-banking/indias-general-insurance-industry-to-see-modest-growth-in-fy27-amid-pricing-pressures-report/article71615488.ece",
+      "id": "1e579785fd94f8",
+      "origin": "agent",
+      "added_at": "2026-10-26"
+    },
     {
       "sn": 390,
       "category": "Regulatory",
@@ -32,6 +87,17 @@
       "id": "17c727f125dbcd",
       "origin": "agent",
       "added_at": "2026-10-22"
+    },
+    {
+      "sn": 406,
+      "category": "Regulatory",
+      "date": "2026-10-21",
+      "subject": "General Insurance Council weighs mandatory 10% co-payment on retail health claims",
+      "summary": "Non-life insurers are reportedly considering a mandatory **10%** policyholder co-payment (capped at **₹5 lakh**/claim) from Jan 2027 in exchange for lower premiums, aimed at curbing hospital overcharging — a potentially significant product/pricing shift for Niva Bupa, Star Health, Care Health etc.",
+      "reference": "https://timesofindia.indiatimes.com/india/insurance-companies-want-policyholders-to-pay-10-of-health-claims/articleshow/134668355.cms",
+      "id": "1f0f7294806739",
+      "origin": "agent",
+      "added_at": "2026-10-26"
     },
     {
       "sn": 393,
@@ -76,6 +142,17 @@
       "id": "15df77420cbce3",
       "origin": "agent",
       "added_at": "2026-10-22"
+    },
+    {
+      "sn": 408,
+      "category": "Competition / Peers",
+      "date": "2026-10-15",
+      "subject": "Niva Bupa receives IND AAA rating for proposed ₹500 crore debt raise",
+      "summary": "India Ratings assigned Niva Bupa Health Insurance an <span style=\"color:#22C55E;font-weight:600\">\"IND AAA\"</span> rating for a proposed **₹500 crore** debt issuance, signalling strong financial stability and supporting capital-raising flexibility relative to peers.",
+      "reference": "https://www.whalesbook.com/corporate-news/English/insurance/Niva-Bupa-Health-Insurance-Receives-IND-AAA-Rating-for-Proposed-Rs-500Cr-Debt/6ad0bac2b2eb76fd08c472bc",
+      "id": "1efb20e2a294c6",
+      "origin": "agent",
+      "added_at": "2026-10-26"
     },
     {
       "sn": 395,
@@ -144,6 +221,17 @@
       "added_at": "2026-10-12"
     },
     {
+      "sn": 409,
+      "category": "Profitability",
+      "date": "2026-10-09",
+      "subject": "General insurers face rising claims-ratio pressure in Q2 FY27 even as life insurers gain",
+      "summary": "Brokerage previews flagged that life insurers are set for profit gains on retail protection growth, while general/health insurers face <span style=\"color:#EF4444;font-weight:600\">higher claims ratios</span> weighing on Q2FY27 profitability — a direct read-through for Star Health, Niva Bupa, Care Health margins.",
+      "reference": "https://business-standard.com/amp/finance/insurance/life-insurers-set-for-profit-gains-general-insurers-face-claims-pressure-126100901179_1.html",
+      "id": "0ecf3f4bd73eb4",
+      "origin": "agent",
+      "added_at": "2026-10-26"
+    },
+    {
       "sn": 397,
       "category": "GST",
       "date": "2026-10-09",
@@ -197,6 +285,28 @@
       "id": "00e2979cb103f4",
       "origin": "agent",
       "added_at": "2026-10-12"
+    },
+    {
+      "sn": 411,
+      "category": "Competition / Peers",
+      "date": "2026-10-08",
+      "subject": "Standalone health insurers post strong September premium growth",
+      "summary": "Care Health Insurance premium grew <span style=\"color:#22C55E;font-weight:600\">▲44% YoY</span> to **₹1,041.6 crore**, Niva Bupa grew <span style=\"color:#22C55E;font-weight:600\">▲33.1%</span>, and Star Health grew <span style=\"color:#F59E0B;font-weight:600\">▲19.6% YoY</span> to **₹1,762.8 crore** in September — showing Care Health and Niva Bupa outpacing market leader Star Health on growth momentum.",
+      "reference": "https://www.business-standard.com/amp/finance/insurance/life-insurance-nbp-jumps-21-in-september-non-life-premium-up-6-126100801309_1.html",
+      "id": "11b44ffab39682",
+      "origin": "agent",
+      "added_at": "2026-10-26"
+    },
+    {
+      "sn": 410,
+      "category": "GST",
+      "date": "2026-10-08",
+      "subject": "GST Council recommends ITC on employer-paid group health & life insurance premiums",
+      "summary": "The 57th GST Council proposed amending Section 17(5) of the CGST Act to allow employers to claim input tax credit on GST paid for group health/life cover (currently taxed at **18%**), potentially lowering effective costs of corporate health policies — a **~₹12,000 crore** tax-credit opportunity industry-wide.",
+      "reference": "https://economictimes.indiatimes.com/news/economy/policy/gst-reforms-2026-employers-get-itc-on-employee-health-life-insurance-premiums/articleshow/134799420.cms",
+      "id": "13a2ba4aa8ea1e",
+      "origin": "agent",
+      "added_at": "2026-10-26"
     },
     {
       "sn": 384,
@@ -263,6 +373,17 @@
       "id": "0574c263425650",
       "origin": "agent",
       "added_at": "2026-10-08"
+    },
+    {
+      "sn": 412,
+      "category": "GST",
+      "date": "2026-10-06",
+      "subject": "One year after GST removal, health insurance premiums still rose 25-41%",
+      "summary": "Despite the September 2025 GST exemption on individual health/life premiums, broker data shows renewal premiums have climbed **25–41%** in 2026, raising questions on whether insurers are passing the tax benefit to policyholders versus absorbing medical inflation.",
+      "reference": "https://www.moneycontrol.com/news/business/personal-finance/how-health-insurance-premiums-have-changed-one-year-after-gst-removal-14044892.html",
+      "id": "08ac1af5c4be42",
+      "origin": "agent",
+      "added_at": "2026-10-26"
     },
     {
       "sn": 386,
@@ -485,6 +606,17 @@
       "added_at": "2026-09-28"
     },
     {
+      "sn": 413,
+      "category": "GST",
+      "date": "2026-09-27",
+      "subject": "Star Health's retail policy base rose 11% after GST exemption",
+      "summary": "Star Health reported an <span style=\"color:#22C55E;font-weight:600\">▲11%</span> increase in retail policy adoption and higher average sum-insured on new policies following the GST exemption on individual health premiums — demonstrating a volume-growth tailwind from the tax change.",
+      "reference": "https://economictimes.indiatimes.com/industry/banking/finance/insure/after-gst-exemption-retail-policy-base-rises-11-for-star-health/articleshow/134522981.cms",
+      "id": "06cacf9ca6926e",
+      "origin": "agent",
+      "added_at": "2026-10-26"
+    },
+    {
       "sn": 336,
       "category": "GST",
       "date": "2026-09-27",
@@ -527,6 +659,17 @@
       "id": "16879dcd37e41e",
       "origin": "agent",
       "added_at": "2026-09-28"
+    },
+    {
+      "sn": 414,
+      "category": "General",
+      "date": "2026-09-24",
+      "subject": "McKinsey: India's insurance penetration stuck at 3.7% of GDP as costs outpace premiums",
+      "summary": "A McKinsey report found India's insurance penetration remains <span style=\"color:#EF4444;font-weight:600\">below global averages</span>, with distribution/operating costs rising faster than premium growth — a structural headwind the IRDAI is now targeting via distribution reforms.",
+      "reference": "https://businesstoday.in/personal-finance/story/insurance-penetration-at-3-7-where-indias-biggest-protection-gap-lies-557515-2026-09-24",
+      "id": "05e7ab905440e0",
+      "origin": "agent",
+      "added_at": "2026-10-26"
     },
     {
       "sn": 388,
@@ -991,6 +1134,17 @@
       "added_at": "2026-09-03"
     },
     {
+      "sn": 415,
+      "category": "Profitability",
+      "date": "2026-08-31",
+      "subject": "Nomura stays \"Buy\" on Star Health, Niva Bupa, citing more predictable loss ratios",
+      "summary": "Nomura remains constructive on the health insurance sector after an industry event on hospital-insurer dynamics, citing multiple regulator/industry measures that should make <span style=\"color:#22C55E;font-weight:600\">loss ratios more predictable</span> going forward — a positive profitability signal for both names.",
+      "reference": "https://www.tradingview.com/news/moneycontrol:27d429e96094b:0-nomura-retains-buy-on-star-health-niva-bupa-sees-more-predictable-loss-ratios/",
+      "id": "1daa8f6ae718f0",
+      "origin": "agent",
+      "added_at": "2026-10-26"
+    },
+    {
       "sn": 301,
       "category": "Profitability",
       "date": "2026-08-31",
@@ -1143,6 +1297,17 @@
       "id": "16328d191fc666",
       "origin": "agent",
       "added_at": "2026-08-27"
+    },
+    {
+      "sn": 416,
+      "category": "Regulatory",
+      "date": "2026-08-20",
+      "subject": "IRDAI bars Niva Bupa from opening new offices for six months over EoM breach",
+      "summary": "IRDAI issued a six-month ban on Niva Bupa Health Insurance opening new offices after the insurer breached Expense of Management (EoM) limits for FY2024-25 — a direct regulatory compliance setback that could temporarily constrain its branch expansion.",
+      "reference": "https://bfsi.economictimes.indiatimes.com/news/policy/irdai-bars-niva-bupa-health-insurance-from-opening-new-offices-for-six-months/133379321",
+      "id": "1b0eccdc38ba1c",
+      "origin": "agent",
+      "added_at": "2026-10-26"
     },
     {
       "sn": 372,
