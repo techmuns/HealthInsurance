@@ -1,0 +1,4484 @@
+
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'html' -->
+<!-- FILE NAME SUGGESTIONS:
+   * html--front.html.twig
+   * html--node--17.html.twig
+   * html--node--%.html.twig
+   * html--node.html.twig
+   x html.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/layout/html.html.twig' -->
+<!DOCTYPE html>
+<html lang="en" dir="ltr" prefix="content: http://purl.org/rss/1.0/modules/content/  dc: http://purl.org/dc/terms/  foaf: http://xmlns.com/foaf/0.1/  og: http://ogp.me/ns#  rdfs: http://www.w3.org/2000/01/rdf-schema#  schema: http://schema.org/  sioc: http://rdfs.org/sioc/ns#  sioct: http://rdfs.org/sioc/types#  skos: http://www.w3.org/2004/02/skos/core#  xsd: http://www.w3.org/2001/XMLSchema# ">
+  <head>
+    <meta charset="utf-8" />
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&amp;l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MCTPZBDV');
+</script>
+<meta name="Generator" content="Drupal 9 (https://www.drupal.org)" />
+<meta name="MobileOptimized" content="width" />
+<meta name="HandheldFriendly" content="true" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" href="/sites/default/files/favicon.ico" type="image/vnd.microsoft.icon" />
+<link rel="canonical" href="https://www.stempeutics.com/home" />
+<link rel="shortlink" href="https://www.stempeutics.com/node/17" />
+
+    <title>Home | Stempeutics</title>
+    <link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/ajax-progress.module.css?tkfezq" />
+<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/align.module.css?tkfezq" />
+<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/autocomplete-loading.module.css?tkfezq" />
+<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/fieldgroup.module.css?tkfezq" />
+<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/container-inline.module.css?tkfezq" />
+<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/clearfix.module.css?tkfezq" />
+<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/details.module.css?tkfezq" />
+<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/hidden.module.css?tkfezq" />
+<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/item-list.module.css?tkfezq" />
+<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/js.module.css?tkfezq" />
+<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/nowrap.module.css?tkfezq" />
+<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/position-container.module.css?tkfezq" />
+<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/progress.module.css?tkfezq" />
+<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/reset-appearance.module.css?tkfezq" />
+<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/resize.module.css?tkfezq" />
+<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/sticky-header.module.css?tkfezq" />
+<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/system-status-counter.css?tkfezq" />
+<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/system-status-report-counters.css?tkfezq" />
+<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/system-status-report-general-info.css?tkfezq" />
+<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/tabledrag.module.css?tkfezq" />
+<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/tablesort.module.css?tkfezq" />
+<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/tree-child.module.css?tkfezq" />
+<link rel="stylesheet" media="all" href="/modules/webform/css/webform.form.css?tkfezq" />
+<link rel="stylesheet" media="all" href="/modules/webform/css/webform.element.message.css?tkfezq" />
+<link rel="stylesheet" media="all" href="/modules/webform/css/webform.theme.classy.css?tkfezq" />
+<link rel="stylesheet" media="all" href="/modules/paragraphs/css/paragraphs.unpublished.css?tkfezq" />
+<link rel="stylesheet" media="all" href="/core/themes/stable/css/core/assets/vendor/normalize-css/normalize.css?tkfezq" />
+<link rel="stylesheet" media="all" href="/core/themes/stable/css/core/normalize-fixes.css?tkfezq" />
+<link rel="stylesheet" media="all" href="/core/themes/classy/css/components/action-links.css?tkfezq" />
+<link rel="stylesheet" media="all" href="/core/themes/classy/css/components/breadcrumb.css?tkfezq" />
+<link rel="stylesheet" media="all" href="/core/themes/classy/css/components/button.css?tkfezq" />
+<link rel="stylesheet" media="all" href="/core/themes/classy/css/components/collapse-processed.css?tkfezq" />
+<link rel="stylesheet" media="all" href="/core/themes/classy/css/components/container-inline.css?tkfezq" />
+<link rel="stylesheet" media="all" href="/core/themes/classy/css/components/details.css?tkfezq" />
+<link rel="stylesheet" media="all" href="/core/themes/classy/css/components/exposed-filters.css?tkfezq" />
+<link rel="stylesheet" media="all" href="/core/themes/classy/css/components/field.css?tkfezq" />
+<link rel="stylesheet" media="all" href="/core/themes/classy/css/components/form.css?tkfezq" />
+<link rel="stylesheet" media="all" href="/core/themes/classy/css/components/icons.css?tkfezq" />
+<link rel="stylesheet" media="all" href="/core/themes/classy/css/components/inline-form.css?tkfezq" />
+<link rel="stylesheet" media="all" href="/core/themes/classy/css/components/item-list.css?tkfezq" />
+<link rel="stylesheet" media="all" href="/core/themes/classy/css/components/link.css?tkfezq" />
+<link rel="stylesheet" media="all" href="/core/themes/classy/css/components/links.css?tkfezq" />
+<link rel="stylesheet" media="all" href="/core/themes/classy/css/components/menu.css?tkfezq" />
+<link rel="stylesheet" media="all" href="/core/themes/classy/css/components/more-link.css?tkfezq" />
+<link rel="stylesheet" media="all" href="/core/themes/classy/css/components/pager.css?tkfezq" />
+<link rel="stylesheet" media="all" href="/core/themes/classy/css/components/tabledrag.css?tkfezq" />
+<link rel="stylesheet" media="all" href="/core/themes/classy/css/components/tableselect.css?tkfezq" />
+<link rel="stylesheet" media="all" href="/core/themes/classy/css/components/tablesort.css?tkfezq" />
+<link rel="stylesheet" media="all" href="/core/themes/classy/css/components/tabs.css?tkfezq" />
+<link rel="stylesheet" media="all" href="/core/themes/classy/css/components/textarea.css?tkfezq" />
+<link rel="stylesheet" media="all" href="/core/themes/classy/css/components/ui-dialog.css?tkfezq" />
+<link rel="stylesheet" media="all" href="/core/themes/classy/css/components/messages.css?tkfezq" />
+<link rel="stylesheet" media="all" href="/core/themes/bartik/css/classy/components/node.css?tkfezq" />
+<link rel="stylesheet" media="all" href="/themes/custom/custom_theme/css/style.comp.css?tkfezq" />
+<link rel="stylesheet" media="all" href="/themes/custom/custom_theme/css/style.css?tkfezq" />
+<link rel="stylesheet" media="all" href="/themes/custom/custom_theme/css/style.prefix.css?tkfezq" />
+<link rel="stylesheet" media="all" href="/themes/custom/custom_theme/css/slick-theme.css?tkfezq" />
+<link rel="stylesheet" media="all" href="/themes/custom/custom_theme/css/slick-theme.less?tkfezq" />
+<link rel="stylesheet" media="all" href="/themes/custom/custom_theme/css/slick-theme.scss?tkfezq" />
+<link rel="stylesheet" media="all" href="/themes/custom/custom_theme/css/slick.css?tkfezq" />
+<link rel="stylesheet" media="all" href="/themes/custom/custom_theme/css/slick.less?tkfezq" />
+<link rel="stylesheet" media="all" href="/themes/custom/custom_theme/css/slick.scss?tkfezq" />
+<link rel="stylesheet" media="all" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/css/bootstrap.min.css" />
+
+    
+  </head>
+  <body class="path-frontpage page-node-type-landing-page">
+        <a href="#main-content" class="visually-hidden focusable skip-link">
+      Skip to main content
+    </a>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MCTPZBDV" height="0" width="0" style="display:none;visibility:hidden;"></iframe>
+</noscript>
+    
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'off_canvas_page_wrapper' -->
+<!-- BEGIN OUTPUT from 'core/themes/stable/templates/content/off-canvas-page-wrapper.html.twig' -->
+  <div class="dialog-off-canvas-main-canvas" data-off-canvas-main-canvas>
+    
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'page' -->
+<!-- FILE NAME SUGGESTIONS:
+   * page--front.html.twig
+   * page--node--17.html.twig
+   * page--node--%.html.twig
+   * page--node.html.twig
+   x page.html.twig
+-->
+<!-- BEGIN OUTPUT from 'themes/custom/custom_theme/templates/page.html.twig' -->
+
+<div id="page-wrapper">
+  <div id="page">
+    <header id="header" >
+      <div class="section layout-container clearfix">
+        
+        
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'block' -->
+<!-- FILE NAME SUGGESTIONS:
+   * block--mainheader.html.twig
+   * block--block-content--81713982-469c-44e1-823c-698cbed1cdff.html.twig
+   * block--block-content.html.twig
+   * block--block-content.html.twig
+   x block.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/block/block.html.twig' -->
+<div id="block-mainheader" class="block block-block-content block-block-content81713982-469c-44e1-823c-698cbed1cdff">
+  
+    
+      
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'field' -->
+<!-- FILE NAME SUGGESTIONS:
+   * field--block-content--body--basic.html.twig
+   * field--block-content--body.html.twig
+   * field--block-content--basic.html.twig
+   * field--body.html.twig
+   x field--text-with-summary.html.twig
+   * field.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/field--text-with-summary.html.twig' -->
+
+            <div class="clearfix text-formatted field field--name-body field--type-text-with-summary field--label-hidden field__item"><meta charset="UTF-8" /><meta http-equiv="X-UA-Compatible" content="IE=edge" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><link href="https://fonts.googleapis.com" rel="preconnect" /><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" /><link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&amp;family=Nunito+Sans:wght@600;700&amp;family=Roboto+Slab:wght@300;500&amp;display=swap" rel="stylesheet" /><link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet" /><link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" rel="stylesheet" /><link href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css" rel="stylesheet" /><!--[if (lt IE 9)]><script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/min/tiny-slider.helper.ie8.js"></script><![endif]--><link href="/themes/custom/custom_theme/css/style.css" rel="stylesheet" /><title></title><link href="img/home/favicon.ico" rel="shortcut icon" type="image/x-icon" /><!-- =======================
+    Header START --><header class="navbar-dark  navbar-sticky header-static"><!-- Logo Nav START --><nav class="navbar navbar-expand-lg"><div class="container"><!-- Logo START --><a class="navbar-brand d-flex justify-content-center align-items-center" href="/home"><img alt="logo" class="navbar-brand-item light-mode-item" src="/themes/custom/custom_theme/img/home/Logo White.svg" /></a> <!-- Logo END --> <!-- Nav right START -->
+<div class="nav flex-nowrap align-items-center order-lg-3 ms-auto"><!-- Nav Search -->
+<div class="nav-item dropdown dropdown-toggle-icon-none nav-search"> </div>
+<!-- Nav partner logo -->
+
+<div class="nav-item"><!-- Logo START --><a class="icon--sm d-flex justify-content-center align-items-center" href="https://manipalgroup.com/" target="_blank"><img alt="logo" class="img" src="/themes/custom/custom_theme/img/home/manipal-logo@2x.png" /></a></div>
+
+<div class="nav-item"><!-- Logo START --><a class="icon--lg d-flex justify-content-center align-items-center" href="https://www.cipla.com/" target="_blank"><img alt="logo" class="img" src="/sites/default/files/2026-09/Cipla.png" /></a></div>
+</div>
+<button aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#navbarCollapse" data-bs-toggle="collapse" type="button"><span class="text-body h6 d-none d-sm-inline-block">Menu</span></button>
+
+<div class="collapse navbar-collapse" id="navbarCollapse">
+<ul class="navbar-nav navbar-nav-scroll ms-auto"><li class="nav-item dropdown"><a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" id="ourcompanyMenu">Our Company</a>
+
+	<div aria-labelledby="ourcompanyMenu" class="dropdown-menu dropdown-menu-arrow">
+	<ul class="list-group"><li>
+		<div class="icon-info-lg d-flex">
+		<div class="icon icon--md me-3 d-flex "><a class="dropdown-item" href="/about-us"><img alt="icon about" class="img" src="/themes/custom/custom_theme/img/home/nav-icons/icon3@ouromapny.svg" /></a></div>
+
+		<div class="w-100 d-flex align-items-center justify-content-between">
+		<div>
+		<h6 class="dropdown-title d-flex justify-content-cente align-items-center p-0 m-0"><a class="dropdown-item" href="/about-us">About Us</a></h6>
+		<a class="dropdown-item" href="/about-us"><span class="dropdown-subtitle">Know about Stempeutics.</span> </a></div>
+		</div>
+		</div>
+		</li>
+		<li>
+		<div class="icon-info-lg d-flex">
+		<div class="icon icon--md me-3 d-flex "><a class="dropdown-item" href="/leadership"><img alt="icon leadership" class="img" src="/themes/custom/custom_theme/img/home/nav-icons/icon2@ourcompany.svg" /></a></div>
+
+		<div class="w-100 d-flex align-items-center justify-content-between">
+		<div>
+		<h6 class="dropdown-title d-flex justify-content-cente align-items-center p-0 m-0"><a class="dropdown-item" href="/leadership">Leadership Team</a></h6>
+		<a class="dropdown-item" href="/leadership"><span class="dropdown-subtitle">Let's Introduce our Team.</span> </a></div>
+		</div>
+		</div>
+		</li>
+		<li>
+		<div class="icon-info-lg d-flex">
+		<div class="icon icon--md me-3 d-flex "><a class="dropdown-item" href="/recognitions"><img alt="icon awards" class="img" src="/themes/custom/custom_theme/img/home/nav-icons/icon1@ourcompany.svg" /></a></div>
+
+		<div class="w-100 d-flex align-items-center justify-content-between">
+		<div>
+		<h6 class="dropdown-title d-flex justify-content-cente align-items-center p-0 m-0"><a class="dropdown-item" href="/recognitions">Recognition &amp; Awards</a></h6>
+		<a class="dropdown-item" href="/recognitions"><span class="dropdown-subtitle">Some of our Achievements.</span> </a></div>
+		</div>
+		</div>
+		</li>
+		<li>
+		<div class="icon-info-md d-flex">
+		<div class="icon icon--sm me-3 d-flex "><a class="dropdown-item" href="/news-and-media"><img alt="icon about" class="img" src="/themes/custom/custom_theme/img/home/nav-icons/icon@small/icon3.svg" /></a></div>
+
+		<div class="w-100 d-flex align-items-center justify-content-between">
+		<div>
+		<h6 class="dropdown-title d-flex justify-content-cente align-items-center p-0 m-0"><a class="dropdown-item" href="/news-and-media">News &amp; Media</a></h6>
+		</div>
+		</div>
+		</div>
+		</li>
+	</ul></div>
+	</li>
+	<!-- Nav item 2 Pages -->
+	<li class="nav-item dropdown dropdown-lg"><a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" id="technologyMenue">Technology</a>
+	<div aria-labelledby="technologyMenue" class="dropdown-menu dropdown-menu-arrow">
+	<ul class="list-group"><li>
+		<div class="icon-info-lg d-flex">
+		<div class="icon icon--md me-3 d-flex "><a class="dropdown-item" href="/novel-stem-cell-pooling"><img alt="icon about" class="img" src="/themes/custom/custom_theme/img/home/nav-icons/icon2.svg" /></a></div>
+
+		<div class="w-100 d-flex align-items-center justify-content-between">
+		<div>
+		<h6 class="dropdown-title d-flex justify-content-cente align-items-center p-0 m-0"><a class="dropdown-item" href="/novel-stem-cell-pooling">Novel Stem Cell Pooling Technology</a></h6>
+		</div>
+		</div>
+		</div>
+		</li>
+	</ul><hr /><div class="dropdown-menu-links">
+	<div class="row">
+	<div class="col-md-6">
+	<div class="icon-info-md d-flex">
+	<div class="icon icon--sm me-3 d-flex "><a class="dropdown-item" href="/publications"><img alt="icon about" class="img" src="/themes/custom/custom_theme/img/home/nav-icons/icon@small/icon1.svg" /></a></div>
+
+	<div class="w-100 d-flex align-items-center justify-content-between">
+	<div>
+	<h6 class="dropdown-title d-flex justify-content-cente align-items-center p-0 m-0"><a class="dropdown-item" href="/publications">Publications</a></h6>
+	</div>
+	</div>
+	</div>
+
+	<div class="icon-info-md d-flex">
+	<div class="icon icon--sm me-3 d-flex "><a class="dropdown-item" href="/facility"><img alt="icon about" class="img" src="/themes/custom/custom_theme/img/home/nav-icons/icon@small/icon7.svg" /></a></div>
+
+	<div class="w-100 d-flex align-items-center justify-content-between">
+	<div>
+	<h6 class="dropdown-title d-flex justify-content-cente align-items-center p-0 m-0"><a class="dropdown-item" href="/facility">Facility</a></h6>
+	</div>
+	</div>
+	</div>
+	</div>
+
+	<div class="col-md-6">
+	<div class="icon-info-md d-flex">
+	<div class="icon icon--sm me-3 d-flex "><a class="dropdown-item" href="/patents-certifications"><img alt="icon about" class="img" src="/themes/custom/custom_theme/img/home/nav-icons/icon@small/icon6.svg" /></a></div>
+
+	<div class="w-100 d-flex align-items-center justify-content-between">
+	<div>
+	<h6 class="dropdown-title d-flex justify-content-cente align-items-center p-0 m-0"><a class="dropdown-item" href="/patents-certifications">Patents &amp; Certifications</a></h6>
+	</div>
+	</div>
+	</div>
+
+	<div class="icon-info-md d-flex">
+	<div class="icon icon--sm me-3 d-flex "><a class="dropdown-item" href="/faq"><img alt="icon about" class="img" src="/themes/custom/custom_theme/img/home/nav-icons/icon@small/icon4.svg" /></a></div>
+
+	<div class="w-100 d-flex align-items-center justify-content-between">
+	<div>
+	<h6 class="dropdown-title d-flex justify-content-cente align-items-center p-0 m-0"><a class="dropdown-item" href="/faq">FAQs</a></h6>
+	</div>
+	</div>
+	</div>
+	</div>
+	</div>
+	</div>
+	</div>
+	</li>
+	<!-- Nav item 3 Post -->
+	<li class="nav-item dropdown dropdown-lg"><a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" id="productMenu">Product Candidates</a>
+	<div aria-labelledby="productMenu" class="dropdown-menu dropdown-menu-arrow">
+	<div class="row">
+	<div class="col-md-6">
+	<ul class="list-group"><li>
+		<div class="icon-info-lg d-flex">
+		<div class="icon icon--md me-3 d-flex "><a class="dropdown-item" href="/stempeucel"><img alt="icon about" class="img" src="/themes/custom/custom_theme/img/home/nav-icons/icon1.svg" /></a></div>
+
+		<div class="w-100 d-flex align-items-center justify-content-between">
+		<div>
+		<h6 class="dropdown-title d-flex justify-content-cente align-items-center p-0 m-0"><a class="dropdown-item" href="/stempeucel">Therapeutics</a></h6>
+		<a class="dropdown-item" href="/stempeucel"><span class="dropdown-subtitle">Range of our Therapeutics</span> </a></div>
+		</div>
+		</div>
+		</li>
+	</ul><div class="dropdown-menu-links">
+	<div class="icon-info-md d-flex">
+	<div class="icon icon--sm me-3 d-flex "><a class="dropdown-item" href="/critical-limb-ischemia"><img alt="icon about" class="img" src="/themes/custom/custom_theme/img/home/nav-icons/icon@medium/icon5.svg" /></a></div>
+
+	<div class="w-100 d-flex align-items-center justify-content-between">
+	<div>
+	<h6 class="dropdown-title d-flex justify-content-cente align-items-center p-0 m-0"><a class="dropdown-item" href="/critical-limb-ischemia">Critical Limb Ischemia</a></h6>
+	</div>
+
+	<div> </div>
+	</div>
+	</div>
+
+	<div class="icon-info-md d-flex">
+	<div class="icon icon--sm me-3 d-flex "><a class="dropdown-item" href="/knee-osteoarthritis"><img alt="icon Osteoarthritis" class="img" src="/themes/custom/custom_theme/img/home/nav-icons/icon@medium/icon1.png" /></a></div>
+
+	<div class="w-100 d-flex align-items-center justify-content-between">
+	<div>
+	<h6 class="dropdown-title d-flex justify-content-cente align-items-center p-0 m-0"><a class="dropdown-item" href="/knee-osteoarthritis">Knee Osteoarthritis</a></h6>
+	</div>
+
+	<div> </div>
+	</div>
+	</div>
+	</div>
+
+	<h5 class="dropdown-lable text-muted">CLINICAL TRIALS</h5>
+
+	<div class="dropdown-menu-links">
+	<div class="icon-info-md d-flex">
+	<div class="icon icon--sm me-3 d-flex "><a class="dropdown-item" href="/diabetic-foot-ulcer"><img alt="icon about" class="img" src="/themes/custom/custom_theme/img/home/nav-icons/icon@medium/icon3.png" /></a></div>
+
+	<div class="w-100 d-flex align-items-center justify-content-between">
+	<div>
+	<h6 class="dropdown-title d-flex justify-content-cente align-items-center p-0 m-0"><a class="dropdown-item" href="/diabetic-foot-ulcer">Diabetic Foot Ulcer</a></h6>
+	</div>
+	</div>
+	</div>
+
+	<div class="icon-info-md d-flex">
+	<div class="icon icon--sm me-3 d-flex "><a class="dropdown-item" href="/peri-anal-fistula"><img alt="icon about" class="img" src="/themes/custom/custom_theme/img/home/nav-icons/icon@medium/icon2.svg" /></a></div>
+
+	<div class="w-100 d-flex align-items-center justify-content-between">
+	<div>
+	<h6 class="dropdown-title d-flex justify-content-cente align-items-center p-0 m-0"><a class="dropdown-item" href="/peri-anal-fistula">Peri-Anal Fistula</a></h6>
+	</div>
+	</div>
+	</div>
+
+	<div class="icon-info-md d-flex">
+	<div class="icon icon--sm me-3 d-flex "><a class="dropdown-item" href="/chronic-low-back-pain"><img alt="icon about" class="img" src="/themes/custom/custom_theme/img/home/nav-icons/icon@medium/icon2.svg" /></a></div>
+
+	<div class="w-100 d-flex align-items-center justify-content-between">
+	<div>
+	<h6 class="dropdown-title d-flex justify-content-cente align-items-center p-0 m-0"><a class="dropdown-item" href="/chronic-low-back-pain">chronic low back pain</a></h6>
+	</div>
+	</div>
+	</div>
+	</div>
+	</div>
+
+	<div class="col-md-6">
+	<ul class="list-group"><li>
+		<div class="icon-info-lg d-flex">
+		<div class="icon icon--md me-3 d-flex "><a class="dropdown-item" href="/bio-cosmetics"><img alt="icon about" class="img" src="/themes/custom/custom_theme/img/home/nav-icons/icon3.svg" /></a></div>
+
+		<div class="w-100 d-flex align-items-center justify-content-between">
+		<div>
+		<h6 class="dropdown-title d-flex justify-content-cente align-items-center p-0 m-0"><a class="dropdown-item" href="/bio-cosmetics">Bio-Cosmetics</a></h6>
+		<a class="dropdown-item" href="/bio-cosmetics"><span class="dropdown-subtitle">Range of our Bio-Cosmetics</span> </a></div>
+
+		<div> </div>
+		</div>
+		</div>
+		</li>
+	</ul><div class="dropdown-menu-links">
+	<div class="icon-info-md d-flex">
+	<div class="icon icon--sm me-3 d-flex "><a class="dropdown-item" href="/cutisera"><img alt="icon about" class="img" src="/themes/custom/custom_theme/img/home/nav-icons/icon@medium/icon6.svg" /></a></div>
+
+	<div class="w-100 d-flex align-items-center justify-content-between">
+	<div>
+	<h6 class="dropdown-title d-flex justify-content-cente align-items-center p-0 m-0"><a class="dropdown-item" href="/cutisera">Skincare-Cutisera®</a></h6>
+	</div>
+	</div>
+	</div>
+
+	<div class="icon-info-md d-flex">
+	<div class="icon icon--sm me-3 d-flex "><a class="dropdown-item" href="/trichosera"><img alt="icon about" class="img" src="/themes/custom/custom_theme/img/home/nav-icons/icon@medium/icon7.svg" /></a></div>
+
+	<div class="w-100 d-flex align-items-center justify-content-between">
+	<div>
+	<h6 class="dropdown-title d-flex justify-content-cente align-items-center p-0 m-0"><a class="dropdown-item" href="/trichosera">Haircare-Trichosera®</a></h6>
+	</div>
+	</div>
+	</div>
+
+	<div class="icon-info-md d-flex">
+	<div class="icon icon--sm me-3 d-flex "><a class="dropdown-item" href="/perioptisera"><img alt="icon about" class="img" src="/themes/custom/custom_theme/img/home/nav-icons/icon@medium/icon8.svg" /></a></div>
+
+	<div class="w-100 d-flex align-items-center justify-content-between">
+	<div>
+	<h6 class="dropdown-title d-flex justify-content-cente align-items-center p-0 m-0"><a class="dropdown-item" href="/perioptisera">Undereye Care-Perioptisera®</a></h6>
+	</div>
+	</div>
+	</div>
+	</div>
+	</div>
+	</div>
+	</div>
+	</li>
+	<!-- Nav item 4 Mega menu -->
+	<li class="nav-item dropdown dropdown-md"><a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" id="contactMenu">Contact Us</a>
+	<div aria-labelledby="contactMenu" class="dropdown-menu dropdown-menu-arrow">
+	<div class="dropdown-menu-links">
+	<div class="icon-info-md d-flex">
+	<div class="icon icon--sm me-3 d-flex "><a class="dropdown-item" href="/contact-us"><img alt="icon about" class="img" src="/themes/custom/custom_theme/img/home/nav-icons/icon@small/icon4.svg" /></a></div>
+
+	<div class="w-100 d-flex align-items-center justify-content-between">
+	<div>
+	<h6 class="dropdown-title d-flex justify-content-cente align-items-center p-0 m-0"><a class="dropdown-item" href="/contact-us">Queries</a></h6>
+	</div>
+	</div>
+	</div>
+
+	<div class="icon-info-md d-flex">
+	<div class="icon icon--sm me-3 d-flex "><a class="dropdown-item" href="/career"><img alt="icon about" class="img" src="/themes/custom/custom_theme/img/home/nav-icons/icon@small/icon2.svg" /></a></div>
+
+	<div class="w-100 d-flex align-items-center justify-content-between">
+	<div>
+	<h6 class="dropdown-title d-flex justify-content-cente align-items-center p-0 m-0"><a class="dropdown-item" href="/career">Career</a></h6>
+	</div>
+	</div>
+	</div>
+	</div>
+	</div>
+	</li>
+</ul></div>
+</div>
+</nav></header></div>
+      
+<!-- END OUTPUT from 'core/themes/classy/templates/field/field--text-with-summary.html.twig' -->
+
+
+  </div>
+
+<!-- END OUTPUT from 'core/themes/classy/templates/block/block.html.twig' -->
+
+
+        
+      </div>
+    </header>
+            <div id="main-wrapper" class="layout-main-wrapper layout-container clearfix">
+      <div id="main" class="layout-main clearfix">
+        
+        <main id="content" class="column main-content " role="main">
+          <section class="section">
+            <a id="main-content" tabindex="-1" ></a>
+            
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'region' -->
+<!-- FILE NAME SUGGESTIONS:
+   * region--content.html.twig
+   x region.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/layout/region.html.twig' -->
+  <div class="region region-content">
+    <div data-drupal-messages-fallback class="hidden"></div>
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'block' -->
+<!-- FILE NAME SUGGESTIONS:
+   * block--custom-theme-content.html.twig
+   * block--system-main-block.html.twig
+   * block--system.html.twig
+   x block.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/block/block.html.twig' -->
+<div id="block-custom-theme-content" class="block block-system block-system-main-block">
+  
+    
+      
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'node' -->
+<!-- FILE NAME SUGGESTIONS:
+   * node--17--full.html.twig
+   * node--17.html.twig
+   * node--landing-page--full.html.twig
+   * node--landing-page.html.twig
+   * node--full.html.twig
+   x node.html.twig
+-->
+<!-- BEGIN OUTPUT from 'themes/custom/custom_theme/templates/node.html.twig' -->
+
+<article data-history-node-id="17" role="article" about="/home" class="node node--type-landing-page node--view-mode-full clearfix">
+  <header>
+    
+          
+      </header>
+  <div class="node__content clearfix">
+    
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'links__node' -->
+<!-- FILE NAME SUGGESTIONS:
+   x links--node.html.twig
+   x links--node.html.twig
+   * links.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/content/links--node.html.twig' -->
+
+<!-- END OUTPUT from 'core/themes/classy/templates/content/links--node.html.twig' -->
+
+
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'field' -->
+<!-- FILE NAME SUGGESTIONS:
+   * field--node--field-landing-home-page--landing-page.html.twig
+   * field--node--field-landing-home-page.html.twig
+   * field--node--landing-page.html.twig
+   * field--field-landing-home-page.html.twig
+   * field--entity-reference-revisions.html.twig
+   x field.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+      <div class="field field--name-field-landing-home-page field--type-entity-reference-revisions field--label-hidden field__items">
+              <div class="field__item">
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'paragraph' -->
+<!-- FILE NAME SUGGESTIONS:
+   * paragraph--banner-component--default.html.twig
+   * paragraph--banner-component.html.twig
+   * paragraph--default.html.twig
+   * paragraph.html.twig
+-->
+<!-- BEGIN OUTPUT from 'themes/custom/custom_theme/templates/paragraph--banner_component.html.twig' -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Nunito+Sans:wght@600;700&family=Roboto+Slab:wght@300;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css">
+    <!--[if (lt IE 9)]><script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/min/tiny-slider.helper.ie8.js"></script><![endif]-->
+    <link rel="stylesheet" href="themes/custom/custom_theme/css/style.css">
+
+    <title>Stempeutics</title>
+    <link rel="shortcut icon" type="image/x-icon" href="img/home/favicon.ico">
+
+
+</head>
+
+ <main>
+
+        <div class="banner">
+            <div class="banner__video-wrapper">
+                <video autoplay muted loop class="banner__video lazy"
+                    data-src="themes/custom/custom_theme/img/home/pexels-yauheni-vasilevich-7101912.mp4"
+                    data-poster="/themes/custom/custom_theme/img/home/pexels-yauheni-vasilevich-7101912_PosterImage-1.png">
+                    <source src="themes/custom/custom_theme/img/home/pexels-yauheni-vasilevich-7101912.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="banner__overlay banner__overlay--1">
+                                
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'field' -->
+<!-- FILE NAME SUGGESTIONS:
+   * field--paragraph--field-sub-image--banner-component.html.twig
+   * field--paragraph--field-sub-image.html.twig
+   * field--paragraph--banner-component.html.twig
+   * field--field-sub-image.html.twig
+   * field--entity-reference.html.twig
+   x field.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+            <div class="field field--name-field-sub-image field--type-entity-reference field--label-hidden field__item">
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'media' -->
+<!-- FILE NAME SUGGESTIONS:
+   * media--source-image.html.twig
+   * media--image--default.html.twig
+   * media--image.html.twig
+   * media--default.html.twig
+   x media.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/content/media.html.twig' -->
+<article class="media media--type-image media--view-mode-default">
+  
+      
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'field' -->
+<!-- FILE NAME SUGGESTIONS:
+   * field--media--field-media-image--image.html.twig
+   * field--media--field-media-image.html.twig
+   * field--media--image.html.twig
+   * field--field-media-image.html.twig
+   * field--image.html.twig
+   x field.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+  <div class="field field--name-field-media-image field--type-image field--label-visually_hidden">
+    <div class="field__label visually-hidden">Image</div>
+              <div class="field__item">
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'image_formatter' -->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/image-formatter.html.twig' -->
+  
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'image_style' -->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/image-style.html.twig' -->
+
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'image' -->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/image.html.twig' -->
+<img src="/sites/default/files/styles/large/public/2024-04/Stem%20Cell%202.webp?itok=e_uIa6xH" width="286" height="284" alt="image" loading="lazy" typeof="foaf:Image" class="image-style-large" />
+
+<!-- END OUTPUT from 'core/themes/classy/templates/field/image.html.twig' -->
+
+
+
+<!-- END OUTPUT from 'core/themes/classy/templates/field/image-style.html.twig' -->
+
+
+
+<!-- END OUTPUT from 'core/themes/classy/templates/field/image-formatter.html.twig' -->
+
+</div>
+          </div>
+
+<!-- END OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+
+  </article>
+
+<!-- END OUTPUT from 'core/themes/classy/templates/content/media.html.twig' -->
+
+</div>
+      
+<!-- END OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+
+            </div>
+            <div class="banner__overlay banner__overlay--2">
+                                
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'field' -->
+<!-- FILE NAME SUGGESTIONS:
+   * field--paragraph--field-sub-image-2--banner-component.html.twig
+   * field--paragraph--field-sub-image-2.html.twig
+   * field--paragraph--banner-component.html.twig
+   * field--field-sub-image-2.html.twig
+   * field--entity-reference.html.twig
+   x field.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+            <div class="field field--name-field-sub-image-2 field--type-entity-reference field--label-hidden field__item">
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'media' -->
+<!-- FILE NAME SUGGESTIONS:
+   * media--source-image.html.twig
+   * media--image--default.html.twig
+   * media--image.html.twig
+   * media--default.html.twig
+   x media.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/content/media.html.twig' -->
+<article class="media media--type-image media--view-mode-default">
+  
+      
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'field' -->
+<!-- FILE NAME SUGGESTIONS:
+   * field--media--field-media-image--image.html.twig
+   * field--media--field-media-image.html.twig
+   * field--media--image.html.twig
+   * field--field-media-image.html.twig
+   * field--image.html.twig
+   x field.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+  <div class="field field--name-field-media-image field--type-image field--label-visually_hidden">
+    <div class="field__label visually-hidden">Image</div>
+              <div class="field__item">
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'image_formatter' -->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/image-formatter.html.twig' -->
+  
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'image_style' -->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/image-style.html.twig' -->
+
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'image' -->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/image.html.twig' -->
+<img src="/sites/default/files/styles/large/public/2024-04/Stem%20Cell%203.webp?itok=DO57pt5P" width="392" height="392" alt="image" loading="lazy" typeof="foaf:Image" class="image-style-large" />
+
+<!-- END OUTPUT from 'core/themes/classy/templates/field/image.html.twig' -->
+
+
+
+<!-- END OUTPUT from 'core/themes/classy/templates/field/image-style.html.twig' -->
+
+
+
+<!-- END OUTPUT from 'core/themes/classy/templates/field/image-formatter.html.twig' -->
+
+</div>
+          </div>
+
+<!-- END OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+
+  </article>
+
+<!-- END OUTPUT from 'core/themes/classy/templates/content/media.html.twig' -->
+
+</div>
+      
+<!-- END OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+
+            </div>
+            <div class="banner__overlay banner__overlay--3">
+                                
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'field' -->
+<!-- FILE NAME SUGGESTIONS:
+   * field--paragraph--field-sub-image-4--banner-component.html.twig
+   * field--paragraph--field-sub-image-4.html.twig
+   * field--paragraph--banner-component.html.twig
+   * field--field-sub-image-4.html.twig
+   * field--entity-reference.html.twig
+   x field.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+            <div class="field field--name-field-sub-image-4 field--type-entity-reference field--label-hidden field__item">
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'media' -->
+<!-- FILE NAME SUGGESTIONS:
+   * media--source-image.html.twig
+   * media--image--default.html.twig
+   * media--image.html.twig
+   * media--default.html.twig
+   x media.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/content/media.html.twig' -->
+<article class="media media--type-image media--view-mode-default">
+  
+      
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'field' -->
+<!-- FILE NAME SUGGESTIONS:
+   * field--media--field-media-image--image.html.twig
+   * field--media--field-media-image.html.twig
+   * field--media--image.html.twig
+   * field--field-media-image.html.twig
+   * field--image.html.twig
+   x field.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+  <div class="field field--name-field-media-image field--type-image field--label-visually_hidden">
+    <div class="field__label visually-hidden">Image</div>
+              <div class="field__item">
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'image_formatter' -->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/image-formatter.html.twig' -->
+  
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'image_style' -->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/image-style.html.twig' -->
+
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'image' -->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/image.html.twig' -->
+<img src="/sites/default/files/styles/large/public/2024-04/Stem%20Cell%201.webp?itok=pSj8m2dA" width="478" height="480" alt="image" loading="lazy" typeof="foaf:Image" class="image-style-large" />
+
+<!-- END OUTPUT from 'core/themes/classy/templates/field/image.html.twig' -->
+
+
+
+<!-- END OUTPUT from 'core/themes/classy/templates/field/image-style.html.twig' -->
+
+
+
+<!-- END OUTPUT from 'core/themes/classy/templates/field/image-formatter.html.twig' -->
+
+</div>
+          </div>
+
+<!-- END OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+
+  </article>
+
+<!-- END OUTPUT from 'core/themes/classy/templates/content/media.html.twig' -->
+
+</div>
+      
+<!-- END OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+
+            </div>
+            <div class="banner__overlay banner__overlay--4">
+                                
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'field' -->
+<!-- FILE NAME SUGGESTIONS:
+   * field--paragraph--field-sub-image-3--banner-component.html.twig
+   * field--paragraph--field-sub-image-3.html.twig
+   * field--paragraph--banner-component.html.twig
+   * field--field-sub-image-3.html.twig
+   * field--entity-reference.html.twig
+   x field.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+            <div class="field field--name-field-sub-image-3 field--type-entity-reference field--label-hidden field__item">
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'media' -->
+<!-- FILE NAME SUGGESTIONS:
+   * media--source-image.html.twig
+   * media--image--default.html.twig
+   * media--image.html.twig
+   * media--default.html.twig
+   x media.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/content/media.html.twig' -->
+<article class="media media--type-image media--view-mode-default">
+  
+      
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'field' -->
+<!-- FILE NAME SUGGESTIONS:
+   * field--media--field-media-image--image.html.twig
+   * field--media--field-media-image.html.twig
+   * field--media--image.html.twig
+   * field--field-media-image.html.twig
+   * field--image.html.twig
+   x field.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+  <div class="field field--name-field-media-image field--type-image field--label-visually_hidden">
+    <div class="field__label visually-hidden">Image</div>
+              <div class="field__item">
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'image_formatter' -->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/image-formatter.html.twig' -->
+  
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'image_style' -->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/image-style.html.twig' -->
+
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'image' -->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/image.html.twig' -->
+<img src="/sites/default/files/styles/large/public/2024-04/Stem%20Cell%203.webp?itok=DO57pt5P" width="392" height="392" alt="image" loading="lazy" typeof="foaf:Image" class="image-style-large" />
+
+<!-- END OUTPUT from 'core/themes/classy/templates/field/image.html.twig' -->
+
+
+
+<!-- END OUTPUT from 'core/themes/classy/templates/field/image-style.html.twig' -->
+
+
+
+<!-- END OUTPUT from 'core/themes/classy/templates/field/image-formatter.html.twig' -->
+
+</div>
+          </div>
+
+<!-- END OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+
+  </article>
+
+<!-- END OUTPUT from 'core/themes/classy/templates/content/media.html.twig' -->
+
+</div>
+      
+<!-- END OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+
+            </div>
+
+            <div class="banner__headings">
+                <h1 class="banner__headings--main">
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'field' -->
+<!-- FILE NAME SUGGESTIONS:
+   * field--paragraph--field-banner-title--banner-component.html.twig
+   * field--paragraph--field-banner-title.html.twig
+   * field--paragraph--banner-component.html.twig
+   * field--field-banner-title.html.twig
+   x field--text-long.html.twig
+   * field.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/field--text-long.html.twig' -->
+
+            <div class="clearfix text-formatted field field--name-field-banner-title field--type-text-long field--label-hidden field__item"><p>Helping Lifesavers Save Lives</p></div>
+      
+<!-- END OUTPUT from 'core/themes/classy/templates/field/field--text-long.html.twig' -->
+
+</h1>
+                <div class="banner__headings--sub">
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'field' -->
+<!-- FILE NAME SUGGESTIONS:
+   * field--paragraph--field-banner-description--banner-component.html.twig
+   * field--paragraph--field-banner-description.html.twig
+   * field--paragraph--banner-component.html.twig
+   * field--field-banner-description.html.twig
+   * field--string-long.html.twig
+   x field.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+            <div class="field field--name-field-banner-description field--type-string-long field--label-hidden field__item">Stempeucel® - First Patented Cell therapy Product approved for Commercial use by DCGI for treating Knee Osteoarthritis and Critical Limb Ischemia in India.</div>
+      
+<!-- END OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+
+                </div>
+            </div>
+            <a href="#contents" class="banner__learn arrow-wrap">
+                <p class="mb-0">Learn More</p>
+                <div class="banner__shapes">
+                    <div class="banner__circle banner__circle--1">
+                        <div class="banner__circle banner__circle--2 ping"></div>
+                        <div class="banner__circle banner__circle--3"></div>
+                        <div class="banner__line">&nbsp;</div>
+                    </div>
+                </div>
+            </a>
+        </div>
+         <div class="back-top"><i class="bi bi-arrow-up-short"></i></div>
+
+         
+          <script src="themes/custom/custom_theme/js/scrollarrow.js" type="text/javascript"></script>
+  <div class="paragraph paragraph--type--banner-component paragraph--view-mode--default">
+        
+      </div>
+
+<!-- END OUTPUT from 'themes/custom/custom_theme/templates/paragraph--banner_component.html.twig' -->
+
+</div>
+              <div class="field__item">
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'paragraph' -->
+<!-- FILE NAME SUGGESTIONS:
+   * paragraph--our-offering--default.html.twig
+   * paragraph--our-offering.html.twig
+   * paragraph--default.html.twig
+   * paragraph.html.twig
+-->
+<!-- BEGIN OUTPUT from 'themes/custom/custom_theme/templates/paragraph--our_offering.html.twig' -->
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Nunito+Sans:wght@600;700&family=Roboto+Slab:wght@300;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css">
+    <!--[if (lt IE 9)]><script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/min/tiny-slider.helper.ie8.js"></script><![endif]-->
+    <link rel="stylesheet" href="themes/custom/custom_theme/css/style.css">
+
+    <title>Stempeutics</title>
+    <link rel="shortcut icon" type="image/x-icon" href="img/home/favicon.ico">
+
+
+</head>
+           
+   <section class="offerings">
+   <div id="contents">
+              <h1></h1>
+            </div>
+            <div class="container">
+                <div class="row g-4">
+                    <div class="col-12 col-md-12">
+                        <div class="offering">
+                            <div class="offering__indicators"></div>
+                            <div class="offering__info">
+                                <h6 class="heading-primary">
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'field' -->
+<!-- FILE NAME SUGGESTIONS:
+   * field--paragraph--field-offer-titl--our-offering.html.twig
+   * field--paragraph--field-offer-titl.html.twig
+   * field--paragraph--our-offering.html.twig
+   * field--field-offer-titl.html.twig
+   * field--string.html.twig
+   x field.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+            <div class="field field--name-field-offer-titl field--type-string field--label-hidden field__item">OUR COMPANY</div>
+      
+<!-- END OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+</h6>
+                                <h4 class="heading-secondary--purple mb-5">
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'field' -->
+<!-- FILE NAME SUGGESTIONS:
+   * field--paragraph--field-offering-header--our-offering.html.twig
+   * field--paragraph--field-offering-header.html.twig
+   * field--paragraph--our-offering.html.twig
+   * field--field-offering-header.html.twig
+   * field--string.html.twig
+   x field.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+            <div class="field field--name-field-offering-header field--type-string field--label-hidden field__item">We are committed to &quot;Regenerating Hope&quot;</div>
+      
+<!-- END OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+</h4>
+                                <div class="text-1">
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'field' -->
+<!-- FILE NAME SUGGESTIONS:
+   * field--paragraph--field-offering-description---our-offering.html.twig
+   * field--paragraph--field-offering-description-.html.twig
+   * field--paragraph--our-offering.html.twig
+   * field--field-offering-description-.html.twig
+   * field--string-long.html.twig
+   x field.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+            <div class="field field--name-field-offering-description- field--type-string-long field--label-hidden field__item">Stempeutics Bangalore is a  life science company focused on developing and commercializing novel  therapeutics based on adult stem cells. It was founded by the Manipal Education and Medical Group in 2006. stempeutics strength lies in developing innovative stem cell products by nurturing cutting edge research and clinical applications through the dedicated efforts of its highly qualified team.</div>
+      
+<!-- END OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+ </div>
+                            </div>
+                            <div class="offering__img">
+                                                                   
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'field' -->
+<!-- FILE NAME SUGGESTIONS:
+   * field--paragraph--field-offering-image--our-offering.html.twig
+   * field--paragraph--field-offering-image.html.twig
+   * field--paragraph--our-offering.html.twig
+   * field--field-offering-image.html.twig
+   * field--entity-reference.html.twig
+   x field.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+            <div class="field field--name-field-offering-image field--type-entity-reference field--label-hidden field__item">
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'media' -->
+<!-- FILE NAME SUGGESTIONS:
+   * media--source-image.html.twig
+   * media--image--default.html.twig
+   * media--image.html.twig
+   * media--default.html.twig
+   x media.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/content/media.html.twig' -->
+<article class="media media--type-image media--view-mode-default">
+  
+      
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'field' -->
+<!-- FILE NAME SUGGESTIONS:
+   * field--media--field-media-image--image.html.twig
+   * field--media--field-media-image.html.twig
+   * field--media--image.html.twig
+   * field--field-media-image.html.twig
+   * field--image.html.twig
+   x field.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+  <div class="field field--name-field-media-image field--type-image field--label-visually_hidden">
+    <div class="field__label visually-hidden">Image</div>
+              <div class="field__item">
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'image_formatter' -->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/image-formatter.html.twig' -->
+  
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'image_style' -->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/image-style.html.twig' -->
+
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'image' -->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/image.html.twig' -->
+<img src="/sites/default/files/styles/large/public/2024-04/Stem%20cell%20science_0.webp?itok=SMX1uTR-" width="460" height="480" alt="image" loading="lazy" typeof="foaf:Image" class="image-style-large" />
+
+<!-- END OUTPUT from 'core/themes/classy/templates/field/image.html.twig' -->
+
+
+
+<!-- END OUTPUT from 'core/themes/classy/templates/field/image-style.html.twig' -->
+
+
+
+<!-- END OUTPUT from 'core/themes/classy/templates/field/image-formatter.html.twig' -->
+
+</div>
+          </div>
+
+<!-- END OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+
+  </article>
+
+<!-- END OUTPUT from 'core/themes/classy/templates/content/media.html.twig' -->
+
+</div>
+      
+<!-- END OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                </div>
+            </div>
+        </section>
+        
+
+         
+  <div class="paragraph paragraph--type--our-offering paragraph--view-mode--default">
+        
+      </div>
+
+<!-- END OUTPUT from 'themes/custom/custom_theme/templates/paragraph--our_offering.html.twig' -->
+
+</div>
+              <div class="field__item">
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'paragraph' -->
+<!-- FILE NAME SUGGESTIONS:
+   * paragraph--our-offer2--default.html.twig
+   * paragraph--our-offer2.html.twig
+   * paragraph--default.html.twig
+   * paragraph.html.twig
+-->
+<!-- BEGIN OUTPUT from 'themes/custom/custom_theme/templates/paragraph--our_offer2.html.twig' -->
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Nunito+Sans:wght@600;700&family=Roboto+Slab:wght@300;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css">
+    <!--[if (lt IE 9)]><script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/min/tiny-slider.helper.ie8.js"></script><![endif]-->
+    <link rel="stylesheet" href="themes/custom/custom_theme/css/style.css">
+
+    <title>Stempeutics</title>
+    <link rel="shortcut icon" type="image/x-icon" href="img/home/favicon.ico">
+
+
+</head>
+
+<style>
+.offeringss {
+  margin-top: 5rem; }
+</style>
+           
+   <section class="offeringss">
+   <div id="contents">
+              <h1></h1>
+            </div>
+            <div class="container">
+                <div class="row g-4">
+                    <div class="col-12 col-md-12">
+                        <div class="offering">
+                            <div class="offering__indicators"></div>
+                            <div class="offering__info">
+                                <h6 class="heading-primary">
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'field' -->
+<!-- FILE NAME SUGGESTIONS:
+   * field--paragraph--field-heading--our-offer2.html.twig
+   * field--paragraph--field-heading.html.twig
+   * field--paragraph--our-offer2.html.twig
+   * field--field-heading.html.twig
+   * field--string.html.twig
+   x field.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+            <div class="field field--name-field-heading field--type-string field--label-hidden field__item">OUR OFFERING</div>
+      
+<!-- END OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+</h6>
+                                <h4 class="heading-secondary--purple mb-5">
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'field' -->
+<!-- FILE NAME SUGGESTIONS:
+   * field--paragraph--field-portfolio-title--our-offer2.html.twig
+   * field--paragraph--field-portfolio-title.html.twig
+   * field--paragraph--our-offer2.html.twig
+   * field--field-portfolio-title.html.twig
+   * field--string.html.twig
+   x field.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+            <div class="field field--name-field-portfolio-title field--type-string field--label-hidden field__item">Developing innovative Stem Cell products</div>
+      
+<!-- END OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+</h4>
+                                <div class="text-1">
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'field' -->
+<!-- FILE NAME SUGGESTIONS:
+   * field--paragraph--field-banner-descriptions--our-offer2.html.twig
+   * field--paragraph--field-banner-descriptions.html.twig
+   * field--paragraph--our-offer2.html.twig
+   * field--field-banner-descriptions.html.twig
+   x field--text-long.html.twig
+   * field.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/field--text-long.html.twig' -->
+
+            <div class="clearfix text-formatted field field--name-field-banner-descriptions field--type-text-long field--label-hidden field__item"><p>Stempeutics is committed to delivering safe, effective, and affordable stem cell based products. Currently, we are focusing on our flagship product: Stempeucel® drug. It is an on-demand, off-the-shelf product based on pooled, allogeneic Mesenchymal Stromal Cells derived from the bone marrow of healthy, adult volunteers. We also have a bio-cosmetic portfolio for skin, hair and under-eye care applications.</p></div>
+      
+<!-- END OUTPUT from 'core/themes/classy/templates/field/field--text-long.html.twig' -->
+
+ </div>
+                            </div>
+                            <div class="offering__img">
+                                <img src="/sites/default/files/2024-04/Stem%20Cell%20related%20products.webp" alt="image of a cell">
+
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                </div>
+            </div>
+        </section>
+        
+
+  <div class="paragraph paragraph--type--our-offer2 paragraph--view-mode--default">
+         
+      </div>
+
+<!-- END OUTPUT from 'themes/custom/custom_theme/templates/paragraph--our_offer2.html.twig' -->
+
+</div>
+              <div class="field__item">
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'paragraph' -->
+<!-- FILE NAME SUGGESTIONS:
+   * paragraph--our-offer2--default.html.twig
+   * paragraph--our-offer2.html.twig
+   * paragraph--default.html.twig
+   * paragraph.html.twig
+-->
+<!-- BEGIN OUTPUT from 'themes/custom/custom_theme/templates/paragraph--our_offer2.html.twig' -->
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Nunito+Sans:wght@600;700&family=Roboto+Slab:wght@300;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css">
+    <!--[if (lt IE 9)]><script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/min/tiny-slider.helper.ie8.js"></script><![endif]-->
+    <link rel="stylesheet" href="themes/custom/custom_theme/css/style.css">
+
+    <title>Stempeutics</title>
+    <link rel="shortcut icon" type="image/x-icon" href="img/home/favicon.ico">
+
+
+</head>
+
+<style>
+.offeringss {
+  margin-top: 5rem; }
+</style>
+           
+   <section class="offeringss">
+   <div id="contents">
+              <h1></h1>
+            </div>
+            <div class="container">
+                <div class="row g-4">
+                    <div class="col-12 col-md-12">
+                        <div class="offering">
+                            <div class="offering__indicators"></div>
+                            <div class="offering__info">
+                                <h6 class="heading-primary">
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'field' -->
+<!-- FILE NAME SUGGESTIONS:
+   * field--paragraph--field-heading--our-offer2.html.twig
+   * field--paragraph--field-heading.html.twig
+   * field--paragraph--our-offer2.html.twig
+   * field--field-heading.html.twig
+   * field--string.html.twig
+   x field.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+            <div class="field field--name-field-heading field--type-string field--label-hidden field__item"> OUR TECHNOLOGY</div>
+      
+<!-- END OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+</h6>
+                                <h4 class="heading-secondary--purple mb-5">
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'field' -->
+<!-- FILE NAME SUGGESTIONS:
+   * field--paragraph--field-portfolio-title--our-offer2.html.twig
+   * field--paragraph--field-portfolio-title.html.twig
+   * field--paragraph--our-offer2.html.twig
+   * field--field-portfolio-title.html.twig
+   * field--string.html.twig
+   x field.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+            <div class="field field--name-field-portfolio-title field--type-string field--label-hidden field__item">Advanced Allogeneic Cell Therapy Product</div>
+      
+<!-- END OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+</h4>
+                                <div class="text-1">
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'field' -->
+<!-- FILE NAME SUGGESTIONS:
+   * field--paragraph--field-banner-descriptions--our-offer2.html.twig
+   * field--paragraph--field-banner-descriptions.html.twig
+   * field--paragraph--our-offer2.html.twig
+   * field--field-banner-descriptions.html.twig
+   x field--text-long.html.twig
+   * field.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/field--text-long.html.twig' -->
+
+            <div class="clearfix text-formatted field field--name-field-banner-descriptions field--type-text-long field--label-hidden field__item"><p>Stempeucel® is a first of its kind allogeneic, MSC therapy product. It is produced by pooling bone marrow-derived MSCs of healthy individuals through a proprietary, patented process. Research conducted at Stempeutics has shown that the pooling of donor cells balances out variations observed with individual donor cells, resulting in a product with strong immunomodulatory properties, broader cytokine/growth factors array, longer lifespan and reduction in lot to lot variability </p></div>
+      
+<!-- END OUTPUT from 'core/themes/classy/templates/field/field--text-long.html.twig' -->
+
+ </div>
+                            </div>
+                            <div class="offering__img">
+                                <img src="/sites/default/files/2024-04/Stem%20cell%20under%20microscope.webp" alt="image of a cell">
+
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                </div>
+            </div>
+        </section>
+        
+
+  <div class="paragraph paragraph--type--our-offer2 paragraph--view-mode--default">
+         
+      </div>
+
+<!-- END OUTPUT from 'themes/custom/custom_theme/templates/paragraph--our_offer2.html.twig' -->
+
+</div>
+              <div class="field__item">
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'paragraph' -->
+<!-- FILE NAME SUGGESTIONS:
+   * paragraph--products-landing-page--default.html.twig
+   * paragraph--products-landing-page.html.twig
+   * paragraph--default.html.twig
+   * paragraph.html.twig
+-->
+<!-- BEGIN OUTPUT from 'themes/custom/custom_theme/templates/paragraph--products_landing_page.html.twig' -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Nunito+Sans:wght@600;700&family=Roboto+Slab:wght@300;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css">
+    <!--[if (lt IE 9)]><script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/min/tiny-slider.helper.ie8.js"></script><![endif]-->
+    <link rel="stylesheet" href="themes/custom/custom_theme/css/style.css">
+
+    <title>Stempeutics</title>
+    <link rel="shortcut icon" type="image/x-icon" href="img/home/favicon.ico">
+
+
+</head>
+
+
+<section class="products">
+    <h6 class="heading-primary text-center mb-3">
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'field' -->
+<!-- FILE NAME SUGGESTIONS:
+   * field--paragraph--field-heading--products-landing-page.html.twig
+   * field--paragraph--field-heading.html.twig
+   * field--paragraph--products-landing-page.html.twig
+   * field--field-heading.html.twig
+   * field--string.html.twig
+   x field.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+            <div class="field field--name-field-heading field--type-string field--label-hidden field__item">OUR PRODUCTS</div>
+      
+<!-- END OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+</h6>
+    <h4 class="heading-secondary--black text-center mb-5">
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'field' -->
+<!-- FILE NAME SUGGESTIONS:
+   * field--paragraph--field-sub-heading--products-landing-page.html.twig
+   * field--paragraph--field-sub-heading.html.twig
+   * field--paragraph--products-landing-page.html.twig
+   * field--field-sub-heading.html.twig
+   * field--string.html.twig
+   x field.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+            <div class="field field--name-field-sub-heading field--type-string field--label-hidden field__item">Committed to &quot;Regenerating Hope&quot;</div>
+      
+<!-- END OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+</h4>
+
+    <!-- Tabs -->
+    <div class="product-tabs">
+        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home"
+                    type="button" role="tab" aria-controls="pills-home"
+                    aria-selected="true">
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'field' -->
+<!-- FILE NAME SUGGESTIONS:
+   * field--paragraph--field-tab1-title--products-landing-page.html.twig
+   * field--paragraph--field-tab1-title.html.twig
+   * field--paragraph--products-landing-page.html.twig
+   * field--field-tab1-title.html.twig
+   * field--string.html.twig
+   x field.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+            <div class="field field--name-field-tab1-title field--type-string field--label-hidden field__item">Therapeutics</div>
+      
+<!-- END OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="pills-profile-tab" data-bs-toggle="pill"
+                    data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile"
+                    aria-selected="false">
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'field' -->
+<!-- FILE NAME SUGGESTIONS:
+   * field--paragraph--field-tab2-title--products-landing-page.html.twig
+   * field--paragraph--field-tab2-title.html.twig
+   * field--paragraph--products-landing-page.html.twig
+   * field--field-tab2-title.html.twig
+   * field--string.html.twig
+   x field.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+            <div class="field field--name-field-tab2-title field--type-string field--label-hidden field__item">Bio Cosmetics</div>
+      
+<!-- END OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+</button>
+            </li>
+        </ul>
+    </div>
+
+    <div class="tab-content" id="pills-tabContent">
+        <div class="tab-pane" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+            <div class="container">
+                <div class="tiny-slider arrow-hover arrow-blur arrow-round dots-inside dots-primary rounded-3">
+                    <div class="tiny-slider-inner" data-autoplay="false" data-hoverpause="true" data-gutter="25"
+                        data-arrow="true" data-dots="true" data-items-xl="3" data-items-md="2" data-items-sm="2"
+                        data-items-xs="1.6" data-loop="false">
+                        <!-- Slide item -->
+                        <div class="item pb-5">
+                            <a href="/critical-limb-ischemia" class="product-card">
+                                <div class="product_tag">
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'field' -->
+<!-- FILE NAME SUGGESTIONS:
+   * field--paragraph--field-title-1--products-landing-page.html.twig
+   * field--paragraph--field-title-1.html.twig
+   * field--paragraph--products-landing-page.html.twig
+   * field--field-title-1.html.twig
+   * field--string.html.twig
+   x field.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+            <div class="field field--name-field-title-1 field--type-string field--label-hidden field__item">CLI</div>
+      
+<!-- END OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+</div>
+                                <div class="product-card__video mb-5">
+                                    <video autoplay muted loop class="banner__video lazy"
+                                        data-src="themes/custom/custom_theme/img/home/pexels-yauheni-vasilevich-7101912.mp4"
+                                        data-poster="themes/custom/custom_theme/img/home/pexels-yauheni-vasilevich-7101912_PosterImage-1.png">
+                                        <source src="themes/custom/custom_theme/img/home/video (1).compressed.mp4" type="video/mp4">
+                                    </video>
+                                    <div class="product-card__image">
+                                        <img class="lazy" data-src="/sites/default/files/2022-03/Regenacip_Bag-removebg-preview.png"
+                                            alt="image of stempeucel">      
+                                    </div>
+                                </div>
+                                <div class="product-card__info">
+                                    <h6 class="product-card__heading">
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'field' -->
+<!-- FILE NAME SUGGESTIONS:
+   * field--paragraph--field-tab1-heading--products-landing-page.html.twig
+   * field--paragraph--field-tab1-heading.html.twig
+   * field--paragraph--products-landing-page.html.twig
+   * field--field-tab1-heading.html.twig
+   * field--string.html.twig
+   x field.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+            <div class="field field--name-field-tab1-heading field--type-string field--label-hidden field__item">Stempeucel® Critical Limb Ischemia</div>
+      
+<!-- END OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+</h6>
+                                    <p class="product-card__text">
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'field' -->
+<!-- FILE NAME SUGGESTIONS:
+   * field--paragraph--field-tab2-description1--products-landing-page.html.twig
+   * field--paragraph--field-tab2-description1.html.twig
+   * field--paragraph--products-landing-page.html.twig
+   * field--field-tab2-description1.html.twig
+   * field--string-long.html.twig
+   x field.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+            <div class="field field--name-field-tab2-description1 field--type-string-long field--label-hidden field__item">First commercially approved product by the DCGI for the treatment of Critical Limb Ischemia<br />
+<br />
+(Commercially approved)</div>
+      
+<!-- END OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+
+                                    </p>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- Slide item -->
+                        <div class="item pb-5">
+                            <a href="/knee-osteoarthritis" class="product-card">
+                                <div class="product_tag">
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'field' -->
+<!-- FILE NAME SUGGESTIONS:
+   * field--paragraph--field-title2--products-landing-page.html.twig
+   * field--paragraph--field-title2.html.twig
+   * field--paragraph--products-landing-page.html.twig
+   * field--field-title2.html.twig
+   * field--string.html.twig
+   x field.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+            <div class="field field--name-field-title2 field--type-string field--label-hidden field__item">OA</div>
+      
+<!-- END OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+</div>
+                                <div class="product-card__video mb-5">
+                                    <video autoplay muted loop class="banner__video lazy"
+                                        data-src="themes/custom/custom_theme/img/home/pexels-yauheni-vasilevich-7101912.mp4"
+                                        data-poster="themes/custom/custom_theme/img/home/pexels-yauheni-vasilevich-7101912_PosterImage-1.png">
+                                        <source src="themes/custom/custom_theme/img/home/pexels-yauheni-vasilevich-7101912.mp4"
+                                            type="video/mp4">
+                                    </video>
+                                    <div class="product-card__image">
+                                        <img class="lazy"
+                                            data-src="/sites/default/files/2022-09/StemOne%20Vial%20Image_website.jpg"
+                                            alt="image of stempeucel">
+                                    </div>
+                                </div>
+                                <div class="product-card__info">
+                                    <h6 class="product-card__heading">
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'field' -->
+<!-- FILE NAME SUGGESTIONS:
+   * field--paragraph--field-tab2-subtitle2--products-landing-page.html.twig
+   * field--paragraph--field-tab2-subtitle2.html.twig
+   * field--paragraph--products-landing-page.html.twig
+   * field--field-tab2-subtitle2.html.twig
+   * field--string.html.twig
+   x field.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+            <div class="field field--name-field-tab2-subtitle2 field--type-string field--label-hidden field__item">Stempeucel® Knee Osteoarthritis</div>
+      
+<!-- END OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+</h6>
+                                    <p class="product-card__text">
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'field' -->
+<!-- FILE NAME SUGGESTIONS:
+   * field--paragraph--field-tab2-description2--products-landing-page.html.twig
+   * field--paragraph--field-tab2-description2.html.twig
+   * field--paragraph--products-landing-page.html.twig
+   * field--field-tab2-description2.html.twig
+   x field--text-long.html.twig
+   * field.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/field--text-long.html.twig' -->
+
+            <div class="clearfix text-formatted field field--name-field-tab2-description2 field--type-text-long field--label-hidden field__item"><p>First commercially approved Cell therapy product approved by the DCGI for the treatment of Knee Osteoarthritis</p>
+
+<p>(Commercially approved)</p></div>
+      
+<!-- END OUTPUT from 'core/themes/classy/templates/field/field--text-long.html.twig' -->
+
+
+                                    </p>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- Slide item -->
+                        <div class="item pb-5">
+                            <a href="/diabetic-foot-ulcer" class="product-card">
+                            <div class="product_tag">
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'field' -->
+<!-- FILE NAME SUGGESTIONS:
+   * field--paragraph--field-title3--products-landing-page.html.twig
+   * field--paragraph--field-title3.html.twig
+   * field--paragraph--products-landing-page.html.twig
+   * field--field-title3.html.twig
+   * field--string.html.twig
+   x field.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+            <div class="field field--name-field-title3 field--type-string field--label-hidden field__item">DFU</div>
+      
+<!-- END OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+</div>
+                                <div class="product-card__video mb-5">
+                                    <video autoplay muted loop class="banner__video lazy"
+                                        data-src="themes/custom/custom_theme/img/home/pexels-yauheni-vasilevich-7101912.mp4"
+                                        data-poster="themes/custom/custom_theme/img/home/pexels-yauheni-vasilevich-7101912_PosterImage-1.png">
+                                        <source src="themes/custom/custom_theme/img/home/video (1).compressed.mp4" type="video/mp4">
+                                    </video>
+                                    <div class="product-card__image">
+                                        <img class="lazy" data-src="/sites/default/files/2022-03/Mask%20Group%2076%402x_0.png"
+                                            alt="image of stempeucel">
+                                    </div>
+                                </div>
+                                <div class="product-card__info">
+                                    <h6 class="product-card__heading">
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'field' -->
+<!-- FILE NAME SUGGESTIONS:
+   * field--paragraph--field-tab2-subtitle3--products-landing-page.html.twig
+   * field--paragraph--field-tab2-subtitle3.html.twig
+   * field--paragraph--products-landing-page.html.twig
+   * field--field-tab2-subtitle3.html.twig
+   * field--string.html.twig
+   x field.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+            <div class="field field--name-field-tab2-subtitle3 field--type-string field--label-hidden field__item">Stempeucel® Diabetic Foot Ulcer</div>
+      
+<!-- END OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+</h6>
+                                    <p class="product-card__text">
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'field' -->
+<!-- FILE NAME SUGGESTIONS:
+   * field--paragraph--field-tab2-description3--products-landing-page.html.twig
+   * field--paragraph--field-tab2-description3.html.twig
+   * field--paragraph--products-landing-page.html.twig
+   * field--field-tab2-description3.html.twig
+   x field--text-long.html.twig
+   * field.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/field--text-long.html.twig' -->
+
+            <div class="clearfix text-formatted field field--name-field-tab2-description3 field--type-text-long field--label-hidden field__item"><p>In progress Phase-III product for the treatment of non-healing Diabetic Foot Ulcer </p></div>
+      
+<!-- END OUTPUT from 'core/themes/classy/templates/field/field--text-long.html.twig' -->
+
+
+                                    </p>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- Slide item -->
+                        <div class="item pb-5">
+                            <a href="/peri-anal-fistula" class="product-card">
+                                <div class="product_tag">
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'field' -->
+<!-- FILE NAME SUGGESTIONS:
+   * field--paragraph--field-title4--products-landing-page.html.twig
+   * field--paragraph--field-title4.html.twig
+   * field--paragraph--products-landing-page.html.twig
+   * field--field-title4.html.twig
+   * field--string.html.twig
+   x field.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+            <div class="field field--name-field-title4 field--type-string field--label-hidden field__item">PAF</div>
+      
+<!-- END OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+</div>
+                                <div class="product-card__video mb-5">
+                                    <video autoplay muted loop class="banner__video lazy"
+                                        data-src="themes/custom/custom_theme/img/home/pexels-yauheni-vasilevich-7101912.mp4"
+                                        data-poster="themes/custom/custom_theme/img/home/pexels-yauheni-vasilevich-7101912_PosterImage-1.png"
+                                        <source src="themes/custom/custom_theme/img/home/pexels-yauheni-vasilevich-7101912.mp4"
+                                        type="video/mp4">
+                                    </video>
+                                    <div class="product-card__image">
+                                        <img class="lazy" data-src="/sites/default/files/2022-03/Mask%20Group%2076%402x_1.png"
+                                            alt="image of stempeucel">
+                                    </div>
+                                </div>
+                                <div class="product-card__info">
+                                    <h6 class="product-card__heading">
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'field' -->
+<!-- FILE NAME SUGGESTIONS:
+   * field--paragraph--field-tab2-subtitle4--products-landing-page.html.twig
+   * field--paragraph--field-tab2-subtitle4.html.twig
+   * field--paragraph--products-landing-page.html.twig
+   * field--field-tab2-subtitle4.html.twig
+   * field--string.html.twig
+   x field.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+            <div class="field field--name-field-tab2-subtitle4 field--type-string field--label-hidden field__item">Stempeucel® Peri-anal Fistula</div>
+      
+<!-- END OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+</h6>
+                                    <p class="product-card__text">
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'field' -->
+<!-- FILE NAME SUGGESTIONS:
+   * field--paragraph--field-tab2-description4--products-landing-page.html.twig
+   * field--paragraph--field-tab2-description4.html.twig
+   * field--paragraph--products-landing-page.html.twig
+   * field--field-tab2-description4.html.twig
+   x field--text-long.html.twig
+   * field.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/field--text-long.html.twig' -->
+
+            <div class="clearfix text-formatted field field--name-field-tab2-description4 field--type-text-long field--label-hidden field__item"><p>In progress Phase I/II product for the treatment of Peri-anal Fistula due to Crohn's disease</p></div>
+      
+<!-- END OUTPUT from 'core/themes/classy/templates/field/field--text-long.html.twig' -->
+
+
+                                    </p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bio Cosmetics slider -->
+        <div class="tab-pane  show active" id="pills-profile" role="tabpanel"
+            aria-labelledby="pills-profile-tab">
+            <div class="container">
+                <div class="tiny-slider arrow-hover arrow-blur arrow-round dots-inside dots-primary rounded-3">
+                    <div class="tiny-slider-inner" data-autoplay="false" data-hoverpause="true" data-gutter="25"
+                        data-arrow="true" data-dots="true" data-items-xl="3" data-items-md="2" data-items-sm="2"
+                        data-items-xs="1.6" data-loop="false">
+                        <!-- Slide item -->
+                        <div class="item pb-5">
+                            <a href="/trichosera" class="product-card">
+                                <div class="product_tag">
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'field' -->
+<!-- FILE NAME SUGGESTIONS:
+   * field--paragraph--field-title5--products-landing-page.html.twig
+   * field--paragraph--field-title5.html.twig
+   * field--paragraph--products-landing-page.html.twig
+   * field--field-title5.html.twig
+   * field--string.html.twig
+   x field.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+            <div class="field field--name-field-title5 field--type-string field--label-hidden field__item">Hair Care</div>
+      
+<!-- END OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+</div>
+                                <div class="product-card__video mb-5">
+                                    <video autoplay muted loop class="banner__video lazy"
+                                        data-src="themes/custom/custom_theme/img/home/pexels-yauheni-vasilevich-7101912.mp4"
+                                        data-poster="themes/custom/custom_theme/img/home/pexels-yauheni-vasilevich-7101912_PosterImage-1.png">
+                                        <source src="themes/custom/custom_theme/img/home/video (1).compressed.mp4" type="video/mp4">
+                                    </video>
+                                    <div class="product-card__image">
+                                        <img class="lazy" data-src="/sites/default/files/2022-03/Group_814-removebg-preview%402x.png"
+                                            alt="image of stempeucel">
+                                    </div>
+                                </div>
+                                <div class="product-card__info">
+                                    <h6 class="product-card__heading">
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'field' -->
+<!-- FILE NAME SUGGESTIONS:
+   * field--paragraph--field-tab2-subtitle1--products-landing-page.html.twig
+   * field--paragraph--field-tab2-subtitle1.html.twig
+   * field--paragraph--products-landing-page.html.twig
+   * field--field-tab2-subtitle1.html.twig
+   * field--string.html.twig
+   x field.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+            <div class="field field--name-field-tab2-subtitle1 field--type-string field--label-hidden field__item">Trichosera®</div>
+      
+<!-- END OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+</h6>
+                                    <p class="product-card__text">
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'field' -->
+<!-- FILE NAME SUGGESTIONS:
+   * field--paragraph--field-tab2-description5--products-landing-page.html.twig
+   * field--paragraph--field-tab2-description5.html.twig
+   * field--paragraph--products-landing-page.html.twig
+   * field--field-tab2-description5.html.twig
+   x field--text-long.html.twig
+   * field.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/field--text-long.html.twig' -->
+
+            <div class="clearfix text-formatted field field--name-field-tab2-description5 field--type-text-long field--label-hidden field__item"><p>A novel hair serum prepared from the bio-active medium of stem cells that promotes scalp hair growth and reduces hair fall</p>
+
+<p>(Commercially approved)</p></div>
+      
+<!-- END OUTPUT from 'core/themes/classy/templates/field/field--text-long.html.twig' -->
+
+
+                                    </p>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- Slide item -->
+                        <div class="item pb-5">
+                            <a href="/cutisera" class="product-card">
+                                <div class="product_tag">
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'field' -->
+<!-- FILE NAME SUGGESTIONS:
+   * field--paragraph--field-title6--products-landing-page.html.twig
+   * field--paragraph--field-title6.html.twig
+   * field--paragraph--products-landing-page.html.twig
+   * field--field-title6.html.twig
+   * field--string.html.twig
+   x field.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+            <div class="field field--name-field-title6 field--type-string field--label-hidden field__item">Skin Care</div>
+      
+<!-- END OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+</div>
+                                <div class="product-card__video mb-5">
+                                    <video autoplay muted loop class="banner__video lazy"
+                                        data-src="themes/custom/custom_theme/img/home/pexels-yauheni-vasilevich-7101912.mp4"
+                                        data-poster="themes/custom/custom_theme/img/home/pexels-yauheni-vasilevich-7101912_PosterImage-1.png">
+                                        <source src="themes/custom/custom_theme/img/home/pexels-yauheni-vasilevich-7101912.mp4"
+                                            type="video/mp4">
+                                    </video>
+                                    <div class="product-card__image">
+                                        <img class="lazy" data-src="/sites/default/files/2022-03/Mask%20Group%2078%402x.png"
+                                            alt="image of stempeucel">
+                                    </div>
+                                </div>
+                                <div class="product-card__info">
+                                    <h6 class="product-card__heading">
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'field' -->
+<!-- FILE NAME SUGGESTIONS:
+   * field--paragraph--field-tab2-subtitle5--products-landing-page.html.twig
+   * field--paragraph--field-tab2-subtitle5.html.twig
+   * field--paragraph--products-landing-page.html.twig
+   * field--field-tab2-subtitle5.html.twig
+   * field--string.html.twig
+   x field.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+            <div class="field field--name-field-tab2-subtitle5 field--type-string field--label-hidden field__item">Cutisera®</div>
+      
+<!-- END OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+</h6>
+                                    <p class="product-card__text">
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'field' -->
+<!-- FILE NAME SUGGESTIONS:
+   * field--paragraph--field-tab2-description6--products-landing-page.html.twig
+   * field--paragraph--field-tab2-description6.html.twig
+   * field--paragraph--products-landing-page.html.twig
+   * field--field-tab2-description6.html.twig
+   x field--text-long.html.twig
+   * field.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/field--text-long.html.twig' -->
+
+            <div class="clearfix text-formatted field field--name-field-tab2-description6 field--type-text-long field--label-hidden field__item"><p>A non-greasy intensive skincare translucent liquid that promotes a firm, well moisturized and clearer skin with reduced blemishes and fine lines</p>
+
+<p>(Commercially approved)</p></div>
+      
+<!-- END OUTPUT from 'core/themes/classy/templates/field/field--text-long.html.twig' -->
+
+
+                                    </p>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- Slide item -->
+                        <div class="item pb-5">
+                            <a href="/perioptisera" class="product-card">
+                                <div class="product_tag">
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'field' -->
+<!-- FILE NAME SUGGESTIONS:
+   * field--paragraph--field-title7--products-landing-page.html.twig
+   * field--paragraph--field-title7.html.twig
+   * field--paragraph--products-landing-page.html.twig
+   * field--field-title7.html.twig
+   * field--string.html.twig
+   x field.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+            <div class="field field--name-field-title7 field--type-string field--label-hidden field__item">Eye Care</div>
+      
+<!-- END OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+</div>
+                                <div class="product-card__video mb-5">
+                                    <video autoplay muted loop class="banner__video lazy"
+                                        data-src="themes/custom/custom_theme/img/home/pexels-yauheni-vasilevich-7101912.mp4"
+                                        data-poster="themes/custom/custom_theme/img/home/pexels-yauheni-vasilevich-7101912_PosterImage-1.png">
+                                        <source src="themes/custom/custom_theme/img/home/video (1).compressed.mp4" type="video/mp4">
+                                    </video>
+                                    <div class="product-card__image">
+                                        <img class="lazy"
+                                            data-src="/sites/default/files/2022-03/Perioptisera-removebg-preview%402x.png"
+                                            alt="image of stempeucel">
+                                    </div>
+                                </div>
+                                <div class="product-card__info">
+                                    <h6 class="product-card__heading">
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'field' -->
+<!-- FILE NAME SUGGESTIONS:
+   * field--paragraph--field-tab2-subtitle6--products-landing-page.html.twig
+   * field--paragraph--field-tab2-subtitle6.html.twig
+   * field--paragraph--products-landing-page.html.twig
+   * field--field-tab2-subtitle6.html.twig
+   * field--string.html.twig
+   x field.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+            <div class="field field--name-field-tab2-subtitle6 field--type-string field--label-hidden field__item">Perioptisera®</div>
+      
+<!-- END OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+</h6>
+                                    <p class="product-card__text">
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'field' -->
+<!-- FILE NAME SUGGESTIONS:
+   * field--paragraph--field-tab1-description3--products-landing-page.html.twig
+   * field--paragraph--field-tab1-description3.html.twig
+   * field--paragraph--products-landing-page.html.twig
+   * field--field-tab1-description3.html.twig
+   x field--text-long.html.twig
+   * field.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/field--text-long.html.twig' -->
+
+            <div class="clearfix text-formatted field field--name-field-tab1-description3 field--type-text-long field--label-hidden field__item"><p>An under-eye dark circle bioactive concentrate that reduces under-eye dark circles, eye bags and rehydrates &amp; soothes the under-eye skin</p>
+
+<p>(Commercially approved)</p></div>
+      
+<!-- END OUTPUT from 'core/themes/classy/templates/field/field--text-long.html.twig' -->
+
+
+                                    </p>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- Slide item -->
+                        <div class="item pb-5">
+                            <a href="/bio-cosmetics" class="product-card">
+                            <div class="product_tag">
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'field' -->
+<!-- FILE NAME SUGGESTIONS:
+   * field--paragraph--field-title8--products-landing-page.html.twig
+   * field--paragraph--field-title8.html.twig
+   * field--paragraph--products-landing-page.html.twig
+   * field--field-title8.html.twig
+   * field--string.html.twig
+   x field.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+            <div class="field field--name-field-title8 field--type-string field--label-hidden field__item">Facial</div>
+      
+<!-- END OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+</div>
+                                <div class="product-card__video mb-5">
+                                    <video autoplay muted loop class="banner__video lazy"
+                                        data-src="themes/custom/custom_theme/img/home/pexels-yauheni-vasilevich-7101912.mp4"
+                                        data-poster="themes/custom/custom_theme/img/home/pexels-yauheni-vasilevich-7101912_PosterImage-1.png"
+                                        <source src="themes/custom/custom_theme/img/home/pexels-yauheni-vasilevich-7101912.mp4"
+                                        type="video/mp4">
+                                    </video>
+                                    <div class="product-card__image">
+                                            <img class="lazy"
+                                            data-src="/sites/default/files/2022-03/Group%201156%402x.png"
+                                            alt="image of stempeucel">
+                                    </div>
+                                </div>
+                                <div class="product-card__info">
+                                    <h6 class="product-card__heading">
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'field' -->
+<!-- FILE NAME SUGGESTIONS:
+   * field--paragraph--field-tab1-heading1--products-landing-page.html.twig
+   * field--paragraph--field-tab1-heading1.html.twig
+   * field--paragraph--products-landing-page.html.twig
+   * field--field-tab1-heading1.html.twig
+   * field--string.html.twig
+   x field.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+            <div class="field field--name-field-tab1-heading1 field--type-string field--label-hidden field__item">Multisera Facial bundle</div>
+      
+<!-- END OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+</h6>
+                                    <p class="product-card__text">
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'field' -->
+<!-- FILE NAME SUGGESTIONS:
+   * field--paragraph--field-tab1-description2--products-landing-page.html.twig
+   * field--paragraph--field-tab1-description2.html.twig
+   * field--paragraph--products-landing-page.html.twig
+   * field--field-tab1-description2.html.twig
+   x field--text-long.html.twig
+   * field.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/field--text-long.html.twig' -->
+
+            <div class="clearfix text-formatted field field--name-field-tab1-description2 field--type-text-long field--label-hidden field__item"><p>Our strong pipeline in Bio-cosmetics which contains face wash, face scrub, day cream and night cream - derived from novel stem cell derived condition medium</p></div>
+      
+<!-- END OUTPUT from 'core/themes/classy/templates/field/field--text-long.html.twig' -->
+
+
+                                    </p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+         
+  <div class="paragraph paragraph--type--products-landing-page paragraph--view-mode--default">
+         
+      </div>
+
+<!-- END OUTPUT from 'themes/custom/custom_theme/templates/paragraph--products_landing_page.html.twig' -->
+
+</div>
+              <div class="field__item">
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'paragraph' -->
+<!-- FILE NAME SUGGESTIONS:
+   * paragraph--our-team--default.html.twig
+   * paragraph--our-team.html.twig
+   * paragraph--default.html.twig
+   * paragraph.html.twig
+-->
+<!-- BEGIN OUTPUT from 'themes/custom/custom_theme/templates/paragraph--our_team.html.twig' -->
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Nunito+Sans:wght@600;700&family=Roboto+Slab:wght@300;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css">
+    <!--[if (lt IE 9)]><script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/min/tiny-slider.helper.ie8.js"></script><![endif]-->
+    <link rel="stylesheet" href="themes/custom/custom_theme/css/style.css">
+
+    <title>Stempeutics</title>
+    <link rel="shortcut icon" type="image/x-icon" href="img/home/favicon.ico">
+
+
+</head>
+
+
+<div class="team">
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-lg-6">
+                        <div class="team__left">
+                            <h6 class="heading-primary">
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'field' -->
+<!-- FILE NAME SUGGESTIONS:
+   * field--paragraph--field-heading--our-team.html.twig
+   * field--paragraph--field-heading.html.twig
+   * field--paragraph--our-team.html.twig
+   * field--field-heading.html.twig
+   * field--string.html.twig
+   x field.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+            <div class="field field--name-field-heading field--type-string field--label-hidden field__item">OUR TEAM</div>
+      
+<!-- END OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+</h6>
+                            <h4 class="team__heading mb-5">
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'field' -->
+<!-- FILE NAME SUGGESTIONS:
+   * field--paragraph--field-sub-heading--our-team.html.twig
+   * field--paragraph--field-sub-heading.html.twig
+   * field--paragraph--our-team.html.twig
+   * field--field-sub-heading.html.twig
+   * field--string.html.twig
+   x field.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+            <div class="field field--name-field-sub-heading field--type-string field--label-hidden field__item">We&#039;re Stempeutics</div>
+      
+<!-- END OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+</h4>
+                                                          <div class="team__text mb-5">
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'field' -->
+<!-- FILE NAME SUGGESTIONS:
+   * field--paragraph--field-descriptions--our-team.html.twig
+   * field--paragraph--field-descriptions.html.twig
+   * field--paragraph--our-team.html.twig
+   * field--field-descriptions.html.twig
+   x field--text-long.html.twig
+   * field.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/field--text-long.html.twig' -->
+
+            <div class="clearfix text-formatted field field--name-field-descriptions field--type-text-long field--label-hidden field__item"><p>Experienced management team with in-depth global experience of working with companies in stem cells segment supported by an eminent Scientific Advisory Board</p>
+</div>
+      
+<!-- END OUTPUT from 'core/themes/classy/templates/field/field--text-long.html.twig' -->
+
+ </div>
+                            <a href="/leadership">
+                                <img class="team__cta" src="themes/custom/custom_theme/img/home/Group 86@2x.png" aira-hidden>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-6">
+                        <div class="team-group">
+                            <div class="row g-4">
+                                <div class="col-5 col-lg-5 ms-lg-auto">
+                                    <div class="card member member-lg mx-auto" style="max-width: 26rem;">
+                                        <div class="card-img">
+                                                                                         
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'field' -->
+<!-- FILE NAME SUGGESTIONS:
+   * field--paragraph--field-member-image1--our-team.html.twig
+   * field--paragraph--field-member-image1.html.twig
+   * field--paragraph--our-team.html.twig
+   * field--field-member-image1.html.twig
+   * field--entity-reference.html.twig
+   x field.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+            <div class="field field--name-field-member-image1 field--type-entity-reference field--label-hidden field__item">
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'media' -->
+<!-- FILE NAME SUGGESTIONS:
+   * media--source-image.html.twig
+   * media--image--default.html.twig
+   * media--image.html.twig
+   * media--default.html.twig
+   x media.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/content/media.html.twig' -->
+<article class="media media--type-image media--view-mode-default">
+  
+      
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'field' -->
+<!-- FILE NAME SUGGESTIONS:
+   * field--media--field-media-image--image.html.twig
+   * field--media--field-media-image.html.twig
+   * field--media--image.html.twig
+   * field--field-media-image.html.twig
+   * field--image.html.twig
+   x field.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+  <div class="field field--name-field-media-image field--type-image field--label-visually_hidden">
+    <div class="field__label visually-hidden">Image</div>
+              <div class="field__item">
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'image_formatter' -->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/image-formatter.html.twig' -->
+  
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'image_style' -->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/image-style.html.twig' -->
+
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'image' -->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/image.html.twig' -->
+<img src="/sites/default/files/styles/large/public/2022-02/NoPath%20-%20Copy%20%2818%29_0.jpg?itok=UjPv88F1" width="372" height="460" alt="Mr. B. N. Manohar1" loading="lazy" typeof="foaf:Image" class="image-style-large" />
+
+<!-- END OUTPUT from 'core/themes/classy/templates/field/image.html.twig' -->
+
+
+
+<!-- END OUTPUT from 'core/themes/classy/templates/field/image-style.html.twig' -->
+
+
+
+<!-- END OUTPUT from 'core/themes/classy/templates/field/image-formatter.html.twig' -->
+
+</div>
+          </div>
+
+<!-- END OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+
+  </article>
+
+<!-- END OUTPUT from 'core/themes/classy/templates/content/media.html.twig' -->
+
+</div>
+      
+<!-- END OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+
+                                            <div class="card-floating-links">
+                                                <h4>
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'field' -->
+<!-- FILE NAME SUGGESTIONS:
+   * field--paragraph--field-member-name--our-team.html.twig
+   * field--paragraph--field-member-name.html.twig
+   * field--paragraph--our-team.html.twig
+   * field--field-member-name.html.twig
+   * field--string.html.twig
+   x field.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+            <div class="field field--name-field-member-name field--type-string field--label-hidden field__item">Mr. B N Manohar</div>
+      
+<!-- END OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+</h4>
+                                                <h6>
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'field' -->
+<!-- FILE NAME SUGGESTIONS:
+   * field--paragraph--field-managment-designation1--our-team.html.twig
+   * field--paragraph--field-managment-designation1.html.twig
+   * field--paragraph--our-team.html.twig
+   * field--field-managment-designation1.html.twig
+   * field--string.html.twig
+   x field.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+            <div class="field field--name-field-managment-designation1 field--type-string field--label-hidden field__item">MD &amp; CEO</div>
+      
+<!-- END OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6 col-lg-6">
+                                    <div class="row g-4">
+                                        <div class="col-6">
+                                            <div class="card member mx-auto" style="max-width: 22rem;">
+                                                <div class="card-img">
+                                                                                                        
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'field' -->
+<!-- FILE NAME SUGGESTIONS:
+   * field--paragraph--field-member-image-2--our-team.html.twig
+   * field--paragraph--field-member-image-2.html.twig
+   * field--paragraph--our-team.html.twig
+   * field--field-member-image-2.html.twig
+   * field--entity-reference.html.twig
+   x field.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+            <div class="field field--name-field-member-image-2 field--type-entity-reference field--label-hidden field__item">
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'media' -->
+<!-- FILE NAME SUGGESTIONS:
+   * media--source-image.html.twig
+   * media--image--default.html.twig
+   * media--image.html.twig
+   * media--default.html.twig
+   x media.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/content/media.html.twig' -->
+<article class="media media--type-image media--view-mode-default">
+  
+      
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'field' -->
+<!-- FILE NAME SUGGESTIONS:
+   * field--media--field-media-image--image.html.twig
+   * field--media--field-media-image.html.twig
+   * field--media--image.html.twig
+   * field--field-media-image.html.twig
+   * field--image.html.twig
+   x field.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+  <div class="field field--name-field-media-image field--type-image field--label-visually_hidden">
+    <div class="field__label visually-hidden">Image</div>
+              <div class="field__item">
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'image_formatter' -->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/image-formatter.html.twig' -->
+  
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'image_style' -->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/image-style.html.twig' -->
+
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'image' -->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/image.html.twig' -->
+<img src="/sites/default/files/styles/large/public/2023-02/Dr%20Pawan%20Photo_0.jpg?itok=UaPDdmAP" width="480" height="480" alt="Dr Pawan Photo" loading="lazy" typeof="foaf:Image" class="image-style-large" />
+
+<!-- END OUTPUT from 'core/themes/classy/templates/field/image.html.twig' -->
+
+
+
+<!-- END OUTPUT from 'core/themes/classy/templates/field/image-style.html.twig' -->
+
+
+
+<!-- END OUTPUT from 'core/themes/classy/templates/field/image-formatter.html.twig' -->
+
+</div>
+          </div>
+
+<!-- END OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+
+  </article>
+
+<!-- END OUTPUT from 'core/themes/classy/templates/content/media.html.twig' -->
+
+</div>
+      
+<!-- END OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+
+                                                       
+                                                    <div class="card-floating-links">
+                                                        <h4>
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'field' -->
+<!-- FILE NAME SUGGESTIONS:
+   * field--paragraph--field-member-name2--our-team.html.twig
+   * field--paragraph--field-member-name2.html.twig
+   * field--paragraph--our-team.html.twig
+   * field--field-member-name2.html.twig
+   * field--string.html.twig
+   x field.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+            <div class="field field--name-field-member-name2 field--type-string field--label-hidden field__item">Dr. Pawan Kumar Gupta</div>
+      
+<!-- END OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+</h4>
+                                                        <h6>
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'field' -->
+<!-- FILE NAME SUGGESTIONS:
+   * field--paragraph--field-managment-designation2--our-team.html.twig
+   * field--paragraph--field-managment-designation2.html.twig
+   * field--paragraph--our-team.html.twig
+   * field--field-managment-designation2.html.twig
+   * field--string.html.twig
+   x field.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+            <div class="field field--name-field-managment-designation2 field--type-string field--label-hidden field__item">President, Medical and Regulatory affairs</div>
+      
+<!-- END OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+</h6>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="card member mx-auto" style="max-width: 22rem;">
+                                                <div class="card-img">
+                                                                                                        
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'field' -->
+<!-- FILE NAME SUGGESTIONS:
+   * field--paragraph--field-member-image-3--our-team.html.twig
+   * field--paragraph--field-member-image-3.html.twig
+   * field--paragraph--our-team.html.twig
+   * field--field-member-image-3.html.twig
+   * field--entity-reference.html.twig
+   x field.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+            <div class="field field--name-field-member-image-3 field--type-entity-reference field--label-hidden field__item">
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'media' -->
+<!-- FILE NAME SUGGESTIONS:
+   * media--source-image.html.twig
+   * media--image--default.html.twig
+   * media--image.html.twig
+   * media--default.html.twig
+   x media.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/content/media.html.twig' -->
+<article class="media media--type-image media--view-mode-default">
+  
+      
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'field' -->
+<!-- FILE NAME SUGGESTIONS:
+   * field--media--field-media-image--image.html.twig
+   * field--media--field-media-image.html.twig
+   * field--media--image.html.twig
+   * field--field-media-image.html.twig
+   * field--image.html.twig
+   x field.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+  <div class="field field--name-field-media-image field--type-image field--label-visually_hidden">
+    <div class="field__label visually-hidden">Image</div>
+              <div class="field__item">
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'image_formatter' -->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/image-formatter.html.twig' -->
+  
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'image_style' -->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/image-style.html.twig' -->
+
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'image' -->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/image.html.twig' -->
+<img src="/sites/default/files/styles/large/public/2022-02/NoPath%20-%20Copy%20%2811%29.jpg?itok=jNpqLEIC" width="372" height="380" alt="Dr. Udaykumar K" loading="lazy" typeof="foaf:Image" class="image-style-large" />
+
+<!-- END OUTPUT from 'core/themes/classy/templates/field/image.html.twig' -->
+
+
+
+<!-- END OUTPUT from 'core/themes/classy/templates/field/image-style.html.twig' -->
+
+
+
+<!-- END OUTPUT from 'core/themes/classy/templates/field/image-formatter.html.twig' -->
+
+</div>
+          </div>
+
+<!-- END OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+
+  </article>
+
+<!-- END OUTPUT from 'core/themes/classy/templates/content/media.html.twig' -->
+
+</div>
+      
+<!-- END OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+
+                                                    <div class="card-floating-links">
+                                                        <h4>
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'field' -->
+<!-- FILE NAME SUGGESTIONS:
+   * field--paragraph--field-member-name3--our-team.html.twig
+   * field--paragraph--field-member-name3.html.twig
+   * field--paragraph--our-team.html.twig
+   * field--field-member-name3.html.twig
+   * field--string.html.twig
+   x field.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+            <div class="field field--name-field-member-name3 field--type-string field--label-hidden field__item">Dr. Udaykumar K</div>
+      
+<!-- END OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+</h4>
+                                                        <h6>
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'field' -->
+<!-- FILE NAME SUGGESTIONS:
+   * field--paragraph--field-managment-designation3--our-team.html.twig
+   * field--paragraph--field-managment-designation3.html.twig
+   * field--paragraph--our-team.html.twig
+   * field--field-managment-designation3.html.twig
+   * field--string.html.twig
+   x field.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+            <div class="field field--name-field-managment-designation3 field--type-string field--label-hidden field__item">Chief Technology Officer</div>
+      
+<!-- END OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+</h6>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="card member mx-auto" style="max-width: 22rem;">
+                                                <div class="card-img">
+                                                                                                        
+                                                    <div class="card-floating-links">
+                                                        <h4></h4>
+                                                        <h6></h6>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="card member mx-auto" style="max-width: 22rem;">
+                                                <div class="card-img">
+                                                                                                        
+                                                       
+                                                    <div class="card-floating-links">
+                                                        <h4></h4>
+                                                        <h6></h6>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+  <div class="paragraph paragraph--type--our-team paragraph--view-mode--default">
+         
+      </div>
+
+<!-- END OUTPUT from 'themes/custom/custom_theme/templates/paragraph--our_team.html.twig' -->
+
+</div>
+              <div class="field__item">
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'paragraph' -->
+<!-- FILE NAME SUGGESTIONS:
+   * paragraph--landing-page-recognitions--default.html.twig
+   * paragraph--landing-page-recognitions.html.twig
+   * paragraph--default.html.twig
+   * paragraph.html.twig
+-->
+<!-- BEGIN OUTPUT from 'themes/custom/custom_theme/templates/paragraph--landing_page_recognitions.html.twig' -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Nunito+Sans:wght@600;700&family=Roboto+Slab:wght@300;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css">
+    <!--[if (lt IE 9)]><script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/min/tiny-slider.helper.ie8.js"></script><![endif]-->
+    <link rel="stylesheet" href="themes/custom/custom_theme/css/style.css">
+
+    <title>Stempeutics</title>
+    <link rel="shortcut icon" type="image/x-icon" href="img/home/favicon.ico">
+
+
+</head>
+
+ <section class="awards">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-xxl-3">
+                        <div class="awards__info">
+                            <h4 class="heading-secondary--purple mb-3">
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'field' -->
+<!-- FILE NAME SUGGESTIONS:
+   * field--paragraph--field-header-main--landing-page-recognitions.html.twig
+   * field--paragraph--field-header-main.html.twig
+   * field--paragraph--landing-page-recognitions.html.twig
+   * field--field-header-main.html.twig
+   * field--string.html.twig
+   x field.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+            <div class="field field--name-field-header-main field--type-string field--label-hidden field__item">Our Patents</div>
+      
+<!-- END OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+</h4>
+                            <div class="text-1 awards__text">
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'field' -->
+<!-- FILE NAME SUGGESTIONS:
+   * field--paragraph--field-description-rec--landing-page-recognitions.html.twig
+   * field--paragraph--field-description-rec.html.twig
+   * field--paragraph--landing-page-recognitions.html.twig
+   * field--field-description-rec.html.twig
+   * field--string-long.html.twig
+   x field.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+            <div class="field field--name-field-description-rec field--type-string-long field--label-hidden field__item">Scientists working at Stempeutics have filed 100+ patents across the globe, with 50+ patents already granted</div>
+      
+<!-- END OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+</div>
+                            <div class="d-flex justify-content-start my-5">
+                                <a class="btn btn-md butn-primary" href="/patents-certifications" role="button"><h3>Read More</h3></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-8 col-xxl-9">
+                        <div class="tiny-slider arrow-hover arrow-blur arrow-round dots-inside dots-primary rounded-3">
+                            <div class="tiny-slider-inner px-5" data-autoplay="false" data-hoverpause="true"
+                                data-gutter="50" data-arrow="true" data-dots="true" data-items-xl="3" data-items-md="2"
+                                data-items-sm="2" data-items-xs="1.6" data-loop="false">
+                                <!-- Slide item -->
+                                <div class="item pb-5">
+                                    <div class="awards-card w-100">
+                                        <div class="awards-card__img h-auto">
+                                            <img class="lazy" data-src="/sites/default/files/2022-03/1-2012-500892-Philippines.png"
+                                                alt="Image of an award">
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Slide item -->
+                                <div class="item pb-5">
+                                    <div class="awards-card w-100">
+                                        <div class="awards-card__img h-auto">
+                                            <img class="lazy" data-src="/sites/default/files/2022-03/3130667%20-EPO.png"
+                                                alt="Image of an award">
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Slide item -->
+                                <div class="item pb-5">
+                                    <div class="awards-card w-100">
+                                        <div class="awards-card__img h-auto">
+                                            <img class="lazy" data-src="/sites/default/files/2022-03/Canada-Stepeucel-2777232.png"
+                                                alt="Image of an award">
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Slide item -->
+                                <div class="item pb-5">
+                                    <div class="awards-card w-100">
+                                        <div class="awards-card__img h-auto">
+                                            <img class="lazy" data-src="/sites/default/files/2022-03/Image%2015.png"
+                                                alt="Image of an award">
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Slide item -->
+                                <div class="item pb-5">
+                                    <div class="awards-card w-100">
+                                        <div class="awards-card__img h-auto">
+                                            <img class="lazy" data-src="/sites/default/files/2022-03/Image%2017.png"
+                                                alt="Image of an award">
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Slide item -->
+                                <div class="item pb-5">
+                                    <div class="awards-card w-100">
+                                        <div class="awards-card__img h-auto">
+                                            <img class="lazy" data-src="/sites/default/files/2022-03/Stempeucel-10865385-2Pages.png"
+                                                alt="Image of an award">
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Slide item -->
+                                <div class="item pb-5">
+                                    <div class="awards-card w-100">
+                                        <div class="awards-card__img h-auto">
+                                            <img class="lazy" data-src="/sites/default/files/2022-03/MY-166428-A-Malaysia.png"
+                                                alt="Image of an award">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+  
+  <div class="paragraph paragraph--type--landing-page-recognitions paragraph--view-mode--default">
+        
+      </div>
+
+<!-- END OUTPUT from 'themes/custom/custom_theme/templates/paragraph--landing_page_recognitions.html.twig' -->
+
+</div>
+              <div class="field__item">
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'paragraph' -->
+<!-- FILE NAME SUGGESTIONS:
+   * paragraph--partener--default.html.twig
+   x paragraph--partener.html.twig
+   * paragraph--default.html.twig
+   * paragraph.html.twig
+-->
+<!-- BEGIN OUTPUT from 'themes/custom/custom_theme/templates/paragraph--partener.html.twig' -->
+
+ <section class="about_licensing_partners">
+            <div class="container">
+                <div class="row justify-content-cente">
+                    <div class="col-lg-4 col-xxl-3">
+                        <h4 class="heading-secondary--purple partners__heading">
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'field' -->
+<!-- FILE NAME SUGGESTIONS:
+   * field--paragraph--field-heading--partener.html.twig
+   * field--paragraph--field-heading.html.twig
+   * field--paragraph--partener.html.twig
+   * field--field-heading.html.twig
+   * field--string.html.twig
+   x field.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+            <div class="field field--name-field-heading field--type-string field--label-hidden field__item">Marketing Partners</div>
+      
+<!-- END OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+</h4>
+                    </div>
+                    <div class="col-lg-8 col-xxl-9">
+                        <div class="row g-5">
+                            <div class="col-lg-6">
+                                <a href="https://ciplamed.com/content/regenacip-200m-injection-for-cli-pad" target="_blank">
+                                    <div class="partner-card mx-sm-4 w-100">
+                                        <div class="partner-card__img mb-4">
+                                            
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'field' -->
+<!-- FILE NAME SUGGESTIONS:
+   * field--paragraph--field-logo-image1--partener.html.twig
+   * field--paragraph--field-logo-image1.html.twig
+   * field--paragraph--partener.html.twig
+   * field--field-logo-image1.html.twig
+   * field--entity-reference.html.twig
+   x field.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+            <div class="field field--name-field-logo-image1 field--type-entity-reference field--label-hidden field__item">
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'media' -->
+<!-- FILE NAME SUGGESTIONS:
+   * media--source-image.html.twig
+   * media--image--default.html.twig
+   * media--image.html.twig
+   * media--default.html.twig
+   x media.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/content/media.html.twig' -->
+<article class="media media--type-image media--view-mode-default">
+  
+      
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'field' -->
+<!-- FILE NAME SUGGESTIONS:
+   * field--media--field-media-image--image.html.twig
+   * field--media--field-media-image.html.twig
+   * field--media--image.html.twig
+   * field--field-media-image.html.twig
+   * field--image.html.twig
+   x field.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+  <div class="field field--name-field-media-image field--type-image field--label-visually_hidden">
+    <div class="field__label visually-hidden">Image</div>
+              <div class="field__item">
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'image_formatter' -->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/image-formatter.html.twig' -->
+  
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'image_style' -->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/image-style.html.twig' -->
+
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'image' -->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/image.html.twig' -->
+<img src="/sites/default/files/styles/large/public/2022-01/Group%20651.png?itok=eRFYK5ko" width="90" height="51" alt="Cipla" loading="lazy" typeof="foaf:Image" class="image-style-large" />
+
+<!-- END OUTPUT from 'core/themes/classy/templates/field/image.html.twig' -->
+
+
+
+<!-- END OUTPUT from 'core/themes/classy/templates/field/image-style.html.twig' -->
+
+
+
+<!-- END OUTPUT from 'core/themes/classy/templates/field/image-formatter.html.twig' -->
+
+</div>
+          </div>
+
+<!-- END OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+
+  </article>
+
+<!-- END OUTPUT from 'core/themes/classy/templates/content/media.html.twig' -->
+
+</div>
+      
+<!-- END OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+
+                                        </div>
+                                        <div class="partner-card__text">
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'field' -->
+<!-- FILE NAME SUGGESTIONS:
+   * field--paragraph--field-description--partener.html.twig
+   * field--paragraph--field-description.html.twig
+   * field--paragraph--partener.html.twig
+   * field--field-description.html.twig
+   * field--string-long.html.twig
+   x field.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+            <div class="field field--name-field-description field--type-string-long field--label-hidden field__item">Stempeutics has signed a marketing agreement with Cipla for distributing CLI, Knee osteoarthritis and DFU products for India territory. The CLI product is marketed under the brand name “Regenacip” and OA product is marketed under the brand name “CiploStem”</div>
+      
+<!-- END OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+ </div>
+                                    </div>
+                                </a>                              
+                            </div>
+                            <div class="col-lg-6">
+                                <a href="https://www.alkemlabs.com/" target="_blank" rel="noopener noreferrer">
+                                    <div class="partner-card mx-sm-4 w-100">
+                                        <div class="partner-card__img mb-4">
+                                              
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'field' -->
+<!-- FILE NAME SUGGESTIONS:
+   * field--paragraph--field-logo-image2--partener.html.twig
+   * field--paragraph--field-logo-image2.html.twig
+   * field--paragraph--partener.html.twig
+   * field--field-logo-image2.html.twig
+   * field--entity-reference.html.twig
+   x field.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+            <div class="field field--name-field-logo-image2 field--type-entity-reference field--label-hidden field__item">
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'media' -->
+<!-- FILE NAME SUGGESTIONS:
+   * media--source-image.html.twig
+   * media--image--default.html.twig
+   * media--image.html.twig
+   * media--default.html.twig
+   x media.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/content/media.html.twig' -->
+<article class="media media--type-image media--view-mode-default">
+  
+      
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'field' -->
+<!-- FILE NAME SUGGESTIONS:
+   * field--media--field-media-image--image.html.twig
+   * field--media--field-media-image.html.twig
+   * field--media--image.html.twig
+   * field--field-media-image.html.twig
+   * field--image.html.twig
+   x field.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+  <div class="field field--name-field-media-image field--type-image field--label-visually_hidden">
+    <div class="field__label visually-hidden">Image</div>
+              <div class="field__item">
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'image_formatter' -->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/image-formatter.html.twig' -->
+  
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'image_style' -->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/image-style.html.twig' -->
+
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'image' -->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/image.html.twig' -->
+<img src="/sites/default/files/styles/large/public/2022-02/Group%201222.png?itok=lshNcBti" width="75" height="70" alt="alkem_stem" loading="lazy" typeof="foaf:Image" class="image-style-large" />
+
+<!-- END OUTPUT from 'core/themes/classy/templates/field/image.html.twig' -->
+
+
+
+<!-- END OUTPUT from 'core/themes/classy/templates/field/image-style.html.twig' -->
+
+
+
+<!-- END OUTPUT from 'core/themes/classy/templates/field/image-formatter.html.twig' -->
+
+</div>
+          </div>
+
+<!-- END OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+
+  </article>
+
+<!-- END OUTPUT from 'core/themes/classy/templates/content/media.html.twig' -->
+
+</div>
+      
+<!-- END OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+
+                                        </div>
+                                        <div class="partner-card__text">
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'field' -->
+<!-- FILE NAME SUGGESTIONS:
+   * field--paragraph--field-description2--partener.html.twig
+   * field--paragraph--field-description2.html.twig
+   * field--paragraph--partener.html.twig
+   * field--field-description2.html.twig
+   * field--string-long.html.twig
+   x field.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+            <div class="field field--name-field-description2 field--type-string-long field--label-hidden field__item">Stempeutics has signed a marketing agreement. with Alkem for distributing Knee Osteoarthritis product for India territory. The OA product is marketed under the brand name &quot;StemOne&quot;</div>
+      
+<!-- END OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+</div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+  
+
+  <div class="paragraph paragraph--type--partener paragraph--view-mode--default">
+       
+      </div>
+
+<!-- END OUTPUT from 'themes/custom/custom_theme/templates/paragraph--partener.html.twig' -->
+
+</div>
+              <div class="field__item">
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'paragraph' -->
+<!-- FILE NAME SUGGESTIONS:
+   * paragraph--license-section--default.html.twig
+   * paragraph--license-section.html.twig
+   * paragraph--default.html.twig
+   * paragraph.html.twig
+-->
+<!-- BEGIN OUTPUT from 'themes/custom/custom_theme/templates/paragraph--license_section.html.twig' -->
+
+
+<head>
+    
+    <link rel="stylesheet" href="themes/custom/custom_theme/css/style.css">
+
+    <title>Stempeutics</title>
+    <link rel="shortcut icon" type="image/x-icon" href="img/home/favicon.ico">
+
+
+</head>
+
+<section class="about_brochure">
+    <div class="container">
+        <div class="row justify-content-center brochure_box">
+            <div class="col-lg-4 brochure_text">
+                <span class="brochure_heading mb-4">
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'field' -->
+<!-- FILE NAME SUGGESTIONS:
+   * field--paragraph--field-head--license-section.html.twig
+   * field--paragraph--field-head.html.twig
+   * field--paragraph--license-section.html.twig
+   * field--field-head.html.twig
+   * field--string.html.twig
+   x field.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+            <div class="field field--name-field-head field--type-string field--label-hidden field__item">Interested in Collaborating with Stempeutics?</div>
+      
+<!-- END OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+</span>
+                <span class="brochure_description">
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'field' -->
+<!-- FILE NAME SUGGESTIONS:
+   * field--paragraph--field-banner-descriptions--license-section.html.twig
+   * field--paragraph--field-banner-descriptions.html.twig
+   * field--paragraph--license-section.html.twig
+   * field--field-banner-descriptions.html.twig
+   x field--text-long.html.twig
+   * field.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/field--text-long.html.twig' -->
+
+            <div class="clearfix text-formatted field field--name-field-banner-descriptions field--type-text-long field--label-hidden field__item"><p>We are committed to "Regenerating Hope" by nurturing cutting edge research and clinical applications in cell therapy</p>
+<quillbot-extension-portal></quillbot-extension-portal><quillbot-extension-portal></quillbot-extension-portal></div>
+      
+<!-- END OUTPUT from 'core/themes/classy/templates/field/field--text-long.html.twig' -->
+
+</span>
+            </div>
+            <div class="col-lg-5 brohure_image">
+                                
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'field' -->
+<!-- FILE NAME SUGGESTIONS:
+   * field--paragraph--field-interested-image--license-section.html.twig
+   * field--paragraph--field-interested-image.html.twig
+   * field--paragraph--license-section.html.twig
+   * field--field-interested-image.html.twig
+   * field--entity-reference.html.twig
+   x field.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+            <div class="field field--name-field-interested-image field--type-entity-reference field--label-hidden field__item">
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'media' -->
+<!-- FILE NAME SUGGESTIONS:
+   * media--source-image.html.twig
+   * media--image--default.html.twig
+   * media--image.html.twig
+   * media--default.html.twig
+   x media.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/content/media.html.twig' -->
+<article class="media media--type-image media--view-mode-default">
+  
+      
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'field' -->
+<!-- FILE NAME SUGGESTIONS:
+   * field--media--field-media-image--image.html.twig
+   * field--media--field-media-image.html.twig
+   * field--media--image.html.twig
+   * field--field-media-image.html.twig
+   * field--image.html.twig
+   x field.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+  <div class="field field--name-field-media-image field--type-image field--label-visually_hidden">
+    <div class="field__label visually-hidden">Image</div>
+              <div class="field__item">
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'image_formatter' -->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/image-formatter.html.twig' -->
+  
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'image_style' -->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/image-style.html.twig' -->
+
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'image' -->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/image.html.twig' -->
+<img src="/sites/default/files/styles/large/public/2024-04/download%20Stempeutics%20brochure.webp?itok=KIJLvvPG" width="452" height="480" alt="image" loading="lazy" typeof="foaf:Image" class="image-style-large" />
+
+<!-- END OUTPUT from 'core/themes/classy/templates/field/image.html.twig' -->
+
+
+
+<!-- END OUTPUT from 'core/themes/classy/templates/field/image-style.html.twig' -->
+
+
+
+<!-- END OUTPUT from 'core/themes/classy/templates/field/image-formatter.html.twig' -->
+
+</div>
+          </div>
+
+<!-- END OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+
+  </article>
+
+<!-- END OUTPUT from 'core/themes/classy/templates/content/media.html.twig' -->
+
+</div>
+      
+<!-- END OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+
+            </div>
+            <div class="col-lg-3 brochure_button"> 
+            <a href="/sites/default/files/2022-03/Stempeutics%20-%20Brief%20Corporate%20Presentation_2022.pdf" target="_blank">
+                <button type="submit">Download our Corporate Deck</button>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+         
+  <div class="paragraph paragraph--type--license-section paragraph--view-mode--default">
+        
+      </div>
+
+<!-- END OUTPUT from 'themes/custom/custom_theme/templates/paragraph--license_section.html.twig' -->
+
+</div>
+              <div class="field__item">
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'paragraph' -->
+<!-- FILE NAME SUGGESTIONS:
+   * paragraph--freq-question--default.html.twig
+   * paragraph--freq-question.html.twig
+   * paragraph--default.html.twig
+   * paragraph.html.twig
+-->
+<!-- BEGIN OUTPUT from 'themes/custom/custom_theme/templates/paragraph--freq_question.html.twig' -->
+
+<head>
+    
+    <link rel="stylesheet" href="themes/custom/custom_theme/css/style.css">
+
+    <title>Stempeutics</title>
+    <link rel="shortcut icon" type="image/x-icon" href="img/home/favicon.ico">
+
+
+</head>
+
+ <section class="faq mb-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h2 class="heading-secondary--purple text-center mb-5">
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'field' -->
+<!-- FILE NAME SUGGESTIONS:
+   * field--paragraph--field-heading--freq-question.html.twig
+   * field--paragraph--field-heading.html.twig
+   * field--paragraph--freq-question.html.twig
+   * field--field-heading.html.twig
+   * field--string.html.twig
+   x field.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+            <div class="field field--name-field-heading field--type-string field--label-hidden field__item">Frequently Asked Questions</div>
+      
+<!-- END OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+</h2>
+                        <div class="accordion accordion-flush" id="accordionFlushExample">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="flush-headingOne">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#flush-collapseOne" aria-expanded="false"
+                                        aria-controls="flush-collapseOne">
+                                       
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'field' -->
+<!-- FILE NAME SUGGESTIONS:
+   * field--paragraph--field-titles--freq-question.html.twig
+   * field--paragraph--field-titles.html.twig
+   * field--paragraph--freq-question.html.twig
+   * field--field-titles.html.twig
+   * field--string.html.twig
+   x field.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+            <div class="field field--name-field-titles field--type-string field--label-hidden field__item">What are Stem Cells?</div>
+      
+<!-- END OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+
+                                    </button>
+                                </h2>
+                                <div id="flush-collapseOne" class="accordion-collapse collapse"
+                                    aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                    <div class="accordion-body">
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'field' -->
+<!-- FILE NAME SUGGESTIONS:
+   * field--paragraph--field-description--freq-question.html.twig
+   * field--paragraph--field-description.html.twig
+   * field--paragraph--freq-question.html.twig
+   * field--field-description.html.twig
+   * field--string-long.html.twig
+   x field.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+            <div class="field field--name-field-description field--type-string-long field--label-hidden field__item">Stem cells are defined by two properties. First, they can ‘self-renew,’ that is they can divide and give rise to more stem cells of the same kind. Second, they can mature or ‘differentiate’ into specialized cells that carry out a specific function, such as in the skin, muscle, or blood. There are many different types of stem cells. These include embryonic stem cells that exist only at the earliest stages of development; and various types of ‘tissue-specific’ stem cells (sometimes referred to as ‘adult’ or ‘somatic’ stem cells) that are found in various tissues in our bodies. Recently, cells with properties similar to embryonic stem cells, referred to as induced pluripotent stem cells (iPS cells), have been engineered from specialized cells such as skin cells.</div>
+      
+<!-- END OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="flush-headingTwo">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#flush-collapseTwo" aria-expanded="false"
+                                        aria-controls="flush-collapseTwo">
+                                      
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'field' -->
+<!-- FILE NAME SUGGESTIONS:
+   * field--paragraph--field-title2--freq-question.html.twig
+   * field--paragraph--field-title2.html.twig
+   * field--paragraph--freq-question.html.twig
+   * field--field-title2.html.twig
+   * field--string.html.twig
+   x field.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+            <div class="field field--name-field-title2 field--type-string field--label-hidden field__item">What are the characteristics of Stem Cells?</div>
+      
+<!-- END OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+
+                                    </button>
+                                </h2>
+                                <div id="flush-collapseTwo" class="accordion-collapse collapse"
+                                    aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                                    <div class="accordion-body">
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'field' -->
+<!-- FILE NAME SUGGESTIONS:
+   * field--paragraph--field-descriptions2--freq-question.html.twig
+   * field--paragraph--field-descriptions2.html.twig
+   * field--paragraph--freq-question.html.twig
+   * field--field-descriptions2.html.twig
+   * field--string-long.html.twig
+   x field.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+            <div class="field field--name-field-descriptions2 field--type-string-long field--label-hidden field__item">Stem cells have two important characteristics (features) that distinguish them from other types of cells. Self-renewal - the ability to go through numerous cycles of cell division while maintaining the undifferentiated state. Unlimited potency - under certain physiologic or experimental conditions, they can be induced to become cells with special functions such as the beating cells of the heart muscle or the insulin-producing cells of the pancreas.</div>
+      
+<!-- END OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="flush-headingThree">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#flush-collapseThree" aria-expanded="false"
+                                        aria-controls="flush-collapseThree">
+                                       
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'field' -->
+<!-- FILE NAME SUGGESTIONS:
+   * field--paragraph--field-title3--freq-question.html.twig
+   * field--paragraph--field-title3.html.twig
+   * field--paragraph--freq-question.html.twig
+   * field--field-title3.html.twig
+   * field--string.html.twig
+   x field.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+            <div class="field field--name-field-title3 field--type-string field--label-hidden field__item">What are the types of stem cells?</div>
+      
+<!-- END OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+
+                                    </button>
+                                </h2>
+                                <div id="flush-collapseThree" class="accordion-collapse collapse"
+                                    aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                                    <div class="accordion-body">
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'field' -->
+<!-- FILE NAME SUGGESTIONS:
+   * field--paragraph--field-descriptions--freq-question.html.twig
+   * field--paragraph--field-descriptions.html.twig
+   * field--paragraph--freq-question.html.twig
+   * field--field-descriptions.html.twig
+   x field--text-long.html.twig
+   * field.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/field--text-long.html.twig' -->
+
+            <div class="clearfix text-formatted field field--name-field-descriptions field--type-text-long field--label-hidden field__item"><p><span><span><span><span><span><span>There are different types of stem cells depending upon the source they are derived.</span></span></span></span></span></span></p>
+
+<ul><li><span><span><span><span><span><span>Embryos – Embryonic stem cells (ESCs)</span></span></span></span></span></span></li>
+	<li><span><span><span><span><span><span>Fetal Tissue – Fetal stem cells</span></span></span></span></span></span></li>
+	<li><span><span><span><span><span><span>Cord Blood - Cord blood stem cells</span></span></span></span></span></span></li>
+	<li><span><span><span><span><span>Adult Tissue - Adult stem cells – which includes</span></span></span></span></span></li>
+</ul><p> </p>
+
+<p><span><span><span><span><span><span>             Hematopoietic stem cells </span></span></span></span></span></span></p>
+
+<p><span><span><span><span><span>             Mesenchymal stem cells </span></span></span></span></span></p>
+
+<p><span><span><span><span><span><span>             Neural stem cells </span></span></span></span></span></span></p>
+
+<p><span><span><span><span><span><span>             Muscle derived stem cells </span></span></span></span></span></span></p>
+
+<p><span><span><span><span><span><span>             Pancreatic stem cells </span></span></span></span></span></span></p>
+
+<p><span><span><span><span><span><span>             Hepatic stem cells</span></span></span></span></span></span></p></div>
+      
+<!-- END OUTPUT from 'core/themes/classy/templates/field/field--text-long.html.twig' -->
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-center my-5" href="/faq">
+                                                         <a class="butn-primary" href="/faq" role="button"><h3>View all</h3></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+  <div class="paragraph paragraph--type--freq-question paragraph--view-mode--default">
+         
+      </div>
+
+<!-- END OUTPUT from 'themes/custom/custom_theme/templates/paragraph--freq_question.html.twig' -->
+
+</div>
+              <div class="field__item">
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'paragraph' -->
+<!-- FILE NAME SUGGESTIONS:
+   * paragraph--news-and-media--default.html.twig
+   * paragraph--news-and-media.html.twig
+   * paragraph--default.html.twig
+   * paragraph.html.twig
+-->
+<!-- BEGIN OUTPUT from 'themes/custom/custom_theme/templates/paragraph--news_and_media.html.twig' -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Nunito+Sans:wght@600;700&family=Roboto+Slab:wght@300;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css">
+    <!--[if (lt IE 9)]><script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/min/tiny-slider.helper.ie8.js"></script><![endif]-->
+    <link rel="stylesheet" href="themes/custom/custom_theme/css/style.css">
+
+    <title>Stempeutics</title>
+    <link rel="shortcut icon" type="image/x-icon" href="img/home/favicon.ico">
+
+
+</head>
+
+<style>
+
+    .noHover{
+    color: #f56a00;
+  font-weight: 700;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 1.6rem;
+  margin-bottom: 1%; 
+  
+    
+     }
+
+    .noHover a{
+         
+  font-weight: 700;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 1.6rem;
+  margin-bottom: 1%; 
+    }
+
+     .DLink{
+    color: #000000;
+        font-size: 1.8rem;
+        font-weight: 300;
+        overflow: hidden;
+        font-weight: 300;
+        font-family: "Roboto Slab", serif;
+        text-overflow: ellipsis;
+        display: -webkit-box; 
+  
+    
+     }
+
+    .DLink a{
+          color: #000000;
+        font-size: 1.8rem;
+        font-weight: 300;
+        overflow: hidden;
+        font-weight: 300;
+        font-family: "Roboto Slab", serif;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+    }
+
+
+
+</style>
+
+ <section class="news container-content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h2 class="heading-secondary--purple mb-5">
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'field' -->
+<!-- FILE NAME SUGGESTIONS:
+   * field--paragraph--field-heading--news-and-media.html.twig
+   * field--paragraph--field-heading.html.twig
+   * field--paragraph--news-and-media.html.twig
+   * field--field-heading.html.twig
+   * field--string.html.twig
+   x field.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+            <div class="field field--name-field-heading field--type-string field--label-hidden field__item">News and Media</div>
+      
+<!-- END OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="tiny-slider arrow-hover arrow-blur arrow-round dots-inside dots-primary rounded-3">
+                            <div class="tiny-slider-inner" data-autoplay="false" data-hoverpause="true" data-gutter="25"
+                                data-arrow="true" data-dots="true" data-items-xl="3" data-items-md="2" data-items-sm="2"
+                                data-items-xs="1.6" data-loop="false">
+                                <!-- Slide item -->
+                                <div class="item pb-5">
+                                    <div class="news-card">
+                                        <div class="news-card__img mb-3">
+                                            <img class="lazy" data-src="/sites/default/files/2022-03/stem-alkem-partner-600.png"
+                                                alt="Image of research lab">
+                                        </div>
+                                        <div class="heading-primary"></div>
+                                        
+                                        <div class="news-card__text DLink">
+                                       <a href="/sites/default/files/2022-03/Press-Release-Alkem.pdf"> 
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'field' -->
+<!-- FILE NAME SUGGESTIONS:
+   * field--paragraph--field-media-descriptions1--news-and-media.html.twig
+   * field--paragraph--field-media-descriptions1.html.twig
+   * field--paragraph--news-and-media.html.twig
+   * field--field-media-descriptions1.html.twig
+   x field--text-long.html.twig
+   * field.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/field--text-long.html.twig' -->
+
+            <div class="clearfix text-formatted field field--name-field-media-descriptions1 field--type-text-long field--label-hidden field__item"><p>Stempeutics signed a co-development agreement with Alkem for its stem cell therapy product Stempeucel for treating Osteoarthritis of the knee</p></div>
+      
+<!-- END OUTPUT from 'core/themes/classy/templates/field/field--text-long.html.twig' -->
+
+ </a>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                                <!-- Slide item -->
+                                <div class="item pb-5">
+                                    <div class="news-card">
+                                        <div class="news-card__img mb-3">
+                                            <img class="lazy" data-src="/sites/default/files/2022-03/Cipla.png"
+                                                alt="Image of research lab">
+                                        </div>
+                                        <div class="heading-primary"></div>
+                                        <div class="news-card__text DLink">
+                                        <a href="/sites/default/files/2025-12/Press-Release_Cipla-partners-with-Stempeutics-launches-Revolutionary-Stem-Cell-Therapy-for-Knee-Osteoarthritis.pdf">
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'field' -->
+<!-- FILE NAME SUGGESTIONS:
+   * field--paragraph--field-media-descriptions2--news-and-media.html.twig
+   * field--paragraph--field-media-descriptions2.html.twig
+   * field--paragraph--news-and-media.html.twig
+   * field--field-media-descriptions2.html.twig
+   x field--text-long.html.twig
+   * field.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/field--text-long.html.twig' -->
+
+            <div class="clearfix text-formatted field field--name-field-media-descriptions2 field--type-text-long field--label-hidden field__item"><p>Press Release Cipla partners with Stempeutics launches Revolutionary Stem Cell Therapy for Knee Osteoarthritis</p>
+</div>
+      
+<!-- END OUTPUT from 'core/themes/classy/templates/field/field--text-long.html.twig' -->
+
+</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Slide item -->
+                                <div class="item pb-5">
+                                    <div class="news-card">
+                                        <div class="news-card__img mb-3">
+                                            <img class="lazy" data-src="/sites/default/files/2025-10/WhatsApp%20Image.jpg"
+                                                alt="Image of research lab">
+                                        </div>
+                                        <div class="heading-primary"></div>
+                                        <div class="news-card__text DLink">
+                                        <a href="/sites/default/files/2025-10/Press%20Release%20-%20Medinet_MDNT3.pdf">
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'field' -->
+<!-- FILE NAME SUGGESTIONS:
+   * field--paragraph--field-media-descriptions3--news-and-media.html.twig
+   * field--paragraph--field-media-descriptions3.html.twig
+   * field--paragraph--news-and-media.html.twig
+   * field--field-media-descriptions3.html.twig
+   x field--text-long.html.twig
+   * field.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/field--text-long.html.twig' -->
+
+            <div class="clearfix text-formatted field field--name-field-media-descriptions3 field--type-text-long field--label-hidden field__item"><p>MEDINET Japan signs Option License Agreement with Stempeutics India for Stempeucel®<br />
+product for Chronic Limb Threatening Ischemia (CLTI) indication for Japan Territory</p></div>
+      
+<!-- END OUTPUT from 'core/themes/classy/templates/field/field--text-long.html.twig' -->
+
+</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+
+
+
+                                
+
+
+                                
+
+
+
+
+
+    <!-- Slide item -->
+    <div class="item pb-5">
+        <div class="news-card">
+
+            <div class="news-card__img mb-3">
+                <img class="lazy"
+                    data-src="/sites/default/files/2025-10/Mask%20Group%20112_0.png"
+                    alt="Image of research lab">
+            </div>
+
+            <div class="heading-primary">
+                
+            </div>
+
+            <div class="news-card__text DLink">
+                                    <a href="/sites/default/files/2025-10/Press%20Release%20-%20ODD.pdf">
+                        
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'field' -->
+<!-- FILE NAME SUGGESTIONS:
+   * field--paragraph--field-media-description6--news-and-media.html.twig
+   * field--paragraph--field-media-description6.html.twig
+   * field--paragraph--news-and-media.html.twig
+   * field--field-media-description6.html.twig
+   x field--text-long.html.twig
+   * field.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/field--text-long.html.twig' -->
+
+            <div class="clearfix text-formatted field field--name-field-media-description6 field--type-text-long field--label-hidden field__item"><p>Stempeutics receives Orphan Drug Designation (ODD) in the European Union for its novel stem cell drug “Stempeucel®” for the treatment of Thromboangiitis Obliterans</p></div>
+      
+<!-- END OUTPUT from 'core/themes/classy/templates/field/field--text-long.html.twig' -->
+
+
+                    </a>
+                            </div>
+
+        </div>
+    </div>
+
+
+
+
+
+    <div class="item pb-5">
+        <div class="news-card">
+
+            <div class="news-card__img mb-3">
+                <img class="lazy"
+                    data-src="/sites/default/files/2026-08/image_2_1.jpg"
+                    alt="Image of research lab">
+            </div>
+
+            <div class="heading-primary">
+                
+            </div>
+
+            <div class="news-card__text DLink">
+
+                                    <a href="/sites/default/files/2026-08/Stempeutics%20_%20Press%20Release%20-%20U.S.%20Patent%20No.%2012661377%20for%20Stempeucel-OA%20Treatment.pdf">
+                        
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'field' -->
+<!-- FILE NAME SUGGESTIONS:
+   * field--paragraph--field-media-descriptions7--news-and-media.html.twig
+   * field--paragraph--field-media-descriptions7.html.twig
+   * field--paragraph--news-and-media.html.twig
+   * field--field-media-descriptions7.html.twig
+   x field--text-long.html.twig
+   * field.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/field--text-long.html.twig' -->
+
+            <div class="clearfix text-formatted field field--name-field-media-descriptions7 field--type-text-long field--label-hidden field__item"><p>Stempeutics receives U.S. Patent for treatment of Osteoarthritis <br />
+using Stempeucel-OA</p></div>
+      
+<!-- END OUTPUT from 'core/themes/classy/templates/field/field--text-long.html.twig' -->
+
+
+                    </a>
+                
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </section>
+          <div class="paragraph paragraph--type--news-and-media paragraph--view-mode--default">
+        
+      </div>
+
+<!-- END OUTPUT from 'themes/custom/custom_theme/templates/paragraph--news_and_media.html.twig' -->
+
+</div>
+          </div>
+  
+<!-- END OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'field' -->
+<!-- FILE NAME SUGGESTIONS:
+   * field--node--field-health-form--landing-page.html.twig
+   * field--node--field-health-form.html.twig
+   * field--node--landing-page.html.twig
+   * field--field-health-form.html.twig
+   * field--webform.html.twig
+   x field.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+            <div class="field field--name-field-health-form field--type-webform field--label-hidden field__item">
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'webform' -->
+<!-- FILE NAME SUGGESTIONS:
+   x webform--joint-health.html.twig
+   * webform.html.twig
+-->
+<!-- BEGIN OUTPUT from 'themes/custom/custom_theme/templates/webform--joint-health.html.twig' -->
+<section class="form-container-section">
+  <div class="form-section">
+    
+    
+    
+    <div>
+        <h1 class="heading">Take Steps Toward Better Joint Health</h1>
+        <p class="sub-heading">
+          Speak to an expert to understand your condition and a suggested
+          course of action.
+        </p>
+    </div>
+    <form  class="webform-submission-form webform-submission-add-form webform-submission-joint-health-form webform-submission-joint-health-add-form webform-submission-joint-health-node-17-form webform-submission-joint-health-node-17-add-form" data-drupal-selector="webform-submission-joint-health-node-17-add-form" action="/" method="post" id="webform-submission-joint-health-node-17-add-form" accept-charset="UTF-8">
+      <div class="form-inside">
+        
+        <div class="flex-col">
+                              
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'form_element' -->
+<!-- FILE NAME SUGGESTIONS:
+   * form-element--webform-textfield.html.twig
+   x form-element.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/form/form-element.html.twig' -->
+<div class="js-form-item form-item js-form-type-textfield form-type-textfield js-form-item-name form-item-name">
+      
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'form_element_label' -->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/form/form-element-label.html.twig' -->
+<label class="label-style js-form-required form-required" for="edit-name">Name</label>
+<!-- END OUTPUT from 'core/themes/classy/templates/form/form-element-label.html.twig' -->
+
+
+        
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'input__textfield' -->
+<!-- FILE NAME SUGGESTIONS:
+   * input--textfield.html.twig
+   x input.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/form/input.html.twig' -->
+<input class="input-style form-text required" data-drupal-selector="edit-name" type="text" id="edit-name" name="name" value="" size="60" maxlength="255" placeholder="Enter your name" required="required" aria-required="true" />
+
+<!-- END OUTPUT from 'core/themes/classy/templates/form/input.html.twig' -->
+
+
+        </div>
+
+<!-- END OUTPUT from 'core/themes/classy/templates/form/form-element.html.twig' -->
+
+
+        </div>
+
+        <div class="email-phone">
+          <div class="flex-col">
+                                    
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'form_element' -->
+<!-- FILE NAME SUGGESTIONS:
+   * form-element--webform-email.html.twig
+   x form-element.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/form/form-element.html.twig' -->
+<div class="js-form-item form-item js-form-type-email form-type-email js-form-item-email form-item-email">
+      
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'form_element_label' -->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/form/form-element-label.html.twig' -->
+<label class="label-style js-form-required form-required" for="edit-email">Email</label>
+<!-- END OUTPUT from 'core/themes/classy/templates/form/form-element-label.html.twig' -->
+
+
+        
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'input__email' -->
+<!-- FILE NAME SUGGESTIONS:
+   * input--email.html.twig
+   x input.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/form/input.html.twig' -->
+<input class="input-style form-email required" data-drupal-selector="edit-email" type="email" id="edit-email" name="email" value="" size="60" maxlength="254" placeholder="Enter your email" required="required" aria-required="true" />
+
+<!-- END OUTPUT from 'core/themes/classy/templates/form/input.html.twig' -->
+
+
+        </div>
+
+<!-- END OUTPUT from 'core/themes/classy/templates/form/form-element.html.twig' -->
+
+
+          </div>
+          <div class="flex-col">
+                                    
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'form_element' -->
+<!-- FILE NAME SUGGESTIONS:
+   * form-element--webform-tel.html.twig
+   x form-element.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/form/form-element.html.twig' -->
+<div class="js-form-item form-item js-form-type-tel form-type-tel js-form-item-phone-number form-item-phone-number">
+      
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'form_element_label' -->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/form/form-element-label.html.twig' -->
+<label class="label-style js-form-required form-required" for="edit-phone-number">Phone number</label>
+<!-- END OUTPUT from 'core/themes/classy/templates/form/form-element-label.html.twig' -->
+
+
+        
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'input__tel' -->
+<!-- FILE NAME SUGGESTIONS:
+   * input--tel.html.twig
+   x input.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/form/input.html.twig' -->
+<input class="input-style form-tel required" data-drupal-selector="edit-phone-number" type="tel" id="edit-phone-number" name="phone_number" value="" size="30" maxlength="128" required="required" aria-required="true" />
+
+<!-- END OUTPUT from 'core/themes/classy/templates/form/input.html.twig' -->
+
+
+        </div>
+
+<!-- END OUTPUT from 'core/themes/classy/templates/form/form-element.html.twig' -->
+
+
+          </div>
+        </div>
+
+        <div class="flex-col">
+                              
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'form_element' -->
+<!-- FILE NAME SUGGESTIONS:
+   * form-element--webform-textfield.html.twig
+   x form-element.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/form/form-element.html.twig' -->
+<div class="js-form-item form-item js-form-type-textfield form-type-textfield js-form-item-state form-item-state">
+      
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'form_element_label' -->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/form/form-element-label.html.twig' -->
+<label class="label-style js-form-required form-required" for="edit-state">State</label>
+<!-- END OUTPUT from 'core/themes/classy/templates/form/form-element-label.html.twig' -->
+
+
+        
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'input__textfield' -->
+<!-- FILE NAME SUGGESTIONS:
+   * input--textfield.html.twig
+   x input.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/form/input.html.twig' -->
+<input class="input-style form-text required" data-drupal-selector="edit-state" type="text" id="edit-state" name="state" value="" size="60" maxlength="255" placeholder="Enter your state" required="required" aria-required="true" />
+
+<!-- END OUTPUT from 'core/themes/classy/templates/form/input.html.twig' -->
+
+
+        </div>
+
+<!-- END OUTPUT from 'core/themes/classy/templates/form/form-element.html.twig' -->
+
+
+        </div>
+
+        <div class="flex-col">
+                              
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'form_element' -->
+<!-- FILE NAME SUGGESTIONS:
+   * form-element--webform-textfield.html.twig
+   x form-element.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/form/form-element.html.twig' -->
+<div class="js-form-item form-item js-form-type-textfield form-type-textfield js-form-item-how-long-have-you-been-experiencing-knee-pain- form-item-how-long-have-you-been-experiencing-knee-pain-">
+      
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'form_element_label' -->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/form/form-element-label.html.twig' -->
+<label class="label-style js-form-required form-required" for="edit-how-long-have-you-been-experiencing-knee-pain-">How long have you been experiencing knee pain?</label>
+<!-- END OUTPUT from 'core/themes/classy/templates/form/form-element-label.html.twig' -->
+
+
+        
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'input__textfield' -->
+<!-- FILE NAME SUGGESTIONS:
+   * input--textfield.html.twig
+   x input.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/form/input.html.twig' -->
+<input class="input-style form-text required" data-drupal-selector="edit-how-long-have-you-been-experiencing-knee-pain-" type="text" id="edit-how-long-have-you-been-experiencing-knee-pain-" name="how_long_have_you_been_experiencing_knee_pain_" value="" size="60" maxlength="255" placeholder="Enter your answer" required="required" aria-required="true" />
+
+<!-- END OUTPUT from 'core/themes/classy/templates/form/input.html.twig' -->
+
+
+        </div>
+
+<!-- END OUTPUT from 'core/themes/classy/templates/form/form-element.html.twig' -->
+
+
+        </div>
+
+        <div class="button-submit-sec">
+                      
+            
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'input__hidden' -->
+<!-- FILE NAME SUGGESTIONS:
+   * input--hidden.html.twig
+   x input.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/form/input.html.twig' -->
+<input autocomplete="off" data-drupal-selector="form-kb4db4sbfob2a-gwmb-r8sxfkhwdt-5heomcopuxvme" type="hidden" name="form_build_id" value="form-KB4DB4sBfob2a_GWmB-r8sXfkhwDT-5HeoMcopuXVME" />
+
+<!-- END OUTPUT from 'core/themes/classy/templates/form/input.html.twig' -->
+
+
+            
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'input__hidden' -->
+<!-- FILE NAME SUGGESTIONS:
+   * input--hidden.html.twig
+   x input.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/form/input.html.twig' -->
+<input data-drupal-selector="edit-webform-submission-joint-health-node-17-add-form" type="hidden" name="form_id" value="webform_submission_joint_health_node_17_add_form" />
+
+<!-- END OUTPUT from 'core/themes/classy/templates/form/input.html.twig' -->
+
+
+            
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'container' -->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/form/container.html.twig' -->
+<div data-drupal-selector="edit-actions" class="form-actions webform-actions js-form-wrapper form-wrapper" id="edit-actions">
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'webform_actions' -->
+<!-- BEGIN OUTPUT from 'modules/webform/templates/webform-actions.html.twig' -->
+
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'input__submit' -->
+<!-- FILE NAME SUGGESTIONS:
+   * input--submit.html.twig
+   x input.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/form/input.html.twig' -->
+<input class="webform-button--submit button button--primary js-form-submit form-submit" data-drupal-selector="edit-actions-submit" type="submit" id="edit-actions-submit" name="op" value="Submit" />
+
+<!-- END OUTPUT from 'core/themes/classy/templates/form/input.html.twig' -->
+
+
+
+<!-- END OUTPUT from 'modules/webform/templates/webform-actions.html.twig' -->
+
+</div>
+
+<!-- END OUTPUT from 'core/themes/classy/templates/form/container.html.twig' -->
+
+
+        </div>
+        
+      </div>
+    </form>
+  </div>
+</section>
+<!-- END OUTPUT from 'themes/custom/custom_theme/templates/webform--joint-health.html.twig' -->
+
+</div>
+      
+<!-- END OUTPUT from 'core/themes/classy/templates/field/field.html.twig' -->
+
+
+  </div>
+  </article>
+
+<!-- END OUTPUT from 'themes/custom/custom_theme/templates/node.html.twig' -->
+
+
+  </div>
+
+<!-- END OUTPUT from 'core/themes/classy/templates/block/block.html.twig' -->
+
+
+  </div>
+
+<!-- END OUTPUT from 'core/themes/classy/templates/layout/region.html.twig' -->
+
+
+          </section>
+        </main>
+                      </div>
+    </div>
+        <footer class="site-footer">
+      <div class="layout-container">
+
+          <div class="site-footer__top clearfix">
+
+          
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'block' -->
+<!-- FILE NAME SUGGESTIONS:
+   * block--subfooter-3.html.twig
+   * block--block-content--7ecd191f-520c-49ce-aad4-e92892b0b272.html.twig
+   * block--block-content.html.twig
+   * block--block-content.html.twig
+   x block.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/block/block.html.twig' -->
+<div id="block-subfooter-3" class="block block-block-content block-block-content7ecd191f-520c-49ce-aad4-e92892b0b272">
+  
+    
+      
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'field' -->
+<!-- FILE NAME SUGGESTIONS:
+   * field--block-content--body--basic.html.twig
+   * field--block-content--body.html.twig
+   * field--block-content--basic.html.twig
+   * field--body.html.twig
+   x field--text-with-summary.html.twig
+   * field.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/classy/templates/field/field--text-with-summary.html.twig' -->
+
+            <div class="clearfix text-formatted field field--name-body field--type-text-with-summary field--label-hidden field__item"><meta charset="UTF-8" /><meta http-equiv="X-UA-Compatible" content="IE=edge" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><link href="https://fonts.googleapis.com" rel="preconnect" /><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" /><link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&amp;family=Nunito+Sans:wght@600;700&amp;family=Roboto+Slab:wght@300;500&amp;display=swap" rel="stylesheet" /><link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet" /><link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" rel="stylesheet" /><link href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css" rel="stylesheet" /><!--[if (lt IE 9)]><script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/min/tiny-slider.helper.ie8.js"></script><![endif]--><link href="/themes/custom/custom_theme/css/style.css" rel="stylesheet" /><style type="text/css">
+<!--/*--><![CDATA[/* ><!--*/
+.colorchange{
+    color: white;
+  font-weight: 700;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 1.6rem;
+  margin-bottom: 1%; 
+  
+    
+     }
+
+    .colorchange a{
+          color: white;
+  font-weight: 700;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 1.6rem;
+  margin-bottom: 1%; 
+    }
+
+/*--><!]]>*/
+</style><footer class="footer"><div class="container">
+<div class="row">
+<div class="col-12">
+<div class="footer__top">
+<div class="footer__left">
+<div class="footer__logo mb-4"><img alt="Stempeutics logo" src="/themes/custom/custom_theme/img/home/Group 74@2x.png" /></div>
+
+<p class="footer__text--1 mb-5">Leading stem cell company developing stem cell based medicinal and biocosmetic products</p>
+<!-- <form action="#">
+                            <input class="footer__input mb-4" type="text" placeholder="Your Email">
+                            <span><img src="img/home/Icon awesome-arrow-right.svg" aria-hidden></span>
+                        </form>
+                        <p class="footer__text--2 mb-0">We care about protecting your data.
+                        </p>
+                        <p class="footer__text--2 mb-5">Read more in our <span><a href="#">Privacy
+                                    Policy.</a></span>
+                        </p> -->
+
+<div class="footer__icons"><a class="footer__icon" href="https://www.linkedin.com/company/stempeutics-research-private-limited/" target="_blank"><img alt="linkedIn icon" src="/themes/custom/custom_theme/img/home/Path 1980.svg" /></a> <a class="footer__icon" href="https://twitter.com/Stempeutics_IN" target="blank"> <img alt="twitter icon" src="/themes/custom/custom_theme/img/home/Icon awesome-twitter.svg" /></a></div>
+</div>
+
+<div class="footer__right">
+<div class="footer__certifications">
+<p class="footer__certifications-text">We are Certified By</p>
+
+<div class="footer__certifications-logos d-flex">
+<div class="footer__certifications-logo me-3"><!-- <a href="https://dunsregistered.dnb.com"> --><img alt="images of certifications" src="/themes/custom/custom_theme/img/home/Group 1269.png" /><!-- </a> --></div>
+
+<div class="footer__certifications-logo"><img aria-hidden="" src="/themes/custom/custom_theme/img/home/who.png" /></div>
+</div>
+</div>
+
+<div class="footer__info">
+<ul class="footer__list"><li><a href="/about-us">About Us</a></li>
+	<li><a href="/news-and-media">News &amp; Media</a></li>
+	<li><a href="/career">Careers</a></li>
+	<li><a href="/contact-us">Contact Us</a></li>
+</ul><div class="footer__address">
+<div>
+<p class="footer__address--text1">Get in touch</p>
+
+<p class="footer__address--text2">STEMPEUTICS RESEARCH PVT LTD</p>
+
+<p class="footer__address--text3">3rd Floor, Manipal Hospitals Whitefield #143, EPIP Industrial Area, ITPL Main Road, Bangalore - 560 048, India</p>
+
+<p class="footer__address--text1 colorchange">Annual Return FY 2024-25 <a class="colorchange" href="https://stempeutics.com/sites/default/files/2026-01/MGT-7-2025%20-AB9270578_0.pdf" target="_blank">Form No. MGT-7 </a></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="footer__bottom">
+<div class="footer__bottom-text text-center w-100">
+<p class="footer__bottom-text--1">© 2022 STEMPEUTICS RESEARCH PVT LTD. All Rights Reserved.</p>
+
+<p class="footer__bottom-text--2">Stempeutics is the trademark of Stempeutics Research Pvt Ltd. and may not be used without permission.</p>
+</div>
+
+<div class="footer__bottom-list">
+<ul><li><a href="#">Terms &amp; Conditions</a></li>
+	<li><a href="#">Privacy Policy</a></li>
+	<li><a href="#">IP Notice</a></li>
+	<li><a href="#">Accessibility</a></li>
+</ul></div>
+</div>
+</div>
+</div>
+</div>
+</footer></div>
+      
+<!-- END OUTPUT from 'core/themes/classy/templates/field/field--text-with-summary.html.twig' -->
+
+
+  </div>
+
+<!-- END OUTPUT from 'core/themes/classy/templates/block/block.html.twig' -->
+
+
+          </div>
+
+
+      </div>
+    </footer>
+  </div>
+</div>
+
+<!-- END OUTPUT from 'themes/custom/custom_theme/templates/page.html.twig' -->
+
+
+  </div>
+
+<!-- END OUTPUT from 'core/themes/stable/templates/content/off-canvas-page-wrapper.html.twig' -->
+
+
+    
+    <script type="application/json" data-drupal-selector="drupal-settings-json">{"path":{"baseUrl":"\/","scriptPath":null,"pathPrefix":"","currentPath":"node\/17","currentPathIsAdmin":false,"isFront":true,"currentLanguage":"en"},"pluralDelimiter":"\u0003","suppressDeprecationErrors":true,"ajaxTrustedUrl":{"form_action_p_pvdeGsVG5zNF_XLGPTvYSKCf43t8qZYSwcfZl2uzM":true},"user":{"uid":0,"permissionsHash":"aea2cecd7bed9cb15d3c4ea00708e01c199bf283e9584a54a1de97a8dbd1952a"}}</script>
+<script src="/core/assets/vendor/jquery/jquery.min.js?v=3.6.0"></script>
+<script src="/core/misc/polyfills/element.matches.js?v=9.3.5"></script>
+<script src="/core/misc/polyfills/object.assign.js?v=9.3.5"></script>
+<script src="/core/assets/vendor/once/once.min.js?v=1.0.1"></script>
+<script src="/core/assets/vendor/jquery-once/jquery.once.min.js?v=2.2.3"></script>
+<script src="/core/misc/drupalSettingsLoader.js?v=9.3.5"></script>
+<script src="/core/misc/drupal.js?v=9.3.5"></script>
+<script src="/core/misc/drupal.init.js?v=9.3.5"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.5.0/dist/lazyload.min.js"></script>
+<script src="/themes/custom/custom_theme/js/function.js?v=2.x"></script>
+<script src="/themes/custom/custom_theme/js/myscript.js?v=2.x"></script>
+<script src="/core/misc/debounce.js?v=9.3.5"></script>
+<script src="/core/misc/jquery.once.bc.js?v=9.3.5"></script>
+<script src="/core/misc/form.js?v=9.3.5"></script>
+<script src="/modules/webform/js/webform.behaviors.js?v=9.3.5"></script>
+<script src="/core/misc/states.js?v=9.3.5"></script>
+<script src="/modules/webform/js/webform.states.js?v=9.3.5"></script>
+<script src="/modules/webform/js/webform.form.js?v=9.3.5"></script>
+<script src="/modules/webform/js/webform.element.details.save.js?v=9.3.5"></script>
+<script src="/modules/webform/js/webform.element.message.js?v=9.3.5"></script>
+
+  </body>
+</html>
+
+<!-- END OUTPUT from 'core/themes/classy/templates/layout/html.html.twig' -->
+
