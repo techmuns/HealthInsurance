@@ -63186,10 +63186,10 @@
         "company": "Niva Bupa",
         "companyId": "niva-bupa",
         "generatedAt": "2026-10-27T07:19:11.747Z",
-        "lastUpdatedAt": "2026-10-27T07:19:11.747Z",
+        "lastUpdatedAt": "2026-10-27T15:41:58.604Z",
         "status": "Risk",
         "sourceConfidence": "Medium",
-        "itemCount": 16,
+        "itemCount": 15,
         "runs": [
           {
             "runTime": "2026-10-27T07:19:11.747Z",
@@ -63197,19 +63197,26 @@
             "sourceCount": 20,
             "ideas": 6,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-10-27T15:41:58.604Z",
+            "developments": 29,
+            "sourceCount": 19,
+            "ideas": 6,
+            "status": "ok"
           }
         ],
         "brief": {
-          "greeting": "Good morning",
+          "greeting": "Good afternoon",
           "narrative": "Regulatory pressure is the main watch item for health insurers today. Niva Bupa is under pressure on premium growth and demand, but claims-cost and conduct scrutiny and regulatory deadlines will decide whether the strength is sustainable.",
           "attentionCount": 6,
-          "developmentsCount": 30,
-          "sourcesCount": 20,
-          "domainsCount": 14,
+          "developmentsCount": 29,
+          "sourcesCount": 19,
+          "domainsCount": 13,
           "confidencePct": 75,
           "confidenceTier": "Medium",
           "readingMins": 3,
-          "lastUpdatedLabel": "26 Oct, 07:13 am"
+          "lastUpdatedLabel": "27 Oct, 03:37 pm"
         },
         "message": {
           "since": "No company-specific movement for Niva Bupa since the last brief — the read below is sector & regulatory context that applies across standalone health insurers.",
@@ -63233,7 +63240,7 @@
             ],
             "whatToWatch": "Whether the next results confirm the rating and the price target.",
             "confidencePct": 96,
-            "evidenceCount": 5,
+            "evidenceCount": 4,
             "status": "Constructive",
             "category": "Analyst Action",
             "why": {
@@ -63286,18 +63293,13 @@
                 "url": "https://www.marketsmojo.com/news/stock-recommendation/niva-bupa-health-insurance-downgraded-to-sell-amid-technical-and-valuation-concerns-4230823"
               },
               {
-                "kind": "Analyst report",
-                "name": "financialexpress.com",
-                "url": "https://financialexpress.com/market/sbi-life-niva-bupa-to-star-health-nomura-maps-cost-pressure-from-irdais-proposed-rules-4348645"
-              },
-              {
                 "kind": "Market data",
                 "name": "Derived from insurer-annual-snapshot + industry-segment-premium",
                 "url": "https://transactions.nivabupa.com/pages/doc/investor-relations/other-fin-disclosures/Press-Release-Results-March-2025.pdf"
               },
               {
                 "kind": "Market data",
-                "name": "2 curated source-backed insights",
+                "name": "3 curated source-backed insights",
                 "url": ""
               }
             ],
@@ -63326,7 +63328,7 @@
             ],
             "whatToWatch": "Premium persistence — Retail growth holding near 46.7% at the next quarterly print.",
             "confidencePct": 78,
-            "evidenceCount": 5,
+            "evidenceCount": 4,
             "status": "Risk",
             "category": "Analyst Action",
             "why": {
@@ -63379,18 +63381,13 @@
                 "url": "https://nsearchives.nseindia.com/corporate/MAXBUPA_15102026164611_Discosure_under_Regulation_30_-_India_Ratings.pdf"
               },
               {
-                "kind": "Analyst report",
-                "name": "financialexpress.com",
-                "url": "https://financialexpress.com/market/sbi-life-niva-bupa-to-star-health-nomura-maps-cost-pressure-from-irdais-proposed-rules-4348645"
-              },
-              {
                 "kind": "Market data",
                 "name": "Derived from insurer-annual-snapshot + industry-segment-premium",
                 "url": "https://transactions.nivabupa.com/pages/doc/investor-relations/other-fin-disclosures/Press-Release-Results-March-2025.pdf"
               },
               {
                 "kind": "Market data",
-                "name": "2 curated source-backed insights",
+                "name": "3 curated source-backed insights",
                 "url": ""
               }
             ],
@@ -63415,19 +63412,19 @@
             "stars": 5,
             "reasoning": [
               "The reported dismissal with nominal ₹1 costs creates reputational risk, not a ₹5 crore financial penalty against the insurer.",
-              "Niva Bupa's capital cushion (solvency ratio) stands at 2.49x against the regulator's 1.5x minimum — that sounds safe, but growing premium at 27.8% a year consumes capital mechanically."
+              "Solvency 3.03x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency."
             ],
             "whatToWatch": "Whether the sector move feeds through to premium growth and pricing.",
             "confidencePct": 78,
-            "evidenceCount": 5,
+            "evidenceCount": 4,
             "status": "Risk",
             "category": "Sector Catalyst",
             "why": {
               "whatHappened": "Delhi High Court dismisses ₹5 crore suit against influencer",
               "whyItMatters": "The reported dismissal with nominal ₹1 costs creates reputational risk, not a ₹5 crore financial penalty against the insurer.",
               "whoAffected": "Niva Bupa directly — its premium growth, margins and shareholders.",
-              "historicalContext": "Niva Bupa's capital cushion (solvency ratio) stands at 2.49x against the regulator's 1.5x minimum — that sounds safe, but growing premium at 27.8% a year consumes capital mechanically.",
-              "potentialImpact": "Whether the sector move feeds through to premium growth and pricing.",
+              "historicalContext": "Solvency 3.03x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency.",
+              "potentialImpact": "Solvency vs the 1.5x regulatory floor",
               "whatToWatch": "Whether the sector move feeds through to premium growth and pricing."
             },
             "action": {
@@ -63480,11 +63477,6 @@
                 "kind": "Market data",
                 "name": "Derived from insurer-annual-snapshot + industry-segment-premium",
                 "url": "https://transactions.nivabupa.com/pages/doc/investor-relations/other-fin-disclosures/Press-Release-Results-March-2025.pdf"
-              },
-              {
-                "kind": "Market data",
-                "name": "1 curated source-backed insight",
-                "url": ""
               }
             ],
             "impact": "Risk",
@@ -63508,19 +63500,19 @@
             "stars": 5,
             "reasoning": [
               "The regulator’s commitment to avoid disruption mitigates implementation concerns, but does not confirm softer final caps or an implementation timetable.",
-              "Niva Bupa's capital cushion (solvency ratio) stands at 2.49x against the regulator's 1.5x minimum — that sounds safe, but growing premium at 27.8% a year consumes capital mechanically."
+              "Solvency 3.03x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency."
             ],
             "whatToWatch": "The impact on claims cost, expense ratio and pricing as rules tighten.",
             "confidencePct": 78,
-            "evidenceCount": 5,
+            "evidenceCount": 4,
             "status": "Constructive",
             "category": "Regulatory",
             "why": {
               "whatHappened": "IRDAI chairman promises orderly transition to commission reforms",
               "whyItMatters": "The regulator’s commitment to avoid disruption mitigates implementation concerns, but does not confirm softer final caps or an implementation timetable.",
               "whoAffected": "Every standalone health insurer (SAHI) — pricing, product design and compliance cost.",
-              "historicalContext": "Niva Bupa's capital cushion (solvency ratio) stands at 2.49x against the regulator's 1.5x minimum — that sounds safe, but growing premium at 27.8% a year consumes capital mechanically.",
-              "potentialImpact": "The impact on claims cost, expense ratio and pricing as rules tighten.",
+              "historicalContext": "Solvency 3.03x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency.",
+              "potentialImpact": "Solvency vs the 1.5x regulatory floor",
               "whatToWatch": "The impact on claims cost, expense ratio and pricing as rules tighten."
             },
             "action": {
@@ -63559,11 +63551,6 @@
                 "kind": "Market data",
                 "name": "Derived from insurer-annual-snapshot + industry-segment-premium",
                 "url": "https://transactions.nivabupa.com/pages/doc/investor-relations/other-fin-disclosures/Press-Release-Results-March-2025.pdf"
-              },
-              {
-                "kind": "Market data",
-                "name": "1 curated source-backed insight",
-                "url": ""
               }
             ],
             "impact": "Positive",
@@ -63670,7 +63657,7 @@
             "stars": 4,
             "reasoning": [
               "Directive to pay a disputed claim reinforces claims‑repudiation/regulatory scrutiny risk — a recurring overhang for the whole standalone health‑insurance segment, Niva Bupa included.",
-              "Niva Bupa's capital cushion (solvency ratio) stands at 2.49x against the regulator's 1.5x minimum — that sounds safe, but growing premium at 27.8% a year consumes capital mechanically."
+              "Solvency 3.03x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency."
             ],
             "whatToWatch": "Whether the sector move feeds through to premium growth and pricing.",
             "confidencePct": 78,
@@ -63681,8 +63668,8 @@
               "whatHappened": "Noida consumer forum rules <span style=\"color:#EF4444;font-weight:600\">against Star Health</span> claim denial",
               "whyItMatters": "Directive to pay a disputed claim reinforces claims‑repudiation/regulatory scrutiny risk — a recurring overhang for the whole standalone health‑insurance segment, Niva Bupa included.",
               "whoAffected": "The broader health-insurance sector and its listed players.",
-              "historicalContext": "Niva Bupa's capital cushion (solvency ratio) stands at 2.49x against the regulator's 1.5x minimum — that sounds safe, but growing premium at 27.8% a year consumes capital mechanically.",
-              "potentialImpact": "Whether the sector move feeds through to premium growth and pricing.",
+              "historicalContext": "Solvency 3.03x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency.",
+              "potentialImpact": "Solvency vs the 1.5x regulatory floor",
               "whatToWatch": "Whether the sector move feeds through to premium growth and pricing."
             },
             "action": {
@@ -117353,7 +117340,7 @@
         "company": "Star Health",
         "companyId": "star-health",
         "generatedAt": "2026-10-27T07:19:11.747Z",
-        "lastUpdatedAt": "2026-10-27T07:19:11.747Z",
+        "lastUpdatedAt": "2026-10-27T15:41:58.604Z",
         "status": "Neutral",
         "sourceConfidence": "Medium",
         "itemCount": 9,
@@ -117364,10 +117351,17 @@
             "sourceCount": 12,
             "ideas": 6,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-10-27T15:41:58.604Z",
+            "developments": 17,
+            "sourceCount": 12,
+            "ideas": 6,
+            "status": "ok"
           }
         ],
         "brief": {
-          "greeting": "Good morning",
+          "greeting": "Good afternoon",
           "narrative": "Regulatory pressure is the main watch item for health insurers today. Star Health remains supported by premium growth and demand, but claims-cost and conduct scrutiny and regulatory deadlines will decide whether the strength is sustainable.",
           "attentionCount": 6,
           "developmentsCount": 17,
@@ -117376,7 +117370,7 @@
           "confidencePct": 76,
           "confidenceTier": "Medium",
           "readingMins": 3,
-          "lastUpdatedLabel": "26 Oct, 07:13 am"
+          "lastUpdatedLabel": "27 Oct, 03:37 pm"
         },
         "message": {
           "since": "No company-specific movement for Star Health since the last brief — the read below is sector & regulatory context that applies across standalone health insurers.",
@@ -117749,7 +117743,7 @@
             "stars": 3,
             "reasoning": [
               "Rating reaffirmed as Hold (upgraded from Sell earlier in the year); current view balances growth against claims/litigation overhang.",
-              "Star Health wrote 29.6% of the industry's retail health premium in Q2 FY27, down from 32.1% in the same quarter last year — a loss of 2.5pp of the market, on a ₹5116 cr quarterly book."
+              "Star Health's market value is 4.24 times its statutory book value, but the company currently earns just 7.3% on that book (return on equity)."
             ],
             "whatToWatch": "Whether the next results confirm the rating and the price target.",
             "confidencePct": 78,
@@ -117760,7 +117754,7 @@
               "whatHappened": "MarketsMojo retains 'Hold' on Star Health",
               "whyItMatters": "Rating reaffirmed as Hold (upgraded from Sell earlier in the year); current view balances growth against claims/litigation overhang.",
               "whoAffected": "Star Health shareholders and anyone tracking its re-rating.",
-              "historicalContext": "Star Health wrote 29.6% of the industry's retail health premium in Q2 FY27, down from 32.1% in the same quarter last year — a loss of 2.5pp of the market, on a ₹5116 cr quarterly book.",
+              "historicalContext": "Star Health's market value is 4.24 times its statutory book value, but the company currently earns just 7.3% on that book (return on equity).",
               "potentialImpact": "Share gains only help the thesis if they are profitable share — watch the claims ratio as the book grows, not just the share number.",
               "whatToWatch": "Whether the next results confirm the rating and the price target."
             },
@@ -117807,7 +117801,7 @@
               },
               {
                 "kind": "Market data",
-                "name": "7 curated source-backed insights",
+                "name": "8 curated source-backed insights",
                 "url": ""
               }
             ],
@@ -172675,7 +172669,7 @@
         "company": "Care Health",
         "companyId": "care-health",
         "generatedAt": "2026-10-27T07:19:11.747Z",
-        "lastUpdatedAt": "2026-10-27T07:19:11.747Z",
+        "lastUpdatedAt": "2026-10-27T15:41:58.604Z",
         "status": "Neutral",
         "sourceConfidence": "Medium",
         "itemCount": 8,
@@ -172686,10 +172680,17 @@
             "sourceCount": 11,
             "ideas": 6,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-10-27T15:41:58.604Z",
+            "developments": 13,
+            "sourceCount": 11,
+            "ideas": 6,
+            "status": "ok"
           }
         ],
         "brief": {
-          "greeting": "Good morning",
+          "greeting": "Good afternoon",
           "narrative": "Regulatory pressure is the main watch item for health insurers today. Care Health remains supported by premium growth and demand, but claims-cost and conduct scrutiny and regulatory deadlines will decide whether the strength is sustainable.",
           "attentionCount": 6,
           "developmentsCount": 13,
@@ -172698,7 +172699,7 @@
           "confidencePct": 76,
           "confidenceTier": "Medium",
           "readingMins": 4,
-          "lastUpdatedLabel": "26 Oct, 07:13 am"
+          "lastUpdatedLabel": "27 Oct, 03:37 pm"
         },
         "message": {
           "since": "No company-specific movement for Care Health since the last brief — the read below is sector & regulatory context that applies across standalone health insurers.",
@@ -225067,7 +225068,7 @@
         "company": "Aditya Birla",
         "companyId": "aditya-birla",
         "generatedAt": "2026-10-27T07:19:11.747Z",
-        "lastUpdatedAt": "2026-10-27T07:19:11.747Z",
+        "lastUpdatedAt": "2026-10-27T15:41:58.604Z",
         "status": "Neutral",
         "sourceConfidence": "Medium",
         "itemCount": 8,
@@ -225078,10 +225079,17 @@
             "sourceCount": 11,
             "ideas": 6,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-10-27T15:41:58.604Z",
+            "developments": 11,
+            "sourceCount": 11,
+            "ideas": 6,
+            "status": "ok"
           }
         ],
         "brief": {
-          "greeting": "Good morning",
+          "greeting": "Good afternoon",
           "narrative": "Regulatory pressure is the main watch item for health insurers today. Aditya Birla remains supported by premium growth and demand, but claims-cost and conduct scrutiny and regulatory deadlines will decide whether the strength is sustainable.",
           "attentionCount": 6,
           "developmentsCount": 11,
@@ -225090,7 +225098,7 @@
           "confidencePct": 76,
           "confidenceTier": "Medium",
           "readingMins": 3,
-          "lastUpdatedLabel": "26 Oct, 07:13 am"
+          "lastUpdatedLabel": "27 Oct, 03:37 pm"
         },
         "message": {
           "since": "No company-specific movement for Aditya Birla since the last brief — the read below is sector & regulatory context that applies across standalone health insurers.",
@@ -278036,7 +278044,7 @@
         "company": "ManipalCigna",
         "companyId": "manipalcigna",
         "generatedAt": "2026-10-27T07:19:11.747Z",
-        "lastUpdatedAt": "2026-10-27T07:19:11.747Z",
+        "lastUpdatedAt": "2026-10-27T15:41:58.604Z",
         "status": "Neutral",
         "sourceConfidence": "Medium",
         "itemCount": 7,
@@ -278047,10 +278055,17 @@
             "sourceCount": 10,
             "ideas": 6,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-10-27T15:41:58.604Z",
+            "developments": 12,
+            "sourceCount": 10,
+            "ideas": 6,
+            "status": "ok"
           }
         ],
         "brief": {
-          "greeting": "Good morning",
+          "greeting": "Good afternoon",
           "narrative": "Regulatory pressure is the main watch item for health insurers today. ManipalCigna remains supported by premium growth and demand, but claims-cost and conduct scrutiny and regulatory deadlines will decide whether the strength is sustainable.",
           "attentionCount": 6,
           "developmentsCount": 12,
@@ -278059,7 +278074,7 @@
           "confidencePct": 76,
           "confidenceTier": "Medium",
           "readingMins": 3,
-          "lastUpdatedLabel": "26 Oct, 07:13 am"
+          "lastUpdatedLabel": "27 Oct, 03:37 pm"
         },
         "message": {
           "since": "No company-specific movement for ManipalCigna since the last brief — the read below is sector & regulatory context that applies across standalone health insurers.",
@@ -278792,6 +278807,6 @@
     "snapshot_id": "pulse-brief-archive",
     "description": "Immutable per-calendar-day Pulse brief records (IST), one per company. Past days are frozen exactly as shown that day; the live Today view recomposes. Kept ~90 days per company.",
     "last_updated": "2026-10-27",
-    "last_successful_run": "2026-10-27T07:19:11.747Z"
+    "last_successful_run": "2026-10-27T15:41:58.604Z"
   }
 }

@@ -4,8 +4,8 @@
     "description": "AI-generated market intelligence for the SAHI health insurers — investor meets, earnings/board dates, sector & regulatory news, share catalysts. Web-sourced; each item links its source. AI-generated, not audited.",
     "schema_version": "1.0.0",
     "dataset": "ai_generated",
-    "last_updated": "2026-10-26",
-    "last_successful_run": "2026-10-26T07:13:21.289Z",
+    "last_updated": "2026-10-27",
+    "last_successful_run": "2026-10-27T15:37:25.471Z",
     "upstream_sources": [
       "muns_agent_web"
     ],
@@ -73,6 +73,36 @@
       "source_published_at": null,
       "first_seen": "2026-10-24T17:05:59.240Z",
       "discovered_at": "2026-10-24T17:05:59.240Z"
+    },
+    {
+      "id": "b5c590ac6a",
+      "company_id": "sector",
+      "date": null,
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "<span style=\"background:#FFFBEB;color:#F59E0B;font-weight:600;padding:2px 6px;border-radius:4px;\">watch</span>",
+      "detail": "Debt committee to weigh call option on **₹150 cr** NCDs",
+      "source_name": null,
+      "source_url": null,
+      "source_published_at": null,
+      "first_seen": "2026-10-27T15:37:25.471Z",
+      "discovered_at": "2026-10-27T15:37:25.471Z"
+    },
+    {
+      "id": "17e1fe89d8",
+      "company_id": "sector",
+      "date": null,
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "<span style=\"color:#22C55E;font-weight:600\">watch→eased</span>",
+      "detail": "IRDAI chief: distribution reform will be implemented \"only after consensus",
+      "source_name": null,
+      "source_url": null,
+      "source_published_at": null,
+      "first_seen": "2026-10-27T15:37:25.471Z",
+      "discovered_at": "2026-10-27T15:37:25.471Z"
     },
     {
       "id": "e54fa65d10",
@@ -883,36 +913,6 @@
       "source_published_at": null,
       "first_seen": "2026-09-28T17:52:52.264Z",
       "discovered_at": "2026-09-28T17:52:52.264Z"
-    },
-    {
-      "id": "2421f4c7ab",
-      "company_id": "niva-bupa",
-      "date": "2026-09-28",
-      "kind": "rating",
-      "horizon": "recent",
-      "impact": "neutral",
-      "headline": "Nomura maps EoM-driven cost pressure on SBI Life, Niva Bupa, Star Health",
-      "detail": "Brokerage note flags Niva Bupa among names facing a meaningful compliance/cost drag from IRDAI's proposed EoM caps versus peers.",
-      "source_name": "financialexpress.com",
-      "source_url": "https://financialexpress.com/market/sbi-life-niva-bupa-to-star-health-nomura-maps-cost-pressure-from-irdais-proposed-rules-4348645",
-      "source_published_at": "2026-09-28",
-      "first_seen": "2026-10-24T06:41:59.115Z",
-      "discovered_at": "2026-10-24T06:41:59.115Z"
-    },
-    {
-      "id": "ea09da9a7f",
-      "company_id": "sector",
-      "date": null,
-      "kind": "sector_news",
-      "horizon": "recent",
-      "impact": "neutral",
-      "headline": "<span style=\"background:#F0FDF4;color:#22C55E;font-weight:600;padding:2px 6px;border-radius:4px;\">positive</span>",
-      "detail": "ABHICL ties up with ICAI to cover <b>17 lakh</b> lives (12.32L students + 4.67L CA members) via 4 tailored products",
-      "source_name": null,
-      "source_url": null,
-      "source_published_at": null,
-      "first_seen": "2026-09-27T14:54:48.705Z",
-      "discovered_at": "2026-09-27T14:54:48.705Z"
     }
   ]
 }
