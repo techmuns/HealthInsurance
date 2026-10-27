@@ -2,7 +2,7 @@
  "_meta": {
   "artifact": "extracted-data-audit",
   "schema_version": "1.0.0",
-  "generated_at": "2026-10-27T09:25:45.992980+00:00",
+  "generated_at": "2026-10-27T10:02:29.037180+00:00",
   "description": "QA index for the Extracted Data Audit tab. A compact projection of schema-map.json (cell contract) + excel-values.json (normalized value store) + held-back + blocked-filings. The binding x value join (Fetched / Missing / Parser issue / Source unavailable / Manual override) is computed at read time in src/lib/extractedDataAudit.ts so no data logic is duplicated.",
   "template_file": "niva-bupa-portfolio-review.xlsx",
   "template_sha256": "238edfc92effeb7b9545108269a24012925329fafcae1b6fa4e3b87cd626a4bd",
@@ -28,7 +28,7 @@
    "sheets": 9,
    "audit_cells": 3686,
    "computed_cells": 690,
-   "value_store_entries": 13908,
+   "value_store_entries": 13912,
    "held_back": 16,
    "blocked_filings": 34
   }
@@ -47000,7 +47000,8 @@
        "entity": "niva-bupa",
        "metric": "gwp"
       }
-     ]
+     ],
+     "calculated_value": 1.539107
     },
     {
      "cell": "K4",
@@ -47031,7 +47032,8 @@
        "entity": "niva-bupa",
        "metric": "pat_igaap"
       }
-     ]
+     ],
+     "calculated_value": 101.029205
     },
     {
      "cell": "L4",
@@ -47062,7 +47064,8 @@
        "entity": "niva-bupa",
        "metric": "net_worth_igaap"
       }
-     ]
+     ],
+     "calculated_value": 4.105194
     },
     {
      "cell": "M4",
@@ -47125,7 +47128,8 @@
        "entity": "niva-bupa",
        "metric": "pat_ifrs"
       }
-     ]
+     ],
+     "calculated_value": 36.095657
     },
     {
      "cell": "O4",
@@ -47156,7 +47160,8 @@
        "entity": "niva-bupa",
        "metric": "net_worth_ifrs"
       }
-     ]
+     ],
+     "calculated_value": 3.688762
     },
     {
      "cell": "P4",
@@ -47431,7 +47436,8 @@
        "entity": "star-health",
        "metric": "gwp"
       }
-     ]
+     ],
+     "calculated_value": 1.728964
     },
     {
      "cell": "K5",
@@ -47462,7 +47468,8 @@
        "entity": "star-health",
        "metric": "pat_igaap"
       }
-     ]
+     ],
+     "calculated_value": 57.752765
     },
     {
      "cell": "L5",
@@ -47493,7 +47500,8 @@
        "entity": "star-health",
        "metric": "net_worth_igaap"
       }
-     ]
+     ],
+     "calculated_value": 4.238995
     },
     {
      "cell": "M5",
@@ -47556,7 +47564,8 @@
        "entity": "star-health",
        "metric": "pat_ifrs"
       }
-     ]
+     ],
+     "calculated_value": 35.310966
     },
     {
      "cell": "O5",
@@ -47587,7 +47596,8 @@
        "entity": "star-health",
        "metric": "net_worth_ifrs"
       }
-     ]
+     ],
+     "calculated_value": 3.35856
     },
     {
      "cell": "P5",
@@ -47802,7 +47812,8 @@
        "entity": "icici-lombard",
        "metric": "gwp"
       }
-     ]
+     ],
+     "calculated_value": 2.729824
     },
     {
      "cell": "K6",
@@ -47833,7 +47844,8 @@
        "entity": "icici-lombard",
        "metric": "pat_igaap"
       }
-     ]
+     ],
+     "calculated_value": 28.275613
     },
     {
      "cell": "L6",
@@ -47864,7 +47876,8 @@
        "entity": "icici-lombard",
        "metric": "net_worth_igaap"
       }
-     ]
+     ],
+     "calculated_value": 4.653565
     },
     {
      "cell": "M6",
@@ -48172,7 +48185,8 @@
        "entity": "godigit",
        "metric": "gwp"
       }
-     ]
+     ],
+     "calculated_value": 2.429816
     },
     {
      "cell": "K7",
@@ -48203,7 +48217,8 @@
        "entity": "godigit",
        "metric": "pat_igaap"
       }
-     ]
+     ],
+     "calculated_value": 43.978382
     },
     {
      "cell": "L7",
@@ -48234,7 +48249,8 @@
        "entity": "godigit",
        "metric": "net_worth_igaap"
       }
-     ]
+     ],
+     "calculated_value": 5.216799
     },
     {
      "cell": "M7",
@@ -69334,7 +69350,7 @@
    "transformation_used": "identity (value used as-is)",
    "source_name": "Motilal Oswal research note, 2026-09-24 (Moneycontrol broker research)",
    "source_url": "https://images.moneycontrol.com/static-mcnews/2026/09/20260925060919_Niva-Bupa-Health-Insurance-2509026-moti.pdf",
-   "fetched_at": "2026-10-27T09:24:13.847Z",
+   "fetched_at": "2026-10-27T10:00:57.914Z",
    "confidence": "low",
    "source_status": "backup",
    "source_layer": "analyst_aggregator",
@@ -69353,7 +69369,7 @@
    "transformation_used": "identity (value used as-is)",
    "source_name": "Motilal Oswal research note, 2026-07-30 (Moneycontrol broker research)",
    "source_url": "https://images.moneycontrol.com/static-mcnews/2026/07/20260731164316_Niva-Bupa-_31072026_Motilal-Oswal.pdf",
-   "fetched_at": "2026-10-27T09:24:13.847Z",
+   "fetched_at": "2026-10-27T10:00:57.914Z",
    "confidence": "low",
    "source_status": "backup",
    "source_layer": "analyst_aggregator",
@@ -69372,7 +69388,7 @@
    "transformation_used": "identity (value used as-is)",
    "source_name": "Motilal Oswal research note, 2026-06-19 (Moneycontrol broker research)",
    "source_url": "https://images.moneycontrol.com/static-mcnews/2026/06/20260622061924_Niva-Bupa-Health-Insurance-2206026-moti.pdf",
-   "fetched_at": "2026-10-27T09:24:13.847Z",
+   "fetched_at": "2026-10-27T10:00:57.914Z",
    "confidence": "low",
    "source_status": "backup",
    "source_layer": "analyst_aggregator",
@@ -69391,7 +69407,7 @@
    "transformation_used": "identity (value used as-is)",
    "source_name": "Motilal Oswal research note, 2026-05-10 (Moneycontrol broker research)",
    "source_url": "https://images.moneycontrol.com/static-mcnews/2026/05/20260526085124_Niva-BupaVMart-Retail-2605026-moti.pdf",
-   "fetched_at": "2026-10-27T09:24:13.847Z",
+   "fetched_at": "2026-10-27T10:00:57.914Z",
    "confidence": "low",
    "source_status": "backup",
    "source_layer": "analyst_aggregator",
@@ -69410,7 +69426,7 @@
    "transformation_used": "identity (value used as-is)",
    "source_name": "Motilal Oswal research note, 2026-01-29 (Moneycontrol broker research)",
    "source_url": "https://images.moneycontrol.com/static-mcnews/2026/02/20260202134824_Niva-Bupa_01022026_Motilal-Oswal.pdf",
-   "fetched_at": "2026-10-27T09:24:13.847Z",
+   "fetched_at": "2026-10-27T10:00:57.914Z",
    "confidence": "low",
    "source_status": "backup",
    "source_layer": "analyst_aggregator",
@@ -186242,8 +186258,8 @@
    "metric": "close_price",
    "period": "2026-10-27",
    "unit": "INR",
-   "raw_value": 258.25,
-   "normalized_value": 258.25,
+   "raw_value": 257,
+   "normalized_value": 257,
    "transformation_used": "identity (value used as-is)",
    "source_name": "muns market-data API — NSE daily history",
    "source_url": "https://fastapi.muns.io/market_data",
@@ -186261,8 +186277,8 @@
    "metric": "traded_quantity",
    "period": "2026-10-27",
    "unit": "shares",
-   "raw_value": 1347980,
-   "normalized_value": 1347980,
+   "raw_value": 1443339,
+   "normalized_value": 1443339,
    "transformation_used": "identity (value used as-is)",
    "source_name": "muns market-data API — NSE daily history",
    "source_url": "https://fastapi.muns.io/market_data",
@@ -214476,8 +214492,8 @@
    "metric": "close_price",
    "period": "2026-10-27",
    "unit": "INR",
-   "raw_value": 1568.8,
-   "normalized_value": 1568.8,
+   "raw_value": 1576.2,
+   "normalized_value": 1576.2,
    "transformation_used": "identity (value used as-is)",
    "source_name": "muns market-data API — NSE daily history",
    "source_url": "https://fastapi.muns.io/market_data",
@@ -214495,8 +214511,8 @@
    "metric": "traded_quantity",
    "period": "2026-10-27",
    "unit": "shares",
-   "raw_value": 198683,
-   "normalized_value": 198683,
+   "raw_value": 378846,
+   "normalized_value": 378846,
    "transformation_used": "identity (value used as-is)",
    "source_name": "muns market-data API — NSE daily history",
    "source_url": "https://fastapi.muns.io/market_data",
@@ -242178,8 +242194,8 @@
    "metric": "close_price",
    "period": "2026-10-27",
    "unit": "INR",
-   "raw_value": 71.74,
-   "normalized_value": 71.74,
+   "raw_value": 71,
+   "normalized_value": 71,
    "transformation_used": "identity (value used as-is)",
    "source_name": "muns market-data API — NSE daily history",
    "source_url": "https://fastapi.muns.io/market_data",
@@ -242197,8 +242213,8 @@
    "metric": "traded_quantity",
    "period": "2026-10-27",
    "unit": "shares",
-   "raw_value": 494080,
-   "normalized_value": 494080,
+   "raw_value": 902871,
+   "normalized_value": 902871,
    "transformation_used": "identity (value used as-is)",
    "source_name": "muns market-data API — NSE daily history",
    "source_url": "https://fastapi.muns.io/market_data",
@@ -260912,8 +260928,8 @@
    "metric": "close_price",
    "period": "2026-10-27",
    "unit": "INR",
-   "raw_value": 210.78,
-   "normalized_value": 210.78,
+   "raw_value": 212.7,
+   "normalized_value": 212.7,
    "transformation_used": "identity (value used as-is)",
    "source_name": "muns market-data API — NSE daily history",
    "source_url": "https://fastapi.muns.io/market_data",
@@ -260931,8 +260947,8 @@
    "metric": "traded_quantity",
    "period": "2026-10-27",
    "unit": "shares",
-   "raw_value": 912801,
-   "normalized_value": 912801,
+   "raw_value": 949994,
+   "normalized_value": 949994,
    "transformation_used": "identity (value used as-is)",
    "source_name": "muns market-data API — NSE daily history",
    "source_url": "https://fastapi.muns.io/market_data",
@@ -289165,8 +289181,8 @@
    "metric": "close_price",
    "period": "2026-10-27",
    "unit": "INR",
-   "raw_value": 545.5,
-   "normalized_value": 545.5,
+   "raw_value": 545.7,
+   "normalized_value": 545.7,
    "transformation_used": "identity (value used as-is)",
    "source_name": "muns market-data API — NSE daily history",
    "source_url": "https://fastapi.muns.io/market_data",
@@ -289184,14 +289200,86 @@
    "metric": "traded_quantity",
    "period": "2026-10-27",
    "unit": "shares",
-   "raw_value": 113868,
-   "normalized_value": 113868,
+   "raw_value": 144689,
+   "normalized_value": 144689,
    "transformation_used": "identity (value used as-is)",
    "source_name": "muns market-data API — NSE daily history",
    "source_url": "https://fastapi.muns.io/market_data",
    "source_file": "https://fastapi.muns.io/market_data?ticker=STARHEALTH&start=2026-10-27&end=2026-10-28&country=India",
    "fetched_at": "2026-10-27T09:24:37.250Z",
    "confidence": "high",
+   "source_status": "available",
+   "source_layer": "official_snapshot",
+   "priority_rank": 3,
+   "conflict_status": "none",
+   "eligible_for_excel": true
+  },
+  "star-health::market_cap::as_on_run_date": {
+   "entity": "star-health",
+   "metric": "market_cap",
+   "period": "as_on_run_date",
+   "unit": "INR_cr",
+   "raw_value": 32168.29,
+   "normalized_value": 32168.29,
+   "transformation_used": "identity (value used as-is)",
+   "source_name": "Star Health valuation multiples (via muns agent)",
+   "source_url": "https://www.screener.in/company/STARHEALTH/",
+   "fetched_at": "2026-10-27T09:38:27.117Z",
+   "confidence": "medium",
+   "source_status": "available",
+   "source_layer": "official_snapshot",
+   "priority_rank": 3,
+   "conflict_status": "none",
+   "eligible_for_excel": true
+  },
+  "niva-bupa::market_cap::as_on_run_date": {
+   "entity": "niva-bupa",
+   "metric": "market_cap",
+   "period": "as_on_run_date",
+   "unit": "INR_cr",
+   "raw_value": 13214.62,
+   "normalized_value": 13214.62,
+   "transformation_used": "identity (value used as-is)",
+   "source_name": "Niva Bupa valuation multiples (via muns agent)",
+   "source_url": "https://www.screener.in/company/NIVABUPA/",
+   "fetched_at": "2026-10-27T09:38:27.117Z",
+   "confidence": "medium",
+   "source_status": "available",
+   "source_layer": "official_snapshot",
+   "priority_rank": 3,
+   "conflict_status": "none",
+   "eligible_for_excel": true
+  },
+  "icici-lombard::market_cap::as_on_run_date": {
+   "entity": "icici-lombard",
+   "metric": "market_cap",
+   "period": "as_on_run_date",
+   "unit": "INR_cr",
+   "raw_value": 78380,
+   "normalized_value": 78380,
+   "transformation_used": "identity (value used as-is)",
+   "source_name": "ICICI Lombard valuation multiples (via muns agent)",
+   "source_url": "https://www.screener.in/company/ICICIGI/",
+   "fetched_at": "2026-10-27T09:38:27.117Z",
+   "confidence": "medium",
+   "source_status": "available",
+   "source_layer": "official_snapshot",
+   "priority_rank": 3,
+   "conflict_status": "none",
+   "eligible_for_excel": true
+  },
+  "godigit::market_cap::as_on_run_date": {
+   "entity": "godigit",
+   "metric": "market_cap",
+   "period": "as_on_run_date",
+   "unit": "INR_cr",
+   "raw_value": 23924.24,
+   "normalized_value": 23924.24,
+   "transformation_used": "identity (value used as-is)",
+   "source_name": "Go Digit valuation multiples (via muns agent)",
+   "source_url": "https://www.screener.in/company/GODIGIT/",
+   "fetched_at": "2026-10-27T09:38:27.117Z",
+   "confidence": "medium",
    "source_status": "available",
    "source_layer": "official_snapshot",
    "priority_rank": 3,
