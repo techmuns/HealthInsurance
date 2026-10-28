@@ -4,8 +4,8 @@
     "description": "Management / governance events (appointments, resignations, board & KMP changes) for the SAHI health insurers — web-sourced via the muns agent, each item source-linked. Medium confidence; verify against the underlying filing.",
     "schema_version": "1.1.0",
     "dataset": "ai_generated",
-    "last_updated": "2026-10-24",
-    "last_successful_run": "2026-10-24T10:36:25.319Z",
+    "last_updated": "2026-10-28",
+    "last_successful_run": "2026-10-28T12:27:40.579Z",
     "upstream_sources": [
       "muns_agent_web"
     ],
@@ -17,38 +17,38 @@
     {
       "company_id": "niva-bupa",
       "event_date": "2026-10-17",
-      "event_type": "resignation",
+      "event_type": "board_change",
       "person_name": "Roger William John Davis",
       "designation": "Non-Executive Director",
-      "event_summary": "Niva Bupa disclosed the sudden passing of Non-Executive Director Roger William John Davis, who also exits the Risk Management Committee; board seat now vacant.",
-      "source_name": "investywise.com",
-      "source_url": "https://www.investywise.com/niva-bupa-health-insurance-non-executive-director-demise",
+      "event_summary": "<span style=\"color:#EF4444;font-weight:600\">Director passed away</span> on 17 Oct 2026; ceased as Non-Executive Director and member of the Risk Management Committee with immediate effect.",
+      "source_name": "scanx.trade",
+      "source_url": "https://scanx.trade/stock-market-news/companies/niva-bupa-director-roger-william-john-davis-dies-17-oct-2026/53975356",
       "confidence": "medium",
-      "fetched_at": "2026-10-24T10:36:25.319Z"
+      "fetched_at": "2026-10-28T12:27:40.579Z"
     },
     {
-      "company_id": "star-health",
-      "event_date": "2026-08-28",
-      "event_type": "board_change",
-      "person_name": null,
-      "designation": "Nominee Director (Sitara Partners LLP)",
-      "event_summary": "21st AGM (28 Aug 2026) agenda included appointing a nominee director for new promoter entity Sitara Partners LLP.",
-      "source_name": "whalesbook.com",
-      "source_url": "https://www.whalesbook.com/corporate-news/English/insurance/Star-Health-Announces-August-AGM-Board-Changes-Including-New-Nominee-Director/6a6ca77110bce1fd20377bb6",
+      "company_id": "niva-bupa",
+      "event_date": "2026-09-16",
+      "event_type": "appointment",
+      "person_name": "Karan Bhatia",
+      "designation": "Chief Investment Officer",
+      "event_summary": "Niva Bupa appointed Karan Bhatia as <span style=\"color:#1E3A8A;font-weight:600\">Chief Investment Officer</span>.",
+      "source_name": "scanx.trade",
+      "source_url": "https://scanx.trade/stock-market-news/companies/niva-bupa-appoints-karan-bhatia-chief-investment-officer/51107662",
       "confidence": "medium",
-      "fetched_at": "2026-10-24T10:36:25.319Z"
+      "fetched_at": "2026-10-28T12:27:40.579Z"
     },
     {
       "company_id": "star-health",
       "event_date": "2026-08-28",
       "event_type": "reappointment",
       "person_name": "Deepak Ramineedi",
-      "designation": "Director",
-      "event_summary": "AGM agenda included re-appointment of Director Deepak Ramineedi.",
+      "designation": "Non-Executive Nominee Director",
+      "event_summary": "At the 21st AGM, shareholders considered re-appointment of Deepak Ramineedi as Non-Executive Nominee Director.",
       "source_name": "whalesbook.com",
       "source_url": "https://www.whalesbook.com/corporate-news/English/insurance/Star-Health-Announces-August-AGM-Board-Changes-Including-New-Nominee-Director/6a6ca77110bce1fd20377bb6",
       "confidence": "medium",
-      "fetched_at": "2026-10-24T10:36:25.319Z"
+      "fetched_at": "2026-10-28T12:27:40.579Z"
     },
     {
       "company_id": "niva-bupa",
@@ -56,59 +56,23 @@
       "event_type": "board_change",
       "person_name": null,
       "designation": null,
-      "event_summary": "18th AGM (12 Aug 2026) formally approved director appointments and executive pay revisions, ratifying the Bhatia/Carroll/Moynihan changes.",
+      "event_summary": "18th AGM approved director appointments (incl. Ashwani Bhatia) and revisions to MD & CEO Krishnan Ramachandran's remuneration for FY26.",
       "source_name": "scanx.trade",
       "source_url": "https://scanx.trade/stock-market-news/companies/niva-bupa-agm-approves-director-appointments-executive-pay-revisions/48098549",
       "confidence": "medium",
-      "fetched_at": "2026-10-24T10:36:25.319Z"
-    },
-    {
-      "company_id": "niva-bupa",
-      "event_date": "2026-08-10",
-      "event_type": "kmp_change",
-      "person_name": "Ashwani Bhatia",
-      "designation": "Chairperson",
-      "event_summary": "IRDAI granted regulatory approval for Ashwani Bhatia's appointment as Chairperson, finalizing the leadership transition.",
-      "source_name": "scanx.trade",
-      "source_url": "https://scanx.trade/stock-market-news/companies/niva-bupa-secures-irdai-approval-for-ashwani-bhatia-as-chairperson/47974741",
-      "confidence": "medium",
-      "fetched_at": "2026-10-24T10:36:25.319Z"
-    },
-    {
-      "company_id": "star-health",
-      "event_date": "2026-06-26",
-      "event_type": "resignation",
-      "person_name": "Utpal Sheth",
-      "designation": "Nominee Director (Estate of Rakesh Jhunjhunwala)",
-      "event_summary": "Star Health accepted Utpal Sheth's resignation as Nominee Director representing the late Rakesh Jhunjhunwala's estate, following withdrawal of nomination.",
-      "source_name": "scanx.trade",
-      "source_url": "https://scanx.trade/stock-market-news/companies/star-health-accepts-resignation-of-utpal-sheth-and-appoints-him-as-additional-director/44022323",
-      "confidence": "medium",
-      "fetched_at": "2026-10-24T10:36:25.319Z"
+      "fetched_at": "2026-10-28T12:27:40.579Z"
     },
     {
       "company_id": "star-health",
       "event_date": "2026-06-26",
       "event_type": "appointment",
-      "person_name": "Utpal Sheth",
-      "designation": "Additional Director",
-      "event_summary": "Immediately on resignation, Star Health's board re-appointed Utpal Sheth as an Additional Director in his personal capacity.",
-      "source_name": "scanx.trade",
-      "source_url": "https://scanx.trade/stock-market-news/companies/star-health-accepts-resignation-of-utpal-sheth-and-appoints-him-as-additional-director/44022323",
+      "person_name": "Utpal Hemendra Sheth",
+      "designation": "Non-Executive Nominee Director",
+      "event_summary": "Sheth appointed to represent new promoter entity Sitara Partners LLP (linked to late Rakesh Jhunjhunwala's holdings); ratified at the 21st AGM.",
+      "source_name": "whalesbook.com",
+      "source_url": "https://www.whalesbook.com/corporate-news/English/insurance/Star-Health-Announces-August-AGM-Board-Changes-Including-New-Nominee-Director/6a6ca77110bce1fd20377bb6",
       "confidence": "medium",
-      "fetched_at": "2026-10-24T10:36:25.319Z"
-    },
-    {
-      "company_id": "star-health",
-      "event_date": "2026-06-17",
-      "event_type": "kmp_change",
-      "person_name": null,
-      "designation": "MD & CEO / Whole-time Directors / Independent Directors",
-      "event_summary": "Shareholders (postal ballot) approved revised remuneration for the MD & CEO, Whole-time Directors and several Independent Directors for the fiscal year.",
-      "source_name": "scanx.trade",
-      "source_url": "https://scanx.trade/stock-market-news/companies/star-health-approves-director-remuneration-and-reclassifies-promoters/43239949",
-      "confidence": "medium",
-      "fetched_at": "2026-10-24T10:36:25.319Z"
+      "fetched_at": "2026-10-28T12:27:40.579Z"
     },
     {
       "company_id": "manipalcigna",
@@ -116,71 +80,47 @@
       "event_type": "appointment",
       "person_name": "Anjan Kumar Ganguly",
       "designation": "Chief Financial Officer",
-      "event_summary": "ManipalCigna Health Insurance appointed Anjan Kumar Ganguly, a chartered accountant with 20+ years' experience, as CFO.",
-      "source_name": "adgully.com",
-      "source_url": "https://adgully.com/post/16661/manipalcigna-health-insurance-appoints-anjan-kumar-ganguly-as-chief-financial-officer",
+      "event_summary": "ManipalCigna appointed Ganguly as CFO to <span style=\"color:#22C55E;font-weight:600\">strengthen financial planning and governance</span>.",
+      "source_name": "bfsi.economictimes.indiatimes.com",
+      "source_url": "https://bfsi.economictimes.indiatimes.com/articles/anjan-kumar-ganguly-joins-manipalcigna-health-insurance-as-cfo/131631191",
       "confidence": "medium",
-      "fetched_at": "2026-10-24T10:36:25.319Z"
+      "fetched_at": "2026-10-28T12:27:40.579Z"
     },
     {
       "company_id": "niva-bupa",
       "event_date": "2026-06-03",
       "event_type": "appointment",
       "person_name": "Ashwani Bhatia",
-      "designation": "Chairperson / Non-Executive Independent Director",
-      "event_summary": "Niva Bupa appointed Ashwani Bhatia as Non-Executive Independent Director and Chairperson for a five-year term effective 3 June 2026.",
-      "source_name": "scanx.trade",
-      "source_url": "https://scanx.trade/stock-market-news/companies/niva-bupa-appoints-ashwani-bhatia-as-non-executive-independent-director/42026112",
+      "designation": "Independent Director / Chairperson",
+      "event_summary": "Board appointed ex-SEBI Whole-Time Member <span style=\"color:#22C55E;font-weight:600\">Ashwani Bhatia</span> as Additional Independent Director and Chairperson effective 3 Jun 2026; IRDAI approval confirmed 10 Aug 2026.",
+      "source_name": "legal.economictimes.indiatimes.com",
+      "source_url": "https://legal.economictimes.indiatimes.com/news/corporate-business/niva-bupa-gets-irdai-nod-for-ashwani-bhatia-as-chairperson/133144701",
       "confidence": "medium",
-      "fetched_at": "2026-10-24T10:36:25.319Z"
+      "fetched_at": "2026-10-28T12:27:40.579Z"
     },
     {
       "company_id": "niva-bupa",
-      "event_date": "2026-06-03",
+      "event_date": "2026-06-02",
       "event_type": "resignation",
-      "person_name": "Milind Barve",
-      "designation": "Chairman",
-      "event_summary": "Milind Barve stepped down as Chairman of Niva Bupa's board due to health concerns, triggering the Bhatia appointment.",
-      "source_name": "storyboard18.com",
-      "source_url": "https://www.storyboard18.com/amp/brand-makers/niva-bupa-health-insurance-appoints-ashwani-bhatia-as-chairman-after-milind-barve-steps-down-100130.htm",
+      "person_name": "Milind Gajanan Barve",
+      "designation": "Independent Director & Chairman",
+      "event_summary": "Barve <span style=\"color:#EF4444;font-weight:600\">resigned</span> as Independent Director and stepped down as Chairman citing health issues, effective close of business 2 Jun 2026.",
+      "source_name": "bseindia.com",
+      "source_url": "https://www.bseindia.com/xml-data/corpfiling/AttachHis/2a6eadae-5cc1-43f4-864d-c8483bdf9d16.pdf",
       "confidence": "medium",
-      "fetched_at": "2026-10-24T10:36:25.319Z"
-    },
-    {
-      "company_id": "niva-bupa",
-      "event_date": "2026-05-15",
-      "event_type": "appointment",
-      "person_name": "Christopher Patrick Carroll",
-      "designation": "Additional Non-Executive Director",
-      "event_summary": "Board approved appointment of Christopher Patrick Carroll as Additional Non-Executive Director effective 15 May 2026.",
-      "source_name": "scanx.trade",
-      "source_url": "https://scanx.trade/stock-market-news/companies/niva-bupa-health-insurance-announces-key-board-changes-leadership-elevation-and-esop-grant/39810840",
-      "confidence": "medium",
-      "fetched_at": "2026-10-24T10:36:25.319Z"
-    },
-    {
-      "company_id": "niva-bupa",
-      "event_date": "2026-05-15",
-      "event_type": "appointment",
-      "person_name": "Siobhan Djihan Moynihan",
-      "designation": "Additional Non-Executive Director",
-      "event_summary": "Board approved appointment of Siobhan Djihan Moynihan as Additional Non-Executive Director effective 15 May 2026.",
-      "source_name": "scanx.trade",
-      "source_url": "https://scanx.trade/stock-market-news/companies/niva-bupa-health-insurance-announces-key-board-changes-leadership-elevation-and-esop-grant/39810840",
-      "confidence": "medium",
-      "fetched_at": "2026-10-24T10:36:25.319Z"
+      "fetched_at": "2026-10-28T12:27:40.579Z"
     },
     {
       "company_id": "niva-bupa",
       "event_date": "2026-05-08",
-      "event_type": "kmp_change",
-      "person_name": "Ankur Kharbanda",
-      "designation": "Executive Director & Deputy CEO",
-      "event_summary": "Niva Bupa elevated sales/distribution head Ankur Kharbanda to Executive Director and Deputy CEO.",
-      "source_name": "storyboard18.com",
-      "source_url": "https://www.storyboard18.com/amp/brand-makers/niva-bupa-elevates-ankur-kharbanda-to-deputy-ceo-97608.htm",
+      "event_type": "resignation",
+      "person_name": "Penelope Ruth Dudley; Carlos Antonio Jaureguizar Ruiz-Jarabo",
+      "designation": "Non-Executive Directors",
+      "event_summary": "<span style=\"color:#EF4444;font-weight:600\">Both Non-Executive Directors resigned</span>, citing insufficient time due to other professional commitments.",
+      "source_name": "scanx.trade",
+      "source_url": "https://scanx.trade/stock-market-news/companies/niva-bupa-health-insurance-announces-key-board-changes-leadership-elevation-and-esop-grant/39810840",
       "confidence": "medium",
-      "fetched_at": "2026-10-24T10:36:25.319Z"
+      "fetched_at": "2026-10-28T12:27:40.579Z"
     },
     {
       "company_id": "care-health",
@@ -188,47 +128,59 @@
       "event_type": "appointment",
       "person_name": "Ajay Kumar Shah",
       "designation": "MD & CEO",
-      "event_summary": "Care Health Insurance (Religare subsidiary) appointed Ajay Kumar Shah as Managing Director & CEO, pending shareholder and IRDAI approvals.",
-      "source_name": "cxodigitalpulse.com",
-      "source_url": "https://www.cxodigitalpulse.com/ajay-shah-appointed-managing-director-ceo-of-care-insurance-to-lead-next-phase-of-growth/",
+      "event_summary": "Religare Enterprises' board approved <span style=\"color:#22C55E;font-weight:600\">Ajay Kumar Shah</span> (30+ yrs insurance experience, internal successor) as MD & CEO for a 5-year term from 26 Apr 2026, subject to shareholder/IRDAI approval.",
+      "source_name": "whalesbook.com",
+      "source_url": "https://www.whalesbook.com/corporate-news/English/insurance/Care-Health-Insurance-Appoints-Ajay-Kumar-Shah-as-MD-and-CEO/69ee49805a43f6b807be2fb0",
       "confidence": "medium",
-      "fetched_at": "2026-10-24T10:36:25.319Z"
+      "fetched_at": "2026-10-28T12:27:40.579Z"
     },
     {
       "company_id": "care-health",
-      "event_date": "2026-04-26",
+      "event_date": "2026-04-25",
       "event_type": "resignation",
       "person_name": "Anuj Gulati",
-      "designation": "CEO",
-      "event_summary": "Anuj Gulati exited as CEO of Care Health Insurance, India's second-largest standalone health insurer.",
+      "designation": "MD & CEO",
+      "event_summary": "Gulati's tenure as founding MD & CEO ended effective close of business 25 Apr 2026, after leading Care Health to become <span style=\"color:#1E3A8A;font-weight:600\">India's #2 standalone health insurer</span>.",
       "source_name": "whalesbook.com",
       "source_url": "https://www.whalesbook.com/corporate-news/English/insurance/Care-Health-CEO-Anuj-Gulati-Exits-Insurer-Ranks-Second-in-India/69ee4ae95a43f6b807be425b",
       "confidence": "medium",
-      "fetched_at": "2026-10-24T10:36:25.319Z"
+      "fetched_at": "2026-10-28T12:27:40.579Z"
     },
     {
       "company_id": "niva-bupa",
-      "event_date": "2026-03-26",
-      "event_type": "appointment",
-      "person_name": "Roger William John Davis",
-      "designation": "Non-Executive Director",
-      "event_summary": "Shareholders approved (99.99% votes, postal ballot) appointment of Roger William John Davis as Non-Executive Director.",
-      "source_name": "whalesbook.com",
-      "source_url": "https://www.whalesbook.com/corporate-news/English/insurance/Niva-Bupa-Members-Vote-Yes-on-Director-Appointment-CEO-Pay-Raise/69c68ddc63d6db8f4b54d732",
-      "confidence": "medium",
-      "fetched_at": "2026-10-24T10:36:25.319Z"
-    },
-    {
-      "company_id": "niva-bupa",
-      "event_date": "2026-03-26",
-      "event_type": "kmp_change",
-      "person_name": "Krishnan Ramachandran",
-      "designation": "MD & CEO",
-      "event_summary": "Shareholders approved a remuneration revision for MD & CEO Krishnan Ramachandran for FY2025-26 via the same postal ballot.",
+      "event_date": "2026-02-23",
+      "event_type": "board_change",
+      "person_name": "Roger William John Davis; Krishnan Ramachandran",
+      "designation": "Non-Executive Director / MD & CEO",
+      "event_summary": "Postal ballot sought approval for Davis's appointment and revision of MD & CEO Ramachandran's FY26 remuneration (e-voting 25 Feb–26 Mar 2026).",
       "source_name": "scanx.trade",
       "source_url": "https://scanx.trade/stock-market-news/stocks/niva-bupa-health-insurance-announces-postal-ballot-for-director-appointment-and-ceo-remuneration-revision/33395496",
       "confidence": "medium",
-      "fetched_at": "2026-10-24T10:36:25.319Z"
+      "fetched_at": "2026-10-28T12:27:40.579Z"
+    },
+    {
+      "company_id": "niva-bupa",
+      "event_date": "2026-01-29",
+      "event_type": "appointment",
+      "person_name": "Roger William John Davis",
+      "designation": "Non-Executive Director",
+      "event_summary": "Board appointed Davis as Additional Non-Executive Director effective 29 Jan 2026 (he later <span style=\"color:#EF4444;font-weight:600\">passed away 17 Oct 2026</span>).",
+      "source_name": "transactions.nivabupa.com",
+      "source_url": "https://transactions.nivabupa.com/pages/doc/investor-relations/Corporate-Announcements/2025-26/Appointment-of-Director-and-Company-Secretary.pdf?v=1.1",
+      "confidence": "medium",
+      "fetched_at": "2026-10-28T12:27:40.579Z"
+    },
+    {
+      "company_id": "niva-bupa",
+      "event_date": "2026-01-29",
+      "event_type": "kmp_change",
+      "person_name": "Aparna Sharma",
+      "designation": "Company Secretary & Compliance Officer",
+      "event_summary": "Board appointed Aparna Sharma (ICSI Membership A24399) as Company Secretary & Compliance Officer effective 29 Jan 2026.",
+      "source_name": "transactions.nivabupa.com",
+      "source_url": "https://transactions.nivabupa.com/pages/doc/investor-relations/Corporate-Announcements/2025-26/Appointment-of-Director-and-Company-Secretary.pdf?v=1.1",
+      "confidence": "medium",
+      "fetched_at": "2026-10-28T12:27:40.579Z"
     },
     {
       "company_id": "manipalcigna",
@@ -236,23 +188,11 @@
       "event_type": "appointment",
       "person_name": "Joydeep Saha",
       "designation": "MD & CEO",
-      "event_summary": "ManipalCigna Health Insurance appointed Joydeep Saha as Managing Director & CEO following IRDAI regulatory approval.",
+      "event_summary": "ManipalCigna appointed Joydeep Saha as <span style=\"color:#1E3A8A;font-weight:600\">MD & CEO</span> following IRDAI regulatory approval.",
       "source_name": "peoplematters.in",
       "source_url": "https://www.peoplematters.in/news/appointments/manipalcigna-health-insurance-appoints-joydeep-saha-as-md-and-ceo-42371",
       "confidence": "medium",
-      "fetched_at": "2026-10-24T10:36:25.319Z"
-    },
-    {
-      "company_id": "aditya-birla",
-      "event_date": "2024-07-27",
-      "event_type": "appointment",
-      "person_name": "Sandeep Manakchand Kedia",
-      "designation": "Chief Financial Officer",
-      "event_summary": "Regulatory filing data shows Sandeep Manakchand Kedia was appointed CFO of Aditya Birla Health Insurance on 27 Jul 2024 and continues in the role.",
-      "source_name": "thecompanycheck.com",
-      "source_url": "https://www.thecompanycheck.com/company/aditya-birla-health-insurance-co-limited/U66000MH2015PLC263677",
-      "confidence": "medium",
-      "fetched_at": "2026-10-24T10:36:25.319Z"
+      "fetched_at": "2026-10-28T12:27:40.579Z"
     }
   ]
 }
