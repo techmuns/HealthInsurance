@@ -4,8 +4,8 @@
     "description": "AI-generated market intelligence for the SAHI health insurers — investor meets, earnings/board dates, sector & regulatory news, share catalysts. Web-sourced; each item links its source. AI-generated, not audited.",
     "schema_version": "1.0.0",
     "dataset": "ai_generated",
-    "last_updated": "2026-10-28",
-    "last_successful_run": "2026-10-28T16:25:17.989Z",
+    "last_updated": "2026-10-29",
+    "last_successful_run": "2026-10-29T07:54:29.889Z",
     "upstream_sources": [
       "muns_agent_web"
     ],
@@ -43,6 +43,66 @@
       "source_published_at": "2026-10-15",
       "first_seen": "2026-10-18T13:40:55.982Z",
       "discovered_at": "2026-10-18T13:40:55.982Z"
+    },
+    {
+      "id": "84195da3c4",
+      "company_id": "sector",
+      "date": null,
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "<span style=\"color:#EF4444;font-weight:600;background:#FEF2F2;padding:2px 6px;border-radius:4px;\">negative</span>",
+      "detail": "MarketsMojo downgrades Niva Bupa to **Sell** (▼)",
+      "source_name": "marketsmojo.com",
+      "source_url": "https://www.marketsmojo.com/news/stock-recommendation/niva-bupa-health-insurance-downgraded-to-sell-amid-technical-and-valuation-concerns-4230823",
+      "source_published_at": "2026-10-20",
+      "first_seen": "2026-10-29T07:54:29.889Z",
+      "discovered_at": "2026-10-29T07:54:29.889Z"
+    },
+    {
+      "id": "62fef7c19b",
+      "company_id": "sector",
+      "date": null,
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "<span style=\"color:#1E3A8A;font-weight:600\">neutral</span>",
+      "detail": "Care Health (Religare arm) raises **₹100 Cr** via subordinated debentures at **10%**",
+      "source_name": "whalesbook.com",
+      "source_url": "https://www.whalesbook.com/corporate-news/English/bankingfinance/Religare-Subsidiary-Care-Health-Insurance-Raises-Rs-100-Crore-via-Debentures/6aad3360f2017017ae6d924d",
+      "source_published_at": "2026-09-18",
+      "first_seen": "2026-10-29T07:54:29.889Z",
+      "discovered_at": "2026-10-29T07:54:29.889Z"
+    },
+    {
+      "id": "d7eb3b0eee",
+      "company_id": "sector",
+      "date": null,
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "<span style=\"color:#EF4444;font-weight:600\">negative</span> ▼",
+      "detail": "IRDAI bars Niva Bupa from opening new offices for 6 months over EoM breach",
+      "source_name": null,
+      "source_url": null,
+      "source_published_at": "2026-08-20",
+      "first_seen": "2026-10-29T07:54:29.889Z",
+      "discovered_at": "2026-10-29T07:54:29.889Z"
+    },
+    {
+      "id": "9c4ad447fc",
+      "company_id": "sector",
+      "date": null,
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "<span style=\"color:#EF4444;font-weight:600\">negative</span> ▲",
+      "detail": "Health insurance premiums up **25–41%** despite GST exemption on individual policies",
+      "source_name": null,
+      "source_url": null,
+      "source_published_at": "2026-10-06",
+      "first_seen": "2026-10-29T07:54:29.889Z",
+      "discovered_at": "2026-10-29T07:54:29.889Z"
     },
     {
       "id": "d200d71cd5",
@@ -133,21 +193,6 @@
       "source_published_at": null,
       "first_seen": "2026-10-26T07:13:21.289Z",
       "discovered_at": "2026-10-26T07:13:21.289Z"
-    },
-    {
-      "id": "f0cbdb279d",
-      "company_id": "sector",
-      "date": "2026-10-25",
-      "kind": "regulatory",
-      "horizon": "upcoming",
-      "impact": "neutral",
-      "headline": "IRDAI distribution-reform feedback window closes Oct 25",
-      "detail": "Regulator is weighing a stakeholder-requested extension and a Jan/Apr 2027 phased rollout; final shape of EoM/commission caps remains the key swing factor for insurer cost structures this quarter.",
-      "source_name": "ndtvprofit.com",
-      "source_url": "https://www.ndtvprofit.com/personal-finance/irdai-weighs-more-time-on-distribution-reforms-as-brokers-seek-extension-fair-pay-sources-12218453",
-      "source_published_at": "2026-10-22",
-      "first_seen": "2026-10-24T06:41:59.115Z",
-      "discovered_at": "2026-10-24T06:41:59.115Z"
     },
     {
       "id": "3476b34bc8",
@@ -868,51 +913,6 @@
       "source_published_at": null,
       "first_seen": "2026-10-01T16:49:18.615Z",
       "discovered_at": "2026-10-01T16:49:18.615Z"
-    },
-    {
-      "id": "7621394db8",
-      "company_id": "sector",
-      "date": null,
-      "kind": "sector_news",
-      "horizon": "recent",
-      "impact": "neutral",
-      "headline": "<span style=\"background:#FEF2F2;padding:2px 6px;border-radius:4px;\">watch</span>",
-      "detail": "Star Health Q1 FY27 results announced July 29",
-      "source_name": null,
-      "source_url": null,
-      "source_published_at": null,
-      "first_seen": "2026-09-30T07:42:19.758Z",
-      "discovered_at": "2026-09-30T07:42:19.758Z"
-    },
-    {
-      "id": "636375022f",
-      "company_id": "sector",
-      "date": null,
-      "kind": "sector_news",
-      "horizon": "recent",
-      "impact": "neutral",
-      "headline": "<span style=\"color:#22C55E;font-weight:600\">positive</span> <span style=\"background:#F0FDF4;padding:2px 6px;border-radius:4px;\">Top signal</span>",
-      "detail": "Nomura keeps Buy, quantifies EOM cost-cut path",
-      "source_name": null,
-      "source_url": null,
-      "source_published_at": null,
-      "first_seen": "2026-09-28T17:52:52.264Z",
-      "discovered_at": "2026-09-28T17:52:52.264Z"
-    },
-    {
-      "id": "8e89d1d62c",
-      "company_id": "sector",
-      "date": null,
-      "kind": "sector_news",
-      "horizon": "recent",
-      "impact": "neutral",
-      "headline": "<span style=\"background:#FFFBEB;padding:2px 6px;border-radius:4px;color:#F59E0B;font-weight:600\">watch</span>",
-      "detail": "IRDAI floats draft to cap insurance distribution commissions",
-      "source_name": null,
-      "source_url": null,
-      "source_published_at": null,
-      "first_seen": "2026-09-28T17:52:52.264Z",
-      "discovered_at": "2026-09-28T17:52:52.264Z"
     }
   ]
 }
