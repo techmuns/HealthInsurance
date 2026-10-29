@@ -3,14 +3,102 @@
     "snapshot_id": "sectoral-news-snapshot",
     "description": "Key Sectoral News feed — a permanent seed of 31 curated portfolio-pack updates, kept current by a scheduled muns web-search agent. Each item links its source. Seed items are curated; agent items are AI-gathered (web), clearly labelled and not audited.",
     "schema_version": "1.0.0",
-    "last_updated": "2026-10-26",
-    "last_successful_run": "2026-10-26T12:25:44.208Z",
+    "last_updated": "2026-10-29",
+    "last_successful_run": "2026-10-29T12:24:27.845Z",
     "seed_count": 31,
-    "agent_count": 385,
+    "agent_count": 400,
     "generated_by": "Seed: investor portfolio pack. Updates: AI (muns agent, web search).",
     "notes": "Seed floor can never be lost. Agent items are de-duped by subject+date and verified-before-acting."
   },
   "data": [
+    {
+      "sn": 417,
+      "category": "Profitability",
+      "date": "2026-10-29",
+      "subject": "Go Digit chief seeks standardized hospital billing",
+      "summary": "Digit Insurance chairman Kamesh Goyal argued co-pays alone won't contain costs and called for <span style=\"color:#F59E0B;font-weight:600\">transparent, standardized hospital billing</span> to combat medical inflation — a structural risk flagged across the sector.",
+      "reference": "https://www.whalesbook.com/news/English/bankingfinance/Go-Digit-Chief-Seeks-Standardized-Hospital-Billing/6ae2fce04fc30694db51a85a",
+      "id": "03d4639ea0b089",
+      "origin": "agent",
+      "added_at": "2026-10-29"
+    },
+    {
+      "sn": 419,
+      "category": "Profitability",
+      "date": "2026-10-28",
+      "subject": "Star Health H1 FY27 underwriting turns profitable",
+      "summary": "Underwriting result swung to a <span style=\"color:#22C55E;font-weight:600\">▲Rs 210 crore profit</span> from a Rs 24 crore loss in H1 FY26; Combined Insurance Service Ratio improved to **97.9%** from 100.3% — a key margin inflection for the sector's largest listed health insurer.",
+      "reference": "https://smestreet.in/banking/star-health-reports-210-crore-underwriting-profit-in-h1-fy27-12763741",
+      "id": "1b356a81374ac9",
+      "origin": "agent",
+      "added_at": "2026-10-29"
+    },
+    {
+      "sn": 418,
+      "category": "Competition / Peers",
+      "date": "2026-10-28",
+      "subject": "Star Health backs IRDAI reforms, seeks carve-out",
+      "summary": "Star Health welcomed IRDAI's proposed distribution/commission reforms but asked that regulation-mandated products be excluded from the expense-cap formula, highlighting industry pushback on implementation details.",
+      "reference": "https://www.livemint.com/companies/news/star-health-wants-mandated-products-kept-out-of-irdai-s-expense-cap-11793178455919.html",
+      "id": "13671bc4eefb46",
+      "origin": "agent",
+      "added_at": "2026-10-29"
+    },
+    {
+      "sn": 422,
+      "category": "GST",
+      "date": "2026-10-27",
+      "subject": "GST relief helps but isn't enough for affordability",
+      "summary": "Panelists at the BFSI Insight Summit said last year's GST exemption on individual premiums eased costs, but high medical inflation, underinsurance and trust deficits remain structural barriers to deeper penetration.",
+      "reference": "https://business-standard.com/amp/specials/bs-events/gst-relief-not-enough-to-make-health-insurance-affordable-say-experts-126102701362_1.html",
+      "id": "03849d2ebe6ec2",
+      "origin": "agent",
+      "added_at": "2026-10-29"
+    },
+    {
+      "sn": 421,
+      "category": "Regulatory",
+      "date": "2026-10-27",
+      "subject": "IRDAI chief: insurance must grow 1.5–2x GDP",
+      "summary": "Ajay Seth said health insurance has \"maximum dissatisfaction\" among customers, ruled out dynamic pricing as <span style=\"color:#EF4444;font-weight:600\">\"unacceptable\"</span>, and pushed for faster claims settlement — setting the tone for the distribution reform agenda relevant to all SAHI players.",
+      "reference": "https://business-standard.com/amp/specials/bs-events/insurance-must-grow-1-5-2x-faster-than-gdp-irdai-chief-ajay-seth-126102800009_1.html",
+      "id": "1cd683088e2eb2",
+      "origin": "agent",
+      "added_at": "2026-10-29"
+    },
+    {
+      "sn": 420,
+      "category": "Profitability",
+      "date": "2026-10-27",
+      "subject": "Star Health Q2 FY27 profit jumps 233%",
+      "summary": "Net profit rose to <span style=\"color:#22C55E;font-weight:600\">▲Rs 264.4–264.8 crore</span> (vs Rs 79.6 crore YoY) as the claims ratio improved to ~**69%**, reinforcing a five-quarter trend of underwriting improvement.",
+      "reference": "https://economictimes.indiatimes.com/markets/stocks/earnings/star-health-and-allied-insurance-reports-232-profit-surge-at-rs-264-4-crore/articleshow/135249329.cms",
+      "id": "00ccd6d4e4f2a4",
+      "origin": "agent",
+      "added_at": "2026-10-29"
+    },
+    {
+      "sn": 423,
+      "category": "Competition / Peers",
+      "date": "2026-10-26",
+      "subject": "GI Council expands hospital empanelment network",
+      "summary": "The General Insurance Council added ~**1,000 hospitals** to its common cashless empanelment network in FY27 (total ~3,000), targeting 5,000 by fiscal year-end — directly affecting claims servicing for all health insurers.",
+      "reference": "https://medicalbuyer.co.in/gi-council-adds-1000-hospitals-to-common-empanelment-network-across-india",
+      "id": "157f72cdaf0823",
+      "origin": "agent",
+      "added_at": "2026-10-29"
+    },
+    {
+      "sn": 424,
+      "category": "Regulatory",
+      "date": "2026-10-25",
+      "subject": "IRDAI extends reform feedback deadline",
+      "summary": "After receiving 650+ comments, IRDAI pushed the feedback deadline for its \"Recalibrating Economics of Insurance Distribution\" paper (commission caps, expense limits) to Oct 31, signaling a longer runway before implementation (likely Jan 2027).",
+      "reference": "https://business-standard.com/amp/finance/insurance/irdai-extends-feedback-window-for-proposed-insurance-distribution-reforms-126102500106_1.html",
+      "id": "10c2294168741c",
+      "origin": "agent",
+      "added_at": "2026-10-29"
+    },
     {
       "sn": 403,
       "category": "Profitability",
@@ -144,6 +232,17 @@
       "added_at": "2026-10-22"
     },
     {
+      "sn": 425,
+      "category": "Competition / Peers",
+      "date": "2026-10-15",
+      "subject": "Niva Bupa gets IND AAA rating for Rs 500cr debt",
+      "summary": "India Ratings assigned Niva Bupa an <span style=\"color:#22C55E;font-weight:600\">AAA rating</span> ahead of a proposed Rs 500 crore NCD issuance, underscoring balance-sheet strength as it funds growth.",
+      "reference": "https://whalesbook.com/corporate-news/English/insurance/Niva-Bupa-Health-Insurance-Receives-IND-AAA-Rating-for-Proposed-Rs-500Cr-Debt/6ad0bac2b2eb76fd08c472bc",
+      "id": "0591cdedfe3c1f",
+      "origin": "agent",
+      "added_at": "2026-10-29"
+    },
+    {
       "sn": 408,
       "category": "Competition / Peers",
       "date": "2026-10-15",
@@ -221,6 +320,17 @@
       "added_at": "2026-10-12"
     },
     {
+      "sn": 426,
+      "category": "GST",
+      "date": "2026-10-09",
+      "subject": "GST Council allows ITC on group health/life insurance",
+      "summary": "The Council recommended amending CGST Section 17(5) to permit input tax credit on employer-paid group health and life insurance premiums, <span style=\"color:#22C55E;font-weight:600\">cutting effective costs</span> for MSMEs and boosting group coverage incentives.",
+      "reference": "https://www.business-standard.com/finance/insurance/gst-council-allows-employers-to-claim-itc-on-group-insurance-coverage-126100801488_1.html",
+      "id": "1b774c4fe71656",
+      "origin": "agent",
+      "added_at": "2026-10-29"
+    },
+    {
       "sn": 409,
       "category": "Profitability",
       "date": "2026-10-09",
@@ -285,6 +395,28 @@
       "id": "00e2979cb103f4",
       "origin": "agent",
       "added_at": "2026-10-12"
+    },
+    {
+      "sn": 428,
+      "category": "General",
+      "date": "2026-10-08",
+      "subject": "Standalone health insurers lead Sept premium growth",
+      "summary": "SAHIs posted <span style=\"color:#22C55E;font-weight:600\">▲27% premium growth</span> in September vs 15% for private and 9% for PSU general insurers, reflecting continued share gains for pure-play health insurers like the five tracked names.",
+      "reference": "https://www.financialexpress.com/business/news/standalone-health-insurers-lead-6-growth-in-non-life-premiums-in-sept/4356401/lite/",
+      "id": "14de9b135a7f37",
+      "origin": "agent",
+      "added_at": "2026-10-29"
+    },
+    {
+      "sn": 427,
+      "category": "Competition / Peers",
+      "date": "2026-10-08",
+      "subject": "Care Health premium income surges 44%",
+      "summary": "Care Health's GDPI rose to Rs 1,042 crore in September, lifting market share to **3.45%**, though <span style=\"color:#EF4444;font-weight:600\">profitability remains a key monitorable</span> amid rising claims costs.",
+      "reference": "https://thehindubusinessline.com/news/care-health-insurance-logs-44-per-cent-rise-in-premium-income/article71559605.ece",
+      "id": "012b68645d9339",
+      "origin": "agent",
+      "added_at": "2026-10-29"
     },
     {
       "sn": 411,
@@ -353,6 +485,17 @@
       "added_at": "2026-10-08"
     },
     {
+      "sn": 429,
+      "category": "Competition / Peers",
+      "date": "2026-10-07",
+      "subject": "ManipalCigna launches INFINIX health product",
+      "summary": "ManipalCigna introduced a new health insurance offering, \"INFINIX,\" as insurers continue product innovation to capture retail demand ahead of IRDAI's distribution reset.",
+      "reference": "https://mediabrief.com/manipalcigna-introduces-infinix-health-insurance-solution",
+      "id": "14a9e6393b80f9",
+      "origin": "agent",
+      "added_at": "2026-10-29"
+    },
+    {
       "sn": 398,
       "category": "Regulatory",
       "date": "2026-10-07",
@@ -406,6 +549,17 @@
       "id": "17dd1c6688ecf5",
       "origin": "agent",
       "added_at": "2026-10-12"
+    },
+    {
+      "sn": 430,
+      "category": "Regulatory",
+      "date": "2026-10-05",
+      "subject": "Insurers weigh 10% claims co-payment from 2027",
+      "summary": "Non-life insurers are reportedly considering adding a <span style=\"color:#EF4444;font-weight:600\">10% co-payment</span> on hospitalisation claims from January 1, 2027, alongside lower premiums and common hospital empanelment — a potential structural shift in claims economics.",
+      "reference": "https://indiatoday.in/business/story/health-insurance-policyholders-10-percent-hospital-bill-co-payment-report-3009755-2026-10-05",
+      "id": "1fe35d9a596bef",
+      "origin": "agent",
+      "added_at": "2026-10-29"
     },
     {
       "sn": 369,
@@ -604,6 +758,17 @@
       "id": "136d1efb494dce",
       "origin": "agent",
       "added_at": "2026-09-28"
+    },
+    {
+      "sn": 431,
+      "category": "GST",
+      "date": "2026-09-27",
+      "subject": "Star Health retail base up 11% post-GST exemption",
+      "summary": "Following the GST exemption on individual health premiums (effective Sept 2025), Star Health reported an <span style=\"color:#22C55E;font-weight:600\">▲11% rise</span> in retail policy adoption and higher average sum insured on new policies.",
+      "reference": "https://economictimes.indiatimes.com/industry/banking/finance/insure/after-gst-exemption-retail-policy-base-rises-11-for-star-health/articleshow/134522981.cms",
+      "id": "0c0cb38a8aa51b",
+      "origin": "agent",
+      "added_at": "2026-10-29"
     },
     {
       "sn": 413,
