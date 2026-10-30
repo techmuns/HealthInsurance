@@ -5,7 +5,7 @@
     "schema_version": "1.0.0",
     "dataset": "ai_generated",
     "last_updated": "2026-10-30",
-    "last_successful_run": "2026-10-30T07:55:06.832Z",
+    "last_successful_run": "2026-10-30T16:22:53.393Z",
     "upstream_sources": [
       "muns_agent_web"
     ],
@@ -43,6 +43,51 @@
       "source_published_at": "2026-10-15",
       "first_seen": "2026-10-18T13:40:55.982Z",
       "discovered_at": "2026-10-18T13:40:55.982Z"
+    },
+    {
+      "id": "8d8f5a48d1",
+      "company_id": "sector",
+      "date": null,
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "<span style=\"color:#EF4444;font-weight:600\">negative ▼</span>",
+      "detail": "Aditya Birla Health H1 FY27: GWP +48% YoY but PBT falls to ₹46 crore (from ₹76 crore)",
+      "source_name": null,
+      "source_url": null,
+      "source_published_at": null,
+      "first_seen": "2026-10-30T16:22:53.393Z",
+      "discovered_at": "2026-10-30T16:22:53.393Z"
+    },
+    {
+      "id": "725bc0a469",
+      "company_id": "sector",
+      "date": null,
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "<span style=\"color:#22C55E;font-weight:600\">positive ▲</span>",
+      "detail": "Star Health Q2 FY27 net profit jumps 233% to ₹265 crore",
+      "source_name": null,
+      "source_url": null,
+      "source_published_at": null,
+      "first_seen": "2026-10-30T16:22:53.393Z",
+      "discovered_at": "2026-10-30T16:22:53.393Z"
+    },
+    {
+      "id": "dceadfe06a",
+      "company_id": "sector",
+      "date": null,
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "<span style=\"color:#F59E0B;font-weight:600\">watch</span> <span style=\"background:#FFFBEB;padding:2px 6px;border-radius:4px;\">Badge: Key catalyst</span>",
+      "detail": "IRDAI feedback deadline on distribution reform extended to Oct 31",
+      "source_name": null,
+      "source_url": null,
+      "source_published_at": null,
+      "first_seen": "2026-10-30T16:22:53.393Z",
+      "discovered_at": "2026-10-30T16:22:53.393Z"
     },
     {
       "id": "84195da3c4",
@@ -868,51 +913,6 @@
       "source_published_at": null,
       "first_seen": "2026-10-01T08:01:28.793Z",
       "discovered_at": "2026-10-01T08:01:28.793Z"
-    },
-    {
-      "id": "9286c9fbdd",
-      "company_id": "sector",
-      "date": null,
-      "kind": "sector_news",
-      "horizon": "recent",
-      "impact": "neutral",
-      "headline": "<span style=\"color:#22C55E;font-weight:600\">▲ Positive</span>",
-      "detail": "Q1 FY27 PAT surges <b>25% YoY</b> to <b>₹550 cr</b>",
-      "source_name": null,
-      "source_url": null,
-      "source_published_at": null,
-      "first_seen": "2026-10-01T16:49:18.615Z",
-      "discovered_at": "2026-10-01T16:49:18.615Z"
-    },
-    {
-      "id": "ec101401ec",
-      "company_id": "sector",
-      "date": null,
-      "kind": "sector_news",
-      "horizon": "recent",
-      "impact": "neutral",
-      "headline": "<span style=\"color:#EF4444;font-weight:600\">▼ Negative</span>",
-      "detail": "Care Health CEO Anuj Gulati exits",
-      "source_name": null,
-      "source_url": null,
-      "source_published_at": null,
-      "first_seen": "2026-10-01T16:49:18.615Z",
-      "discovered_at": "2026-10-01T16:49:18.615Z"
-    },
-    {
-      "id": "d8e513ef2c",
-      "company_id": "sector",
-      "date": null,
-      "kind": "sector_news",
-      "horizon": "recent",
-      "impact": "neutral",
-      "headline": "<span style=\"background:#F0FDF4;color:#22C55E;font-weight:600;padding:2px 6px;border-radius:4px;\">▲ Positive — Badge: Top Catalyst</span>",
-      "detail": "Motilal Oswal sees <b>~31% upside</b> post IRDAI draft paper",
-      "source_name": null,
-      "source_url": null,
-      "source_published_at": null,
-      "first_seen": "2026-10-01T16:49:18.615Z",
-      "discovered_at": "2026-10-01T16:49:18.615Z"
     }
   ]
 }
