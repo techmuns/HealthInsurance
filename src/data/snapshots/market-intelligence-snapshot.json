@@ -5,7 +5,7 @@
     "schema_version": "1.0.0",
     "dataset": "ai_generated",
     "last_updated": "2026-10-31",
-    "last_successful_run": "2026-10-31T07:45:15.044Z",
+    "last_successful_run": "2026-10-31T15:33:18.019Z",
     "upstream_sources": [
       "muns_agent_web"
     ],
@@ -43,6 +43,51 @@
       "source_published_at": "2026-10-15",
       "first_seen": "2026-10-18T13:40:55.982Z",
       "discovered_at": "2026-10-18T13:40:55.982Z"
+    },
+    {
+      "id": "ab9cfdc6a7",
+      "company_id": "sector",
+      "date": null,
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "<span style=\"background:#FFFBEB;color:#F59E0B;font-weight:600;padding:2px 6px;border-radius:4px\">Watch</span>",
+      "detail": "[Non-life insurers weigh mandatory 10% co-pay on retail health claims from Jan 2027](https://livemint.com/money/personal-finance/lower-premiums-higher-out-of-pocket-expenses-experts-decode-the-proposed-10-health-insurance-co-pay-rule-11791224700087.html)",
+      "source_name": null,
+      "source_url": null,
+      "source_published_at": "2026-10-05",
+      "first_seen": "2026-10-31T15:33:18.019Z",
+      "discovered_at": "2026-10-31T15:33:18.019Z"
+    },
+    {
+      "id": "5e91efd5ff",
+      "company_id": "sector",
+      "date": null,
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "<span style=\"background:#FEF2F2;color:#EF4444;font-weight:600;padding:2px 6px;border-radius:4px\">Negative</span>",
+      "detail": "[IRDAI bars Niva Bupa from opening new offices for six months](https://m.economictimes.com/industry/banking/finance/insure/irdai-bars-niva-bupa-from-opening-new-offices-for-six-months/amp_articleshow/133374117.cms)",
+      "source_name": null,
+      "source_url": null,
+      "source_published_at": "2026-08-20",
+      "first_seen": "2026-10-31T15:33:18.019Z",
+      "discovered_at": "2026-10-31T15:33:18.019Z"
+    },
+    {
+      "id": "e3e4710244",
+      "company_id": "sector",
+      "date": null,
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "<span style=\"background:#F0FDF4;color:#22C55E;font-weight:600;padding:2px 6px;border-radius:4px\">Positive</span>",
+      "detail": "[Brokerage: Niva Bupa \"comfortable\" with proposed EoM cap vs. peers](https://www.moneycontrol.com/news/business/stocks/irdai-proposal-niva-bupa-buy-comfortable-with-eom-cap-pb-fintech-neutral-weighs-business-changes-14038117.html)",
+      "source_name": null,
+      "source_url": null,
+      "source_published_at": "2026-09-25",
+      "first_seen": "2026-10-31T15:33:18.019Z",
+      "discovered_at": "2026-10-31T15:33:18.019Z"
     },
     {
       "id": "8d8f5a48d1",
@@ -868,36 +913,6 @@
       "source_published_at": null,
       "first_seen": "2026-10-04T15:02:42.000Z",
       "discovered_at": "2026-10-04T15:02:42.000Z"
-    },
-    {
-      "id": "f0f79067a1",
-      "company_id": "sector",
-      "date": null,
-      "kind": "sector_news",
-      "horizon": "recent",
-      "impact": "neutral",
-      "headline": "<span style=\"background:#F0FDF4;padding:2px 6px;border-radius:4px;color:#22C55E;font-weight:600\">positive</span>",
-      "detail": "Star Health reports **11%** rise in retail policy base after GST exemption on premiums",
-      "source_name": null,
-      "source_url": null,
-      "source_published_at": null,
-      "first_seen": "2026-10-01T08:01:28.793Z",
-      "discovered_at": "2026-10-01T08:01:28.793Z"
-    },
-    {
-      "id": "ee6424bfd1",
-      "company_id": "sector",
-      "date": null,
-      "kind": "sector_news",
-      "horizon": "recent",
-      "impact": "neutral",
-      "headline": "<span style=\"background:#FEF2F2;padding:2px 6px;border-radius:4px;color:#EF4444;font-weight:600\">negative</span>",
-      "detail": "Insurance Brokers Association (IBAI) warns IRDAI commission caps could hit jobs, insurance reach",
-      "source_name": null,
-      "source_url": null,
-      "source_published_at": null,
-      "first_seen": "2026-10-01T08:01:28.793Z",
-      "discovered_at": "2026-10-01T08:01:28.793Z"
     }
   ]
 }
