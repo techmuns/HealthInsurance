@@ -5,10 +5,10 @@
     "schema_version": "1.1.0",
     "dataset": "official",
     "source_policy": "official-first (NSE). Investing.com is login-free backup only, tagged low-confidence.",
-    "last_successful_run": "2026-10-31T09:55:49.164Z",
+    "last_successful_run": "2026-11-01T10:46:54.556Z",
     "parser_status": "ready",
     "notes": "Daily close / traded / deliverable quantity per listed insurer. Workbook seed (NSE via S&P Capital IQ) for niva-bupa listing→Jul-2025; Yahoo Finance keeps it current (close + volume). Deliverable quantity is NSE-only — null where only Yahoo covers a day, until an NSE delivery file is staged.",
-    "last_updated": "2026-10-31T09:55:54.858Z",
+    "last_updated": "2026-11-01T10:47:00.061Z",
     "row_count": 2483,
     "companies": [
       "godigit",
@@ -22,7 +22,7 @@
       "to": "2026-10-30"
     },
     "seeded_from_workbook": "data/raw/exchanges/niva-bupa/niva-bupa-historical-stock-movement.xlsx",
-    "muns_last_run": "2026-10-31T09:55:49.164Z",
+    "muns_last_run": "2026-11-01T10:46:54.556Z",
     "nse_delivery_last_run": "2026-10-30T18:09:26.618Z"
   },
   "data": [
