@@ -62999,10 +62999,10 @@
         "company": "Niva Bupa",
         "companyId": "niva-bupa",
         "generatedAt": "2026-11-01T08:29:44.260Z",
-        "lastUpdatedAt": "2026-11-01T08:29:44.260Z",
+        "lastUpdatedAt": "2026-11-01T16:36:06.792Z",
         "status": "Risk",
         "sourceConfidence": "Medium",
-        "itemCount": 20,
+        "itemCount": 18,
         "runs": [
           {
             "runTime": "2026-11-01T08:29:44.260Z",
@@ -63010,22 +63010,29 @@
             "sourceCount": 23,
             "ideas": 6,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-11-01T16:36:06.792Z",
+            "developments": 30,
+            "sourceCount": 21,
+            "ideas": 6,
+            "status": "ok"
           }
         ],
         "brief": {
-          "greeting": "Good morning",
+          "greeting": "Good afternoon",
           "narrative": "Regulatory pressure is the main watch item for health insurers today. Niva Bupa is under pressure on premium growth and demand, but claims-cost and conduct scrutiny and regulatory deadlines will decide whether the strength is sustainable.",
           "attentionCount": 6,
-          "developmentsCount": 32,
-          "sourcesCount": 23,
-          "domainsCount": 16,
+          "developmentsCount": 30,
+          "sourcesCount": 21,
+          "domainsCount": 12,
           "confidencePct": 75,
           "confidenceTier": "Medium",
           "readingMins": 3,
-          "lastUpdatedLabel": "1 Nov, 08:25 am"
+          "lastUpdatedLabel": "1 Nov, 04:31 pm"
         },
         "message": {
-          "since": "No company-specific movement for Niva Bupa since the last brief — the read below is sector & regulatory context that applies across standalone health insurers.",
+          "since": "Niva Bupa had recently surfaced positive analyst coverage, alongside older regulatory items now in view. No fresh company-specific update was published since the last brief.",
           "keyThing": "Proposed commission caps (15–20%) and lower expense limits could squeeze distribution economics for all health insurers including Niva Bupa.",
           "why": "Growth is only as good as the claims and expense ratios behind it — that is the real question now.",
           "watch": "any fresh IRDAI clarification, and expense-ratio movement",
@@ -63114,15 +63121,20 @@
             "companyId": "niva-bupa",
             "sourceUrl": "https://nsearchives.nseindia.com/corporate/MAXBUPA_15102026164611_Discosure_under_Regulation_30_-_India_Ratings.pdf",
             "sourceConfidence": "High",
-            "clusterSize": 1,
+            "clusterSize": 2,
             "clusterSources": [
               {
                 "kind": "Analyst report",
                 "name": "nsearchives.nseindia.com",
                 "url": "https://nsearchives.nseindia.com/corporate/MAXBUPA_15102026164611_Discosure_under_Regulation_30_-_India_Ratings.pdf"
+              },
+              {
+                "kind": "News",
+                "name": "whalesbook.com",
+                "url": "https://whalesbook.com/corporate-news/English/insurance/Niva-Bupa-Health-Insurance-Receives-IND-AAA-Rating-for-Proposed-Rs-500Cr-Debt/6ad0bac2b2eb76fd08c472bc"
               }
             ],
-            "independentSources": 1
+            "independentSources": 2
           },
           {
             "id": "92b9cf8b65",
@@ -63282,7 +63294,7 @@
             "companyId": "niva-bupa",
             "sourceUrl": "https://www.marketsmojo.com/news/stock-recommendation/niva-bupa-health-insurance-downgraded-to-sell-amid-technical-and-valuation-concerns-4230823",
             "sourceConfidence": "Medium",
-            "clusterSize": 5,
+            "clusterSize": 6,
             "clusterSources": [
               {
                 "kind": "Analyst report",
@@ -63440,8 +63452,8 @@
               },
               {
                 "kind": "News",
-                "name": "sahi.com",
-                "url": "https://www.sahi.com/news/niva-bupa-debt-committee-to-discuss-call-option-on-150-crore-ncds"
+                "name": "whalesbook.com",
+                "url": "https://whalesbook.com/corporate-news/English/insurance/Niva-Bupa-Health-Insurance-Receives-IND-AAA-Rating-for-Proposed-Rs-500Cr-Debt/6ad0bac2b2eb76fd08c472bc"
               },
               {
                 "kind": "Market data",
@@ -63465,81 +63477,89 @@
             "independentSources": 1
           },
           {
-            "id": "d0ec6123c7",
-            "entity": "GST Council recommends input tax credit (ITC) on employer-paid group health/life insurance premiums",
+            "id": "148548816f",
+            "entity": "Niva Bupa",
             "stars": 4,
             "reasoning": [
-              "Lower effective cost of employer-sponsored health cover (at 18% GST) should support group health GWP growth across standalone health insurers.",
-              "Solvency 3.03x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency."
+              "Board loses a Risk Management Committee member; governance continuity and committee reconstitution bear watching.",
+              "Retail and public the market cut their stake in Niva Bupa from 25.4% to 18.7% during Q1 FY26."
             ],
-            "whatToWatch": "The impact on claims cost, expense ratio and pricing as rules tighten.",
+            "whatToWatch": "Execution and continuity after the leadership change.",
             "confidencePct": 78,
-            "evidenceCount": 5,
-            "status": "Constructive",
-            "category": "Regulatory",
+            "evidenceCount": 4,
+            "status": "Watch",
+            "category": "Management",
             "why": {
-              "whatHappened": "GST Council recommends input tax credit (ITC) on employer-paid group health/life insurance premiums",
-              "whyItMatters": "Lower effective cost of employer-sponsored health cover (at 18% GST) should support group health GWP growth across standalone health insurers.",
-              "whoAffected": "Every standalone health insurer (SAHI) — pricing, product design and compliance cost.",
-              "historicalContext": "Solvency 3.03x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency.",
-              "potentialImpact": "Solvency vs the 1.5x regulatory floor",
-              "whatToWatch": "The impact on claims cost, expense ratio and pricing as rules tighten."
+              "whatHappened": "Non‑Executive Director Roger William John Davis passes away",
+              "whyItMatters": "Board loses a Risk Management Committee member; governance continuity and committee reconstitution bear watching.",
+              "whoAffected": "Niva Bupa's board, leadership continuity and its shareholders.",
+              "historicalContext": "Retail and public the market cut their stake in Niva Bupa from 25.4% to 18.7% during Q1 FY26.",
+              "potentialImpact": "Next shareholding filing — Public reverting toward 25.4%.",
+              "whatToWatch": "Execution and continuity after the leadership change."
             },
             "action": {
-              "id": "regulation",
-              "label": "Check IRDAI on claims cost",
-              "icon": "regulation",
+              "id": "ownership",
+              "label": "Review Niva Bupa ownership",
+              "icon": "ownership",
               "target": {
                 "page": "sahi",
                 "sahiTab": "governance",
-                "company": "niva-bupa"
+                "company": "niva-bupa",
+                "focus": {
+                  "id": "pulse-ownership",
+                  "metricKey": "promoter_holding",
+                  "metricLabel": "Promoter holding",
+                  "company": "niva-bupa",
+                  "companyLabel": "Niva Bupa",
+                  "comparisonType": "sequential",
+                  "tone": "neutral",
+                  "insightLabel": "Ownership — promoter holding trend",
+                  "unit": "%",
+                  "higherIsBetter": true,
+                  "sahiTab": "governance",
+                  "origin": "pulse"
+                }
               }
             },
             "isBreaking": false,
             "isNew": false,
-            "freshLabel": "Newly surfaced",
-            "freshness": "newly-surfaced",
-            "freshnessLabel": "Newly surfaced",
-            "publishedLabel": "8 Oct",
-            "discoveredLabel": "1 Nov",
+            "freshness": "existing",
+            "freshnessLabel": "Existing context",
+            "publishedLabel": "19 Oct",
+            "discoveredLabel": "22 Oct",
             "sources": [
               {
-                "kind": "Regulatory",
-                "name": "economictimes.indiatimes.com",
-                "url": "https://economictimes.indiatimes.com/news/economy/policy/gst-reforms-2026-employers-get-itc-on-employee-health-life-insurance-premiums/articleshow/134799420.cms"
+                "kind": "Filing",
+                "name": "investywise.com",
+                "url": "https://investywise.com/niva-bupa-health-insurance-non-executive-director-demise"
               },
               {
-                "kind": "Regulatory",
-                "name": "bfsi.economictimes.indiatimes.com",
-                "url": "https://bfsi.economictimes.indiatimes.com/amp/articles/irdai-extends-deadline-for-feedback-on-insurance-distribution-reforms-to-october-31/135190036"
+                "kind": "Filing",
+                "name": "investywise.com",
+                "url": "https://www.investywise.com/niva-bupa-health-insurance-non-executive-director-demise/"
               },
               {
-                "kind": "Regulatory",
-                "name": "thehindubusinessline.com",
-                "url": "https://www.thehindubusinessline.com/money-and-banking/irdai-declares-november-2026-as-grievance-resolution-month-for-insurance-policyholders/article71645733.ece"
+                "kind": "Market data",
+                "name": "Q4 FY25 earnings call",
+                "url": "https://transactions.nivabupa.com/pages/doc/investor-relations/Earnings-Calls/2024-2025/Earnings-Call-Transcript-Q4-FY-2025.pdf"
               },
               {
-                "kind": "Regulatory",
-                "name": "timesofindia.indiatimes.com",
-                "url": "https://timesofindia.indiatimes.com/india/insurance-companies-want-policyholders-to-pay-10-of-health-claims/articleshow/134668355.cms"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "m.economictimes.com",
-                "url": "https://m.economictimes.com/industry/banking/finance/insure/health-insurers-seek-expense-cap-tweaks/articleshow/135330238.cms"
+                "kind": "Market data",
+                "name": "1 curated source-backed insight",
+                "url": ""
               }
             ],
-            "impact": "Positive",
-            "scope": "sector",
-            "companyId": null,
-            "sourceUrl": "https://economictimes.indiatimes.com/news/economy/policy/gst-reforms-2026-employers-get-itc-on-employee-health-life-insurance-premiums/articleshow/134799420.cms",
+            "impact": "Watch",
+            "scope": "company",
+            "companyId": "niva-bupa",
+            "sourceUrl": "https://investywise.com/niva-bupa-health-insurance-non-executive-director-demise",
             "sourceConfidence": "Medium",
-            "clusterSize": 1,
+            "clusterSize": 3,
             "clusterSources": [
               {
-                "kind": "Regulatory",
-                "name": "economictimes.indiatimes.com",
-                "url": "https://economictimes.indiatimes.com/news/economy/policy/gst-reforms-2026-employers-get-itc-on-employee-health-life-insurance-premiums/articleshow/134799420.cms"
+                "kind": "Filing",
+                "name": "investywise.com",
+                "url": "https://investywise.com/niva-bupa-health-insurance-non-executive-director-demise"
               }
             ],
             "independentSources": 1
@@ -63548,9 +63568,9 @@
         "sinceDeltas": [
           {
             "id": "co",
-            "label": "company-specific updates",
-            "value": "0",
-            "direction": "flat",
+            "label": "newly surfaced relevant updates",
+            "value": "3",
+            "direction": "up",
             "tone": "Neutral",
             "target": {
               "page": "sahi",
@@ -63566,12 +63586,13 @@
                 "companyLabel": "Niva Bupa",
                 "comparisonType": "trend",
                 "tone": "neutral",
-                "insightLabel": "No Niva Bupa-specific updates",
+                "insightLabel": "3 newly surfaced Niva Bupa updates",
                 "unit": "",
                 "sahiTab": "companies",
                 "origin": "pulse"
               }
-            }
+            },
+            "href": "https://www.marketsmojo.com/news/stock-recommendation/niva-bupa-health-insurance-downgraded-to-sell-amid-technical-and-valuation-concerns-4230823"
           },
           {
             "id": "events",
@@ -117110,10 +117131,10 @@
         "company": "Star Health",
         "companyId": "star-health",
         "generatedAt": "2026-11-01T08:29:44.260Z",
-        "lastUpdatedAt": "2026-11-01T08:29:44.260Z",
+        "lastUpdatedAt": "2026-11-01T16:36:06.792Z",
         "status": "Neutral",
         "sourceConfidence": "Medium",
-        "itemCount": 14,
+        "itemCount": 12,
         "runs": [
           {
             "runTime": "2026-11-01T08:29:44.260Z",
@@ -117121,24 +117142,31 @@
             "sourceCount": 16,
             "ideas": 6,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-11-01T16:36:06.792Z",
+            "developments": 16,
+            "sourceCount": 14,
+            "ideas": 6,
+            "status": "ok"
           }
         ],
         "brief": {
-          "greeting": "Good morning",
+          "greeting": "Good afternoon",
           "narrative": "Regulatory pressure is the main watch item for health insurers today. Star Health is under pressure on premium growth and demand, but claims-cost and conduct scrutiny and regulatory deadlines will decide whether the strength is sustainable.",
           "attentionCount": 6,
-          "developmentsCount": 18,
-          "sourcesCount": 16,
-          "domainsCount": 12,
+          "developmentsCount": 16,
+          "sourcesCount": 14,
+          "domainsCount": 11,
           "confidencePct": 76,
           "confidenceTier": "Medium",
           "readingMins": 3,
-          "lastUpdatedLabel": "1 Nov, 08:25 am"
+          "lastUpdatedLabel": "1 Nov, 04:31 pm"
         },
         "message": {
-          "since": "No company-specific movement for Star Health since the last brief — the read below is sector & regulatory context that applies across standalone health insurers.",
+          "since": "Star Health had recently surfaced positive analyst coverage, alongside older regulatory items now in view. No fresh company-specific update was published since the last brief.",
           "keyThing": "Proposed commission caps (15–20%) and lower expense limits could squeeze distribution economics for all health insurers including Niva Bupa.",
-          "why": "The near-term read now turns on how the new rules land on pricing, commissions and cost.",
+          "why": "Growth is only as good as the claims and expense ratios behind it — that is the real question now.",
           "watch": "any fresh IRDAI clarification, and expense-ratio movement",
           "nothing": false
         },
@@ -117228,6 +117256,159 @@
             "independentSources": 1
           },
           {
+            "id": "3a78ac4263",
+            "entity": "Star Health",
+            "stars": 5,
+            "reasoning": [
+              "MOFSL lifted FY27/28 PAT estimates, kept Buy with <span style=\"color:#22C55E;font-weight:600\">33% implied upside</span>; Nomura stayed Buy but trimmed TP from ₹700 to ₹635 — selective optimism on standalone health…",
+              "Star Health's market value is 4.24 times its statutory book value, but the company currently earns just 7.3% on that book (return on equity)."
+            ],
+            "whatToWatch": "Whether the next results confirm the rating and the price target.",
+            "confidencePct": 78,
+            "evidenceCount": 4,
+            "status": "Constructive",
+            "category": "Analyst Action",
+            "why": {
+              "whatHappened": "Brokerages raise Star Health targets post-Q2 (MOFSL ₹690, Nomura ₹635)",
+              "whyItMatters": "MOFSL lifted FY27/28 PAT estimates, kept Buy with <span style=\"color:#22C55E;font-weight:600\">33% implied upside</span>; Nomura stayed Buy but trimmed TP from ₹700 to ₹635 — selective optimism on…",
+              "whoAffected": "Star Health shareholders and anyone tracking its re-rating.",
+              "historicalContext": "Star Health's market value is 4.24 times its statutory book value, but the company currently earns just 7.3% on that book (return on equity).",
+              "potentialImpact": "Share gains only help the thesis if they are profitable share — watch the claims ratio as the book grows, not just the share number.",
+              "whatToWatch": "Whether the next results confirm the rating and the price target."
+            },
+            "action": {
+              "id": "margins",
+              "label": "Compare Star Health margin",
+              "icon": "margins",
+              "target": {
+                "page": "sahi",
+                "sahiTab": "profitability",
+                "company": "star-health",
+                "focus": {
+                  "id": "pulse-margins",
+                  "metricKey": "combined_ratio",
+                  "metricLabel": "Combined ratio",
+                  "company": "star-health",
+                  "companyLabel": "Star Health",
+                  "comparisonType": "YoY",
+                  "tone": "neutral",
+                  "insightLabel": "Underwriting margin — combined ratio",
+                  "unit": "%",
+                  "higherIsBetter": false,
+                  "sahiTab": "profitability",
+                  "origin": "pulse"
+                }
+              }
+            },
+            "isBreaking": false,
+            "isNew": false,
+            "freshLabel": "Newly surfaced",
+            "freshness": "newly-surfaced",
+            "freshnessLabel": "Newly surfaced",
+            "publishedLabel": "29 Oct",
+            "discoveredLabel": "1 Nov",
+            "sources": [
+              {
+                "kind": "Analyst report",
+                "name": "businesstoday.in",
+                "url": "https://businesstoday.in/markets/stocks/story/star-health-shares-rise-4-as-brokerages-retain-bullish-stance-after-q2-results-564547-2026-10-29"
+              },
+              {
+                "kind": "Analyst report",
+                "name": "marketsmojo.com",
+                "url": "https://www.marketsmojo.com/news/stock-recommendation/star-health-allied-insurance-company-ltd-is-rated-hold-4229239"
+              },
+              {
+                "kind": "Market data",
+                "name": "Derived from insurer-annual-snapshot + industry-segment-premium",
+                "url": "https://www.prnewswire.com/in/news-releases/star-health-insurance-reports-strong-performance-q1fy26-pat-grows-44-to-inr-438-cr-ifrs-premium-grows-13-302517057.html"
+              },
+              {
+                "kind": "Market data",
+                "name": "8 curated source-backed insights",
+                "url": ""
+              }
+            ],
+            "impact": "Positive",
+            "scope": "company",
+            "companyId": "star-health",
+            "sourceUrl": "https://businesstoday.in/markets/stocks/story/star-health-shares-rise-4-as-brokerages-retain-bullish-stance-after-q2-results-564547-2026-10-29",
+            "sourceConfidence": "Medium",
+            "clusterSize": 1,
+            "clusterSources": [
+              {
+                "kind": "Analyst report",
+                "name": "businesstoday.in",
+                "url": "https://businesstoday.in/markets/stocks/story/star-health-shares-rise-4-as-brokerages-retain-bullish-stance-after-q2-results-564547-2026-10-29"
+              }
+            ],
+            "independentSources": 1
+          },
+          {
+            "id": "7e01abfcc3",
+            "entity": "Star Health",
+            "stars": 5,
+            "reasoning": [
+              "Fifth straight quarter of underwriting-profit improvement and renewal combined ratio below 100% reinforce the sector turnaround narrative — a bellwether read-through for Niva Bupa.",
+              "Domestic funds raised their stake in Star Health from 15.4% to 21.1% during Q1 FY26."
+            ],
+            "whatToWatch": "The next disclosure for confirmation of the trend.",
+            "confidencePct": 78,
+            "evidenceCount": 2,
+            "status": "Constructive",
+            "category": "Filing",
+            "why": {
+              "whatHappened": "Star Health Q2 FY27: normalised PAT <span style=\"color:#22C55E;font-weight:600\">▲70% YoY</span> to ₹390cr",
+              "whyItMatters": "Fifth straight quarter of underwriting-profit improvement and renewal combined ratio below 100% reinforce the sector turnaround narrative — a bellwether read-through for Niva Bupa.",
+              "whoAffected": "Star Health directly — its premium growth, margins and shareholders.",
+              "historicalContext": "Domestic funds raised their stake in Star Health from 15.4% to 21.1% during Q1 FY26.",
+              "potentialImpact": "5.6pp of a listed insurer's shareholder base changing hands in one quarter is real money making a real decision.",
+              "whatToWatch": "The next disclosure for confirmation of the trend."
+            },
+            "action": {
+              "id": "source",
+              "label": "Verify Star Health sources",
+              "icon": "source",
+              "target": {
+                "page": "audit",
+                "company": "star-health"
+              }
+            },
+            "isBreaking": false,
+            "isNew": false,
+            "freshLabel": "Newly surfaced",
+            "freshness": "newly-surfaced",
+            "freshnessLabel": "Newly surfaced",
+            "publishedLabel": "30 Oct",
+            "discoveredLabel": "1 Nov",
+            "sources": [
+              {
+                "kind": "Filing",
+                "name": "business-standard.com",
+                "url": "https://business-standard.com/amp/content/press-releases-ani/star-health-reports-normalised-pat-of-390-crores-in-q2-fy27-up-70-yoy-fifth-successive-quarter-of-underwriting-profit-improvement-126103000568_1.html"
+              },
+              {
+                "kind": "Market data",
+                "name": "1 curated source-backed insight",
+                "url": ""
+              }
+            ],
+            "impact": "Positive",
+            "scope": "company",
+            "companyId": "star-health",
+            "sourceUrl": "https://business-standard.com/amp/content/press-releases-ani/star-health-reports-normalised-pat-of-390-crores-in-q2-fy27-up-70-yoy-fifth-successive-quarter-of-underwriting-profit-improvement-126103000568_1.html",
+            "sourceConfidence": "Medium",
+            "clusterSize": 1,
+            "clusterSources": [
+              {
+                "kind": "Filing",
+                "name": "business-standard.com",
+                "url": "https://business-standard.com/amp/content/press-releases-ani/star-health-reports-normalised-pat-of-390-crores-in-q2-fy27-up-70-yoy-fifth-successive-quarter-of-underwriting-profit-improvement-126103000568_1.html"
+              }
+            ],
+            "independentSources": 1
+          },
+          {
             "id": "bac7967233",
             "entity": "IRDAI chairman promises orderly transition to commission reforms",
             "stars": 5,
@@ -117302,86 +117483,6 @@
                 "kind": "Regulatory",
                 "name": "economictimes.indiatimes.com",
                 "url": "https://economictimes.indiatimes.com/industry/banking/finance/insure/indias-insurance-regulator-promises-smooth-transition-to-new-commission-rules-amid-industry-concerns/articleshow/134966122.cms"
-              }
-            ],
-            "independentSources": 1
-          },
-          {
-            "id": "d0ec6123c7",
-            "entity": "GST Council recommends input tax credit (ITC) on employer-paid group health/life insurance premiums",
-            "stars": 4,
-            "reasoning": [
-              "Lower effective cost of employer-sponsored health cover (at 18% GST) should support group health GWP growth across standalone health insurers.",
-              "Solvency 2.2x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency."
-            ],
-            "whatToWatch": "The impact on claims cost, expense ratio and pricing as rules tighten.",
-            "confidencePct": 78,
-            "evidenceCount": 5,
-            "status": "Constructive",
-            "category": "Regulatory",
-            "why": {
-              "whatHappened": "GST Council recommends input tax credit (ITC) on employer-paid group health/life insurance premiums",
-              "whyItMatters": "Lower effective cost of employer-sponsored health cover (at 18% GST) should support group health GWP growth across standalone health insurers.",
-              "whoAffected": "Every standalone health insurer (SAHI) — pricing, product design and compliance cost.",
-              "historicalContext": "Solvency 2.2x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency.",
-              "potentialImpact": "Solvency vs the 1.5x regulatory floor",
-              "whatToWatch": "The impact on claims cost, expense ratio and pricing as rules tighten."
-            },
-            "action": {
-              "id": "regulation",
-              "label": "Check IRDAI on claims cost",
-              "icon": "regulation",
-              "target": {
-                "page": "sahi",
-                "sahiTab": "governance",
-                "company": "star-health"
-              }
-            },
-            "isBreaking": false,
-            "isNew": false,
-            "freshLabel": "Newly surfaced",
-            "freshness": "newly-surfaced",
-            "freshnessLabel": "Newly surfaced",
-            "publishedLabel": "8 Oct",
-            "discoveredLabel": "1 Nov",
-            "sources": [
-              {
-                "kind": "Regulatory",
-                "name": "economictimes.indiatimes.com",
-                "url": "https://economictimes.indiatimes.com/news/economy/policy/gst-reforms-2026-employers-get-itc-on-employee-health-life-insurance-premiums/articleshow/134799420.cms"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "bfsi.economictimes.indiatimes.com",
-                "url": "https://bfsi.economictimes.indiatimes.com/amp/articles/irdai-extends-deadline-for-feedback-on-insurance-distribution-reforms-to-october-31/135190036"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "thehindubusinessline.com",
-                "url": "https://www.thehindubusinessline.com/money-and-banking/irdai-declares-november-2026-as-grievance-resolution-month-for-insurance-policyholders/article71645733.ece"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "timesofindia.indiatimes.com",
-                "url": "https://timesofindia.indiatimes.com/india/insurance-companies-want-policyholders-to-pay-10-of-health-claims/articleshow/134668355.cms"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "m.economictimes.com",
-                "url": "https://m.economictimes.com/industry/banking/finance/insure/health-insurers-seek-expense-cap-tweaks/articleshow/135330238.cms"
-              }
-            ],
-            "impact": "Positive",
-            "scope": "sector",
-            "companyId": null,
-            "sourceUrl": "https://economictimes.indiatimes.com/news/economy/policy/gst-reforms-2026-employers-get-itc-on-employee-health-life-insurance-premiums/articleshow/134799420.cms",
-            "sourceConfidence": "Medium",
-            "clusterSize": 1,
-            "clusterSources": [
-              {
-                "kind": "Regulatory",
-                "name": "economictimes.indiatimes.com",
-                "url": "https://economictimes.indiatimes.com/news/economy/policy/gst-reforms-2026-employers-get-itc-on-employee-health-life-insurance-premiums/articleshow/134799420.cms"
               }
             ],
             "independentSources": 1
@@ -117467,25 +117568,25 @@
             "independentSources": 1
           },
           {
-            "id": "8568967ba6",
-            "entity": "Noida consumer forum rules <span style=\"color:#EF4444;font-weight:600\">against Star Health</span> claim denial",
+            "id": "093709f866",
+            "entity": "Star Health",
             "stars": 4,
             "reasoning": [
-              "Directive to pay a disputed claim reinforces claims‑repudiation/regulatory scrutiny risk — a recurring overhang for the whole standalone health‑insurance segment, Niva Bupa included.",
-              "Solvency 2.2x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency."
+              "Rating reaffirmed as Hold (upgraded from Sell earlier in the year); current view balances growth against claims/litigation overhang.",
+              "Star Health's market value is 4.24 times its statutory book value, but the company currently earns just 7.3% on that book (return on equity)."
             ],
-            "whatToWatch": "Whether the sector move feeds through to premium growth and pricing.",
+            "whatToWatch": "Whether the next results confirm the rating and the price target.",
             "confidencePct": 78,
-            "evidenceCount": 5,
-            "status": "Risk",
-            "category": "Sector Catalyst",
+            "evidenceCount": 4,
+            "status": "Neutral",
+            "category": "Analyst Action",
             "why": {
-              "whatHappened": "Noida consumer forum rules <span style=\"color:#EF4444;font-weight:600\">against Star Health</span> claim denial",
-              "whyItMatters": "Directive to pay a disputed claim reinforces claims‑repudiation/regulatory scrutiny risk — a recurring overhang for the whole standalone health‑insurance segment, Niva Bupa included.",
-              "whoAffected": "The broader health-insurance sector and its listed players.",
-              "historicalContext": "Solvency 2.2x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency.",
-              "potentialImpact": "Solvency vs the 1.5x regulatory floor",
-              "whatToWatch": "Whether the sector move feeds through to premium growth and pricing."
+              "whatHappened": "MarketsMojo retains 'Hold' on Star Health",
+              "whyItMatters": "Rating reaffirmed as Hold (upgraded from Sell earlier in the year); current view balances growth against claims/litigation overhang.",
+              "whoAffected": "Star Health shareholders and anyone tracking its re-rating.",
+              "historicalContext": "Star Health's market value is 4.24 times its statutory book value, but the company currently earns just 7.3% on that book (return on equity).",
+              "potentialImpact": "Share gains only help the thesis if they are profitable share — watch the claims ratio as the book grows, not just the share number.",
+              "whatToWatch": "Whether the next results confirm the rating and the price target."
             },
             "action": {
               "id": "margins",
@@ -117516,149 +117617,56 @@
             "freshness": "existing",
             "freshnessLabel": "Existing context",
             "publishedLabel": "18 Oct",
-            "discoveredLabel": "22 Oct",
+            "discoveredLabel": "21 Oct",
             "sources": [
               {
-                "kind": "News",
-                "name": "the420.in",
-                "url": "https://the420.in/noida-consumer-commission-star-health-claim-rejection-ruling/"
+                "kind": "Analyst report",
+                "name": "marketsmojo.com",
+                "url": "https://www.marketsmojo.com/news/stock-recommendation/star-health-allied-insurance-company-ltd-is-rated-hold-4229239"
               },
               {
-                "kind": "News",
-                "name": "livemint.com",
-                "url": "https://livemint.com/industry/facing-steep-expense-cuts-under-proposed-irdai-caps-insurers-seek-gentler-glide-path-11791956066642.html"
+                "kind": "Analyst report",
+                "name": "businesstoday.in",
+                "url": "https://businesstoday.in/markets/stocks/story/star-health-shares-rise-4-as-brokerages-retain-bullish-stance-after-q2-results-564547-2026-10-29"
               },
               {
-                "kind": "News",
-                "name": "upstox.com",
-                "url": "https://upstox.com/news/personal-finance/insurance/nps-swasthya-aditya-birla-health-insurance-offers-health-top-up-cover-with-premiums-starting-at-1-732/article-201522/"
+                "kind": "Market data",
+                "name": "Derived from insurer-annual-snapshot + industry-segment-premium",
+                "url": "https://www.prnewswire.com/in/news-releases/star-health-insurance-reports-strong-performance-q1fy26-pat-grows-44-to-inr-438-cr-ifrs-premium-grows-13-302517057.html"
               },
               {
-                "kind": "News",
-                "name": "mediabrief.com",
-                "url": "https://mediabrief.com/manipalcigna-introduces-infinix-health-insurance-solution"
-              },
-              {
-                "kind": "News",
-                "name": "moneycontrol.com",
-                "url": "https://moneycontrol.com/banking/star-health-likely-in-talks-with-potential-strategic-investors-japanese-players-in-the-fray-article-14045001.html"
+                "kind": "Market data",
+                "name": "8 curated source-backed insights",
+                "url": ""
               }
             ],
-            "impact": "Risk",
-            "scope": "sector",
-            "companyId": null,
-            "sourceUrl": "https://the420.in/noida-consumer-commission-star-health-claim-rejection-ruling/",
+            "impact": "Neutral",
+            "scope": "company",
+            "companyId": "star-health",
+            "sourceUrl": "https://www.marketsmojo.com/news/stock-recommendation/star-health-allied-insurance-company-ltd-is-rated-hold-4229239",
             "sourceConfidence": "Medium",
-            "clusterSize": 1,
+            "clusterSize": 3,
             "clusterSources": [
               {
-                "kind": "News",
-                "name": "the420.in",
-                "url": "https://the420.in/noida-consumer-commission-star-health-claim-rejection-ruling/"
-              }
-            ],
-            "independentSources": 1
-          },
-          {
-            "id": "f440f3778f",
-            "entity": "Insurers seek gentler glide path for proposed expense cuts",
-            "stars": 4,
-            "reasoning": [
-              "Industry resistance highlights cost-restructuring and distribution risks for Niva Bupa and peers; final expense limits and transition periods remain key profitability catalysts.",
-              "Solvency 2.2x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency."
-            ],
-            "whatToWatch": "IRDAI mis-selling / distribution-conduct rules",
-            "confidencePct": 78,
-            "evidenceCount": 5,
-            "status": "Risk",
-            "category": "Sector Catalyst",
-            "why": {
-              "whatHappened": "Insurers seek gentler glide path for proposed expense cuts",
-              "whyItMatters": "Industry resistance highlights cost-restructuring and distribution risks for Niva Bupa and peers; final expense limits and transition periods remain key profitability catalysts.",
-              "whoAffected": "The broader health-insurance sector and its listed players.",
-              "historicalContext": "Solvency 2.2x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency.",
-              "potentialImpact": "Solvency vs the 1.5x regulatory floor",
-              "whatToWatch": "IRDAI mis-selling / distribution-conduct rules"
-            },
-            "action": {
-              "id": "margins",
-              "label": "Compare Star Health margin",
-              "icon": "margins",
-              "target": {
-                "page": "sahi",
-                "sahiTab": "profitability",
-                "company": "star-health",
-                "focus": {
-                  "id": "pulse-margins",
-                  "metricKey": "combined_ratio",
-                  "metricLabel": "Combined ratio",
-                  "company": "star-health",
-                  "companyLabel": "Star Health",
-                  "comparisonType": "YoY",
-                  "tone": "neutral",
-                  "insightLabel": "Underwriting margin — combined ratio",
-                  "unit": "%",
-                  "higherIsBetter": false,
-                  "sahiTab": "profitability",
-                  "origin": "pulse"
-                }
-              }
-            },
-            "isBreaking": false,
-            "isNew": false,
-            "freshness": "existing",
-            "freshnessLabel": "Existing context",
-            "publishedLabel": "15 Oct",
-            "discoveredLabel": "17 Oct",
-            "sources": [
-              {
-                "kind": "News",
-                "name": "livemint.com",
-                "url": "https://livemint.com/industry/facing-steep-expense-cuts-under-proposed-irdai-caps-insurers-seek-gentler-glide-path-11791956066642.html"
+                "kind": "Analyst report",
+                "name": "marketsmojo.com",
+                "url": "https://www.marketsmojo.com/news/stock-recommendation/star-health-allied-insurance-company-ltd-is-rated-hold-4229239"
               },
               {
                 "kind": "News",
-                "name": "the420.in",
-                "url": "https://the420.in/noida-consumer-commission-star-health-claim-rejection-ruling/"
-              },
-              {
-                "kind": "News",
-                "name": "upstox.com",
-                "url": "https://upstox.com/news/personal-finance/insurance/nps-swasthya-aditya-birla-health-insurance-offers-health-top-up-cover-with-premiums-starting-at-1-732/article-201522/"
-              },
-              {
-                "kind": "News",
-                "name": "mediabrief.com",
-                "url": "https://mediabrief.com/manipalcigna-introduces-infinix-health-insurance-solution"
-              },
-              {
-                "kind": "News",
-                "name": "moneycontrol.com",
-                "url": "https://moneycontrol.com/banking/star-health-likely-in-talks-with-potential-strategic-investors-japanese-players-in-the-fray-article-14045001.html"
+                "name": "whalesbook.com",
+                "url": "https://www.whalesbook.com/corporate-news/English/bankingfinance/Religare-Subsidiary-Care-Health-Insurance-Raises-Rs-100-Crore-via-Debentures/6aad3360f2017017ae6d924d"
               }
             ],
-            "impact": "Risk",
-            "scope": "sector",
-            "companyId": null,
-            "sourceUrl": "https://livemint.com/industry/facing-steep-expense-cuts-under-proposed-irdai-caps-insurers-seek-gentler-glide-path-11791956066642.html",
-            "sourceConfidence": "Medium",
-            "clusterSize": 1,
-            "clusterSources": [
-              {
-                "kind": "News",
-                "name": "livemint.com",
-                "url": "https://livemint.com/industry/facing-steep-expense-cuts-under-proposed-irdai-caps-insurers-seek-gentler-glide-path-11791956066642.html"
-              }
-            ],
-            "independentSources": 1
+            "independentSources": 2
           }
         ],
         "sinceDeltas": [
           {
             "id": "co",
-            "label": "company-specific updates",
-            "value": "0",
-            "direction": "flat",
+            "label": "newly surfaced relevant updates",
+            "value": "2",
+            "direction": "up",
             "tone": "Neutral",
             "target": {
               "page": "sahi",
@@ -117674,12 +117682,13 @@
                 "companyLabel": "Star Health",
                 "comparisonType": "trend",
                 "tone": "neutral",
-                "insightLabel": "No Star Health-specific updates",
+                "insightLabel": "2 newly surfaced Star Health updates",
                 "unit": "",
                 "sahiTab": "companies",
                 "origin": "pulse"
               }
-            }
+            },
+            "href": "https://business-standard.com/amp/content/press-releases-ani/star-health-reports-normalised-pat-of-390-crores-in-q2-fy27-up-70-yoy-fifth-successive-quarter-of-underwriting-profit-improvement-126103000568_1.html"
           },
           {
             "id": "events",
@@ -172452,10 +172461,10 @@
         "company": "Care Health",
         "companyId": "care-health",
         "generatedAt": "2026-11-01T08:29:44.260Z",
-        "lastUpdatedAt": "2026-11-01T08:29:44.260Z",
-        "status": "Neutral",
+        "lastUpdatedAt": "2026-11-01T16:36:06.792Z",
+        "status": "Risk",
         "sourceConfidence": "Medium",
-        "itemCount": 13,
+        "itemCount": 10,
         "runs": [
           {
             "runTime": "2026-11-01T08:29:44.260Z",
@@ -172463,22 +172472,29 @@
             "sourceCount": 15,
             "ideas": 6,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-11-01T16:36:06.792Z",
+            "developments": 14,
+            "sourceCount": 12,
+            "ideas": 6,
+            "status": "ok"
           }
         ],
         "brief": {
-          "greeting": "Good morning",
+          "greeting": "Good afternoon",
           "narrative": "Regulatory pressure is the main watch item for health insurers today. Care Health is under pressure on premium growth and demand, but claims-cost and conduct scrutiny and regulatory deadlines will decide whether the strength is sustainable.",
           "attentionCount": 6,
-          "developmentsCount": 17,
-          "sourcesCount": 15,
-          "domainsCount": 12,
+          "developmentsCount": 14,
+          "sourcesCount": 12,
+          "domainsCount": 10,
           "confidencePct": 76,
           "confidenceTier": "Medium",
           "readingMins": 4,
-          "lastUpdatedLabel": "1 Nov, 08:25 am"
+          "lastUpdatedLabel": "1 Nov, 04:31 pm"
         },
         "message": {
-          "since": "No company-specific movement for Care Health since the last brief — the read below is sector & regulatory context that applies across standalone health insurers.",
+          "since": "Care Health had recently surfaced relevant coverage, alongside older regulatory items now in view. No fresh company-specific update was published since the last brief.",
           "keyThing": "Proposed commission caps (15–20%) and lower expense limits could squeeze distribution economics for all health insurers including Niva Bupa.",
           "why": "The near-term read now turns on how the new rules land on pricing, commissions and cost.",
           "watch": "any fresh IRDAI clarification, and expense-ratio movement",
@@ -172649,34 +172665,48 @@
             "independentSources": 1
           },
           {
-            "id": "d0ec6123c7",
-            "entity": "GST Council recommends input tax credit (ITC) on employer-paid group health/life insurance premiums",
+            "id": "6fa53ed923",
+            "entity": "Care Health",
             "stars": 4,
             "reasoning": [
-              "Lower effective cost of employer-sponsored health cover (at 18% GST) should support group health GWP growth across standalone health insurers.",
+              "Fresh subordinated debt bolsters solvency capital for India's #2 standalone health insurer — a capital-raise signal relevant to parent Religare Enterprises' valuation.",
               "Care Health's capital cushion (solvency ratio) stands at 1.68x against the regulator's 1.5x minimum — that sounds safe, but growing premium at 20.4% a year consumes capital mechanically."
             ],
             "whatToWatch": "Capital action — A share issue or debt raise, or growth slowing enough to visibly stop the erosion.",
             "confidencePct": 78,
-            "evidenceCount": 5,
-            "status": "Constructive",
-            "category": "Regulatory",
+            "evidenceCount": 4,
+            "status": "Neutral",
+            "category": "Sector Catalyst",
             "why": {
-              "whatHappened": "GST Council recommends input tax credit (ITC) on employer-paid group health/life insurance premiums",
-              "whyItMatters": "Lower effective cost of employer-sponsored health cover (at 18% GST) should support group health GWP growth across standalone health insurers.",
-              "whoAffected": "Every standalone health insurer (SAHI) — pricing, product design and compliance cost.",
+              "whatHappened": "Care Health (Religare arm) allots ₹150cr subordinated NCDs at 10.5%",
+              "whyItMatters": "Fresh subordinated debt bolsters solvency capital for India's #2 standalone health insurer — a capital-raise signal relevant to parent Religare Enterprises' valuation.",
+              "whoAffected": "Care Health directly — its premium growth, margins and shareholders.",
               "historicalContext": "Care Health's capital cushion (solvency ratio) stands at 1.68x against the regulator's 1.5x minimum — that sounds safe, but growing premium at 20.4% a year consumes capital mechanically.",
               "potentialImpact": "Solvency sits close enough to the floor that a capital raise or slower growth is a live possibility.",
               "whatToWatch": "Capital action — A share issue or debt raise, or growth slowing enough to visibly stop the erosion."
             },
             "action": {
-              "id": "regulation",
-              "label": "Check IRDAI on claims cost",
-              "icon": "regulation",
+              "id": "margins",
+              "label": "Compare Care Health margin",
+              "icon": "margins",
               "target": {
                 "page": "sahi",
-                "sahiTab": "governance",
-                "company": "care-health"
+                "sahiTab": "profitability",
+                "company": "care-health",
+                "focus": {
+                  "id": "pulse-margins",
+                  "metricKey": "combined_ratio",
+                  "metricLabel": "Combined ratio",
+                  "company": "care-health",
+                  "companyLabel": "Care Health",
+                  "comparisonType": "YoY",
+                  "tone": "neutral",
+                  "insightLabel": "Underwriting margin — combined ratio",
+                  "unit": "%",
+                  "higherIsBetter": false,
+                  "sahiTab": "profitability",
+                  "origin": "pulse"
+                }
               }
             },
             "isBreaking": false,
@@ -172684,46 +172714,41 @@
             "freshLabel": "Newly surfaced",
             "freshness": "newly-surfaced",
             "freshnessLabel": "Newly surfaced",
-            "publishedLabel": "8 Oct",
+            "publishedLabel": "30 Oct",
             "discoveredLabel": "1 Nov",
             "sources": [
               {
-                "kind": "Regulatory",
-                "name": "economictimes.indiatimes.com",
-                "url": "https://economictimes.indiatimes.com/news/economy/policy/gst-reforms-2026-employers-get-itc-on-employee-health-life-insurance-premiums/articleshow/134799420.cms"
+                "kind": "News",
+                "name": "scanx.trade",
+                "url": "https://scanx.trade/stock-market-news/debt-markets/religare-subsidiary-care-health-allots-150-crore-ncds-10-5-coupon/54926252"
               },
               {
-                "kind": "Regulatory",
-                "name": "bfsi.economictimes.indiatimes.com",
-                "url": "https://bfsi.economictimes.indiatimes.com/amp/articles/irdai-extends-deadline-for-feedback-on-insurance-distribution-reforms-to-october-31/135190036"
+                "kind": "News",
+                "name": "marketsmojo.com",
+                "url": "https://marketsmojo.com/news/stocks-in-action/religare-enterprises-ltd-forms-death-cross-signalling-bearish-trend-4230565"
               },
               {
-                "kind": "Regulatory",
-                "name": "thehindubusinessline.com",
-                "url": "https://www.thehindubusinessline.com/money-and-banking/irdai-declares-november-2026-as-grievance-resolution-month-for-insurance-policyholders/article71645733.ece"
+                "kind": "Market data",
+                "name": "care-health disclosure",
+                "url": "https://cms.careinsurance.com/cms/public/uploads/uploads/public_disclosure/FY%2024-25/Qtr%203%2024-25/PublicDisclosuresDecember2024_1738647983.pdf"
               },
               {
-                "kind": "Regulatory",
-                "name": "timesofindia.indiatimes.com",
-                "url": "https://timesofindia.indiatimes.com/india/insurance-companies-want-policyholders-to-pay-10-of-health-claims/articleshow/134668355.cms"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "m.economictimes.com",
-                "url": "https://m.economictimes.com/industry/banking/finance/insure/health-insurers-seek-expense-cap-tweaks/articleshow/135330238.cms"
+                "kind": "Market data",
+                "name": "1 curated source-backed insight",
+                "url": ""
               }
             ],
-            "impact": "Positive",
-            "scope": "sector",
-            "companyId": null,
-            "sourceUrl": "https://economictimes.indiatimes.com/news/economy/policy/gst-reforms-2026-employers-get-itc-on-employee-health-life-insurance-premiums/articleshow/134799420.cms",
+            "impact": "Neutral",
+            "scope": "company",
+            "companyId": "care-health",
+            "sourceUrl": "https://scanx.trade/stock-market-news/debt-markets/religare-subsidiary-care-health-allots-150-crore-ncds-10-5-coupon/54926252",
             "sourceConfidence": "Medium",
             "clusterSize": 1,
             "clusterSources": [
               {
-                "kind": "Regulatory",
-                "name": "economictimes.indiatimes.com",
-                "url": "https://economictimes.indiatimes.com/news/economy/policy/gst-reforms-2026-employers-get-itc-on-employee-health-life-insurance-premiums/articleshow/134799420.cms"
+                "kind": "News",
+                "name": "scanx.trade",
+                "url": "https://scanx.trade/stock-market-news/debt-markets/religare-subsidiary-care-health-allots-150-crore-ncds-10-5-coupon/54926252"
               }
             ],
             "independentSources": 1
@@ -172872,18 +172897,18 @@
               },
               {
                 "kind": "News",
-                "name": "upstox.com",
-                "url": "https://upstox.com/news/personal-finance/insurance/nps-swasthya-aditya-birla-health-insurance-offers-health-top-up-cover-with-premiums-starting-at-1-732/article-201522/"
+                "name": "marketsmojo.com",
+                "url": "https://www.marketsmojo.com/news/stock-recommendation/niva-bupa-health-insurance-downgraded-to-sell-amid-technical-and-valuation-concerns-4230823"
               },
               {
                 "kind": "News",
-                "name": "mediabrief.com",
-                "url": "https://mediabrief.com/manipalcigna-introduces-infinix-health-insurance-solution"
+                "name": "whalesbook.com",
+                "url": "https://www.whalesbook.com/corporate-news/English/bankingfinance/Religare-Subsidiary-Care-Health-Insurance-Raises-Rs-100-Crore-via-Debentures/6aad3360f2017017ae6d924d"
               },
               {
-                "kind": "News",
-                "name": "moneycontrol.com",
-                "url": "https://moneycontrol.com/banking/star-health-likely-in-talks-with-potential-strategic-investors-japanese-players-in-the-fray-article-14045001.html"
+                "kind": "Market data",
+                "name": "care-health disclosure",
+                "url": "https://cms.careinsurance.com/cms/public/uploads/uploads/public_disclosure/FY%2024-25/Qtr%203%2024-25/PublicDisclosuresDecember2024_1738647983.pdf"
               }
             ],
             "impact": "Risk",
@@ -172965,18 +172990,18 @@
               },
               {
                 "kind": "News",
-                "name": "upstox.com",
-                "url": "https://upstox.com/news/personal-finance/insurance/nps-swasthya-aditya-birla-health-insurance-offers-health-top-up-cover-with-premiums-starting-at-1-732/article-201522/"
+                "name": "marketsmojo.com",
+                "url": "https://www.marketsmojo.com/news/stock-recommendation/niva-bupa-health-insurance-downgraded-to-sell-amid-technical-and-valuation-concerns-4230823"
               },
               {
                 "kind": "News",
-                "name": "mediabrief.com",
-                "url": "https://mediabrief.com/manipalcigna-introduces-infinix-health-insurance-solution"
+                "name": "whalesbook.com",
+                "url": "https://www.whalesbook.com/corporate-news/English/bankingfinance/Religare-Subsidiary-Care-Health-Insurance-Raises-Rs-100-Crore-via-Debentures/6aad3360f2017017ae6d924d"
               },
               {
-                "kind": "News",
-                "name": "moneycontrol.com",
-                "url": "https://moneycontrol.com/banking/star-health-likely-in-talks-with-potential-strategic-investors-japanese-players-in-the-fray-article-14045001.html"
+                "kind": "Market data",
+                "name": "care-health disclosure",
+                "url": "https://cms.careinsurance.com/cms/public/uploads/uploads/public_disclosure/FY%2024-25/Qtr%203%2024-25/PublicDisclosuresDecember2024_1738647983.pdf"
               }
             ],
             "impact": "Risk",
@@ -172998,9 +173023,9 @@
         "sinceDeltas": [
           {
             "id": "co",
-            "label": "company-specific updates",
-            "value": "0",
-            "direction": "flat",
+            "label": "newly surfaced relevant update",
+            "value": "1",
+            "direction": "up",
             "tone": "Neutral",
             "target": {
               "page": "sahi",
@@ -173016,12 +173041,13 @@
                 "companyLabel": "Care Health",
                 "comparisonType": "trend",
                 "tone": "neutral",
-                "insightLabel": "No Care Health-specific updates",
+                "insightLabel": "1 newly surfaced Care Health update",
                 "unit": "",
                 "sahiTab": "companies",
                 "origin": "pulse"
               }
-            }
+            },
+            "href": "https://scanx.trade/stock-market-news/debt-markets/religare-subsidiary-care-health-allots-150-crore-ncds-10-5-coupon/54926252"
           },
           {
             "id": "events",
@@ -224861,10 +224887,10 @@
         "company": "Aditya Birla",
         "companyId": "aditya-birla",
         "generatedAt": "2026-11-01T08:29:44.260Z",
-        "lastUpdatedAt": "2026-11-01T08:29:44.260Z",
-        "status": "Neutral",
+        "lastUpdatedAt": "2026-11-01T16:36:06.792Z",
+        "status": "Risk",
         "sourceConfidence": "Medium",
-        "itemCount": 13,
+        "itemCount": 10,
         "runs": [
           {
             "runTime": "2026-11-01T08:29:44.260Z",
@@ -224872,22 +224898,29 @@
             "sourceCount": 15,
             "ideas": 6,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-11-01T16:36:06.792Z",
+            "developments": 12,
+            "sourceCount": 12,
+            "ideas": 6,
+            "status": "ok"
           }
         ],
         "brief": {
-          "greeting": "Good morning",
+          "greeting": "Good afternoon",
           "narrative": "Regulatory pressure is the main watch item for health insurers today. Aditya Birla is under pressure on premium growth and demand, but claims-cost and conduct scrutiny and regulatory deadlines will decide whether the strength is sustainable.",
           "attentionCount": 6,
-          "developmentsCount": 15,
-          "sourcesCount": 15,
-          "domainsCount": 12,
+          "developmentsCount": 12,
+          "sourcesCount": 12,
+          "domainsCount": 9,
           "confidencePct": 76,
           "confidenceTier": "Medium",
           "readingMins": 3,
-          "lastUpdatedLabel": "1 Nov, 08:25 am"
+          "lastUpdatedLabel": "1 Nov, 04:31 pm"
         },
         "message": {
-          "since": "No company-specific movement for Aditya Birla since the last brief — the read below is sector & regulatory context that applies across standalone health insurers.",
+          "since": "Aditya Birla had recently surfaced relevant coverage, alongside older regulatory items now in view. No fresh company-specific update was published since the last brief.",
           "keyThing": "Proposed commission caps (15–20%) and lower expense limits could squeeze distribution economics for all health insurers including Niva Bupa.",
           "why": "The near-term read now turns on how the new rules land on pricing, commissions and cost.",
           "watch": "any fresh IRDAI clarification, and expense-ratio movement",
@@ -225058,86 +225091,6 @@
             "independentSources": 1
           },
           {
-            "id": "d0ec6123c7",
-            "entity": "GST Council recommends input tax credit (ITC) on employer-paid group health/life insurance premiums",
-            "stars": 4,
-            "reasoning": [
-              "Lower effective cost of employer-sponsored health cover (at 18% GST) should support group health GWP growth across standalone health insurers.",
-              "Solvency 1.84x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency."
-            ],
-            "whatToWatch": "The impact on claims cost, expense ratio and pricing as rules tighten.",
-            "confidencePct": 78,
-            "evidenceCount": 5,
-            "status": "Constructive",
-            "category": "Regulatory",
-            "why": {
-              "whatHappened": "GST Council recommends input tax credit (ITC) on employer-paid group health/life insurance premiums",
-              "whyItMatters": "Lower effective cost of employer-sponsored health cover (at 18% GST) should support group health GWP growth across standalone health insurers.",
-              "whoAffected": "Every standalone health insurer (SAHI) — pricing, product design and compliance cost.",
-              "historicalContext": "Solvency 1.84x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency.",
-              "potentialImpact": "Solvency vs the 1.5x regulatory floor",
-              "whatToWatch": "The impact on claims cost, expense ratio and pricing as rules tighten."
-            },
-            "action": {
-              "id": "regulation",
-              "label": "Check IRDAI on claims cost",
-              "icon": "regulation",
-              "target": {
-                "page": "sahi",
-                "sahiTab": "governance",
-                "company": "aditya-birla"
-              }
-            },
-            "isBreaking": false,
-            "isNew": false,
-            "freshLabel": "Newly surfaced",
-            "freshness": "newly-surfaced",
-            "freshnessLabel": "Newly surfaced",
-            "publishedLabel": "8 Oct",
-            "discoveredLabel": "1 Nov",
-            "sources": [
-              {
-                "kind": "Regulatory",
-                "name": "economictimes.indiatimes.com",
-                "url": "https://economictimes.indiatimes.com/news/economy/policy/gst-reforms-2026-employers-get-itc-on-employee-health-life-insurance-premiums/articleshow/134799420.cms"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "bfsi.economictimes.indiatimes.com",
-                "url": "https://bfsi.economictimes.indiatimes.com/amp/articles/irdai-extends-deadline-for-feedback-on-insurance-distribution-reforms-to-october-31/135190036"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "thehindubusinessline.com",
-                "url": "https://www.thehindubusinessline.com/money-and-banking/irdai-declares-november-2026-as-grievance-resolution-month-for-insurance-policyholders/article71645733.ece"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "timesofindia.indiatimes.com",
-                "url": "https://timesofindia.indiatimes.com/india/insurance-companies-want-policyholders-to-pay-10-of-health-claims/articleshow/134668355.cms"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "m.economictimes.com",
-                "url": "https://m.economictimes.com/industry/banking/finance/insure/health-insurers-seek-expense-cap-tweaks/articleshow/135330238.cms"
-              }
-            ],
-            "impact": "Positive",
-            "scope": "sector",
-            "companyId": null,
-            "sourceUrl": "https://economictimes.indiatimes.com/news/economy/policy/gst-reforms-2026-employers-get-itc-on-employee-health-life-insurance-premiums/articleshow/134799420.cms",
-            "sourceConfidence": "Medium",
-            "clusterSize": 1,
-            "clusterSources": [
-              {
-                "kind": "Regulatory",
-                "name": "economictimes.indiatimes.com",
-                "url": "https://economictimes.indiatimes.com/news/economy/policy/gst-reforms-2026-employers-get-itc-on-employee-health-life-insurance-premiums/articleshow/134799420.cms"
-              }
-            ],
-            "independentSources": 1
-          },
-          {
             "id": "e6676bd52b",
             "entity": "Standalone health insurers ask IRDAI to exclude mandatory products from EoM cap calculation",
             "stars": 4,
@@ -225281,18 +225234,18 @@
               },
               {
                 "kind": "News",
-                "name": "upstox.com",
-                "url": "https://upstox.com/news/personal-finance/insurance/nps-swasthya-aditya-birla-health-insurance-offers-health-top-up-cover-with-premiums-starting-at-1-732/article-201522/"
+                "name": "marketsmojo.com",
+                "url": "https://www.marketsmojo.com/news/stock-recommendation/niva-bupa-health-insurance-downgraded-to-sell-amid-technical-and-valuation-concerns-4230823"
               },
               {
                 "kind": "News",
-                "name": "mediabrief.com",
-                "url": "https://mediabrief.com/manipalcigna-introduces-infinix-health-insurance-solution"
+                "name": "whalesbook.com",
+                "url": "https://www.whalesbook.com/corporate-news/English/bankingfinance/Religare-Subsidiary-Care-Health-Insurance-Raises-Rs-100-Crore-via-Debentures/6aad3360f2017017ae6d924d"
               },
               {
-                "kind": "News",
-                "name": "moneycontrol.com",
-                "url": "https://moneycontrol.com/banking/star-health-likely-in-talks-with-potential-strategic-investors-japanese-players-in-the-fray-article-14045001.html"
+                "kind": "Market data",
+                "name": "Aditya Birla Capital Q4 & FY25 Results Press Release",
+                "url": "https://www.adityabirlacapital.com/-/media/ABCL/pdf/Quarterly-Results/Q4-FY-25/130525_ABCL-Results-Press-Release.ashx"
               }
             ],
             "impact": "Risk",
@@ -225374,18 +225327,18 @@
               },
               {
                 "kind": "News",
-                "name": "upstox.com",
-                "url": "https://upstox.com/news/personal-finance/insurance/nps-swasthya-aditya-birla-health-insurance-offers-health-top-up-cover-with-premiums-starting-at-1-732/article-201522/"
+                "name": "marketsmojo.com",
+                "url": "https://www.marketsmojo.com/news/stock-recommendation/niva-bupa-health-insurance-downgraded-to-sell-amid-technical-and-valuation-concerns-4230823"
               },
               {
                 "kind": "News",
-                "name": "mediabrief.com",
-                "url": "https://mediabrief.com/manipalcigna-introduces-infinix-health-insurance-solution"
+                "name": "whalesbook.com",
+                "url": "https://www.whalesbook.com/corporate-news/English/bankingfinance/Religare-Subsidiary-Care-Health-Insurance-Raises-Rs-100-Crore-via-Debentures/6aad3360f2017017ae6d924d"
               },
               {
-                "kind": "News",
-                "name": "moneycontrol.com",
-                "url": "https://moneycontrol.com/banking/star-health-likely-in-talks-with-potential-strategic-investors-japanese-players-in-the-fray-article-14045001.html"
+                "kind": "Market data",
+                "name": "Aditya Birla Capital Q4 & FY25 Results Press Release",
+                "url": "https://www.adityabirlacapital.com/-/media/ABCL/pdf/Quarterly-Results/Q4-FY-25/130525_ABCL-Results-Press-Release.ashx"
               }
             ],
             "impact": "Risk",
@@ -225402,14 +225355,73 @@
               }
             ],
             "independentSources": 1
+          },
+          {
+            "id": "b2e52c8042",
+            "entity": "Aditya Birla",
+            "stars": 3,
+            "reasoning": [
+              "Premium growth outpaced peers, but profit compression signals rising loss-ratio/opex pressure — a read-through risk for sector margins including Niva Bupa.",
+              "Management plan, execution credibility and future catalysts."
+            ],
+            "whatToWatch": "The next disclosure for confirmation of the trend.",
+            "confidencePct": 77,
+            "evidenceCount": 1,
+            "status": "Watch",
+            "category": "Filing",
+            "why": {
+              "whatHappened": "ABHI: GWP <span style=\"color:#22C55E;font-weight:600\">▲48% YoY</span> to ₹4,543cr, but PBT <span style=\"color:#EF4444;font-weight:600\">▼ to…",
+              "whyItMatters": "Premium growth outpaced peers, but profit compression signals rising loss-ratio/opex pressure — a read-through risk for sector margins including Niva Bupa.",
+              "whoAffected": "Aditya Birla directly — its premium growth, margins and shareholders.",
+              "historicalContext": "Management plan, execution credibility and future catalysts.",
+              "potentialImpact": "The next disclosure for confirmation of the trend.",
+              "whatToWatch": "The next disclosure for confirmation of the trend."
+            },
+            "action": {
+              "id": "source",
+              "label": "Verify Aditya Birla sources",
+              "icon": "source",
+              "target": {
+                "page": "audit",
+                "company": "aditya-birla"
+              }
+            },
+            "isBreaking": false,
+            "isNew": false,
+            "freshLabel": "Newly surfaced",
+            "freshness": "newly-surfaced",
+            "freshnessLabel": "Newly surfaced",
+            "publishedLabel": "30 Oct",
+            "discoveredLabel": "1 Nov",
+            "sources": [
+              {
+                "kind": "Filing",
+                "name": "thehindubusinessline.com",
+                "url": "https://thehindubusinessline.com/companies/aditya-birla-capital-net-up-38-in-q2/article71644526.ece"
+              }
+            ],
+            "impact": "Watch",
+            "scope": "company",
+            "companyId": "aditya-birla",
+            "sourceUrl": "https://thehindubusinessline.com/companies/aditya-birla-capital-net-up-38-in-q2/article71644526.ece",
+            "sourceConfidence": "Medium",
+            "clusterSize": 1,
+            "clusterSources": [
+              {
+                "kind": "Filing",
+                "name": "thehindubusinessline.com",
+                "url": "https://thehindubusinessline.com/companies/aditya-birla-capital-net-up-38-in-q2/article71644526.ece"
+              }
+            ],
+            "independentSources": 1
           }
         ],
         "sinceDeltas": [
           {
             "id": "co",
-            "label": "company-specific updates",
-            "value": "0",
-            "direction": "flat",
+            "label": "newly surfaced relevant update",
+            "value": "1",
+            "direction": "up",
             "tone": "Neutral",
             "target": {
               "page": "sahi",
@@ -225425,12 +225437,13 @@
                 "companyLabel": "Aditya Birla",
                 "comparisonType": "trend",
                 "tone": "neutral",
-                "insightLabel": "No Aditya Birla-specific updates",
+                "insightLabel": "1 newly surfaced Aditya Birla update",
                 "unit": "",
                 "sahiTab": "companies",
                 "origin": "pulse"
               }
-            }
+            },
+            "href": "https://thehindubusinessline.com/companies/aditya-birla-capital-net-up-38-in-q2/article71644526.ece"
           },
           {
             "id": "events",
@@ -277916,10 +277929,10 @@
         "company": "ManipalCigna",
         "companyId": "manipalcigna",
         "generatedAt": "2026-11-01T08:29:44.260Z",
-        "lastUpdatedAt": "2026-11-01T08:29:44.260Z",
-        "status": "Neutral",
+        "lastUpdatedAt": "2026-11-01T16:36:06.792Z",
+        "status": "Risk",
         "sourceConfidence": "Medium",
-        "itemCount": 12,
+        "itemCount": 8,
         "runs": [
           {
             "runTime": "2026-11-01T08:29:44.260Z",
@@ -277927,19 +277940,26 @@
             "sourceCount": 14,
             "ideas": 6,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-11-01T16:36:06.792Z",
+            "developments": 12,
+            "sourceCount": 10,
+            "ideas": 6,
+            "status": "ok"
           }
         ],
         "brief": {
-          "greeting": "Good morning",
+          "greeting": "Good afternoon",
           "narrative": "Regulatory pressure is the main watch item for health insurers today. ManipalCigna is under pressure on premium growth and demand, but claims-cost and conduct scrutiny and regulatory deadlines will decide whether the strength is sustainable.",
           "attentionCount": 6,
-          "developmentsCount": 16,
-          "sourcesCount": 14,
-          "domainsCount": 12,
+          "developmentsCount": 12,
+          "sourcesCount": 10,
+          "domainsCount": 9,
           "confidencePct": 76,
           "confidenceTier": "Medium",
           "readingMins": 3,
-          "lastUpdatedLabel": "1 Nov, 08:25 am"
+          "lastUpdatedLabel": "1 Nov, 04:31 pm"
         },
         "message": {
           "since": "No company-specific movement for ManipalCigna since the last brief — the read below is sector & regulatory context that applies across standalone health insurers.",
@@ -278113,86 +278133,6 @@
             "independentSources": 1
           },
           {
-            "id": "d0ec6123c7",
-            "entity": "GST Council recommends input tax credit (ITC) on employer-paid group health/life insurance premiums",
-            "stars": 4,
-            "reasoning": [
-              "Lower effective cost of employer-sponsored health cover (at 18% GST) should support group health GWP growth across standalone health insurers.",
-              "Solvency 1.7x vs the 1.5x floor — headroom is thinner; watch solvency alongside regulation."
-            ],
-            "whatToWatch": "The impact on claims cost, expense ratio and pricing as rules tighten.",
-            "confidencePct": 78,
-            "evidenceCount": 5,
-            "status": "Constructive",
-            "category": "Regulatory",
-            "why": {
-              "whatHappened": "GST Council recommends input tax credit (ITC) on employer-paid group health/life insurance premiums",
-              "whyItMatters": "Lower effective cost of employer-sponsored health cover (at 18% GST) should support group health GWP growth across standalone health insurers.",
-              "whoAffected": "Every standalone health insurer (SAHI) — pricing, product design and compliance cost.",
-              "historicalContext": "Solvency 1.7x vs the 1.5x floor — headroom is thinner; watch solvency alongside regulation.",
-              "potentialImpact": "Solvency sits close enough to the floor that a capital raise or slower growth is a live possibility.",
-              "whatToWatch": "The impact on claims cost, expense ratio and pricing as rules tighten."
-            },
-            "action": {
-              "id": "regulation",
-              "label": "Check IRDAI on claims cost",
-              "icon": "regulation",
-              "target": {
-                "page": "sahi",
-                "sahiTab": "governance",
-                "company": "manipalcigna"
-              }
-            },
-            "isBreaking": false,
-            "isNew": false,
-            "freshLabel": "Newly surfaced",
-            "freshness": "newly-surfaced",
-            "freshnessLabel": "Newly surfaced",
-            "publishedLabel": "8 Oct",
-            "discoveredLabel": "1 Nov",
-            "sources": [
-              {
-                "kind": "Regulatory",
-                "name": "economictimes.indiatimes.com",
-                "url": "https://economictimes.indiatimes.com/news/economy/policy/gst-reforms-2026-employers-get-itc-on-employee-health-life-insurance-premiums/articleshow/134799420.cms"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "bfsi.economictimes.indiatimes.com",
-                "url": "https://bfsi.economictimes.indiatimes.com/amp/articles/irdai-extends-deadline-for-feedback-on-insurance-distribution-reforms-to-october-31/135190036"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "thehindubusinessline.com",
-                "url": "https://www.thehindubusinessline.com/money-and-banking/irdai-declares-november-2026-as-grievance-resolution-month-for-insurance-policyholders/article71645733.ece"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "timesofindia.indiatimes.com",
-                "url": "https://timesofindia.indiatimes.com/india/insurance-companies-want-policyholders-to-pay-10-of-health-claims/articleshow/134668355.cms"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "m.economictimes.com",
-                "url": "https://m.economictimes.com/industry/banking/finance/insure/health-insurers-seek-expense-cap-tweaks/articleshow/135330238.cms"
-              }
-            ],
-            "impact": "Positive",
-            "scope": "sector",
-            "companyId": null,
-            "sourceUrl": "https://economictimes.indiatimes.com/news/economy/policy/gst-reforms-2026-employers-get-itc-on-employee-health-life-insurance-premiums/articleshow/134799420.cms",
-            "sourceConfidence": "Medium",
-            "clusterSize": 1,
-            "clusterSources": [
-              {
-                "kind": "Regulatory",
-                "name": "economictimes.indiatimes.com",
-                "url": "https://economictimes.indiatimes.com/news/economy/policy/gst-reforms-2026-employers-get-itc-on-employee-health-life-insurance-premiums/articleshow/134799420.cms"
-              }
-            ],
-            "independentSources": 1
-          },
-          {
             "id": "e6676bd52b",
             "entity": "Standalone health insurers ask IRDAI to exclude mandatory products from EoM cap calculation",
             "stars": 4,
@@ -278336,18 +278276,18 @@
               },
               {
                 "kind": "News",
-                "name": "upstox.com",
-                "url": "https://upstox.com/news/personal-finance/insurance/nps-swasthya-aditya-birla-health-insurance-offers-health-top-up-cover-with-premiums-starting-at-1-732/article-201522/"
+                "name": "marketsmojo.com",
+                "url": "https://www.marketsmojo.com/news/stock-recommendation/niva-bupa-health-insurance-downgraded-to-sell-amid-technical-and-valuation-concerns-4230823"
               },
               {
                 "kind": "News",
-                "name": "mediabrief.com",
-                "url": "https://mediabrief.com/manipalcigna-introduces-infinix-health-insurance-solution"
+                "name": "whalesbook.com",
+                "url": "https://www.whalesbook.com/corporate-news/English/bankingfinance/Religare-Subsidiary-Care-Health-Insurance-Raises-Rs-100-Crore-via-Debentures/6aad3360f2017017ae6d924d"
               },
               {
-                "kind": "News",
-                "name": "moneycontrol.com",
-                "url": "https://moneycontrol.com/banking/star-health-likely-in-talks-with-potential-strategic-investors-japanese-players-in-the-fray-article-14045001.html"
+                "kind": "Market data",
+                "name": "ManipalCigna FY25 Public Disclosures",
+                "url": "https://www.manipalcigna.com/disclosures/public-disclosures"
               }
             ],
             "impact": "Risk",
@@ -278429,18 +278369,18 @@
               },
               {
                 "kind": "News",
-                "name": "upstox.com",
-                "url": "https://upstox.com/news/personal-finance/insurance/nps-swasthya-aditya-birla-health-insurance-offers-health-top-up-cover-with-premiums-starting-at-1-732/article-201522/"
+                "name": "marketsmojo.com",
+                "url": "https://www.marketsmojo.com/news/stock-recommendation/niva-bupa-health-insurance-downgraded-to-sell-amid-technical-and-valuation-concerns-4230823"
               },
               {
                 "kind": "News",
-                "name": "mediabrief.com",
-                "url": "https://mediabrief.com/manipalcigna-introduces-infinix-health-insurance-solution"
+                "name": "whalesbook.com",
+                "url": "https://www.whalesbook.com/corporate-news/English/bankingfinance/Religare-Subsidiary-Care-Health-Insurance-Raises-Rs-100-Crore-via-Debentures/6aad3360f2017017ae6d924d"
               },
               {
-                "kind": "News",
-                "name": "moneycontrol.com",
-                "url": "https://moneycontrol.com/banking/star-health-likely-in-talks-with-potential-strategic-investors-japanese-players-in-the-fray-article-14045001.html"
+                "kind": "Market data",
+                "name": "ManipalCigna FY25 Public Disclosures",
+                "url": "https://www.manipalcigna.com/disclosures/public-disclosures"
               }
             ],
             "impact": "Risk",
@@ -278457,6 +278397,104 @@
               }
             ],
             "independentSources": 1
+          },
+          {
+            "id": "62fef7c19b",
+            "entity": "<span style=\"color:#1E3A8A;font-weight:600\">neutral</span>",
+            "stars": 2,
+            "reasoning": [
+              "Care Health (Religare arm) raises **₹100 Cr** via subordinated debentures at **10%**",
+              "Solvency 1.7x vs the 1.5x floor — headroom is thinner; watch solvency alongside regulation."
+            ],
+            "whatToWatch": "Whether the sector move feeds through to premium growth and pricing.",
+            "confidencePct": 64,
+            "evidenceCount": 5,
+            "status": "Neutral",
+            "category": "Sector Catalyst",
+            "why": {
+              "whatHappened": "<span style=\"color:#1E3A8A;font-weight:600\">neutral</span>",
+              "whyItMatters": "Care Health (Religare arm) raises **₹100 Cr** via subordinated debentures at **10%**",
+              "whoAffected": "The broader health-insurance sector and its listed players.",
+              "historicalContext": "Solvency 1.7x vs the 1.5x floor — headroom is thinner; watch solvency alongside regulation.",
+              "potentialImpact": "Solvency sits close enough to the floor that a capital raise or slower growth is a live possibility.",
+              "whatToWatch": "Whether the sector move feeds through to premium growth and pricing."
+            },
+            "action": {
+              "id": "margins",
+              "label": "Compare ManipalCigna margin",
+              "icon": "margins",
+              "target": {
+                "page": "sahi",
+                "sahiTab": "profitability",
+                "company": "manipalcigna",
+                "focus": {
+                  "id": "pulse-margins",
+                  "metricKey": "combined_ratio",
+                  "metricLabel": "Combined ratio",
+                  "company": "manipalcigna",
+                  "companyLabel": "ManipalCigna",
+                  "comparisonType": "YoY",
+                  "tone": "neutral",
+                  "insightLabel": "Underwriting margin — combined ratio",
+                  "unit": "%",
+                  "higherIsBetter": false,
+                  "sahiTab": "profitability",
+                  "origin": "pulse"
+                }
+              }
+            },
+            "isBreaking": false,
+            "isNew": false,
+            "freshness": "existing",
+            "freshnessLabel": "Existing context",
+            "publishedLabel": "18 Sep",
+            "discoveredLabel": "29 Oct",
+            "sources": [
+              {
+                "kind": "News",
+                "name": "whalesbook.com",
+                "url": "https://www.whalesbook.com/corporate-news/English/bankingfinance/Religare-Subsidiary-Care-Health-Insurance-Raises-Rs-100-Crore-via-Debentures/6aad3360f2017017ae6d924d"
+              },
+              {
+                "kind": "News",
+                "name": "the420.in",
+                "url": "https://the420.in/noida-consumer-commission-star-health-claim-rejection-ruling/"
+              },
+              {
+                "kind": "News",
+                "name": "livemint.com",
+                "url": "https://livemint.com/industry/facing-steep-expense-cuts-under-proposed-irdai-caps-insurers-seek-gentler-glide-path-11791956066642.html"
+              },
+              {
+                "kind": "News",
+                "name": "marketsmojo.com",
+                "url": "https://www.marketsmojo.com/news/stock-recommendation/niva-bupa-health-insurance-downgraded-to-sell-amid-technical-and-valuation-concerns-4230823"
+              },
+              {
+                "kind": "Market data",
+                "name": "ManipalCigna FY25 Public Disclosures",
+                "url": "https://www.manipalcigna.com/disclosures/public-disclosures"
+              }
+            ],
+            "impact": "Neutral",
+            "scope": "sector",
+            "companyId": null,
+            "sourceUrl": "https://www.whalesbook.com/corporate-news/English/bankingfinance/Religare-Subsidiary-Care-Health-Insurance-Raises-Rs-100-Crore-via-Debentures/6aad3360f2017017ae6d924d",
+            "sourceConfidence": "Medium",
+            "clusterSize": 2,
+            "clusterSources": [
+              {
+                "kind": "Analyst report",
+                "name": "marketsmojo.com",
+                "url": "https://marketsmojo.com/news/stock-recommendation/star-health-allied-insurance-company-ltd-is-rated-hold-4229239"
+              },
+              {
+                "kind": "News",
+                "name": "whalesbook.com",
+                "url": "https://www.whalesbook.com/corporate-news/English/bankingfinance/Religare-Subsidiary-Care-Health-Insurance-Raises-Rs-100-Crore-via-Debentures/6aad3360f2017017ae6d924d"
+              }
+            ],
+            "independentSources": 2
           }
         ],
         "sinceDeltas": [
@@ -278633,6 +278671,6 @@
     "snapshot_id": "pulse-brief-archive",
     "description": "Immutable per-calendar-day Pulse brief records (IST), one per company. Past days are frozen exactly as shown that day; the live Today view recomposes. Kept ~90 days per company.",
     "last_updated": "2026-11-01",
-    "last_successful_run": "2026-11-01T08:29:44.260Z"
+    "last_successful_run": "2026-11-01T16:36:06.792Z"
   }
 }
