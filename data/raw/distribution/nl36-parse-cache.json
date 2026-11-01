@@ -2,7 +2,7 @@
  "_meta": {
   "description": "Parse cache for the NL-36/NL-40 business-acquisition scan (ingest-distribution). Keyed by repo-relative path; entries are reused while file size and parser version match.",
   "parser_version": 9,
-  "updated_at": "2026-08-18T05:07:55.780Z"
+  "updated_at": "2026-11-01T11:34:48.072Z"
  },
  "files": {
   "companies/niva-bupa/niva-bupa-Niva_Bupa_TPA_Public_disclosure_FY-2022-23_Reported.pdf": {
@@ -17806,6 +17806,11 @@
     "@159779: table rows did not align — skipped",
     "@163053: table rows did not align — skipped"
    ]
+  },
+  "companies/icici-lombard/icici-lombard-public-disclosure-on-the-quantitative-and-qualitative-parameters-of-the-health-services-rendered-to-the-policyholders-fy26-_1_.pdf": {
+   "size": 3224496,
+   "version": 9,
+   "forms": []
   }
  }
 }
