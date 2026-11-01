@@ -4,8 +4,8 @@
     "description": "AI-generated market intelligence for the SAHI health insurers — investor meets, earnings/board dates, sector & regulatory news, share catalysts. Web-sourced; each item links its source. AI-generated, not audited.",
     "schema_version": "1.0.0",
     "dataset": "ai_generated",
-    "last_updated": "2026-10-31",
-    "last_successful_run": "2026-10-31T15:33:18.019Z",
+    "last_updated": "2026-11-01",
+    "last_successful_run": "2026-11-01T08:25:23.596Z",
     "upstream_sources": [
       "muns_agent_web"
     ],
@@ -43,6 +43,21 @@
       "source_published_at": "2026-10-15",
       "first_seen": "2026-10-18T13:40:55.982Z",
       "discovered_at": "2026-10-18T13:40:55.982Z"
+    },
+    {
+      "id": "648a9f85b5",
+      "company_id": "sector",
+      "date": "2026-11-01",
+      "kind": "regulatory",
+      "horizon": "upcoming",
+      "impact": "watch",
+      "headline": "IRDAI declares November 2026 \"Grievance Resolution Month\" to clear 2.21 lakh pending policyholder complaints",
+      "detail": "Regulatory push for faster grievance redressal raises near-term compliance/ops scrutiny for all insurers, Niva Bupa included.",
+      "source_name": "thehindubusinessline.com",
+      "source_url": "https://www.thehindubusinessline.com/money-and-banking/irdai-declares-november-2026-as-grievance-resolution-month-for-insurance-policyholders/article71645733.ece",
+      "source_published_at": "2026-10-30",
+      "first_seen": "2026-11-01T08:25:23.596Z",
+      "discovered_at": "2026-11-01T08:25:23.596Z"
     },
     {
       "id": "ab9cfdc6a7",
@@ -88,6 +103,21 @@
       "source_published_at": "2026-09-25",
       "first_seen": "2026-10-31T15:33:18.019Z",
       "discovered_at": "2026-10-31T15:33:18.019Z"
+    },
+    {
+      "id": "92b9cf8b65",
+      "company_id": "sector",
+      "date": "2026-10-31",
+      "kind": "regulatory",
+      "horizon": "recent",
+      "impact": "negative",
+      "headline": "IRDAI extends feedback deadline on distribution-reform paper to Oct 31",
+      "detail": "Proposed commission caps (15–20%) and lower expense limits could squeeze distribution economics for all health insurers including Niva Bupa.",
+      "source_name": "bfsi.economictimes.indiatimes.com",
+      "source_url": "https://bfsi.economictimes.indiatimes.com/amp/articles/irdai-extends-deadline-for-feedback-on-insurance-distribution-reforms-to-october-31/135190036",
+      "source_published_at": "2026-10-25",
+      "first_seen": "2026-11-01T08:25:23.596Z",
+      "discovered_at": "2026-11-01T08:25:23.596Z"
     },
     {
       "id": "8d8f5a48d1",
@@ -210,19 +240,19 @@
       "discovered_at": "2026-10-29T16:31:08.610Z"
     },
     {
-      "id": "d200d71cd5",
+      "id": "e6676bd52b",
       "company_id": "sector",
-      "date": "2026-10-28",
-      "kind": "earnings",
-      "horizon": "upcoming",
+      "date": "2026-10-29",
+      "kind": "regulatory",
+      "horizon": "recent",
       "impact": "watch",
-      "headline": "Star Health Q2/H1 FY27 earnings call at 08:30 IST",
-      "detail": "September-quarter commentary will provide a peer read-through for Niva Bupa, particularly on claims experience, underwriting profitability and premium growth.",
-      "source_name": "nsearchives.nseindia.com",
-      "source_url": "https://nsearchives.nseindia.com/corporate/STARHEALTH_16102026164021_Earningcallintimation_Q2_FY_2027_SD.pdf",
-      "source_published_at": "2026-10-16",
-      "first_seen": "2026-10-18T13:40:55.982Z",
-      "discovered_at": "2026-10-18T13:40:55.982Z"
+      "headline": "Standalone health insurers ask IRDAI to exclude mandatory products from EoM cap calculation",
+      "detail": "A favourable tweak would ease EoM compliance pressure that has already hit Niva Bupa; outcome is a swing factor for sector profitability norms.",
+      "source_name": "m.economictimes.com",
+      "source_url": "https://m.economictimes.com/industry/banking/finance/insure/health-insurers-seek-expense-cap-tweaks/articleshow/135330238.cms",
+      "source_published_at": "2026-10-29",
+      "first_seen": "2026-11-01T08:25:23.596Z",
+      "discovered_at": "2026-11-01T08:25:23.596Z"
     },
     {
       "id": "b5c590ac6a",
@@ -810,6 +840,21 @@
       "discovered_at": "2026-10-22T06:55:33.826Z"
     },
     {
+      "id": "d0ec6123c7",
+      "company_id": "sector",
+      "date": "2026-10-08",
+      "kind": "regulatory",
+      "horizon": "recent",
+      "impact": "positive",
+      "headline": "GST Council recommends input tax credit (ITC) on employer-paid group health/life insurance premiums",
+      "detail": "Lower effective cost of employer-sponsored health cover (at 18% GST) should support group health GWP growth across standalone health insurers.",
+      "source_name": "economictimes.indiatimes.com",
+      "source_url": "https://economictimes.indiatimes.com/news/economy/policy/gst-reforms-2026-employers-get-itc-on-employee-health-life-insurance-premiums/articleshow/134799420.cms",
+      "source_published_at": "2026-10-08",
+      "first_seen": "2026-11-01T08:25:23.596Z",
+      "discovered_at": "2026-11-01T08:25:23.596Z"
+    },
+    {
       "id": "6ba7daeeb9",
       "company_id": "sector",
       "date": null,
@@ -868,51 +913,6 @@
       "source_published_at": "2026-10-05",
       "first_seen": "2026-10-24T06:41:59.115Z",
       "discovered_at": "2026-10-24T06:41:59.115Z"
-    },
-    {
-      "id": "dab2374e8f",
-      "company_id": "sector",
-      "date": null,
-      "kind": "sector_news",
-      "horizon": "recent",
-      "impact": "neutral",
-      "headline": "<span style=\"background:#F0FDF4;padding:2px 6px;border-radius:4px;color:#22C55E;font-weight:600\">positive — strongest signal</span>",
-      "detail": "Q1 FY27 PAT surges <span style=\"color:#22C55E;font-weight:600\">93% YoY to ₹137.8 cr</span>; GWP up <span style=\"color:#22C55E;font-weight:600\">31.7%</span>; ₹500 cr NCD raise approved",
-      "source_name": null,
-      "source_url": null,
-      "source_published_at": null,
-      "first_seen": "2026-10-04T07:34:58.195Z",
-      "discovered_at": "2026-10-04T07:34:58.195Z"
-    },
-    {
-      "id": "ce7a7c8adc",
-      "company_id": "sector",
-      "date": null,
-      "kind": "sector_news",
-      "horizon": "recent",
-      "impact": "neutral",
-      "headline": "<span style=\"background:#F0FDF4;padding:2px 6px;border-radius:4px;color:#22C55E;font-weight:600\">▲ positive</span>",
-      "detail": "Motilal Oswal initiates <strong>Buy</strong>, target <strong>₹100</strong> (~31% upside)",
-      "source_name": null,
-      "source_url": null,
-      "source_published_at": null,
-      "first_seen": "2026-10-04T15:02:42.000Z",
-      "discovered_at": "2026-10-04T15:02:42.000Z"
-    },
-    {
-      "id": "91533b7530",
-      "company_id": "sector",
-      "date": null,
-      "kind": "sector_news",
-      "horizon": "recent",
-      "impact": "neutral",
-      "headline": "<span style=\"color:#22C55E;font-weight:600\">▲ positive</span>",
-      "detail": "Star Health Q1 FY27 PAT surges <strong>25% YoY</strong> to ₹550 cr",
-      "source_name": null,
-      "source_url": null,
-      "source_published_at": null,
-      "first_seen": "2026-10-04T15:02:42.000Z",
-      "discovered_at": "2026-10-04T15:02:42.000Z"
     }
   ]
 }
