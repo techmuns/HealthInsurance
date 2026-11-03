@@ -62999,10 +62999,10 @@
         "company": "Niva Bupa",
         "companyId": "niva-bupa",
         "generatedAt": "2026-11-02T19:59:52.718Z",
-        "lastUpdatedAt": "2026-11-02T19:59:52.718Z",
+        "lastUpdatedAt": "2026-11-03T08:55:05.938Z",
         "status": "Risk",
         "sourceConfidence": "Medium",
-        "itemCount": 18,
+        "itemCount": 17,
         "runs": [
           {
             "runTime": "2026-11-02T19:59:52.718Z",
@@ -63010,19 +63010,26 @@
             "sourceCount": 21,
             "ideas": 6,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-11-03T08:55:05.938Z",
+            "developments": 29,
+            "sourceCount": 20,
+            "ideas": 6,
+            "status": "ok"
           }
         ],
         "brief": {
-          "greeting": "Good evening",
+          "greeting": "Good morning",
           "narrative": "Regulatory pressure is the main watch item for health insurers today. Niva Bupa is under pressure on its market position, but claims-cost and conduct scrutiny and regulatory deadlines will decide whether the strength is sustainable.",
           "attentionCount": 6,
-          "developmentsCount": 30,
-          "sourcesCount": 21,
+          "developmentsCount": 29,
+          "sourcesCount": 20,
           "domainsCount": 12,
           "confidencePct": 74,
           "confidenceTier": "Medium",
           "readingMins": 3,
-          "lastUpdatedLabel": "3 Nov, 07:54 pm"
+          "lastUpdatedLabel": "3 Nov, 08:50 am"
         },
         "message": {
           "since": "No company-specific movement for Niva Bupa since the last brief — the read below is sector & regulatory context that applies across standalone health insurers.",
@@ -63287,6 +63294,85 @@
             "independentSources": 1
           },
           {
+            "id": "e6676bd52b",
+            "entity": "Standalone health insurers ask IRDAI to exclude mandatory products from EoM cap calculation",
+            "stars": 4,
+            "reasoning": [
+              "A favourable tweak would ease EoM compliance pressure that has already hit Niva Bupa; outcome is a swing factor for sector profitability norms.",
+              "Solvency 3.03x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency."
+            ],
+            "whatToWatch": "The impact on claims cost, expense ratio and pricing as rules tighten.",
+            "confidencePct": 78,
+            "evidenceCount": 5,
+            "status": "Watch",
+            "category": "Regulatory",
+            "why": {
+              "whatHappened": "Standalone health insurers ask IRDAI to exclude mandatory products from EoM cap calculation",
+              "whyItMatters": "A favourable tweak would ease EoM compliance pressure that has already hit Niva Bupa; outcome is a swing factor for sector profitability norms.",
+              "whoAffected": "Every standalone health insurer (SAHI) — pricing, product design and compliance cost.",
+              "historicalContext": "Solvency 3.03x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency.",
+              "potentialImpact": "Solvency vs the 1.5x regulatory floor",
+              "whatToWatch": "The impact on claims cost, expense ratio and pricing as rules tighten."
+            },
+            "action": {
+              "id": "regulation",
+              "label": "Check IRDAI on claims cost",
+              "icon": "regulation",
+              "target": {
+                "page": "sahi",
+                "sahiTab": "governance",
+                "company": "niva-bupa"
+              }
+            },
+            "isBreaking": false,
+            "isNew": false,
+            "freshness": "existing",
+            "freshnessLabel": "Existing context",
+            "publishedLabel": "29 Oct",
+            "discoveredLabel": "1 Nov",
+            "sources": [
+              {
+                "kind": "Regulatory",
+                "name": "m.economictimes.com",
+                "url": "https://m.economictimes.com/industry/banking/finance/insure/health-insurers-seek-expense-cap-tweaks/articleshow/135330238.cms"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "thehindubusinessline.com",
+                "url": "https://www.thehindubusinessline.com/money-and-banking/irdai-declares-november-2026-as-grievance-resolution-month-for-insurance-policyholders/article71645733.ece"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "timesofindia.indiatimes.com",
+                "url": "https://timesofindia.indiatimes.com/india/insurance-companies-want-policyholders-to-pay-10-of-health-claims/articleshow/134668355.cms"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "bfsi.economictimes.indiatimes.com",
+                "url": "https://bfsi.economictimes.indiatimes.com/amp/articles/irdai-extends-deadline-for-feedback-on-insurance-distribution-reforms-to-october-31/135190036"
+              },
+              {
+                "kind": "Market data",
+                "name": "Derived from insurer-annual-snapshot + industry-segment-premium",
+                "url": "https://transactions.nivabupa.com/pages/doc/investor-relations/other-fin-disclosures/Press-Release-Results-March-2025.pdf"
+              }
+            ],
+            "impact": "Watch",
+            "scope": "sector",
+            "companyId": null,
+            "sourceUrl": "https://m.economictimes.com/industry/banking/finance/insure/health-insurers-seek-expense-cap-tweaks/articleshow/135330238.cms",
+            "sourceConfidence": "Medium",
+            "clusterSize": 1,
+            "clusterSources": [
+              {
+                "kind": "Regulatory",
+                "name": "m.economictimes.com",
+                "url": "https://m.economictimes.com/industry/banking/finance/insure/health-insurers-seek-expense-cap-tweaks/articleshow/135330238.cms"
+              }
+            ],
+            "independentSources": 1
+          },
+          {
             "id": "148548816f",
             "entity": "Niva Bupa",
             "stars": 4,
@@ -63296,7 +63382,7 @@
             ],
             "whatToWatch": "Execution and continuity after the leadership change.",
             "confidencePct": 78,
-            "evidenceCount": 4,
+            "evidenceCount": 3,
             "status": "Watch",
             "category": "Management",
             "why": {
@@ -63344,11 +63430,6 @@
                 "url": "https://investywise.com/niva-bupa-health-insurance-non-executive-director-demise"
               },
               {
-                "kind": "Filing",
-                "name": "investywise.com",
-                "url": "https://www.investywise.com/niva-bupa-health-insurance-non-executive-director-demise/"
-              },
-              {
                 "kind": "Market data",
                 "name": "Q4 FY25 earnings call",
                 "url": "https://transactions.nivabupa.com/pages/doc/investor-relations/Earnings-Calls/2024-2025/Earnings-Call-Transcript-Q4-FY-2025.pdf"
@@ -63364,91 +63445,12 @@
             "companyId": "niva-bupa",
             "sourceUrl": "https://investywise.com/niva-bupa-health-insurance-non-executive-director-demise",
             "sourceConfidence": "Medium",
-            "clusterSize": 3,
+            "clusterSize": 2,
             "clusterSources": [
               {
                 "kind": "Filing",
                 "name": "investywise.com",
                 "url": "https://investywise.com/niva-bupa-health-insurance-non-executive-director-demise"
-              }
-            ],
-            "independentSources": 1
-          },
-          {
-            "id": "e6676bd52b",
-            "entity": "Standalone health insurers ask IRDAI to exclude mandatory products from EoM cap calculation",
-            "stars": 4,
-            "reasoning": [
-              "A favourable tweak would ease EoM compliance pressure that has already hit Niva Bupa; outcome is a swing factor for sector profitability norms.",
-              "Solvency 3.03x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency."
-            ],
-            "whatToWatch": "The impact on claims cost, expense ratio and pricing as rules tighten.",
-            "confidencePct": 78,
-            "evidenceCount": 5,
-            "status": "Watch",
-            "category": "Regulatory",
-            "why": {
-              "whatHappened": "Standalone health insurers ask IRDAI to exclude mandatory products from EoM cap calculation",
-              "whyItMatters": "A favourable tweak would ease EoM compliance pressure that has already hit Niva Bupa; outcome is a swing factor for sector profitability norms.",
-              "whoAffected": "Every standalone health insurer (SAHI) — pricing, product design and compliance cost.",
-              "historicalContext": "Solvency 3.03x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency.",
-              "potentialImpact": "Solvency vs the 1.5x regulatory floor",
-              "whatToWatch": "The impact on claims cost, expense ratio and pricing as rules tighten."
-            },
-            "action": {
-              "id": "regulation",
-              "label": "Check IRDAI on claims cost",
-              "icon": "regulation",
-              "target": {
-                "page": "sahi",
-                "sahiTab": "governance",
-                "company": "niva-bupa"
-              }
-            },
-            "isBreaking": false,
-            "isNew": false,
-            "freshness": "existing",
-            "freshnessLabel": "Existing context",
-            "publishedLabel": "29 Oct",
-            "discoveredLabel": "1 Nov",
-            "sources": [
-              {
-                "kind": "Regulatory",
-                "name": "m.economictimes.com",
-                "url": "https://m.economictimes.com/industry/banking/finance/insure/health-insurers-seek-expense-cap-tweaks/articleshow/135330238.cms"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "bfsi.economictimes.indiatimes.com",
-                "url": "https://bfsi.economictimes.indiatimes.com/amp/articles/irdai-extends-deadline-for-feedback-on-insurance-distribution-reforms-to-october-31/135190036"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "thehindubusinessline.com",
-                "url": "https://www.thehindubusinessline.com/money-and-banking/irdai-declares-november-2026-as-grievance-resolution-month-for-insurance-policyholders/article71645733.ece"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "timesofindia.indiatimes.com",
-                "url": "https://timesofindia.indiatimes.com/india/insurance-companies-want-policyholders-to-pay-10-of-health-claims/articleshow/134668355.cms"
-              },
-              {
-                "kind": "Market data",
-                "name": "Derived from insurer-annual-snapshot + industry-segment-premium",
-                "url": "https://transactions.nivabupa.com/pages/doc/investor-relations/other-fin-disclosures/Press-Release-Results-March-2025.pdf"
-              }
-            ],
-            "impact": "Watch",
-            "scope": "sector",
-            "companyId": null,
-            "sourceUrl": "https://m.economictimes.com/industry/banking/finance/insure/health-insurers-seek-expense-cap-tweaks/articleshow/135330238.cms",
-            "sourceConfidence": "Medium",
-            "clusterSize": 1,
-            "clusterSources": [
-              {
-                "kind": "Regulatory",
-                "name": "m.economictimes.com",
-                "url": "https://m.economictimes.com/industry/banking/finance/insure/health-insurers-seek-expense-cap-tweaks/articleshow/135330238.cms"
               }
             ],
             "independentSources": 1
@@ -116970,7 +116972,7 @@
         "company": "Star Health",
         "companyId": "star-health",
         "generatedAt": "2026-11-02T19:59:52.718Z",
-        "lastUpdatedAt": "2026-11-02T19:59:52.718Z",
+        "lastUpdatedAt": "2026-11-03T08:55:05.938Z",
         "status": "Watch",
         "sourceConfidence": "Medium",
         "itemCount": 14,
@@ -116981,10 +116983,17 @@
             "sourceCount": 16,
             "ideas": 6,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-11-03T08:55:05.938Z",
+            "developments": 18,
+            "sourceCount": 16,
+            "ideas": 6,
+            "status": "ok"
           }
         ],
         "brief": {
-          "greeting": "Good evening",
+          "greeting": "Good morning",
           "narrative": "Regulatory pressure is the main watch item for health insurers today. Star Health is under pressure on premium growth and demand, but claims-cost and conduct scrutiny and regulatory deadlines will decide whether the strength is sustainable.",
           "attentionCount": 6,
           "developmentsCount": 18,
@@ -116993,7 +117002,7 @@
           "confidencePct": 76,
           "confidenceTier": "Medium",
           "readingMins": 3,
-          "lastUpdatedLabel": "3 Nov, 07:54 pm"
+          "lastUpdatedLabel": "3 Nov, 08:50 am"
         },
         "message": {
           "since": "No company-specific movement for Star Health since the last brief — the read below is sector & regulatory context that applies across standalone health insurers.",
@@ -117007,85 +117016,6 @@
           "status": "Risk"
         },
         "ideas": [
-          {
-            "id": "92b9cf8b65",
-            "entity": "IRDAI extends feedback deadline on distribution-reform paper to Oct 31",
-            "stars": 5,
-            "reasoning": [
-              "Proposed commission caps (15–20%) and lower expense limits could squeeze distribution economics for all health insurers including Niva Bupa.",
-              "Solvency 2.2x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency."
-            ],
-            "whatToWatch": "IRDAI mis-selling / distribution-conduct rules",
-            "confidencePct": 78,
-            "evidenceCount": 5,
-            "status": "Risk",
-            "category": "Regulatory",
-            "why": {
-              "whatHappened": "IRDAI extends feedback deadline on distribution-reform paper to Oct 31",
-              "whyItMatters": "Proposed commission caps (15–20%) and lower expense limits could squeeze distribution economics for all health insurers including Niva Bupa.",
-              "whoAffected": "Every standalone health insurer (SAHI) — pricing, product design and compliance cost.",
-              "historicalContext": "Solvency 2.2x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency.",
-              "potentialImpact": "Solvency vs the 1.5x regulatory floor",
-              "whatToWatch": "IRDAI mis-selling / distribution-conduct rules"
-            },
-            "action": {
-              "id": "regulation",
-              "label": "Check IRDAI on claims cost",
-              "icon": "regulation",
-              "target": {
-                "page": "sahi",
-                "sahiTab": "governance",
-                "company": "star-health"
-              }
-            },
-            "isBreaking": false,
-            "isNew": false,
-            "freshness": "existing",
-            "freshnessLabel": "Existing context",
-            "publishedLabel": "25 Oct",
-            "discoveredLabel": "1 Nov",
-            "sources": [
-              {
-                "kind": "Regulatory",
-                "name": "bfsi.economictimes.indiatimes.com",
-                "url": "https://bfsi.economictimes.indiatimes.com/amp/articles/irdai-extends-deadline-for-feedback-on-insurance-distribution-reforms-to-october-31/135190036"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "thehindubusinessline.com",
-                "url": "https://www.thehindubusinessline.com/money-and-banking/irdai-declares-november-2026-as-grievance-resolution-month-for-insurance-policyholders/article71645733.ece"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "timesofindia.indiatimes.com",
-                "url": "https://timesofindia.indiatimes.com/india/insurance-companies-want-policyholders-to-pay-10-of-health-claims/articleshow/134668355.cms"
-              },
-              {
-                "kind": "Regulatory",
-                "name": "m.economictimes.com",
-                "url": "https://m.economictimes.com/industry/banking/finance/insure/health-insurers-seek-expense-cap-tweaks/articleshow/135330238.cms"
-              },
-              {
-                "kind": "Market data",
-                "name": "Derived from insurer-annual-snapshot + industry-segment-premium",
-                "url": "https://www.prnewswire.com/in/news-releases/star-health-insurance-reports-strong-performance-q1fy26-pat-grows-44-to-inr-438-cr-ifrs-premium-grows-13-302517057.html"
-              }
-            ],
-            "impact": "Risk",
-            "scope": "sector",
-            "companyId": null,
-            "sourceUrl": "https://bfsi.economictimes.indiatimes.com/amp/articles/irdai-extends-deadline-for-feedback-on-insurance-distribution-reforms-to-october-31/135190036",
-            "sourceConfidence": "Medium",
-            "clusterSize": 1,
-            "clusterSources": [
-              {
-                "kind": "Regulatory",
-                "name": "bfsi.economictimes.indiatimes.com",
-                "url": "https://bfsi.economictimes.indiatimes.com/amp/articles/irdai-extends-deadline-for-feedback-on-insurance-distribution-reforms-to-october-31/135190036"
-              }
-            ],
-            "independentSources": 1
-          },
           {
             "id": "3a78ac4263",
             "entity": "Star Health",
@@ -117170,6 +117100,85 @@
                 "kind": "Analyst report",
                 "name": "businesstoday.in",
                 "url": "https://businesstoday.in/markets/stocks/story/star-health-shares-rise-4-as-brokerages-retain-bullish-stance-after-q2-results-564547-2026-10-29"
+              }
+            ],
+            "independentSources": 1
+          },
+          {
+            "id": "92b9cf8b65",
+            "entity": "IRDAI extends feedback deadline on distribution-reform paper to Oct 31",
+            "stars": 5,
+            "reasoning": [
+              "Proposed commission caps (15–20%) and lower expense limits could squeeze distribution economics for all health insurers including Niva Bupa.",
+              "Solvency 2.2x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency."
+            ],
+            "whatToWatch": "IRDAI mis-selling / distribution-conduct rules",
+            "confidencePct": 78,
+            "evidenceCount": 5,
+            "status": "Risk",
+            "category": "Regulatory",
+            "why": {
+              "whatHappened": "IRDAI extends feedback deadline on distribution-reform paper to Oct 31",
+              "whyItMatters": "Proposed commission caps (15–20%) and lower expense limits could squeeze distribution economics for all health insurers including Niva Bupa.",
+              "whoAffected": "Every standalone health insurer (SAHI) — pricing, product design and compliance cost.",
+              "historicalContext": "Solvency 2.2x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency.",
+              "potentialImpact": "Solvency vs the 1.5x regulatory floor",
+              "whatToWatch": "IRDAI mis-selling / distribution-conduct rules"
+            },
+            "action": {
+              "id": "regulation",
+              "label": "Check IRDAI on claims cost",
+              "icon": "regulation",
+              "target": {
+                "page": "sahi",
+                "sahiTab": "governance",
+                "company": "star-health"
+              }
+            },
+            "isBreaking": false,
+            "isNew": false,
+            "freshness": "existing",
+            "freshnessLabel": "Existing context",
+            "publishedLabel": "25 Oct",
+            "discoveredLabel": "1 Nov",
+            "sources": [
+              {
+                "kind": "Regulatory",
+                "name": "bfsi.economictimes.indiatimes.com",
+                "url": "https://bfsi.economictimes.indiatimes.com/amp/articles/irdai-extends-deadline-for-feedback-on-insurance-distribution-reforms-to-october-31/135190036"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "thehindubusinessline.com",
+                "url": "https://www.thehindubusinessline.com/money-and-banking/irdai-declares-november-2026-as-grievance-resolution-month-for-insurance-policyholders/article71645733.ece"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "timesofindia.indiatimes.com",
+                "url": "https://timesofindia.indiatimes.com/india/insurance-companies-want-policyholders-to-pay-10-of-health-claims/articleshow/134668355.cms"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "m.economictimes.com",
+                "url": "https://m.economictimes.com/industry/banking/finance/insure/health-insurers-seek-expense-cap-tweaks/articleshow/135330238.cms"
+              },
+              {
+                "kind": "Market data",
+                "name": "Derived from insurer-annual-snapshot + industry-segment-premium",
+                "url": "https://www.prnewswire.com/in/news-releases/star-health-insurance-reports-strong-performance-q1fy26-pat-grows-44-to-inr-438-cr-ifrs-premium-grows-13-302517057.html"
+              }
+            ],
+            "impact": "Risk",
+            "scope": "sector",
+            "companyId": null,
+            "sourceUrl": "https://bfsi.economictimes.indiatimes.com/amp/articles/irdai-extends-deadline-for-feedback-on-insurance-distribution-reforms-to-october-31/135190036",
+            "sourceConfidence": "Medium",
+            "clusterSize": 1,
+            "clusterSources": [
+              {
+                "kind": "Regulatory",
+                "name": "bfsi.economictimes.indiatimes.com",
+                "url": "https://bfsi.economictimes.indiatimes.com/amp/articles/irdai-extends-deadline-for-feedback-on-insurance-distribution-reforms-to-october-31/135190036"
               }
             ],
             "independentSources": 1
@@ -117282,11 +117291,6 @@
               },
               {
                 "kind": "Regulatory",
-                "name": "bfsi.economictimes.indiatimes.com",
-                "url": "https://bfsi.economictimes.indiatimes.com/amp/articles/irdai-extends-deadline-for-feedback-on-insurance-distribution-reforms-to-october-31/135190036"
-              },
-              {
-                "kind": "Regulatory",
                 "name": "thehindubusinessline.com",
                 "url": "https://www.thehindubusinessline.com/money-and-banking/irdai-declares-november-2026-as-grievance-resolution-month-for-insurance-policyholders/article71645733.ece"
               },
@@ -117294,6 +117298,11 @@
                 "kind": "Regulatory",
                 "name": "timesofindia.indiatimes.com",
                 "url": "https://timesofindia.indiatimes.com/india/insurance-companies-want-policyholders-to-pay-10-of-health-claims/articleshow/134668355.cms"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "bfsi.economictimes.indiatimes.com",
+                "url": "https://bfsi.economictimes.indiatimes.com/amp/articles/irdai-extends-deadline-for-feedback-on-insurance-distribution-reforms-to-october-31/135190036"
               },
               {
                 "kind": "Market data",
@@ -172316,7 +172325,7 @@
         "company": "Care Health",
         "companyId": "care-health",
         "generatedAt": "2026-11-02T19:59:52.718Z",
-        "lastUpdatedAt": "2026-11-02T19:59:52.718Z",
+        "lastUpdatedAt": "2026-11-03T08:55:05.938Z",
         "status": "Risk",
         "sourceConfidence": "Medium",
         "itemCount": 12,
@@ -172327,10 +172336,17 @@
             "sourceCount": 14,
             "ideas": 6,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-11-03T08:55:05.938Z",
+            "developments": 16,
+            "sourceCount": 14,
+            "ideas": 6,
+            "status": "ok"
           }
         ],
         "brief": {
-          "greeting": "Good evening",
+          "greeting": "Good morning",
           "narrative": "Regulatory pressure is the main watch item for health insurers today. Care Health is under pressure on its market position, but claims-cost and conduct scrutiny and regulatory deadlines will decide whether the strength is sustainable.",
           "attentionCount": 6,
           "developmentsCount": 16,
@@ -172339,7 +172355,7 @@
           "confidencePct": 76,
           "confidenceTier": "Medium",
           "readingMins": 4,
-          "lastUpdatedLabel": "3 Nov, 07:54 pm"
+          "lastUpdatedLabel": "3 Nov, 08:50 am"
         },
         "message": {
           "since": "No company-specific movement for Care Health since the last brief — the read below is sector & regulatory context that applies across standalone health insurers.",
@@ -172477,11 +172493,6 @@
               },
               {
                 "kind": "Regulatory",
-                "name": "bfsi.economictimes.indiatimes.com",
-                "url": "https://bfsi.economictimes.indiatimes.com/amp/articles/irdai-extends-deadline-for-feedback-on-insurance-distribution-reforms-to-october-31/135190036"
-              },
-              {
-                "kind": "Regulatory",
                 "name": "thehindubusinessline.com",
                 "url": "https://www.thehindubusinessline.com/money-and-banking/irdai-declares-november-2026-as-grievance-resolution-month-for-insurance-policyholders/article71645733.ece"
               },
@@ -172489,6 +172500,11 @@
                 "kind": "Regulatory",
                 "name": "timesofindia.indiatimes.com",
                 "url": "https://timesofindia.indiatimes.com/india/insurance-companies-want-policyholders-to-pay-10-of-health-claims/articleshow/134668355.cms"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "bfsi.economictimes.indiatimes.com",
+                "url": "https://bfsi.economictimes.indiatimes.com/amp/articles/irdai-extends-deadline-for-feedback-on-insurance-distribution-reforms-to-october-31/135190036"
               },
               {
                 "kind": "Market data",
@@ -224752,7 +224768,7 @@
         "company": "Aditya Birla",
         "companyId": "aditya-birla",
         "generatedAt": "2026-11-02T19:59:52.718Z",
-        "lastUpdatedAt": "2026-11-02T19:59:52.718Z",
+        "lastUpdatedAt": "2026-11-03T08:55:05.938Z",
         "status": "Watch",
         "sourceConfidence": "Medium",
         "itemCount": 12,
@@ -224763,10 +224779,17 @@
             "sourceCount": 14,
             "ideas": 6,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-11-03T08:55:05.938Z",
+            "developments": 14,
+            "sourceCount": 14,
+            "ideas": 6,
+            "status": "ok"
           }
         ],
         "brief": {
-          "greeting": "Good evening",
+          "greeting": "Good morning",
           "narrative": "Regulatory pressure is the main watch item for health insurers today. Aditya Birla is under pressure on its market position, but claims-cost and conduct scrutiny and regulatory deadlines will decide whether the strength is sustainable.",
           "attentionCount": 6,
           "developmentsCount": 14,
@@ -224775,7 +224798,7 @@
           "confidencePct": 76,
           "confidenceTier": "Medium",
           "readingMins": 3,
-          "lastUpdatedLabel": "3 Nov, 07:54 pm"
+          "lastUpdatedLabel": "3 Nov, 08:50 am"
         },
         "message": {
           "since": "No company-specific movement for Aditya Birla since the last brief — the read below is sector & regulatory context that applies across standalone health insurers.",
@@ -224913,11 +224936,6 @@
               },
               {
                 "kind": "Regulatory",
-                "name": "bfsi.economictimes.indiatimes.com",
-                "url": "https://bfsi.economictimes.indiatimes.com/amp/articles/irdai-extends-deadline-for-feedback-on-insurance-distribution-reforms-to-october-31/135190036"
-              },
-              {
-                "kind": "Regulatory",
                 "name": "thehindubusinessline.com",
                 "url": "https://www.thehindubusinessline.com/money-and-banking/irdai-declares-november-2026-as-grievance-resolution-month-for-insurance-policyholders/article71645733.ece"
               },
@@ -224925,6 +224943,11 @@
                 "kind": "Regulatory",
                 "name": "timesofindia.indiatimes.com",
                 "url": "https://timesofindia.indiatimes.com/india/insurance-companies-want-policyholders-to-pay-10-of-health-claims/articleshow/134668355.cms"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "bfsi.economictimes.indiatimes.com",
+                "url": "https://bfsi.economictimes.indiatimes.com/amp/articles/irdai-extends-deadline-for-feedback-on-insurance-distribution-reforms-to-october-31/135190036"
               },
               {
                 "kind": "Market data",
@@ -277802,7 +277825,7 @@
         "company": "ManipalCigna",
         "companyId": "manipalcigna",
         "generatedAt": "2026-11-02T19:59:52.718Z",
-        "lastUpdatedAt": "2026-11-02T19:59:52.718Z",
+        "lastUpdatedAt": "2026-11-03T08:55:05.938Z",
         "status": "Risk",
         "sourceConfidence": "Medium",
         "itemCount": 10,
@@ -277813,10 +277836,17 @@
             "sourceCount": 12,
             "ideas": 6,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-11-03T08:55:05.938Z",
+            "developments": 14,
+            "sourceCount": 12,
+            "ideas": 6,
+            "status": "ok"
           }
         ],
         "brief": {
-          "greeting": "Good evening",
+          "greeting": "Good morning",
           "narrative": "Regulatory pressure is the main watch item for health insurers today. ManipalCigna is under pressure on its market position, but claims-cost and conduct scrutiny and regulatory deadlines will decide whether the strength is sustainable.",
           "attentionCount": 6,
           "developmentsCount": 14,
@@ -277825,7 +277855,7 @@
           "confidencePct": 76,
           "confidenceTier": "Medium",
           "readingMins": 3,
-          "lastUpdatedLabel": "3 Nov, 07:54 pm"
+          "lastUpdatedLabel": "3 Nov, 08:50 am"
         },
         "message": {
           "since": "No company-specific movement for ManipalCigna since the last brief — the read below is sector & regulatory context that applies across standalone health insurers.",
@@ -277963,11 +277993,6 @@
               },
               {
                 "kind": "Regulatory",
-                "name": "bfsi.economictimes.indiatimes.com",
-                "url": "https://bfsi.economictimes.indiatimes.com/amp/articles/irdai-extends-deadline-for-feedback-on-insurance-distribution-reforms-to-october-31/135190036"
-              },
-              {
-                "kind": "Regulatory",
                 "name": "thehindubusinessline.com",
                 "url": "https://www.thehindubusinessline.com/money-and-banking/irdai-declares-november-2026-as-grievance-resolution-month-for-insurance-policyholders/article71645733.ece"
               },
@@ -277975,6 +278000,11 @@
                 "kind": "Regulatory",
                 "name": "timesofindia.indiatimes.com",
                 "url": "https://timesofindia.indiatimes.com/india/insurance-companies-want-policyholders-to-pay-10-of-health-claims/articleshow/134668355.cms"
+              },
+              {
+                "kind": "Regulatory",
+                "name": "bfsi.economictimes.indiatimes.com",
+                "url": "https://bfsi.economictimes.indiatimes.com/amp/articles/irdai-extends-deadline-for-feedback-on-insurance-distribution-reforms-to-october-31/135190036"
               },
               {
                 "kind": "Market data",
@@ -278534,6 +278564,6 @@
     "snapshot_id": "pulse-brief-archive",
     "description": "Immutable per-calendar-day Pulse brief records (IST), one per company. Past days are frozen exactly as shown that day; the live Today view recomposes. Kept ~90 days per company.",
     "last_updated": "2026-11-03",
-    "last_successful_run": "2026-11-02T19:59:52.718Z"
+    "last_successful_run": "2026-11-03T08:55:05.938Z"
   }
 }

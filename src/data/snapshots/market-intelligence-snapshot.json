@@ -4,8 +4,8 @@
     "description": "AI-generated market intelligence for the SAHI health insurers — investor meets, earnings/board dates, sector & regulatory news, share catalysts. Web-sourced; each item links its source. AI-generated, not audited.",
     "schema_version": "1.0.0",
     "dataset": "ai_generated",
-    "last_updated": "2026-11-02",
-    "last_successful_run": "2026-11-02T19:54:41.557Z",
+    "last_updated": "2026-11-03",
+    "last_successful_run": "2026-11-03T08:50:47.311Z",
     "upstream_sources": [
       "muns_agent_web"
     ],
@@ -43,6 +43,36 @@
       "source_published_at": "2026-10-15",
       "first_seen": "2026-10-18T13:40:55.982Z",
       "discovered_at": "2026-10-18T13:40:55.982Z"
+    },
+    {
+      "id": "3a93d460b2",
+      "company_id": "sector",
+      "date": null,
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "<span style=\"background:#F0FDF4;color:#22C55E;font-weight:600;padding:2px 6px;border-radius:4px\">positive</span>",
+      "detail": "Star Health Q2 FY27 net profit <span style=\"color:#22C55E;font-weight:600\">jumps 233%</span> to ₹265 crore",
+      "source_name": null,
+      "source_url": null,
+      "source_published_at": null,
+      "first_seen": "2026-11-03T08:50:47.311Z",
+      "discovered_at": "2026-11-03T08:50:47.311Z"
+    },
+    {
+      "id": "5cc41674cd",
+      "company_id": "sector",
+      "date": null,
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "<span style=\"background:#EFF6FF;color:#1E3A8A;font-weight:600;padding:2px 6px;border-radius:4px\">neutral</span>",
+      "detail": "Care Health Insurance (Religare) allots **₹150 crore** subordinated NCDs at 10.5% coupon",
+      "source_name": null,
+      "source_url": null,
+      "source_published_at": null,
+      "first_seen": "2026-11-03T08:50:47.311Z",
+      "discovered_at": "2026-11-03T08:50:47.311Z"
     },
     {
       "id": "8e89d1d62c",
@@ -883,36 +913,6 @@
       "source_published_at": null,
       "first_seen": "2026-10-24T17:05:59.240Z",
       "discovered_at": "2026-10-24T17:05:59.240Z"
-    },
-    {
-      "id": "ed0189bd4e",
-      "company_id": "niva-bupa",
-      "date": "2026-10-17",
-      "kind": "board_meeting",
-      "horizon": "recent",
-      "impact": "watch",
-      "headline": "Non-executive director Roger Davis passes away",
-      "detail": "Sudden demise of a Bupa-nominated board member creates a Risk Management Committee vacancy — a minor governance overhang pending replacement.",
-      "source_name": "investywise.com",
-      "source_url": "https://www.investywise.com/niva-bupa-health-insurance-non-executive-director-demise/",
-      "source_published_at": "2026-10-19",
-      "first_seen": "2026-11-01T16:31:40.757Z",
-      "discovered_at": "2026-11-01T16:31:40.757Z"
-    },
-    {
-      "id": "5dcc0da1b7",
-      "company_id": "sector",
-      "date": null,
-      "kind": "sector_news",
-      "horizon": "recent",
-      "impact": "neutral",
-      "headline": "<span style=\"color:#22C55E;font-weight:600\">positive</span> <span style=\"background:#F0FDF4;padding:2px 6px;border-radius:4px;\">▲ sector-wide</span>",
-      "detail": "Insurance stocks edge higher on hopes of IRDAI relief on expense cap",
-      "source_name": null,
-      "source_url": null,
-      "source_published_at": null,
-      "first_seen": "2026-10-15T06:43:10.704Z",
-      "discovered_at": "2026-10-15T06:43:10.704Z"
     }
   ]
 }
