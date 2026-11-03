@@ -2,7 +2,7 @@
  "_meta": {
   "artifact": "extracted-data-audit",
   "schema_version": "1.0.0",
-  "generated_at": "2026-11-03T11:17:02.080396+00:00",
+  "generated_at": "2026-11-03T12:20:09.661315+00:00",
   "description": "QA index for the Extracted Data Audit tab. A compact projection of schema-map.json (cell contract) + excel-values.json (normalized value store) + held-back + blocked-filings. The binding x value join (Fetched / Missing / Parser issue / Source unavailable / Manual override) is computed at read time in src/lib/extractedDataAudit.ts so no data logic is duplicated.",
   "template_file": "niva-bupa-portfolio-review.xlsx",
   "template_sha256": "238edfc92effeb7b9545108269a24012925329fafcae1b6fa4e3b87cd626a4bd",
@@ -47001,7 +47001,7 @@
        "metric": "gwp"
       }
      ],
-     "calculated_value": 1.539107
+     "calculated_value": 1.585157
     },
     {
      "cell": "K4",
@@ -47033,7 +47033,7 @@
        "metric": "pat_igaap"
       }
      ],
-     "calculated_value": 101.029205
+     "calculated_value": 104.051988
     },
     {
      "cell": "L4",
@@ -47065,7 +47065,7 @@
        "metric": "net_worth_igaap"
       }
      ],
-     "calculated_value": 4.105194
+     "calculated_value": 4.228021
     },
     {
      "cell": "M4",
@@ -47129,7 +47129,7 @@
        "metric": "pat_ifrs"
       }
      ],
-     "calculated_value": 36.095657
+     "calculated_value": 37.175635
     },
     {
      "cell": "O4",
@@ -47161,7 +47161,7 @@
        "metric": "net_worth_ifrs"
       }
      ],
-     "calculated_value": 3.688762
+     "calculated_value": 3.799129
     },
     {
      "cell": "P4",
@@ -47437,7 +47437,7 @@
        "metric": "gwp"
       }
      ],
-     "calculated_value": 1.728964
+     "calculated_value": 1.621561
     },
     {
      "cell": "K5",
@@ -47469,7 +47469,7 @@
        "metric": "pat_igaap"
       }
      ],
-     "calculated_value": 57.752765
+     "calculated_value": 54.165171
     },
     {
      "cell": "L5",
@@ -47501,7 +47501,7 @@
        "metric": "net_worth_igaap"
       }
      ],
-     "calculated_value": 4.238995
+     "calculated_value": 3.975669
     },
     {
      "cell": "M5",
@@ -47565,7 +47565,7 @@
        "metric": "pat_ifrs"
       }
      ],
-     "calculated_value": 35.310966
+     "calculated_value": 33.117453
     },
     {
      "cell": "O5",
@@ -47597,7 +47597,7 @@
        "metric": "net_worth_ifrs"
       }
      ],
-     "calculated_value": 3.35856
+     "calculated_value": 3.149927
     },
     {
      "cell": "P5",
@@ -47813,7 +47813,7 @@
        "metric": "gwp"
       }
      ],
-     "calculated_value": 2.729824
+     "calculated_value": 2.750234
     },
     {
      "cell": "K6",
@@ -47845,7 +47845,7 @@
        "metric": "pat_igaap"
       }
      ],
-     "calculated_value": 28.275613
+     "calculated_value": 28.487013
     },
     {
      "cell": "L6",
@@ -47877,7 +47877,7 @@
        "metric": "net_worth_igaap"
       }
      ],
-     "calculated_value": 4.653565
+     "calculated_value": 4.688357
     },
     {
      "cell": "M6",
@@ -48186,7 +48186,7 @@
        "metric": "gwp"
       }
      ],
-     "calculated_value": 2.429816
+     "calculated_value": 2.376268
     },
     {
      "cell": "K7",
@@ -48218,7 +48218,7 @@
        "metric": "pat_igaap"
       }
      ],
-     "calculated_value": 43.978382
+     "calculated_value": 43.009191
     },
     {
      "cell": "L7",
@@ -48250,7 +48250,7 @@
        "metric": "net_worth_igaap"
       }
      ],
-     "calculated_value": 5.216799
+     "calculated_value": 5.101832
     },
     {
      "cell": "M7",
@@ -290615,12 +290615,12 @@
    "metric": "market_cap",
    "period": "as_on_run_date",
    "unit": "INR_cr",
-   "raw_value": 32168.29,
-   "normalized_value": 32168.29,
+   "raw_value": 30170,
+   "normalized_value": 30170,
    "transformation_used": "identity (value used as-is)",
    "source_name": "Star Health valuation multiples (via muns agent)",
    "source_url": "https://www.screener.in/company/STARHEALTH/",
-   "fetched_at": "2026-10-27T09:38:27.117Z",
+   "fetched_at": "2026-11-03T11:30:26.184Z",
    "confidence": "medium",
    "source_status": "available",
    "source_layer": "official_snapshot",
@@ -290633,12 +290633,12 @@
    "metric": "market_cap",
    "period": "as_on_run_date",
    "unit": "INR_cr",
-   "raw_value": 13214.62,
-   "normalized_value": 13214.62,
+   "raw_value": 13610,
+   "normalized_value": 13610,
    "transformation_used": "identity (value used as-is)",
    "source_name": "Niva Bupa valuation multiples (via muns agent)",
    "source_url": "https://www.screener.in/company/NIVABUPA/",
-   "fetched_at": "2026-10-27T09:38:27.117Z",
+   "fetched_at": "2026-11-03T11:30:26.184Z",
    "confidence": "medium",
    "source_status": "available",
    "source_layer": "official_snapshot",
@@ -290651,12 +290651,12 @@
    "metric": "market_cap",
    "period": "as_on_run_date",
    "unit": "INR_cr",
-   "raw_value": 78380,
-   "normalized_value": 78380,
+   "raw_value": 78966,
+   "normalized_value": 78966,
    "transformation_used": "identity (value used as-is)",
    "source_name": "ICICI Lombard valuation multiples (via muns agent)",
    "source_url": "https://www.screener.in/company/ICICIGI/",
-   "fetched_at": "2026-10-27T09:38:27.117Z",
+   "fetched_at": "2026-11-03T11:30:26.184Z",
    "confidence": "medium",
    "source_status": "available",
    "source_layer": "official_snapshot",
@@ -290669,12 +290669,12 @@
    "metric": "market_cap",
    "period": "as_on_run_date",
    "unit": "INR_cr",
-   "raw_value": 23924.24,
-   "normalized_value": 23924.24,
+   "raw_value": 23397,
+   "normalized_value": 23397,
    "transformation_used": "identity (value used as-is)",
    "source_name": "Go Digit valuation multiples (via muns agent)",
    "source_url": "https://www.screener.in/company/GODIGIT/",
-   "fetched_at": "2026-10-27T09:38:27.117Z",
+   "fetched_at": "2026-11-03T11:30:26.184Z",
    "confidence": "medium",
    "source_status": "available",
    "source_layer": "official_snapshot",
