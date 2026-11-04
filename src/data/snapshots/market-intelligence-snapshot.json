@@ -5,7 +5,7 @@
     "schema_version": "1.0.0",
     "dataset": "ai_generated",
     "last_updated": "2026-11-04",
-    "last_successful_run": "2026-11-04T08:19:39.654Z",
+    "last_successful_run": "2026-11-04T17:40:16.819Z",
     "upstream_sources": [
       "muns_agent_web"
     ],
@@ -43,6 +43,36 @@
       "source_published_at": "2026-10-15",
       "first_seen": "2026-10-18T13:40:55.982Z",
       "discovered_at": "2026-10-18T13:40:55.982Z"
+    },
+    {
+      "id": "ad96151e0c",
+      "company_id": "sector",
+      "date": null,
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "<span style=\"background:#FEF2F2;color:#EF4444;font-weight:600;padding:2px 6px;border-radius:4px;\">watch</span>",
+      "detail": "Non-exec director Roger W.J. Davis dies, exits Risk Committee",
+      "source_name": null,
+      "source_url": null,
+      "source_published_at": null,
+      "first_seen": "2026-11-04T17:40:16.819Z",
+      "discovered_at": "2026-11-04T17:40:16.819Z"
+    },
+    {
+      "id": "2d567e7c62",
+      "company_id": "sector",
+      "date": null,
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "<span style=\"color:#22C55E;font-weight:600\">positive</span> <span style=\"background:#F0FDF4;padding:2px 6px;border-radius:4px;\">★ top signal</span>",
+      "detail": "▲ IRDAI slashes insurer share-transfer fee 80%, streamlines IPO/merger rules",
+      "source_name": null,
+      "source_url": null,
+      "source_published_at": null,
+      "first_seen": "2026-11-04T17:40:16.819Z",
+      "discovered_at": "2026-11-04T17:40:16.819Z"
     },
     {
       "id": "3a93d460b2",
@@ -883,36 +913,6 @@
       "source_published_at": "2026-10-19",
       "first_seen": "2026-10-21T06:47:50.767Z",
       "discovered_at": "2026-10-21T06:47:50.767Z"
-    },
-    {
-      "id": "148548816f",
-      "company_id": "niva-bupa",
-      "date": "2026-10-17",
-      "kind": "catalyst",
-      "horizon": "recent",
-      "impact": "watch",
-      "headline": "Non‑Executive Director Roger William John Davis passes away",
-      "detail": "Board loses a Risk Management Committee member; governance continuity and committee reconstitution bear watching.",
-      "source_name": "investywise.com",
-      "source_url": "https://investywise.com/niva-bupa-health-insurance-non-executive-director-demise",
-      "source_published_at": "2026-10-19",
-      "first_seen": "2026-10-22T06:55:33.826Z",
-      "discovered_at": "2026-10-22T06:55:33.826Z"
-    },
-    {
-      "id": "3a26dc6b1a",
-      "company_id": "sector",
-      "date": "2026-10-17",
-      "kind": "catalyst",
-      "horizon": "recent",
-      "impact": "neutral",
-      "headline": "**Non-Executive Director Roger William John Davis passes away** — Board-level loss creates a Risk Management Committee vacancy; governance continuity bears watching ahead of the Q2 board meeting.",
-      "detail": "[Business Upturn](https://businessupturn.com/business/niva-bupa-mourns-the-loss-of-non-executive-director-mr-roger-william-john-davis/) · pub. 2026-10-19",
-      "source_name": null,
-      "source_url": null,
-      "source_published_at": null,
-      "first_seen": "2026-10-24T17:05:59.240Z",
-      "discovered_at": "2026-10-24T17:05:59.240Z"
     }
   ]
 }

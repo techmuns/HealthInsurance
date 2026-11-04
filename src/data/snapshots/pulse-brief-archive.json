@@ -63000,10 +63000,10 @@
         "company": "Niva Bupa",
         "companyId": "niva-bupa",
         "generatedAt": "2026-11-04T08:24:39.398Z",
-        "lastUpdatedAt": "2026-11-04T08:24:39.398Z",
+        "lastUpdatedAt": "2026-11-04T17:44:31.785Z",
         "status": "Risk",
         "sourceConfidence": "Medium",
-        "itemCount": 17,
+        "itemCount": 16,
         "runs": [
           {
             "runTime": "2026-11-04T08:24:39.398Z",
@@ -63011,19 +63011,26 @@
             "sourceCount": 20,
             "ideas": 6,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-11-04T17:44:31.785Z",
+            "developments": 28,
+            "sourceCount": 19,
+            "ideas": 6,
+            "status": "ok"
           }
         ],
         "brief": {
-          "greeting": "Good morning",
+          "greeting": "Good evening",
           "narrative": "Regulatory pressure is the main watch item for health insurers today. Niva Bupa is under pressure on its market position, but claims-cost and conduct scrutiny and regulatory deadlines will decide whether the strength is sustainable.",
           "attentionCount": 6,
-          "developmentsCount": 29,
-          "sourcesCount": 20,
+          "developmentsCount": 28,
+          "sourcesCount": 19,
           "domainsCount": 12,
           "confidencePct": 74,
           "confidenceTier": "Medium",
           "readingMins": 3,
-          "lastUpdatedLabel": "4 Nov, 08:19 am"
+          "lastUpdatedLabel": "4 Nov, 05:40 pm"
         },
         "message": {
           "since": "No company-specific movement for Niva Bupa since the last brief — the read below is sector & regulatory context that applies across standalone health insurers.",
@@ -63367,89 +63374,6 @@
             "independentSources": 1
           },
           {
-            "id": "148548816f",
-            "entity": "Niva Bupa",
-            "stars": 4,
-            "reasoning": [
-              "Board loses a Risk Management Committee member; governance continuity and committee reconstitution bear watching.",
-              "Retail and public the market cut their stake in Niva Bupa from 25.4% to 18.7% during Q1 FY26."
-            ],
-            "whatToWatch": "Execution and continuity after the leadership change.",
-            "confidencePct": 78,
-            "evidenceCount": 3,
-            "status": "Watch",
-            "category": "Management",
-            "why": {
-              "whatHappened": "Non‑Executive Director Roger William John Davis passes away",
-              "whyItMatters": "Board loses a Risk Management Committee member; governance continuity and committee reconstitution bear watching.",
-              "whoAffected": "Niva Bupa's board, leadership continuity and its shareholders.",
-              "historicalContext": "Retail and public the market cut their stake in Niva Bupa from 25.4% to 18.7% during Q1 FY26.",
-              "potentialImpact": "Next shareholding filing — Public reverting toward 25.4%.",
-              "whatToWatch": "Execution and continuity after the leadership change."
-            },
-            "action": {
-              "id": "ownership",
-              "label": "Review Niva Bupa ownership",
-              "icon": "ownership",
-              "target": {
-                "page": "sahi",
-                "sahiTab": "governance",
-                "company": "niva-bupa",
-                "focus": {
-                  "id": "pulse-ownership",
-                  "metricKey": "promoter_holding",
-                  "metricLabel": "Promoter holding",
-                  "company": "niva-bupa",
-                  "companyLabel": "Niva Bupa",
-                  "comparisonType": "sequential",
-                  "tone": "neutral",
-                  "insightLabel": "Ownership — promoter holding trend",
-                  "unit": "%",
-                  "higherIsBetter": true,
-                  "sahiTab": "governance",
-                  "origin": "pulse"
-                }
-              }
-            },
-            "isBreaking": false,
-            "isNew": false,
-            "freshness": "existing",
-            "freshnessLabel": "Existing context",
-            "publishedLabel": "19 Oct",
-            "discoveredLabel": "22 Oct",
-            "sources": [
-              {
-                "kind": "Filing",
-                "name": "investywise.com",
-                "url": "https://investywise.com/niva-bupa-health-insurance-non-executive-director-demise"
-              },
-              {
-                "kind": "Market data",
-                "name": "Q4 FY25 earnings call",
-                "url": "https://transactions.nivabupa.com/pages/doc/investor-relations/Earnings-Calls/2024-2025/Earnings-Call-Transcript-Q4-FY-2025.pdf"
-              },
-              {
-                "kind": "Market data",
-                "name": "1 curated source-backed insight",
-                "url": ""
-              }
-            ],
-            "impact": "Watch",
-            "scope": "company",
-            "companyId": "niva-bupa",
-            "sourceUrl": "https://investywise.com/niva-bupa-health-insurance-non-executive-director-demise",
-            "sourceConfidence": "Medium",
-            "clusterSize": 2,
-            "clusterSources": [
-              {
-                "kind": "Filing",
-                "name": "investywise.com",
-                "url": "https://investywise.com/niva-bupa-health-insurance-non-executive-director-demise"
-              }
-            ],
-            "independentSources": 1
-          },
-          {
             "id": "8568967ba6",
             "entity": "Noida consumer forum rules <span style=\"color:#EF4444;font-weight:600\">against Star Health</span> claim denial",
             "stars": 4,
@@ -63538,6 +63462,89 @@
                 "kind": "News",
                 "name": "the420.in",
                 "url": "https://the420.in/noida-consumer-commission-star-health-claim-rejection-ruling/"
+              }
+            ],
+            "independentSources": 1
+          },
+          {
+            "id": "bd8785f61f",
+            "entity": "Niva Bupa",
+            "stars": 3,
+            "reasoning": [
+              "Loss of a board member who also sat on the Risk Management Committee creates a near-term governance/board-composition gap (unconfirmed via exchange filing — news-sourced only).",
+              "Retail and public the market cut their stake in Niva Bupa from 25.4% to 18.7% during Q1 FY26."
+            ],
+            "whatToWatch": "Execution and continuity after the leadership change.",
+            "confidencePct": 78,
+            "evidenceCount": 3,
+            "status": "Neutral",
+            "category": "Management",
+            "why": {
+              "whatHappened": "Non-Executive Director Roger W. J. Davis passes away",
+              "whyItMatters": "Loss of a board member who also sat on the Risk Management Committee creates a near-term governance/board-composition gap (unconfirmed via exchange filing — news-sourced only).",
+              "whoAffected": "Niva Bupa's board, leadership continuity and its shareholders.",
+              "historicalContext": "Retail and public the market cut their stake in Niva Bupa from 25.4% to 18.7% during Q1 FY26.",
+              "potentialImpact": "Next shareholding filing — Public reverting toward 25.4%.",
+              "whatToWatch": "Execution and continuity after the leadership change."
+            },
+            "action": {
+              "id": "ownership",
+              "label": "Review Niva Bupa ownership",
+              "icon": "ownership",
+              "target": {
+                "page": "sahi",
+                "sahiTab": "governance",
+                "company": "niva-bupa",
+                "focus": {
+                  "id": "pulse-ownership",
+                  "metricKey": "promoter_holding",
+                  "metricLabel": "Promoter holding",
+                  "company": "niva-bupa",
+                  "companyLabel": "Niva Bupa",
+                  "comparisonType": "sequential",
+                  "tone": "neutral",
+                  "insightLabel": "Ownership — promoter holding trend",
+                  "unit": "%",
+                  "higherIsBetter": true,
+                  "sahiTab": "governance",
+                  "origin": "pulse"
+                }
+              }
+            },
+            "isBreaking": false,
+            "isNew": false,
+            "freshness": "existing",
+            "freshnessLabel": "Existing context",
+            "publishedLabel": "19 Oct",
+            "discoveredLabel": "21 Oct",
+            "sources": [
+              {
+                "kind": "Filing",
+                "name": "investywise.com",
+                "url": "https://investywise.com/niva-bupa-health-insurance-non-executive-director-demise"
+              },
+              {
+                "kind": "Market data",
+                "name": "Q4 FY25 earnings call",
+                "url": "https://transactions.nivabupa.com/pages/doc/investor-relations/Earnings-Calls/2024-2025/Earnings-Call-Transcript-Q4-FY-2025.pdf"
+              },
+              {
+                "kind": "Market data",
+                "name": "1 curated source-backed insight",
+                "url": ""
+              }
+            ],
+            "impact": "Neutral",
+            "scope": "company",
+            "companyId": "niva-bupa",
+            "sourceUrl": "https://investywise.com/niva-bupa-health-insurance-non-executive-director-demise",
+            "sourceConfidence": "Medium",
+            "clusterSize": 1,
+            "clusterSources": [
+              {
+                "kind": "Filing",
+                "name": "investywise.com",
+                "url": "https://investywise.com/niva-bupa-health-insurance-non-executive-director-demise"
               }
             ],
             "independentSources": 1
@@ -116962,7 +116969,7 @@
         "company": "Star Health",
         "companyId": "star-health",
         "generatedAt": "2026-11-04T08:24:39.398Z",
-        "lastUpdatedAt": "2026-11-04T08:24:39.398Z",
+        "lastUpdatedAt": "2026-11-04T17:44:31.785Z",
         "status": "Watch",
         "sourceConfidence": "Medium",
         "itemCount": 14,
@@ -116973,10 +116980,17 @@
             "sourceCount": 16,
             "ideas": 6,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-11-04T17:44:31.785Z",
+            "developments": 18,
+            "sourceCount": 16,
+            "ideas": 6,
+            "status": "ok"
           }
         ],
         "brief": {
-          "greeting": "Good morning",
+          "greeting": "Good evening",
           "narrative": "Regulatory pressure is the main watch item for health insurers today. Star Health is under pressure on premium growth and demand, but claims-cost and conduct scrutiny and regulatory deadlines will decide whether the strength is sustainable.",
           "attentionCount": 6,
           "developmentsCount": 18,
@@ -116985,7 +116999,7 @@
           "confidencePct": 76,
           "confidenceTier": "Medium",
           "readingMins": 3,
-          "lastUpdatedLabel": "4 Nov, 08:19 am"
+          "lastUpdatedLabel": "4 Nov, 05:40 pm"
         },
         "message": {
           "since": "No company-specific movement for Star Health since the last brief — the read below is sector & regulatory context that applies across standalone health insurers.",
@@ -172348,7 +172362,7 @@
         "company": "Care Health",
         "companyId": "care-health",
         "generatedAt": "2026-11-04T08:24:39.398Z",
-        "lastUpdatedAt": "2026-11-04T08:24:39.398Z",
+        "lastUpdatedAt": "2026-11-04T17:44:31.785Z",
         "status": "Risk",
         "sourceConfidence": "Medium",
         "itemCount": 12,
@@ -172359,10 +172373,17 @@
             "sourceCount": 14,
             "ideas": 6,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-11-04T17:44:31.785Z",
+            "developments": 16,
+            "sourceCount": 14,
+            "ideas": 6,
+            "status": "ok"
           }
         ],
         "brief": {
-          "greeting": "Good morning",
+          "greeting": "Good evening",
           "narrative": "Regulatory pressure is the main watch item for health insurers today. Care Health is under pressure on its market position, but claims-cost and conduct scrutiny and regulatory deadlines will decide whether the strength is sustainable.",
           "attentionCount": 6,
           "developmentsCount": 16,
@@ -172371,7 +172392,7 @@
           "confidencePct": 76,
           "confidenceTier": "Medium",
           "readingMins": 4,
-          "lastUpdatedLabel": "4 Nov, 08:19 am"
+          "lastUpdatedLabel": "4 Nov, 05:40 pm"
         },
         "message": {
           "since": "No company-specific movement for Care Health since the last brief — the read below is sector & regulatory context that applies across standalone health insurers.",
@@ -224800,7 +224821,7 @@
         "company": "Aditya Birla",
         "companyId": "aditya-birla",
         "generatedAt": "2026-11-04T08:24:39.398Z",
-        "lastUpdatedAt": "2026-11-04T08:24:39.398Z",
+        "lastUpdatedAt": "2026-11-04T17:44:31.785Z",
         "status": "Watch",
         "sourceConfidence": "Medium",
         "itemCount": 12,
@@ -224811,10 +224832,17 @@
             "sourceCount": 14,
             "ideas": 6,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-11-04T17:44:31.785Z",
+            "developments": 14,
+            "sourceCount": 14,
+            "ideas": 6,
+            "status": "ok"
           }
         ],
         "brief": {
-          "greeting": "Good morning",
+          "greeting": "Good evening",
           "narrative": "Regulatory pressure is the main watch item for health insurers today. Aditya Birla is under pressure on its market position, but claims-cost and conduct scrutiny and regulatory deadlines will decide whether the strength is sustainable.",
           "attentionCount": 6,
           "developmentsCount": 14,
@@ -224823,7 +224851,7 @@
           "confidencePct": 76,
           "confidenceTier": "Medium",
           "readingMins": 3,
-          "lastUpdatedLabel": "4 Nov, 08:19 am"
+          "lastUpdatedLabel": "4 Nov, 05:40 pm"
         },
         "message": {
           "since": "No company-specific movement for Aditya Birla since the last brief — the read below is sector & regulatory context that applies across standalone health insurers.",
@@ -277922,7 +277950,7 @@
         "company": "ManipalCigna",
         "companyId": "manipalcigna",
         "generatedAt": "2026-11-04T08:24:39.398Z",
-        "lastUpdatedAt": "2026-11-04T08:24:39.398Z",
+        "lastUpdatedAt": "2026-11-04T17:44:31.785Z",
         "status": "Risk",
         "sourceConfidence": "Medium",
         "itemCount": 10,
@@ -277933,10 +277961,17 @@
             "sourceCount": 12,
             "ideas": 6,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-11-04T17:44:31.785Z",
+            "developments": 14,
+            "sourceCount": 12,
+            "ideas": 6,
+            "status": "ok"
           }
         ],
         "brief": {
-          "greeting": "Good morning",
+          "greeting": "Good evening",
           "narrative": "Regulatory pressure is the main watch item for health insurers today. ManipalCigna is under pressure on its market position, but claims-cost and conduct scrutiny and regulatory deadlines will decide whether the strength is sustainable.",
           "attentionCount": 6,
           "developmentsCount": 14,
@@ -277945,7 +277980,7 @@
           "confidencePct": 76,
           "confidenceTier": "Medium",
           "readingMins": 3,
-          "lastUpdatedLabel": "4 Nov, 08:19 am"
+          "lastUpdatedLabel": "4 Nov, 05:40 pm"
         },
         "message": {
           "since": "No company-specific movement for ManipalCigna since the last brief — the read below is sector & regulatory context that applies across standalone health insurers.",
@@ -278652,6 +278687,6 @@
     "snapshot_id": "pulse-brief-archive",
     "description": "Immutable per-calendar-day Pulse brief records (IST), one per company. Past days are frozen exactly as shown that day; the live Today view recomposes. Kept ~90 days per company.",
     "last_updated": "2026-11-04",
-    "last_successful_run": "2026-11-04T08:24:39.398Z"
+    "last_successful_run": "2026-11-04T17:44:31.785Z"
   }
 }
