@@ -3,14 +3,135 @@
     "snapshot_id": "sectoral-news-snapshot",
     "description": "Key Sectoral News feed — a permanent seed of 31 curated portfolio-pack updates, kept current by a scheduled muns web-search agent. Each item links its source. Seed items are curated; agent items are AI-gathered (web), clearly labelled and not audited.",
     "schema_version": "1.0.0",
-    "last_updated": "2026-10-29",
-    "last_successful_run": "2026-11-02T14:56:37.572Z",
+    "last_updated": "2026-11-05",
+    "last_successful_run": "2026-11-05T14:08:56.949Z",
     "seed_count": 31,
-    "agent_count": 400,
+    "agent_count": 415,
     "generated_by": "Seed: investor portfolio pack. Updates: AI (muns agent, web search).",
     "notes": "Seed floor can never be lost. Agent items are de-duped by subject+date and verified-before-acting."
   },
   "data": [
+    {
+      "sn": 434,
+      "category": "Competition / Peers",
+      "date": "2026-11-05",
+      "subject": "<span style=\"background:#FEF2F2;color:#EF4444;padding:2px 6px;border-radius:4px;font-weight:600\">Niva Bupa barred from new locations over EOM breach</span>",
+      "summary": "Niva Bupa faces a six-month restriction on new branches after FY25 Expense-of-Management ratio hit **39.22%**, above the **35.55%** regulatory limit — a near-term growth constraint despite strong earnings.",
+      "reference": "https://multibagg.ai/market-pulse/articles/niva-bupa-eom-location-restriction-announcement-cmw379bjl00dh2gtarydziruv",
+      "id": "094ae45b2afe7d",
+      "origin": "agent",
+      "added_at": "2026-11-05"
+    },
+    {
+      "sn": 433,
+      "category": "Profitability",
+      "date": "2026-11-05",
+      "subject": "India medical inflation to moderate to 10.1% in 2027",
+      "summary": "Aon projects medical cost inflation easing from **11.5%** (2026) to **10.1%** (2027), still ~2.5x general inflation — a key driver of claims costs and premium repricing.",
+      "reference": "https://business-standard.com/amp/finance/personal-finance/medical-costs-in-india-to-rise-10-1-in-2027-double-inflation-rate-aon-126110500576_1.html",
+      "id": "13c7c04d7ee167",
+      "origin": "agent",
+      "added_at": "2026-11-05"
+    },
+    {
+      "sn": 432,
+      "category": "General",
+      "date": "2026-11-05",
+      "subject": "<span style=\"color:#22C55E;font-weight:600\">Tier 2/3 cities fuel health insurance surge</span>",
+      "summary": "First-time buyers from Tier 2/3 cities on platforms like Policybazaar rose <span style=\"color:#22C55E;font-weight:600\">▲351%</span>, with average cover doubling to **₹13.1 lakh** — a strong distribution tailwind for standalone insurers expanding beyond metros.",
+      "reference": "https://fortuneindia.com/personal-finance/first-time-health-insurance-buyers-surge-with-tier-2-and-3-cities-driving-growth/168913",
+      "id": "0099e8eda09ea0",
+      "origin": "agent",
+      "added_at": "2026-11-05"
+    },
+    {
+      "sn": 437,
+      "category": "Profitability",
+      "date": "2026-11-04",
+      "subject": "<span style=\"color:#22C55E;font-weight:600\">Niva Bupa combined ratio improves to 99.5%</span>",
+      "summary": "H1 FY27 combined ratio improved **365 bps** YoY to 99.5%, loss ratio down to 63.1% from 65.9% — signalling improving underwriting discipline ahead of full underwriting profitability.",
+      "reference": "https://multibagg.ai/market-pulse/articles/niva-bupa-h1-profit-ratio-ppt-cmw37877r00de2gtakhq4ncpj",
+      "id": "146e9b29e7d0aa",
+      "origin": "agent",
+      "added_at": "2026-11-05"
+    },
+    {
+      "sn": 436,
+      "category": "Competition / Peers",
+      "date": "2026-11-04",
+      "subject": "<span style=\"color:#EF4444;font-weight:600\">Care Health cashless services suspended in Telangana</span>",
+      "summary": "Telangana Specialty Hospitals Association suspended cashless treatment for Care Health policyholders over claim delays/rejections and payment disputes — a direct hit to policyholder experience and a reputational/operational risk flag.",
+      "reference": "https://ntvtelugu.com/news/care-health-insurance-cashless-treatment-stopped-in-telangana-hospitals-1032351.html",
+      "id": "16650a419b2ab0",
+      "origin": "agent",
+      "added_at": "2026-11-05"
+    },
+    {
+      "sn": 435,
+      "category": "Competition / Peers",
+      "date": "2026-11-04",
+      "subject": "<span style=\"color:#22C55E;font-weight:600\">Niva Bupa Q2 FY27 profit soars 124% YoY</span>",
+      "summary": "PAT of **₹136 crore** (vs ₹60 crore YoY) on **35%** GWP growth to ₹2,484 crore; H1 PAT more than doubled to ₹273.4 crore, retail health market share up to **11%** from 9.9%.",
+      "reference": "https://economictimes.indiatimes.com/markets/stocks/earnings/niva-bupa-q2-yoy-profit-after-tax-soars-124/articleshow/135555889.cms",
+      "id": "1aa93669007bdc",
+      "origin": "agent",
+      "added_at": "2026-11-05"
+    },
+    {
+      "sn": 439,
+      "category": "Regulatory",
+      "date": "2026-11-02",
+      "subject": "Health insurers seek IRDAI clarity on commission/expense rules",
+      "summary": "Standalone insurers are lobbying IRDAI for guidance on multi-year policy commissions and EOM limits ahead of the proposed April 2027 framework, citing accounting friction and margin pressure risk.",
+      "reference": "https://www.whalesbook.com/news/English/bankingfinance/Health-Insurers-Seek-IRDAI-Clarity-on-Commission-Expense-Rules/6ae846644fc30694db574e91",
+      "id": "1b28d8d4fc4307",
+      "origin": "agent",
+      "added_at": "2026-11-05"
+    },
+    {
+      "sn": 438,
+      "category": "Regulatory",
+      "date": "2026-11-02",
+      "subject": "IRDAI cuts share-transfer fees, new Master Circular",
+      "summary": "IRDAI cut the share-transfer approval fee **80%** (₹50 lakh → ₹10 lakh) and streamlined registration, capital structure, IPO and merger procedures — easing M&A/listing friction sector-wide.",
+      "reference": "https://business-standard.com/amp/finance/insurance/irdai-cuts-share-transfer-approval-fee-by-80-to-10-lakh-for-insurers-126110201469_1.html",
+      "id": "166b5e1b7c41ce",
+      "origin": "agent",
+      "added_at": "2026-11-05"
+    },
+    {
+      "sn": 441,
+      "category": "Profitability",
+      "date": "2026-10-30",
+      "subject": "<span style=\"color:#EF4444;font-weight:600\">Aditya Birla Health margins slip despite GWP growth</span>",
+      "summary": "ABHI's H1 FY27 GWP grew **~48%** to ₹4,543 crore, but IFRS combined ratio rose **3.4pp to 106.5%**; parent Aditya Birla Capital flagged declining health-arm profitability even as group profit grew 38%.",
+      "reference": "https://multibagg.ai/market-pulse/articles/aditya-birla-capital-health-insurance-ppt-cmvuu40oe002t2klzryr1u900",
+      "id": "0c50b5c354f957",
+      "origin": "agent",
+      "added_at": "2026-11-05"
+    },
+    {
+      "sn": 440,
+      "category": "Competition / Peers",
+      "date": "2026-10-30",
+      "subject": "<span style=\"color:#22C55E;font-weight:600\">Star Health: 5th straight quarter of underwriting improvement</span>",
+      "summary": "Normalised PAT rose **70%** YoY to ₹390 crore in Q2 FY27 (reported PAT ▲233% to ₹264.4 crore); claims ratio improved to ~69%, renewal book combined ratio dropped below 100%.",
+      "reference": "https://business-standard.com/amp/content/press-releases-ani/star-health-reports-normalised-pat-of-390-crores-in-q2-fy27-up-70-yoy-fifth-successive-quarter-of-underwriting-profit-improvement-126103000568_1.html",
+      "id": "0903e27e414732",
+      "origin": "agent",
+      "added_at": "2026-11-05"
+    },
+    {
+      "sn": 442,
+      "category": "Regulatory",
+      "date": "2026-10-29",
+      "subject": "Standalone insurers seek relief on expense caps",
+      "summary": "Insurers asked IRDAI to exclude mandatory/low-margin products from EOM calculations, arguing current rules create an unfair playing field versus composite general insurers.",
+      "reference": "https://economictimes.indiatimes.com/industry/banking/finance/insure/health-insurers-seek-expense-cap-tweaks/articleshow/135330238.cms",
+      "id": "13c132d611d269",
+      "origin": "agent",
+      "added_at": "2026-11-05"
+    },
     {
       "sn": 417,
       "category": "Profitability",
@@ -43,6 +164,17 @@
       "id": "13671bc4eefb46",
       "origin": "agent",
       "added_at": "2026-10-29"
+    },
+    {
+      "sn": 443,
+      "category": "GST",
+      "date": "2026-10-27",
+      "subject": "<span style=\"color:#F59E0B;font-weight:600\">GST relief seen as insufficient for affordability</span>",
+      "summary": "At the BS BFSI Insight Summit 2026, experts said the Sept-2025 GST exemption eased costs but high medical inflation, underinsurance and trust deficits remain bigger barriers to broader coverage.",
+      "reference": "https://business-standard.com/amp/specials/bs-events/gst-relief-not-enough-to-make-health-insurance-affordable-say-experts-126102701362_1.html",
+      "id": "19388b6b4bd44d",
+      "origin": "agent",
+      "added_at": "2026-11-05"
     },
     {
       "sn": 422,
@@ -131,6 +263,17 @@
       "id": "037cc3c724cda6",
       "origin": "agent",
       "added_at": "2026-10-26"
+    },
+    {
+      "sn": 444,
+      "category": "Profitability",
+      "date": "2026-10-23",
+      "subject": "<span style=\"color:#EF4444;font-weight:600\">Govt admits hospitals overcharge patients up to 700% on medicines</span>",
+      "summary": "In a Supreme Court affidavit, the government acknowledged hospital overcharging on medicines/consumables (margins of **100–1,000%+**) — a structural cost pressure now under dedicated IRDAI billing-practices consultation.",
+      "reference": "https://economictimes.indiatimes.com/news/new-updates/hospitals-overcharge-patients-upto-700-on-medicines-while-india-makes-some-of-the-worlds-lowest-priced-drugs-centre-admits-to-sc/articleshow/135140079.cms",
+      "id": "16baf12876a14a",
+      "origin": "agent",
+      "added_at": "2026-11-05"
     },
     {
       "sn": 405,
@@ -395,6 +538,17 @@
       "id": "00e2979cb103f4",
       "origin": "agent",
       "added_at": "2026-10-12"
+    },
+    {
+      "sn": 445,
+      "category": "GST",
+      "date": "2026-10-08",
+      "subject": "<span style=\"color:#22C55E;font-weight:600\">GST Council allows ITC on group health & life insurance</span>",
+      "summary": "The 57th GST Council recommended removing the Section 17(5)(b)(i) ITC block on employer-sponsored group covers, expected to cut effective costs for employers (especially MSMEs) and widen group health adoption.",
+      "reference": "https://business-standard.com/finance/insurance/gst-council-allows-employers-to-claim-itc-on-group-insurance-coverage-126100801488_1.html",
+      "id": "1c960e8659b7a2",
+      "origin": "agent",
+      "added_at": "2026-11-05"
     },
     {
       "sn": 428,
@@ -1660,6 +1814,17 @@
       "id": "1ffd8beaa49a35",
       "origin": "agent",
       "added_at": "2026-08-20"
+    },
+    {
+      "sn": 446,
+      "category": "General",
+      "date": "2026-08-17",
+      "subject": "<span style=\"color:#22C55E;font-weight:600\">Health insurance: fastest-growing GI segment in FY26</span>",
+      "summary": "BCG/industry data show India's general insurance industry grew **9%** in FY26 to ₹3.36 lakh crore, with health insurance the standout at **17%** full-year growth (vs 10% in H1) — a structural tailwind for standalone insurers.",
+      "reference": "https://www.fortuneindia.com/amp/story/business-news/indias-general-insurance-industry-grows-9-in-fy26-to-336-lakh-crore-bcg-report/154376",
+      "id": "120816c82f641a",
+      "origin": "agent",
+      "added_at": "2026-11-05"
     },
     {
       "sn": 249,
