@@ -4,8 +4,8 @@
     "description": "AI-generated market intelligence for the SAHI health insurers — investor meets, earnings/board dates, sector & regulatory news, share catalysts. Web-sourced; each item links its source. AI-generated, not audited.",
     "schema_version": "1.0.0",
     "dataset": "ai_generated",
-    "last_updated": "2026-11-05",
-    "last_successful_run": "2026-11-05T17:47:13.461Z",
+    "last_updated": "2026-11-06",
+    "last_successful_run": "2026-11-06T08:46:45.063Z",
     "upstream_sources": [
       "muns_agent_web"
     ],
@@ -43,6 +43,21 @@
       "source_published_at": "2026-10-15",
       "first_seen": "2026-10-18T13:40:55.982Z",
       "discovered_at": "2026-10-18T13:40:55.982Z"
+    },
+    {
+      "id": "fe54d3ce10",
+      "company_id": "sector",
+      "date": null,
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "<span style=\"color:#F59E0B;font-weight:600\">watch</span> <span style=\"background:#FFFBEB;padding:2px 6px;border-radius:4px;\">key signal</span>",
+      "detail": "Star Health in early talks with Japanese strategic investors over possible stake sale",
+      "source_name": null,
+      "source_url": null,
+      "source_published_at": null,
+      "first_seen": "2026-11-06T08:46:45.063Z",
+      "discovered_at": "2026-11-06T08:46:45.063Z"
     },
     {
       "id": "66289848a6",
@@ -898,21 +913,6 @@
       "source_published_at": null,
       "first_seen": "2026-10-23T14:32:24.163Z",
       "discovered_at": "2026-10-23T14:32:24.163Z"
-    },
-    {
-      "id": "b2fd6618f7",
-      "company_id": "niva-bupa",
-      "date": "2026-10-19",
-      "kind": "rating",
-      "horizon": "recent",
-      "impact": "neutral",
-      "headline": "MarketsMojo downgrades Niva Bupa to 'Sell",
-      "detail": "Rating cut from Hold to Sell on valuation/technical concerns despite strong operational growth — directly bearish signal for near-term sentiment.",
-      "source_name": "marketsmojo.com",
-      "source_url": "https://www.marketsmojo.com/news/stock-recommendation/niva-bupa-health-insurance-downgraded-to-sell-amid-technical-and-valuation-concerns-4230823",
-      "source_published_at": "2026-10-19",
-      "first_seen": "2026-10-21T06:47:50.767Z",
-      "discovered_at": "2026-10-21T06:47:50.767Z"
     }
   ]
 }
