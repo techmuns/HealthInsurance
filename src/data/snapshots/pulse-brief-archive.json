@@ -62917,10 +62917,10 @@
         "company": "Niva Bupa",
         "companyId": "niva-bupa",
         "generatedAt": "2026-11-06T08:51:10.448Z",
-        "lastUpdatedAt": "2026-11-06T08:51:10.448Z",
+        "lastUpdatedAt": "2026-11-06T17:06:55.862Z",
         "status": "Constructive",
         "sourceConfidence": "Medium",
-        "itemCount": 16,
+        "itemCount": 15,
         "runs": [
           {
             "runTime": "2026-11-06T08:51:10.448Z",
@@ -62928,19 +62928,26 @@
             "sourceCount": 18,
             "ideas": 6,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-11-06T17:06:55.862Z",
+            "developments": 26,
+            "sourceCount": 17,
+            "ideas": 6,
+            "status": "ok"
           }
         ],
         "brief": {
-          "greeting": "Good morning",
+          "greeting": "Good evening",
           "narrative": "Regulatory pressure is the main watch item for health insurers today. Niva Bupa is under pressure on premium growth and demand, but claims-cost and conduct scrutiny will decide whether the strength is sustainable.",
           "attentionCount": 6,
-          "developmentsCount": 27,
-          "sourcesCount": 18,
-          "domainsCount": 13,
-          "confidencePct": 75,
+          "developmentsCount": 26,
+          "sourcesCount": 17,
+          "domainsCount": 12,
+          "confidencePct": 76,
           "confidenceTier": "Medium",
           "readingMins": 3,
-          "lastUpdatedLabel": "6 Nov, 08:46 am"
+          "lastUpdatedLabel": "6 Nov, 05:02 pm"
         },
         "message": {
           "since": "Since the last brief, one regulatory update moved into focus, and Niva Bupa is back in the news for premium growth.",
@@ -63252,89 +63259,6 @@
             "independentSources": 1
           },
           {
-            "id": "58ba82f4ff",
-            "entity": "Niva Bupa",
-            "stars": 4,
-            "reasoning": [
-              "The reported dismissal with nominal ₹1 costs creates reputational risk, not a ₹5 crore financial penalty against the insurer.",
-              "Solvency 3.03x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency."
-            ],
-            "whatToWatch": "Whether the sector move feeds through to premium growth and pricing.",
-            "confidencePct": 78,
-            "evidenceCount": 3,
-            "status": "Risk",
-            "category": "Sector Catalyst",
-            "why": {
-              "whatHappened": "Delhi High Court dismisses ₹5 crore suit against influencer",
-              "whyItMatters": "The reported dismissal with nominal ₹1 costs creates reputational risk, not a ₹5 crore financial penalty against the insurer.",
-              "whoAffected": "Niva Bupa directly — its premium growth, margins and shareholders.",
-              "historicalContext": "Solvency 3.03x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency.",
-              "potentialImpact": "Solvency vs the 1.5x regulatory floor",
-              "whatToWatch": "Whether the sector move feeds through to premium growth and pricing."
-            },
-            "action": {
-              "id": "margins",
-              "label": "Compare Niva Bupa margin",
-              "icon": "margins",
-              "target": {
-                "page": "sahi",
-                "sahiTab": "profitability",
-                "company": "niva-bupa",
-                "focus": {
-                  "id": "pulse-margins",
-                  "metricKey": "combined_ratio",
-                  "metricLabel": "Combined ratio",
-                  "company": "niva-bupa",
-                  "companyLabel": "Niva Bupa",
-                  "comparisonType": "YoY",
-                  "tone": "neutral",
-                  "insightLabel": "Underwriting margin — combined ratio",
-                  "unit": "%",
-                  "higherIsBetter": false,
-                  "sahiTab": "profitability",
-                  "origin": "pulse"
-                }
-              }
-            },
-            "isBreaking": false,
-            "isNew": false,
-            "freshness": "existing",
-            "freshnessLabel": "Existing context",
-            "publishedLabel": "—",
-            "discoveredLabel": "23 Oct",
-            "sources": [
-              {
-                "kind": "News",
-                "name": "thehindu.com",
-                "url": "https://www.thehindu.com/news/cities/Delhi/delhi-high-court-imposes-1-cost-on-niva-bupa-over-5-crore-suit-against-influencer/article71604625.ece"
-              },
-              {
-                "kind": "News",
-                "name": "nsearchives.nseindia.com",
-                "url": "https://nsearchives.nseindia.com/corporate/MAXBUPA_15102026164236_Call_Option_Intimation_and_Notice_Final.pdf"
-              },
-              {
-                "kind": "Market data",
-                "name": "Derived from insurer-annual-snapshot + industry-segment-premium",
-                "url": "https://transactions.nivabupa.com/pages/doc/investor-relations/other-fin-disclosures/Press-Release-Results-March-2025.pdf"
-              }
-            ],
-            "impact": "Risk",
-            "scope": "company",
-            "companyId": "niva-bupa",
-            "sourceUrl": "https://www.thehindu.com/news/cities/Delhi/delhi-high-court-imposes-1-cost-on-niva-bupa-over-5-crore-suit-against-influencer/article71604625.ece",
-            "sourceConfidence": "Low",
-            "clusterSize": 1,
-            "clusterSources": [
-              {
-                "kind": "News",
-                "name": "thehindu.com",
-                "url": "https://www.thehindu.com/news/cities/Delhi/delhi-high-court-imposes-1-cost-on-niva-bupa-over-5-crore-suit-against-influencer/article71604625.ece"
-              }
-            ],
-            "independentSources": 1
-          },
-          {
             "id": "e177329d8d",
             "entity": "ICICI Securities initiates/reiterates Buy on Star Health, target ₹605",
             "stars": 4,
@@ -63414,6 +63338,75 @@
                 "kind": "Analyst report",
                 "name": "moneycontrol.com",
                 "url": "https://www.moneycontrol.com/news/business/buy-star-health-and-allied-insurance-target-of-rs-605-icici-securities-14067639.html/amp"
+              }
+            ],
+            "independentSources": 1
+          },
+          {
+            "id": "fd3df807f3",
+            "entity": "Star Health Q2 FY27 net profit surges 232% YoY to ₹264.4 cr on improved claims ratio",
+            "stars": 3,
+            "reasoning": [
+              "Sector peer's sharp underwriting-driven profit jump (claims ratio improved to 69%) is a positive read-through for standalone health insurers' pricing/claims trends.",
+              "Retail and public the market cut their stake in Niva Bupa from 25.4% to 18.7% during Q1 FY26."
+            ],
+            "whatToWatch": "The next disclosure for confirmation of the trend.",
+            "confidencePct": 76,
+            "evidenceCount": 3,
+            "status": "Constructive",
+            "category": "Filing",
+            "why": {
+              "whatHappened": "Star Health Q2 FY27 net profit surges 232% YoY to ₹264.4 cr on improved claims ratio",
+              "whyItMatters": "Sector peer's sharp underwriting-driven profit jump (claims ratio improved to 69%) is a positive read-through for standalone health insurers' pricing/claims trends.",
+              "whoAffected": "The broader health-insurance sector and its listed players.",
+              "historicalContext": "Retail and public the market cut their stake in Niva Bupa from 25.4% to 18.7% during Q1 FY26.",
+              "potentialImpact": "Next shareholding filing — Public reverting toward 25.4%.",
+              "whatToWatch": "The next disclosure for confirmation of the trend."
+            },
+            "action": {
+              "id": "source",
+              "label": "Verify Niva Bupa sources",
+              "icon": "source",
+              "target": {
+                "page": "audit",
+                "company": "niva-bupa"
+              }
+            },
+            "isBreaking": false,
+            "isNew": false,
+            "freshLabel": "Newly surfaced",
+            "freshness": "newly-surfaced",
+            "freshnessLabel": "Newly surfaced",
+            "publishedLabel": "28 Oct",
+            "discoveredLabel": "5 Nov",
+            "sources": [
+              {
+                "kind": "Filing",
+                "name": "economictimes.indiatimes.com",
+                "url": "https://economictimes.indiatimes.com/markets/stocks/earnings/star-health-and-allied-insurance-reports-232-profit-surge-at-rs-264-4-crore/articleshow/135249329.cms"
+              },
+              {
+                "kind": "Market data",
+                "name": "Q4 FY25 earnings call",
+                "url": "https://transactions.nivabupa.com/pages/doc/investor-relations/Earnings-Calls/2024-2025/Earnings-Call-Transcript-Q4-FY-2025.pdf"
+              },
+              {
+                "kind": "Market data",
+                "name": "1 curated source-backed insight",
+                "url": ""
+              }
+            ],
+            "impact": "Positive",
+            "scope": "sector",
+            "companyId": null,
+            "sourceUrl": "https://economictimes.indiatimes.com/markets/stocks/earnings/star-health-and-allied-insurance-reports-232-profit-surge-at-rs-264-4-crore/articleshow/135249329.cms",
+            "sourceConfidence": "Medium",
+            "clusterSize": 1,
+            "clusterSources": [
+              {
+                "kind": "Filing",
+                "name": "economictimes.indiatimes.com",
+                "url": "https://economictimes.indiatimes.com/markets/stocks/earnings/star-health-and-allied-insurance-reports-232-profit-surge-at-rs-264-4-crore/articleshow/135249329.cms"
               }
             ],
             "independentSources": 1
@@ -116801,7 +116794,7 @@
         "company": "Star Health",
         "companyId": "star-health",
         "generatedAt": "2026-11-06T08:51:10.448Z",
-        "lastUpdatedAt": "2026-11-06T08:51:10.448Z",
+        "lastUpdatedAt": "2026-11-06T17:06:55.862Z",
         "status": "Constructive",
         "sourceConfidence": "Medium",
         "itemCount": 14,
@@ -116812,10 +116805,17 @@
             "sourceCount": 15,
             "ideas": 6,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-11-06T17:06:55.862Z",
+            "developments": 17,
+            "sourceCount": 15,
+            "ideas": 6,
+            "status": "ok"
           }
         ],
         "brief": {
-          "greeting": "Good morning",
+          "greeting": "Good evening",
           "narrative": "Regulatory pressure is the main watch item for health insurers today. Star Health remains supported by premium growth and demand, but claims-cost and conduct scrutiny will decide whether the strength is sustainable.",
           "attentionCount": 6,
           "developmentsCount": 17,
@@ -116824,7 +116824,7 @@
           "confidencePct": 76,
           "confidenceTier": "Medium",
           "readingMins": 3,
-          "lastUpdatedLabel": "6 Nov, 08:46 am"
+          "lastUpdatedLabel": "6 Nov, 05:02 pm"
         },
         "message": {
           "since": "No company-specific movement for Star Health since the last brief — the read below is sector & regulatory context that applies across standalone health insurers.",
@@ -172200,7 +172200,7 @@
         "company": "Care Health",
         "companyId": "care-health",
         "generatedAt": "2026-11-06T08:51:10.448Z",
-        "lastUpdatedAt": "2026-11-06T08:51:10.448Z",
+        "lastUpdatedAt": "2026-11-06T17:06:55.862Z",
         "status": "Watch",
         "sourceConfidence": "Medium",
         "itemCount": 13,
@@ -172211,10 +172211,17 @@
             "sourceCount": 14,
             "ideas": 6,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-11-06T17:06:55.862Z",
+            "developments": 16,
+            "sourceCount": 14,
+            "ideas": 6,
+            "status": "ok"
           }
         ],
         "brief": {
-          "greeting": "Good morning",
+          "greeting": "Good evening",
           "narrative": "Regulatory pressure is the main watch item for health insurers today. Care Health is under pressure on premium growth and demand, but claims-cost and conduct scrutiny will decide whether the strength is sustainable.",
           "attentionCount": 6,
           "developmentsCount": 16,
@@ -172223,7 +172230,7 @@
           "confidencePct": 76,
           "confidenceTier": "Medium",
           "readingMins": 4,
-          "lastUpdatedLabel": "6 Nov, 08:46 am"
+          "lastUpdatedLabel": "6 Nov, 05:02 pm"
         },
         "message": {
           "since": "No company-specific movement for Care Health since the last brief — the read below is sector & regulatory context that applies across standalone health insurers.",
@@ -224638,7 +224645,7 @@
         "company": "Aditya Birla",
         "companyId": "aditya-birla",
         "generatedAt": "2026-11-06T08:51:10.448Z",
-        "lastUpdatedAt": "2026-11-06T08:51:10.448Z",
+        "lastUpdatedAt": "2026-11-06T17:06:55.862Z",
         "status": "Watch",
         "sourceConfidence": "Medium",
         "itemCount": 13,
@@ -224649,10 +224656,17 @@
             "sourceCount": 14,
             "ideas": 6,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-11-06T17:06:55.862Z",
+            "developments": 14,
+            "sourceCount": 14,
+            "ideas": 6,
+            "status": "ok"
           }
         ],
         "brief": {
-          "greeting": "Good morning",
+          "greeting": "Good evening",
           "narrative": "Regulatory pressure is the main watch item for health insurers today. Aditya Birla is under pressure on premium growth and demand, but claims-cost and conduct scrutiny will decide whether the strength is sustainable.",
           "attentionCount": 6,
           "developmentsCount": 14,
@@ -224661,7 +224675,7 @@
           "confidencePct": 76,
           "confidenceTier": "Medium",
           "readingMins": 3,
-          "lastUpdatedLabel": "6 Nov, 08:46 am"
+          "lastUpdatedLabel": "6 Nov, 05:02 pm"
         },
         "message": {
           "since": "No company-specific movement for Aditya Birla since the last brief — the read below is sector & regulatory context that applies across standalone health insurers.",
@@ -277780,7 +277794,7 @@
         "company": "ManipalCigna",
         "companyId": "manipalcigna",
         "generatedAt": "2026-11-06T08:51:10.448Z",
-        "lastUpdatedAt": "2026-11-06T08:51:10.448Z",
+        "lastUpdatedAt": "2026-11-06T17:06:55.862Z",
         "status": "Watch",
         "sourceConfidence": "Medium",
         "itemCount": 12,
@@ -277791,10 +277805,17 @@
             "sourceCount": 13,
             "ideas": 6,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-11-06T17:06:55.862Z",
+            "developments": 15,
+            "sourceCount": 13,
+            "ideas": 6,
+            "status": "ok"
           }
         ],
         "brief": {
-          "greeting": "Good morning",
+          "greeting": "Good evening",
           "narrative": "Regulatory pressure is the main watch item for health insurers today. ManipalCigna is under pressure on premium growth and demand, but claims-cost and conduct scrutiny will decide whether the strength is sustainable.",
           "attentionCount": 6,
           "developmentsCount": 15,
@@ -277803,7 +277824,7 @@
           "confidencePct": 76,
           "confidenceTier": "Medium",
           "readingMins": 3,
-          "lastUpdatedLabel": "6 Nov, 08:46 am"
+          "lastUpdatedLabel": "6 Nov, 05:02 pm"
         },
         "message": {
           "since": "No company-specific movement for ManipalCigna since the last brief — the read below is sector & regulatory context that applies across standalone health insurers.",
@@ -278432,6 +278453,6 @@
     "snapshot_id": "pulse-brief-archive",
     "description": "Immutable per-calendar-day Pulse brief records (IST), one per company. Past days are frozen exactly as shown that day; the live Today view recomposes. Kept ~90 days per company.",
     "last_updated": "2026-11-06",
-    "last_successful_run": "2026-11-06T08:51:10.448Z"
+    "last_successful_run": "2026-11-06T17:06:55.862Z"
   }
 }
