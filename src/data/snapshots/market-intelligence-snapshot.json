@@ -5,7 +5,7 @@
     "schema_version": "1.0.0",
     "dataset": "ai_generated",
     "last_updated": "2026-11-07",
-    "last_successful_run": "2026-11-07T08:00:54.100Z",
+    "last_successful_run": "2026-11-07T15:59:27.358Z",
     "upstream_sources": [
       "muns_agent_web"
     ],
@@ -43,6 +43,36 @@
       "source_published_at": "2026-10-15",
       "first_seen": "2026-10-18T13:40:55.982Z",
       "discovered_at": "2026-10-18T13:40:55.982Z"
+    },
+    {
+      "id": "91533b7530",
+      "company_id": "sector",
+      "date": null,
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "<span style=\"color:#22C55E;font-weight:600\">▲ positive</span>",
+      "detail": "IRDAI master circular eases insurer capital-raising/M&A rules",
+      "source_name": null,
+      "source_url": null,
+      "source_published_at": null,
+      "first_seen": "2026-11-07T15:59:27.358Z",
+      "discovered_at": "2026-11-07T15:59:27.358Z"
+    },
+    {
+      "id": "39d7d8b123",
+      "company_id": "sector",
+      "date": null,
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "<span style=\"color:#F59E0B;font-weight:600\">▬ watch</span>",
+      "detail": "Health insurance premiums up 25–41% a year after GST exemption",
+      "source_name": null,
+      "source_url": null,
+      "source_published_at": null,
+      "first_seen": "2026-11-07T15:59:27.358Z",
+      "discovered_at": "2026-11-07T15:59:27.358Z"
     },
     {
       "id": "fe54d3ce10",
@@ -883,36 +913,6 @@
       "source_published_at": null,
       "first_seen": "2026-10-25T14:00:59.865Z",
       "discovered_at": "2026-10-25T14:00:59.865Z"
-    },
-    {
-      "id": "0af4883451",
-      "company_id": "niva-bupa",
-      "date": "2026-10-22",
-      "kind": "rating",
-      "horizon": "recent",
-      "impact": "watch",
-      "headline": "Broker consensus target **₹99.09** vs. MarketsMojo \"Sell",
-      "detail": "<span style=\"color:#F59E0B;font-weight:600\">Divergence</span> between bullish broker consensus and a bearish quant/technical call creates a valuation tug‑of‑war likely to drive volatility into results.",
-      "source_name": null,
-      "source_url": null,
-      "source_published_at": null,
-      "first_seen": "2026-10-22T06:55:33.826Z",
-      "discovered_at": "2026-10-22T06:55:33.826Z"
-    },
-    {
-      "id": "c3d9bdf855",
-      "company_id": "sector",
-      "date": null,
-      "kind": "sector_news",
-      "horizon": "recent",
-      "impact": "neutral",
-      "headline": "<span style=\"color:#EF4444;font-weight:600\">negative</span>",
-      "detail": "Brokerage (MarketsMojo) downgrades stock to \"Sell",
-      "source_name": null,
-      "source_url": null,
-      "source_published_at": null,
-      "first_seen": "2026-10-22T06:55:33.826Z",
-      "discovered_at": "2026-10-22T06:55:33.826Z"
     }
   ]
 }
