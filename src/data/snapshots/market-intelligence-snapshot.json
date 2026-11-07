@@ -4,8 +4,8 @@
     "description": "AI-generated market intelligence for the SAHI health insurers — investor meets, earnings/board dates, sector & regulatory news, share catalysts. Web-sourced; each item links its source. AI-generated, not audited.",
     "schema_version": "1.0.0",
     "dataset": "ai_generated",
-    "last_updated": "2026-11-06",
-    "last_successful_run": "2026-11-06T17:02:33.285Z",
+    "last_updated": "2026-11-07",
+    "last_successful_run": "2026-11-07T08:00:54.100Z",
     "upstream_sources": [
       "muns_agent_web"
     ],
@@ -90,6 +90,21 @@
       "discovered_at": "2026-11-06T17:02:33.285Z"
     },
     {
+      "id": "eee88d7534",
+      "company_id": "sector",
+      "date": "2026-11-06",
+      "kind": "catalyst",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "Valuation flagged \"very expensive\" by MarketsMojo",
+      "detail": "Elevated PE/PB multiples vs. own history raise re-rating/correction risk even as operating metrics improve. [source](https://www.marketsmojo.com/news/stocks-in-action/niva-bupa-health-insurance-valuation-shifts-signal-elevated-price-risk-4253225)",
+      "source_name": null,
+      "source_url": null,
+      "source_published_at": null,
+      "first_seen": "2026-11-07T08:00:54.100Z",
+      "discovered_at": "2026-11-07T08:00:54.100Z"
+    },
+    {
       "id": "66289848a6",
       "company_id": "sector",
       "date": null,
@@ -165,6 +180,21 @@
       "discovered_at": "2026-11-05T17:47:13.461Z"
     },
     {
+      "id": "81f55bb5dc",
+      "company_id": "sector",
+      "date": "2026-11-05",
+      "kind": "rating",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "Nomura retains <span style=\"color:#22C55E;font-weight:600\">Buy</span>, Rs105 target after Q2 beat",
+      "detail": "Core insurance result beat Nomura's estimate by <span style=\"color:#22C55E;font-weight:600\">▲56%</span>, implying <span style=\"color:#22C55E;font-weight:600\">~36% upside</span> at Jun'28 P/B ~4x / P/E ~29.2x, reinforcing the bullish brokerage stance. [source](https://www.moneycontrol.com/news/business/stocks/niva-bupa-s-core-insurance-result-beats-nomura-estimate-by-56-rs-105-target-retained-14070996.html)",
+      "source_name": null,
+      "source_url": null,
+      "source_published_at": null,
+      "first_seen": "2026-11-07T08:00:54.100Z",
+      "discovered_at": "2026-11-07T08:00:54.100Z"
+    },
+    {
       "id": "ad96151e0c",
       "company_id": "sector",
       "date": null,
@@ -238,6 +268,36 @@
       "source_published_at": "2026-11-05",
       "first_seen": "2026-11-05T17:47:13.461Z",
       "discovered_at": "2026-11-05T17:47:13.461Z"
+    },
+    {
+      "id": "1aa403c719",
+      "company_id": "sector",
+      "date": "2026-11-04",
+      "kind": "earnings",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "<span style=\"background:#F0FDF4;padding:2px 6px;border-radius:4px;color:#22C55E;font-weight:600\">Q2 FY27 PAT surges ▲124% YoY to ₹135.64 cr</span>",
+      "detail": "GWP grew <span style=\"color:#22C55E;font-weight:600\">▲35% YoY to ₹2,484 cr</span> and the combined insurance-service ratio improved <span style=\"color:#22C55E;font-weight:600\">~342bps to 93.2%</span>, reinforcing the underwriting-turnaround thesis. [source](https://economictimes.indiatimes.com/markets/stocks/earnings/niva-bupa-q2-yoy-profit-after-tax-soars-124/articleshow/135555889.cms)",
+      "source_name": null,
+      "source_url": null,
+      "source_published_at": null,
+      "first_seen": "2026-11-07T08:00:54.100Z",
+      "discovered_at": "2026-11-07T08:00:54.100Z"
+    },
+    {
+      "id": "827469df4c",
+      "company_id": "sector",
+      "date": "2026-11-04",
+      "kind": "catalyst",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "Six-month ban on new locations after FY25 EOM breach",
+      "detail": "Expense-of-management ratio hit <span style=\"color:#EF4444;font-weight:600\">▲39.22%</span> vs. the 35.55% regulatory cap, triggering a growth-limiting sanction on branch expansion. [source](https://multibagg.ai/market-pulse/articles/niva-bupa-eom-location-restriction-announcement-cmw379bjl00dh2gtarydziruv)",
+      "source_name": null,
+      "source_url": null,
+      "source_published_at": null,
+      "first_seen": "2026-11-07T08:00:54.100Z",
+      "discovered_at": "2026-11-07T08:00:54.100Z"
     },
     {
       "id": "3a93d460b2",
@@ -853,66 +913,6 @@
       "source_published_at": null,
       "first_seen": "2026-10-22T06:55:33.826Z",
       "discovered_at": "2026-10-22T06:55:33.826Z"
-    },
-    {
-      "id": "58779baf3d",
-      "company_id": "sector",
-      "date": null,
-      "kind": "sector_news",
-      "horizon": "recent",
-      "impact": "neutral",
-      "headline": "<span style=\"color:#F59E0B;font-weight:600\">watch</span>",
-      "detail": "IRDAI's distribution-reform master circular timeline slips to Jan 2027",
-      "source_name": null,
-      "source_url": null,
-      "source_published_at": null,
-      "first_seen": "2026-10-22T06:55:33.826Z",
-      "discovered_at": "2026-10-22T06:55:33.826Z"
-    },
-    {
-      "id": "dbd87ecf69",
-      "company_id": "sector",
-      "date": null,
-      "kind": "sector_news",
-      "horizon": "recent",
-      "impact": "neutral",
-      "headline": "<span style=\"color:#22C55E;font-weight:600\">positive</span>",
-      "detail": "**IND AAA** rating assigned to proposed **₹500 Cr** NCD",
-      "source_name": null,
-      "source_url": null,
-      "source_published_at": null,
-      "first_seen": "2026-10-22T06:55:33.826Z",
-      "discovered_at": "2026-10-22T06:55:33.826Z"
-    },
-    {
-      "id": "159afbd1ce",
-      "company_id": "sector",
-      "date": null,
-      "kind": "sector_news",
-      "horizon": "recent",
-      "impact": "neutral",
-      "headline": "<span style=\"color:#22C55E;font-weight:600\">positive</span> ▲",
-      "detail": "GST Council allows employers to claim ITC on group health/life insurance",
-      "source_name": null,
-      "source_url": null,
-      "source_published_at": null,
-      "first_seen": "2026-10-21T06:47:50.767Z",
-      "discovered_at": "2026-10-21T06:47:50.767Z"
-    },
-    {
-      "id": "5efec3e169",
-      "company_id": "sector",
-      "date": null,
-      "kind": "sector_news",
-      "horizon": "recent",
-      "impact": "neutral",
-      "headline": "<span style=\"background:#FEF2F2;color:#EF4444;font-weight:600;padding:2px 6px;border-radius:4px;\">watch — cost pressure</span>",
-      "detail": "Nomura flags IRDAI's proposed EoM/commission rules as cost pressure on insurers",
-      "source_name": null,
-      "source_url": null,
-      "source_published_at": null,
-      "first_seen": "2026-10-21T06:47:50.767Z",
-      "discovered_at": "2026-10-21T06:47:50.767Z"
     }
   ]
 }
