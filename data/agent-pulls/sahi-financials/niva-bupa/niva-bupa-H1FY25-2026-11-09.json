@@ -1,0 +1,8 @@
+<task>
+<1>
+<think>I need to set up todos and fetch these documents directly using the research route to pull each PDF and the investor relations page. I'll start with a WriteTodos step, then dispatch parallel research steps using WebReader/DocumentFetch for each external URL.
+
+My plan: s1 writes all 5 docs as in-progress todos. s2 fetches the Sept 30 2024 financial results PDF for GWP, PAT, ratios, net worth, solvency. s3 fetches the CO Regulation 6(1) document. s4 fetches the RTA Regulation 7(1) filing. s5 fetches the Investor Grievance Report. s6 fetches the investor-relations page itself to find related IRDAI disclosure links, since the compliance documents may link back there.
+
+Even though docs 2-4 look like compliance certificates rather than financial data, the instructions say to open these exact documents, so I'll dispatch all 5 as parallel research steps. Once those return, I may need to search further for a dedicated Investor Presentation H1FY25 or IRDAI NL disclosure PDF, since the investor relations page (doc 5) might link to it. I'll start with this first round of fetching all five documents.
+
