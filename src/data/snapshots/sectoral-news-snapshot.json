@@ -3,14 +3,80 @@
     "snapshot_id": "sectoral-news-snapshot",
     "description": "Key Sectoral News feed — a permanent seed of 31 curated portfolio-pack updates, kept current by a scheduled muns web-search agent. Each item links its source. Seed items are curated; agent items are AI-gathered (web), clearly labelled and not audited.",
     "schema_version": "1.0.0",
-    "last_updated": "2026-11-05",
-    "last_successful_run": "2026-11-05T14:08:56.949Z",
+    "last_updated": "2026-11-09",
+    "last_successful_run": "2026-11-09T15:25:41.995Z",
     "seed_count": 31,
-    "agent_count": 415,
+    "agent_count": 430,
     "generated_by": "Seed: investor portfolio pack. Updates: AI (muns agent, web search).",
     "notes": "Seed floor can never be lost. Agent items are de-duped by subject+date and verified-before-acting."
   },
   "data": [
+    {
+      "sn": 448,
+      "category": "Regulatory",
+      "date": "2026-11-09",
+      "subject": "IRDAI's five-year moratorium shields health claims from arbitrary rejection",
+      "summary": "Once a health policy completes five years of continuous coverage, insurers can no longer ordinarily reject claims citing non-disclosure, strengthening policyholder protection but raising long-tail claims-management discipline requirements.",
+      "reference": "https://the420.in/irdai-five-year-health-insurance-moratorium-rule",
+      "id": "12fcaa6cafcb98",
+      "origin": "agent",
+      "added_at": "2026-11-09"
+    },
+    {
+      "sn": 447,
+      "category": "Competition / Peers",
+      "date": "2026-11-09",
+      "subject": "HDFC MF gets IRDAI nod to raise Star Health stake to 9.99%",
+      "summary": "IRDAI approved HDFC Mutual Fund's proposal to increase its holding in Star Health and Allied Insurance to up to <span style=\"color:#22C55E;font-weight:600\">9.99%</span> of paid-up capital (from 4.49%), signalling continued institutional confidence in the stock.",
+      "reference": "https://businesstoday.in/latest/corporate/story/hdfc-mutual-fund-gets-irdai-nod-to-increase-star-health-stake-to-9-99-566557-2026-11-09",
+      "id": "0942cc1f0293c8",
+      "origin": "agent",
+      "added_at": "2026-11-09"
+    },
+    {
+      "sn": 449,
+      "category": "Profitability",
+      "date": "2026-11-06",
+      "subject": "Standalone health insurers outperform general insurers in Q2 FY27",
+      "summary": "Floods and falling fire-insurance rates pushed many general insurers (New India, ICICI Lombard, Bajaj) into underwriting losses, while standalone health insurers like Star Health (combined ratio improved to <span style=\"color:#22C55E;font-weight:600\">98%</span> from 100.9%) and Niva Bupa delivered strong earnings growth — underscoring the sector's structural resilience.",
+      "reference": "https://www.livemint.com/industry/floods-and-falling-fire-rates-hurt-general-insurers-in-september-quarter-11793939120500.html",
+      "id": "0cb473a87685e9",
+      "origin": "agent",
+      "added_at": "2026-11-09"
+    },
+    {
+      "sn": 452,
+      "category": "General",
+      "date": "2026-11-05",
+      "subject": "Tier 2/3 cities drive 351% surge in first-time health insurance buyers",
+      "summary": "Smaller cities now account for <span style=\"color:#22C55E;font-weight:600\">67%</span> of first-time buyers on platforms like Policybazaar, with average first-cover size doubling to ₹13.1 lakh — a structural expansion of the addressable market.",
+      "reference": "https://fortuneindia.com/personal-finance/first-time-health-insurance-buyers-surge-with-tier-2-and-3-cities-driving-growth/168913",
+      "id": "127e6bc4743816",
+      "origin": "agent",
+      "added_at": "2026-11-09"
+    },
+    {
+      "sn": 451,
+      "category": "Profitability",
+      "date": "2026-11-05",
+      "subject": "Aon projects India medical inflation easing to 10.1% in 2027",
+      "summary": "Medical cost inflation is expected to moderate from <span style=\"color:#F59E0B;font-weight:600\">11.5%</span> (2026) to <span style=\"color:#F59E0B;font-weight:600\">10.1%</span> (2027), but remains more than double general inflation, keeping structural pressure on insurers' claims costs and combined ratios.",
+      "reference": "https://business-standard.com/amp/finance/personal-finance/medical-costs-in-india-to-rise-10-1-in-2027-double-inflation-rate-aon-126110500576_1.html",
+      "id": "169e26f2ea15a2",
+      "origin": "agent",
+      "added_at": "2026-11-09"
+    },
+    {
+      "sn": 450,
+      "category": "Competition / Peers",
+      "date": "2026-11-05",
+      "subject": "Niva Bupa's core insurance result beats Nomura estimate by 56%",
+      "summary": "Nomura retained a 'Buy' rating and Rs 105 target on Niva Bupa after core underwriting performance beat expectations by <span style=\"color:#22C55E;font-weight:600\">56%</span>, implying FY28 P/B of ~4x and P/E of ~29.2x — a key valuation data point.",
+      "reference": "https://moneycontrol.com/news/business/stocks/niva-bupa-s-core-insurance-result-beats-nomura-estimate-by-56-rs-105-target-retained-14070996.html",
+      "id": "1b44d41d895b18",
+      "origin": "agent",
+      "added_at": "2026-11-09"
+    },
     {
       "sn": 434,
       "category": "Competition / Peers",
@@ -45,6 +111,28 @@
       "added_at": "2026-11-05"
     },
     {
+      "sn": 454,
+      "category": "Competition / Peers",
+      "date": "2026-11-04",
+      "subject": "Care Health cashless treatment suspended across Telangana hospitals",
+      "summary": "The Telangana Specialty Hospitals Association halted cashless services for Care Health policyholders over claim delays, rejections and payment disputes — highlighting <span style=\"color:#EF4444;font-weight:600\">hospital–insurer friction</span> that can hurt customer experience and renewals.",
+      "reference": "https://ntvtelugu.com/news/care-health-insurance-cashless-treatment-stopped-in-telangana-hospitals-1032351.html",
+      "id": "08b36dd1bc2207",
+      "origin": "agent",
+      "added_at": "2026-11-09"
+    },
+    {
+      "sn": 453,
+      "category": "Profitability",
+      "date": "2026-11-04",
+      "subject": "Niva Bupa turns underwriting profit as retail premiums jump 47%",
+      "summary": "Strong retail health growth combined with cost efficiencies and lower claims ratios drove Niva Bupa to an <span style=\"color:#22C55E;font-weight:600\">underwriting profit</span> in Q2 FY27, alongside H1 PAT doubling to ₹273.4 crore (GWP ₹4,634 crore) — a key margin inflection.",
+      "reference": "https://reinasia.com/niva-bupa-turns-underwriting-profit-as-retail-health-premiums-rise-47-in-q2/",
+      "id": "117b258144c7f5",
+      "origin": "agent",
+      "added_at": "2026-11-09"
+    },
+    {
       "sn": 437,
       "category": "Profitability",
       "date": "2026-11-04",
@@ -76,6 +164,28 @@
       "id": "1aa93669007bdc",
       "origin": "agent",
       "added_at": "2026-11-05"
+    },
+    {
+      "sn": 455,
+      "category": "Regulatory",
+      "date": "2026-11-03",
+      "subject": "IRDAI tightens ESOP and share-transfer norms for insurers",
+      "summary": "New rules require senior executives/directors to seek prior approval before exceeding prescribed ESOP shareholding limits; insurers must track direct/indirect ownership more closely — part of broader governance tightening.",
+      "reference": "https://economictimes.indiatimes.com/industry/banking/finance/insure/irdai-tightens-esop-norms-share-transfer-rules-for-insurers/articleshow/135473319.cms",
+      "id": "10d288c9d6de2d",
+      "origin": "agent",
+      "added_at": "2026-11-09"
+    },
+    {
+      "sn": 456,
+      "category": "Regulatory",
+      "date": "2026-11-02",
+      "subject": "IRDAI master circular on insurer registration, capital structure and share transfers effective",
+      "summary": "A consolidated 2026 master circular governing insurer registration, capital structure, share transfers and amalgamation took effect November 2, streamlining (and tightening) compliance obligations including for new/foreign entrants.",
+      "reference": "https://taxguru.in/corporate-law/irdai-issues-master-circular-insurer-registration-capital-structure-share-transfers-2026.html",
+      "id": "093caf82437e37",
+      "origin": "agent",
+      "added_at": "2026-11-09"
     },
     {
       "sn": 439,
@@ -120,6 +230,17 @@
       "id": "0903e27e414732",
       "origin": "agent",
       "added_at": "2026-11-05"
+    },
+    {
+      "sn": 457,
+      "category": "Regulatory",
+      "date": "2026-10-29",
+      "subject": "Standalone health insurers seek IRDAI relief on expense caps",
+      "summary": "SAHIs have asked IRDAI to revise expense-of-management calculation rules, arguing proposed distribution-reform caps create an <span style=\"color:#EF4444;font-weight:600\">uneven playing field</span> versus composite/general insurers that sell health as one of many lines.",
+      "reference": "https://whalesbook.com/news/English/insurance/Standalone-Health-Insurers-Seek-IRDAI-Relief-on-Expense-Caps/6ae3aa4e4fc30694db52cc3f",
+      "id": "1fc4663106035b",
+      "origin": "agent",
+      "added_at": "2026-11-09"
     },
     {
       "sn": 442,
@@ -463,6 +584,28 @@
       "added_at": "2026-10-12"
     },
     {
+      "sn": 459,
+      "category": "Regulatory",
+      "date": "2026-10-09",
+      "subject": "IRDAI may roll out commission-cap/distribution reforms from January 2027",
+      "summary": "The regulator is weighing Jan 1 or Apr 1, 2027 effective dates for proposed commission caps and expense-of-management overhaul, after significant pushback from brokers/agents (IBAI sought PM intervention) over the pace of change.",
+      "reference": "https://economictimes.indiatimes.com/industry/banking/finance/insure/irdai-may-roll-out-insurance-commission-caps-from-january-overhaul-distribution-rules/articleshow/134804161.cms",
+      "id": "16fcbd12bb658b",
+      "origin": "agent",
+      "added_at": "2026-11-09"
+    },
+    {
+      "sn": 458,
+      "category": "GST",
+      "date": "2026-10-09",
+      "subject": "GST Council allows input tax credit on employer group health/life insurance",
+      "summary": "The Council recommended amending Section 17(5) of the CGST Act to remove ITC restrictions on group health/life premiums paid by employers — potentially lowering effective cost of corporate cover and boosting group-health uptake, a <span style=\"color:#22C55E;font-weight:600\">tailwind</span> for insurers' group books.",
+      "reference": "https://www.business-standard.com/amp/finance/personal-finance/gst-relief-on-group-insurance-will-employees-get-higher-health-cover-126100900879_1.html",
+      "id": "199a483ae5c9e2",
+      "origin": "agent",
+      "added_at": "2026-11-09"
+    },
+    {
       "sn": 426,
       "category": "GST",
       "date": "2026-10-09",
@@ -670,6 +813,17 @@
       "id": "0574c263425650",
       "origin": "agent",
       "added_at": "2026-10-08"
+    },
+    {
+      "sn": 460,
+      "category": "GST",
+      "date": "2026-10-06",
+      "subject": "One year after GST removal, health premiums still rising sharply",
+      "summary": "Despite the September 2025 GST exemption on individual health policies, broker data show renewal premium hikes of <span style=\"color:#EF4444;font-weight:600\">25–41%</span> in 2026, raising questions on how much tax relief is reaching customers versus being absorbed by medical inflation/insurer pricing.",
+      "reference": "https://moneycontrol.com/news/business/personal-finance/how-health-insurance-premiums-have-changed-one-year-after-gst-removal-14044892.html",
+      "id": "0deb36fbcd3c62",
+      "origin": "agent",
+      "added_at": "2026-11-09"
     },
     {
       "sn": 412,
@@ -978,6 +1132,17 @@
       "id": "16879dcd37e41e",
       "origin": "agent",
       "added_at": "2026-09-28"
+    },
+    {
+      "sn": 461,
+      "category": "General",
+      "date": "2026-09-24",
+      "subject": "India's insurance penetration stuck at 3.7% of GDP",
+      "summary": "McKinsey's latest report highlights a wide protection gap, particularly in non-life/health insurance, underscoring both the long growth runway and the structural under-penetration challenge facing insurers.",
+      "reference": "https://businesstoday.in/personal-finance/story/insurance-penetration-at-3-7-where-indias-biggest-protection-gap-lies-557515-2026-09-24",
+      "id": "10e784faca2b70",
+      "origin": "agent",
+      "added_at": "2026-11-09"
     },
     {
       "sn": 414,
