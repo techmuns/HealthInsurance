@@ -7,11 +7,11 @@
     "unit_convention": "ratios -> fraction (0.65); solvency -> multiple (3.03x); premiums/PAT -> INR crore. transformation_used recorded per value.",
     "governing_objective": "accuracy > coverage; only eligible_for_excel values may later enter the workbook; every eligible value carries dashboard-ready source proof.",
     "parser": "fetch-company-filings",
-    "generated_at": "2026-09-28T11:10:34.385Z",
-    "docs_parsed": 41,
-    "records": 229,
+    "generated_at": "2026-11-10T13:02:38.362Z",
+    "docs_parsed": 42,
+    "records": 230,
     "eligible_for_excel": 195,
-    "blocked": 34
+    "blocked": 35
   },
   "data": [
     {
@@ -4138,6 +4138,41 @@
       "eligible_for_excel": false,
       "suggested_manual_fallback": "data/raw/company-filings/icici-lombard/Q3FY23/",
       "parser_notes": "NL-20 column-aware parser withheld a value (segmental_nl20_layout); column alignment not certain"
+    },
+    {
+      "company_id": "niva-bupa",
+      "source_company": "niva-bupa",
+      "metric": "(none)",
+      "raw_value": null,
+      "normalized_value": null,
+      "unit": "n/a",
+      "transformation_used": "n/a",
+      "filing_period": "Q2FY27",
+      "period_start": "2026-07-01",
+      "period_end": "2026-09-30",
+      "document_type": "quarterly_results",
+      "document_title": "Newspaper Publication Financial Results Q2 FY27 2026",
+      "filing_date": null,
+      "source_url": "https://transactions.nivabupa.com/pages/investor-relations.aspx",
+      "source_file": "data/raw/companies/niva-bupa/niva-bupa-Newspaper-Publication-Financial-Results-Q2-FY27-2026.pdf",
+      "source_description": "niva-bupa quarterly results for Q2FY27 - public source: https://transactions.nivabupa.com/pages/investor-relations.aspx",
+      "source_priority_field": "quarterly_results_url",
+      "raw_excerpt": null,
+      "checksum_sha256": "3f6653204961bc68c2de90a74e009e8452d9677df5f6d1c1d16e7efb3976cbb0",
+      "extraction_status": "no_metrics_found",
+      "sanity_status": "n/a",
+      "sanity_reason": "no recognised metric in document layout",
+      "needs_review": true,
+      "eligible_for_excel": false,
+      "suggested_manual_fallback": "data/raw/company-filings/niva-bupa/Q2FY27/",
+      "parser_notes": "Layout not matched by extractByPatterns + sanitiseQuarterly; consider a layout-specific parser or manual capture.",
+      "provenance": {
+        "source_name": "niva-bupa quarterly results for Q2FY27 - public source: https://transactions.nivabupa.com/pages/investor-relations.aspx",
+        "parser_name": "fetch-company-filings",
+        "parsed_at": "2026-11-10T13:02:47.861Z",
+        "confidence": "low",
+        "extraction_route": "none"
+      }
     },
     {
       "company_id": "niva-bupa",

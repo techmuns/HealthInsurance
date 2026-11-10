@@ -2,19 +2,19 @@
  "_meta": {
   "artifact": "ifrs-valuation-multiples",
   "schema_version": "1.0.0",
-  "generated_at": "2026-11-10T11:39:43.481890+00:00",
+  "generated_at": "2026-11-10T13:03:10.828298+00:00",
   "description": "Per-company IFRS valuation multiples (P/E = market cap / IFRS PAT; P/B = market cap / IFRS net worth), projected from the Extracted Data Audit's own resolved cells. The Competitive Positioning card and Analysis Builder read these so every valuation surface shows ONE IFRS figure per company — matching the audit grid and the Valuation tab — never the third-party screener multiple, which sits on a different, lower (statutory / TTM) earnings base. A company with no IFRS profit / net worth is absent -> honest n/a.",
   "source_artifact": "extracted-data-audit.json",
   "basis": "IFRS / listed-reporting"
  },
  "data": {
   "niva-bupa": {
-   "pe": 37.175635,
-   "pb": 3.799129
+   "pe": 38.246381,
+   "pb": 3.908553
   },
   "star-health": {
-   "pe": 33.117453,
-   "pb": 3.149927
+   "pe": 35.42371,
+   "pb": 3.369284
   }
  }
 }
