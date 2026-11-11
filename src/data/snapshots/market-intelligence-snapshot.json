@@ -5,7 +5,7 @@
     "schema_version": "1.0.0",
     "dataset": "ai_generated",
     "last_updated": "2026-11-11",
-    "last_successful_run": "2026-11-11T08:44:05.618Z",
+    "last_successful_run": "2026-11-11T17:35:16.323Z",
     "upstream_sources": [
       "muns_agent_web"
     ],
@@ -58,6 +58,21 @@
       "source_published_at": null,
       "first_seen": "2026-11-11T08:44:05.618Z",
       "discovered_at": "2026-11-11T08:44:05.618Z"
+    },
+    {
+      "id": "ee23a1cb7b",
+      "company_id": "sector",
+      "date": null,
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "<span style=\"color:#1E3A8A;font-weight:600\">watch</span>",
+      "detail": "IRDAI clears HDFC Mutual Fund to raise Star Health stake to **9.99%**",
+      "source_name": null,
+      "source_url": null,
+      "source_published_at": "2026-11-09",
+      "first_seen": "2026-11-11T17:35:16.323Z",
+      "discovered_at": "2026-11-11T17:35:16.323Z"
     },
     {
       "id": "159afbd1ce",
@@ -895,21 +910,6 @@
       "detail": "Fifth straight quarter of underwriting-profit improvement and renewal combined ratio below 100% reinforce the sector turnaround narrative — a bellwether read-through for Niva Bupa.",
       "source_name": "business-standard.com",
       "source_url": "https://business-standard.com/amp/content/press-releases-ani/star-health-reports-normalised-pat-of-390-crores-in-q2-fy27-up-70-yoy-fifth-successive-quarter-of-underwriting-profit-improvement-126103000568_1.html",
-      "source_published_at": "2026-10-30",
-      "first_seen": "2026-11-01T16:31:40.757Z",
-      "discovered_at": "2026-11-01T16:31:40.757Z"
-    },
-    {
-      "id": "b2e52c8042",
-      "company_id": "aditya-birla",
-      "date": "2026-10-30",
-      "kind": "earnings",
-      "horizon": "recent",
-      "impact": "watch",
-      "headline": "ABHI: GWP <span style=\"color:#22C55E;font-weight:600\">▲48% YoY</span> to ₹4,543cr, but PBT <span style=\"color:#EF4444;font-weight:600\">▼ to ₹46cr</span> from ₹76cr",
-      "detail": "Premium growth outpaced peers, but profit compression signals rising loss-ratio/opex pressure — a read-through risk for sector margins including Niva Bupa.",
-      "source_name": "thehindubusinessline.com",
-      "source_url": "https://thehindubusinessline.com/companies/aditya-birla-capital-net-up-38-in-q2/article71644526.ece",
       "source_published_at": "2026-10-30",
       "first_seen": "2026-11-01T16:31:40.757Z",
       "discovered_at": "2026-11-01T16:31:40.757Z"
