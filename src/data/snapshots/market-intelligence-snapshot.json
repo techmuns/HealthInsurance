@@ -4,8 +4,8 @@
     "description": "AI-generated market intelligence for the SAHI health insurers — investor meets, earnings/board dates, sector & regulatory news, share catalysts. Web-sourced; each item links its source. AI-generated, not audited.",
     "schema_version": "1.0.0",
     "dataset": "ai_generated",
-    "last_updated": "2026-11-10",
-    "last_successful_run": "2026-11-10T08:58:36.335Z",
+    "last_updated": "2026-11-11",
+    "last_successful_run": "2026-11-11T08:44:05.618Z",
     "upstream_sources": [
       "muns_agent_web"
     ],
@@ -45,6 +45,21 @@
       "discovered_at": "2026-10-18T13:40:55.982Z"
     },
     {
+      "id": "96c67082ee",
+      "company_id": "sector",
+      "date": null,
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "<span style=\"color:#F59E0B;font-weight:600\">watch</span> badge",
+      "detail": "IRDAI forms RBC/Ind-AS working groups; Niva Bupa named to non-life panel",
+      "source_name": null,
+      "source_url": null,
+      "source_published_at": null,
+      "first_seen": "2026-11-11T08:44:05.618Z",
+      "discovered_at": "2026-11-11T08:44:05.618Z"
+    },
+    {
       "id": "159afbd1ce",
       "company_id": "sector",
       "date": null,
@@ -58,6 +73,21 @@
       "source_published_at": "2026-11-02",
       "first_seen": "2026-11-10T08:58:36.335Z",
       "discovered_at": "2026-11-10T08:58:36.335Z"
+    },
+    {
+      "id": "6a2f4d57d0",
+      "company_id": "sector",
+      "date": "2026-11-09",
+      "kind": "catalyst",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "Rising institutional ownership appetite (MFs already hold **10.43%**) signals improving investor confidence in standalone health insurers broadly.",
+      "detail": "",
+      "source_name": null,
+      "source_url": null,
+      "source_published_at": null,
+      "first_seen": "2026-11-11T08:44:05.618Z",
+      "discovered_at": "2026-11-11T08:44:05.618Z"
     },
     {
       "id": "c3d9bdf855",
@@ -195,6 +225,21 @@
       "discovered_at": "2026-11-07T08:00:54.100Z"
     },
     {
+      "id": "2c68a470b1",
+      "company_id": "sector",
+      "date": "2026-11-06",
+      "kind": "rating",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "Mojo Score cut to **36** (from Hold on 19-Oct) as elevated P/E/P/B sit against a modest **9.13% ROE**.",
+      "detail": "",
+      "source_name": null,
+      "source_url": null,
+      "source_published_at": null,
+      "first_seen": "2026-11-11T08:44:05.618Z",
+      "discovered_at": "2026-11-11T08:44:05.618Z"
+    },
+    {
       "id": "66289848a6",
       "company_id": "sector",
       "date": null,
@@ -283,6 +328,21 @@
       "source_published_at": null,
       "first_seen": "2026-11-07T08:00:54.100Z",
       "discovered_at": "2026-11-07T08:00:54.100Z"
+    },
+    {
+      "id": "0572762066",
+      "company_id": "sector",
+      "date": "2026-11-05",
+      "kind": "rating",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "Jun-2028 target implies **~29x P/E / 4x P/B** — brokerage confidence despite stretched valuation.",
+      "detail": "",
+      "source_name": null,
+      "source_url": null,
+      "source_published_at": null,
+      "first_seen": "2026-11-11T08:44:05.618Z",
+      "discovered_at": "2026-11-11T08:44:05.618Z"
     },
     {
       "id": "ad96151e0c",
@@ -435,6 +495,36 @@
       "discovered_at": "2026-11-08T08:19:02.854Z"
     },
     {
+      "id": "3ce9392f87",
+      "company_id": "sector",
+      "date": "2026-11-04",
+      "kind": "earnings",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "Retail-led GWP growth (<span style=\"color:#22C55E;font-weight:600\">▲35% YoY</span>) and improving loss ratios drove the beat, though expense-ratio pressure persists.",
+      "detail": "",
+      "source_name": null,
+      "source_url": null,
+      "source_published_at": null,
+      "first_seen": "2026-11-11T08:44:05.618Z",
+      "discovered_at": "2026-11-11T08:44:05.618Z"
+    },
+    {
+      "id": "d38a3522f8",
+      "company_id": "sector",
+      "date": "2026-11-04",
+      "kind": "catalyst",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "Solvency ratio has declined for **7–8 straight quarters**; capital-adequacy trajectory remains a key watch-item ahead of RBC norms.",
+      "detail": "",
+      "source_name": null,
+      "source_url": null,
+      "source_published_at": null,
+      "first_seen": "2026-11-11T08:44:05.618Z",
+      "discovered_at": "2026-11-11T08:44:05.618Z"
+    },
+    {
       "id": "3a93d460b2",
       "company_id": "sector",
       "date": null,
@@ -508,6 +598,21 @@
       "source_published_at": "2026-11-03",
       "first_seen": "2026-11-08T08:19:02.854Z",
       "discovered_at": "2026-11-08T08:19:02.854Z"
+    },
+    {
+      "id": "c5294306b0",
+      "company_id": "sector",
+      "date": "2026-11-03",
+      "kind": "rating",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "Steady earnings trajectory balanced against a target cut flags distribution-regulation uncertainty relevant across all SAHIs.",
+      "detail": "",
+      "source_name": null,
+      "source_url": null,
+      "source_published_at": null,
+      "first_seen": "2026-11-11T08:44:05.618Z",
+      "discovered_at": "2026-11-11T08:44:05.618Z"
     },
     {
       "id": "8e89d1d62c",
@@ -808,111 +913,6 @@
       "source_published_at": "2026-10-30",
       "first_seen": "2026-11-01T16:31:40.757Z",
       "discovered_at": "2026-11-01T16:31:40.757Z"
-    },
-    {
-      "id": "6fa53ed923",
-      "company_id": "care-health",
-      "date": "2026-10-30",
-      "kind": "catalyst",
-      "horizon": "recent",
-      "impact": "neutral",
-      "headline": "Care Health (Religare arm) allots ₹150cr subordinated NCDs at 10.5%",
-      "detail": "Fresh subordinated debt bolsters solvency capital for India's #2 standalone health insurer — a capital-raise signal relevant to parent Religare Enterprises' valuation.",
-      "source_name": "scanx.trade",
-      "source_url": "https://scanx.trade/stock-market-news/debt-markets/religare-subsidiary-care-health-allots-150-crore-ncds-10-5-coupon/54926252",
-      "source_published_at": "2026-10-30",
-      "first_seen": "2026-11-01T16:31:40.757Z",
-      "discovered_at": "2026-11-01T16:31:40.757Z"
-    },
-    {
-      "id": "bc4175a59a",
-      "company_id": "sector",
-      "date": "2026-10-30",
-      "kind": "catalyst",
-      "horizon": "recent",
-      "impact": "watch",
-      "headline": "Care Health Insurance (Religare subsidiary) allots ₹150 cr subordinated NCDs at 10.5% coupon",
-      "detail": "Fresh sub-debt capital raise strengthens Care Health's solvency buffer, relevant for peer-comparison on capital adequacy within the sector.",
-      "source_name": "scanx.trade",
-      "source_url": "https://scanx.trade/stock-market-news/debt-markets/religare-subsidiary-care-health-allots-150-crore-ncds-10-5-coupon/54926252",
-      "source_published_at": "2026-10-30",
-      "first_seen": "2026-11-05T17:47:13.461Z",
-      "discovered_at": "2026-11-05T17:47:13.461Z"
-    },
-    {
-      "id": "335c23edc1",
-      "company_id": "sector",
-      "date": "2026-10-30",
-      "kind": "catalyst",
-      "horizon": "recent",
-      "impact": "neutral",
-      "headline": "Care Health Insurance (Religare) raises ₹150 cr via subordinated NCDs at 10.5%",
-      "detail": "Capital infusion into India's #2 standalone health insurer strengthens its solvency buffer, keeping competitive intensity elevated against Niva Bupa.",
-      "source_name": "scanx.trade",
-      "source_url": "https://scanx.trade/stock-market-news/debt-markets/religare-subsidiary-care-health-allots-150-crore-ncds-10-5-coupon/54926252",
-      "source_published_at": "2026-10-30",
-      "first_seen": "2026-11-08T08:19:02.854Z",
-      "discovered_at": "2026-11-08T08:19:02.854Z"
-    },
-    {
-      "id": "84195da3c4",
-      "company_id": "sector",
-      "date": null,
-      "kind": "sector_news",
-      "horizon": "recent",
-      "impact": "neutral",
-      "headline": "<span style=\"color:#EF4444;font-weight:600;background:#FEF2F2;padding:2px 6px;border-radius:4px;\">negative</span>",
-      "detail": "MarketsMojo downgrades Niva Bupa to **Sell** (▼)",
-      "source_name": "marketsmojo.com",
-      "source_url": "https://www.marketsmojo.com/news/stock-recommendation/niva-bupa-health-insurance-downgraded-to-sell-amid-technical-and-valuation-concerns-4230823",
-      "source_published_at": "2026-10-20",
-      "first_seen": "2026-10-29T07:54:29.889Z",
-      "discovered_at": "2026-10-29T07:54:29.889Z"
-    },
-    {
-      "id": "62fef7c19b",
-      "company_id": "sector",
-      "date": null,
-      "kind": "sector_news",
-      "horizon": "recent",
-      "impact": "neutral",
-      "headline": "<span style=\"color:#1E3A8A;font-weight:600\">neutral</span>",
-      "detail": "Care Health (Religare arm) raises **₹100 Cr** via subordinated debentures at **10%**",
-      "source_name": "whalesbook.com",
-      "source_url": "https://www.whalesbook.com/corporate-news/English/bankingfinance/Religare-Subsidiary-Care-Health-Insurance-Raises-Rs-100-Crore-via-Debentures/6aad3360f2017017ae6d924d",
-      "source_published_at": "2026-09-18",
-      "first_seen": "2026-10-29T07:54:29.889Z",
-      "discovered_at": "2026-10-29T07:54:29.889Z"
-    },
-    {
-      "id": "d7eb3b0eee",
-      "company_id": "sector",
-      "date": null,
-      "kind": "sector_news",
-      "horizon": "recent",
-      "impact": "neutral",
-      "headline": "<span style=\"color:#EF4444;font-weight:600\">negative</span> ▼",
-      "detail": "IRDAI bars Niva Bupa from opening new offices for 6 months over EoM breach",
-      "source_name": null,
-      "source_url": null,
-      "source_published_at": "2026-08-20",
-      "first_seen": "2026-10-29T07:54:29.889Z",
-      "discovered_at": "2026-10-29T07:54:29.889Z"
-    },
-    {
-      "id": "9c4ad447fc",
-      "company_id": "sector",
-      "date": null,
-      "kind": "sector_news",
-      "horizon": "recent",
-      "impact": "neutral",
-      "headline": "<span style=\"color:#EF4444;font-weight:600\">negative</span> ▲",
-      "detail": "Health insurance premiums up **25–41%** despite GST exemption on individual policies",
-      "source_name": null,
-      "source_url": null,
-      "source_published_at": "2026-10-06",
-      "first_seen": "2026-10-29T07:54:29.889Z",
-      "discovered_at": "2026-10-29T07:54:29.889Z"
     }
   ]
 }
