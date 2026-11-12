@@ -3,14 +3,113 @@
     "snapshot_id": "sectoral-news-snapshot",
     "description": "Key Sectoral News feed — a permanent seed of 31 curated portfolio-pack updates, kept current by a scheduled muns web-search agent. Each item links its source. Seed items are curated; agent items are AI-gathered (web), clearly labelled and not audited.",
     "schema_version": "1.0.0",
-    "last_updated": "2026-11-09",
-    "last_successful_run": "2026-11-09T15:25:41.995Z",
+    "last_updated": "2026-11-12",
+    "last_successful_run": "2026-11-12T14:45:17.681Z",
     "seed_count": 31,
-    "agent_count": 430,
+    "agent_count": 445,
     "generated_by": "Seed: investor portfolio pack. Updates: AI (muns agent, web search).",
     "notes": "Seed floor can never be lost. Agent items are de-duped by subject+date and verified-before-acting."
   },
   "data": [
+    {
+      "sn": 467,
+      "category": "General",
+      "date": "2026-11-12",
+      "subject": "Pollution-linked health claims <span style=\"color:#EF4444;font-weight:600\">▲4x in 3 years</span>",
+      "summary": "Insurer data shows claims tied to air pollution rising sharply, with ~56% concentrated in winter months and 48% of consumers in polluted cities opting for higher cover — a seasonal demand/claims driver.",
+      "reference": "https://www.business-standard.com/amp/finance/personal-finance/pollution-linked-health-claims-rise-over-4-times-in-3-years-insurer-data-126111200694_1.html",
+      "id": "0d7ec603ef48a7",
+      "origin": "agent",
+      "added_at": "2026-11-12"
+    },
+    {
+      "sn": 466,
+      "category": "General",
+      "date": "2026-11-12",
+      "subject": "Urban healthcare costs rising <span style=\"color:#EF4444;font-weight:600\">▲14% annually</span>",
+      "summary": "A Prudent Insurance Brokers survey found private healthcare inflation running at <span style=\"color:#EF4444;font-weight:600\">~3x headline CPI</span>, squeezing household budgets and pushing demand toward higher sum-insured policies.",
+      "reference": "https://timesofindia.indiatimes.com/city/mumbai/healthcare-costs-squeeze-urban-households-rise-14-annually-triple-headline-inflation/articleshow/135753898.cms",
+      "id": "010c25e63ce54a",
+      "origin": "agent",
+      "added_at": "2026-11-12"
+    },
+    {
+      "sn": 465,
+      "category": "Profitability",
+      "date": "2026-11-12",
+      "subject": "Care Health combined ratio improves to <span style=\"color:#22C55E;font-weight:600\">100.5%</span>",
+      "summary": "H1 FY27 PBT <span style=\"color:#22C55E;font-weight:600\">▲42% YoY</span> to Rs 392 cr as the combined ratio improved **70bps**, though it remains just above the 100% underwriting break-even line — margin pressure persists despite premium growth.",
+      "reference": "https://multibagg.ai/market-pulse/articles/care-health-insurance-limited-premiums-announcement-cmwdm2xbj00ku2dqpy4bwtsp6",
+      "id": "1a4f804f938abf",
+      "origin": "agent",
+      "added_at": "2026-11-12"
+    },
+    {
+      "sn": 464,
+      "category": "Regulatory",
+      "date": "2026-11-12",
+      "subject": "IRDAI commission-cap overhaul forces PB Fintech model reset",
+      "summary": "Proposed distribution commission caps and phased expense-of-management cuts pressure Policybazaar's agent/POSP network, with <span style=\"color:#EF4444;font-weight:600\">ripple effects on health insurers' bancassurance and online distribution costs</span>.",
+      "reference": "https://medianama.com/2026/11/223-irdai-pb-fintech-non-insurance-services",
+      "id": "02e3706bd8ee10",
+      "origin": "agent",
+      "added_at": "2026-11-12"
+    },
+    {
+      "sn": 463,
+      "category": "Competition / Peers",
+      "date": "2026-11-12",
+      "subject": "Care Health H1 FY27 GWP <span style=\"color:#22C55E;font-weight:600\">▲35%</span> to Rs 6,897 cr",
+      "summary": "Religare-owned Care Health held its spot as India's #2 standalone health insurer (<span style=\"color:#1E3A8A;font-weight:600\">~24% segment share</span>); retail health premium grew faster at <span style=\"color:#22C55E;font-weight:600\">▲44%</span> to Rs 4,358 cr, outpacing overall GWP growth.",
+      "reference": "https://multibagg.ai/market-pulse/articles/care-health-insurance-limited-premiums-announcement-cmwdm2xbj00ku2dqpy4bwtsp6",
+      "id": "0a0cfe0504c50b",
+      "origin": "agent",
+      "added_at": "2026-11-12"
+    },
+    {
+      "sn": 462,
+      "category": "Competition / Peers",
+      "date": "2026-11-12",
+      "subject": "Star Health launches Young Star NEO for young adults",
+      "summary": "A youth-focused policy with long-term premium benefits and wellness rewards targets India's under-30s, who remain underinsured against the <span style=\"color:#1E3A8A;font-weight:600\">70–75 crore addressable market</span>; CEO also backed IRDAI's proposed commission caps and 10% co-payment.",
+      "reference": "https://www.thehindubusinessline.com/news/star-health-bets-on-young-star-neo-to-expand-insurance-penetration-among-young-indians/article71694150.ece",
+      "id": "0dd5b34f9c205a",
+      "origin": "agent",
+      "added_at": "2026-11-12"
+    },
+    {
+      "sn": 469,
+      "category": "Competition / Peers",
+      "date": "2026-11-11",
+      "subject": "Niva Bupa H1 FY27 profit <span style=\"color:#22C55E;font-weight:600\">more than doubles</span>",
+      "summary": "GWP <span style=\"color:#22C55E;font-weight:600\">▲26%</span> to Rs 5,004 cr and PAT rose to Rs 273 cr (Ind AS) from Rs 132 cr YoY on 37% retail growth and margin gains — though solvency <span style=\"color:#EF4444;font-weight:600\">▼ to 2.03x</span> and draft commission norms drew investor scrutiny.",
+      "reference": "https://www.gurufocus.com/news/9192476/niva-bupa-health-insurance-co-ltd-nsenivabupa-q2-2027-earnings-call-highlights-profit-doubles-as-retail-growth-and-margin-gains-outpace-solvency-and-regulatory-concerns",
+      "id": "1d8fa1b8214102",
+      "origin": "agent",
+      "added_at": "2026-11-12"
+    },
+    {
+      "sn": 470,
+      "category": "Profitability",
+      "date": "2026-11-10",
+      "subject": "Niva Bupa retail loss ratio falls <span style=\"color:#22C55E;font-weight:600\">▼77bps to 67.4%</span>",
+      "summary": "Newer retail cohorts and improved underwriting lowered loss ratios, even as renewal-book claims held near 75%; combined insurance service ratio improved **365bps** to 99.5%.",
+      "reference": "https://multibagg.ai/market-pulse/articles/niva-bupa-new-retail-cohorts-concall-cmwalomjv00112qo6c3vy9ye4",
+      "id": "15307ab402a86c",
+      "origin": "agent",
+      "added_at": "2026-11-12"
+    },
+    {
+      "sn": 468,
+      "category": "Regulatory",
+      "date": "2026-11-10",
+      "subject": "IRDAI forms working groups on Risk-Based Capital (RBC) framework",
+      "summary": "Two panels given one month to draft RBC regulations aligned to Ind AS, marking a shift away from India's factor-based 150% solvency regime — a structural change that will <span style=\"color:#F59E0B;font-weight:600\">eventually recalibrate capital requirements</span> for health insurers.",
+      "reference": "https://www.business-standard.com/amp/finance/insurance/irdai-sets-up-working-groups-to-align-risk-based-capital-regime-with-ind-as-126111000842_1.html",
+      "id": "0ac9505f7aeba3",
+      "origin": "agent",
+      "added_at": "2026-11-12"
+    },
     {
       "sn": 448,
       "category": "Regulatory",
@@ -43,6 +142,17 @@
       "id": "0cb473a87685e9",
       "origin": "agent",
       "added_at": "2026-11-09"
+    },
+    {
+      "sn": 471,
+      "category": "Profitability",
+      "date": "2026-11-05",
+      "subject": "Aon: India medical costs to rise <span style=\"color:#EF4444;font-weight:600\">10.1% in 2027</span>, ~2.5x inflation",
+      "summary": "Aon's Global Medical Trend Rates Report flags continued double-digit medical cost inflation (easing slightly from 11.5% in 2026), keeping pressure on claims costs and future premium pricing sector-wide.",
+      "reference": "https://www.business-standard.com/amp/finance/personal-finance/medical-costs-in-india-to-rise-10-1-in-2027-double-inflation-rate-aon-126110500576_1.html",
+      "id": "08e9134fac9a7d",
+      "origin": "agent",
+      "added_at": "2026-11-12"
     },
     {
       "sn": 452,
@@ -210,6 +320,17 @@
       "added_at": "2026-11-05"
     },
     {
+      "sn": 472,
+      "category": "Profitability",
+      "date": "2026-10-30",
+      "subject": "Star Health Q2 FY27: claims ratio improves to <span style=\"color:#22C55E;font-weight:600\">69%</span>, 5th straight quarter of underwriting gains",
+      "summary": "Normalised PAT <span style=\"color:#22C55E;font-weight:600\">▲70% YoY</span> to Rs 390 cr; combined ratio at **98%** signals underwriting profit as AI-enabled claims processing (96% of claims) cuts costs and fraud losses.",
+      "reference": "https://business-standard.com/amp/content/press-releases-ani/star-health-reports-normalised-pat-of-390-crores-in-q2-fy27-up-70-yoy-fifth-successive-quarter-of-underwriting-profit-improvement-126103000568_1.html",
+      "id": "11e0f34eaa9e91",
+      "origin": "agent",
+      "added_at": "2026-11-12"
+    },
+    {
       "sn": 441,
       "category": "Profitability",
       "date": "2026-10-30",
@@ -285,6 +406,17 @@
       "id": "13671bc4eefb46",
       "origin": "agent",
       "added_at": "2026-10-29"
+    },
+    {
+      "sn": 473,
+      "category": "GST",
+      "date": "2026-10-27",
+      "subject": "Industry panel: GST relief alone <span style=\"color:#F59E0B;font-weight:600\">not enough</span> for affordability",
+      "summary": "At the Business Standard BFSI Summit, insurers said the Sept-2025 GST exemption helped initial demand, but the effect has <span style=\"color:#F59E0B;font-weight:600\">plateaued</span> — healthcare cost inflation remains the bigger affordability barrier.",
+      "reference": "https://business-standard.com/amp/specials/bs-events/gst-relief-not-enough-to-make-health-insurance-affordable-say-experts-126102701362_1.html",
+      "id": "0d84cea03669b5",
+      "origin": "agent",
+      "added_at": "2026-11-12"
     },
     {
       "sn": 443,
@@ -683,6 +815,17 @@
       "added_at": "2026-10-12"
     },
     {
+      "sn": 474,
+      "category": "GST",
+      "date": "2026-10-08",
+      "subject": "GST Council clears ITC on group health/life premiums",
+      "summary": "The 57th GST Council meeting recommended removing Section 17(5) ITC restrictions for employer-paid group health cover (still taxed at 18%), <span style=\"color:#22C55E;font-weight:600\">potentially lowering effective employer costs</span> and widening group coverage.",
+      "reference": "https://www.caclubindia.com/articles/57th-gst-council-health-life-insurance-itc-under-gst-section-175bi-changes-eligibility-practical-impact-56448.asp",
+      "id": "088d4b078b5a2a",
+      "origin": "agent",
+      "added_at": "2026-11-12"
+    },
+    {
       "sn": 445,
       "category": "GST",
       "date": "2026-10-08",
@@ -813,6 +956,17 @@
       "id": "0574c263425650",
       "origin": "agent",
       "added_at": "2026-10-08"
+    },
+    {
+      "sn": 475,
+      "category": "GST",
+      "date": "2026-10-06",
+      "subject": "One year post-GST exemption: premiums still rose <span style=\"color:#EF4444;font-weight:600\">25–41%</span> on renewal",
+      "summary": "Despite the Sept-2025 GST removal on individual health policies, broker data shows renewal premium hikes driven by medical inflation — the tax benefit has been <span style=\"color:#EF4444;font-weight:600\">partly offset by insurer repricing</span>.",
+      "reference": "https://www.moneycontrol.com/news/business/personal-finance/how-health-insurance-premiums-have-changed-one-year-after-gst-removal-14044892.html",
+      "id": "1c31e1e5f4666e",
+      "origin": "agent",
+      "added_at": "2026-11-12"
     },
     {
       "sn": 460,
@@ -1132,6 +1286,17 @@
       "id": "16879dcd37e41e",
       "origin": "agent",
       "added_at": "2026-09-28"
+    },
+    {
+      "sn": 476,
+      "category": "General",
+      "date": "2026-09-24",
+      "subject": "India's health insurance protection gap remains wide at <span style=\"color:#F59E0B;font-weight:600\">3.7% penetration</span>",
+      "summary": "McKinsey data shows non-life insurance penetration (incl. health) at just ~1% of GDP vs global averages — underscoring the large <span style=\"color:#1E3A8A;font-weight:600\">under-penetrated opportunity</span> standalone health insurers are chasing.",
+      "reference": "https://businesstoday.in/personal-finance/story/insurance-penetration-at-3-7-where-indias-biggest-protection-gap-lies-557515-2026-09-24",
+      "id": "1b0a8f15b1ae6a",
+      "origin": "agent",
+      "added_at": "2026-11-12"
     },
     {
       "sn": 461,
