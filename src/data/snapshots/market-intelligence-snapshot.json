@@ -4,8 +4,8 @@
     "description": "AI-generated market intelligence for the SAHI health insurers — investor meets, earnings/board dates, sector & regulatory news, share catalysts. Web-sourced; each item links its source. AI-generated, not audited.",
     "schema_version": "1.0.0",
     "dataset": "ai_generated",
-    "last_updated": "2026-11-11",
-    "last_successful_run": "2026-11-11T17:35:16.323Z",
+    "last_updated": "2026-11-12",
+    "last_successful_run": "2026-11-12T17:49:49.058Z",
     "upstream_sources": [
       "muns_agent_web"
     ],
@@ -43,6 +43,21 @@
       "source_published_at": "2026-10-15",
       "first_seen": "2026-10-18T13:40:55.982Z",
       "discovered_at": "2026-10-18T13:40:55.982Z"
+    },
+    {
+      "id": "071148012b",
+      "company_id": "sector",
+      "date": null,
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "<span style=\"color:#22C55E;font-weight:600\">watch</span>",
+      "detail": "IRDAI master circular eases insurer registration, share-transfer and M&A rules",
+      "source_name": null,
+      "source_url": null,
+      "source_published_at": null,
+      "first_seen": "2026-11-12T17:49:49.058Z",
+      "discovered_at": "2026-11-12T17:49:49.058Z"
     },
     {
       "id": "96c67082ee",
@@ -898,21 +913,6 @@
       "source_published_at": null,
       "first_seen": "2026-10-30T16:22:53.393Z",
       "discovered_at": "2026-10-30T16:22:53.393Z"
-    },
-    {
-      "id": "7e01abfcc3",
-      "company_id": "star-health",
-      "date": "2026-10-30",
-      "kind": "earnings",
-      "horizon": "recent",
-      "impact": "positive",
-      "headline": "Star Health Q2 FY27: normalised PAT <span style=\"color:#22C55E;font-weight:600\">▲70% YoY</span> to ₹390cr",
-      "detail": "Fifth straight quarter of underwriting-profit improvement and renewal combined ratio below 100% reinforce the sector turnaround narrative — a bellwether read-through for Niva Bupa.",
-      "source_name": "business-standard.com",
-      "source_url": "https://business-standard.com/amp/content/press-releases-ani/star-health-reports-normalised-pat-of-390-crores-in-q2-fy27-up-70-yoy-fifth-successive-quarter-of-underwriting-profit-improvement-126103000568_1.html",
-      "source_published_at": "2026-10-30",
-      "first_seen": "2026-11-01T16:31:40.757Z",
-      "discovered_at": "2026-11-01T16:31:40.757Z"
     }
   ]
 }

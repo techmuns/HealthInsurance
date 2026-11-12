@@ -62432,7 +62432,7 @@
         "company": "Niva Bupa",
         "companyId": "niva-bupa",
         "generatedAt": "2026-11-12T09:06:22.770Z",
-        "lastUpdatedAt": "2026-11-12T09:06:22.770Z",
+        "lastUpdatedAt": "2026-11-12T17:53:39.823Z",
         "status": "Constructive",
         "sourceConfidence": "Medium",
         "itemCount": 14,
@@ -62443,10 +62443,17 @@
             "sourceCount": 16,
             "ideas": 6,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-11-12T17:53:39.823Z",
+            "developments": 24,
+            "sourceCount": 16,
+            "ideas": 6,
+            "status": "ok"
           }
         ],
         "brief": {
-          "greeting": "Good morning",
+          "greeting": "Good evening",
           "narrative": "Regulatory pressure is the main watch item for health insurers today. Niva Bupa remains supported by premium growth and demand, but claims-cost and conduct scrutiny will decide whether the strength is sustainable.",
           "attentionCount": 6,
           "developmentsCount": 24,
@@ -62455,7 +62462,7 @@
           "confidencePct": 76,
           "confidenceTier": "Medium",
           "readingMins": 3,
-          "lastUpdatedLabel": "11 Nov, 05:35 pm"
+          "lastUpdatedLabel": "12 Nov, 05:49 pm"
         },
         "message": {
           "since": "No company-specific movement for Niva Bupa since the last brief — the read below is sector & regulatory context that applies across standalone health insurers.",
@@ -62931,6 +62938,38 @@
           }
         ],
         "sinceDeltas": [
+          {
+            "id": "reg",
+            "label": "newly surfaced regulatory updates",
+            "value": "2",
+            "direction": "up",
+            "tone": "Watch",
+            "target": {
+              "page": "sahi",
+              "sahiTab": "sector-news",
+              "company": "niva-bupa",
+              "focus": {
+                "id": "pulse-since-reg",
+                "kind": "locator",
+                "locatorKind": "regulatory",
+                "metricKey": "regulatory",
+                "metricLabel": "Regulatory updates",
+                "company": "niva-bupa",
+                "companyLabel": "Niva Bupa",
+                "comparisonType": "trend",
+                "tone": "neutral",
+                "insightLabel": "2 newly surfaced regulatory updates",
+                "unit": "",
+                "sahiTab": "sector-news",
+                "origin": "pulse",
+                "targetItemId": "02e3706bd8ee10",
+                "targetMonth": "2026-11",
+                "sourceDate": "2026-11-12",
+                "surfacedAt": "2026-11-12",
+                "reasonShownToday": "Published 12 Nov 2026 — a genuinely new regulatory development."
+              }
+            }
+          },
           {
             "id": "co",
             "label": "company-specific updates",
@@ -115994,10 +116033,10 @@
         "company": "Star Health",
         "companyId": "star-health",
         "generatedAt": "2026-11-12T09:06:22.770Z",
-        "lastUpdatedAt": "2026-11-12T09:06:22.770Z",
-        "status": "Constructive",
+        "lastUpdatedAt": "2026-11-12T17:53:39.823Z",
+        "status": "Watch",
         "sourceConfidence": "Medium",
-        "itemCount": 9,
+        "itemCount": 8,
         "runs": [
           {
             "runTime": "2026-11-12T09:06:22.770Z",
@@ -116005,24 +116044,31 @@
             "sourceCount": 10,
             "ideas": 6,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-11-12T17:53:39.823Z",
+            "developments": 16,
+            "sourceCount": 9,
+            "ideas": 6,
+            "status": "ok"
           }
         ],
         "brief": {
-          "greeting": "Good morning",
+          "greeting": "Good evening",
           "narrative": "Regulatory pressure is the main watch item for health insurers today. Star Health is under pressure on premium growth and demand, but claims-cost and conduct scrutiny will decide whether the strength is sustainable.",
           "attentionCount": 6,
-          "developmentsCount": 17,
-          "sourcesCount": 10,
+          "developmentsCount": 16,
+          "sourcesCount": 9,
           "domainsCount": 8,
           "confidencePct": 76,
           "confidenceTier": "Medium",
           "readingMins": 3,
-          "lastUpdatedLabel": "11 Nov, 05:35 pm"
+          "lastUpdatedLabel": "12 Nov, 05:49 pm"
         },
         "message": {
           "since": "No company-specific movement for Star Health since the last brief — the read below is sector & regulatory context that applies across standalone health insurers.",
           "keyThing": "Proposed commission caps (15–20%) and lower expense limits could squeeze distribution economics for all health insurers including Niva Bupa.",
-          "why": "Growth is only as good as the claims and expense ratios behind it — that is the real question now.",
+          "why": "The near-term read now turns on how the new rules land on pricing, commissions and cost.",
           "watch": "any fresh IRDAI clarification, and expense-ratio movement",
           "nothing": false
         },
@@ -116096,69 +116142,6 @@
                 "kind": "Regulatory",
                 "name": "bfsi.economictimes.indiatimes.com",
                 "url": "https://bfsi.economictimes.indiatimes.com/amp/articles/irdai-extends-deadline-for-feedback-on-insurance-distribution-reforms-to-october-31/135190036"
-              }
-            ],
-            "independentSources": 1
-          },
-          {
-            "id": "7e01abfcc3",
-            "entity": "Star Health",
-            "stars": 4,
-            "reasoning": [
-              "Fifth straight quarter of underwriting-profit improvement and renewal combined ratio below 100% reinforce the sector turnaround narrative — a bellwether read-through for Niva Bupa.",
-              "Domestic funds raised their stake in Star Health from 15.4% to 21.1% during Q1 FY26."
-            ],
-            "whatToWatch": "The next disclosure for confirmation of the trend.",
-            "confidencePct": 78,
-            "evidenceCount": 2,
-            "status": "Constructive",
-            "category": "Filing",
-            "why": {
-              "whatHappened": "Star Health Q2 FY27: normalised PAT <span style=\"color:#22C55E;font-weight:600\">▲70% YoY</span> to ₹390cr",
-              "whyItMatters": "Fifth straight quarter of underwriting-profit improvement and renewal combined ratio below 100% reinforce the sector turnaround narrative — a bellwether read-through for Niva Bupa.",
-              "whoAffected": "Star Health directly — its premium growth, margins and shareholders.",
-              "historicalContext": "Domestic funds raised their stake in Star Health from 15.4% to 21.1% during Q1 FY26.",
-              "potentialImpact": "5.6pp of a listed insurer's shareholder base changing hands in one quarter is real money making a real decision.",
-              "whatToWatch": "The next disclosure for confirmation of the trend."
-            },
-            "action": {
-              "id": "source",
-              "label": "Verify Star Health sources",
-              "icon": "source",
-              "target": {
-                "page": "audit",
-                "company": "star-health"
-              }
-            },
-            "isBreaking": false,
-            "isNew": false,
-            "freshness": "existing",
-            "freshnessLabel": "Existing context",
-            "publishedLabel": "30 Oct",
-            "discoveredLabel": "1 Nov",
-            "sources": [
-              {
-                "kind": "Filing",
-                "name": "business-standard.com",
-                "url": "https://business-standard.com/amp/content/press-releases-ani/star-health-reports-normalised-pat-of-390-crores-in-q2-fy27-up-70-yoy-fifth-successive-quarter-of-underwriting-profit-improvement-126103000568_1.html"
-              },
-              {
-                "kind": "Market data",
-                "name": "1 curated source-backed insight",
-                "url": ""
-              }
-            ],
-            "impact": "Positive",
-            "scope": "company",
-            "companyId": "star-health",
-            "sourceUrl": "https://business-standard.com/amp/content/press-releases-ani/star-health-reports-normalised-pat-of-390-crores-in-q2-fy27-up-70-yoy-fifth-successive-quarter-of-underwriting-profit-improvement-126103000568_1.html",
-            "sourceConfidence": "Medium",
-            "clusterSize": 1,
-            "clusterSources": [
-              {
-                "kind": "Filing",
-                "name": "business-standard.com",
-                "url": "https://business-standard.com/amp/content/press-releases-ani/star-health-reports-normalised-pat-of-390-crores-in-q2-fy27-up-70-yoy-fifth-successive-quarter-of-underwriting-profit-improvement-126103000568_1.html"
               }
             ],
             "independentSources": 1
@@ -116519,9 +116502,134 @@
               }
             ],
             "independentSources": 3
+          },
+          {
+            "id": "ecf6967056",
+            "entity": "<span style=\"color:#22C55E;font-weight:600\">● positive</span> <span style=\"background:#F0FDF4;padding:2px 6px;border-radius:4px;\">Strongest sector signal</span>",
+            "stars": 2,
+            "reasoning": [
+              "IRDAI cuts share-transfer approval fee **80%**, streamlines IPO/merger rules",
+              "Solvency 2.2x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency."
+            ],
+            "whatToWatch": "Whether the sector move feeds through to premium growth and pricing.",
+            "confidencePct": 64,
+            "evidenceCount": 5,
+            "status": "Neutral",
+            "category": "Sector Catalyst",
+            "why": {
+              "whatHappened": "<span style=\"color:#22C55E;font-weight:600\">● positive</span> <span style=\"background:#F0FDF4;padding:2px 6px;border-radius:4px;\">Strongest sector…",
+              "whyItMatters": "IRDAI cuts share-transfer approval fee **80%**, streamlines IPO/merger rules",
+              "whoAffected": "The broader health-insurance sector and its listed players.",
+              "historicalContext": "Solvency 2.2x vs the 1.5x floor — capital is comfortable, so the live risk is regulatory, not solvency.",
+              "potentialImpact": "Solvency vs the 1.5x regulatory floor",
+              "whatToWatch": "Whether the sector move feeds through to premium growth and pricing."
+            },
+            "action": {
+              "id": "margins",
+              "label": "Compare Star Health margin",
+              "icon": "margins",
+              "target": {
+                "page": "sahi",
+                "sahiTab": "profitability",
+                "company": "star-health",
+                "focus": {
+                  "id": "pulse-margins",
+                  "metricKey": "combined_ratio",
+                  "metricLabel": "Combined ratio",
+                  "company": "star-health",
+                  "companyLabel": "Star Health",
+                  "comparisonType": "YoY",
+                  "tone": "neutral",
+                  "insightLabel": "Underwriting margin — combined ratio",
+                  "unit": "%",
+                  "higherIsBetter": false,
+                  "sahiTab": "profitability",
+                  "origin": "pulse"
+                }
+              }
+            },
+            "isBreaking": false,
+            "isNew": false,
+            "freshness": "existing",
+            "freshnessLabel": "Existing context",
+            "publishedLabel": "2 Nov",
+            "discoveredLabel": "2 Nov",
+            "sources": [
+              {
+                "kind": "News",
+                "name": "business-standard.com",
+                "url": "https://www.business-standard.com/finance/insurance/irdai-cuts-share-transfer-approval-fee-by-80-to-10-lakh-for-insurers-126110201469_1.html"
+              },
+              {
+                "kind": "News",
+                "name": "m.economictimes.com",
+                "url": "https://m.economictimes.com/industry/banking/finance/insure/health-insurers-seek-expense-cap-tweaks/amp_articleshow/135330238.cms"
+              },
+              {
+                "kind": "News",
+                "name": "marketsmojo.com",
+                "url": "https://marketsmojo.com/news/stock-recommendation/niva-bupa-health-insurance-downgraded-to-sell-amid-technical-and-valuation-concerns-4230823"
+              },
+              {
+                "kind": "News",
+                "name": "livemint.com",
+                "url": "https://livemint.com/market/stock-market-news/motilal-oswal-believes-irdai-draft-is-positive-for-this-insurance-stock-sees-31-upside-check-target-price-rationale-11790318618352.html"
+              },
+              {
+                "kind": "Market data",
+                "name": "Derived from insurer-annual-snapshot + industry-segment-premium",
+                "url": "https://www.prnewswire.com/in/news-releases/star-health-insurance-reports-strong-performance-q1fy26-pat-grows-44-to-inr-438-cr-ifrs-premium-grows-13-302517057.html"
+              }
+            ],
+            "impact": "Neutral",
+            "scope": "sector",
+            "companyId": null,
+            "sourceUrl": "https://www.business-standard.com/finance/insurance/irdai-cuts-share-transfer-approval-fee-by-80-to-10-lakh-for-insurers-126110201469_1.html",
+            "sourceConfidence": "Medium",
+            "clusterSize": 1,
+            "clusterSources": [
+              {
+                "kind": "News",
+                "name": "business-standard.com",
+                "url": "https://www.business-standard.com/finance/insurance/irdai-cuts-share-transfer-approval-fee-by-80-to-10-lakh-for-insurers-126110201469_1.html"
+              }
+            ],
+            "independentSources": 1
           }
         ],
         "sinceDeltas": [
+          {
+            "id": "reg",
+            "label": "newly surfaced regulatory updates",
+            "value": "2",
+            "direction": "up",
+            "tone": "Watch",
+            "target": {
+              "page": "sahi",
+              "sahiTab": "sector-news",
+              "company": "star-health",
+              "focus": {
+                "id": "pulse-since-reg",
+                "kind": "locator",
+                "locatorKind": "regulatory",
+                "metricKey": "regulatory",
+                "metricLabel": "Regulatory updates",
+                "company": "star-health",
+                "companyLabel": "Star Health",
+                "comparisonType": "trend",
+                "tone": "neutral",
+                "insightLabel": "2 newly surfaced regulatory updates",
+                "unit": "",
+                "sahiTab": "sector-news",
+                "origin": "pulse",
+                "targetItemId": "02e3706bd8ee10",
+                "targetMonth": "2026-11",
+                "sourceDate": "2026-11-12",
+                "surfacedAt": "2026-11-12",
+                "reasonShownToday": "Published 12 Nov 2026 — a genuinely new regulatory development."
+              }
+            }
+          },
           {
             "id": "co",
             "label": "company-specific updates",
@@ -171312,7 +171420,7 @@
         "company": "Care Health",
         "companyId": "care-health",
         "generatedAt": "2026-11-12T09:06:22.770Z",
-        "lastUpdatedAt": "2026-11-12T09:06:22.770Z",
+        "lastUpdatedAt": "2026-11-12T17:53:39.823Z",
         "status": "Watch",
         "sourceConfidence": "Medium",
         "itemCount": 8,
@@ -171323,10 +171431,17 @@
             "sourceCount": 9,
             "ideas": 6,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-11-12T17:53:39.823Z",
+            "developments": 11,
+            "sourceCount": 9,
+            "ideas": 6,
+            "status": "ok"
           }
         ],
         "brief": {
-          "greeting": "Good morning",
+          "greeting": "Good evening",
           "narrative": "Regulatory pressure is the main watch item for health insurers today. Care Health is under pressure on premium growth and demand, but claims-cost and conduct scrutiny will decide whether the strength is sustainable.",
           "attentionCount": 6,
           "developmentsCount": 11,
@@ -171335,7 +171450,7 @@
           "confidencePct": 76,
           "confidenceTier": "Medium",
           "readingMins": 3,
-          "lastUpdatedLabel": "11 Nov, 05:35 pm"
+          "lastUpdatedLabel": "12 Nov, 05:49 pm"
         },
         "message": {
           "since": "No company-specific movement for Care Health since the last brief — the read below is sector & regulatory context that applies across standalone health insurers.",
@@ -171870,6 +171985,38 @@
           }
         ],
         "sinceDeltas": [
+          {
+            "id": "reg",
+            "label": "newly surfaced regulatory updates",
+            "value": "2",
+            "direction": "up",
+            "tone": "Watch",
+            "target": {
+              "page": "sahi",
+              "sahiTab": "sector-news",
+              "company": "care-health",
+              "focus": {
+                "id": "pulse-since-reg",
+                "kind": "locator",
+                "locatorKind": "regulatory",
+                "metricKey": "regulatory",
+                "metricLabel": "Regulatory updates",
+                "company": "care-health",
+                "companyLabel": "Care Health",
+                "comparisonType": "trend",
+                "tone": "neutral",
+                "insightLabel": "2 newly surfaced regulatory updates",
+                "unit": "",
+                "sahiTab": "sector-news",
+                "origin": "pulse",
+                "targetItemId": "02e3706bd8ee10",
+                "targetMonth": "2026-11",
+                "sourceDate": "2026-11-12",
+                "surfacedAt": "2026-11-12",
+                "reasonShownToday": "Published 12 Nov 2026 — a genuinely new regulatory development."
+              }
+            }
+          },
           {
             "id": "co",
             "label": "company-specific updates",
@@ -223692,7 +223839,7 @@
         "company": "Aditya Birla",
         "companyId": "aditya-birla",
         "generatedAt": "2026-11-12T09:06:22.770Z",
-        "lastUpdatedAt": "2026-11-12T09:06:22.770Z",
+        "lastUpdatedAt": "2026-11-12T17:53:39.823Z",
         "status": "Watch",
         "sourceConfidence": "Medium",
         "itemCount": 8,
@@ -223703,10 +223850,17 @@
             "sourceCount": 9,
             "ideas": 6,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-11-12T17:53:39.823Z",
+            "developments": 9,
+            "sourceCount": 9,
+            "ideas": 6,
+            "status": "ok"
           }
         ],
         "brief": {
-          "greeting": "Good morning",
+          "greeting": "Good evening",
           "narrative": "Regulatory pressure is the main watch item for health insurers today. Aditya Birla is under pressure on premium growth and demand, but claims-cost and conduct scrutiny will decide whether the strength is sustainable.",
           "attentionCount": 6,
           "developmentsCount": 9,
@@ -223715,7 +223869,7 @@
           "confidencePct": 76,
           "confidenceTier": "Medium",
           "readingMins": 3,
-          "lastUpdatedLabel": "11 Nov, 05:35 pm"
+          "lastUpdatedLabel": "12 Nov, 05:49 pm"
         },
         "message": {
           "since": "No company-specific movement for Aditya Birla since the last brief — the read below is sector & regulatory context that applies across standalone health insurers.",
@@ -224235,6 +224389,38 @@
           }
         ],
         "sinceDeltas": [
+          {
+            "id": "reg",
+            "label": "newly surfaced regulatory updates",
+            "value": "2",
+            "direction": "up",
+            "tone": "Watch",
+            "target": {
+              "page": "sahi",
+              "sahiTab": "sector-news",
+              "company": "aditya-birla",
+              "focus": {
+                "id": "pulse-since-reg",
+                "kind": "locator",
+                "locatorKind": "regulatory",
+                "metricKey": "regulatory",
+                "metricLabel": "Regulatory updates",
+                "company": "aditya-birla",
+                "companyLabel": "Aditya Birla",
+                "comparisonType": "trend",
+                "tone": "neutral",
+                "insightLabel": "2 newly surfaced regulatory updates",
+                "unit": "",
+                "sahiTab": "sector-news",
+                "origin": "pulse",
+                "targetItemId": "02e3706bd8ee10",
+                "targetMonth": "2026-11",
+                "sourceDate": "2026-11-12",
+                "surfacedAt": "2026-11-12",
+                "reasonShownToday": "Published 12 Nov 2026 — a genuinely new regulatory development."
+              }
+            }
+          },
           {
             "id": "co",
             "label": "company-specific updates",
@@ -276645,7 +276831,7 @@
         "company": "ManipalCigna",
         "companyId": "manipalcigna",
         "generatedAt": "2026-11-12T09:06:22.770Z",
-        "lastUpdatedAt": "2026-11-12T09:06:22.770Z",
+        "lastUpdatedAt": "2026-11-12T17:53:39.823Z",
         "status": "Watch",
         "sourceConfidence": "Medium",
         "itemCount": 8,
@@ -276656,10 +276842,17 @@
             "sourceCount": 9,
             "ideas": 6,
             "status": "ok"
+          },
+          {
+            "runTime": "2026-11-12T17:53:39.823Z",
+            "developments": 12,
+            "sourceCount": 9,
+            "ideas": 6,
+            "status": "ok"
           }
         ],
         "brief": {
-          "greeting": "Good morning",
+          "greeting": "Good evening",
           "narrative": "Regulatory pressure is the main watch item for health insurers today. ManipalCigna is under pressure on premium growth and demand, but claims-cost and conduct scrutiny will decide whether the strength is sustainable.",
           "attentionCount": 6,
           "developmentsCount": 12,
@@ -276668,7 +276861,7 @@
           "confidencePct": 76,
           "confidenceTier": "Medium",
           "readingMins": 2,
-          "lastUpdatedLabel": "11 Nov, 05:35 pm"
+          "lastUpdatedLabel": "12 Nov, 05:49 pm"
         },
         "message": {
           "since": "No company-specific movement for ManipalCigna since the last brief — the read below is sector & regulatory context that applies across standalone health insurers.",
@@ -277179,6 +277372,38 @@
         ],
         "sinceDeltas": [
           {
+            "id": "reg",
+            "label": "newly surfaced regulatory updates",
+            "value": "2",
+            "direction": "up",
+            "tone": "Watch",
+            "target": {
+              "page": "sahi",
+              "sahiTab": "sector-news",
+              "company": "manipalcigna",
+              "focus": {
+                "id": "pulse-since-reg",
+                "kind": "locator",
+                "locatorKind": "regulatory",
+                "metricKey": "regulatory",
+                "metricLabel": "Regulatory updates",
+                "company": "manipalcigna",
+                "companyLabel": "ManipalCigna",
+                "comparisonType": "trend",
+                "tone": "neutral",
+                "insightLabel": "2 newly surfaced regulatory updates",
+                "unit": "",
+                "sahiTab": "sector-news",
+                "origin": "pulse",
+                "targetItemId": "02e3706bd8ee10",
+                "targetMonth": "2026-11",
+                "sourceDate": "2026-11-12",
+                "surfacedAt": "2026-11-12",
+                "reasonShownToday": "Published 12 Nov 2026 — a genuinely new regulatory development."
+              }
+            }
+          },
+          {
             "id": "co",
             "label": "company-specific updates",
             "value": "0",
@@ -277310,6 +277535,6 @@
     "snapshot_id": "pulse-brief-archive",
     "description": "Immutable per-calendar-day Pulse brief records (IST), one per company. Past days are frozen exactly as shown that day; the live Today view recomposes. Kept ~90 days per company.",
     "last_updated": "2026-11-12",
-    "last_successful_run": "2026-11-12T09:06:22.770Z"
+    "last_successful_run": "2026-11-12T17:53:39.823Z"
   }
 }
