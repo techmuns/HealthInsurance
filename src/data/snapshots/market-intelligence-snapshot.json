@@ -4,8 +4,8 @@
     "description": "AI-generated market intelligence for the SAHI health insurers — investor meets, earnings/board dates, sector & regulatory news, share catalysts. Web-sourced; each item links its source. AI-generated, not audited.",
     "schema_version": "1.0.0",
     "dataset": "ai_generated",
-    "last_updated": "2026-11-15",
-    "last_successful_run": "2026-11-15T16:43:26.951Z",
+    "last_updated": "2026-11-16",
+    "last_successful_run": "2026-11-16T08:55:03.769Z",
     "upstream_sources": [
       "muns_agent_web"
     ],
@@ -28,6 +28,21 @@
       "source_published_at": "2026-10-03",
       "first_seen": "2026-10-24T06:41:59.115Z",
       "discovered_at": "2026-10-24T06:41:59.115Z"
+    },
+    {
+      "id": "5c4ccba351",
+      "company_id": "sector",
+      "date": null,
+      "kind": "sector_news",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "<span style=\"background:#FFFBEB;color:#F59E0B;padding:2px 6px;border-radius:4px;font-weight:600\">watch</span>",
+      "detail": "IRDAI forms working groups to align Risk-Based Capital regime with Ind AS",
+      "source_name": null,
+      "source_url": null,
+      "source_published_at": null,
+      "first_seen": "2026-11-16T08:55:03.769Z",
+      "discovered_at": "2026-11-16T08:55:03.769Z"
     },
     {
       "id": "bed62a4df3",
@@ -73,6 +88,21 @@
       "source_published_at": null,
       "first_seen": "2026-11-12T17:49:49.058Z",
       "discovered_at": "2026-11-12T17:49:49.058Z"
+    },
+    {
+      "id": "9ec2f29182",
+      "company_id": "sector",
+      "date": "2026-11-12",
+      "kind": "earnings",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "Religare Enterprises (Care Health parent) posts **₹98 cr** consolidated Q2 net loss",
+      "detail": "Weak holding-company results could constrain capital support available to Care Health Insurance, a key Niva Bupa competitor. <doc_source>step3web5</doc_source>",
+      "source_name": "money.rediff.com",
+      "source_url": "https://money.rediff.com/news/market/religare-enterprises-reports-rs-98-cr-net-loss-in-q2/57982320261112",
+      "source_published_at": "2026-11-12",
+      "first_seen": "2026-11-16T08:55:03.769Z",
+      "discovered_at": "2026-11-16T08:55:03.769Z"
     },
     {
       "id": "96c67082ee",
@@ -390,6 +420,21 @@
       "discovered_at": "2026-11-11T08:44:05.618Z"
     },
     {
+      "id": "33ae81ef94",
+      "company_id": "niva-bupa",
+      "date": "2026-11-05",
+      "kind": "rating",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "Nomura retains **Buy**, **₹105** target after 56% result beat",
+      "detail": "Combined insurance-service ratio of **98.8%** beat Nomura's estimate by ~297bps, reinforcing the bull case on margin trajectory. <doc_source>step1web8</doc_source>",
+      "source_name": "moneycontrol.com",
+      "source_url": "https://www.moneycontrol.com/news/business/stocks/niva-bupa-s-core-insurance-result-beats-nomura-estimate-by-56-rs-105-target-retained-14070996.html",
+      "source_published_at": "2026-11-05",
+      "first_seen": "2026-11-16T08:55:03.769Z",
+      "discovered_at": "2026-11-16T08:55:03.769Z"
+    },
+    {
       "id": "ad96151e0c",
       "company_id": "sector",
       "date": null,
@@ -570,6 +615,36 @@
       "discovered_at": "2026-11-11T08:44:05.618Z"
     },
     {
+      "id": "cb7cfd2b36",
+      "company_id": "niva-bupa",
+      "date": "2026-11-04",
+      "kind": "earnings",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "<span style=\"background:#F0FDF4;padding:2px 6px;border-radius:4px;\">Q2 FY27 PAT <span style=\"color:#22C55E;font-weight:600\">▲124%</span> YoY to **₹136 cr**, GWP <span style=\"color:#22C55E;font-weight:600\">▲35%</span></span>",
+      "detail": "Core insurance-service profit beat and 35% GWP growth signal underwriting momentum heading into the seasonally stronger H2.",
+      "source_name": "investywise.com",
+      "source_url": "https://www.investywise.com/niva-bupa-health-insurance-board-approves-unaudited-financial-results/",
+      "source_published_at": null,
+      "first_seen": "2026-11-16T08:55:03.769Z",
+      "discovered_at": "2026-11-16T08:55:03.769Z"
+    },
+    {
+      "id": "4c53be8ae6",
+      "company_id": "niva-bupa",
+      "date": "2026-11-04",
+      "kind": "catalyst",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "Management: **2.03x** solvency — no equity raise, **₹500 cr** debt headroom approved",
+      "detail": "Removes near-term dilution overhang, but H1 solvency is seasonally light vs H2; any QIS-driven solvency change later remains a watch item. <doc_source>step1web5</doc_source>",
+      "source_name": "multibagg.ai",
+      "source_url": "https://www.multibagg.ai/market-pulse/articles/niva-bupa-solvency-debt-plan-concall-cmwaloq2f00132qo6ovji7fj6",
+      "source_published_at": "2026-11-10",
+      "first_seen": "2026-11-16T08:55:03.769Z",
+      "discovered_at": "2026-11-16T08:55:03.769Z"
+    },
+    {
       "id": "3a93d460b2",
       "company_id": "sector",
       "date": null,
@@ -658,6 +733,21 @@
       "source_published_at": null,
       "first_seen": "2026-11-11T08:44:05.618Z",
       "discovered_at": "2026-11-11T08:44:05.618Z"
+    },
+    {
+      "id": "d8454fb753",
+      "company_id": "sector",
+      "date": "2026-11-03",
+      "kind": "catalyst",
+      "horizon": "recent",
+      "impact": "neutral",
+      "headline": "RBI approves 4 new Burman-family directors at Religare Enterprises",
+      "detail": "Appointment of Dr. Anand Burman, Aditya Burman, Mohit Burman and Jimeet Modi consolidates promoter control over Care Health's parent — a governance/ownership signal worth monitoring for competitive stability. <doc_source>step3web4</doc_source>",
+      "source_name": "scanx.trade",
+      "source_url": "https://scanx.trade/stock-market-news/companies/rbi-approves-appointment-four-new-directors-religare-enterprises/55258388",
+      "source_published_at": "2026-11-03",
+      "first_seen": "2026-11-16T08:55:03.769Z",
+      "discovered_at": "2026-11-16T08:55:03.769Z"
     },
     {
       "id": "8e89d1d62c",
@@ -823,96 +913,6 @@
       "source_published_at": null,
       "first_seen": "2026-11-01T16:31:40.757Z",
       "discovered_at": "2026-11-01T16:31:40.757Z"
-    },
-    {
-      "id": "ab9cfdc6a7",
-      "company_id": "sector",
-      "date": null,
-      "kind": "sector_news",
-      "horizon": "recent",
-      "impact": "neutral",
-      "headline": "<span style=\"background:#FFFBEB;color:#F59E0B;font-weight:600;padding:2px 6px;border-radius:4px\">Watch</span>",
-      "detail": "[Non-life insurers weigh mandatory 10% co-pay on retail health claims from Jan 2027](https://livemint.com/money/personal-finance/lower-premiums-higher-out-of-pocket-expenses-experts-decode-the-proposed-10-health-insurance-co-pay-rule-11791224700087.html)",
-      "source_name": null,
-      "source_url": null,
-      "source_published_at": "2026-10-05",
-      "first_seen": "2026-10-31T15:33:18.019Z",
-      "discovered_at": "2026-10-31T15:33:18.019Z"
-    },
-    {
-      "id": "5e91efd5ff",
-      "company_id": "sector",
-      "date": null,
-      "kind": "sector_news",
-      "horizon": "recent",
-      "impact": "neutral",
-      "headline": "<span style=\"background:#FEF2F2;color:#EF4444;font-weight:600;padding:2px 6px;border-radius:4px\">Negative</span>",
-      "detail": "[IRDAI bars Niva Bupa from opening new offices for six months](https://m.economictimes.com/industry/banking/finance/insure/irdai-bars-niva-bupa-from-opening-new-offices-for-six-months/amp_articleshow/133374117.cms)",
-      "source_name": null,
-      "source_url": null,
-      "source_published_at": "2026-08-20",
-      "first_seen": "2026-10-31T15:33:18.019Z",
-      "discovered_at": "2026-10-31T15:33:18.019Z"
-    },
-    {
-      "id": "e3e4710244",
-      "company_id": "sector",
-      "date": null,
-      "kind": "sector_news",
-      "horizon": "recent",
-      "impact": "neutral",
-      "headline": "<span style=\"background:#F0FDF4;color:#22C55E;font-weight:600;padding:2px 6px;border-radius:4px\">Positive</span>",
-      "detail": "[Brokerage: Niva Bupa \"comfortable\" with proposed EoM cap vs. peers](https://www.moneycontrol.com/news/business/stocks/irdai-proposal-niva-bupa-buy-comfortable-with-eom-cap-pb-fintech-neutral-weighs-business-changes-14038117.html)",
-      "source_name": null,
-      "source_url": null,
-      "source_published_at": "2026-09-25",
-      "first_seen": "2026-10-31T15:33:18.019Z",
-      "discovered_at": "2026-10-31T15:33:18.019Z"
-    },
-    {
-      "id": "92b9cf8b65",
-      "company_id": "sector",
-      "date": "2026-10-31",
-      "kind": "regulatory",
-      "horizon": "recent",
-      "impact": "negative",
-      "headline": "IRDAI extends feedback deadline on distribution-reform paper to Oct 31",
-      "detail": "Proposed commission caps (15–20%) and lower expense limits could squeeze distribution economics for all health insurers including Niva Bupa.",
-      "source_name": "bfsi.economictimes.indiatimes.com",
-      "source_url": "https://bfsi.economictimes.indiatimes.com/amp/articles/irdai-extends-deadline-for-feedback-on-insurance-distribution-reforms-to-october-31/135190036",
-      "source_published_at": "2026-10-25",
-      "first_seen": "2026-11-01T08:25:23.596Z",
-      "discovered_at": "2026-11-01T08:25:23.596Z"
-    },
-    {
-      "id": "8d8f5a48d1",
-      "company_id": "sector",
-      "date": null,
-      "kind": "sector_news",
-      "horizon": "recent",
-      "impact": "neutral",
-      "headline": "<span style=\"color:#EF4444;font-weight:600\">negative ▼</span>",
-      "detail": "Aditya Birla Health H1 FY27: GWP +48% YoY but PBT falls to ₹46 crore (from ₹76 crore)",
-      "source_name": null,
-      "source_url": null,
-      "source_published_at": null,
-      "first_seen": "2026-10-30T16:22:53.393Z",
-      "discovered_at": "2026-10-30T16:22:53.393Z"
-    },
-    {
-      "id": "725bc0a469",
-      "company_id": "sector",
-      "date": null,
-      "kind": "sector_news",
-      "horizon": "recent",
-      "impact": "neutral",
-      "headline": "<span style=\"color:#22C55E;font-weight:600\">positive ▲</span>",
-      "detail": "Star Health Q2 FY27 net profit jumps 233% to ₹265 crore",
-      "source_name": null,
-      "source_url": null,
-      "source_published_at": null,
-      "first_seen": "2026-10-30T16:22:53.393Z",
-      "discovered_at": "2026-10-30T16:22:53.393Z"
     }
   ]
 }
