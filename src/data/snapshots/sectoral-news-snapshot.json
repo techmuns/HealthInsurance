@@ -3,14 +3,102 @@
     "snapshot_id": "sectoral-news-snapshot",
     "description": "Key Sectoral News feed — a permanent seed of 31 curated portfolio-pack updates, kept current by a scheduled muns web-search agent. Each item links its source. Seed items are curated; agent items are AI-gathered (web), clearly labelled and not audited.",
     "schema_version": "1.0.0",
-    "last_updated": "2026-11-12",
-    "last_successful_run": "2026-11-12T14:45:17.681Z",
+    "last_updated": "2026-11-19",
+    "last_successful_run": "2026-11-19T15:22:00.424Z",
     "seed_count": 31,
-    "agent_count": 445,
+    "agent_count": 457,
     "generated_by": "Seed: investor portfolio pack. Updates: AI (muns agent, web search).",
     "notes": "Seed floor can never be lost. Agent items are de-duped by subject+date and verified-before-acting."
   },
   "data": [
+    {
+      "sn": 479,
+      "category": "General",
+      "date": "2026-11-19",
+      "subject": "Life insurance new business premium up **26.2%** YoY in October 2026",
+      "summary": "India's life insurers posted a <span style=\"color:#22C55E;font-weight:600\">▲26.2% YoY</span> NBP rise to **₹42,914.3 crore**, driven by group single premiums — a strong backdrop for broader insurance-sector sentiment.",
+      "reference": "https://bfsi.economictimes.indiatimes.com/articles/indias-life-insurer-new-business-premium-rises-26-2-pc-in-october/135980881",
+      "id": "074e8a37fc0d47",
+      "origin": "agent",
+      "added_at": "2026-11-19"
+    },
+    {
+      "sn": 478,
+      "category": "Competition / Peers",
+      "date": "2026-11-19",
+      "subject": "Niva Bupa launches \"Meridian\" global health plan with Bupa Global",
+      "summary": "Niva Bupa (claims managed via BCBS-US) launched an International Private Medical Insurance product in five variants targeting HNIs/NRIs; the firm covers **~27 million lives** with a **94.4%** claim settlement ratio in FY26, underscoring product diversification beyond core retail health.",
+      "reference": "https://business-standard.com/amp/content/press-releases-ani/niva-bupa-launches-meridian-bringing-healthcare-without-borders-to-life-126111900614_1.html",
+      "id": "13f762dbdbe514",
+      "origin": "agent",
+      "added_at": "2026-11-19"
+    },
+    {
+      "sn": 477,
+      "category": "Regulatory",
+      "date": "2026-11-19",
+      "subject": "IRDAI to form working groups on real-time health claims tracking",
+      "summary": "IRDAI Chairman Ajay Seth announced two industry working groups to standardise real-time claims tracking and performance metrics — <span style=\"color:#22C55E;font-weight:600\">a step toward better transparency</span> and comparability of insurers' claims data.",
+      "reference": "https://www.business-standard.com/amp/finance/news/irdai-to-form-working-groups-on-real-time-health-claims-tracking-metrics-126111901056_1.html",
+      "id": "0ed3dcc1b67a28",
+      "origin": "agent",
+      "added_at": "2026-11-19"
+    },
+    {
+      "sn": 481,
+      "category": "Competition / Peers",
+      "date": "2026-11-18",
+      "subject": "Star Health: HDFC MF cleared to raise stake to **9.99%**",
+      "summary": "IRDAI approved HDFC Mutual Fund schemes to raise their Star Health holding from 4.49% to up to **9.99%** (approved Nov 9, 2026); Star Health also added investor meetings in Mumbai/Pune through Nov 23 — <span style=\"color:#22C55E;font-weight:600\">signals rising institutional confidence</span>.",
+      "reference": "https://scanx.trade/stock-market-news/companies/star-health-host-analyst-investor-meet-mumbai-nov-16/55948622",
+      "id": "1b9cdc25c84a24",
+      "origin": "agent",
+      "added_at": "2026-11-19"
+    },
+    {
+      "sn": 480,
+      "category": "General",
+      "date": "2026-11-18",
+      "subject": "Standalone health insurers lead non-life premium growth in October",
+      "summary": "Non-life gross premiums rose **10.5%** YoY to **₹32,761 crore**; standalone health insurers grew **21.3%**, with Care Health <span style=\"color:#22C55E;font-weight:600\">▲34.56%</span> to ₹1,128.77 crore, Niva Bupa <span style=\"color:#22C55E;font-weight:600\">▲20.05%</span> to ₹825.66 crore, Star Health <span style=\"color:#22C55E;font-weight:600\">▲17.65%</span> to ₹1,721.49 crore, and Aditya Birla Health ~**10%** — confirming health remains the fastest-growing non-life segment.",
+      "reference": "https://bfsi.economictimes.indiatimes.com/articles/non-life-insurers-premiums-rise-10-5-to-rs-32761-crore-in-october-health-insurers-grow-21-3/135949036",
+      "id": "1b22d15b21aef0",
+      "origin": "agent",
+      "added_at": "2026-11-19"
+    },
+    {
+      "sn": 483,
+      "category": "General",
+      "date": "2026-11-17",
+      "subject": "Private health insurance share of total health spend triples to **10.2%**",
+      "summary": "Per National Health Accounts 2023-24 data, private insurance's share of total health expenditure <span style=\"color:#22C55E;font-weight:600\">rose from 3.4% (2013-14) to 10.2% (2023-24)</span>, while government spend share rose to 43.5% — a structurally expanding addressable market.",
+      "reference": "https://theweek.in/news/health/2026/11/17/government-health-expenditure-rises.html",
+      "id": "0b64ab195cd3e1",
+      "origin": "agent",
+      "added_at": "2026-11-19"
+    },
+    {
+      "sn": 482,
+      "category": "Regulatory",
+      "date": "2026-11-17",
+      "subject": "IRDAI's 2026 reform wave: **100%** FDI, risk-based capital, Ind-AS mandate",
+      "summary": "Year-end review highlights IRDAI's major 2026 reforms — **100% FDI** in insurance, a shift to risk-based capital, commission-structure overhaul, and mandatory Ind-AS statements from April 2026 — reshaping capital flexibility and reporting for all standalone health players.",
+      "reference": "https://bfsi.economictimes.indiatimes.com/articles/year-ender-2026-from-100-fdi-commission-overhaul-to-risk-based-capital-irdais-year-of-big-reforms/135907718",
+      "id": "1b6ceca9ba39d3",
+      "origin": "agent",
+      "added_at": "2026-11-19"
+    },
+    {
+      "sn": 484,
+      "category": "Competition / Peers",
+      "date": "2026-11-16",
+      "subject": "Star Health launches \"Young Star NEO\" for younger demographics",
+      "summary": "Star Health introduced a new product targeting young professionals and growing families, part of a push to diversify beyond its older-skewed book and defend share against Niva Bupa/Care Health in the younger-customer segment.",
+      "reference": "https://www.business-standard.com/amp/content/press-releases-ani/time-travel-comes-to-health-insurance-star-health-launches-young-star-neo-for-young-india-126111600943_1.html",
+      "id": "190badeb06f39e",
+      "origin": "agent",
+      "added_at": "2026-11-19"
+    },
     {
       "sn": 467,
       "category": "General",
@@ -142,6 +230,17 @@
       "id": "0cb473a87685e9",
       "origin": "agent",
       "added_at": "2026-11-09"
+    },
+    {
+      "sn": 485,
+      "category": "Profitability",
+      "date": "2026-11-05",
+      "subject": "Medical inflation to ease slightly but stay elevated at **10.1%** in 2027",
+      "summary": "Aon's 2027 Global Medical Trend Rates Report projects India medical cost inflation moderating to **10.1%** (from **11.5%** in 2026) — still <span style=\"color:#EF4444;font-weight:600\">~2x general inflation</span>, driven by cardiovascular disease, cancer and respiratory ailments — keeping claims-cost pressure on combined ratios.",
+      "reference": "https://business-standard.com/amp/finance/personal-finance/medical-costs-in-india-to-rise-10-1-in-2027-double-inflation-rate-aon-126110500576_1.html",
+      "id": "0ccfef1ddf7a8c",
+      "origin": "agent",
+      "added_at": "2026-11-19"
     },
     {
       "sn": 471,
@@ -320,6 +419,17 @@
       "added_at": "2026-11-05"
     },
     {
+      "sn": 486,
+      "category": "Profitability",
+      "date": "2026-10-30",
+      "subject": "Star Health Q2 FY27: Normalised PAT up **70%** YoY to **₹390 crore**",
+      "summary": "Star Health reported its <span style=\"color:#22C55E;font-weight:600\">fifth consecutive quarter of underwriting-profit improvement</span>, with H1 FY27 underwriting profit already exceeding all of FY26 — a useful read-through comp for Niva Bupa/Care Health on combined-ratio trajectory.",
+      "reference": "https://business-standard.com/amp/content/press-releases-ani/star-health-reports-normalised-pat-of-390-crores-in-q2-fy27-up-70-yoy-fifth-successive-quarter-of-underwriting-profit-improvement-126103000568_1.html",
+      "id": "1872409a40f54f",
+      "origin": "agent",
+      "added_at": "2026-11-19"
+    },
+    {
       "sn": 472,
       "category": "Profitability",
       "date": "2026-10-30",
@@ -406,6 +516,17 @@
       "id": "13671bc4eefb46",
       "origin": "agent",
       "added_at": "2026-10-29"
+    },
+    {
+      "sn": 487,
+      "category": "GST",
+      "date": "2026-10-27",
+      "subject": "Experts: GST relief insufficient to fix health-insurance affordability",
+      "summary": "At the Business Standard BFSI Insight Summit 2026, panellists said the Sep-2025 GST exemption on individual premiums helped pricing, but <span style=\"color:#EF4444;font-weight:600\">high medical costs, underinsurance and trust deficits remain binding constraints</span> on penetration growth.",
+      "reference": "https://business-standard.com/amp/specials/bs-events/gst-relief-not-enough-to-make-health-insurance-affordable-say-experts-126102701362_1.html",
+      "id": "18dfb44016b0aa",
+      "origin": "agent",
+      "added_at": "2026-11-19"
     },
     {
       "sn": 473,
@@ -571,6 +692,17 @@
       "id": "17c727f125dbcd",
       "origin": "agent",
       "added_at": "2026-10-22"
+    },
+    {
+      "sn": 488,
+      "category": "GST",
+      "date": "2026-10-21",
+      "subject": "57th GST Council clarifies ITC treatment for group health/life policies",
+      "summary": "Guidance on Section 17(5)(b)(i) confirms individual health/life policies remain GST-exempt (since Sep 22, 2025) with **no input tax credit**, while employer-sponsored group policies continue to attract **18% GST** and may qualify for ITC — a nuance affecting group-health underwriting economics for Niva Bupa and Care Health.",
+      "reference": "https://taxguru.in/goods-and-service-tax/57th-gst-council-health-life-insurance-itc-section-17-5-eligibility-practical-impact.html",
+      "id": "1eb08527c4a9c1",
+      "origin": "agent",
+      "added_at": "2026-11-19"
     },
     {
       "sn": 406,
