@@ -5,10 +5,10 @@
     "schema_version": "1.1.0",
     "dataset": "official",
     "source_policy": "official-first (NSE). Investing.com is login-free backup only, tagged low-confidence.",
-    "last_successful_run": "2026-11-20T20:44:00.099Z",
+    "last_successful_run": "2026-11-21T11:39:36.985Z",
     "parser_status": "ready",
     "notes": "Daily close / traded / deliverable quantity per listed insurer. Workbook seed (NSE via S&P Capital IQ) for niva-bupa listing→Jul-2025; Yahoo Finance keeps it current (close + volume). Deliverable quantity is NSE-only — null where only Yahoo covers a day, until an NSE delivery file is staged.",
-    "last_updated": "2026-11-20T20:44:37.338Z",
+    "last_updated": "2026-11-21T11:39:42.556Z",
     "row_count": 2558,
     "companies": [
       "godigit",
@@ -22,7 +22,7 @@
       "to": "2026-11-20"
     },
     "seeded_from_workbook": "data/raw/exchanges/niva-bupa/niva-bupa-historical-stock-movement.xlsx",
-    "muns_last_run": "2026-11-20T20:44:00.099Z",
+    "muns_last_run": "2026-11-21T11:39:36.985Z",
     "nse_delivery_last_run": "2026-11-20T20:44:35.843Z"
   },
   "data": [
@@ -26073,7 +26073,7 @@
     {
       "company_id": "niva-bupa",
       "date": "2026-11-20",
-      "close": 74.36,
+      "close": 74.3,
       "traded_qty": 476069,
       "deliverable_qty": 244317,
       "provenance": {
@@ -34760,7 +34760,7 @@
     {
       "company_id": "religare-enterprises",
       "date": "2026-11-20",
-      "close": 229.43,
+      "close": 227.2,
       "traded_qty": 613846,
       "deliverable_qty": null,
       "provenance": {
@@ -43498,7 +43498,7 @@
     {
       "company_id": "star-health",
       "date": "2026-11-20",
-      "close": 556.05,
+      "close": 556,
       "traded_qty": 264371,
       "deliverable_qty": 148660,
       "provenance": {
